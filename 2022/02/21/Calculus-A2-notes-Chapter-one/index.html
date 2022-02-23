@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://pic.imgdb.cn/item/6215cc2f2ab3f51d9124d06a.jpg">
 <meta property="og:image" content="https://pic.imgdb.cn/item/6215cb562ab3f51d9122e1d1.png">
 <meta property="article:published_time" content="2022-02-21T11:18:47.000Z">
-<meta property="article:modified_time" content="2022-02-23T05:56:40.581Z">
+<meta property="article:modified_time" content="2022-02-23T07:58:30.868Z">
 <meta property="article:author" content="Solocene">
 <meta property="article:tag" content="Math;Calculus;Note">
 <meta name="twitter:card" content="summary_large_image">
@@ -215,7 +215,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9k 字
+          10k 字
         
       </span>
     
@@ -226,7 +226,7 @@
         
         
         
-          76 分钟
+          87 分钟
         
       </span>
     
@@ -346,8 +346,21 @@ g(\theta) &amp;=\left\langle A\left(\cos \theta \mathbf{v}_{1}+\sin \theta \math
 \]</span> <span class="math inline">\(g&#39;(0)=2\langle A \mathbf{v}_{1}, \mathbf{u}\rangle=0\)</span></p>
 <p>由于行列式函数连续，从而对任意可逆实数方阵 <span class="math inline">\(A\)</span>，总存在 <span class="math inline">\(\delta(A)&gt;0\)</span>，当 <span class="math inline">\(\|A-B\|&lt;\delta\)</span> 时，<span class="math inline">\(B\)</span> 也可逆</p>
 <p>对行列式函数是连续的，非零量“微扰”后也为非零量，进而可逆</p>
-<p>压缩映射原理（地图纸和现实世界存在唯一的点恰好不动）：*******************</p>
-<p>证明<strong>矩阵求逆是连续映射</strong>：</p>
+<p>压缩映射原理（地图纸和现实世界存在唯一的点恰好不动）：设 <span class="math inline">\(E \subseteq \mathbb{R}^{m}\)</span> 是一个闭子集, 映射 <span class="math inline">\(f: E \rightarrow \mathbb{R}^{m}\)</span> 满足 <span class="math inline">\(f(E) \subseteq E\)</span>, 且存在常数 <span class="math inline">\(0&lt;\lambda&lt;1\)</span> 使得 <span class="math display">\[
+\|f(\mathbf{x})-f(\mathbf{y})\| \leq \lambda\|\mathbf{x}-\mathbf{y}\|, \quad \forall\  \mathbf{x}, \mathbf{y} \in E .
+\]</span> 则存在唯一的 <span class="math inline">\(\mathbf{x}^{*} \in E\)</span> 使得: <span class="math inline">\(f\left(\mathbf{x}^{*}\right)=\mathbf{x}^{*}\)</span>, 且对任意 <span class="math inline">\(\mathbf{x} \in E\)</span>, 迭代点列 <span class="math inline">\(\mathbf{x}_{n}=f^{n}(\mathbf{x})\)</span> 收敛到 <span class="math inline">\(\mathbf{x}^{*}\)</span> <span class="math display">\[
+\begin{aligned}
+\left\|\mathbf{x}_{n+p}-\mathbf{x}_{n}\right\| &amp; \leq \sum_{k=1}^{p}\left\|\mathbf{x}_{n+k}-\mathbf{x}_{n+k-1}\right\| \leq \sum_{k=1}^{p} \lambda^{n+k-1}\|f(\mathbf{x})-\mathbf{x}\|
+\leq \frac{\lambda^{n}}{1-\lambda}\|f(\mathbf{x})-\mathbf{x}\|
+\end{aligned}
+\]</span> 所以 <span class="math inline">\(\left\{\mathbf{x}_{n}\right\}\)</span> 是 Cauchy 列, 从而存在 <span class="math inline">\(\mathbf{x}^{*} \in \mathbb{R}^{m}\)</span> 使得 <span class="math inline">\(\lim\limits_{n \rightarrow+\infty} \mathbf{x}_{n}=\mathbf{x}^{*}\)</span> 。 因为 <span class="math inline">\(E\)</span> 是闭集, 所以 <span class="math inline">\(\mathbf{x}^{*} \in E\)</span> 。 <span class="math display">\[
+\begin{aligned}
+\left\|f\left(\mathbf{x}^{*}\right)-\mathbf{x}^{*}\right\| &amp; \leq\left\|f\left(\mathbf{x}^{*}\right)-f\left(\mathbf{x}_{n}\right)\right\|+\left\|f\left(\mathbf{x}_{n}\right)-\mathbf{x}^{*}\right\| \\
+&amp; \leq \lambda\left\|\mathbf{x}^{*}-\mathbf{x}_{n}\right\|+\left\|\mathbf{x}_{n+1}-\mathbf{x}^{*}\right\| \rightarrow 0, \quad n \rightarrow+\infty
+\end{aligned}
+\]</span> 所以 <span class="math inline">\(f\left(\mathbf{x}^{*}\right)=\mathbf{x}^{*}\)</span> 。让最初的不等式中 <span class="math inline">\(p \rightarrow+\infty\)</span>, 得到 <span class="math display">\[
+\left\|\mathbf{x}^{*}-\mathbf{x}_{n}\right\| \leq \frac{\lambda^{n}}{1-\lambda}\|f(\mathbf{x})-\mathbf{x}\|_{\circ}
+\]</span> 证明<strong>矩阵求逆是连续映射</strong>：</p>
 <blockquote>
 <p>引理：只要 <span class="math inline">\(\|B\|&lt;1\)</span>，有 <span class="math inline">\(I-B\)</span> 可逆，且有 <span class="math inline">\(\|(I-B)^{-1}-I\|\leq \dfrac{\|B\|}{1-\|B\|}\)</span></p>
 <p>对 <span class="math inline">\((I-B)(I+C)=I\Longrightarrow C=B+BC\)</span>，考虑映射 <span class="math inline">\(f(C)=B+BC\)</span>，其满足压缩映射（<span class="math inline">\(\|B\|=\lambda&lt;1\)</span>） <span class="math display">\[
@@ -355,7 +368,7 @@ g(\theta) &amp;=\left\langle A\left(\cos \theta \mathbf{v}_{1}+\sin \theta \math
 \]</span> 从而 <span class="math inline">\(\exists\ ! \ C_0,s.t.C=B+BC\)</span>，<span class="math inline">\(I-B\)</span> 可逆，且有 <span class="math display">\[
 \begin{gathered}
 \|C\|=\|B+BC\|\leq \|B\|\|I+C\|\leq\|B\|(1+\|C\|)\quad\\ \|(I-B)^{-1}-I\|\leq \dfrac{\|B\|}{1-\|B\|}
-\therefore \mbox{Generally},\ A\ 可逆\quad \|\small \Delta \normalsize A\|&lt;\dfrac{1}{\|A^{-1}\|},A+\small \Delta \normalsize A\ 可逆
+\therefore\ A\ 可逆\ \mbox{and}\  \|\small \Delta \normalsize A\|&lt;\dfrac{1}{\|A^{-1}\|}\Longrightarrow A+\small \Delta \normalsize A\ 可逆
 \end{gathered}
 \]</span></p>
 </blockquote>
