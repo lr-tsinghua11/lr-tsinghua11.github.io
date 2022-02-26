@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>OOP-Homework-1</title>
+    <link href="/2022/02/26/OOP%20Homework%201/"/>
+    <url>/2022/02/26/OOP%20Homework%201/</url>
+    
+    <content type="html"><![CDATA[<h1 id="面向对象编程第一次作业">面向对象编程第一次作业</h1><p><strong>Object-Oriented Programming <span class="math inline">\(\bullet\)</span> Homework <span class="math inline">\(\mathbf{1}\)</span></strong></p><h2 id="摘要">摘要</h2><p>本次作业报告从模型、验证、复杂度分析三个层面，使用<span class="math inline">\(\mbox{Visual~Studio~2022}\)</span>编写具有面向对象特性的<span class="math inline">\(\mbox{C}++\)</span>程序，使用两种不同的算法，并实现了单一测试和自动化测试，同时记录对应消耗的时间。</p><p>结合数据规模<span class="math inline">\(10^{9}\)</span>，在自动化测试中，利用时间复杂度，对测得的消耗时间进行线性回归，预测了下组数据计算完成所需要的总时间，与实际测得时间吻合，并估计所有数据点<span class="math inline">\((10^{9})\)</span>全部测试完成所需要的时间（<span class="math inline">\(20\)</span>年左右）。</p><p><strong>关键词:</strong> <span class="math inline">\(\mbox{OOP}\)</span>;模拟;高斯求和;复杂度分析;线性回归</p><h2 id="模型">模型</h2><h3 id="模拟求和">模拟求和</h3><p>对输入的正整数<span class="math inline">\(N(1\leq N\leq 10^{9})\)</span>，从最小的偶数<span class="math inline">\(2\)</span>开始遍历求和，直到大于<span class="math inline">\(N\)</span>为止。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++">Sum = <span class="hljs-number">0</span>;             <span class="hljs-comment">//初始化Sum为0</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= N; i+=<span class="hljs-number">2</span>)<span class="hljs-comment">//遍历每一个数</span><br>    Sum += i;<br></code></pre></td></tr></table></figure><p>计算不超过<span class="math inline">\(N\)</span>所有偶数之和的关键代码如上，注意由于<span class="math inline">\(\mbox{Sum}\)</span>不断地被修改，每次计算前均将其初始化为<span class="math inline">\(0\)</span></p><h3 id="高斯求和">高斯求和</h3><p>对上限<span class="math inline">\(10^{9}\)</span>，利用高斯求和法 <span class="math display">\[\displaystyle \sum_{i=1}^{5\times 10^{8}}2i=2\cdot \dfrac{i(i+1)}{2}\big |_{i=5\times 10^{8}}\approx 2.5\times 10^{17}\gg \mbox{max of (}\textcolor{blue}{int})\approx 2.147\times 10^{9}\]</span> 从而存储结果<span class="math inline">\(\mbox{Sum}\)</span>应选用<span class="math inline">\(\textcolor{blue}{long\ long}\)</span>数据类型，对输入数据<span class="math inline">\(\mbox{N}\)</span>分奇偶两种情况 <span class="math display">\[\mbox{Sum}=\begin{cases}\mbox{N is odd},\displaystyle \sum_{i=1}^{\frac{N-1}{2}}2i=\dfrac{N-1}{2}\cdot (\dfrac{N-1}{2}+1)=\dfrac{(N-1)(N+1)}{4}\\\mbox{N is even},\displaystyle \sum_{i=1}^{\frac{N}{2}}2i=\dfrac{N}{2}\cdot (\dfrac{N}{2}+1)=\dfrac{N(N+2)}{4}\end{cases}\]</span></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++">Sum = <span class="hljs-number">0</span>;             <span class="hljs-comment">//初始化Sum为0</span><br><span class="hljs-keyword">if</span> (N &amp; <span class="hljs-number">1</span>)<br>    Sum = (<span class="hljs-type">long</span> <span class="hljs-type">long</span>)(N - <span class="hljs-number">1</span>) * (<span class="hljs-type">long</span> <span class="hljs-type">long</span>)(N + <span class="hljs-number">1</span>) / <span class="hljs-number">4</span>;<br><span class="hljs-keyword">else</span><br>    Sum = (<span class="hljs-type">long</span> <span class="hljs-type">long</span>)N * (<span class="hljs-type">long</span> <span class="hljs-type">long</span>)(N + <span class="hljs-number">2</span>) / <span class="hljs-number">4</span>;<br></code></pre></td></tr></table></figure><p>第二种方法对应关键代码如上，其中<span class="math inline">\(\mbox{if (N \&amp; 1)}\)</span>使用"与"的方法判断<span class="math inline">\(N\)</span>二进制表示的结尾数字，若为<span class="math inline">\(1\)</span>，则为奇数，对应第一种情况，反之亦然。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>OOP homework</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Concrete Mathematics Chapter one note</title>
     <link href="/2022/02/25/Concrete%20Mathematics%20Chapter%20one%20note/"/>
     <url>/2022/02/25/Concrete%20Mathematics%20Chapter%20one%20note/</url>
