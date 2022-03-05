@@ -4,6 +4,60 @@
   
   
   <entry>
+    <title>大风起兮云风扬</title>
+    <link href="/2022/03/04/%E5%A4%A7%E9%A3%8E%E8%B5%B7%E5%85%AE%E4%BA%91%E9%A3%9E%E6%89%AC/"/>
+    <url>/2022/03/04/%E5%A4%A7%E9%A3%8E%E8%B5%B7%E5%85%AE%E4%BA%91%E9%A3%9E%E6%89%AC/</url>
+    
+    <content type="html"><![CDATA[<p>周五，没有早八，早上一骑车出门，就感觉风跟自行车过不去。早九的体育课，体育老师一脸笑呵呵，让我们迎着风在一片完全空旷的篮球场里“自由练习”。</p><p>刚投了几个篮（还不如说是偷了几个懒（っ╹◡╹)），眼见枯黄的落叶旋风而起，扶摇直上，嘎吱声伴随着风的呼声，瞬间从篮球场的一侧扫到了篮球场的另一侧，重重地击打在旁边的铁网上，黄沙就比较幸运，穿过铁网的缝隙继续它的旅程，风也许还满足随机性，让枯叶到处碰壁，旁边的自行车倒了一片……篮球肯定是没法打了，<span class="math inline">\(90\)</span> 分钟的体育课上了 <span class="math inline">\(20\)</span> 分钟就散了，骑车回来就看到“百团大战”后的残骸：</p><p><img src="https://pic.imgdb.cn/item/6222f7d25baa1a80ab34acd0.jpg" style="zoom:25%;" /></p><p>回到寝室，关着窗户都能听到风的嘶吼声。朋友圈里到处“挨吹”，还有人眼镜吹掉了……</p><p><img src="https://pic.imgdb.cn/item/6222f8a55baa1a80ab3557b3.jpg" style="zoom:35%;" /></p><p>下午搞了一些收尾工作，晚上听了 杨 <span class="math inline">\(\mbox{Sir}\)</span> 的高代选讲，讲得精彩！笔记先在笔记本上，后面有时间的话再挑选一些重点“信息化”。</p><h3 id="大风起兮云飞扬残叶卷兮百团降">大风起兮云飞扬，残叶卷兮百团降！</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>随想</category>
+      
+      <category>生活</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>生活随想</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Calculus_A2_notes_Chapter_three（WXF）</title>
+    <link href="/2022/03/02/Calculus%20A2%20notes%EF%BC%88Chapter%20three%EF%BC%89/"/>
+    <url>/2022/03/02/Calculus%20A2%20notes%EF%BC%88Chapter%20three%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h1 id="微积分第3讲笔记多元函数的导数与微分">微积分第3讲笔记（多元函数的导数与微分）</h1><p>对于一元函数的导数定义：<span class="math inline">\(f&#39;(x_0)=\lim\limits_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}\)</span>，对于多元时 <span class="math inline">\(\mathbf{x}-\mathbf{x_0}\)</span> 是向量，无法成为分母。</p><p>解决方法 <span class="math inline">\(1\)</span>：沿向量求导 <span class="math inline">\(\partial _{\mathbf{v}}f(\mathbf{x}^*)=\lim\limits_{t\to 0}\dfrac{f(\mathbf{x}_0+t\mathbf{v})-f(\mathbf{x}_0)}{t}\)</span>，设 <span class="math inline">\(E\subseteq \mathbb{R}^m\)</span>，若 <span class="math inline">\(\exists\ \delta &gt;0,s.t.\forall \ \mathbf{x}\in \mathbb{R}^m,\|\mathbf{x}-\mathbf{x_0}\|&lt;\delta\Longrightarrow \mathbf{x}\in E\)</span>，称 <span class="math inline">\(\mathbf{x}_0\)</span> 为内点</p><p><strong>方向导数</strong>：（将 <span class="math inline">\(\vec{v}\)</span> 单位化） <span class="math inline">\(f\)</span> 在 <span class="math inline">\(\mathbf{x}^*\)</span> 处沿着单位向量 <span class="math inline">\(\mathbf{v}\)</span> 所在方向的方向导数为 <span class="math display">\[\lim _{t \rightarrow 0^{+}} \frac{f\left(\mathbf{x}^{*}+t \mathbf{v}\right)-f\left(\mathbf{x}^{*}\right)}{t}=\lim _{\mathbf{x} \rightarrow \mathbf{x}^{*}} \frac{f(\mathbf{x})-f\left(\mathbf{x}^{*}\right)}{\left\|\mathbf{x}-\mathbf{x}^{*}\right\|}\]</span> 解决方法 <span class="math inline">\(1&#39;\)</span>：偏导数，<span class="math inline">\(\dfrac{\partial }{\partial x^{k}}f(x^{1},x^2,\cdots,x^{m})\)</span>，<span class="math inline">\(x=x^1\mathbf{v}_1+\cdots x^m\mathbf{v}_m\)</span>，则记 <span class="math display">\[\partial_{k} f\left(\mathbf{x}^{*}\right)=\frac{\partial f}{\partial x^{k}}\left(\mathbf{x}^{*}\right)=\partial_{\mathbf{v}_{k}} f\left(\mathbf{x}^{*}\right)=\lim _{t \rightarrow 0} \frac{f\left(\mathbf{x}^{*}+t \mathbf{v}_{k}\right)-f\left(\mathbf{x}^{*}\right)}{t}\]</span> 为 $f $ 在 <span class="math inline">\(x^*\)</span> 处对坐标架 <span class="math inline">\(x^{k}\)</span> 的偏导数</p><p>偏导数只能代表函数极少一部分性质（构造十字架“高高在上”，其余函数值在下方，该十字架在 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 方向上偏导数都是 <span class="math inline">\(0\)</span> ，但是该十字架在交叉处不可导）</p><p>有一般情况下，<strong>坐标系是局部的、非线性的坐标系</strong></p><p>解决方法 <span class="math inline">\(2\)</span>：多元函数的原像空间是多维空间，多维空间并不是一些一维空间的简单汇集，其包含了无穷多个一维空间，且是无穷多个一维空间的有机结合</p><p>引入映射的可微性与微分 ：设 <span class="math inline">\(E \subseteq \mathbb{R}^{m}, \mathrm{x}^{*}\)</span> 是 <span class="math inline">\(E\)</span> 的一个内点。 称 <span class="math inline">\(f: E \rightarrow \mathbb{R}^{p}\)</span> 在 <span class="math inline">\(\mathrm{x}^{*}\)</span> 处可微，如果存在线性映射 <span class="math inline">\(L: \mathbb{R}^{m} \rightarrow \mathbb{R}^{p}\)</span> (称为 <span class="math inline">\(f: E \rightarrow \mathbb{R}^{p}\)</span> 在 <span class="math inline">\(\mathbf{x}^{*}\)</span> 处的导数或微分, 记为 <span class="math inline">\(\mathrm{D} f\left(\mathbf{x}^{*}\right)\)</span> ）使得 <span class="math display">\[f\left(\mathbf{x}^{*}+\mathbf{v}\right)=f\left(\mathbf{x}^{*}\right)+L(\mathbf{v})+o(\|\mathbf{v}\|), \quad \mathbf{v} \rightarrow \mathbf{0} .\]</span> <span class="math inline">\(\left(p=1\right.\)</span> 时更常称为微分, 记为 <span class="math inline">\(\left.\mathrm{d} f\left(\mathbf{x}^{*}\right)\right)\)</span></p><p><strong>例</strong>：证明 <span class="math inline">\(\mbox{inv}:\mathcal{G L}(m) \rightarrow \mathcal{G L}(m), \quad \operatorname{inv}(A)=A^{-1}\)</span> 是可微映射，并求其微分。</p><p>由 <span class="math inline">\(\mbox{inv}(I-B)=I+C=I+B+CB\)</span>，其中 <span class="math inline">\(\|CB\|\leq \dfrac{\|B\|^2}{1-\|B\|}\to o(B)\)</span></p><p>则 <span class="math inline">\(\mbox{inv}(A_0+B)=(A_0(I+A_0^{-1}B))^{-1}=(I+A_0^{-1}B)^{-1}A_0^{-1}=(I-A_0^{-1}B+o(B))A_0\)</span></p><p>从而其可微， <span class="math inline">\(\mbox{Dinv}(A_0)(B)=-A_0^{-1}BA_0^{-1}\)</span></p><p><span class="math inline">\(dx,dy,dz\)</span> 本质上是坐标线性函数，对于空间中任意一组基，<span class="math inline">\(\mathbf{v}_{1},\cdots ,\mathbf{v}_{m}\)</span>，取 <span class="math inline">\(\mathbf{v}^{*1},\cdots ,\mathbf{v}^{*m}\)</span> 为 <span class="math inline">\(\mathbf{v}_{1},\cdots ,\mathbf{v}_{m}\)</span> 的对偶基 <span class="math inline">\(\mathbf{v}^{*k}:\boldsymbol R^{m}\to \boldsymbol R\)</span> 为线性函数</p><p>可以推出 <span class="math inline">\(df(\mathbf{x}^*)=(\partial _1f\quad \cdots\quad \partial _mf)\begin{pmatrix}dx^1\\\vdots\\dx^{m}\end{pmatrix}\)</span></p><p>对于 <span class="math inline">\(df=\dfrac{\partial f}{\partial x}dx+\dfrac{\partial f}{\partial y}dy+\dfrac{\partial f}{\partial z}dz\)</span>，本质上是 <span class="math inline">\(df\)</span> 这个坐标函数可以写成 <span class="math inline">\(dx,dy,dz\)</span> 这三个坐标函数的线性组合</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+      <category>多元微积分</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>多元微积分笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Elementary number theory homework 2</title>
     <link href="/2022/03/01/Elementary%20number%20theory%20homework%202/"/>
     <url>/2022/03/01/Elementary%20number%20theory%20homework%202/</url>
@@ -68,6 +122,8 @@
     <categories>
       
       <category>随想</category>
+      
+      <category>里程碑</category>
       
     </categories>
     
