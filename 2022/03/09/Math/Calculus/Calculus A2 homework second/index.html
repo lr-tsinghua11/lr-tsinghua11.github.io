@@ -1,0 +1,770 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Tony">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="所有题已解答，本地排版成功，等待作业截止时间后（3月16日晚 22:00 后）再上传解答">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Calculus-A2-homework second">
+<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/03/09/Math/Calculus/Calculus%20A2%20homework%20second/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="所有题已解答，本地排版成功，等待作业截止时间后（3月16日晚 22:00 后）再上传解答">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E6%B9%96%E9%9D%A2%E5%80%92%E5%BD%B1.jpg">
+<meta property="article:published_time" content="2022-03-09T15:45:16.000Z">
+<meta property="article:modified_time" content="2022-03-09T16:25:42.513Z">
+<meta property="article:author" content="Tony">
+<meta property="article:tag" content="多元微积分作业">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E6%B9%96%E9%9D%A2%E5%80%92%E5%BD%B1.jpg">
+  
+  
+  <title>Calculus-A2-homework second - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lr-tsinghua11.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Tony&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/%E6%B9%96%E9%9D%A2%E5%80%92%E5%BD%B1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          <span id="subtitle" title="Calculus-A2-homework second">
+            
+          </span>
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-03-09 23:45" pubdate>
+          2022年3月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          27 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Calculus-A2-homework second</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="largetextcolorblue微积分第二次作业-smallwtimes-f-_textcolorblue2022.3.4"><span class="math inline">\(\large\textcolor{blue}{微积分第二次作业\ \small(W\times f)}\ \ \ \ \ \ _\textcolor{blue}{2022.3.4}\)</span></h1>
+<h5 id="连续性与偏连续性设-fabtimes-cdrightarrow-mathbbr">1、（连续性与偏连续性）设 <span class="math inline">\(f:[a,b]\times [c,d]\rightarrow \mathbb{R}\)</span>。</h5>
+<h5 id="a-如果-f-是连续函数-那么是否成立-对任意-y-inc-d-fcdot-y-a-b-rightarrow-mathbbr-连续-对任意-x-ina-b">(a) 如果 <span class="math inline">\(f\)</span> 是连续函数, 那么是否成立: 对任意 <span class="math inline">\(y \in[c, d], f(\cdot, y)\)</span> : <span class="math inline">\([a, b] \rightarrow \mathbb{R}\)</span> 连续; 对任意 <span class="math inline">\(x \in[a, b]\)</span></h5>
+<h5 id="fx-cdotc-d-rightarrow-mathbbr-连续"><span class="math inline">\(f(x, \cdot):[c, d] \rightarrow \mathbb{R}\)</span> 连续?</h5>
+<h5 id="b-如果对任意-y-inc-d-quad-fcdot-ya-b-rightarrow-mathbbr-连续-对任意-x-ina-b-fx-cdotc-d-rightarrow-mathbbr-连续-那么-f-是否为连续函数-考虑">(b) 如果对任意 <span class="math inline">\(y \in[c, d], \quad f(\cdot, y):[a, b] \rightarrow \mathbb{R}\)</span> 连续; 对任意 <span class="math inline">\(x \in[a, b]\)</span>, <span class="math inline">\(f(x, \cdot):[c, d] \rightarrow \mathbb{R}\)</span> 连续, 那么 <span class="math inline">\(f\)</span> 是否为连续函数? 考虑</h5>
+<p><span class="math display">\[
+f(x, y)= \begin{cases}\dfrac{x y}{x^{2}+y^{2}}, &amp; x y \neq 0 \\ 0, &amp; x y=0\end{cases}
+\]</span></p>
+<h5 id="c-设-x_0-ina-b-y_0-inc-d-f-满足-fleftcdot-y_0righta-b-rightarrow-mathbbr-连续-并且对-任意-varepsilon0-存在">(c) 设 <span class="math inline">\(x_{0} \in[a, b], y_{0} \in[c, d], f\)</span> 满足: <span class="math inline">\(f\left(\cdot, y_{0}\right):[a, b] \rightarrow \mathbb{R}\)</span> 连续; 并且对 任意 <span class="math inline">\(\varepsilon&gt;0\)</span>, 存在</h5>
+<h5 id="deltavarepsilon0-使得对任意-x-ina-b-以及任意-y-inc-d-只要-lefty-y_0rightdeltavarepsilon-就有"><span class="math inline">\(\delta(\varepsilon)&gt;0\)</span> 使得对任意 <span class="math inline">\(x \in[a, b]\)</span> 以及任意 <span class="math inline">\(y \in[c, d]\)</span>, 只要 <span class="math inline">\(\left|y-y_{0}\right|&lt;\delta(\varepsilon)\)</span>, 就有</h5>
+<h5 id="leftfx-y-fleftx-y_0rightrightvarepsilon-证明-f-在-leftx_0-y_0right-连续"><span class="math inline">\(\left|f(x, y)-f\left(x, y_{0}\right)\right|&lt;\varepsilon\)</span> 。证明 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(\left(x_{0}, y_{0}\right)\)</span> 连续。</h5>
+<h5 id="d-设-fx-y-分别对每个变量-x-和-y-是连续的且对-y-是单调不减的-证明-f-关于-x-y-是连续">(d) 设 <span class="math inline">\(f(x, y)\)</span> 分别对每个变量 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 是连续的，且对 <span class="math inline">\(y\)</span> 是单调不减的, 证明 <span class="math inline">\(f\)</span> 关于 <span class="math inline">\((x, y)\)</span> 是连续</h5>
+<h5 id="的">的。</h5>
+<h5 id="设-u-subseteq-mathbbr2-是开集-a-b-in-u-f-在-u-backslasha-b-上有定义-且满足极限">2、设 <span class="math inline">\(U \subseteq \mathbb{R}^{2}\)</span> 是开集, <span class="math inline">\((a, b) \in U, f\)</span> 在 <span class="math inline">\(U \backslash\{(a, b)\}\)</span> 上有定义, 且满足极限</h5>
+<p><span class="math display">\[
+A=\lim _{(x, y) \rightarrow(a, b)} f(x, y), \quad B=\lim _{y \rightarrow b} \lim _{x \rightarrow a} f(x, y)
+\]</span></p>
+<h5 id="都存在证明-ab-由此知道-如果">都存在。证明 <span class="math inline">\(A=B\)</span> 。由此知道, 如果</h5>
+<p><span class="math display">\[
+\lim _{y \rightarrow b} \lim _{x \rightarrow a} f(x, y) \neq \lim _{x \rightarrow a} \lim _{y \rightarrow b} f(x, y)
+\]</span></p>
+<h5 id="则极限-limlimits-_x-y-rightarrowa-b-fx-y-不存在">则极限 <span class="math inline">\(\lim\limits _{(x, y) \rightarrow(a, b)} f(x, y)\)</span> 不存在。</h5>
+<h5 id="设">3、设</h5>
+<h5 id="a-极限-displaystyle-hylim-_x-rightarrow-a-fx-y-对任意-y-neq-b-存在">(a) 极限 <span class="math inline">\(\displaystyle H(y)=\lim _{x \rightarrow a} f(x, y)\)</span> 对任意 <span class="math inline">\(y \neq b\)</span> 存在;</h5>
+<h5 id="b-极限-displaystyle-gxlim-_y-rightarrow-b-fx-y-对任意-x-存在且存在-delta_00-使得对任意-varepsilon0存在">(b) 极限 <span class="math inline">\(\displaystyle G(x)=\lim _{y \rightarrow b} f(x, y)\)</span> 对任意 <span class="math inline">\(x\)</span> 存在，且存在 <span class="math inline">\(\delta_{0}&gt;0\)</span> 使得：对任意 <span class="math inline">\(\varepsilon&gt;0\)</span>，存在</h5>
+<h5 id="delta_2varepsilon0-对任意-0y-bdelta_2varepsilon-任意-0x-adelta_0-有-fx-y-gxvarepsilon则"><span class="math inline">\(\delta_{2}(\varepsilon)&gt;0\)</span> 对任意 <span class="math inline">\(0&lt;|y-b|&lt;\delta_{2}(\varepsilon)\)</span> 任意 <span class="math inline">\(0&lt;|x-a|&lt;\delta_{0}\)</span> 有 <span class="math inline">\(|f(x, y)-G(x)|&lt;\varepsilon\)</span>，则</h5>
+<h5 id="极限-displaystyle-lim-_x-rightarrow-a-lim-_y-rightarrow-b-fx-y-lim-_y-rightarrow-b-lim-_x-rightarrow-a-fx-y-和-displaystyle-lim-_x-rightarrow-a-y-rightarrow-b-fx-y-都存在-且">极限 <span class="math inline">\(\displaystyle \lim _{x \rightarrow a} \lim _{y \rightarrow b} f(x, y), \lim _{y \rightarrow b} \lim _{x \rightarrow a} f(x, y)\)</span> 和 <span class="math inline">\(\displaystyle \lim _{x \rightarrow a, y \rightarrow b} f(x, y)\)</span> 都存在, 且</h5>
+<p><span class="math display">\[
+\lim _{x \rightarrow a, y \rightarrow b} f(x, y)=\lim _{y \rightarrow b} \lim _{x \rightarrow a} f(x, y)=\lim _{x \rightarrow a} \lim _{y \rightarrow b} f(x, y)
+\]</span></p>
+<h5 id="设-1">4、设</h5>
+<p><span class="math display">\[
+f(x,y)=\begin{cases}x\sin (\dfrac{1}{y}),&amp; y\neq 0\\
+0,&amp;y=0
+\end{cases}
+\]</span></p>
+<h5 id="讨论极限-limlimits_xyto-00fxylimlimits_yto-0limlimits_xto-0fxylimlimits_xto-0limlimits_yto-0fxy">讨论极限 <span class="math inline">\(\lim\limits_{(x,y)\to (0,0)}f(x,y),\lim\limits_{y\to 0}\lim\limits_{x\to 0}f(x,y),\lim\limits_{x\to 0}\lim\limits_{y\to 0}f(x,y)\)</span></h5>
+<h5 id="判断以下极限的存在性-若存在-求出极限值">5、判断以下极限的存在性; 若存在, 求出极限值。</h5>
+<p><span class="math display">\[
+\begin{gathered}
+(1) \lim _{(x, y) \rightarrow(0,0)} \frac{\arcsin \left(x^{2}+y^{2}\right)}{x^{2}+y^{2}} &amp;
+(3) \lim _{(x, y) \rightarrow(0,0)}\left(x^{2}+y^{2}\right) \mathrm{e}^{x-y}&amp;
+(5) \lim _{(x, y) \rightarrow(0,0)} \frac{x+y}{|x|+|y|}\\
+(7) \lim _{(x, y) \rightarrow \infty} \frac{x+y}{x^{2}+x y+y^{2}}&amp;
+(9) \lim _{(x, y) \rightarrow \infty}\left(\frac{|x y|}{x^{2}+x y+y^{2}}\right)^{x^{2}}
+\end{gathered}
+\]</span></p>
+<h5 id="设-omega-subseteq-mathbbrm-是一个非空集合">6、设 <span class="math inline">\(\Omega \subseteq \mathbb{R}^{m}\)</span> 是一个非空集合。</h5>
+<h5 id="a-证明函数-displaystyle-f-mathbbrm-rightarrow-mathbbr-fmathbfxinf-_mathbfy-in-omegamathbfy-mathbfx-是一个连续函数">(a) 证明函数 <span class="math inline">\(\displaystyle f: \mathbb{R}^{m} \rightarrow \mathbb{R}, f(\mathbf{x})=\inf _{\mathbf{y} \in \Omega}\|\mathbf{y}-\mathbf{x}\|\)</span>, 是一个连续函数。</h5>
+<h5 id="b-若-omega-是闭集-证明对任意-mathbfx-不在-omega-中-存在-mathbfy-in-omega-使得-fmathbfxleftmathbfy-mathbfxright-并-且-mathbfy-in-partial-omega-即-mathbfy-的任意邻域中都有不属于-omega-的点">(b) 若 <span class="math inline">\(\Omega\)</span> 是闭集, 证明对任意 <span class="math inline">\(\mathbf{x}\)</span> 不在 <span class="math inline">\(\Omega\)</span> 中, 存在 <span class="math inline">\(\mathbf{y}^{*} \in \Omega\)</span> 使得 <span class="math inline">\(f(\mathbf{x})=\left\|\mathbf{y}^{*}-\mathbf{x}\right\|\)</span>, 并 且 <span class="math inline">\(\mathbf{y}^{*} \in \partial \Omega\)</span> (即 <span class="math inline">\(\mathbf{y}^{*}\)</span> 的任意邻域中都有不属于 <span class="math inline">\(\Omega\)</span> 的点)。</h5>
+<h5 id="c-若-omega_1-omega_2-是闭集且其中至少一个有界-证明存在-mathbfx_k-in-omega_k-使得">(c) 若 <span class="math inline">\(\Omega_{1}, \Omega_{2}\)</span> 是闭集且其中至少一个有界, 证明存在 <span class="math inline">\(\mathbf{x}_{k}^{*} \in \Omega_{k}\)</span> 使得</h5>
+<p><span class="math display">\[
+\left\|\mathbf{x}_{1}^{*}-\mathbf{x}_{2}^{*}\right\|=\inf _{\mathbf{x}_{1} \in \Omega_{1}, \mathbf{x}_{2} \in \Omega_{2}}\left\|\mathbf{x}_{1}-\mathbf{x}_{2}\right\| .
+\]</span></p>
+<h5 id="d-举例说明上述-闭有界的条件是不能或缺的">(d) 举例说明上述 “闭”、“有界”的条件是不能或缺的。</h5>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="category-chain-item">作业</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E4%BD%9C%E4%B8%9A/%E5%A4%9A%E5%85%83%E5%BE%AE%E7%A7%AF%E5%88%86/" class="category-chain-item">多元微积分</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%A4%9A%E5%85%83%E5%BE%AE%E7%A7%AF%E5%88%86%E4%BD%9C%E4%B8%9A/">#多元微积分作业</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Calculus-A2-homework second</div>
+      <div>https://lr-tsinghua11.github.io/2022/03/09/Math/Calculus/Calculus%20A2%20homework%20second/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Tony</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年3月9日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/08/Math/Elementary%20number%20theory/Elementary%20number%20theory%20homework%203/" title="Elementary number theory homework 3">
+                        <span class="hidden-mobile">Elementary number theory homework 3</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var title = subtitle.title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
