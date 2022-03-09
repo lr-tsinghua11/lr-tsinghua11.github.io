@@ -4,6 +4,87 @@
   
   
   <entry>
+    <title>Elementary number theory homework 3</title>
+    <link href="/2022/03/08/Elementary%20number%20theory%20homework%203/"/>
+    <url>/2022/03/08/Elementary%20number%20theory%20homework%203/</url>
+    
+    <content type="html"><![CDATA[<h1 id="largetextcolorblue初等数论第三次作业-_textcolorblue2022.3.8"><span class="math inline">\(\large\textcolor{blue}{初等数论第三次作业}\ \ \ \ \ \ _\textcolor{blue}{2022.3.8}\)</span></h1><h2 id="习题1.2">习题1.2</h2><h4 id="section">1.</h4><h5 id="设-m-为正整数-a-m1.-我们用-a-1-表示同余方程-a-x-equiv-1-bmod-m-的任何一个整数解-即">设 <span class="math inline">\(m\)</span> 为正整数, <span class="math inline">\((a, m)=1\)</span>. 我们用 <span class="math inline">\(a^{-1}\)</span> 表示同余方程 <span class="math inline">\(a x \equiv 1\)</span> <span class="math inline">\((\bmod m)\)</span> 的任何一个整数解 (即</h5><h5 id="left.a-1-in-mathbfz-a-a-1-equiv-1bmod-mright.-证明"><span class="math inline">\(\left.a^{-1} \in \mathbf{Z}, a a^{-1} \equiv 1(\bmod m)\right)\)</span>. 证明：</h5><h5 id="若-a-mb-m1-则-a-equiv-bbmod-m-a-1-equiv-b-1bmod-m">(1) 若 <span class="math inline">\((a, m)=(b, m)=1\)</span>, 则 <span class="math inline">\(a \equiv b(\bmod m)\)</span> $$ <span class="math inline">\(a^{-1} \equiv\)</span> <span class="math inline">\(b^{-1}(\bmod m)\)</span>；</h5><h5 id="若-r_1-r_2-cdots-r_varphim-是模-m-的缩系-则-r_1-1-r_2-1-cdots-r_varphim-1-也是模-m-的缩系">(2) 若 <span class="math inline">\(\{r_{1}, r_{2}, \cdots, r_{\varphi(m)}\}\)</span> 是模 <span class="math inline">\(m\)</span> 的缩系, 则 <span class="math inline">\(\{r_{1}^{-1}, r_{2}^{-1}, \cdots, r_{\varphi(m)}^{-1}\}\)</span> 也是模 <span class="math inline">\(m\)</span> 的缩系。</h5><h4 id="section-1">2</h4><h5 id="设正整数-n-的十进制表示为">设正整数 <span class="math inline">\(n\)</span> 的十进制表示为</h5><p><span class="math display">\[n=a_{0}+a_{1} \cdot 10+a_{2} \cdot 10^{2}+\cdots+a_{k} \cdot 10^{k},\]</span> ##### 证明: <span class="math inline">\(\left\{\begin{array}{l}n \equiv a_{0}+a_{1}+\cdots+a_{k}(\bmod 9), \\ n \equiv a_{0}-a_{1}+a_{2}-\cdots+(-1)^{k} a_{k}(\bmod 11) .\end{array}\right.\)</span> 用这些结果来计算 <span class="math inline">\(12345 \times 6789\)</span> 被 9 和</p><h5 id="被-11-除所得的余数">被 11 除所得的余数。</h5><h4 id="section-2">6</h4><h5 id="证明当-n-geqslant-3-时-varphin-为偶数">证明：当 <span class="math inline">\(n \geqslant 3\)</span> 时, <span class="math inline">\(\varphi(n)\)</span> 为偶数。</h5><h4 id="section-3">7</h4><h5 id="设-m-和-n-是正整数mn-tt-in-mathbfz.-证明-模-n-的每个同余类都是模-m-的-t">设 <span class="math inline">\(m\)</span> 和 <span class="math inline">\(n\)</span> 是正整数，<span class="math inline">\(m=n t(t \in \mathbf{Z})\)</span>. 证明: 模 <span class="math inline">\(n\)</span> 的每个同余类都是模 <span class="math inline">\(m\)</span> 的 <span class="math inline">\(t\)</span></h5><h5 id="个同余类之并">个同余类之并。</h5><h4 id="section-4">10</h4><h5 id="设-a-m-in-mathbfz-m-geqslant-2a-m1.-计算-displaystyle-sum_x0m-1leftfraca-xmright.">设 <span class="math inline">\(a, m \in \mathbf{Z}, m \geqslant 2,(a, m)=1\)</span>. 计算 <span class="math inline">\(\displaystyle \sum_{x=0}^{m-1}\left[\frac{a x}{m}\right]\)</span>.</h5><h2 id="习题2.2">习题2.2</h2><h4 id="section-5">1</h4><h5 id="设-alpha-是环-z_m-中非零元素若存在-z_m-中非零元素-betaneq-overline0-使得-alpha-betaoverline0-称-alpha-是零因子证明">设 <span class="math inline">\(\alpha\)</span> 是环 <span class="math inline">\(Z_{m}\)</span> 中非零元素。若存在 <span class="math inline">\(Z_{m}\)</span> 中非零元素 <span class="math inline">\(\beta(\neq \overline{0})\)</span>, 使得 <span class="math inline">\(\alpha \beta=\overline{0}\)</span>, 称 <span class="math inline">\(\alpha\)</span> 是零因子，证明：</h5><h5 id="非零元素-alpha-是零因子当且仅当-alpha-不可逆.-从而-z_m-由彼此不同的三类元素构成overline0-varphim-个可逆">(1)非零元素 <span class="math inline">\(\alpha\)</span> 是零因子当且仅当 <span class="math inline">\(\alpha\)</span> 不可逆. 从而 <span class="math inline">\(Z_{m}\)</span> 由彼此不同的三类元素构成：<span class="math inline">\(\overline{0}, \varphi(m)\)</span> 个可逆</h5><h5 id="元和-m-varphim-1-个零因子">元和 <span class="math inline">\(m-\varphi(m)-1\)</span> 个零因子;</h5><h5 id="z_m-中没有零因子当且仅当-m-是素数">(2) <span class="math inline">\(Z_{m}\)</span> 中没有零因子当且仅当 <span class="math inline">\(m\)</span> 是素数。</h5><h4 id="section-6">2</h4><h5 id="对于环-z_m-中任何元素-alpham-个-alpha-相加为-overline0.">（1）对于环 <span class="math inline">\(Z_{m}\)</span> 中任何元素 <span class="math inline">\(\alpha\)</span>，<span class="math inline">\(m\)</span> 个 <span class="math inline">\(\alpha\)</span> 相加为 <span class="math inline">\(\overline{0}\)</span>.</h5><h5 id="设-p-为素数.-对于域-z_p-中非零元素-alpha-和正整数-n证明-n-个-alpha-相加为-overline0-当且仅当-p-mid-n">（2）设 <span class="math inline">\(p\)</span> 为素数. 对于域 <span class="math inline">\(Z_{p}\)</span> 中非零元素 <span class="math inline">\(\alpha\)</span> 和正整数 <span class="math inline">\(n\)</span>，证明： <span class="math inline">\(n\)</span> 个 <span class="math inline">\(\alpha\)</span> 相加为 <span class="math inline">\(\overline{0}\)</span> 当且仅当 <span class="math inline">\(p \mid n\)</span>。</h5><h4 id="section-7">3</h4><h5 id="证明当-p-为奇素数时2p-1-cdotleftleftdfracp-12right-right2-equiv-1fracp12bmod-p">证明当 <span class="math inline">\(p\)</span> 为奇素数时，<span class="math inline">\(2^{p-1} \cdot\left(\left(\dfrac{p-1}{2}\right) !\right)^{2} \equiv(-1)^{\frac{p+1}{2}}(\bmod p)\)</span>。</h5><h4 id="section-8">4</h4><h5 id="对于整数-m-geqslant-2-证明-m-1-equiv-1bmod-m-当且仅当-m-是素数-判别-m-是否为素数">对于整数 <span class="math inline">\(m \geqslant 2\)</span>, 证明: <span class="math inline">\((m-1) ! \equiv-1(\bmod m)\)</span> 当且仅当 <span class="math inline">\(m\)</span> 是素数。 (判别 <span class="math inline">\(m\)</span> 是否为素数)</h5><h4 id="section-9">5</h4><h5 id="若-z_mleftalpha_1-cdots-alpha_phimright则-z_mleftalpha_1-1-cdots-alpha_phim-1right如何将它转述成同余的语言">若 <span class="math inline">\(Z_{m}^{*}=\left\{\alpha_{1}, \cdots, \alpha_{\phi(m)}\right\}\)</span>，则 <span class="math inline">\(Z_{m}^{*}=\left\{\alpha_{1}^{-1}, \cdots, \alpha_{\phi(m)}^{-1}\right\}\)</span>。如何将它转述成同余的语言?</h5><h2 id="习题2.3">习题2.3</h2><h4 id="section-10">1</h4><h5 id="设-n-和-m-是互素的正整数证明-mvarphinnvarphimequiv1bmod-m-n">设 <span class="math inline">\(n\)</span> 和 <span class="math inline">\(m\)</span> 是互素的正整数，证明： <span class="math inline">\(m^{\varphi(n)}+n^{\varphi(m)}\equiv1(\bmod m n)\)</span>。</h5><h4 id="section-11">2</h4><h5 id="对每个与-10-互素的整数-a-证明-a20-equiv-1bmod-100">(1) 对每个与 10 互素的整数 <span class="math inline">\(a\)</span>, 证明: <span class="math inline">\(a^{20} \equiv 1(\bmod 100)\)</span>；</h5><h5 id="求-3193-的十进制表达式中的个位和十位数字">(2) 求 <span class="math inline">\(3^{193}\)</span> 的十进制表达式中的个位和十位数字。</h5><h4 id="section-12">3</h4><h5 id="设-a-b-in-mathbfz-n-geqslant-1-p-为素数如果-a-equiv-bleftbmod-pnright证明对每个整数-k-geqslant-0">(1)设 <span class="math inline">\(a, b \in \mathbf{Z}, n \geqslant 1, p\)</span> 为素数。如果 <span class="math inline">\(a \equiv b\left(\bmod p^{n}\right)\)</span>，证明：对每个整数 <span class="math inline">\(k \geqslant 0\)</span>，</h5><h5 id="apk-equiv-bpkleftbmod-pnkright"><span class="math inline">\(a^{p^{k}} \equiv b^{p^{k}}\left(\bmod p^{n+k}\right)\)</span>；</h5><h5 id="证明-对每个奇数-a-和-k-geqslant-1-a2k-equiv-1leftbmod-2k2right.">(2) 证明: 对每个奇数 <span class="math inline">\(a\)</span> 和 <span class="math inline">\(k \geqslant 1, a^{2^{k}} \equiv 1\left(\bmod 2^{k+2}\right)\)</span>.</h5>]]></content>
+    
+    
+    <categories>
+      
+      <category>作业</category>
+      
+      <category>初等数论</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>初等数论作业</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2022年女生节</title>
+    <link href="/2022/03/07/Girls-Festival/"/>
+    <url>/2022/03/07/Girls-Festival/</url>
+    
+    <content type="html"><![CDATA[<p>祝 <span class="math inline">\(\mbox{yy}\)</span> 姐和微软工的小仙女们美丽可爱，青春永在，和烦恼 <span class="math inline">\(\mbox{say goodbye!}\)</span> 女生节快乐鸭~~</p><p>有剧情，有祝福，有礼物，有表演，有气球……算是很开心的啦~</p><p>据说女生评价挺高的，算是成功地反馈去年的男生节了。</p><p>最后被邵美琪唱的《这世界那么多人》洗脑了~~</p><p><img src="https://pic.imgdb.cn/item/6226d80f5baa1a80ab06707f.jpg" style="zoom:20%;" /></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>节日</category>
+      
+      <category>女生节</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>2022年女生节记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Python-Visualization</title>
+    <link href="/2022/03/05/Python-Visualization-Graphs/"/>
+    <url>/2022/03/05/Python-Visualization-Graphs/</url>
+    
+    <content type="html"><![CDATA[<p>从各种库中获取</p><p>在第一天获取到每个 <span class="math inline">\(\mbox{sheet}\)</span> 下的每个列表中每个词汇在标题和内容中分别出现的次数后，希望针对这些数据作图，其中饼状图如下</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">colorsFoxconn = [<span class="hljs-string">&#x27;#FEE9CE&#x27;</span>,<span class="hljs-string">&#x27;#F5D0C7&#x27;</span>,<span class="hljs-string">&#x27;#BEB2BE&#x27;</span>,<span class="hljs-string">&#x27;#6A909D&#x27;</span>,<span class="hljs-string">&#x27;#A8C4E9&#x27;</span>,<span class="hljs-string">&#x27;#DCEDFD&#x27;</span>]<span class="hljs-comment">#颜色全局变量</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">drawPieGraphs</span>(<span class="hljs-params">list1,list2,title</span>):<br>    <span class="hljs-keyword">if</span> list1 == <span class="hljs-literal">None</span>:<span class="hljs-comment">#如果传入参数为空，则直接返回空</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>    plt.rcParams[<span class="hljs-string">&#x27;font.sans-serif&#x27;</span>]=<span class="hljs-string">&#x27;SimHei&#x27;</span><span class="hljs-comment">#设置中文显示</span><br>    plt.figure(figsize=(<span class="hljs-number">6</span>,<span class="hljs-number">6</span>))<span class="hljs-comment">#设置画布大小</span><br>    plt.pie(list2,labels=list1,autopct=<span class="hljs-string">&#x27;%1.1f%%&#x27;</span>,shadow = <span class="hljs-literal">True</span>,colors = colorsFoxconn)<span class="hljs-comment">#list1为项目名称，list2为数量分布</span><br>    plt.title(title)<span class="hljs-comment">#加标题</span><br>    posiGraph = <span class="hljs-string">&#x27;./饼状图/&#x27;</span>  <span class="hljs-comment">#获取保存位置</span><br>    posiGraph +=<span class="hljs-built_in">str</span>(title)<span class="hljs-comment">#保存名称为“标题.jpg”</span><br>    plt.savefig(posiGraph,dpi = <span class="hljs-number">500</span>)<span class="hljs-comment">#dpi代表像素，</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Python</category>
+      
+      <category>可视化</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Python 可视化工作经验</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>大风起兮云风扬</title>
     <link href="/2022/03/04/%E5%A4%A7%E9%A3%8E%E8%B5%B7%E5%85%AE%E4%BA%91%E9%A3%9E%E6%89%AC/"/>
     <url>/2022/03/04/%E5%A4%A7%E9%A3%8E%E8%B5%B7%E5%85%AE%E4%BA%91%E9%A3%9E%E6%89%AC/</url>
@@ -31,9 +112,9 @@
   
   
   <entry>
-    <title>Python-Visualization</title>
-    <link href="/2022/03/03/Python-Visualization/"/>
-    <url>/2022/03/03/Python-Visualization/</url>
+    <title>Python-Visualization-Process the Json file</title>
+    <link href="/2022/03/03/Python-Visualization-Json-File/"/>
+    <url>/2022/03/03/Python-Visualization-Json-File/</url>
     
     <content type="html"><![CDATA[<p>Python 编写工程项目时，对每份代码，编写流程基本都是 <span class="math display">\[\Large \textcolor{black}{调库}\normalsize \Longrightarrow \Large \textcolor{black}{全局变量}\normalsize \Longrightarrow \Large \textcolor{black}{装饰器}\normalsize \Longrightarrow \Large \textcolor{black}{子函数}\normalsize \Longrightarrow\Large \textcolor{black}{主函数}\normalsize\]</span> 只要两者之间具有一定独立性，最好空开两行方便 <span class="math inline">\(\mbox{Debug}\)</span> 。</p><h2 id="装饰器的使用">装饰器的使用</h2><p>装饰器是为了在输出结果时告知当前运行函数名称，运行时间，方便快速定位 <span class="math inline">\(\mbox{Bug}\)</span> 位置，一个经典装饰器的代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> functools<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">metric</span>(<span class="hljs-params">fn</span>):<br><span class="hljs-meta">    @functools.wraps(<span class="hljs-params">fn</span>)</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kw</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;start executing %s&#x27;</span> % (fn.__name__))<br>        start_time = time.time()<br>        result = fn(*args, **kw)<br>        end_time = time.time()<br>        t = <span class="hljs-number">1000</span> * (end_time - start_time)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;%s executed in %s ms&#x27;</span> % (fn.__name__, t))<br>        <span class="hljs-keyword">return</span> result<br>    <span class="hljs-keyword">return</span> wrapper<br></code></pre></td></tr></table></figure><p>该装饰器告知开始运行函数、结束运行函数以及运行时间，在每次 <code>def 'name_of_fuction'</code> 前一行加入 <code>@metric</code> 便可以实现装饰器功能</p><h2 id="获取目录下所有文件">获取目录下所有文件</h2><p>由于本次工作数据量庞大（成千上万个文件），从本地特定目录下读取该目录的所有文件，使用 <span class="math inline">\(os\)</span> 库中的 <span class="math inline">\(listdir\)</span> 函数获取目录下的文件名与目录拼接在一起，代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_list</span>(<span class="hljs-params">target</span>):<br>    dirs = os.listdir(target)//获取目录下的文件名称并存为列表<br>    file_list = []//初始化空列表<br>    <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> dirs://遍历列表中的每一个文件名称<br>         file_list.append(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;target&#125;</span>/<span class="hljs-subst">&#123;file&#125;</span>&quot;</span>)//加到原来文件目录后面<br>    <span class="hljs-keyword">return</span> file_list//得到一个具有该目录下所有文件位置的列表<br></code></pre></td></tr></table></figure><h2 id="异常处理">异常处理</h2><p>使用 <span class="math inline">\(\mbox{try}\)</span> 和 <span class="math inline">\(\mbox{except}\)</span> 语法，前者后面语句出现错误则跳至 <span class="math inline">\(\mbox{except}\)</span> 处，最好联合输出报错信息 <span class="math inline">\(\mbox{e}\)</span> 以及错误所在文件搭配：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(e)<br>    //<span class="hljs-built_in">print</span>(file)<br></code></pre></td></tr></table></figure><p>在处理文件时容易发现“前端”的规范化有问题，此时 <span class="math inline">\(\mbox{try-except}\)</span> 的作用体现得更加显著，多次套用异常处理语句即可</p><h2 id="计数器功能">计数器功能</h2><p>导入计数器所在库 <code>from collections import Counter</code>，单个计数器本质上就是单个字典，使用 <code>类名 = Counter()</code> 初始化，之后遇到什么就以字典的形式进行计数（<code>Counter()</code> 内部自动实现了遇到新 <code>key</code> 值计数为 <span class="math inline">\(1\)</span> ，遇到旧 <code>key</code> 值计数器加 <span class="math inline">\(1\)</span> ），由于存在多个、相互独立的列表，在实际运用中使用列表保存多个字典：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">listDics = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-built_in">len</span>(dirLanguage))://从 xlsx 中读取的二维列表(第几列第几个词)<br>    tempDict = Counter()//代表具有计数器功能的空字典<br>    listDics.append(tempDict)//形成字典列表<br><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> tqdm(file_list)://遍历并打开所有文件<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(file,<span class="hljs-string">&quot;r&quot;</span>,encoding = <span class="hljs-string">&quot;utf-8&quot;</span>,errors = <span class="hljs-string">&quot;ignore&quot;</span>) <span class="hljs-keyword">as</span> f:<br>        getTitle = json.load(f)[<span class="hljs-string">&quot;title&quot;</span>]//使用 json.load(f) 载入文件<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-built_in">len</span>(dirLanguage))://对二维列表的每一列<br>            <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> dirLanguage[i]://对应计数每一列<br>                listDict[i][word] += <span class="hljs-number">1</span>//使用字典的方式计数<br><br></code></pre></td></tr></table></figure><h2 id="mboxjson-文件收放自如"><span class="math inline">\(\mbox{json}\)</span> 文件收放自如</h2><p>从上个实例代码中可以看到，使用 <code>json.load(f)</code> 即可以实现读取对应 <span class="math inline">\(\mbox{json}\)</span> 文件的内容，即为 <span class="math inline">\(\mbox{json}\)</span> 文件的读取</p><p>与之相对的为 <span class="math inline">\(\mbox{json}\)</span> 文件的写入，使用 <code>json.dump(写入名称,打开的文件(如f),ensure_ascii = False, indent = 2)</code>，注意打开文件时类型为 <span class="math inline">\(\mbox{w\small+}\)</span> ，为覆盖类型，例如</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;./result.json&quot;</span>,<span class="hljs-string">&quot;w+&quot;</span>,encoding = <span class="hljs-string">&quot;utf-8&quot;</span>,errors = <span class="hljs-string">&quot;ignore&quot;</span>) <span class="hljs-keyword">as</span> f:<br>json.dump(title_content,f,ensure_ascii = <span class="hljs-literal">False</span>, indent = <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure><h2 id="可视化工作中的可视化-mboxtqdm">可视化工作中的可视化（ <span class="math inline">\(\mbox{tqdm}\)</span> ）</h2><p>导入进度条库 <code>from tqdm import tqdm</code> （in Arabic means <em>progress</em>, also in Spanish <em>te quiero demasiado</em> means <em>I love you so much. </em>），在迭代器处加入 <span class="math inline">\(\mbox{tqdm}\)</span> 就可以清晰地看到迭代所处位置，再也不用一直盯着闪烁的光标无脑等待了~~</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> tqdm(file_list):<br></code></pre></td></tr></table></figure><p>在 <span class="math inline">\(\mbox{Python}\)</span> 交互式系统中可以达到这样效果，输入时保证可以需要输入就不会自动运行：</p><p><img src="https://pic.imgdb.cn/item/6224c13c5baa1a80ab7af253.jpg" /></p>]]></content>
     
