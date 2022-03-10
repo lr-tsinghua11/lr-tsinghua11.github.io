@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E6%B9%96%E4%B8%8A%E6%8B%B1%E6%A1%A5.jpg">
 <meta property="article:published_time" content="2022-03-02T05:10:43.000Z">
-<meta property="article:modified_time" content="2022-03-06T15:25:53.439Z">
+<meta property="article:modified_time" content="2022-03-10T15:31:24.989Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="多元微积分笔记">
 <meta name="twitter:card" content="summary_large_image">
@@ -212,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.7k 字
+          6.5k 字
         
       </span>
     
@@ -223,7 +223,7 @@
         
         
         
-          23 分钟
+          54 分钟
         
       </span>
     
@@ -268,7 +268,8 @@
               <h1 id="微积分第3讲笔记多元函数的导数与微分">微积分第3讲笔记（多元函数的导数与微分）</h1>
 <p>对于一元函数的导数定义：<span class="math inline">\(f&#39;(x_0)=\lim\limits_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}\)</span>，对于多元时 <span class="math inline">\(\mathbf{x}-\mathbf{x_0}\)</span> 是向量，无法成为分母。</p>
 <p>解决方法 <span class="math inline">\(1\)</span>：沿向量求导 <span class="math inline">\(\partial _{\mathbf{v}}f(\mathbf{x}^*)=\lim\limits_{t\to 0}\dfrac{f(\mathbf{x}_0+t\mathbf{v})-f(\mathbf{x}_0)}{t}\)</span>，设 <span class="math inline">\(E\subseteq \mathbb{R}^m\)</span>，若 <span class="math inline">\(\exists\ \delta &gt;0,s.t.\forall \ \mathbf{x}\in \mathbb{R}^m,\|\mathbf{x}-\mathbf{x_0}\|&lt;\delta\Longrightarrow \mathbf{x}\in E\)</span>，称 <span class="math inline">\(\mathbf{x}_0\)</span> 为内点</p>
-<p><strong>方向导数</strong>：（将 <span class="math inline">\(\vec{v}\)</span> 单位化） <span class="math inline">\(f\)</span> 在 <span class="math inline">\(\mathbf{x}^*\)</span> 处沿着单位向量 <span class="math inline">\(\mathbf{v}\)</span> 所在方向的方向导数为 <span class="math display">\[
+<p>对经过 $x^* $ 处斜率为 <span class="math inline">\(\vec{v}\)</span> 的任意曲线均成立 <span class="math inline">\(\partial_{\vec{v}} f(x^*)=Const,\ \mbox{for any curve }\)</span></p>
+<p><strong>方向导数</strong>：（将 <span class="math inline">\(\vec{v}\)</span> 单位化，<strong>将导数定义在像空间</strong>） <span class="math inline">\(f\)</span> 在 <span class="math inline">\(\mathbf{x}^*\)</span> 处沿着单位向量 <span class="math inline">\(\mathbf{v}\)</span> 所在方向的方向导数为 <span class="math display">\[
 \lim _{t \rightarrow 0^{+}} \frac{f\left(\mathbf{x}^{*}+t \mathbf{v}\right)-f\left(\mathbf{x}^{*}\right)}{t}=\lim _{\mathbf{x} \rightarrow \mathbf{x}^{*}} \frac{f(\mathbf{x})-f\left(\mathbf{x}^{*}\right)}{\left\|\mathbf{x}-\mathbf{x}^{*}\right\|}
 \]</span> 解决方法 <span class="math inline">\(1&#39;\)</span>：偏导数，<span class="math inline">\(\dfrac{\partial }{\partial x^{k}}f(x^{1},x^2,\cdots,x^{m})\)</span>，<span class="math inline">\(x=x^1\mathbf{v}_1+\cdots x^m\mathbf{v}_m\)</span>，则记 <span class="math display">\[
 \partial_{k} f\left(\mathbf{x}^{*}\right)=\frac{\partial f}{\partial x^{k}}\left(\mathbf{x}^{*}\right)=\partial_{\mathbf{v}_{k}} f\left(\mathbf{x}^{*}\right)=\lim _{t \rightarrow 0} \frac{f\left(\mathbf{x}^{*}+t \mathbf{v}_{k}\right)-f\left(\mathbf{x}^{*}\right)}{t}
@@ -276,16 +277,64 @@
 <p>偏导数只能代表函数极少一部分性质（构造十字架“高高在上”，其余函数值在下方，该十字架在 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 方向上偏导数都是 <span class="math inline">\(0\)</span> ，但是该十字架在交叉处不可导）</p>
 <p>有一般情况下，<strong>坐标系是局部的、非线性的坐标系</strong></p>
 <p>解决方法 <span class="math inline">\(2\)</span>：多元函数的原像空间是多维空间，多维空间并不是一些一维空间的简单汇集，其包含了无穷多个一维空间，且是无穷多个一维空间的有机结合</p>
-<p>引入映射的可微性与微分 ：设 <span class="math inline">\(E \subseteq \mathbb{R}^{m}, \mathrm{x}^{*}\)</span> 是 <span class="math inline">\(E\)</span> 的一个内点。 称 <span class="math inline">\(f: E \rightarrow \mathbb{R}^{p}\)</span> 在 <span class="math inline">\(\mathrm{x}^{*}\)</span> 处可微，如果存在线性映射 <span class="math inline">\(L: \mathbb{R}^{m} \rightarrow \mathbb{R}^{p}\)</span> (称为 <span class="math inline">\(f: E \rightarrow \mathbb{R}^{p}\)</span> 在 <span class="math inline">\(\mathbf{x}^{*}\)</span> 处的导数或微分, 记为 <span class="math inline">\(\mathrm{D} f\left(\mathbf{x}^{*}\right)\)</span> ）使得 <span class="math display">\[
+<p>引入<strong>映射的可微性与微分</strong>（<strong>将导数定义为连接原空间和像空间的法则</strong>） ：设 <span class="math inline">\(E \subseteq \mathbb{R}^{m}, \mathrm{x}^{*}\)</span> 是 <span class="math inline">\(E\)</span> 的一个内点。 称 <span class="math inline">\(f: E \rightarrow \mathbb{R}^{p}\)</span> 在 <span class="math inline">\(\mathrm{x}^{*}\)</span> 处可微，如果存在线性映射 <span class="math inline">\(L: \mathbb{R}^{m} \rightarrow \mathbb{R}^{p}\)</span> (称为 <span class="math inline">\(f: E \rightarrow \mathbb{R}^{p}\)</span> 在 <span class="math inline">\(\mathbf{x}^{*}\)</span> 处的导数或微分, 记为 <span class="math inline">\(\mathrm{D} f\left(\mathbf{x}^{*}\right)\)</span> ）使得 <span class="math display">\[
 f\left(\mathbf{x}^{*}+\mathbf{v}\right)=f\left(\mathbf{x}^{*}\right)+L(\mathbf{v})+o(\|\mathbf{v}\|), \quad \mathbf{v} \rightarrow \mathbf{0} .
 \]</span> <span class="math inline">\(\left(p=1\right.\)</span> 时更常称为微分, 记为 <span class="math inline">\(\left.\mathrm{d} f\left(\mathbf{x}^{*}\right)\right)\)</span></p>
 <p><strong>例</strong>：证明 <span class="math inline">\(\mbox{inv}:\mathcal{G L}(m) \rightarrow \mathcal{G L}(m), \quad \operatorname{inv}(A)=A^{-1}\)</span> 是可微映射，并求其微分。</p>
 <p>由 <span class="math inline">\(\mbox{inv}(I-B)=I+C=I+B+CB\)</span>，其中 <span class="math inline">\(\|CB\|\leq \dfrac{\|B\|^2}{1-\|B\|}\to o(B)\)</span></p>
-<p>则 <span class="math inline">\(\mbox{inv}(A_0+B)=(A_0(I+A_0^{-1}B))^{-1}=(I+A_0^{-1}B)^{-1}A_0^{-1}=(I-A_0^{-1}B+o(B))A_0\)</span></p>
+<p>则 <span class="math inline">\(\mbox{inv}(A_0+B)=(A_0(I+A_0^{-1}B))^{-1}=(I+A_0^{-1}B)^{-1}A_0^{-1}=(I-A_0^{-1}B+o(B))A_0^{-1}\)</span></p>
 <p>从而其可微， <span class="math inline">\(\mbox{Dinv}(A_0)(B)=-A_0^{-1}BA_0^{-1}\)</span></p>
 <p><span class="math inline">\(dx,dy,dz\)</span> 本质上是坐标线性函数，对于空间中任意一组基，<span class="math inline">\(\mathbf{v}_{1},\cdots ,\mathbf{v}_{m}\)</span>，取 <span class="math inline">\(\mathbf{v}^{*1},\cdots ,\mathbf{v}^{*m}\)</span> 为 <span class="math inline">\(\mathbf{v}_{1},\cdots ,\mathbf{v}_{m}\)</span> 的对偶基 <span class="math inline">\(\mathbf{v}^{*k}:\boldsymbol R^{m}\to \boldsymbol R\)</span> 为线性函数</p>
 <p>可以推出 <span class="math inline">\(df(\mathbf{x}^*)=(\partial _1f\quad \cdots\quad \partial _mf)\begin{pmatrix}dx^1\\\vdots\\dx^{m}\end{pmatrix}\)</span></p>
 <p>对于 <span class="math inline">\(df=\dfrac{\partial f}{\partial x}dx+\dfrac{\partial f}{\partial y}dy+\dfrac{\partial f}{\partial z}dz\)</span>，本质上是 <span class="math inline">\(df\)</span> 这个坐标函数可以写成 <span class="math inline">\(dx,dy,dz\)</span> 这三个坐标函数的线性组合</p>
+<p>对行列式函数微分有 <span class="math inline">\(D \det(A)(B) = \tr(A^*B)\)</span>， <span class="math inline">\(\det(A+B)=\det(A)+\tr(A^*B),B\to 0\)</span></p>
+<p>则定义 <span class="math inline">\(e\)</span> 的矩阵幂 <span class="math inline">\(e^{A}:=\displaystyle \sum_{n=0}^{\infty}\dfrac{A^n}{n!}\)</span>，考虑行列式函数 <span class="math inline">\(f(t)=\det (e^{tA})\)</span> <span class="math display">\[
+\dfrac{df(t)}{dt}=\lim\limits_{\Delta t \to 0}\dfrac{\det(e^{(t+\Delta t)A})-\det(e^{tA})}{\Delta t}=\lim\limits_{\Delta t \to 0}\dfrac{\det(e^{tA})\cdot (\det(e^{\Delta tA})-1)}{\Delta t}
+\]</span> 而 <span class="math inline">\(\det(e^{\Delta t A})\approx \det(I+\Delta tA)=1+\tr(A)\Delta t,\Delta t\to 0\)</span>，即 <span class="math inline">\(\det&#39;(e^{\Delta tA})=\tr(A)\)</span></p>
+<p>则 <span class="math inline">\(\displaystyle \dfrac{df(t)}{dt}=\tr(A)\cdot \det(e^{tA})=\tr(A)f(t)\)</span>，该微分方程解为 <span class="math inline">\(f(t)=\det(e^{tA})=e^{t\tr(A)}\)</span></p>
+<p>对极坐标 <span class="math inline">\(\begin{pmatrix}dx\\dy\end{pmatrix}=\hat{\rho}\begin{pmatrix}\cos \theta\\\sin \theta\end{pmatrix}+\rho \hat{\theta}\begin{pmatrix}-\sin \theta\\\cos \theta\end{pmatrix}\)</span>，代表坐标架的变换，这两个方向是正交的，但是长度不是单位的，有 <span class="math display">\[
+\mathbf{e}_{r}=\left[\begin{array}{c}
+\cos \theta \\
+\sin \theta
+\end{array}\right]\quad \mathbf{e}_{\theta}=\left[\begin{array}{c}
+-r \sin \theta \\
+r \cos \theta
+\end{array}\right]
+\]</span> <img src="../../../../../../AppData/Roaming/Typora/typora-user-images/image-20220307105416871.png" srcset="/img/loading.gif" lazyload alt="image-20220307105416871" style="zoom:25%;" /></p>
+<p>微分的形式不变性：对任意坐标系，<span class="math inline">\(du=\displaystyle \sum_{j=1}^{m}\partial _{x^{j}}udx^j=\displaystyle \sum_{j=1}^{m}\partial _{y^{j}}udy^j\)</span></p>
+<p>梯度的定义：先对可以几何直观现实的情况：设<span class="math inline">\(L:\mathbb{R}^{m}\to R\)</span> 为线性映射，若 <span class="math inline">\(\forall \ \vec{v}\in \mathbb{R}^m\)</span>，都有 <span class="math inline">\(L(\vec{v})=\langle\vec{v}, \nabla L\rangle\)</span></p>
+<p><img src="https://pic.imgdb.cn/item/622582ca5baa1a80abd6b01f.jpg" srcset="/img/loading.gif" lazyload style="zoom:30%;" /></p>
+<p>如图，由于已经规定 <span class="math inline">\(L\)</span> 是线性映射，其图像必然是 <span class="math inline">\(m+1\)</span> 维空间中的一个 <span class="math inline">\(m\)</span> 维“平面”。现取此“平面”与自变量“平面”（同样是 <span class="math inline">\(m\)</span> 维空间）的 <span class="math inline">\(m-1\)</span> “交线”，此“交线”也自然是“直线”。由于此 <span class="math inline">\(m-1\)</span> 维”交线“在 <span class="math inline">\(m\)</span> 维自变量空间中，在该空间中必然只有唯一一个方向与其垂直。<span class="math inline">\(\nabla L\)</span> 就在这个方向。由几何学可以知道，图像上任意一点的高度，等于其在自变量空间的投影向量与 <span class="math inline">\(\nabla L\)</span> 的内积与 <span class="math inline">\(\nabla L\)</span> 点对应的高度的乘积。</p>
+<p><strong>可微函数的梯度</strong>：设 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(\mathbf{x}^{*} \in E\)</span> 处可微, 称 <span class="math inline">\(\mathrm{d} f\left(\mathbf{x}^{*}\right)\)</span> 的梯度为 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(\mathbf{x}^{*} \in E\)</span> 处的梯度, 记为 <span class="math inline">\(\nabla f\left(\mathbf{x}^{*}\right)\)</span>, 即对任意向量 <span class="math inline">\(\mathbf{v}\)</span>, <span class="math display">\[
+\partial_{\mathbf{v}} f\left(\mathbf{x}^{*}\right)=\left\langle\mathbf{v}, \nabla f\left(\mathbf{x}^{*}\right)\right\rangle
+\]</span> 对以 <span class="math inline">\(\mathbf{v}_{1}, \ldots, \mathbf{v}_{m}\)</span> 为基的内积空间，要想求 <span class="math inline">\(\nabla f\left(\mathbf{x}^{*}\right)\)</span> 在这组基底下的坐标。设</p>
+<p><span class="math display">\[
+\nabla f\left(\mathbf{x}^{*}\right)=c^{1} \mathbf{v}_{1}+\cdots+c^{m} \mathbf{v}_{m}, \quad \mathbf{v}=\xi^{1} \mathbf{v}_{1}+\cdots+\xi^{m} \mathbf{v}_{m}
+\]</span> 这里 <span class="math inline">\(\mathbf v\)</span> 是任意向量。则有 <span class="math inline">\(\left\langle\mathbf{v}, \nabla f\left(\mathbf{x}^{*}\right)\right\rangle=\sum_{1 \leq i, j \leq m} \xi^{i}\left\langle\mathbf{v}_{i}, \mathbf{v}_{j}\right\rangle c^{j}=\left(\xi^{1}, \ldots, \xi^{m}\right)\left(\left\langle\mathbf{v}_{i}, \mathbf{v}_{j}\right\rangle\right)_{m \times m}\left(\begin{array}{c}c^{1} \\ \vdots \\ c^{m}\end{array}\right)\)</span> <span class="math inline">\(\mathrm{d} f\left(\mathbf{x}^{*}\right) \mathbf{v}=\partial_{1} f\left(\mathbf{x}^{*}\right) \xi^{1}+\cdots+\partial_{m} f\left(\mathbf{x}^{*}\right) \xi^{m}=\left(\xi^{1}, \ldots, \xi^{m}\right)\left(\begin{array}{c}\partial_{1} f\left(\mathbf{x}^{*}\right) \\ \vdots \\ \partial_{m} f\left(\mathbf{x}^{*}\right)\end{array}\right)\)</span></p>
+<p>由梯度定义知以上两式应对任意 <span class="math inline">\(\xi^{1}, \ldots, \xi^{m}\)</span> 恒等, 所以 <span class="math display">\[
+\left(\left\langle\mathbf{v}_{i}, \mathbf{v}_{j}\right\rangle\right)_{m \times m}\left(\begin{array}{c}
+c^{1} \\
+\vdots \\
+c^{m}
+\end{array}\right)=\left(\begin{array}{c}
+\partial_{1} f\left(\mathbf{x}^{*}\right) \\
+\vdots \\
+\partial_{m} f\left(\mathbf{x}^{*}\right)
+\end{array}\right)
+\]</span> 因此梯度的表达式： <span class="math display">\[
+\begin{aligned}
+\nabla f\left(\mathbf{x}^{*}\right) &amp;=\left(\mathbf{v}_{1}, \ldots, \mathbf{v}_{m}\right)\left(\begin{array}{c}
+c^{1} \\
+\vdots \\
+c^{m}
+\end{array}\right)=\left(\mathbf{v}_{1}, \ldots, \mathbf{v}_{m}\right)\left(\left\langle\mathbf{v}_{i}, \mathbf{v}_{j}\right\rangle\right)_{m \times m}^{-1}\left(\begin{array}{c}
+\partial_{1} f\left(\mathbf{x}^{*}\right) \\
+\vdots \\
+\partial_{m} f\left(\mathbf{x}^{*}\right)
+\end{array}\right) \\
+&amp;=\sum_{i, j} g^{i j} \partial_{j} f \mathbf{v}_{i} 
+\end{aligned}
+\]</span> 其中 <span class="math inline">\(\left(g^{i j}\right)_{m \times m}=\left(\left\langle\mathbf{v}_{i}, \mathbf{v}_{j}\right\rangle\right)_{m \times m}^{-1}\)</span> ，为度量矩阵的逆。对于一般的 <span class="math inline">\(x,y,z\)</span> 坐标系，为单位矩阵。</p>
 
               
             </div>
