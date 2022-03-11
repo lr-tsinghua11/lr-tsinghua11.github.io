@@ -1,0 +1,839 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Tony">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="微积分A2王晓峰第四次课堂笔记，将线代许多知识合在一起讲。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Calculus_A2_notes_Chapter_three（WXF）">
+<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/03/11/Math/Calculus/Calculus%20A2%20notes%EF%BC%88Chapter%20four%EF%BC%89/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="微积分A2王晓峰第四次课堂笔记，将线代许多知识合在一起讲。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E7%BB%BF%E5%B1%B1.jpg">
+<meta property="article:published_time" content="2022-03-11T15:25:43.000Z">
+<meta property="article:modified_time" content="2022-03-11T15:30:21.705Z">
+<meta property="article:author" content="Tony">
+<meta property="article:tag" content="多元微积分笔记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E7%BB%BF%E5%B1%B1.jpg">
+  
+  
+  <title>Calculus_A2_notes_Chapter_three（WXF） - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lr-tsinghua11.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Tony&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/%E7%BB%BF%E5%B1%B1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          <span id="subtitle" title="Calculus_A2_notes_Chapter_three（WXF）">
+            
+          </span>
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-03-11 23:25" pubdate>
+          2022年3月11日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          10k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          87 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Calculus_A2_notes_Chapter_three（WXF）</h1>
+            
+            <div class="markdown-body">
+              
+              <h2 id="第四讲-高阶导数与-taylor-公式">第四讲 高阶导数与 Taylor 公式</h2>
+<h4 id="高阶微分">1.高阶微分</h4>
+<p>称 <span class="math inline">\(E \subseteq \mathbb{R}^{m}\)</span> 是一个<strong>开集</strong>，如果任何 <span class="math inline">\(x \in E\)</span> 都是 <span class="math inline">\(E\)</span> 的内点。 设 <span class="math inline">\(f: E \rightarrow \mathbb{R}^{n}\)</span> 在任何 <span class="math inline">\(x \in E\)</span> 处都可微。则 <span class="math display">\[
+\mathrm{D}^{1} f: x \mapsto \operatorname{D} f(x), \quad E \rightarrow \mathcal{L}\left(\mathbb{R}^{m} ; \mathbb{R}^{n}\right)
+\]</span> 定义了 <span class="math inline">\(E\)</span> 上一个映射, 其中 <span class="math inline">\(\mathcal{L}\left(\mathbb{R}^{m} ; \mathbb{R}^{n}\right)\)</span> 是由从 <span class="math inline">\(\mathbb{R}^{m}\)</span> 到 <span class="math inline">\(\mathbb{R}^{n}\)</span> 上所有线性映射组成的一个 <span class="math inline">\(m n\)</span> 维向量空间。</p>
+<p>如果 <span class="math inline">\(\mathrm{D}^{1} f\)</span> 连续, 则称 <span class="math inline">\(f\)</span> 是 <strong><span class="math inline">\(\mathscr{C}^{1}\)</span></strong> 的。 如果 <span class="math inline">\(\mathrm{D}^{1} f\)</span> 可微, 则称 <span class="math inline">\(f\)</span> 是<strong>二阶可微</strong>的, 称 <span class="math inline">\(\mathrm{DD}^{1} f(\mathbf{x})\)</span> 为 <span class="math inline">\(f\)</span> 的<strong>二阶导数</strong>, 记 <span class="math display">\[
+\mathrm{D}^{2}(\mathbf{x})=\mathrm{DD}^{1} f(\mathbf{x}) .
+\]</span> 如果 <span class="math inline">\(\mathrm{D}^{2} f: E \rightarrow \mathcal{L}\left(\mathbb{R}^{m} ; \mathcal{L}\left(\mathbb{R}^{m} ; \mathbb{R}^{n}\right)\right)\)</span> 连续, 则称 <span class="math inline">\(f\)</span> 是 <strong><span class="math inline">\(\mathscr{C}^{2}\)</span> </strong>的。</p>
+<p>归纳地, 可以定义 <span class="math inline">\(f\)</span> 的 <span class="math inline">\(k\)</span> 阶导数 <span class="math display">\[
+\mathrm{D}^{k} f(\mathbf{x})=\mathrm{DD}^{k-1} f(\mathbf{x}) \in \mathcal{L}\left(\mathbb{R}^{m} ; \ldots ; \mathcal{L}\left(\mathbb{R}^{m} ; \mathbb{R}^{n}\right)\right.
+\]</span> 如果 <span class="math inline">\(\mathrm{D}^{k} f\)</span> 是连续的, 则称 <span class="math inline">\(f\)</span> 是 <span class="math inline">\(\mathscr{C}^{k}\)</span> 的。 如果对任意 <span class="math inline">\(k\)</span> , <span class="math inline">\(f\)</span> 是 <span class="math inline">\(\mathscr{C}^{k}\)</span> 的, 则称 <span class="math inline">\(f\)</span> 是 <span class="math inline">\(\mathscr{C}^{\infty}\)</span> 的。并有 <span class="math display">\[
+\mathrm{D}^{k} f(\mathbf{x})\left(\mathbf{v}_{1}, \ldots, \mathbf{v}_{k}\right)=\mathrm{D}\left(\mathrm{D}^{k-1} f(\mathbf{x})\left(\mathbf{v}_{1}, \ldots, \mathbf{v}_{k-1}\right)\right)\left(\mathbf{v}_{k}\right)
+\]</span> 例：<strong>矩阵求逆</strong> $ $ 函数的高阶导数</p>
+<p>上节课我们知道求逆映射是可微的，且 <span class="math inline">\(\operatorname{D \ inv}\left(A_{0}\right)(B)=-A_{0}^{-1} B A_{0}^{-1}\)</span> 。有 <span class="math display">\[
+\begin{aligned}
+&amp; \operatorname{D inv}\left(A+B_{2}\right)\left(B_{1}\right) \\
+=&amp;-\left(A+B_{2}\right)^{-1} B_{1}\left(A+B_{2}\right)^{-1} \\
+=&amp;-\left[A^{-1}-A^{-1} B_{2} A^{-1}+o\left(B_{2}\right)\right] B_{1}\left[A^{-1}-A^{-1} B_{2} A^{-1}+o\left(B_{2}\right)\right] \\
+=&amp; \operatorname{D inv}(A)\left(B_{1}\right)+A^{-1} B_{2} A^{-1} B_{1} A^{-1}+A^{-1} B_{1} A^{-1} B_{2} A^{-1}+o\left(B_{2}\right)
+\end{aligned}
+\]</span> 当 <span class="math inline">\(B_2\to0\)</span> 。所以 <span class="math inline">\(\mathrm{D}^{2} \operatorname{inv}(A)\left(B_{1}, B_{2}\right)=A^{-1} B_{2} A^{-1} B_{1} A^{-1}+A^{-1} B_{1} A^{-1} B_{2} A^{-1}\)</span> 。 归纳可知，<span class="math inline">\(\mathrm{inv}\)</span> 是任意阶可微的，即： <span class="math display">\[
+\begin{aligned}
+&amp;\mathrm{D}^{k} \operatorname{inv}(A)\left(B_{1}, B_{2}, \ldots, B_{k}\right) \\
+&amp;=(-1)^{k} \sum_{i_{1}, i_{2}, \ldots, i_{k} \text { 是 } 1,2, \ldots, k \text { 的任意排列 }} A^{-1} B_{i_{1}} A^{-1} B_{i_{2}} \cdots A^{-1} B_{i_{k}} A^{-1}
+\end{aligned}
+\]</span> 定理：若 <span class="math inline">\(g \circ f\)</span> 中 <span class="math inline">\(f, g\)</span> 都是 <span class="math inline">\(\mathscr{C}^{r}\)</span> 的, 则 <span class="math inline">\(g \circ f\)</span> 也是 <span class="math inline">\(\mathscr{C}^{r}\)</span> 的。</p>
+<p>证明：数学归纳法和链锁法则。</p>
+<p>定理：（<strong>逆映射</strong>的高阶连续性）若 <span class="math inline">\(\mathscr{C}^{r}\)</span> 映射 <span class="math inline">\(g\)</span> 有可微的逆映射 <span class="math inline">\(g^{-1}\)</span>, 则 <span class="math inline">\(g^{-1}\)</span> 也是 <span class="math inline">\(\mathscr{C}^{r}\)</span> 的。</p>
+<p>证明：由链索法则 <span class="math inline">\(I=\mathrm{D}\left(g \circ g^{-1}\right)(\mathbf{y})=\mathrm{D} g\left(g^{-1}(\mathbf{y})\right) \circ \mathrm{Dg}^{-1}(\mathbf{y})\)</span> 。 所以 <span class="math display">\[
+\operatorname{D} g^{-1}(\mathbf{y})=\left(\operatorname{D}g\left(g^{-1}(\mathbf{y})\right)\right)^{-1}=\operatorname{inv}\left(\operatorname{D}g\left(g^{-1}(\mathbf{y})\right)\right),
+\]</span> 高阶可微性由 <span class="math inline">\(\mathrm{inv}\)</span> 的高阶可微性和数学归纳法得到。</p>
+<h4 id="高阶偏导数">2.高阶偏导数</h4>
+<p>以二阶微分为例， <span class="math display">\[
+\begin{aligned}
+\mathrm{d}^{2} f\left(x^{1}, \ldots, x^{m}\right) &amp;=\sum_{j=1}^{m} \partial_{j}\left(\sum_{i=1}^{m} \partial_{i} f\left(x^{1}, \ldots, x^{m}\right) \mathrm{d} x^{i}\right) \mathrm{d} x^{j} \\
+&amp;=\sum_{1 \leq i, j \leq m} \partial_{j} \partial_{i} f\left(x^{1}, \ldots, x^{m}\right) \mathrm{d} x^{i} \otimes \mathrm{d} x^{j} \\
+&amp;=\sum_{1 \leq i, j \leq m} \partial_{j, i}^{2} f\left(x^{1}, \ldots, x^{m}\right) \mathrm{d} x^{i} \otimes \mathrm{d} x^{j}
+\end{aligned}
+\]</span> 上式中 <span class="math inline">\(\mathrm{d} x^{i} \otimes \mathrm{d} x^{j}\)</span> 是一个双线性型符号，满足 <span class="math display">\[
+\mathrm{d} x^{i} \otimes \mathrm{d} x^{j}(\mathbf{v}, \mathbf{w})=\mathrm{d} x^{i}(\mathbf{v}) \mathrm{d} x^{j}(\mathbf{w})
+\]</span> 即 <span class="math display">\[
+\mathrm{d} x^{i} \otimes \mathrm{d} x^{j}\left(\sum_{p=1}^{m} \xi^{p} \mathbf{e}_{p}, \sum_{q=1}^{m} \eta^{q} \mathbf{e}_{q}\right)=\xi^{i} \eta^{j}
+\]</span> 一般地， <span class="math display">\[
+\mathrm{d}^{k} f(\mathbf{x})=\sum_{1 \leq i_{1}, \ldots, i_{k} \leq m} \partial_{i_{k}, \ldots, i_{1}}^{k} f(\mathbf{x}) \mathrm{d} x^{i_{1}} \otimes \cdots \otimes \mathrm{d} x^{i_{k}}
+\]</span> 于是, <span class="math inline">\(f\)</span> 是 <span class="math inline">\(\mathscr{C}^{k}\)</span> 的当且仅当 <span class="math inline">\(f\)</span> 的所有 <span class="math inline">\(k\)</span> 阶偏导数都是连续函数。 一般而言, 高阶偏导数的求导顺序不能随意交换，但是<font color="red">当 <span class="math inline">\(f\)</span> 是 <span class="math inline">\(\mathscr{C}^{k}\)</span> 函数时，其直到 <span class="math inline">\(k\)</span> 阶的高阶偏导数的值与求导顺序无关</font>。</p>
+<p>符号与写法： <span class="math display">\[
+\begin{array}{ccc}
+\hline \text { 符号 } &amp; \text { 传统符号 } &amp; \text { 含义 } \\
+\hline \partial_{i} f &amp; \frac{\partial f}{\partial x^{i}} &amp; \text { 一阶偏导数 } \\
+\partial_{\mathbf{v}} f=\partial_{\left(v^{1}, \ldots, v^{m}\right)} f &amp; \frac{\partial f}{\partial \mathbf{v}} &amp; \text { 沿向量 } \mathbf{v} \text { 的导数 } \\
+\partial_{i_{k}, \ldots, i_{2}, i_{1}}^{k} f &amp; \frac{\partial^{k} f}{\partial x^{i_{k}} \cdots \partial x^{i_{2}} \partial x^{i_{1}}} &amp; k \text { 阶偏导数 } \\
+\partial_{\left[\alpha_{1}, \ldots, \alpha_{m}\right]}^{|\alpha|} f &amp; \frac{\partial^{\alpha_{1}+\cdots+\alpha_{m}} f}{\partial\left(x^{1}\right)^{\alpha_{1}} \cdots \partial\left(x^{m}\right)^{\alpha_{m}}} &amp; |\alpha| \text { 阶偏导数 }
+\\ \hline
+\end{array}
+\]</span> <span class="math inline">\(\alpha=\left[\alpha_{1}, \ldots, \alpha_{m}\right]\)</span> 是一组非负整数， $||=<em>{1}++</em>{m} $ 。</p>
+<p>当同时出现不同坐标系时, 用 <span class="math inline">\(\partial_{x^{i}} f\)</span> 代替 <span class="math inline">\(\partial_{i} f ;\)</span> 用 <span class="math inline">\(\partial_{x^{i_{k}}, \ldots, x^{i_{2}, x^{i_{1}}} f}^{k} f\)</span> 代替 <span class="math inline">\(\partial_{i_{k}, \ldots, i_{2}, i_{1}}^{k} f\)</span>; 用 <span class="math inline">\(\partial_{\left(x^{1}\right)^{\alpha_{1}}, \ldots,\left(x^{m}\right)^{\alpha_{m}}}^{|\alpha|} f\)</span> 代替 <span class="math inline">\(\partial_{\left[\alpha_{1}, \ldots, \alpha_{m}\right]}^{|\alpha|} f\)</span> 。</p>
+<h5 id="例laplace-方程">例：Laplace 方程</h5>
+<p><strong>Laplace 方程</strong> <span class="math inline">\(\Delta f=0\)</span> 。Laplace 算子 <span class="math inline">\(\Delta=\nabla \cdot \nabla, \nabla\)</span> 是梯度算子。求 Laplace 方程在平面直角坐标系 <span class="math inline">\((x, y)\)</span> 和极坐标系 <span class="math inline">\((r, \theta)\)</span> 下的形式。</p>
+<p>直角坐标系下，<span class="math inline">\(\nabla=\mathbf{e}_{1} \partial_{x}+\mathbf{e}_{2} \partial_{y}\)</span>，因 <span class="math inline">\(\mathbf{e}_{i} \cdot \mathbf{e}_{j}=\left\{\begin{array}{ll}1, &amp; i=j \\ 0, &amp; i \neq j\end{array} \quad \partial_{x} \mathbf{e}_{i}=\partial_{y} \mathbf{e}_{i}=0\right.\)</span> ，有 <span class="math display">\[
+\begin{aligned}
+\nabla^{2} &amp;=\left(\mathbf{e}_{1} \partial_{x}+\mathbf{e}_{2} \partial_{y}\right) \cdot\left(\mathbf{e}_{1} \partial_{x}+\mathbf{e}_{2} \partial_{y}\right) \\
+&amp;=\mathbf{e}_{1} \cdot \mathbf{e}_{1} \partial_{x, x}^{2}+\mathbf{e}_{2} \cdot \mathbf{e}_{2} \partial_{y, y}^{2}=\partial_{x, x}^{2}+\partial_{y, y}^{2}
+\end{aligned}
+\]</span> 平面极坐标下，有 <span class="math inline">\(\nabla=\mathbf{e}_{r} \partial_{r}+\dfrac{\mathbf{e}_{\theta}}{r^{2}} \partial_{\theta}\)</span> ，且基向量不再恒定不变： <span class="math display">\[
+\partial_{r} \mathbf{e}_{r}=0, \quad \partial_{\theta} \mathbf{e}_{r}=\partial_{r} \mathbf{e}_{\theta}=\frac{\mathbf{e}_{\theta}}{r}, \quad \partial_{\theta} \mathbf{e}_{\theta}=-r \mathbf{e}_{r}
+\]</span> 因此 <span class="math display">\[
+\begin{aligned}
+\nabla^{2} f &amp;=\left(\mathbf{e}_{r} \partial_{r}+\frac{\mathbf{e}_{\theta}}{r^{2}} \partial_{\theta}\right) \cdot\left(\mathbf{e}_{r} \partial_{r}+\frac{\mathbf{e}_{\theta}}{r^{2}} \partial_{\theta}\right) f \\
+&amp;=\partial_{r, r}^{2} f \mathbf{e}_{r} \cdot \mathbf{e}_{r}+\frac{1}{r^{2}} \partial_{r} f \mathbf{e}_{\theta} \cdot \partial_{\theta} \mathbf{e}_{r}+\frac{1}{r^{4}} \partial_{\theta, \theta}^{2} f \mathbf{e}_{\theta} \cdot \mathbf{e}_{\theta} \\
+&amp;=\partial_{r, r}^{2} f+\frac{1}{r} \partial_{r} f+\frac{1}{r^{2}} \partial_{\theta, \theta}^{2} f
+\end{aligned}
+\]</span></p>
+<h5 id="课后练习"><strong>课后练习</strong></h5>
+<p>问题：（分离变量法）求 Laplace 方程形如 <span class="math inline">\(u(r, \theta)=U(r) V(\theta)\)</span> 形式的解。</p>
+<p>代入公式有 <span class="math inline">\(\Delta u=V(\theta)(\partial^2_{r,r}U(r)+\dfrac{1}{r}\partial_r{U(r)})+\dfrac{U(r)}{r^2}\partial_{\theta,\theta}{V(\theta)}=0\)</span> ，或 <span class="math display">\[
+\frac{1}{U(r)}(r^2\partial^2_{r,r}U(r)+r\partial_r{U(r)})+\frac{1}{V(\theta)}\partial_{\theta,\theta}{V(\theta)}=0
+\]</span> 由于前两项与后一项没有关联，可以设 <span class="math inline">\(r^2\partial^2_{r,r}U(r)+r\partial_r{U(r)}=CU(r)\)</span>（这是一个欧拉方程），<span class="math inline">\(\partial_{\theta,\theta}{V(\theta)}=-CV(\theta)\)</span> ，解得 <span class="math display">\[
+\begin{gathered}
+\begin{gathered}
+U(r)=k_{1} \cosh (\sqrt{C} \ln r)+ k_{2} \sinh (\sqrt{C} \ln r),\\V(\theta)=k_3\cos(\sqrt{C}\theta)+k_4\sin(\sqrt{C}\theta);
+\end{gathered}\quad \text{when \ }C&gt;0\\
+\begin{gathered}
+U(r)=k_{1} \cos (\sqrt{C} \ln r)+ k_{2} \sin (\sqrt{C} \ln r),\\V(\theta)=k_3\cosh(\sqrt{C}\theta)+k_4\sinh(\sqrt{C}\theta);
+\end{gathered}\quad \text{when \ }C&lt;0\\
+U(r)=k_1\ln r+k_2 \ , \ V(\theta)=k_3\theta \ ;\quad \text{when \ }C=0
+\end{gathered}
+\]</span></p>
+<p>因此， <span class="math display">\[
+u(r,\theta)=\left\{\begin{array}{l}(C_1r^C+C_2r^{-C})\cos(C\theta+C_3)\\\cos(C\ln r+C_1)(C_2\mathrm{e}^{C\theta}+C_3\mathrm{e}^{-C\theta})\\
+C_1(\ln r+C_2)\theta
+\end{array}\right.
+\]</span> 问题：试写出在三维柱坐标、球坐标以及任意维数空间中直角坐标系和一般坐标系下Laplace 算子的坐标形式。</p>
+<p>由上节课的结论可知，球坐标下的梯度算子： <span class="math display">\[
+\nabla =\mathbf{e}_{r}\partial_{r}  +\frac{\mathbf{e}_{\theta}}{r^{2}} \partial_{\theta}  +\frac{\mathbf{e}_\varphi}{r^{2} \sin ^{2} \varphi} \partial_\varphi
+\]</span> 且有 <span class="math display">\[
+\begin{gathered}
+\partial_r\mathbf{e}_r=0,\partial_r\mathbf{e}_\theta=\frac{\mathbf{e}_\theta}{r},\partial_r\mathbf{e}_\varphi=\frac{\mathbf{e}_\varphi}{r}\\ \partial_\theta\mathbf{e}_r=\frac{\mathbf{e}_\theta}{r},\partial_\theta\mathbf{e}_\theta=-r\mathbf{e}_r,\partial_\theta\mathbf{e}_\varphi=\cot\theta\mathbf{e}_\varphi\\ \partial_\varphi\mathbf{e}_r=\frac{\mathbf{e}_\varphi}{r},\partial_\varphi\mathbf{e}_\theta=\cot\theta\mathbf{e}_\varphi,\partial_\varphi\mathbf{e}_\varphi=\begin{bmatrix}-r\sin\theta\cos\varphi\\-r\sin\theta\sin\varphi\\
+0\end{bmatrix}
+\end{gathered}
+\]</span> 故对球坐标系 <span class="math display">\[
+\begin{aligned}
+\Delta&amp;=\nabla\cdot\nabla\\
+&amp;=(\mathbf{e}_{r}\partial_{r}  +\frac{\mathbf{e}_{\theta}}{r^{2}} \partial_{\theta}  +\frac{\mathbf{e}_\varphi}{r^{2} \sin ^{2} \varphi} \partial_\varphi)\cdot(\mathbf{e}_{r}\partial_{r}  +\frac{\mathbf{e}_{\theta}}{r^{2}} \partial_{\theta}  +\frac{\mathbf{e}_\varphi}{r^{2} \sin ^{2} \varphi} \partial_\varphi)\\
+&amp;=\partial_{r,r}+0+0+\frac{1}{r}\partial_r+\frac{1}{r^2}\partial_{\theta,\theta}+0+\frac{1}{r}\partial_r+\frac{\cot\theta}{r^2}\partial_\theta+\frac{1}{r^2\sin^2\varphi}\partial_{\varphi,\varphi}\\
+&amp;=\partial_{r,r}+\frac{2}{r}\partial_r+\frac{1}{r^2}\partial_{\theta,\theta}+\frac{\cot\theta}{r^2}\partial_\theta+\frac{1}{r^2\sin^2\varphi}\partial_{\varphi,\varphi}
+\end{aligned}
+\]</span></p>
+<h4 id="taylor-展开">3. Taylor 展开</h4>
+<p>设 <span class="math inline">\(f: E \rightarrow \mathbb{R}\)</span> 是一个 <span class="math inline">\(\mathscr{C}^{k}\)</span> 函数。则 <span class="math inline">\(g(t)=f\left(\mathbf{x}_{0}+t \mathbf{v}\right)\)</span> 也是 <span class="math inline">\(\mathscr{C}^{k}\)</span> 函数, 从而 <span class="math display">\[
+g(t)=g(0)+g^{\prime}(0) t+\cdots+\frac{g^{(k)}(0)}{k !} t^{k}+o\left(t^{k}\right), \quad t \rightarrow 0
+\]</span> 由链索法则和数学归纳法可得 <span class="math display">\[
+\begin{aligned}
+g^{(k)}(t) &amp;=d^{k} f\left(\mathbf{x}_{0}+t \mathbf{v}\right)(\underbrace{\mathbf{v}, \ldots, \mathbf{v})}_{k \text { 个 }}\\
+&amp;=\sum_{1 \leq i_{1}, \ldots, i_{k} \leq m} \partial_{i_{k}, \ldots, i_{1}}^{k} f\left(\mathbf{x}_{0}+t \mathbf{v}\right) v^{i_{1}} \cdots v^{i_{k}}
+\end{aligned}
+\]</span> 所以 <span class="math display">\[
+f\left(\mathbf{x}_{0}+t \mathbf{v}\right)=f\left(\mathbf{x}_{0}\right)+\sum_{r=1}^{k} \frac{t^{r}}{r !} \sum_{1 \leq i_{1}, \ldots, i_{r} \leq m} \partial_{i_{r}, \ldots, i_{1}}^{r} f\left(\mathbf{x}_{0}\right) v^{i_{1}} \cdots v^{i_{r}}+o\left(t^{k}\right)
+\]</span> 对 <span class="math inline">\(\mathrm{x}\)</span>, 取 <span class="math inline">\(v=\frac{\mathrm{x}-\mathrm{x}_{0}}{\left\|\mathrm{x}-\mathrm{x}_{0}\right\|}, t=\left\|\mathrm{x}-\mathrm{x}_{0}\right\|\)</span>, 则 <span class="math display">\[
+\begin{aligned}
+f(\mathbf{x})=&amp; f\left(\mathbf{x}_{0}\right) \\
+&amp;+\sum_{r=1}^{k} \frac{1}{r !} \sum_{1 \leq i_{1}, \ldots, i_{r} \leq m} \partial_{i_{r}, \ldots, i_{1}}^{r} f\left(\mathbf{x}_{0}\right)\left(x^{i_{1}}-x_{0}^{i_{1}}\right) \cdots\left(x^{i_{r}}-x_{0}^{i_{r}}\right) \\
+&amp;+o\left(\left\|\mathbf{x}-\mathbf{x}_{0}\right\|^{k}\right), \quad \mathbf{x} \rightarrow \mathbf{x}_{0}
+\end{aligned}
+\]</span></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%A4%9A%E5%85%83%E5%BE%AE%E7%A7%AF%E5%88%86/" class="category-chain-item">多元微积分</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%A4%9A%E5%85%83%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AC%94%E8%AE%B0/">#多元微积分笔记</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Calculus_A2_notes_Chapter_three（WXF）</div>
+      <div>https://lr-tsinghua11.github.io/2022/03/11/Math/Calculus/Calculus%20A2%20notes%EF%BC%88Chapter%20four%EF%BC%89/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Tony</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年3月11日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/10/Program/OOP%20homework%203/" title="OOP-homework-3">
+                        <span class="hidden-mobile">OOP-homework-3</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var title = subtitle.title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
