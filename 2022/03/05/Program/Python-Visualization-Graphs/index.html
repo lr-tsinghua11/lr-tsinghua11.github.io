@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E7%9F%B3%E4%B8%8E%E9%9B%BE.jpg">
 <meta property="article:published_time" content="2022-03-05T15:57:48.000Z">
-<meta property="article:modified_time" content="2022-03-11T07:32:19.933Z">
+<meta property="article:modified_time" content="2022-03-11T08:03:34.226Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="Python 可视化工作经验">
 <meta name="twitter:card" content="summary_large_image">
@@ -212,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k 字
+          3.8k 字
         
       </span>
     
@@ -223,7 +223,7 @@
         
         
         
-          30 分钟
+          32 分钟
         
       </span>
     
@@ -266,6 +266,7 @@
             <div class="markdown-body">
               
               <p>从各种库中获取绘制图表的工具</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><span class="hljs-keyword">from</span> wordcloud <span class="hljs-keyword">import</span> WordCloud, ImageColorGenerator<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">import</span> matplotlib <span class="hljs-keyword">as</span> mpl<br><span class="hljs-keyword">from</span> tqdm <span class="hljs-keyword">import</span> tqdm<br><span class="hljs-keyword">from</span> pickle <span class="hljs-keyword">import</span> TRUE<br><span class="hljs-keyword">import</span> xlwings <span class="hljs-keyword">as</span> xw<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">import</span> functools<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> json<br><span class="hljs-keyword">import</span> time<br></code></pre></td></tr></table></figure>
 <p>在第一天获取到每个 <span class="math inline">\(\mbox{sheet}\)</span> 下的每个列表中每个词汇在标题和内容中分别出现的次数后，希望针对这些数据作图，其中饼状图的绘制函数如下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#全局颜色变量</span><br>colorsFoxconn = [<span class="hljs-string">&#x27;#FEE9CE&#x27;</span>,<span class="hljs-string">&#x27;#F5D0C7&#x27;</span>,<span class="hljs-string">&#x27;#BEB2BE&#x27;</span>,<span class="hljs-string">&#x27;#6A909D&#x27;</span>,<span class="hljs-string">&#x27;#A8C4E9&#x27;</span>,<span class="hljs-string">&#x27;#DCEDFD&#x27;</span>]	<span class="hljs-comment">#颜色全局变量</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">drawPieGraphs</span>(<span class="hljs-params">list1,list2,title</span>):<br>    <span class="hljs-keyword">if</span> list1 == <span class="hljs-literal">None</span>:		<span class="hljs-comment">#如果传入参数为空，则直接返回空</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>    plt.rcParams[<span class="hljs-string">&#x27;font.sans-serif&#x27;</span>]=<span class="hljs-string">&#x27;SimHei&#x27;</span>	<span class="hljs-comment">#设置中文显示</span><br>    plt.figure(figsize=(<span class="hljs-number">6</span>,<span class="hljs-number">6</span>))					<span class="hljs-comment">#设置画布大小</span><br>    plt.pie(list2,labels=list1,autopct=<span class="hljs-string">&#x27;%1.1f%%&#x27;</span>,shadow = <span class="hljs-literal">True</span>,colors = colorsFoxconn)						<span class="hljs-comment">#list1为项目名称，list2为数量分布</span><br>    plt.title(title)				<span class="hljs-comment">#加标题</span><br>    posiGraph = <span class="hljs-string">&#x27;./饼状图/&#x27;</span>		  <span class="hljs-comment">#获取保存位置</span><br>    posiGraph +=<span class="hljs-built_in">str</span>(title)			<span class="hljs-comment">#保存名称为“标题.jpg”</span><br>    plt.savefig(posiGraph,dpi = <span class="hljs-number">500</span>)	<span class="hljs-comment">#dpi代表像素，</span><br></code></pre></td></tr></table></figure>
 <p>柱状图的绘制函数如下</p>
