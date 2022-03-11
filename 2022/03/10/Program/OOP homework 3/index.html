@@ -16,23 +16,23 @@
   <meta name="author" content="Tony">
   <meta name="keywords" content="">
   
-    <meta name="description" content="跟着高中母校的学长学姐处理他们 SRT 的绘图工作，第二天具体处理输出图片，包括饼状图、柱状图、词云图、DNA图">
+    <meta name="description" content="面向对象第三次作业，未过截止日期，上传部分文档。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python-Visualization-Graphs">
-<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/03/05/Program/Python-Visualization-Graphs/index.html">
+<meta property="og:title" content="OOP-homework-3">
+<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/03/10/Program/OOP%20homework%203/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="跟着高中母校的学长学姐处理他们 SRT 的绘图工作，第二天具体处理输出图片，包括饼状图、柱状图、词云图、DNA图">
+<meta property="og:description" content="面向对象第三次作业，未过截止日期，上传部分文档。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E7%9F%B3%E4%B8%8E%E9%9B%BE.jpg">
-<meta property="article:published_time" content="2022-03-05T15:57:48.000Z">
-<meta property="article:modified_time" content="2022-03-11T07:32:19.933Z">
+<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E8%9C%BF%E8%9C%92%E6%B2%B3%E6%B5%81.jpg">
+<meta property="article:published_time" content="2022-03-10T14:29:40.000Z">
+<meta property="article:modified_time" content="2022-03-11T07:35:35.983Z">
 <meta property="article:author" content="Tony">
-<meta property="article:tag" content="Python 可视化工作经验">
+<meta property="article:tag" content="面向对象编程作业">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E7%9F%B3%E4%B8%8E%E9%9B%BE.jpg">
+<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E8%9C%BF%E8%9C%92%E6%B2%B3%E6%B5%81.jpg">
   
   
-  <title>Python-Visualization-Graphs - Hexo</title>
+  <title>OOP-homework-3 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -183,12 +183,12 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E7%9F%B3%E4%B8%8E%E9%9B%BE.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/%E8%9C%BF%E8%9C%92%E6%B2%B3%E6%B5%81.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
-          <span id="subtitle" title="Python-Visualization-Graphs">
+          <span id="subtitle" title="OOP-homework-3">
             
           </span>
         </div>
@@ -200,8 +200,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-03-05 23:57" pubdate>
-          2022年3月5日 晚上
+        <time datetime="2022-03-10 22:29" pubdate>
+          2022年3月10日 晚上
         </time>
       </span>
     
@@ -212,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k 字
+          1.1k 字
         
       </span>
     
@@ -223,7 +223,7 @@
         
         
         
-          30 分钟
+          10 分钟
         
       </span>
     
@@ -261,21 +261,27 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Python-Visualization-Graphs</h1>
+            <h1 style="display: none">OOP-homework-3</h1>
             
             <div class="markdown-body">
               
-              <p>从各种库中获取绘制图表的工具</p>
-<p>在第一天获取到每个 <span class="math inline">\(\mbox{sheet}\)</span> 下的每个列表中每个词汇在标题和内容中分别出现的次数后，希望针对这些数据作图，其中饼状图的绘制函数如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#全局颜色变量</span><br>colorsFoxconn = [<span class="hljs-string">&#x27;#FEE9CE&#x27;</span>,<span class="hljs-string">&#x27;#F5D0C7&#x27;</span>,<span class="hljs-string">&#x27;#BEB2BE&#x27;</span>,<span class="hljs-string">&#x27;#6A909D&#x27;</span>,<span class="hljs-string">&#x27;#A8C4E9&#x27;</span>,<span class="hljs-string">&#x27;#DCEDFD&#x27;</span>]	<span class="hljs-comment">#颜色全局变量</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">drawPieGraphs</span>(<span class="hljs-params">list1,list2,title</span>):<br>    <span class="hljs-keyword">if</span> list1 == <span class="hljs-literal">None</span>:		<span class="hljs-comment">#如果传入参数为空，则直接返回空</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>    plt.rcParams[<span class="hljs-string">&#x27;font.sans-serif&#x27;</span>]=<span class="hljs-string">&#x27;SimHei&#x27;</span>	<span class="hljs-comment">#设置中文显示</span><br>    plt.figure(figsize=(<span class="hljs-number">6</span>,<span class="hljs-number">6</span>))					<span class="hljs-comment">#设置画布大小</span><br>    plt.pie(list2,labels=list1,autopct=<span class="hljs-string">&#x27;%1.1f%%&#x27;</span>,shadow = <span class="hljs-literal">True</span>,colors = colorsFoxconn)						<span class="hljs-comment">#list1为项目名称，list2为数量分布</span><br>    plt.title(title)				<span class="hljs-comment">#加标题</span><br>    posiGraph = <span class="hljs-string">&#x27;./饼状图/&#x27;</span>		  <span class="hljs-comment">#获取保存位置</span><br>    posiGraph +=<span class="hljs-built_in">str</span>(title)			<span class="hljs-comment">#保存名称为“标题.jpg”</span><br>    plt.savefig(posiGraph,dpi = <span class="hljs-number">500</span>)	<span class="hljs-comment">#dpi代表像素，</span><br></code></pre></td></tr></table></figure>
-<p>柱状图的绘制函数如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">colorsWarm = [<span class="hljs-string">&#x27;#E09E09&#x27;</span>,<span class="hljs-string">&#x27;#B27A63&#x27;</span>,<span class="hljs-string">&#x27;#DCA77B&#x27;</span>,<span class="hljs-string">&#x27;#BD6C41&#x27;</span>,<span class="hljs-string">&#x27;#C1B585&#x27;</span>,<span class="hljs-string">&#x27;#F0DEAF&#x27;</span>]<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">drawColumnGraphs</span>(<span class="hljs-params">list1,list2,title</span>):<br>    plt.rcParams[<span class="hljs-string">&#x27;font.sans-serif&#x27;</span>]=<span class="hljs-string">&#x27;SimHei&#x27;</span><span class="hljs-comment">#设置中文显示</span><br>    plt.figure(figsize=(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>))<br>    plt.bar(list1,list2,color = colorsWarm,width = <span class="hljs-number">0.66</span>)	<span class="hljs-comment">#柱状图函数调用</span><br>    plt.xticks(list1, list1, rotation = -<span class="hljs-number">55</span>)<span class="hljs-comment">#柱状图X轴标定，rotation为旋转角度</span><br>    plt.title(title)	<span class="hljs-comment">#柱状图标题标定</span><br>    posiGraph = <span class="hljs-string">&#x27;./柱状图/&#x27;</span>	<span class="hljs-comment">#存储路径</span><br>    posiGraph +=<span class="hljs-built_in">str</span>(title)		<span class="hljs-comment">#保存图片名称和标题相同</span><br>    plt.savefig(posiGraph)<br></code></pre></td></tr></table></figure>
-<p>饼状图和柱状图两者都需要按顺序传入<strong>项目名称、数量分布、标题</strong></p>
-<p>其中，为追求美观，需要对原始数据加以计算和修正，将 <span class="math inline">\(5\%-20\%\)</span> 排序靠后的部分归类为“其他”代码部分有些凌乱，掺杂了一些文件导入的操作，以后传入函数的时候还是尽量减少耦合度具体来说，先计算总和，排序后将后面小量汇总为“其他”，但是数量过多或者过少也需要判断，主要针对饼状图而言。</p>
-<p>词云图的绘制函数如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> wordcloud <span class="hljs-keyword">import</span> WordCloud, ImageColorGenerator<br><br><span class="hljs-comment"># 获取颜色map，以便传入绘制词云函数中，设定文字颜色</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">colormap</span>():<br>  <span class="hljs-keyword">return</span> mpl.colors.LinearSegmentedColormap.from_list(<span class="hljs-string">&#x27;cmap&#x27;</span>, [<span class="hljs-string">&quot;#000080&quot;</span>,<span class="hljs-string">&quot;#6495ED&quot;</span>,<span class="hljs-string">&quot;#778899&quot;</span>,<span class="hljs-string">&quot;#76ACF3&quot;</span>,<span class="hljs-string">&quot;#B588BE&quot;</span>], <span class="hljs-number">256</span>)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">draw_cloud</span>():<br>    getdata =   &#123;<span class="hljs-string">&quot;杨倩&quot;</span>: <span class="hljs-number">510</span>,<span class="hljs-string">&quot;孙颖莎&quot;</span>: <span class="hljs-number">292</span>,<span class="hljs-string">&quot;刘诗雯&quot;</span>: <span class="hljs-number">143</span>,<span class="hljs-string">&quot;许昕&quot;</span>: <span class="hljs-number">173</span>,<span class="hljs-string">&quot;马龙&quot;</span>: <span class="hljs-number">466</span>,<span class="hljs-string">&quot;樊振东&quot;</span>: <span class="hljs-number">298</span>,<span class="hljs-string">&quot;王曼昱&quot;</span>: <span class="hljs-number">153</span>,<span class="hljs-string">&quot;昕雯&quot;</span>: <span class="hljs-number">19</span>,<span class="hljs-string">&quot;中国跳水队&quot;</span>: <span class="hljs-number">120</span>,<span class="hljs-string">&quot;体育&quot;</span>: <span class="hljs-number">15373</span>,<span class="hljs-string">&quot;孫亜楠&quot;</span>: <span class="hljs-number">13</span>,<span class="hljs-string">&quot;全紅嬋&quot;</span>: <span class="hljs-number">11</span>,&#125;	<span class="hljs-comment">#给定词频或者通过计算得到词频字典（使用Counter计数器）</span><br>    image = Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;background.png&#x27;</span>)  <span class="hljs-comment"># 设置背景轮廓图（在代码所在文件夹）</span><br>    graph = np.array(image)<br>    wc = WordCloud(width = <span class="hljs-number">1400</span>,height = <span class="hljs-number">800</span>,collocations=<span class="hljs-literal">False</span>,margin=<span class="hljs-number">2</span>,font_path = <span class="hljs-string">&#x27;simkai.ttf&#x27;</span>, background_color =<span class="hljs-string">&#x27;white&#x27;</span>,min_font_size = <span class="hljs-number">0</span>,max_font_size = <span class="hljs-number">2000</span>,mask = mask, max_words = <span class="hljs-number">1000</span>,colormap = colormap())<span class="hljs-comment">#大小、指定字体、背景颜色、字号、颜色map</span><br>    wc.generate_from_frequencies(getdata)  <span class="hljs-comment"># 根据给定词频生成词云</span><br>    image_color = ImageColorGenerator(graph)<br>    plt.imshow(wc)<br>    plt.axis(<span class="hljs-string">&quot;off&quot;</span>)  <span class="hljs-comment"># 不显示坐标轴</span><br>    wc.to_file(<span class="hljs-string">&#x27;图片名称.png&#x27;</span>)  <span class="hljs-comment"># 图片命名</span><br>    file = <span class="hljs-string">r&quot;C:\Users\liuy\Desktop\存放的文件夹&quot;</span><br>    name = <span class="hljs-string">&quot;\图片名称&quot;</span><br>    plt.savefig(file + name)<br></code></pre></td></tr></table></figure>
-<p><span class="math inline">\(\mbox{DNA}\)</span> 图表代码如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">draw</span>(<span class="hljs-params">title,tempJson</span>):<br>    numOfObjects = <span class="hljs-built_in">len</span>(tempJson)<br>    fig1 = plt.figure()<br>    ax1 = fig1.add_subplot(<span class="hljs-number">111</span>)<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-built_in">len</span>(tempJson)):<br>        <span class="hljs-keyword">if</span>(tempJson[j] == <span class="hljs-literal">None</span>):<br>            numOfObjects -= <span class="hljs-number">1</span><br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-built_in">max</span> = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> tempJson[j]:<br>            <span class="hljs-keyword">if</span> tempJson[j][key] &gt; <span class="hljs-built_in">max</span>:<br>                <span class="hljs-built_in">max</span> = tempJson[j][key]<br>        <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> tempJson[j]:<br>            validFrequency = tempJson[j][key]<br>            posiX = findSection(<span class="hljs-built_in">int</span>(key),yearPoint) / <span class="hljs-number">2.5</span><br>            posiXAll = []<br>            <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-number">7</span>):<br>                posiXAll.append((findSection(yearPoint[<span class="hljs-number">5</span> *k],yearPoint)) / <span class="hljs-number">2.5</span>)<br>            plt.xticks(posiXAll, showData)<br>            rect = plt.Rectangle((posiX, <span class="hljs-number">2</span> + <span class="hljs-number">3.0</span> * (numOfObjects - j)), <span class="hljs-number">0.6</span>, <span class="hljs-number">0.8</span>, color = <span class="hljs-string">&#x27;#00CED1&#x27;</span>,alpha = validFrequency / <span class="hljs-built_in">max</span>)<br>            ax1.add_patch(rect)<br>    posiYAll = []<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-built_in">len</span>(tempJson)):<br>        posiYAll.append(<span class="hljs-number">2</span> + <span class="hljs-number">3</span> * (numOfObjects - j))<br>    plt.yticks(posiYAll,allObjects[i],fontsize = <span class="hljs-number">7</span>)<br>    plt.xlim(<span class="hljs-number">0</span>,<span class="hljs-number">12</span>)<br>    plt.ylim(<span class="hljs-number">0</span>,<span class="hljs-number">4</span> * numOfObjects)<br>    titleName = title + <span class="hljs-string">&quot;报道趋势图&quot;</span><br>    plt.title(titleName)<br>    plt.savefig(<span class="hljs-string">r&quot;C:\Users\liuy\Desktop\DNA图片&quot;</span> + <span class="hljs-string">&quot;\\&quot;</span> + titleName + <span class="hljs-string">&quot;.png&quot;</span>)<br><br></code></pre></td></tr></table></figure>
+              <h1 id="面向对象编程第三次作业">面向对象编程第三次作业</h1>
+<p><strong>Object-Oriented Programming <span class="math inline">\(\bullet\)</span> Homework <span class="math inline">\(\mathbf{3}\)</span></strong></p>
+<p>本次作业报告从模型、验证、分析三个方面，使用<span class="math inline">\(\mbox{Visual Studio 2022}\)</span>编写具有面向对象特性的<span class="math inline">\(\mbox{C++}\)</span>程序，使用继承和组合两种<span class="math inline">\(\mbox{C++}\)</span>面向对象特性，编写了七个类。</p>
+<p>使用单元测试，测算各种图形类中计算周长和面积公式是否正确，使用开源轻量级代码<span class="math inline">\(\mbox{&lt;doctest.h&gt;}\)</span>，采用循环和随机数两种方法判定计算公式，结果在<span class="math inline">\(&lt;10^{-10}\)</span>的误差范围内通过。<br />
+</p>
+<p><strong>关键词</strong>: 继承;组合;图形计算;单元测试</p>
+<h2 id="模型">模型</h2>
+<h3 id="多边形计算">多边形计算</h3>
+<p>针对一般情况（下图为<span class="math inline">\(n=5\)</span>的实例），边长为<span class="math inline">\(l\)</span>的正<span class="math inline">\(n\)</span>多边形，显然周长为边长的<span class="math inline">\(n\)</span>倍，即<span class="math inline">\(C=nl\)</span>。而对于面积<span class="math inline">\(S_\triangle =\dfrac{1}{2}\cdot l\cdot \dfrac{l}{2\tan (\frac{\pi}{n})}=\dfrac{l^2}{4\tan (\frac{\pi}{n})}\)</span>，则正多边形面积为<span class="math inline">\(S=\dfrac{1}{4}n\cot \dfrac{\pi}{n}\cdot l^2\)</span></p>
+<p><img src="https://pic.imgdb.cn/item/622af9d75baa1a80abd271e1.jpg" srcset="/img/loading.gif" lazyload style="zoom:25%;" /></p>
+<p>而对于圆有熟知的周长<span class="math inline">\(C=2\pi r\)</span>，面积<span class="math inline">\(S=\pi r^2\)</span>。</p>
+<h3 id="继承">继承</h3>
+<p>对于正三角形、正方形、正五边形、正六边形、圆，都可以看作正多边形（圆是一种特殊的正多边形），从而设计父类<span class="math inline">\(\mbox{&lt;polygon.h&gt;}\)</span>，而另外五种几何对象都可以看作正多边形的特殊类，从而另外五种几何对象使用继承的语法，如正三角形的类定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">triangle</span> :<span class="hljs-keyword">public</span> polygon &#123;<br>    <span class="hljs-keyword">public</span>:<br>        <span class="hljs-built_in">triangle</span>() : <span class="hljs-built_in">polygon</span>(<span class="hljs-number">3</span>, <span class="hljs-number">0</span>) &#123;&#125;<br>        <span class="hljs-built_in">triangle</span>(<span class="hljs-type">double</span> l);<br>        ~<span class="hljs-built_in">triangle</span>() &#123;&#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>其中委托<span class="math inline">\(\mbox{polygon}\)</span>中的构造函数，并规定边长数为<span class="math inline">\(3\)</span>，在<span class="math inline">\(\mbox{triangle}\)</span>的另一种构造函数中传入边长长度参数，该正三角形确定，从而在该构造函数中，调用<span class="math inline">\(\mbox{polygon.h}\)</span>中计算周长和面积函数将该正三角形确定并输出其周长和面积，其余正多边形的构造基本一样，圆规定边长数目为<span class="math inline">\(-1\)</span>，便于与其他多边形分开，其余代码与正三角形的代码类似。</p>
+<p>父类<span class="math inline">\(\mbox{&lt;polygon.h&gt;}\)</span>的声明见下，其中使用指针字符串输出对应类型，使用上述方法计算周长和面积。</p>
+<p>......</p>
 
               
             </div>
@@ -293,12 +299,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="category-chain-item">作业</a>
   
   
     <span>></span>
     
-  <a href="/categories/Python/%E5%8F%AF%E8%A7%86%E5%8C%96/" class="category-chain-item">可视化</a>
+  <a href="/categories/%E4%BD%9C%E4%B8%9A/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" class="category-chain-item">面向对象编程</a>
   
   
 
@@ -315,7 +321,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Python-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/">#Python 可视化工作经验</a>
+        <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E4%BD%9C%E4%B8%9A/">#面向对象编程作业</a>
       
     </div>
   
@@ -327,8 +333,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Python-Visualization-Graphs</div>
-      <div>https://lr-tsinghua11.github.io/2022/03/05/Program/Python-Visualization-Graphs/</div>
+      <div>OOP-homework-3</div>
+      <div>https://lr-tsinghua11.github.io/2022/03/10/Program/OOP%20homework%203/</div>
     </div>
     <div class="license-meta">
       
@@ -340,7 +346,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年3月5日</div>
+          <div>2022年3月10日</div>
         </div>
       
       
@@ -370,18 +376,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/06/Program/OOP%20Homework%202/" title="OOP-Homework-2">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">OOP-Homework-2</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/04/%E5%A4%A7%E9%A3%8E%E8%B5%B7%E5%85%AE%E4%BA%91%E9%A3%9E%E6%89%AC/" title="大风起兮云风扬">
-                        <span class="hidden-mobile">大风起兮云风扬</span>
+                      <a href="/2022/03/09/Math/Calculus/Calculus%20A2%20homework%20second/" title="Calculus-A2-homework second">
+                        <span class="hidden-mobile">Calculus-A2-homework second</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

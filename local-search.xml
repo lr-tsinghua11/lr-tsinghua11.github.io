@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>OOP-homework-3</title>
+    <link href="/2022/03/10/Program/OOP%20homework%203/"/>
+    <url>/2022/03/10/Program/OOP%20homework%203/</url>
+    
+    <content type="html"><![CDATA[<h1 id="面向对象编程第三次作业">面向对象编程第三次作业</h1><p><strong>Object-Oriented Programming <span class="math inline">\(\bullet\)</span> Homework <span class="math inline">\(\mathbf{3}\)</span></strong></p><p>本次作业报告从模型、验证、分析三个方面，使用<span class="math inline">\(\mbox{Visual Studio 2022}\)</span>编写具有面向对象特性的<span class="math inline">\(\mbox{C++}\)</span>程序，使用继承和组合两种<span class="math inline">\(\mbox{C++}\)</span>面向对象特性，编写了七个类。</p><p>使用单元测试，测算各种图形类中计算周长和面积公式是否正确，使用开源轻量级代码<span class="math inline">\(\mbox{&lt;doctest.h&gt;}\)</span>，采用循环和随机数两种方法判定计算公式，结果在<span class="math inline">\(&lt;10^{-10}\)</span>的误差范围内通过。<br /></p><p><strong>关键词</strong>: 继承;组合;图形计算;单元测试</p><h2 id="模型">模型</h2><h3 id="多边形计算">多边形计算</h3><p>针对一般情况（下图为<span class="math inline">\(n=5\)</span>的实例），边长为<span class="math inline">\(l\)</span>的正<span class="math inline">\(n\)</span>多边形，显然周长为边长的<span class="math inline">\(n\)</span>倍，即<span class="math inline">\(C=nl\)</span>。而对于面积<span class="math inline">\(S_\triangle =\dfrac{1}{2}\cdot l\cdot \dfrac{l}{2\tan (\frac{\pi}{n})}=\dfrac{l^2}{4\tan (\frac{\pi}{n})}\)</span>，则正多边形面积为<span class="math inline">\(S=\dfrac{1}{4}n\cot \dfrac{\pi}{n}\cdot l^2\)</span></p><p><img src="https://pic.imgdb.cn/item/622af9d75baa1a80abd271e1.jpg" style="zoom:25%;" /></p><p>而对于圆有熟知的周长<span class="math inline">\(C=2\pi r\)</span>，面积<span class="math inline">\(S=\pi r^2\)</span>。</p><h3 id="继承">继承</h3><p>对于正三角形、正方形、正五边形、正六边形、圆，都可以看作正多边形（圆是一种特殊的正多边形），从而设计父类<span class="math inline">\(\mbox{&lt;polygon.h&gt;}\)</span>，而另外五种几何对象都可以看作正多边形的特殊类，从而另外五种几何对象使用继承的语法，如正三角形的类定义如下：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">triangle</span> :<span class="hljs-keyword">public</span> polygon &#123;<br>    <span class="hljs-keyword">public</span>:<br>        <span class="hljs-built_in">triangle</span>() : <span class="hljs-built_in">polygon</span>(<span class="hljs-number">3</span>, <span class="hljs-number">0</span>) &#123;&#125;<br>        <span class="hljs-built_in">triangle</span>(<span class="hljs-type">double</span> l);<br>        ~<span class="hljs-built_in">triangle</span>() &#123;&#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>其中委托<span class="math inline">\(\mbox{polygon}\)</span>中的构造函数，并规定边长数为<span class="math inline">\(3\)</span>，在<span class="math inline">\(\mbox{triangle}\)</span>的另一种构造函数中传入边长长度参数，该正三角形确定，从而在该构造函数中，调用<span class="math inline">\(\mbox{polygon.h}\)</span>中计算周长和面积函数将该正三角形确定并输出其周长和面积，其余正多边形的构造基本一样，圆规定边长数目为<span class="math inline">\(-1\)</span>，便于与其他多边形分开，其余代码与正三角形的代码类似。</p><p>父类<span class="math inline">\(\mbox{&lt;polygon.h&gt;}\)</span>的声明见下，其中使用指针字符串输出对应类型，使用上述方法计算周长和面积。</p><p>......</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>作业</category>
+      
+      <category>面向对象编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面向对象编程作业</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Calculus-A2-homework second</title>
     <link href="/2022/03/09/Math/Calculus/Calculus%20A2%20homework%20second/"/>
     <url>/2022/03/09/Math/Calculus/Calculus%20A2%20homework%20second/</url>
@@ -112,7 +139,7 @@
   
   
   <entry>
-    <title>Python-Visualization</title>
+    <title>Python-Visualization-Graphs</title>
     <link href="/2022/03/05/Program/Python-Visualization-Graphs/"/>
     <url>/2022/03/05/Program/Python-Visualization-Graphs/</url>
     
