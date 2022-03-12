@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Complex matrix (Chapter 1)</title>
+    <link href="/2022/03/12/Math/Advanced%20Linear%20Algebra/Complex%20matrix%EF%BC%88Chapter%201%EF%BC%89/"/>
+    <url>/2022/03/12/Math/Advanced%20Linear%20Algebra/Complex%20matrix%EF%BC%88Chapter%201%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h1 id="高等代数选讲第一章笔记">高等代数选讲第一章笔记</h1><h2 id="复矩阵的表示">复矩阵的表示</h2><p>令 <span class="math inline">\(A=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span>，有 <span class="math inline">\(A^2=-I\)</span>，形式化地定义 <span class="math inline">\(a+bi=\begin{bmatrix}a&amp;-b\\b&amp;a\end{bmatrix}\)</span></p><p>满足复数运算的一些性质，例如 <span class="math inline">\(\left[\begin{array}{cc}2 &amp; -3 \\3 &amp; 2 \end{array}\right]\left[\begin{array}{cc}4 &amp; -1 \\1 &amp; 4\end{array}\right]=(2 I+3 A)(4 I+A)=5 I+14 A\)</span></p><p>《从一到无穷大》中有趣的例子：在一个小岛上，从任意起点出发，先走 <span class="math inline">\(x\)</span> 长度到固定点楼房 <span class="math inline">\(A\)</span>，然后右转走 <span class="math inline">\(x\)</span> 长度到 <span class="math inline">\(A&#39;\)</span>，再从起点走 <span class="math inline">\(y\)</span> 长度到固定点雕像 <span class="math inline">\(B\)</span>，然后左转走 <span class="math inline">\(y\)</span> 长度到 <span class="math inline">\(B&#39;\)</span>，取 <span class="math inline">\(A&#39;\)</span> 和 <span class="math inline">\(B&#39;\)</span> 中点为宝藏位置，证明该位置与起点无关。 <span class="math display">\[\begin{gathered}\mbox{Prf}:\text 设起点为\ Z,\ 任取原点构建复平面，有方程\begin{cases}A&#39;-A=-i(A-Z)\\B&#39;-B=i(B-Z)\end{cases}\\\therefore P_{treasure}=\dfrac{A&#39;+B&#39;}{2}=\dfrac{1}{2}(A+B)+\dfrac{i}{2}(B-A)=\mbox{Const}\end{gathered}\]</span></p><h2 id="复正交">“复”正交</h2><p>定义复向量 <span class="math inline">\(\vec{v}\)</span> 和 <span class="math inline">\(\vec{w}\)</span> 点乘为 <span class="math inline">\(0\)</span> 时为其每个分量按照 <span class="math inline">\(a+bi=\begin{bmatrix}a&amp;-b\\b&amp;a\end{bmatrix}\)</span> 方式展开得到 <span class="math inline">\(A,B\)</span> 使得 <span class="math display">\[\begin{bmatrix}0&amp;0\\0&amp;0\end{bmatrix}=A^TB=\begin{bmatrix}a_1&#39;&amp; b_1&#39;&amp;a_2&#39;&amp;b_2&#39;&amp;\cdots &amp;a_n&#39;&amp;b_n&#39;\\-b_1&#39;&amp; a_1&#39;&amp;-b_2&#39;&amp;a_2&#39;&amp;\cdots &amp;-b_n&#39;&amp;a_n&#39;\end{bmatrix}\begin{bmatrix}a_1&amp; -b_1\\b_1&amp;a_1\\\vdots&amp;\vdots\\a_n&amp;-b_n\\b_n&amp;a_n\end{bmatrix}\]</span> 对应 <span class="math inline">\(\vec{v}=\begin{bmatrix}a_1&#39;+ib_1&#39;\\a_2&#39;+ib_2&#39;\\\vdots\\a_n&#39;+ib_n&#39;\end{bmatrix}\)</span> , <span class="math inline">\(\vec{w}=\begin{bmatrix}a_1 +ib_1 \\a_2 +ib_2 \\\vdots\\a_n +ib_n \end{bmatrix}\)</span> 可知 <span class="math inline">\(A^{T}B=0\Longleftrightarrow \bar{\boldsymbol v}^{T}\boldsymbol w=0\)</span></p><p>即<strong>复向量正交</strong>等价于其中一个向量的共轭“点乘”另一向量为 <span class="math inline">\(0\)</span>，如 <span class="math inline">\((1,i)^{T}\)</span> 和 <span class="math inline">\((1,-i)^{T}\)</span></p><p>则定义<strong>复向量的点乘</strong> <span class="math inline">\(\langle\vec{v},\vec{w}\rangle =\bar{\vec{v}}^{T}\vec{w}\)</span>，定义共轭转置 <span class="math inline">\(A^*:=\bar{A}^{T}\)</span></p><p>对复矩阵 <span class="math inline">\(A\in \mathbb{C}_{m\times n}\)</span>，有 <span class="math inline">\(\mbox{Ran}(A)\)</span> 和 <span class="math inline">\(\mbox{Ker}(A^*)\)</span> 相互正交（取元素 <span class="math inline">\(\vec{b}_1\)</span> 和 <span class="math inline">\(\vec{b}_2\)</span> 易证）</p><p>定义<strong>厄米矩阵</strong>：<span class="math inline">\(A=A^{*}\)</span>，如 <span class="math inline">\(A=\left(\begin{array}{cc} 1 &amp; 2+\mathrm{i} \\ 2-\mathrm{i} &amp; 3 \end{array}\right)\)</span>，特征值为实数，特征向量正交</p><p>特征值为实： <span class="math inline">\(\bar{\vec{x}}^{T}A\vec{x}=\lambda\|\vec{x}\|^{2}=(A^T\bar{\vec{x}})^{T}\vec{x}=(\bar{A}\bar{\vec{x}})^{T}\vec{x}=(\bar{\lambda}\bar{\vec{x}})^{T}\vec{x}=\bar{\lambda}\|\vec{x}\|^{2}\Longrightarrow \lambda\in R\)</span></p><p>特征向量正交：令 <span class="math inline">\(A\vec{x}_1=\lambda_1\vec{x}_1,A\vec{x}_2=\lambda_2\vec{x}_2,\lambda_1\neq \lambda_2\)</span> <span class="math display">\[\bar{\vec{x}}_2^TA\vec{x}_1=\lambda_1\langle \vec{x}_2,\vec{x}_1\rangle=(A^{T}\bar{\vec{x}}_2)^{T}\vec{x}_1=(\bar{A}\bar{\vec{x}}_2)^{T}\vec{x}_1=\lambda_2\langle \vec{x}_2,\vec{x}_1\rangle\Longrightarrow \langle \vec{x}_2,\vec{x}_1\rangle=0\]</span> 定义<strong>反厄米矩阵</strong>：<span class="math inline">\(A=-A^*\)</span>，如 <span class="math inline">\(A=\left(\begin{array}{cc} 0 &amp; 2+\mathrm{i} \\ -2+\mathrm{i} &amp; 0 \end{array}\right)\)</span>，特征值为纯虚数，特征向量正交</p><p>（证明同上，前者加入负号使得 <span class="math inline">\(\lambda=-\bar\lambda\)</span>，后者两次负号后依然为正，<span class="math inline">\(\langle \vec{x}_2,\vec{x}_1\rangle=0\)</span>）</p><p>定义<strong>幺正矩阵</strong>（<strong>酉矩阵</strong>）：<span class="math inline">\(A^{-1}=A^{*}\)</span> ，仿照上述方法有 <span class="math inline">\(\lambda\|\vec{x}\|^2=\dfrac{1}{\bar\lambda}\|\vec{x}\|^2\)</span> ，则 <span class="math inline">\(|\lambda|=1\)</span>。</p><p>特征向量正交，幺正矩阵对应不变内积的变换（称为<strong>酉变换</strong>） <span class="math inline">\(\langle \vec{x}_2,\vec{x}_1\rangle=\langle A\vec{x}_2,A\vec{x}_1\rangle\)</span></p><p>定义<strong>正规矩阵</strong>：<span class="math inline">\(AA^*=A^*A\)</span>，将上述矩阵以及对角、实对称、实反对称、正交等矩阵统一其相同的性质 <span class="math inline">\(AA^*=A^*A\)</span></p><h2 id="傅里叶矩阵">傅里叶矩阵</h2><p>单位根 <span class="math inline">\(\omega_n=e^{i\frac{2\pi}{n}}\)</span>，定义傅里叶矩阵 <span class="math inline">\(F_{n}=\begin{pmatrix}1&amp;1&amp;\cdots&amp;1\\1&amp;\omega&amp;\cdots&amp;\omega^{n-1}\\1&amp;\omega^2&amp;\cdots&amp;\omega^{2(n-1)}\\\vdots&amp;\vdots&amp;&amp;\vdots\\1&amp;\omega^{n-1}&amp;\cdots&amp;\omega^{(n-1)^2}\end{pmatrix}\)</span>，为对称阵</p><p>由于 <span class="math inline">\(F_n\)</span> 对角非实，其不是厄米矩阵，该矩阵总满足 <span class="math inline">\(\overline{F_n}F_n=nI\)</span>，对应行列求和有 <span class="math display">\[\displaystyle \sum_{k=1}^{n}\overline{\omega^{ki}}\omega^{kj}=\sum_{k=1}^{n}\omega^{2\pi+k(j-i)}=\begin{cases}\displaystyle\sum_{i=0}^{n}1=n&amp;i=j\\\dfrac{\omega^{j-i}(1-\omega^{n(j-i)} )}{1-\omega^{j-i}}=0&amp;i\neq j\end{cases}\]</span> 令 <span class="math inline">\(F&#39;=\dfrac{F_n}{\sqrt{n}}\)</span> 则有 <span class="math inline">\(\overline{F&#39;}F&#39;=\dfrac{\overline{F}_nF_n}{n}=I\)</span>，<span class="math inline">\(F&#39;=\dfrac{F_n}{\sqrt{n}}\)</span> 为幺正矩阵</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+      <category>高等代数选讲</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>高等代数选讲笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Calculus_A2_notes_Chapter_three（WXF）</title>
     <link href="/2022/03/11/Math/Calculus/Calculus%20A2%20notes%EF%BC%88Chapter%20four%EF%BC%89/"/>
     <url>/2022/03/11/Math/Calculus/Calculus%20A2%20notes%EF%BC%88Chapter%20four%EF%BC%89/</url>
