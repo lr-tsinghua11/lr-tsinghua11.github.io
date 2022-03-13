@@ -16,23 +16,23 @@
   <meta name="author" content="Tony">
   <meta name="keywords" content="">
   
-    <meta name="description" content="鸽了很久的高代笔记周末终于有时间整理一下，顺便植树节快乐！">
+    <meta name="description" content="博客建成三周随想，第三周学习生活的一些总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Complex matrix (Chapter 1)">
-<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/03/12/Math/Advanced%20Linear%20Algebra/Complex%20matrix%EF%BC%88Chapter%201%EF%BC%89/index.html">
+<meta property="og:title" content="Thoughts on the third week of blog building">
+<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/03/13/Thoughts%20on%20the%20third%20week%20of%20blog%20building/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="鸽了很久的高代笔记周末终于有时间整理一下，顺便植树节快乐！">
+<meta property="og:description" content="博客建成三周随想，第三周学习生活的一些总结">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E7%A7%80%E4%B8%BD%E5%B1%B1%E5%B7%9D.jpg">
-<meta property="article:published_time" content="2022-03-12T13:17:28.000Z">
-<meta property="article:modified_time" content="2022-03-12T16:24:46.143Z">
+<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E5%86%9C%E7%94%B0%E5%B0%8F%E9%81%93.jpg">
+<meta property="article:published_time" content="2022-03-13T15:01:17.000Z">
+<meta property="article:modified_time" content="2022-03-13T09:55:42.189Z">
 <meta property="article:author" content="Tony">
-<meta property="article:tag" content="高等代数选讲笔记">
+<meta property="article:tag" content="博客建成三周随想">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E7%A7%80%E4%B8%BD%E5%B1%B1%E5%B7%9D.jpg">
+<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E5%86%9C%E7%94%B0%E5%B0%8F%E9%81%93.jpg">
   
   
-  <title>Complex matrix (Chapter 1) - Hexo</title>
+  <title>Thoughts on the third week of blog building - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -183,12 +183,12 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E7%A7%80%E4%B8%BD%E5%B1%B1%E5%B7%9D.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/%E5%86%9C%E7%94%B0%E5%B0%8F%E9%81%93.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
-          <span id="subtitle" title="Complex matrix (Chapter 1)">
+          <span id="subtitle" title="Thoughts on the third week of blog building">
             
           </span>
         </div>
@@ -200,8 +200,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-03-12 21:17" pubdate>
-          2022年3月12日 晚上
+        <time datetime="2022-03-13 23:01" pubdate>
+          2022年3月13日 晚上
         </time>
       </span>
     
@@ -212,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.6k 字
+          448 字
         
       </span>
     
@@ -223,7 +223,7 @@
         
         
         
-          30 分钟
+          4 分钟
         
       </span>
     
@@ -261,41 +261,26 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Complex matrix (Chapter 1)</h1>
+            <h1 style="display: none">Thoughts on the third week of blog building</h1>
             
             <div class="markdown-body">
               
-              <h1 id="高等代数选讲第一章笔记">高等代数选讲第一章笔记</h1>
-<h2 id="复矩阵的表示">复矩阵的表示</h2>
-<p>令 <span class="math inline">\(A=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span>，有 <span class="math inline">\(A^2=-I\)</span>，形式化地定义 <span class="math inline">\(a+bi=\begin{bmatrix}a&amp;-b\\b&amp;a\end{bmatrix}\)</span></p>
-<p>满足复数运算的一些性质，例如 <span class="math inline">\(\left[\begin{array}{cc}2 &amp; -3 \\3 &amp; 2 \end{array}\right]\left[\begin{array}{cc}4 &amp; -1 \\1 &amp; 4\end{array}\right]=(2 I+3 A)(4 I+A)=5 I+14 A\)</span></p>
-<p>《从一到无穷大》中有趣的例子：在一个小岛上，从任意起点出发，先走 <span class="math inline">\(x\)</span> 长度到固定点楼房 <span class="math inline">\(A\)</span>，然后右转走 <span class="math inline">\(x\)</span> 长度到 <span class="math inline">\(A&#39;\)</span>，再从起点走 <span class="math inline">\(y\)</span> 长度到固定点雕像 <span class="math inline">\(B\)</span>，然后左转走 <span class="math inline">\(y\)</span> 长度到 <span class="math inline">\(B&#39;\)</span>，取 <span class="math inline">\(A&#39;\)</span> 和 <span class="math inline">\(B&#39;\)</span> 中点为宝藏位置，证明该位置与起点无关。 <span class="math display">\[
-\begin{gathered}
-\mbox{Prf}:\text 设起点为\ Z,\ 任取原点构建复平面，有方程\begin{cases}A&#39;-A=-i(A-Z)\\B&#39;-B=i(B-Z)\end{cases}\\
-\therefore P_{treasure}=\dfrac{A&#39;+B&#39;}{2}=\dfrac{1}{2}(A+B)+\dfrac{i}{2}(B-A)=\mbox{Const}
-\end{gathered}
-\]</span></p>
-<h2 id="复正交">“复”正交</h2>
-<p>定义复向量 <span class="math inline">\(\vec{v}\)</span> 和 <span class="math inline">\(\vec{w}\)</span> 点乘为 <span class="math inline">\(0\)</span> 时为其每个分量按照 <span class="math inline">\(a+bi=\begin{bmatrix}a&amp;-b\\b&amp;a\end{bmatrix}\)</span> 方式展开得到 <span class="math inline">\(A,B\)</span> 使得 <span class="math display">\[
-\begin{bmatrix}0&amp;0\\0&amp;0\end{bmatrix}=A^TB=\begin{bmatrix}a_1&#39;&amp; b_1&#39;&amp;a_2&#39;&amp;b_2&#39;&amp;\cdots &amp;a_n&#39;&amp;b_n&#39;\\-b_1&#39;&amp; a_1&#39;&amp;-b_2&#39;&amp;a_2&#39;&amp;\cdots &amp;-b_n&#39;&amp;a_n&#39;\end{bmatrix}\begin{bmatrix}a_1&amp; -b_1\\b_1&amp;a_1\\\vdots&amp;\vdots\\a_n&amp;-b_n\\b_n&amp;a_n\end{bmatrix}
-\]</span> 对应 <span class="math inline">\(\vec{v}=\begin{bmatrix}a_1&#39;+ib_1&#39;\\a_2&#39;+ib_2&#39;\\\vdots\\a_n&#39;+ib_n&#39;\end{bmatrix}\)</span> , <span class="math inline">\(\vec{w}=\begin{bmatrix}a_1 +ib_1 \\a_2 +ib_2 \\\vdots\\a_n +ib_n \end{bmatrix}\)</span> 可知 <span class="math inline">\(A^{T}B=0\Longleftrightarrow \bar{\boldsymbol v}^{T}\boldsymbol w=0\)</span></p>
-<p>即<strong>复向量正交</strong>等价于其中一个向量的共轭“点乘”另一向量为 <span class="math inline">\(0\)</span>，如 <span class="math inline">\((1,i)^{T}\)</span> 和 <span class="math inline">\((1,-i)^{T}\)</span></p>
-<p>则定义<strong>复向量的点乘</strong> <span class="math inline">\(\langle\vec{v},\vec{w}\rangle =\bar{\vec{v}}^{T}\vec{w}\)</span>，定义共轭转置 <span class="math inline">\(A^*:=\bar{A}^{T}\)</span></p>
-<p>对复矩阵 <span class="math inline">\(A\in \mathbb{C}_{m\times n}\)</span>，有 <span class="math inline">\(\mbox{Ran}(A)\)</span> 和 <span class="math inline">\(\mbox{Ker}(A^*)\)</span> 相互正交（取元素 <span class="math inline">\(\vec{b}_1\)</span> 和 <span class="math inline">\(\vec{b}_2\)</span> 易证）</p>
-<p>定义<strong>厄米矩阵</strong>：<span class="math inline">\(A=A^{*}\)</span>，如 <span class="math inline">\(A=\left(\begin{array}{cc} 1 &amp; 2+\mathrm{i} \\ 2-\mathrm{i} &amp; 3 \end{array}\right)\)</span>，特征值为实数，特征向量正交</p>
-<p>特征值为实： <span class="math inline">\(\bar{\vec{x}}^{T}A\vec{x}=\lambda\|\vec{x}\|^{2}=(A^T\bar{\vec{x}})^{T}\vec{x}=(\bar{A}\bar{\vec{x}})^{T}\vec{x}=(\bar{\lambda}\bar{\vec{x}})^{T}\vec{x}=\bar{\lambda}\|\vec{x}\|^{2}\Longrightarrow \lambda\in R\)</span></p>
-<p>特征向量正交：令 <span class="math inline">\(A\vec{x}_1=\lambda_1\vec{x}_1,A\vec{x}_2=\lambda_2\vec{x}_2,\lambda_1\neq \lambda_2\)</span> <span class="math display">\[
-\bar{\vec{x}}_2^TA\vec{x}_1=\lambda_1\langle \vec{x}_2,\vec{x}_1\rangle=(A^{T}\bar{\vec{x}}_2)^{T}\vec{x}_1=(\bar{A}\bar{\vec{x}}_2)^{T}\vec{x}_1=\lambda_2\langle \vec{x}_2,\vec{x}_1\rangle\Longrightarrow \langle \vec{x}_2,\vec{x}_1\rangle=0
-\]</span> 定义<strong>反厄米矩阵</strong>：<span class="math inline">\(A=-A^*\)</span>，如 <span class="math inline">\(A=\left(\begin{array}{cc} 0 &amp; 2+\mathrm{i} \\ -2+\mathrm{i} &amp; 0 \end{array}\right)\)</span>，特征值为纯虚数，特征向量正交</p>
-<p>（证明同上，前者加入负号使得 <span class="math inline">\(\lambda=-\bar\lambda\)</span>，后者两次负号后依然为正，<span class="math inline">\(\langle \vec{x}_2,\vec{x}_1\rangle=0\)</span>）</p>
-<p>定义<strong>幺正矩阵</strong>（<strong>酉矩阵</strong>）：<span class="math inline">\(A^{-1}=A^{*}\)</span> ，仿照上述方法有 <span class="math inline">\(\lambda\|\vec{x}\|^2=\dfrac{1}{\bar\lambda}\|\vec{x}\|^2\)</span> ，则 <span class="math inline">\(|\lambda|=1\)</span>。</p>
-<p>特征向量正交，幺正矩阵对应不变内积的变换（称为<strong>酉变换</strong>） <span class="math inline">\(\langle \vec{x}_2,\vec{x}_1\rangle=\langle A\vec{x}_2,A\vec{x}_1\rangle\)</span></p>
-<p>定义<strong>正规矩阵</strong>：<span class="math inline">\(AA^*=A^*A\)</span>，将上述矩阵以及对角、实对称、实反对称、正交等矩阵统一其相同的性质 <span class="math inline">\(AA^*=A^*A\)</span></p>
-<h2 id="傅里叶矩阵">傅里叶矩阵</h2>
-<p>单位根 <span class="math inline">\(\omega_n=e^{i\frac{2\pi}{n}}\)</span>，定义傅里叶矩阵 <span class="math inline">\(F_{n}=\begin{pmatrix}1&amp;1&amp;\cdots&amp;1\\1&amp;\omega&amp;\cdots&amp;\omega^{n-1}\\1&amp;\omega^2&amp;\cdots&amp;\omega^{2(n-1)}\\\vdots&amp;\vdots&amp;&amp;\vdots\\1&amp;\omega^{n-1}&amp;\cdots&amp;\omega^{(n-1)^2}\end{pmatrix}\)</span>，为对称阵</p>
-<p>由于 <span class="math inline">\(F_n\)</span> 对角非实，其不是厄米矩阵，该矩阵总满足 <span class="math inline">\(\overline{F_n}F_n=nI\)</span>，对应行列求和有 <span class="math display">\[
-\displaystyle \sum_{k=1}^{n}\overline{\omega^{ki}}\omega^{kj}=\sum_{k=1}^{n}\omega^{2\pi+k(j-i)}=\begin{cases}\displaystyle\sum_{i=0}^{n}1=n&amp;i=j\\\dfrac{\omega^{j-i}(1-\omega^{n(j-i)} )}{1-\omega^{j-i}}=0&amp;i\neq j\end{cases}
-\]</span> 令 <span class="math inline">\(F&#39;=\dfrac{F_n}{\sqrt{n}}\)</span> 则有 <span class="math inline">\(\overline{F&#39;}F&#39;=\dfrac{\overline{F}_nF_n}{n}=I\)</span>，<span class="math inline">\(F&#39;=\dfrac{F_n}{\sqrt{n}}\)</span> 为幺正矩阵</p>
+              <h2 id="第三周">第三周</h2>
+<p>（发现如果平常写日记的话也许比较无聊，毕竟也就是一些学业上的事情，杂七杂八的，之后周末如果有空，就写个小总结）</p>
+<ul>
+<li><p>上周学业速度还算可以，周五的时候基本把作业都扫掉了，主要周末充实透顶</p></li>
+<li><p>周六上午去科协面试结果自己没看清楚是在晚上，吃了闭门羹</p></li>
+<li><p>不过起得早，从团委会转移到图书馆，北京难得下了一场湿润的雨，空气中终于有了清凉的感觉，图书馆前面的桃花沾着贵如油的雨水，散发着属于春天的气息，有点梦幻般的感觉，凉快的风吹着脸也很舒服……</p></li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/622da5b15baa1a80ab35bbc2.jpg" srcset="/img/loading.gif" lazyload style="zoom: 25%;" /></p>
+<ul>
+<li>图书馆没坐一会儿然后就到紫荆园恰饭，商量月底情系母校的事情</li>
+<li>中午睡觉比较久，看了会儿高代，着手整理笔记，晚上科协面试比较成功（<del>也许室友在里面有“裙带关系”？</del>）</li>
+<li>周天上午起来费了好大的劲把快速傅里叶分解的离散矩阵式搞明白，还有高代作业以及 <span class="math inline">\(DSA\)</span> （只能往后拖了）</li>
+<li>下午去看班里打篮球比赛，但因为去打疫苗没看到比赛过程，据说比较轻松，打赢了</li>
+<li>顺利进入校科协，之后跟着副部长室友一起搞好科创活动策划，顺便学些东西</li>
+<li>晚上酒井科协有技能培训，<span class="math inline">\(Linux\)</span> 操作 <span class="math inline">\(C++\)</span> ，去瞅瞅</li>
+</ul>
 
               
             </div>
@@ -313,12 +298,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  <a href="/categories/%E9%9A%8F%E6%83%B3/" class="category-chain-item">随想</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0%E9%80%89%E8%AE%B2/" class="category-chain-item">高等代数选讲</a>
+  <a href="/categories/%E9%9A%8F%E6%83%B3/%E9%87%8C%E7%A8%8B%E7%A2%91/" class="category-chain-item">里程碑</a>
   
   
 
@@ -335,7 +320,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0%E9%80%89%E8%AE%B2%E7%AC%94%E8%AE%B0/">#高等代数选讲笔记</a>
+        <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E6%88%90%E4%B8%89%E5%91%A8%E9%9A%8F%E6%83%B3/">#博客建成三周随想</a>
       
     </div>
   
@@ -347,8 +332,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Complex matrix (Chapter 1)</div>
-      <div>https://lr-tsinghua11.github.io/2022/03/12/Math/Advanced%20Linear%20Algebra/Complex%20matrix%EF%BC%88Chapter%201%EF%BC%89/</div>
+      <div>Thoughts on the third week of blog building</div>
+      <div>https://lr-tsinghua11.github.io/2022/03/13/Thoughts%20on%20the%20third%20week%20of%20blog%20building/</div>
     </div>
     <div class="license-meta">
       
@@ -360,7 +345,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年3月12日</div>
+          <div>2022年3月13日</div>
         </div>
       
       
@@ -390,18 +375,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/13/Thoughts%20on%20the%20third%20week%20of%20blog%20building/" title="Thoughts on the third week of blog building">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Thoughts on the third week of blog building</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/11/Math/Calculus/Calculus%20A2%20notes%EF%BC%88Chapter%20four%EF%BC%89/" title="Calculus_A2_notes_Chapter_three（WXF）">
-                        <span class="hidden-mobile">Calculus_A2_notes_Chapter_three（WXF）</span>
+                      <a href="/2022/03/12/Math/Advanced%20Linear%20Algebra/Complex%20matrix%EF%BC%88Chapter%201%EF%BC%89/" title="Complex matrix (Chapter 1)">
+                        <span class="hidden-mobile">Complex matrix (Chapter 1)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
