@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E7%A7%80%E4%B8%BD%E5%B1%B1%E5%B7%9D.jpg">
 <meta property="article:published_time" content="2022-03-12T13:17:28.000Z">
-<meta property="article:modified_time" content="2022-03-12T16:24:46.143Z">
+<meta property="article:modified_time" content="2022-03-14T08:59:45.652Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="高等代数选讲笔记">
 <meta name="twitter:card" content="summary_large_image">
@@ -212,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.6k 字
+          5k 字
         
       </span>
     
@@ -223,7 +223,7 @@
         
         
         
-          30 分钟
+          42 分钟
         
       </span>
     
@@ -268,7 +268,8 @@
               <h1 id="高等代数选讲第一章笔记">高等代数选讲第一章笔记</h1>
 <h2 id="复矩阵的表示">复矩阵的表示</h2>
 <p>令 <span class="math inline">\(A=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span>，有 <span class="math inline">\(A^2=-I\)</span>，形式化地定义 <span class="math inline">\(a+bi=\begin{bmatrix}a&amp;-b\\b&amp;a\end{bmatrix}\)</span></p>
-<p>满足复数运算的一些性质，例如 <span class="math inline">\(\left[\begin{array}{cc}2 &amp; -3 \\3 &amp; 2 \end{array}\right]\left[\begin{array}{cc}4 &amp; -1 \\1 &amp; 4\end{array}\right]=(2 I+3 A)(4 I+A)=5 I+14 A\)</span></p>
+<p>满足复数运算的一些性质，例如</p>
+<p><span class="math inline">\(\left[\begin{array}{cc}2 &amp; -3 \\3 &amp; 2 \end{array}\right]\left[\begin{array}{cc}4 &amp; -1 \\1 &amp; 4\end{array}\right]=(2 I+3 A)(4 I+A)=5 I+14 A\)</span></p>
 <p>《从一到无穷大》中有趣的例子：在一个小岛上，从任意起点出发，先走 <span class="math inline">\(x\)</span> 长度到固定点楼房 <span class="math inline">\(A\)</span>，然后右转走 <span class="math inline">\(x\)</span> 长度到 <span class="math inline">\(A&#39;\)</span>，再从起点走 <span class="math inline">\(y\)</span> 长度到固定点雕像 <span class="math inline">\(B\)</span>，然后左转走 <span class="math inline">\(y\)</span> 长度到 <span class="math inline">\(B&#39;\)</span>，取 <span class="math inline">\(A&#39;\)</span> 和 <span class="math inline">\(B&#39;\)</span> 中点为宝藏位置，证明该位置与起点无关。 <span class="math display">\[
 \begin{gathered}
 \mbox{Prf}:\text 设起点为\ Z,\ 任取原点构建复平面，有方程\begin{cases}A&#39;-A=-i(A-Z)\\B&#39;-B=i(B-Z)\end{cases}\\
@@ -295,7 +296,23 @@
 <p>单位根 <span class="math inline">\(\omega_n=e^{i\frac{2\pi}{n}}\)</span>，定义傅里叶矩阵 <span class="math inline">\(F_{n}=\begin{pmatrix}1&amp;1&amp;\cdots&amp;1\\1&amp;\omega&amp;\cdots&amp;\omega^{n-1}\\1&amp;\omega^2&amp;\cdots&amp;\omega^{2(n-1)}\\\vdots&amp;\vdots&amp;&amp;\vdots\\1&amp;\omega^{n-1}&amp;\cdots&amp;\omega^{(n-1)^2}\end{pmatrix}\)</span>，为对称阵</p>
 <p>由于 <span class="math inline">\(F_n\)</span> 对角非实，其不是厄米矩阵，该矩阵总满足 <span class="math inline">\(\overline{F_n}F_n=nI\)</span>，对应行列求和有 <span class="math display">\[
 \displaystyle \sum_{k=1}^{n}\overline{\omega^{ki}}\omega^{kj}=\sum_{k=1}^{n}\omega^{2\pi+k(j-i)}=\begin{cases}\displaystyle\sum_{i=0}^{n}1=n&amp;i=j\\\dfrac{\omega^{j-i}(1-\omega^{n(j-i)} )}{1-\omega^{j-i}}=0&amp;i\neq j\end{cases}
-\]</span> 令 <span class="math inline">\(F&#39;=\dfrac{F_n}{\sqrt{n}}\)</span> 则有 <span class="math inline">\(\overline{F&#39;}F&#39;=\dfrac{\overline{F}_nF_n}{n}=I\)</span>，<span class="math inline">\(F&#39;=\dfrac{F_n}{\sqrt{n}}\)</span> 为幺正矩阵</p>
+\]</span> 令 <span class="math inline">\(F&#39;=\dfrac{F_n}{\sqrt{n}}\)</span> 则有 <span class="math inline">\(\overline{F&#39;}F&#39;=\dfrac{\overline{F}_nF_n}{n}=I\)</span>，<span class="math inline">\(F&#39;=\dfrac{F_n}{\sqrt{n}}\)</span> 为幺正矩阵 <span class="math inline">\((F&#39;)^{-1}=(F&#39;)^{*}\)</span></p>
+<p>对 <span class="math inline">\(f(x)=C_0+C_1e^{ix}+C_2e^{i2x}+\cdots+C_{n-1}e^{i(n-1)x}\)</span>，给定 <span class="math inline">\(f(0),f(\dfrac{2\pi}{n}),\cdots,f(\dfrac{2\pi(n-1)}{n})\)</span></p>
+<p>对应方程为 <span class="math inline">\(F_{n}\begin{pmatrix}C_0\\C_1\\\vdots\\C_{n-1}\end{pmatrix}=\begin{pmatrix}f(0)\\f(\frac{2\pi}{n})\\\vdots\\f(\frac{2\pi(n-1)}{n})\end{pmatrix}\)</span>，得 <span class="math inline">\(\begin{pmatrix}C_0\\C_1\\\vdots\\C_{n-1}\end{pmatrix}=\dfrac{\overline{F_{n}}}{n}\begin{pmatrix}f(0)\\f(\frac{2\pi}{n})\\\vdots\\f(\frac{2\pi(n-1)}{n})\end{pmatrix}\)</span></p>
+<p>快速傅里叶变换（FFT，二十世纪前十算法之一）对傅里叶矩阵 <span class="math inline">\(F_{2n}\)</span> 进行分解（<span class="math inline">\(\omega=e^{i\frac{2\pi}{2n}}\)</span>） <span class="math display">\[
+PF_{2n}=\begin{bmatrix}I_n&amp; D_n\\I_n&amp;-D_n\end{bmatrix}\begin{bmatrix}F_n&amp;0\\0&amp;F_n\end{bmatrix}
+\]</span> 其中 <span class="math inline">\(P\)</span> 将所有奇数列放在左侧，所有偶数列放在右侧，<span class="math inline">\(D_n=\mbox{diag}(1,\omega,\cdots,\omega^{n-1})\)</span></p>
+<p>证明：针对 <span class="math inline">\(A=\begin{bmatrix}I_n&amp; D_n\\I_n&amp;-D_n\end{bmatrix}\begin{bmatrix}F_n&amp;0\\0&amp;F_n\end{bmatrix}\)</span> 的第 <span class="math inline">\(i\)</span> 行第 <span class="math inline">\(j\)</span> 列（下标从 <span class="math inline">\(0\)</span> 开始）分类讨论有 <span class="math display">\[
+A(i,j)=
+\begin{cases}
+F_n(i,j)=\omega_{n}^{ij}=\omega_{2n}^{2ij}&amp;0\leq i\leq n-1,0\leq j\leq n-1\\
+F_{n}(i-n,j)=\omega_{n}^{(i-n)j}=\omega_{2n}^{2(i-n)j}&amp; n\leq i\leq 2n-1,0\leq j\leq n-1\\
+F_{n}(i,j-n)\cdot \omega_{2n}^{i}=\omega_{n}^{i(j-n)}\cdot \omega_{2n}^{i}=\omega_{2n}^{(2j+1)i}&amp; 0\leq i\leq n-1,n\leq j\leq 2n-1\\
+F_{n}(i-n,j-n)\cdot \omega_{2n}^{i-n}=\omega_{2n}^{(2j+1)(i-n)}&amp; n\leq i\leq 2n-1,0\leq j\leq n-1
+\end{cases}
+\]</span> 从而固定 <span class="math inline">\(i\)</span> ，可知将 <span class="math inline">\((0,1,\cdots,2n-1,2n)\)</span> 所有奇数列放在左侧所有偶数列放在右侧后形成 <span class="math display">\[
+(0,2,\cdots,2n),(1,3,\cdots,2n-1)
+\]</span> 满足上述 <span class="math inline">\(A(i,j)\)</span> 的要求</p>
 
               
             </div>
