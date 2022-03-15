@@ -16,16 +16,16 @@
   <meta name="author" content="Tony">
   <meta name="keywords" content="">
   
-    <meta name="description" content="面向对象第三次作业，未过截止日期，上传部分文档。">
+    <meta name="description" content="面向对象第三次作业，已过截止日期">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OOP-homework-3">
 <meta property="og:url" content="https://lr-tsinghua11.github.io/2022/03/10/Program/OOP%20homework%203/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="面向对象第三次作业，未过截止日期，上传部分文档。">
+<meta property="og:description" content="面向对象第三次作业，已过截止日期">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E8%9C%BF%E8%9C%92%E6%B2%B3%E6%B5%81.jpg">
 <meta property="article:published_time" content="2022-03-10T14:29:40.000Z">
-<meta property="article:modified_time" content="2022-03-11T07:35:35.983Z">
+<meta property="article:modified_time" content="2022-03-15T02:29:29.290Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="面向对象编程作业">
 <meta name="twitter:card" content="summary_large_image">
@@ -212,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          2.8k 字
         
       </span>
     
@@ -223,7 +223,7 @@
         
         
         
-          10 分钟
+          24 分钟
         
       </span>
     
@@ -269,8 +269,7 @@
 <p><strong>Object-Oriented Programming <span class="math inline">\(\bullet\)</span> Homework <span class="math inline">\(\mathbf{3}\)</span></strong></p>
 <p>本次作业报告从模型、验证、分析三个方面，使用<span class="math inline">\(\mbox{Visual Studio 2022}\)</span>编写具有面向对象特性的<span class="math inline">\(\mbox{C++}\)</span>程序，使用继承和组合两种<span class="math inline">\(\mbox{C++}\)</span>面向对象特性，编写了七个类。</p>
 <p>使用单元测试，测算各种图形类中计算周长和面积公式是否正确，使用开源轻量级代码<span class="math inline">\(\mbox{&lt;doctest.h&gt;}\)</span>，采用循环和随机数两种方法判定计算公式，结果在<span class="math inline">\(&lt;10^{-10}\)</span>的误差范围内通过。<br />
-</p>
-<p><strong>关键词</strong>: 继承;组合;图形计算;单元测试</p>
+<strong>关键词</strong>: 继承;组合;图形计算;单元测试</p>
 <h2 id="模型">模型</h2>
 <h3 id="多边形计算">多边形计算</h3>
 <p>针对一般情况（下图为<span class="math inline">\(n=5\)</span>的实例），边长为<span class="math inline">\(l\)</span>的正<span class="math inline">\(n\)</span>多边形，显然周长为边长的<span class="math inline">\(n\)</span>倍，即<span class="math inline">\(C=nl\)</span>。而对于面积<span class="math inline">\(S_\triangle =\dfrac{1}{2}\cdot l\cdot \dfrac{l}{2\tan (\frac{\pi}{n})}=\dfrac{l^2}{4\tan (\frac{\pi}{n})}\)</span>，则正多边形面积为<span class="math inline">\(S=\dfrac{1}{4}n\cot \dfrac{\pi}{n}\cdot l^2\)</span></p>
@@ -281,7 +280,26 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">triangle</span> :<span class="hljs-keyword">public</span> polygon &#123;<br>    <span class="hljs-keyword">public</span>:<br>        <span class="hljs-built_in">triangle</span>() : <span class="hljs-built_in">polygon</span>(<span class="hljs-number">3</span>, <span class="hljs-number">0</span>) &#123;&#125;<br>        <span class="hljs-built_in">triangle</span>(<span class="hljs-type">double</span> l);<br>        ~<span class="hljs-built_in">triangle</span>() &#123;&#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>其中委托<span class="math inline">\(\mbox{polygon}\)</span>中的构造函数，并规定边长数为<span class="math inline">\(3\)</span>，在<span class="math inline">\(\mbox{triangle}\)</span>的另一种构造函数中传入边长长度参数，该正三角形确定，从而在该构造函数中，调用<span class="math inline">\(\mbox{polygon.h}\)</span>中计算周长和面积函数将该正三角形确定并输出其周长和面积，其余正多边形的构造基本一样，圆规定边长数目为<span class="math inline">\(-1\)</span>，便于与其他多边形分开，其余代码与正三角形的代码类似。</p>
 <p>父类<span class="math inline">\(\mbox{&lt;polygon.h&gt;}\)</span>的声明见下，其中使用指针字符串输出对应类型，使用上述方法计算周长和面积。</p>
-<p>......</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">polygon</span> &#123;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-type">const</span> <span class="hljs-type">char</span> *shapeName[<span class="hljs-number">10</span>] = &#123;<span class="hljs-string">&quot;Circle&quot;</span>,<span class="hljs-string">&quot;Triangle&quot;</span>,<span class="hljs-string">&quot;Square&quot;</span>,<span class="hljs-string">&quot;Pentagon&quot;</span>,<span class="hljs-string">&quot;Hexagon&quot;</span>&#125;;<br>    <span class="hljs-type">int</span> num;<br>    <span class="hljs-type">double</span> length;<br>    <span class="hljs-type">double</span> perimeter;<br>    <span class="hljs-type">double</span> area;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">polygon</span>() :<span class="hljs-built_in">num</span>(<span class="hljs-number">0</span>), <span class="hljs-built_in">length</span>(<span class="hljs-number">0</span>),<span class="hljs-built_in">perimeter</span>(<span class="hljs-number">0</span>),<span class="hljs-built_in">area</span>(<span class="hljs-number">0</span>) &#123;&#125;<br>    <span class="hljs-built_in">polygon</span>(<span class="hljs-type">int</span> n = <span class="hljs-number">0</span>, <span class="hljs-type">double</span> l = <span class="hljs-number">0</span>) : <span class="hljs-built_in">num</span>(n), <span class="hljs-built_in">length</span>(l),<span class="hljs-built_in">perimeter</span>(<span class="hljs-number">0</span>),<span class="hljs-built_in">area</span>(<span class="hljs-number">0</span>) &#123;&#125;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showShapeName</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">getPerimeter</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showData</span><span class="hljs-params">()</span></span>;<br>    ~<span class="hljs-built_in">polygon</span>() &#123;&#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="组合">组合</h3>
+<p>由于需要输出所有图形的总周长和总面积，则使用组合的方式将所有正多边形的类"组装"在一起，定义<span class="math inline">\(\mbox{&lt;shapeFamily.h&gt;}\)</span>如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">shapeFamily</span>&#123;<br>    <span class="hljs-keyword">private</span>:<br>        vector&lt;triangle&gt; triangles;<br>        vector&lt;square&gt; squares;<br>        vector&lt;pentagon&gt; pentagons;<br>        vector&lt;hexagon&gt; hexagons;<br>        vector&lt;circle&gt; circles;<br>        <span class="hljs-type">int</span> allNums;<br>        <span class="hljs-type">double</span> perimeterTotal;<br>        <span class="hljs-type">double</span> areaTotal;<br>    <span class="hljs-keyword">public</span>:<br>        <span class="hljs-built_in">shapeFamily</span>():<span class="hljs-built_in">allNums</span>(<span class="hljs-number">0</span>),<span class="hljs-built_in">perimeterTotal</span>(<span class="hljs-number">0</span>),<span class="hljs-built_in">areaTotal</span>(<span class="hljs-number">0</span>) &#123;&#125;<br>        <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">input</span><span class="hljs-params">()</span></span>;<br>        <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">output</span><span class="hljs-params">()</span></span>;<br>    &#125;;<br></code></pre></td></tr></table></figure>
+<p><span class="math inline">\(\mbox{input()}\)</span>函数按照题目要求进行输入以及更新总周长和总面积。</p>
+<h2 id="验证">验证</h2>
+<h3 id="手动输入测试">手动输入测试</h3>
+<p>手动输入测试中，尽量包含多种情况，并前后进行检验，大致上正确性可以保证。</p>
+<p><img src="https://pic.imgdb.cn/item/622afa085baa1a80abd2b107.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></p>
+<h3 id="自动测试">自动测试</h3>
+<p>使用开源轻量级测试工具<span class="math inline">\(\mbox{&lt;doctest.h&gt;}\)</span>（<a target="_blank" rel="noopener" href="https://github.com/doctest/doctest" class="uri">https://github.com/doctest/doctest</a>），代码框架如下。输入数据一种为有序整数，另一种为<span class="math inline">\(\mbox{&lt;ctime.h&gt;}\)</span>生成的随机数：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">define</span> DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;doctest.h&quot;</span></span><br><span class="hljs-built_in">TEST_CASE</span>(<span class="hljs-string">&quot;testing some special examples&quot;</span>)&#123;<br>    <span class="hljs-built_in">CHECK</span>(<span class="hljs-built_in">funtion</span>() == result);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>例如，其中一次针对所有子类的单元测试情况如下，由于双精度浮点数存在误差，在测试过程中加入限制条件<span class="math inline">\(&lt;=10^{-10}\)</span>，对于50个自动化单元测试样例均通过。</p>
+<p><img src="https://pic.imgdb.cn/item/622afa2f5baa1a80abd2ddcd.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
+<h2 id="分析">分析</h2>
+<h3 id="充分性">充分性</h3>
+<p>对于特定几何对象的周长面积，只能使用三角函数计算的方式，例如对于正五边形，其面积的严格数学表达式为<span class="math inline">\(S=\dfrac{\sqrt{25+10\sqrt{5}}}{4}l^2\)</span>，浮点计算多，容易造成精度上的误差。</p>
+<p>一种想法是使用<strong>蒙特卡洛模拟</strong>的方法，依据大数定律，生成的随机数足够多，面积的误差能够相应缩小。由于时间原因该构想没有实现，但这种求解几何对象面积的方式，对于一些高级曲线<span class="math inline">\(\mathrm{B}-\)</span>样条曲线中相关面积的计算也许可以作为参考。</p>
+<h3 id="程序扩展性">程序扩展性</h3>
+<p>相对于<span class="math inline">\(\mbox{C}\)</span>语言，<span class="math inline">\(\mbox{C++}\)</span>在这种需求较为复杂的情形下代码的复用性体现得更加充分，在结构清晰的基础上，便于后续增加相应的图形扩展和功能扩展。</p>
 
               
             </div>
