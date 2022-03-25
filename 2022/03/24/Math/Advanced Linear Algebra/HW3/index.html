@@ -16,20 +16,20 @@
   <meta name="author" content="Tony">
   <meta name="keywords" content="">
   
-    <meta name="description" content="杨Sir高代选讲第二次作业，关于线性相关以及不变子空间">
+    <meta name="description" content="杨Sir高代选讲第三次作业，有句话说得好，高代和线代的区分就在矩阵的分类是否讨论若尔当标准型上">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Advanced Algebra HW2">
-<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/03/16/Math/Advanced%20Linear%20Algebra/HW2/index.html">
+<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/03/24/Math/Advanced%20Linear%20Algebra/HW3/index.html">
 <meta property="og:site_name" content="Tony">
-<meta property="og:description" content="杨Sir高代选讲第二次作业，关于线性相关以及不变子空间">
+<meta property="og:description" content="杨Sir高代选讲第三次作业，有句话说得好，高代和线代的区分就在矩阵的分类是否讨论若尔当标准型上">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E8%93%9D%E5%A4%A9%E7%99%BD%E4%BA%91.jpg">
-<meta property="article:published_time" content="2022-03-16T15:09:41.000Z">
-<meta property="article:modified_time" content="2022-03-25T06:29:21.789Z">
+<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E7%A2%A7%E6%B3%A2%E8%93%9D%E5%A4%A9.jpg">
+<meta property="article:published_time" content="2022-03-24T15:09:41.000Z">
+<meta property="article:modified_time" content="2022-03-25T06:44:03.177Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="高代作业">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E8%93%9D%E5%A4%A9%E7%99%BD%E4%BA%91.jpg">
+<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E7%A2%A7%E6%B3%A2%E8%93%9D%E5%A4%A9.jpg">
   
   
   <title>Advanced Algebra HW2 - Tony</title>
@@ -195,7 +195,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E8%93%9D%E5%A4%A9%E7%99%BD%E4%BA%91.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/%E7%A2%A7%E6%B3%A2%E8%93%9D%E5%A4%A9.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-03-16 23:09" pubdate>
-          2022年3月16日 晚上
+        <time datetime="2022-03-24 23:09" pubdate>
+          2022年3月24日 晚上
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.3k 字
+          6.1k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          53 分钟
+          51 分钟
         
       </span>
     
@@ -277,74 +277,44 @@
             
             <div class="markdown-body">
               
-              <h1 id="largetextcolorbluemboxadvanced-algebra-small-mathbbhwmathrm2-_textcolorblue2022.3.16"><span class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra } \small \mathbb{HW}\mathrm{2}}\ \ \ \ \ \ _\textcolor{blue}{2022.3.16}\)</span></h1>
-<h2 id="small-mboxfour-subspaces">1.2.1<span class="math inline">\(\ \small \mbox{four subspaces}\)</span></h2>
-<p>Prove or find counter examples.</p>
+              <h1 id="largetextcolorbluemboxadvanced-algebra-small-mathbbhwmathrm3-_textcolorblue2022.3.24"><span class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra } \small \mathbb{HW}\mathrm{3}}\ \ \ \ \ \ _\textcolor{blue}{2022.3.24}\)</span></h1>
+<h2 id="small-mboxjordan-normal-form">1.3.1<span class="math inline">\(\ \small \mbox{jordan normal form}\)</span></h2>
+<p>Find a basis in the following vector space so that the linear map involved will be in Jordan normal form. Also find the Jordan normal form.</p>
 <ol type="1">
-<li>For four subspaces, if any three of them are linearly independent, then the four subspaces are linearly independent.</li>
-<li>If subspaces <span class="math inline">\(V_{1}, V_{2}\)</span> are linearly independent, and <span class="math inline">\(V_{1}, V_{3}, V_{4}\)</span> are linearly independent, and <span class="math inline">\(V_{2}, V_{3}, V_{4}\)</span> are linearly independent, then all four subspaces are linearly independent.</li>
-<li>If <span class="math inline">\(V_{1}, V_{2}\)</span> are linearly independent, and <span class="math inline">\(V_{3}, V_{4}\)</span> are linearly independent, and <span class="math inline">\(V_{1}+V_{2}, V_{3}+V_{4}\)</span> are linearly independent, then all four subspaces are linearly independent.</li>
+<li><span class="math inline">\(V=\mathbb{C}^{2}\)</span> is a real vector space, and <span class="math inline">\(A: V \rightarrow V\)</span> that sends <span class="math inline">\(\left[\begin{array}{l}x \\ y\end{array}\right]\)</span> to <span class="math inline">\(\left[\begin{array}{c}\bar{x}-\Re(y) \\ (1+i) \Im(x)-y\end{array}\right]\)</span> is a real linear map. (Here <span class="math inline">\(\bar{x}\)</span> means the complex conjugate of a complex number <span class="math inline">\(x\)</span>, and <span class="math inline">\(\Re(x), \Im(x)\)</span> means the real part and the imaginary part of a complex number <span class="math inline">\(x .)\)</span></li>
+<li><span class="math inline">\(V=P_{4}\)</span>, the real vector space space of all real polynomials of degree at most 4. And <span class="math inline">\(A: V \rightarrow V\)</span> is a linear map such that <span class="math inline">\(A(p(x))=p^{\prime}(x)+p(0)+p^{\prime}(0) x^{2}\)</span> for each polynomial <span class="math inline">\(p \in P_{4}\)</span>.</li>
+<li><span class="math inline">\(A=\left[\begin{array}{llll} &amp; &amp; &amp; a_{1} \\ &amp; &amp; a_{2} &amp; \\ &amp; a_{3} &amp; &amp; \\ a_{4} &amp; &amp; &amp; \end{array}\right]\)</span>. Be careful here. Maybe we have many possibilities for its Jordan normal form depending on the values of <span class="math inline">\(a_{1}, a_{2}, a_{3}, a_{4}\)</span>.</li>
 </ol>
 <hr />
-<p><span class="math inline">\((1)\)</span> Construct four subspaces below. It is obvious that any three of them are linearly independent, but four subspaces together are linearly dependent. （<span class="math inline">\(\dim \mathbb {R}^{3}=3\)</span>） <span class="math display">\[
-V_1=\{\begin{bmatrix}k\\0\\0\end{bmatrix}\mid k\in \mathbb{R}\},V_2=\{\begin{bmatrix}0\\k\\0\end{bmatrix}\mid k\in \mathbb{R}\},V_3=\{\begin{bmatrix}0\\0\\k\end{bmatrix}\mid k\in \mathbb{R}\},V_4=\{\begin{bmatrix}k\\k\\k\end{bmatrix}\mid k\in \mathbb{R}\}
-\]</span> <span class="math inline">\((2)\)</span> Construct four subspaces below. We can prove that each of <span class="math inline">\(V_1,V_2\)</span> and <span class="math inline">\(V_1,V_3,V_4\)</span> and <span class="math inline">\(V_2,V_3,V_4\)</span> are linearly independent. <span class="math display">\[
-V_1=\{\begin{bmatrix}k\\0\\0\end{bmatrix}\mid k\in \mathbb{R}\},V_2=\{\begin{bmatrix}0\\k\\0\end{bmatrix}\mid k\in \mathbb{R}\},V_3=\{\begin{bmatrix}k\\0\\k\end{bmatrix}\mid k\in \mathbb{R}\},V_4=\{\begin{bmatrix}0\\k\\k\end{bmatrix}\mid k\in \mathbb{R}\}
-\]</span> However, pick some special vectors from these subspaces and its linear combination are zero <span class="math display">\[
-1\cdot \begin{bmatrix}1\\0\\0\end{bmatrix}+(-1)\cdot \begin{bmatrix}0\\1\\0\end{bmatrix}+(-1)\begin{bmatrix}1\\0\\1\end{bmatrix}+1\cdot \begin{bmatrix}0\\1\\1\end{bmatrix}=\vec{0}
-\]</span> <span class="math inline">\((3)\)</span> Reduction to absurdity, assume that four real numbers that not all of them is zero <span class="math display">\[
-a_1\vec{v}_1+a_2\vec{v}_2+a_3\vec{v}_3+a_4\vec{v}_4=0
-\]</span> We can proof that <span class="math inline">\(a_1\vec{v}_1+a_2\vec{v}_2\neq 0\)</span>, otherwise according to the independence of <span class="math inline">\(V_1,V_2\)</span> and</p>
-<p><span class="math inline">\(V_3,V_4\)</span> <span class="math inline">\(a_1=a_2=0,a_3=a_4=0\)</span>, so <span class="math inline">\(a_1\vec{v}_1+a_2\vec{v}_2\neq 0,a_3\vec{v}_3+a_4\vec{v}_4\neq 0\)</span></p>
-<p>But <span class="math inline">\(a_1\vec{v}_1+a_2\vec{v}_2\in V_1+V_2,a_3\vec{v}_3+a_4\vec{v}_4\in V_3+V_4\)</span>, so linear combination of <span class="math inline">\(a_1\vec{v}_1+a_2\vec{v}_2\)</span> and</p>
-<p><span class="math inline">\(a_3\vec{v}_3+a_4\vec{v}_4\)</span> can add up to <span class="math inline">\(0\)</span>, which is contrary to the independence of <span class="math inline">\(V_1+V_2.V_3+V_4\)</span></p>
-<p>All in all, the four subspaces must be linearly independence</p>
-<h2 id="small-mboxdecomposition-of-transpose">1.2.2<span class="math inline">\(\ \small \mbox{decomposition of transpose}\)</span></h2>
-<p>Let <span class="math inline">\(V\)</span> be the space of <span class="math inline">\(n \times n\)</span> real matrices. Let <span class="math inline">\(T: V \rightarrow V\)</span> be the transpose operation, i.e., <span class="math inline">\(T\)</span> sends <span class="math inline">\(A\)</span> to <span class="math inline">\(A^{\mathrm{T}}\)</span> for each <span class="math inline">\(A \in V\)</span>. Find a non-trivial <span class="math inline">\(T\)</span>-invariant decomposition of <span class="math inline">\(V\)</span>, and find the corresponding block form of <span class="math inline">\(T\)</span>. (Here we use real matrices for your convenience, but the statement is totally fine for complex matrices and conjugate transpose.)</p>
-<hr />
-<p>Set <span class="math inline">\(S=\{A\mid A=A^{T},A\in M_{n\times n}\}\)</span>, this decomposition is invariant. Because after transposing any symmetric matrix, the matrix remains itself.</p>
-<p>Set <span class="math inline">\(S&#39;=\{A\mid A=-A^{T},A\in M_{n\times n}\}\)</span>, <span class="math inline">\(A=-A^{T}\Longrightarrow A^{T}=-A=-(A^{T})^{T}\)</span>, so any antisymmetric matrix's transpose is antisymmetric.</p>
-<p>So decompose the linear map of <span class="math inline">\(T\)</span> into <span class="math inline">\(S\)</span> and <span class="math inline">\(S&#39;\)</span>, <span class="math inline">\(\dim S=\dfrac{n(n+1)}{2},\dim S&#39;=\dfrac{n(n-1)}{2}\)</span></p>
-<p>Because any <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(B=\dfrac{B+B^{T}}{2}+\dfrac{B-B^{T}}{2}\)</span> , so transpose <span class="math inline">\(T\)</span> can be decomposed</p>
-<p>into <span class="math inline">\(S\)</span> and <span class="math inline">\(S&#39;\)</span> two block form.</p>
-<p><span class="math inline">\(A\to \begin{pmatrix}\frac{A+A^{T}}{2}&amp;0\\0&amp;\frac{A-A^{T}}{2}\end{pmatrix}\)</span> so the corresponding block form of <span class="math inline">\(T\)</span> is <span class="math inline">\(\begin{pmatrix}I&amp;0\\0&amp;-I\end{pmatrix}\)</span></p>
-<h2 id="small-mboxultimate-subspaces">1.2.3<span class="math inline">\(\ \small \mbox{ultimate subspaces }\)</span></h2>
-<p>Let <span class="math inline">\(p(x)\)</span> be any polynomial, and define <span class="math inline">\(p(A)\)</span> in the obvious manner. E.g., if <span class="math inline">\(p(x)=\)</span> <span class="math inline">\(x^{2}+2 x+3\)</span>, then <span class="math inline">\(p(A)=A^{2}+2 A+3 I\)</span>. We fix some <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(A\)</span>.</p>
+<p><span class="math inline">\((1)\)</span> <span class="math inline">\(A_1=\begin{pmatrix}1&amp;0&amp;-1&amp;0\\0&amp;-1&amp;0&amp;0\\0&amp;1&amp;-1&amp;0\\0&amp;1&amp;0&amp;-1\end{pmatrix}=\begin{pmatrix}1&amp;2&amp;1&amp;0\\0&amp;0&amp;4&amp;0\\0&amp;4&amp;0&amp;0\\0&amp;4&amp;0&amp;1\end{pmatrix}\begin{pmatrix}1&amp;0&amp;0&amp;0\\0&amp;-1&amp;1&amp;0\\0&amp;0&amp;-1&amp;0\\0&amp;0&amp;0&amp;-1\end{pmatrix}\begin{pmatrix}1&amp;2&amp;1&amp;0\\0&amp;0&amp;4&amp;0\\0&amp;4&amp;0&amp;0\\0&amp;4&amp;0&amp;1\end{pmatrix}^{-1}\)</span></p>
+<p><span class="math inline">\((2)\)</span> <span class="math inline">\(A:a_0+a_1x+a_2x^2+a_3x^3+a_4x^4\longmapsto(a_0+a_1)+2a_2x+(a_1+2a_3)x^2+4a_4x^3\)</span> <span class="math display">\[
+\begin{gathered}
+\begin{pmatrix}1&amp;1&amp;0&amp;0&amp;0\\0&amp;0&amp;2&amp;0&amp;0\\0&amp;1&amp;0&amp;3&amp;0\\0&amp;0&amp;0&amp;0&amp;4\\0&amp;0&amp;0&amp;0&amp;0\end{pmatrix}=J\begin{pmatrix}1&amp;0&amp;0&amp;0&amp;0\\0&amp;\sqrt{2}&amp;0&amp;0&amp;0\\0&amp;0&amp;-\sqrt{2}&amp;0&amp;0\\0&amp;0&amp;0&amp;0&amp;1\\0&amp;0&amp;0&amp;0&amp;0\end{pmatrix}J^{-1}\\
+J=\begin{pmatrix}1&amp;\sqrt{2}+1&amp;1-\sqrt{2}&amp;12&amp;12\\0&amp;1&amp;1&amp;-12&amp;0\\0&amp;\dfrac{\sqrt{2}}{2}&amp;-\dfrac{\sqrt{2}}{2}&amp;0&amp;-6\\0&amp;0&amp;0&amp;4&amp;0\\0&amp;0&amp;0&amp;0&amp;1\end{pmatrix}
+\end{gathered}
+\]</span> <span class="math inline">\((3)\)</span> <span class="math display">\[
+J=\begin{pmatrix}J_{1,4}&amp;O\\O&amp;J_{2,3}\end{pmatrix},\mbox{where }J_{i,j}=\begin{cases}\begin{pmatrix}\sqrt{a_ia_j}&amp;0\\0&amp;-\sqrt{a_ia_j}\end{pmatrix}&amp;a_i\neq 0,a_j\neq 0\\\begin{pmatrix}0&amp;0\\0&amp;0\end{pmatrix}&amp;a_i= 0,a_j\neq 0\mbox{ or }a_i\neq 0,a_j=0 \\\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}&amp;a_i=a_j=0\\\end{cases}
+\]</span></p>
+<h2 id="small-mboxpartitions-of-interger">1.3.2<span class="math inline">\(\ \small \mbox{partitions of interger}\)</span></h2>
+<p>A partition of integer <span class="math inline">\(n\)</span> is a way to write <span class="math inline">\(n\)</span> as a sum of other positive integers, say <span class="math inline">\(5=2+2+1\)</span>. If you always order the summands from large to small, you end up with a dot diagram, where each column represent an integer: <span class="math inline">\(\left[\begin{array}{ll}\cdot &amp; \cdot \\ \cdot &amp; \cdot \\ \cdot\end{array}\right]\)</span>. Similarly, <span class="math inline">\(7=4+2+1\)</span> should be represented as <span class="math inline">\(\left[\begin{array}{lll} \cdot &amp; \cdot &amp; \cdot \\ \cdot &amp; \cdot &amp; \\ \cdot &amp; &amp; \\ \cdot &amp; &amp; \end{array}\right]\)</span></p>
 <ol type="1">
-<li>If <span class="math inline">\(A B=B A\)</span>, show that <span class="math inline">\(\operatorname{Ker}(B), \operatorname{Ran}(B)\)</span> are both <span class="math inline">\(A\)</span>-invariant subspaces.</li>
-<li>Prove that <span class="math inline">\(A p(A)=p(A) A\)</span>.</li>
-<li>Conclude that <span class="math inline">\(N_{\infty}(A-\lambda I), R_{\infty}(A-\lambda I)\)</span> are both <span class="math inline">\(A\)</span>-invariant for any <span class="math inline">\(\lambda \in \mathbb{C}\)</span>.</li>
+<li><p>If the Jordan normal form of an <span class="math inline">\(n \times n\)</span> nilpotent matrix <span class="math inline">\(A\)</span> is diag <span class="math inline">\(\left(J_{a_{1}}, J_{a_{2}}, \ldots, J_{a_{k}}\right)\)</span>, then we have a partition of integer <span class="math inline">\(n=a_{1}+\ldots+a_{k}\)</span>. However, we also have a partition of integer <span class="math inline">\(n=\small [\operatorname{dim} \operatorname{Ker}(A)]+\left[\operatorname{dim} \operatorname{Ker}\left(A^{2}\right)-\operatorname{dim} \operatorname{Ker}(A)\right]+\left[\operatorname{dim} \operatorname{Ker}\left(A^{3}\right)-\operatorname{dim} \operatorname{Ker}\left(A^{2}\right)\right]+\ldots\)</span> where we treat the content of each bracket as a positive integer. Can you find a relation between the two dot diagrams?</p></li>
+<li><p>A partition of integer <span class="math inline">\(n=a_{1}+\ldots+a_{k}\)</span> is called self-conjugate if, for the matrix <span class="math inline">\(A=\operatorname{diag}\left(J_{a_{1}}, J_{a_{2}}, \ldots, J_{a_{k}}\right)\)</span>, the two dot diagrams you obtained above are the same. Show that, for a fixed integer n, the number of self-conjugate partition of <span class="math inline">\(n\)</span> is equal to the number of partition of <span class="math inline">\(n\)</span> into distinct odd positive integers. (Hint: For a self-conjugate dot diagram, count the total number of dots that are either in the first column or in the first row or in both. Is this always odd?)</p></li>
+<li><p>Suppose a 4 by 4 matrix <span class="math inline">\(A\)</span> is nilpotent and upper trianguler, and all <span class="math inline">\((i, j)\)</span> entries for <span class="math inline">\(i&lt;j\)</span> are chosen randomly and uniformly in the interval <span class="math inline">\([-1,1]\)</span>. What are the probabilities that its Jordan canonical form corresponds to the partitions <span class="math inline">\(4=4,4=3+1,4=2+2,4=2+1+1,4=1+1+1+1\)</span> ?</p></li>
 </ol>
 <hr />
-<p><span class="math inline">\((1)\)</span> For any vector <span class="math inline">\(\vec{v}\in \mbox{Ker}(B),B\vec{v}=\vec{0}\)</span>, so <span class="math inline">\(B(A\vec{v})=BA\vec{v}=AB\vec{v}=0,A\vec{v}\in \mbox{Ker}(B)\)</span></p>
-<p>And for any vector <span class="math inline">\(\vec{v}\in \mbox{Ran}(B),B\vec{x}=\vec{v}\)</span>, so <span class="math inline">\(A\vec{v}=A(B\vec{v})=AB\vec{v}=BA\vec{v}=B(A\vec{v})\)</span></p>
-<p><span class="math inline">\(A\vec{v}\in \mbox{Ran}(B)\)</span>. So <span class="math inline">\(\mbox{Ker}(B)\)</span> and <span class="math inline">\(\mbox{Ran}(B)\)</span> are both <span class="math inline">\(A-\)</span>invariant subspaces</p>
-<p><span class="math inline">\((2)\)</span> Similar to polynomial, set <span class="math inline">\(p(A)=\displaystyle \sum_{i=0}^{n}a_{i}A^{n}\)</span>, so calculate <span class="math inline">\(Ap(A)\)</span><br />
-<span class="math display">\[
-Ap(A)=A\displaystyle \sum_{i=0}^{n}a_iA^{n}=\sum_{i=0}^{n}a_{i}A^{n+1}=(\sum_{i=0}^{n}a_{i}A^{n})A=p(A)A
-\]</span> <span class="math inline">\((3)\)</span> Due to limited dimension <span class="math inline">\(n\)</span> of <span class="math inline">\(A\)</span>, <span class="math inline">\(N_{\infty}(A-\lambda I)\)</span> and <span class="math inline">\(R_{\infty}(A-\lambda I)\)</span> are limited combinations</p>
-<p>of <span class="math inline">\(\mbox{Ker}(A-\lambda I)^{k}\)</span> and <span class="math inline">\(\mbox{Ran}(A-\lambda I)^{k}\)</span> . According to the conclusion from <span class="math inline">\(\small (1)\)</span> and $(2) $</p>
-<p><span class="math inline">\(A(A-\lambda I)=(A-\lambda I)A,A(A-\lambda I)^2=(A-\lambda I)^2A,\cdots ,A(A-\lambda I)^k=(A-\lambda I)^kA\)</span></p>
-<p>so <span class="math inline">\(\forall \ k\in Z\)</span> , <span class="math inline">\(\mbox{Ker}(A-\lambda I)^{k}\)</span> and <span class="math inline">\(\mbox{Ran}(A-\lambda I)^{k}\)</span> are all <span class="math inline">\(A-\)</span>invariant. Add them all together</p>
-<p>So, <span class="math inline">\(N_{\infty}(A-\lambda I), R_{\infty}(A-\lambda I)\)</span> are both <span class="math inline">\(A\)</span>-invariant for any <span class="math inline">\(\lambda \in \mathbb{C}\)</span>.</p>
-<h2 id="small-mboxinterchangeability-and-common-eigenvector">1.2.4<span class="math inline">\(\ \small \mbox{interchangeability and common eigenvector}\)</span></h2>
-<p>Note that any linear map must have at least one eigenvector. (You may try to prove this yourself, but it is not part of this homework.) You may use this fact freely in this problem. Fix any two <span class="math inline">\(n \times n\)</span> square matrices <span class="math inline">\(A, B\)</span>. Suppose <span class="math inline">\(A B=B A\)</span>.</p>
-<ol type="1">
-<li>If <span class="math inline">\(W\)</span> is an A-invariant subspace, show that <span class="math inline">\(A\)</span> has an eigenvector in <span class="math inline">\(W\)</span>.</li>
-<li>Show that <span class="math inline">\(\operatorname{Ker}(A-\lambda I)\)</span> is always <span class="math inline">\(B\)</span>-invariant for all <span class="math inline">\(\lambda \in \mathbb{C}\)</span>. (Hint: Last problem.)</li>
-<li>Show that <span class="math inline">\(A, B\)</span> has a common eigenvector. (Hint: Last two sub-problem.)</li>
-</ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> Construct a new linear map from <span class="math inline">\(W\)</span> to <span class="math inline">\(W\)</span> <span class="math display">\[
-W\longmapsto  W: \vec{w}\longmapsto A\vec{w}
-\]</span> According to the fact that any linear map must have at least one eigenvector, A has an eigenvector in <span class="math inline">\(W\)</span></p>
-<p><span class="math inline">\((2)\)</span> For any vector <span class="math inline">\(\vec{v}\)</span> from <span class="math inline">\(\mbox{Ker}(A-\lambda I)\)</span>, <span class="math inline">\((A-\lambda I)\vec{v}=0,A\vec{v}=\lambda\vec{v}\)</span>, use <span class="math inline">\(AB=BA\)</span></p>
-<p>Because <span class="math inline">\((A-\lambda I)(B\vec{v})=(AB-\lambda B)\vec{v}=(BA-\lambda B)\vec{v}=B(A-\lambda I)\vec{v}=0\)</span></p>
-<p>So <span class="math inline">\(\mbox{Ker}(A-\lambda I)\)</span> is <span class="math inline">\(B-\)</span>invariant for all <span class="math inline">\(\lambda \in \mathbb{C}\)</span></p>
-<p><span class="math inline">\((3)\)</span> According to <span class="math inline">\(\small (1)\)</span> and <span class="math inline">\(\small (2)\)</span>, there exists at least one eigenvector <span class="math inline">\(\vec{v}\)</span> in <span class="math inline">\(\mbox{Ker}(A-\lambda I)\)</span> that</p>
-<p><span class="math inline">\(B\vec{v}=\lambda_{B}\vec{v}\)</span> And the vector <span class="math inline">\(\vec{v}\)</span> also satisfies that <span class="math inline">\(A\vec{v}=\lambda_{A}\vec{v}\)</span></p>
-<p>So if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are interchangeable, they must have common eigenvector.</p>
-<p>(<del>maybe a boy and a girl can exchange their mind, they may have common future</del>)</p>
+<p><span class="math inline">\((1)\)</span> I can find that the sequence of each bracket' number is not incremental, which is just like the dot graph. Put <span class="math inline">\(\small [\operatorname{dim} \operatorname{Ker}(A)],\left[\operatorname{dim} \operatorname{Ker}\left(A^{2}\right)-\operatorname{dim} \operatorname{Ker}(A)\right],\left[\operatorname{dim} \operatorname{Ker}\left(A^{3}\right)-\operatorname{dim} \operatorname{Ker}\left(A^{2}\right)\right],\ldots\)</span> like the dot graph. According to the 'killing chain', the number of each row's dots of the dot graph is just <span class="math inline">\(a_1,a_2,a_3,\ldots\)</span></p>
+<p><span class="math inline">\((2)\)</span> The self-conjugate of the partition is just like a flying wing. Like this <span class="math inline">\(\left[\begin{array}{lll} \cdot &amp; \cdot &amp; \cdot &amp; \cdot&amp;\cdot &amp;\cdot \\ \cdot &amp; \cdot &amp; \cdot &amp; \cdot&amp;\cdot \\ \cdot &amp;\cdot &amp;\cdot &amp; \\\cdot &amp;\cdot &amp;\\ \cdot &amp;\cdot &amp;\\\cdot \end{array}\right]\)</span></p>
+<p>If rudely call this as a matrix <span class="math inline">\(A\)</span>, because of the condition, we have <span class="math inline">\(A=A^{T}\)</span>.</p>
+<p>Consider the outermost corner, the total number of the dots is <span class="math inline">\(n+n-1=2n-1\in \mbox{odd}\)</span></p>
+<p>And deprive each corner, the newest outermost corner is also satisfy the odd condition.</p>
+<p>So every self-conjugate can be correspondence to odd-partition. And for each odd-partition, we can construct the matrix one corner by one corner.</p>
+<p>In conclusion, the two numbers are the same.</p>
+<p><span class="math inline">\((3)\)</span> <span class="math inline">\(A\)</span> is nilpotent and its dimension is <span class="math inline">\(4\)</span>, so <span class="math inline">\(A^{4}=O\)</span>. Consider the diagonal elements.</p>
+<p><span class="math inline">\(A^4(i,i)=(A(i,i))^4=0\)</span>, so <span class="math inline">\(A\)</span> is like <span class="math inline">\(A=\begin{pmatrix}0&amp;\mbox{ran}&amp;\mbox{ran}&amp;\mbox{ran}\\0&amp;0&amp;\mbox{ran}&amp;\mbox{ran}\\0&amp;0&amp;0&amp;\mbox{ran}\\0&amp;0&amp;0&amp;0\end{pmatrix}\)</span>. It is obvious that all the</p>
+<p>eigenvalues are <span class="math inline">\(0\)</span>. Consider <span class="math inline">\(\mbox{Ker}(A),\mbox{Ker}(A^2),\mbox{Ker}(A^3),\mbox{Ke}(A^4)\)</span>, dimension of each is nearly</p>
+<p><span class="math inline">\(1,2,3,4\)</span> , since each <span class="math inline">\(\mbox{ran}\)</span> is randomly chosen from <span class="math inline">\([-1,1]\)</span>. The probability <span class="math inline">\(4=1+1+1+1\)</span></p>
+<p>is <span class="math inline">\(1\)</span>, others are <span class="math inline">\(0\)</span>.</p>
 
               
             </div>
@@ -397,7 +367,7 @@ W\longmapsto  W: \vec{w}\longmapsto A\vec{w}
   <div class="license-box my-3">
     <div class="license-title">
       <div>Advanced Algebra HW2</div>
-      <div>https://lr-tsinghua11.github.io/2022/03/16/Math/Advanced%20Linear%20Algebra/HW2/</div>
+      <div>https://lr-tsinghua11.github.io/2022/03/24/Math/Advanced%20Linear%20Algebra/HW3/</div>
     </div>
     <div class="license-meta">
       
@@ -409,7 +379,7 @@ W\longmapsto  W: \vec{w}\longmapsto A\vec{w}
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年3月16日</div>
+          <div>2022年3月24日</div>
         </div>
       
       
@@ -439,18 +409,12 @@ W\longmapsto  W: \vec{w}\longmapsto A\vec{w}
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/17/Program/OOP%20homework%204/" title="OOP-homework-4">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">OOP-homework-4</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/15/Math/Elementary%20number%20theory/Elementary%20number%20theory%20homework%204/" title="Elementary number theory homework 4">
-                        <span class="hidden-mobile">Elementary number theory homework 4</span>
+                      <a href="/2022/03/22/Math/Elementary%20number%20theory/Elementary%20number%20theory%20homework%205/" title="Elementary number theory homework 5">
+                        <span class="hidden-mobile">Elementary number theory homework 5</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
