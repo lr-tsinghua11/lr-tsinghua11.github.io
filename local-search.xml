@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Calculus A2 notes for exercise class</title>
+    <link href="/2022/03/25/Math/Calculus/Calculus%20A2%20notes%20for%20exercise%20class/"/>
+    <url>/2022/03/25/Math/Calculus/Calculus%20A2%20notes%20for%20exercise%20class/</url>
+    
+    <content type="html"><![CDATA[<h2 id="第一次习题课">第一次习题课</h2><ul><li><p>善用放缩 <span class="math inline">\(\dfrac{xy}{x^2+y^2}\leq \dfrac{1}{2}\)</span></p></li><li><p>函数 <span class="math inline">\(f(x, y)\)</span> 在点 <span class="math inline">\(\left(x_{0}, y_{0}\right)\)</span> 的某去心邻域内有定义, 若：</p><ol type="a"><li><p>存在 <span class="math inline">\(x_{0}\)</span> 的去心邻域 <span class="math inline">\(U=\left\{x|0&lt;| x-x_{0} \mid&lt;r\right\}\)</span>, 使得 <span class="math inline">\(\forall x \in U\)</span>, <span class="math inline">\(\displaystyle \lim _{y \rightarrow y_{0}} f(x, y)=g(x)\)</span> 存在;</p></li><li><p><span class="math inline">\(\displaystyle \lim _{x \rightarrow x_{0}} f(x, y)=h(y)\)</span> 关于 <span class="math inline">\(y_{0}\)</span> 的某个去心邻域 <span class="math inline">\(\left\{y|0&lt;| y-y_{0} \mid&lt;\eta\right\}\)</span> 上一 致,</p></li></ol><p>则极限 <span class="math inline">\(\displaystyle \lim _{x \rightarrow x_{0}} g(x)\)</span> 和 <span class="math inline">\(\displaystyle \lim _{y \rightarrow y_{0}} h(y)\)</span> 都存在, 并且相等, 即 <span class="math inline">\(\displaystyle \lim _{x \rightarrow x_{0}} \displaystyle \lim _{y \rightarrow y_{0}} f(x, y)=\)</span> <span class="math inline">\(\displaystyle \lim _{y \rightarrow y_{0}} \displaystyle \lim _{x \rightarrow x_{0}} f(x, y)\)</span> 。</p><p><strong>即在一个方向上加入一致连续的条件就可以让累次极限和二重极限存在</strong></p><p>满足一致连续的一个充分条件，存在常数 <span class="math inline">\(M&gt;0\)</span> 使得在 <span class="math inline">\(\left(x_{0}, y_{0}\right)\)</span> 的一个去心邻域中, 都有</p></li></ul><p><span class="math display">\[\left|\frac{\partial f}{\partial x}(x, y)\right|&lt;M .\]</span></p><ul><li><p><span class="math inline">\(\dfrac{x+y}{x^2-xy+y^2}=\dfrac{x+y}{\dfrac{3}{4}(x-y)^2+\dfrac{1}{4}(x+y)^2}\leq \dfrac{4}{x+y}\)</span></p></li><li><p><span class="math inline">\(\dfrac{x^2y^n}{x^3+y^3},n\geq 1\)</span>，取 <span class="math inline">\(y=x\)</span> 和 <span class="math inline">\(y=x^n-x\)</span> 可知在 <span class="math inline">\((0,0)\)</span> 处二重极限不存在（对多元多项式, 无穷小比阶不能仅看多项式的次数）</p></li></ul><h2 id="第二次习题课">第二次习题课</h2><ul><li><p><span class="math inline">\(f(x,y)\)</span> 在 <span class="math inline">\((x_0,y_0)\)</span> 处可微的充要条件 <span class="math display">\[\exists\ A,B\in R,s.t.f(x,y)=A(x-x_0)+B(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2})\]</span> 对具体的问题先计算 <span class="math inline">\(A=\lim\limits_{x\to x_0}\dfrac{f(x,y_0)-f(0,y_0)}{x-x_0},B=\lim\limits_{y\to y_0}\dfrac{f(x_0,y)-f(x_0,y_0)}{y-y_0}\)</span></p><p>然后再计算 <span class="math inline">\(\lim\limits_{(x,y)\to (x_0,y_0)}\dfrac{f(x,y)-A(x-x_0)-B(y-y_0)}{\sqrt{(x-x_0)^2+(y-y_0)^2}}\)</span> 是否等于 <span class="math inline">\(0\)</span></p></li><li><p>设 <span class="math inline">\(z(x, y)\)</span> 定义在矩形区域 <span class="math inline">\(D=\{(x, y) \mid 0 \leq x \leq a, 0 \leq y \leq b\}\)</span> 上的 <span class="math inline">\(\mathscr{C}^{1}\)</span> 函数。证明:</p><ol type="1"><li><span class="math inline">\(z(x, y)=f(y) \Longleftrightarrow \forall(x, y) \in D, \dfrac{\partial z}{\partial x}=0\)</span>;</li><li><span class="math inline">\(z(x, y)=f(x)+g(y) \Longleftrightarrow \forall(x, y) \in D, \dfrac{\partial^{2} z}{\partial x \partial y}=0\)</span></li></ol><p><span class="math inline">\((1)\)</span> 使用微分中值定理，<span class="math inline">\(z(x,y)=z(x_0,y)+\dfrac{\partial z}{\partial x}(\xi,y)(x-x_0)=z(x_0,y)=f(y)\)</span></p><p><span class="math inline">\((2)\)</span> 令 <span class="math inline">\(u(x,y)=\dfrac{\partial z}{\partial y},\dfrac{\partial u}{\partial x}=0\)</span>，由 <span class="math inline">\(\small (1)\)</span> 有 <span class="math inline">\(u(x,y)=\dfrac{\partial z }{\partial y}=h(y)\)</span>，有 <span class="math inline">\(h(y)\)</span> 原函数令为 <span class="math inline">\(g(y)\)</span>，令 <span class="math inline">\(v(x,y)=z(x,y)-g(y)\)</span> 从而得证</p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+      <category>多元微积分</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>多元微积分习题课笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Advanced Algebra HW2</title>
     <link href="/2022/03/24/Math/Advanced%20Linear%20Algebra/HW3/"/>
     <url>/2022/03/24/Math/Advanced%20Linear%20Algebra/HW3/</url>
