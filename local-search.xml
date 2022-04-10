@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>An intriguing contest in university life</title>
+    <link href="/2022/04/09/math%20contest/"/>
+    <url>/2022/04/09/math%20contest/</url>
+    
+    <content type="html"><![CDATA[<p>期中考试前一周周六，参加求真书院（丘成桐班）举办的新生数理基础大赛，分为数学组和非数学组，考试途中监考员觉得我们做得有点慢，还给我们加了时长，从 <span class="math inline">\(3\)</span> 小时增加到 <span class="math inline">\(3.5\)</span> 小时。很久没有集中精力考过这么长的试了，那本答题纸被我填满了（没有正反面都写），考到最后手都没力气了（手动捂脸）。考完整个人都虚脱了，吃了紫荆二楼的涮羊肉后待在寝室睡了一小时觉，睡完觉起来啥都不想干，直接躺平整个晚上。</p><p>考题总体来说比较符合口味，有点像之前物理竞赛那种<strong>亚赛</strong>风格，从最简单、底层的证明开始推导，像楼房一样一层层累高，说实话，这才比较具有趣味性和科研性，那种一来就大眼瞪小眼（例如：求证 <span class="math inline">\(x^n+y^n=z^n,n\geq 3\)</span> 无平凡整数解，当然这是开玩笑，反正就这个意思）的题反而效果不好。四道题，每题 <span class="math inline">\(25\)</span> 分，<span class="math inline">\(A\)</span> 题 <span class="math inline">\(Stirling\)</span> 公式，<span class="math inline">\(B\)</span> 题包络线，<span class="math inline">\(C\)</span> 题两个题选一个，一个菲涅尔积分，一个随机游走，<span class="math inline">\(D\)</span> 题正交投影。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>竞赛</category>
+      
+      <category>数学</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>新生数理基础大赛</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Calculus A2 notes for exercise classes 2</title>
     <link href="/2022/04/08/Math/Calculus/Calculus%20A2%20notes%20for%20exercise%20class%202/"/>
     <url>/2022/04/08/Math/Calculus/Calculus%20A2%20notes%20for%20exercise%20class%202/</url>
