@@ -16,23 +16,23 @@
   <meta name="author" content="Tony">
   <meta name="keywords" content="">
   
-    <meta name="description" content="求真书院举办的数学竞赛，算是为期中考试练练手">
+    <meta name="description" content="使用python中matplotlib绘制最小二乘法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="An intriguing contest in Spring">
-<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/04/10/Math%20Contest/index.html">
+<meta property="og:title" content="Python-Matplotlib-For-Lab-of-Physics">
+<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/04/15/Program/Python-Matplotlib-For-Lab-of-Physics/index.html">
 <meta property="og:site_name" content="Tony">
-<meta property="og:description" content="求真书院举办的数学竞赛，算是为期中考试练练手">
+<meta property="og:description" content="使用python中matplotlib绘制最小二乘法">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E8%BF%9E%E7%BB%B5%E5%B1%B1%E8%84%89%E5%A4%9A%E4%BA%91.jpg">
-<meta property="article:published_time" content="2022-04-10T11:33:20.000Z">
-<meta property="article:modified_time" content="2022-04-11T11:16:22.762Z">
+<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E7%A7%80%E4%B8%BD%E5%B1%B1%E5%B7%9D.jpg">
+<meta property="article:published_time" content="2022-04-15T05:57:48.000Z">
+<meta property="article:modified_time" content="2022-04-18T05:55:22.917Z">
 <meta property="article:author" content="Tony">
-<meta property="article:tag" content="数理基础大赛">
+<meta property="article:tag" content="Python 可视化基物实验">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E8%BF%9E%E7%BB%B5%E5%B1%B1%E8%84%89%E5%A4%9A%E4%BA%91.jpg">
+<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E7%A7%80%E4%B8%BD%E5%B1%B1%E5%B7%9D.jpg">
   
   
-  <title>An intriguing contest in Spring - Tony</title>
+  <title>Python-Matplotlib-For-Lab-of-Physics - Tony</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,12 +195,12 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E8%BF%9E%E7%BB%B5%E5%B1%B1%E8%84%89%E5%A4%9A%E4%BA%91.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/%E7%A7%80%E4%B8%BD%E5%B1%B1%E5%B7%9D.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
-          <span id="subtitle" title="An intriguing contest in Spring">
+          <span id="subtitle" title="Python-Matplotlib-For-Lab-of-Physics">
             
           </span>
         </div>
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-04-10 19:33" pubdate>
-          2022年4月10日 晚上
+        <time datetime="2022-04-15 13:57" pubdate>
+          2022年4月15日 下午
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          899 字
+          3.4k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          8 分钟
+          29 分钟
         
       </span>
     
@@ -273,17 +273,11 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">An intriguing contest in Spring</h1>
+            <h1 style="display: none">Python-Matplotlib-For-Lab-of-Physics</h1>
             
             <div class="markdown-body">
               
-              <p>期中考试前一周周六，参加求真书院（丘成桐班）举办的新生数理基础大赛，分为数学组和非数学组，当然选的是非数学组。考试途中监考员觉得我们做得有点慢，还给我们加了时长，从 <span class="math inline">\(3\)</span> 小时增加到 <span class="math inline">\(3.5\)</span> 小时。</p>
-<p>很久没有集中精力考过这么长的试了，那本答题纸被我填满了（没有正反面都写），考到最后手都没力气了（手动捂脸）。考完整个人都虚脱了，吃了紫荆二楼的涮羊肉后待在寝室睡了一小时觉，睡完觉起来啥都不想干，直接躺平整个晚上。</p>
-<p>考题总体来说比较符合口味，很像之前物理竞赛中的<strong>亚赛</strong>风格，从最简单、底层的证明开始推导，像楼房一样一层层累高。说实话，这才比较具有趣味性和科研性，那种一来就大眼瞪小眼（例如：求证 <span class="math inline">\(x^n+y^n=z^n,n\geq 3\)</span> 无平凡整数解，当然这是开玩笑，反正就这个意思）的题反而体验感不好。</p>
-<p>四道题，每题 <span class="math inline">\(25\)</span> 分，<span class="math inline">\(A\)</span> 题 <span class="math inline">\(Stirling\)</span> 公式，<span class="math inline">\(B\)</span> 题包络线，<span class="math inline">\(C\)</span> 题两个题选一个，一个菲涅尔积分，一个随机游走，<span class="math inline">\(D\)</span> 题正交投影。<span class="math inline">\(C\)</span> 题我选的菲涅尔积分，也就是我做了 <span class="math inline">\(3\)</span> 道微积分，<span class="math inline">\(1\)</span> 道线代，平均每个题 <span class="math inline">\(7-8\)</span> 个小问。</p>
-<p>据说前三题是同一个人出的，当时做的时候很容易在中间地方卡壳，但最后冥思苦想后都通关了，尤其是第一题做到一半感觉差点都要放弃了……最后一个线代题有点云里雾里，考试也说了后面问可以使用前面问的结论，由此<del>骗了不少分</del>（手动狗头）。</p>
-<p>最终得分 <span class="math inline">\(\mathbf{25+23+23+18=89}\)</span>，混了个非数学组第二名（一等奖第一名），有几个数值计算题可能脑袋已经超负荷了，没有检查合理性，第三题算星形线面积时多乘了个 <span class="math inline">\(4\)</span>，线代题奇异值忘记开根号了，有些小遗憾。不过 wl 大师拿第一名特等奖也是实至名归了（<span class="math inline">\(\mathbf{92}\)</span> 分），等繁忙的期中考试后把题目（或许有时间的话解答）贴在后面。</p>
-<p>新生数理基础大赛之旅还真不错，难得思考问题这么集中持久，感觉平常写代码 <span class="math inline">\(\mbox{copy}\)</span> 惯了，脑子没有之前高中竞赛那么灵活了，遇到问题全靠搜索引擎。之后有机会还是多参加类似的比赛，也算是无聊大学生活中的愉悦体验吧。</p>
+              <p>源码以及对应详尽注释如下：（绘制拟合直线和自动计算相应误差并输出为 <span class="math inline">\(\mbox{Latex}\)</span> 格式 ） <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> sqrt, log<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><span class="hljs-comment"># 全局变量，相关系数、TINV因子、x,y轴标签</span><br>R_2 = <span class="hljs-number">0</span><br>TINV = [<span class="hljs-string">&#x27;0&#x27;</span>,<span class="hljs-string">&#x27;12.7062047361747&#x27;</span>, <span class="hljs-string">&#x27;4.3026527297495&#x27;</span>, <span class="hljs-string">&#x27;3.1824463052837&#x27;</span>, <br>		<span class="hljs-string">&#x27;2.7764451051978&#x27;</span>, <span class="hljs-string">&#x27;2.5705818356363&#x27;</span>, <span class="hljs-string">&#x27;2.4469118511450&#x27;</span>, <br>		<span class="hljs-string">&#x27;2.3646242515928&#x27;</span>, <span class="hljs-string">&#x27;2.3060041352042&#x27;</span>, <span class="hljs-string">&#x27;2.2621571627982&#x27;</span>, <br>		<span class="hljs-string">&#x27;2.2281388519863&#x27;</span>, <span class="hljs-string">&#x27;2.2009851600916&#x27;</span>, <span class="hljs-string">&#x27;2.1788128296672&#x27;</span>,<br>		<span class="hljs-string">&#x27;2.1603686564628&#x27;</span>, <span class="hljs-string">&#x27;2.1447866879178&#x27;</span>, <span class="hljs-string">&#x27;2.1314495455598&#x27;</span>, <br>		<span class="hljs-string">&#x27;2.1199052992213&#x27;</span>, <span class="hljs-string">&#x27;2.1098155778333&#x27;</span>, <span class="hljs-string">&#x27;2.1009220402410&#x27;</span>, <br>		<span class="hljs-string">&#x27;2.0930240544083&#x27;</span>, <span class="hljs-string">&#x27;2.0859634472659&#x27;</span>, <span class="hljs-string">&#x27;2.0796138447277&#x27;</span>, <br>		<span class="hljs-string">&#x27;2.0738730679040&#x27;</span>, <span class="hljs-string">&#x27;2.0686576104191&#x27;</span>, <span class="hljs-string">&#x27;2.0638985616280&#x27;</span>, <br>		<span class="hljs-string">&#x27;2.0595385527533&#x27;</span>, <span class="hljs-string">&#x27;2.0555294386429&#x27;</span>, <span class="hljs-string">&#x27;2.0518305164803&#x27;</span>, <br>		<span class="hljs-string">&#x27;2.0484071417952&#x27;</span>, <span class="hljs-string">&#x27;2.0452296421327&#x27;</span>, <span class="hljs-string">&#x27;2.0422724563012&#x27;</span>] <br>xName = [<span class="hljs-string">&quot;谐频次数$\mathcal&#123;n&#125;$(个)&quot;</span>,<span class="hljs-string">&quot;弦长倒数$\ \mathcal&#123;L&#125;^&#123;-1&#125;(\mathcal&#123;m&#125;$$^&#123;-1&#125;$)&quot;</span>,<span class="hljs-string">&quot;拉力对数$\ln\mathcal&#123;T&#125;&#125;$&quot;</span>,<span class="hljs-string">&quot;线密度对数$\ \ln$ $\lambda$&quot;</span>]<br>yName = [<span class="hljs-string">&quot;共振频率$\mathcal&#123;f&#125;\ \mathcal&#123;(Hz)&#125;$&quot;</span>,<span class="hljs-string">&quot;共振频率$\mathcal&#123;f&#125;\ \mathcal&#123;(Hz)&#125;$&quot;</span>,<span class="hljs-string">&quot;基频对数$\ln\mathcal&#123;f&#125;&#125;$&quot;</span>,<span class="hljs-string">&quot;基频对数$\ln\mathcal&#123;f&#125;&#125;$&quot;</span>]<br><br><span class="hljs-comment"># 原始数据并批量处理放在这个地方</span><br>x = [<span class="hljs-number">0.00055</span>,<span class="hljs-number">0.00098</span>,<span class="hljs-number">0.00191</span>,<span class="hljs-number">0.00350</span>,<span class="hljs-number">0.00578</span>,<span class="hljs-number">0.00936</span>]<br>y = [<span class="hljs-number">127</span>,<span class="hljs-number">96.1</span>,<span class="hljs-number">65.7</span>,<span class="hljs-number">50.3</span>,<span class="hljs-number">40.2</span>,<span class="hljs-number">31</span>]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(x)):<br>	x[i] = log(x[i])<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(y)):<br>	y[i] = log(y[i])<br><br><span class="hljs-comment"># 计算相关系数</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">getR_2</span>(<span class="hljs-params">x,y,degree</span>):<br>	coeffs = np.polyfit(x,y,degree)<br>	p = np.poly1d(coeffs)<br>	yhat = p(x)<br>	ybar = np.<span class="hljs-built_in">sum</span>(y) / <span class="hljs-built_in">len</span>(y)<br>	ssreg = np.<span class="hljs-built_in">sum</span>((yhat - ybar) ** <span class="hljs-number">2</span>)<br>	sstot = np.<span class="hljs-built_in">sum</span>((y - ybar) ** <span class="hljs-number">2</span>)<br>	<span class="hljs-keyword">return</span> ssreg / sstot<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">getSb</span>(<span class="hljs-params">R_2,length</span>):<br>	<span class="hljs-keyword">return</span> sqrt((<span class="hljs-number">1</span> / R_2 - <span class="hljs-number">1</span>)/(length - <span class="hljs-number">2</span>))<br><br>coef = np.polyfit(x,y,<span class="hljs-number">1</span>)<br>poly1d_fn = np.poly1d(coef) <br>R_2 = getR_2(x,y,<span class="hljs-number">1</span>)<br>k = <span class="hljs-built_in">str</span>(<span class="hljs-built_in">round</span>(coef[<span class="hljs-number">0</span>],<span class="hljs-number">4</span>))               <span class="hljs-comment"># 最小二乘法拟合斜率</span><br>b = <span class="hljs-built_in">round</span>(coef[<span class="hljs-number">1</span>],<span class="hljs-number">4</span>)                    <span class="hljs-comment"># 最小二乘法拟合截距</span><br>Sb = <span class="hljs-built_in">float</span>(getSb(R_2,<span class="hljs-built_in">len</span>(x)) * coef[<span class="hljs-number">0</span>]) <span class="hljs-comment"># 计算斜率标准偏差</span><br>Ub = Sb * <span class="hljs-built_in">float</span>(TINV[<span class="hljs-built_in">len</span>(x) - <span class="hljs-number">2</span>])       <span class="hljs-comment"># 计算斜率不确定度</span><br><br><span class="hljs-comment"># 对截距 b 转换为字符串正负号的处理</span><br><span class="hljs-keyword">if</span> b &gt; <span class="hljs-number">0</span>:<br>	b = <span class="hljs-string">&quot;+&quot;</span> + <span class="hljs-built_in">str</span>(b)<br><span class="hljs-keyword">else</span>:<br>	b = <span class="hljs-built_in">str</span>(b)<br><br><span class="hljs-comment"># 调整字体环境</span><br>plt.rcParams[<span class="hljs-string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="hljs-literal">False</span>  <span class="hljs-comment"># 正常显示负数</span><br>plt.rcParams[<span class="hljs-string">&#x27;font.sans-serif&#x27;</span>] =<span class="hljs-string">&#x27;Times New Roman&#x27;</span>  <span class="hljs-comment"># 数字使用罗马字体</span><br><br><span class="hljs-comment"># 作出散点和拟合直线</span><br>xdraw = np.linspace(<span class="hljs-built_in">min</span>(x),<span class="hljs-built_in">max</span>(x),<span class="hljs-number">30</span>)<br>ydraw = poly1d_fn(xdraw)<br>plt.plot(xdraw, ydraw, <span class="hljs-string">&#x27;-&#x27;</span> ,color = <span class="hljs-string">&#x27;b&#x27;</span>, linewidth = <span class="hljs-number">0.5</span>)<br>plt.plot(x, y, <span class="hljs-string">&#x27;r+&#x27;</span>)<br>funRe = <span class="hljs-string">&quot;$\hat&#123;y&#125;=&quot;</span> + k + <span class="hljs-string">&quot;x&quot;</span> + b + <span class="hljs-string">&quot;$&quot;</span><br><br><span class="hljs-comment"># 标定 x,y 对应物理量</span><br>plt.rcParams[<span class="hljs-string">&#x27;font.sans-serif&#x27;</span>] = <span class="hljs-string">&#x27;Kaiti&#x27;</span><br>plt.xlabel(xName[<span class="hljs-number">3</span>], fontsize = <span class="hljs-number">10</span>)<br>plt.ylabel(yName[<span class="hljs-number">3</span>], fontsize = <span class="hljs-number">10</span>)<br><br><span class="hljs-comment"># 将拟合直线方程和相关系数“适当”地放在中间（参数需要手调）</span><br>middle = (<span class="hljs-built_in">max</span>(x) + <span class="hljs-built_in">min</span>(x)) / <span class="hljs-number">2</span><br>plt.text(middle, <span class="hljs-number">1.05</span> * poly1d_fn(middle), funRe, fontsize = <span class="hljs-number">10</span>)<br>plt.text(middle, <span class="hljs-number">1.03</span> * poly1d_fn(middle), <span class="hljs-string">&#x27;$r^2=&#x27;</span> + <span class="hljs-built_in">str</span>(R_2) + <span class="hljs-string">&quot;$&quot;</span>)<br><br><span class="hljs-comment"># 输出在 Latex 中显示正常的拟合结果</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\quad \quad \quad 线性拟合斜率$k=&quot;</span>,<span class="hljs-built_in">round</span>(coef[<span class="hljs-number">0</span>],<span class="hljs-number">3</span>),end = <span class="hljs-string">&quot;$&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\quad \quad 调用Excel中TINV函数&quot;</span>,<span class="hljs-string">&quot;$t_&#123;0.95,&quot;</span>,<span class="hljs-built_in">len</span>(x),<span class="hljs-string">&quot;&#125;=&quot;</span>,<span class="hljs-built_in">round</span>(<span class="hljs-built_in">float</span>(TINV[<span class="hljs-built_in">len</span>(x)-<span class="hljs-number">2</span>]),<span class="hljs-number">3</span>),<span class="hljs-string">&quot;$\par&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\quad \quad \quad 斜率标准偏差$s_k=&quot;</span>,<span class="hljs-built_in">round</span>(Sb,<span class="hljs-number">3</span>),end = <span class="hljs-string">&quot;$&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\quad \quad 斜率不确定度为$U_b=&quot;</span>,<span class="hljs-built_in">round</span>(Ub,<span class="hljs-number">3</span>),<span class="hljs-string">&quot;$\par&quot;</span>)<br><br><span class="hljs-comment"># 保存或者查看生成的图片</span><br><span class="hljs-comment"># plt.savefig(&quot;回归拟合图四&quot;,dpi = 2000)</span><br>plt.show()<br></code></pre></td></tr></table></figure></p>
 
               
             </div>
@@ -301,12 +295,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AB%9E%E8%B5%9B/" class="category-chain-item">竞赛</a>
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%AB%9E%E8%B5%9B/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  <a href="/categories/Python/%E5%8F%AF%E8%A7%86%E5%8C%96/" class="category-chain-item">可视化</a>
   
   
 
@@ -323,7 +317,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80%E5%A4%A7%E8%B5%9B/">#数理基础大赛</a>
+        <a href="/tags/Python-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9F%BA%E7%89%A9%E5%AE%9E%E9%AA%8C/">#Python 可视化基物实验</a>
       
     </div>
   
@@ -335,8 +329,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>An intriguing contest in Spring</div>
-      <div>https://lr-tsinghua11.github.io/2022/04/10/Math%20Contest/</div>
+      <div>Python-Matplotlib-For-Lab-of-Physics</div>
+      <div>https://lr-tsinghua11.github.io/2022/04/15/Program/Python-Matplotlib-For-Lab-of-Physics/</div>
     </div>
     <div class="license-meta">
       
@@ -348,7 +342,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年4月10日</div>
+          <div>2022年4月15日</div>
         </div>
       
       
@@ -378,18 +372,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/15/Program/Python-Matplotlib-For-Lab-of-Physics/" title="Python-Matplotlib-For-Lab-of-Physics">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python-Matplotlib-For-Lab-of-Physics</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/08/Math/Calculus/Calculus%20A2%20notes%20for%20exercise%20class%202/" title="Calculus A2 notes for exercise classes 2">
-                        <span class="hidden-mobile">Calculus A2 notes for exercise classes 2</span>
+                      <a href="/2022/04/10/Math%20Contest/" title="An intriguing contest in Spring">
+                        <span class="hidden-mobile">An intriguing contest in Spring</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
