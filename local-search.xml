@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Physic of report</title>
+    <link href="/2022/04/20/Physics%20Report/"/>
+    <url>/2022/04/20/Physics%20Report/</url>
+    
+    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="24ff2fad89d6e6c77999233c6f90499a37944a83ccdab2bd096ee7640e549a56">67fa76f5b34b7b2acc4259b77b66168d4d05d1f2588602c3fa9a2d39940fdb47ed153c4dc0bb5c52c53492bf7778a6915d26b92d2def5aa2147da09c47ac0c2545670e79af35851205a4b3cd230c47b7cd4c01fe0aeedeec8e977e471b90a5b851cf577740c89440c344af9ec627f74e5c1545c24de0b8793550e7f542775f23620424940e1a76f8eb15bfb1c6e8dccc49320c8bd2e45504fc3b8f9a8fe19b64</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+    
+    
+    <categories>
+      
+      <category>物理</category>
+      
+      <category>实验报告</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>物理实验报告</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Matplotlib-For-Lab-of-Physics</title>
     <link href="/2022/04/15/Program/Matplotlib-For-Lab-of-Physics/"/>
     <url>/2022/04/15/Program/Matplotlib-For-Lab-of-Physics/</url>
