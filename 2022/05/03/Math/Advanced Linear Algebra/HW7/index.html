@@ -1,0 +1,828 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Tony">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="杨 Sir 高代第七次作业">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Advanced Algebra HW7">
+<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/05/03/Math/Advanced%20Linear%20Algebra/HW7/index.html">
+<meta property="og:site_name" content="Tony">
+<meta property="og:description" content="杨 Sir 高代第七次作业">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E5%A4%9A%E4%BA%91%E8%8D%89%E5%8E%9F.jpg">
+<meta property="article:published_time" content="2022-05-03T02:51:25.000Z">
+<meta property="article:modified_time" content="2022-05-03T02:51:40.312Z">
+<meta property="article:author" content="Tony">
+<meta property="article:tag" content="高代作业">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E5%A4%9A%E4%BA%91%E8%8D%89%E5%8E%9F.jpg">
+  
+  
+  <title>Advanced Algebra HW7 - Tony</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lr-tsinghua11.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Tony&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/%E5%A4%9A%E4%BA%91%E8%8D%89%E5%8E%9F.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          <span id="subtitle" title="Advanced Algebra HW7">
+            
+          </span>
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-03 10:51" pubdate>
+          2022年5月3日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          83 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Advanced Algebra HW7</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="largetextcolorbluemboxadvanced-algebra-small-mathbbhwmathrm7-_textcolorblue2022.5.3"><span class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra } \small \mathbb{HW}\mathrm{7}}\ \ \ \ \ \ _\textcolor{blue}{2022.5.3}\)</span></h1>
+<h2 id="small-mboxbra-map-and-riesz-map">1.7.1<span class="math inline">\(\ \small \mbox{bra map and Riesz map}\)</span></h2>
+<p>On the space <span class="math inline">\(\mathbb{R}^{n}\)</span>, we fix a symmetric positive-definite matrix <span class="math inline">\(A\)</span>, and define <span class="math inline">\((\boldsymbol{v}, \boldsymbol{w})=\boldsymbol{v}^{\mathrm{T}}A\boldsymbol{w}\)</span></p>
+<ol type="1">
+<li>Show that this is an inner product.</li>
+<li>The Riesz map (inverse of the bra map) from <span class="math inline">\(V^{*}\)</span> to <span class="math inline">\(V\)</span> would send a row vector <span class="math inline">\(\boldsymbol{v}^{\mathrm{T}}\)</span> to what?</li>
+<li>The bra map from <span class="math inline">\(V\)</span> to <span class="math inline">\(V^{*}\)</span> would send a vector <span class="math inline">\(\boldsymbol{v}\)</span> to what?</li>
+<li>The dual of the Riesz map from <span class="math inline">\(V^{*}\)</span> to <span class="math inline">\(V\)</span> would send a row vector <span class="math inline">\(\boldsymbol{v}^{\mathrm{T}}\)</span> to what?</li>
+</ol>
+<hr />
+<p><span class="math inline">\((1)\)</span> Easy to prove.</p>
+<p><span class="math inline">\((2)\)</span> The bra map means <span class="math inline">\(\forall \ \langle \boldsymbol{v}|\in \mathcal{B},s.t.\langle \boldsymbol{v}|:\boldsymbol{\omega\longmapsto}\langle\boldsymbol{v},\boldsymbol{\omega}\rangle=\boldsymbol{v}^{\mathrm{T}}A\boldsymbol{w}\)</span> So the inverse of <span class="math inline">\(\langle \boldsymbol{v}|\)</span> is make <span class="math inline">\(\boldsymbol{v}^{\mathrm{T}}A\)</span></p>
+<p>to <span class="math inline">\(\boldsymbol {v}\)</span>, which is from <span class="math inline">\(V^{*}\)</span> to <span class="math inline">\(V\)</span>. Set <span class="math inline">\(\boldsymbol{u}=\boldsymbol {v}^{T}A\)</span>, so <span class="math inline">\(\boldsymbol{v}^{T}=\boldsymbol{u}A^{-1}\)</span> then transpose it we can get <span class="math inline">\(\boldsymbol{v}=(A^{-1})^{T}\boldsymbol{u^{T}}\)</span></p>
+<p>So if the input is <span class="math inline">\(\boldsymbol{v}^{T}\in V^{*}\)</span>, the output is <span class="math inline">\((A^{-1})^{T}(\boldsymbol v^{T})^{T}=(A^{-1})^{T}\boldsymbol{v}\in V\)</span></p>
+<p><span class="math inline">\((3)\)</span> Obviously, it sends <span class="math inline">\(\boldsymbol{v}\)</span> to <span class="math inline">\(\boldsymbol{v}^{T}A\)</span></p>
+<p><span class="math inline">\((4)\)</span> I guess the result is the same with <span class="math inline">\(\small(2)\)</span>, which sends <span class="math inline">\(\boldsymbol {v}^{T}\)</span> to <span class="math inline">\((A^{-1})^{T}\boldsymbol{v}\)</span></p>
+<h2 id="small-mboxwhat-is-a-derivative">1.7.2<span class="math inline">\(\ \small \mbox{What is a derivative}\)</span></h2>
+<p>The discussions in this problem holds for all manifolds <span class="math inline">\(M\)</span>. But for simplicities sake, suppose <span class="math inline">\(M=\mathbb{R}^{3}\)</span> for this problem.</p>
+<p>Let <span class="math inline">\(V\)</span> be the space of all analytic functions from <span class="math inline">\(M\)</span> to <span class="math inline">\(\mathbb{R}\)</span>. Here analytic means <span class="math inline">\(f(x, y, z)\)</span> is a infinite polynomial series (its Taylor expansion) with variables <span class="math inline">\(x, y, z\)</span>. Approximately <span class="math inline">\(f(x, y, z)=a_{0}+a_{1} x+a_{2} y+\)</span> <span class="math inline">\(a_{3} z+a_{4} x^{2}+a_{5} x y+a_{6} x z+a_{7} y^{2}+\ldots\)</span>, and things should converge always.</p>
+<p>Then a dual vector <span class="math inline">\(v \in V^{*}\)</span> is said to be a "derivation at <span class="math inline">\(\boldsymbol{p} \in M^{\prime \prime}\)</span> if it satisfy the following Leibniz rule (or product rule): <span class="math display">\[
+v(f g)=f(\boldsymbol{p}) v(g)+g(\boldsymbol{p}) v(f) .
+\]</span> (Note the similarity with your traditional product rule <span class="math inline">\((f g)^{\prime}(x)=f(x) g^{\prime}(x)+g(x) f^{\prime}(x)\)</span>.) Prove the following:</p>
+<ol type="1">
+<li>Constant functions in <span class="math inline">\(V\)</span> must be sent to zero by all derivations at any point.</li>
+<li>Let <span class="math inline">\(x, y, z \in V\)</span> be the coordinate function. Suppose <span class="math inline">\(\boldsymbol{p}=\left[\begin{array}{l}p_{1} \\ p_{2} \\ p_{3}\end{array}\right]\)</span>, then for any derivation <span class="math inline">\(v\)</span> at <span class="math inline">\(\boldsymbol{p}\)</span>, then we have <span class="math inline">\(v\left(\left(x-p_{1}\right) f\right)=f(\boldsymbol{p}) v(x), v\left(\left(y-p_{2}\right) f\right)=f(\boldsymbol{p}) v(y)\)</span> and <span class="math inline">\(v\left(\left(z-p_{3}\right) f\right)=f(\boldsymbol{p}) v(z)\)</span>.</li>
+<li>Let <span class="math inline">\(x, y, z \in V\)</span> be the coordinate function. Suppose <span class="math inline">\(\boldsymbol{p}=\left[\begin{array}{l}p_{1} \\ p_{2} \\ p_{3}\end{array}\right]\)</span>, then for any derivation <span class="math inline">\(v\)</span> at <span class="math inline">\(\boldsymbol{p}\)</span>, then we have <span class="math inline">\(v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=0\)</span> for any non-negative integers <span class="math inline">\(a, b, c\)</span> such that <span class="math inline">\(a+b+c&gt;1\)</span>.</li>
+<li>Let <span class="math inline">\(x, y, z \in V\)</span> be the coordinate function. Suppose <span class="math inline">\(\boldsymbol{p}=\left[\begin{array}{l}p_{1} \\ p_{2} \\ p_{3}\end{array}\right]\)</span>, then for any derivation <span class="math inline">\(v\)</span> at <span class="math inline">\(\boldsymbol{p}, v(f)=\)</span> <span class="math inline">\(\dfrac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) v(y)+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) v(z)\)</span>. (Hint: use the Taylor expansion of <span class="math inline">\(f\)</span> at <span class="math inline">\(\left.\boldsymbol{p} .\right)\)</span></li>
+<li>Any derivation <span class="math inline">\(v\)</span> at <span class="math inline">\(\boldsymbol{p}\)</span> must be exactly the directional derivative operator <span class="math inline">\(\nabla_{\boldsymbol{v}}\)</span> where <span class="math inline">\(\boldsymbol{v}=\left[\begin{array}{l}v(x) \\ v(y) \\ v(z)\end{array}\right]\)</span>. (Remark: So, algebraically speaking, tangent vectors are exactly derivations, i.e., things that satisfy the Leibniz rule.)</li>
+</ol>
+<hr />
+<p><span class="math inline">\((1)\)</span> Set <span class="math inline">\(f(\vec{p})\equiv a\)</span>, because <span class="math inline">\(v(f g)=f(\boldsymbol{p}) v(g)+g(\boldsymbol{p}) v(f)\)</span> and <span class="math inline">\(v\in V^{*}\)</span> is linear, <span class="math inline">\(v(fg)=av(g)+g(\boldsymbol{p})v(f)\)</span></p>
+<p>Set <span class="math inline">\(g=f\)</span>, so <span class="math inline">\(v(ff)=2av(f)=v(af)=av(f)\)</span> If <span class="math inline">\(a=0\)</span>, <span class="math inline">\(v(g)=v(0)=v(gg)=0+0=0\)</span> If <span class="math inline">\(a\neq 0\)</span></p>
+<p><span class="math inline">\(av(f)=0\)</span>, and <span class="math inline">\(v(f)=0\)</span> So constant functions in <span class="math inline">\(V\)</span> are all sent to <span class="math inline">\(0\)</span></p>
+<p><span class="math inline">\((2)\)</span> Calculate <span class="math inline">\(v((x-p_1)f)=f(\boldsymbol {p})v(x-p_1)+(x-p_1)(\boldsymbol{p})v(f)\)</span> And <span class="math inline">\(x(\boldsymbol{p})=p_1,p_1(\boldsymbol{p})=p_1\)</span></p>
+<p>So <span class="math inline">\((x-p_1)(\boldsymbol{p})=0\)</span> For constant <span class="math inline">\(\boldsymbol{p}\)</span>, <span class="math inline">\(v(\boldsymbol{p}=0)\)</span> So <span class="math inline">\(v((x-p_1)f)=f(\boldsymbol{p})(v(x)-v(p_1))=f(\boldsymbol{p})v(x)\)</span></p>
+<p><span class="math inline">\((3)\)</span> As <span class="math inline">\(a,b,c\)</span> are all integers, if <span class="math inline">\(a,b,c&lt;1\)</span>, the sum of them is <span class="math inline">\(a+b+c\leq 0\)</span>, contradiction</p>
+<p>So at least one intergers is <span class="math inline">\(\geq 1\)</span>, without loss of generalization, assume <span class="math inline">\(a\geq 1\)</span></p>
+<p><span class="math inline">\(v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=v(x-p_1)((x-p_1)^{a-1}(y-p_2)^b(z-p_3)^c)(\boldsymbol{p})\)</span></p>
+<p>And if <span class="math inline">\(a&gt; 1\)</span>, <span class="math inline">\((x-p_1)^{a-1}(\boldsymbol{p})=(x-p_1)^{a-2}(x-p_1)(\boldsymbol{p})=0\)</span> if <span class="math inline">\(a=1\)</span>, then <span class="math inline">\(b+c&gt;0\)</span></p>
+<p>at least one integer in <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> <span class="math inline">\(\geq 1\)</span>, without of generalization, assume <span class="math inline">\(b\geq 1\)</span>. Then</p>
+<p><span class="math inline">\((y-p_2)^{b}(\boldsymbol{p})=(y-p_2)^{b-1}(y-p_2)(\boldsymbol{p})=0\)</span> So <span class="math inline">\(v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=0\)</span></p>
+<p><span class="math inline">\((4)\)</span> Use Taylor expansion for <span class="math inline">\(f\)</span>, we have <span class="math display">\[
+f(x, y, z)=f\left(p_{1}, p_{2}, p_{3}\right)+\frac{\partial f}{\partial x}(\boldsymbol{p})\left(x-p_{1}\right)+\frac{\partial f}{\partial y}(\boldsymbol{p})\left(y-p_{2}\right)+\frac{\partial f}{\partial z}(\boldsymbol{p})\left(z-p_{3}\right)+o(|\boldsymbol{r}-\boldsymbol{p}|)
+\]</span> According to <span class="math inline">\((3)\)</span>, the remainder <span class="math inline">\(o(|\boldsymbol{r}-\boldsymbol{p}|)=\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c},a+b+c&gt;1\)</span></p>
+<p>So <span class="math inline">\(v(o(|\boldsymbol{r}-\boldsymbol{p}|))=0\)</span> For constant number <span class="math inline">\(v\)</span> sends to <span class="math inline">\(0\)</span>. Take <span class="math inline">\(v\)</span> function to the Taylor expansion <span class="math display">\[
+v(f)=\dfrac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) v(y)+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) v(z)
+\]</span> Which shows the complete differential at <span class="math inline">\(\boldsymbol{p}\)</span></p>
+<p><span class="math inline">\((5)\)</span> Just calculate the directional derivative <span class="math inline">\(\nabla_{\boldsymbol{v}}\)</span> where <span class="math inline">\(\boldsymbol{v}=\left[\begin{array}{l}v(x) \\ v(y) \\ v(z)\end{array}\right]\)</span> <span class="math display">\[
+\begin{aligned}
+\nabla_{v} f &amp;=\lim _{t \rightarrow 0^{+}} \frac{f(\boldsymbol{p}+t \boldsymbol{v})-f(\boldsymbol{p})}{t} \\
+&amp;=\lim _{t \rightarrow 0^{+}} \dfrac{f(\boldsymbol{p})+\dfrac{\partial f}{\partial x}(\boldsymbol{p}) v(x) t+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) v(y) t+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) v(z) t+o(\|\boldsymbol{v}\| t)-f(\boldsymbol{p})}{t} \\
+&amp;=\frac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\frac{\partial f}{\partial y}(\boldsymbol{p}) v(y)+\frac{\partial f}{\partial z}(\boldsymbol{p}) v(z) \\
+&amp;=v(f)
+\end{aligned}
+\]</span> So derivative in calculus is just a vector in the dual space of <span class="math inline">\(R^{n}\)</span> which suits Leibniz rule</p>
+<h2 id="small-mboxwhat-is-a-vector-field">1.7.3<span class="math inline">\(\ \small \mbox{What is a vector field}\)</span></h2>
+<p>The discussions in this problem holds for all manifolds <span class="math inline">\(M\)</span>. But for simplicities sake, suppose <span class="math inline">\(M=\mathbb{R}^{3}\)</span> for this problem. Let <span class="math inline">\(V\)</span> be the space of all analytic functions from <span class="math inline">\(M\)</span> to <span class="math inline">\(\mathbb{R}\)</span> as usual. We say <span class="math inline">\(X: V \rightarrow V\)</span> is a vector field on <span class="math inline">\(X\)</span> if <span class="math inline">\(X(f g)=f X(g)+g X(f)\)</span>, i.e., the Leibniz rule again! Prove the following:</p>
+<ol type="1">
+<li><p>Show that <span class="math inline">\(X_{\boldsymbol{p}}: V \rightarrow \mathbb{R}\)</span> such that <span class="math inline">\(X_{\boldsymbol{p}}(f)=(X(f))(\boldsymbol{p})\)</span> is a derivation at <span class="math inline">\(\boldsymbol{p}\)</span>. (Hence <span class="math inline">\(X\)</span> is indeed a vector field, since it is the same as picking a tangent vector at each point.)</p></li>
+<li><p>Note that each <span class="math inline">\(f\)</span> on <span class="math inline">\(M\)</span> induces a covector field <span class="math inline">\(\mathrm{d} f\)</span>. Then at each point <span class="math inline">\(\boldsymbol p\)</span>, the cotangent vector <span class="math inline">\(\mathrm{d} f\)</span> and the tangent vector <span class="math inline">\(X\)</span> would evaluate to some number. So <span class="math inline">\(\mathrm{d} f(X)\)</span> is a function <span class="math inline">\(M \rightarrow \mathbb{R}\)</span>. Show that <span class="math inline">\(\mathrm{d} f(X)=X(f)\)</span>, i.e., the two are the same. (Hint: just use definitions and calculate directly.)</p></li>
+<li><p>If <span class="math inline">\(X, Y: V \rightarrow V\)</span> are vector fields, then note that <span class="math inline">\(X \circ Y: V \rightarrow V\)</span> might not be a vector field. (Leibniz rule might fail.) However, show that <span class="math inline">\(X \circ Y-Y \circ X\)</span> is always a vector field.</p></li>
+<li><p>On a related note, show that if <span class="math inline">\(A, B\)</span> are skew-symmetric matrices, then <span class="math inline">\(A B-B A\)</span> is still skewsymmetric. (Skew-symmetric matrices actually corresponds to certain vector fields on the manifold of orthogonal matrices. So this is no coincidence.)</p></li>
+</ol>
+<hr />
+<p><span class="math inline">\((1)\)</span> <span class="math inline">\(X_{\boldsymbol{p}}(fg)=(X(fg))(\boldsymbol{p})=(fX(g)+gX(f))(\boldsymbol{p})=f(\boldsymbol{p})X(g)(\boldsymbol{p})+g(\boldsymbol{p})X(f)(\boldsymbol{p})\)</span></p>
+<p><span class="math inline">\(=f(\boldsymbol{p})X_{\boldsymbol{p}}(g)+g(\boldsymbol{p})X_{\boldsymbol{p}}(f)\)</span> So it suits the definition of derivative at <span class="math inline">\(\boldsymbol{p}\)</span></p>
+<p><span class="math inline">\((2)\)</span> <span class="math inline">\(X_{\boldsymbol{p}}:V\rightarrow R\)</span> So <span class="math inline">\(X_{\boldsymbol{p}}\in V^{*}\)</span> <span class="math inline">\(X_{p}=\left[\begin{array}{c} X_{\boldsymbol{p}}(X) &amp; X_{p}(Y) &amp; X_{p}(Z) \end{array}\right]\)</span></p>
+<p><span class="math inline">\(df(X)(\boldsymbol{p})=df_{\boldsymbol{p} }(X_{\boldsymbol{p}})\)</span> where <span class="math inline">\(df=\left[\begin{array}{c} \dfrac{\partial f}{\partial x}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial y}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial z}(\boldsymbol{p})\\ \end{array}\right]\)</span> combine them together then we have</p>
+<p>From <span class="math inline">\(\small (1.4)\)</span> <span class="math inline">\((X(f))(\boldsymbol{p})=X_{p}(f)=\dfrac{\partial f}{\partial x}(\boldsymbol{p}) X_{\boldsymbol{p}}(X)+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) X_{\boldsymbol{p}}(Y)+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) X_{\boldsymbol{p}}(Z)\)</span></p>
+<p><span class="math inline">\(=\left[\begin{array}{c} X_{\boldsymbol{p}}(X) &amp; X_{p}(Y) &amp; X_{p}(Z) \end{array}\right]\left[\begin{array}{c} \dfrac{\partial f}{\partial x}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial y}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial z}(\boldsymbol{p})\\ \end{array}\right]=df(X)\)</span></p>
+<p><span class="math inline">\((3)\)</span> Just unfold the fomula <span class="math display">\[
+\begin{gathered}
+(X\circ Y-Y\circ X)(fg)=X\circ Y(fg)-Y\circ X(fg)=X\circ (fY(g)+gY(f))-Y\circ (fX(g)+gX(f))\\
+=\small f (X\circ Y)g+X(f)Y(g)+g (X\circ Y)f+X(g)Y(f)-(f (Y\circ X)g+Y(f)X(g)+g (Y\circ X)f+Y(g)X(f))\\
+=f(X\circ Y-Y\circ X)g+g(X\circ Y-Y\circ X)f
+\end{gathered}
+\]</span> So <span class="math inline">\(X\circ Y-Y \circ X\)</span> suits the Leibniz rule, which is a vector field.</p>
+<p><span class="math inline">\((4)\)</span> Calculate directly we can prove <span class="math inline">\((AB-BA)^{T}=-(AB-BA)\)</span> <span class="math display">\[
+\begin{aligned}
+(A B-B A)^{T} =(A B)^{T}-(B A)^{T}
+=(B^{T} A^{T}-A^{T} B^{T}) \\
+=(-B)(-A)-(-A)(-B) =BA-AB=-(A B-B A)
+\end{aligned}
+\]</span> For all the positive orthogonal matrices <span class="math inline">\(\mathcal{Q}\)</span> <span class="math inline">\(\forall \ Q\in \mathcal{Q},\det(Q)=1\)</span>. At one matrix, its tangent vector</p>
+<p><span class="math inline">\((Q+A)^{T}(Q+A)=I=(Q^{T}+A^{T})(Q+A)=I\Longrightarrow A=-A^{T},||A||\to 0\)</span></p>
+<p>are all Skew-symmetric matrices. According to <span class="math inline">\(\small (3)\)</span>, <span class="math inline">\(AB-BA\)</span> is also a Skew-symmetric matrix</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="category-chain-item">作业</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E4%BD%9C%E4%B8%9A/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0%E9%80%89%E8%AE%B2/" class="category-chain-item">高等代数选讲</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%AB%98%E4%BB%A3%E4%BD%9C%E4%B8%9A/">#高代作业</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Advanced Algebra HW7</div>
+      <div>https://lr-tsinghua11.github.io/2022/05/03/Math/Advanced%20Linear%20Algebra/HW7/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Tony</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月3日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/01/Thoughts%20on%20the%20tenth%20week%20of%20blog%20building/" title="Thoughts on the tenth week of blog building">
+                        <span class="hidden-mobile">Thoughts on the tenth week of blog building</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var title = subtitle.title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
