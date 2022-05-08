@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>web 前端入门</title>
+    <link href="/2022/05/08/Program/Web%20primary/"/>
+    <url>/2022/05/08/Program/Web%20primary/</url>
+    
+    <content type="html"><![CDATA[<p>结合 <a href="https://frontend-dev-scissorseven.app.secoder.net/">zcy软工半成品</a>，学习一些 <span class="math inline">\(\mbox{web}\)</span> 的一些前置知识</p><hr /><p><span class="math inline">\(\mbox{web}\)</span> 前端<strong>三驾马车</strong>：</p><p><span class="math inline">\(\mbox{HTML}\)</span>（网页最终渲染格式），<span class="math inline">\(\mbox{JS}\)</span>（处理网页逻辑、交互），<span class="math inline">\(\mbox{CSS}\)</span>（网页样式）</p><p>一些前端框架将上述语言进行封装，如 <span class="math inline">\(\mbox{react}\)</span> 框架</p><p>在一个网页中可以按下 <span class="math inline">\(\mbox{Ctrl }+\ \mbox{s}\)</span> 可以保存为静态网页，在浏览器中按下 <span class="math inline">\(\mbox{F}_{12}\)</span> 后各种界面的应用</p><p><img src="https://pic.imgdb.cn/item/6277860f09475431293c57ef.jpg" style="zoom:80%;" /></p><p><strong>元素</strong>：最左上角按钮为抓取元素，便于爬虫位置的提取。按钮右侧显示手机端界面</p><p><strong>控制台</strong>：输出源代码中各种 <code>console.log()</code> 中的内容，便于开发者调试，也可以使用该控制台进行编程</p><p><strong>源代码</strong>：查看当前网页的 <span class="math inline">\(\mbox{js}\)</span> 源码</p><p><strong>网络</strong>：查看各项请求名称类型以及操作延时</p><hr /><ul><li>和 <span class="math inline">\(\mbox{js}\)</span> 打交道会和<strong>异步</strong>做斗争</li><li><span class="math inline">\(\mbox{react}\)</span> 前端框架中 <span class="math inline">\(\mbox{hook}\)</span> 在时间线上有效解决一些渲染不足的问题</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Web</category>
+      
+      <category>入门</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Web 入门</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Calculus-A2-homework eighth</title>
     <link href="/2022/05/06/Math/Calculus/Calculus%20A2%20homework%208/"/>
     <url>/2022/05/06/Math/Calculus/Calculus%20A2%20homework%208/</url>
