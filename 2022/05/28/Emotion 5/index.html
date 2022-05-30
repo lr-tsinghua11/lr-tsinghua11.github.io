@@ -16,23 +16,21 @@
   <meta name="author" content="Tony">
   <meta name="keywords" content="">
   
-    <meta name="description" content="鸽了很久的高代笔记周末终于有时间整理一下，顺便植树节快乐！">
+    <meta name="description" content="10天倒计时，追逐你的梦想">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Complex matrix (Chapter 1)">
-<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/03/12/Math/Advanced%20Linear%20Algebra/Complex%20matrix%EF%BC%88Chapter%201%EF%BC%89/index.html">
+<meta property="og:title" content="Emotion 5">
+<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/05/28/Emotion%205/index.html">
 <meta property="og:site_name" content="Tony">
-<meta property="og:description" content="鸽了很久的高代笔记周末终于有时间整理一下，顺便植树节快乐！">
+<meta property="og:description" content="10天倒计时，追逐你的梦想">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E7%A7%80%E4%B8%BD%E5%B1%B1%E5%B7%9D.jpg">
-<meta property="article:published_time" content="2022-03-12T13:17:28.000Z">
-<meta property="article:modified_time" content="2022-03-14T08:59:45.652Z">
+<meta property="article:published_time" content="2022-05-28T12:55:10.000Z">
+<meta property="article:modified_time" content="2022-05-29T02:15:46.191Z">
 <meta property="article:author" content="Tony">
-<meta property="article:tag" content="高等代数选讲笔记">
+<meta property="article:tag" content="生活随想">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E7%A7%80%E4%B8%BD%E5%B1%B1%E5%B7%9D.jpg">
   
   
-  <title>Complex matrix (Chapter 1) - Tony</title>
+  <title>Emotion 5 - Tony</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,12 +193,12 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E7%A7%80%E4%B8%BD%E5%B1%B1%E5%B7%9D.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
-          <span id="subtitle" title="Complex matrix (Chapter 1)">
+          <span id="subtitle" title="Emotion 5">
             
           </span>
         </div>
@@ -212,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-03-12 21:17" pubdate>
-          2022年3月12日 晚上
+        <time datetime="2022-05-28 20:55" pubdate>
+          2022年5月28日 晚上
         </time>
       </span>
     
@@ -224,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5k 字
+          339 字
         
       </span>
     
@@ -235,7 +233,7 @@
         
         
         
-          42 分钟
+          3 分钟
         
       </span>
     
@@ -273,59 +271,22 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Complex matrix (Chapter 1)</h1>
+            <h1 style="display: none">Emotion 5</h1>
             
             <div class="markdown-body">
               
-              <h1 id="高等代数选讲第一章笔记">高等代数选讲第一章笔记</h1>
-<h2 id="复矩阵的表示">复矩阵的表示</h2>
-<p>令 <span class="math inline">\(A=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span>，有 <span class="math inline">\(A^2=-I\)</span>，形式化地定义 <span class="math inline">\(a+bi=\begin{bmatrix}a&amp;-b\\b&amp;a\end{bmatrix}\)</span></p>
-<p>满足复数运算的一些性质，例如</p>
-<p><span class="math inline">\(\left[\begin{array}{cc}2 &amp; -3 \\3 &amp; 2 \end{array}\right]\left[\begin{array}{cc}4 &amp; -1 \\1 &amp; 4\end{array}\right]=(2 I+3 A)(4 I+A)=5 I+14 A\)</span></p>
-<p>《从一到无穷大》中有趣的例子：在一个小岛上，从任意起点出发，先走 <span class="math inline">\(x\)</span> 长度到固定点楼房 <span class="math inline">\(A\)</span>，然后右转走 <span class="math inline">\(x\)</span> 长度到 <span class="math inline">\(A&#39;\)</span>，再从起点走 <span class="math inline">\(y\)</span> 长度到固定点雕像 <span class="math inline">\(B\)</span>，然后左转走 <span class="math inline">\(y\)</span> 长度到 <span class="math inline">\(B&#39;\)</span>，取 <span class="math inline">\(A&#39;\)</span> 和 <span class="math inline">\(B&#39;\)</span> 中点为宝藏位置，证明该位置与起点无关。 <span class="math display">\[
-\begin{gathered}
-\mbox{Prf}:\text 设起点为\ Z,\ 任取原点构建复平面，有方程\begin{cases}A&#39;-A=-i(A-Z)\\B&#39;-B=i(B-Z)\end{cases}\\
-\therefore P_{treasure}=\dfrac{A&#39;+B&#39;}{2}=\dfrac{1}{2}(A+B)+\dfrac{i}{2}(B-A)=\mbox{Const}
-\end{gathered}
-\]</span></p>
-<h2 id="复正交">“复”正交</h2>
-<p>定义复向量 <span class="math inline">\(\vec{v}\)</span> 和 <span class="math inline">\(\vec{w}\)</span> 点乘为 <span class="math inline">\(0\)</span> 时为其每个分量按照 <span class="math inline">\(a+bi=\begin{bmatrix}a&amp;-b\\b&amp;a\end{bmatrix}\)</span> 方式展开得到 <span class="math inline">\(A,B\)</span> 使得 <span class="math display">\[
-\begin{bmatrix}0&amp;0\\0&amp;0\end{bmatrix}=A^TB=\begin{bmatrix}a_1&#39;&amp; b_1&#39;&amp;a_2&#39;&amp;b_2&#39;&amp;\cdots &amp;a_n&#39;&amp;b_n&#39;\\-b_1&#39;&amp; a_1&#39;&amp;-b_2&#39;&amp;a_2&#39;&amp;\cdots &amp;-b_n&#39;&amp;a_n&#39;\end{bmatrix}\begin{bmatrix}a_1&amp; -b_1\\b_1&amp;a_1\\\vdots&amp;\vdots\\a_n&amp;-b_n\\b_n&amp;a_n\end{bmatrix}
-\]</span> 对应 <span class="math inline">\(\vec{v}=\begin{bmatrix}a_1&#39;+ib_1&#39;\\a_2&#39;+ib_2&#39;\\\vdots\\a_n&#39;+ib_n&#39;\end{bmatrix}\)</span> , <span class="math inline">\(\vec{w}=\begin{bmatrix}a_1 +ib_1 \\a_2 +ib_2 \\\vdots\\a_n +ib_n \end{bmatrix}\)</span> 可知 <span class="math inline">\(A^{T}B=0\Longleftrightarrow \bar{\boldsymbol v}^{T}\boldsymbol w=0\)</span></p>
-<p>即<strong>复向量正交</strong>等价于其中一个向量的共轭“点乘”另一向量为 <span class="math inline">\(0\)</span>，如 <span class="math inline">\((1,i)^{T}\)</span> 和 <span class="math inline">\((1,-i)^{T}\)</span></p>
-<p>则定义<strong>复向量的点乘</strong> <span class="math inline">\(\langle\vec{v},\vec{w}\rangle =\bar{\vec{v}}^{T}\vec{w}\)</span>，定义共轭转置 <span class="math inline">\(A^*:=\bar{A}^{T}\)</span></p>
-<p>对复矩阵 <span class="math inline">\(A\in \mathbb{C}_{m\times n}\)</span>，有 <span class="math inline">\(\mbox{Ran}(A)\)</span> 和 <span class="math inline">\(\mbox{Ker}(A^*)\)</span> 相互正交（取元素 <span class="math inline">\(\vec{b}_1\)</span> 和 <span class="math inline">\(\vec{b}_2\)</span> 易证）</p>
-<p>定义<strong>厄米矩阵</strong>：<span class="math inline">\(A=A^{*}\)</span>，如 <span class="math inline">\(A=\left(\begin{array}{cc} 1 &amp; 2+\mathrm{i} \\ 2-\mathrm{i} &amp; 3 \end{array}\right)\)</span>，特征值为实数，特征向量正交</p>
-<p>特征值为实： <span class="math inline">\(\bar{\vec{x}}^{T}A\vec{x}=\lambda\|\vec{x}\|^{2}=(A^T\bar{\vec{x}})^{T}\vec{x}=(\bar{A}\bar{\vec{x}})^{T}\vec{x}=(\bar{\lambda}\bar{\vec{x}})^{T}\vec{x}=\bar{\lambda}\|\vec{x}\|^{2}\Longrightarrow \lambda\in R\)</span></p>
-<p>特征向量正交：令 <span class="math inline">\(A\vec{x}_1=\lambda_1\vec{x}_1,A\vec{x}_2=\lambda_2\vec{x}_2,\lambda_1\neq \lambda_2\)</span> <span class="math display">\[
-\bar{\vec{x}}_2^TA\vec{x}_1=\lambda_1\langle \vec{x}_2,\vec{x}_1\rangle=(A^{T}\bar{\vec{x}}_2)^{T}\vec{x}_1=(\bar{A}\bar{\vec{x}}_2)^{T}\vec{x}_1=\lambda_2\langle \vec{x}_2,\vec{x}_1\rangle\Longrightarrow \langle \vec{x}_2,\vec{x}_1\rangle=0
-\]</span> 定义<strong>反厄米矩阵</strong>：<span class="math inline">\(A=-A^*\)</span>，如 <span class="math inline">\(A=\left(\begin{array}{cc} 0 &amp; 2+\mathrm{i} \\ -2+\mathrm{i} &amp; 0 \end{array}\right)\)</span>，特征值为纯虚数，特征向量正交</p>
-<p>（证明同上，前者加入负号使得 <span class="math inline">\(\lambda=-\bar\lambda\)</span>，后者两次负号后依然为正，<span class="math inline">\(\langle \vec{x}_2,\vec{x}_1\rangle=0\)</span>）</p>
-<p>定义<strong>幺正矩阵</strong>（<strong>酉矩阵</strong>）：<span class="math inline">\(A^{-1}=A^{*}\)</span> ，仿照上述方法有 <span class="math inline">\(\lambda\|\vec{x}\|^2=\dfrac{1}{\bar\lambda}\|\vec{x}\|^2\)</span> ，则 <span class="math inline">\(|\lambda|=1\)</span>。</p>
-<p>特征向量正交，幺正矩阵对应不变内积的变换（称为<strong>酉变换</strong>） <span class="math inline">\(\langle \vec{x}_2,\vec{x}_1\rangle=\langle A\vec{x}_2,A\vec{x}_1\rangle\)</span></p>
-<p>定义<strong>正规矩阵</strong>：<span class="math inline">\(AA^*=A^*A\)</span>，将上述矩阵以及对角、实对称、实反对称、正交等矩阵统一其相同的性质 <span class="math inline">\(AA^*=A^*A\)</span></p>
-<h2 id="傅里叶矩阵">傅里叶矩阵</h2>
-<p>单位根 <span class="math inline">\(\omega_n=e^{i\frac{2\pi}{n}}\)</span>，定义傅里叶矩阵 <span class="math inline">\(F_{n}=\begin{pmatrix}1&amp;1&amp;\cdots&amp;1\\1&amp;\omega&amp;\cdots&amp;\omega^{n-1}\\1&amp;\omega^2&amp;\cdots&amp;\omega^{2(n-1)}\\\vdots&amp;\vdots&amp;&amp;\vdots\\1&amp;\omega^{n-1}&amp;\cdots&amp;\omega^{(n-1)^2}\end{pmatrix}\)</span>，为对称阵</p>
-<p>由于 <span class="math inline">\(F_n\)</span> 对角非实，其不是厄米矩阵，该矩阵总满足 <span class="math inline">\(\overline{F_n}F_n=nI\)</span>，对应行列求和有 <span class="math display">\[
-\displaystyle \sum_{k=1}^{n}\overline{\omega^{ki}}\omega^{kj}=\sum_{k=1}^{n}\omega^{2\pi+k(j-i)}=\begin{cases}\displaystyle\sum_{i=0}^{n}1=n&amp;i=j\\\dfrac{\omega^{j-i}(1-\omega^{n(j-i)} )}{1-\omega^{j-i}}=0&amp;i\neq j\end{cases}
-\]</span> 令 <span class="math inline">\(F&#39;=\dfrac{F_n}{\sqrt{n}}\)</span> 则有 <span class="math inline">\(\overline{F&#39;}F&#39;=\dfrac{\overline{F}_nF_n}{n}=I\)</span>，<span class="math inline">\(F&#39;=\dfrac{F_n}{\sqrt{n}}\)</span> 为幺正矩阵 <span class="math inline">\((F&#39;)^{-1}=(F&#39;)^{*}\)</span></p>
-<p>对 <span class="math inline">\(f(x)=C_0+C_1e^{ix}+C_2e^{i2x}+\cdots+C_{n-1}e^{i(n-1)x}\)</span>，给定 <span class="math inline">\(f(0),f(\dfrac{2\pi}{n}),\cdots,f(\dfrac{2\pi(n-1)}{n})\)</span></p>
-<p>对应方程为 <span class="math inline">\(F_{n}\begin{pmatrix}C_0\\C_1\\\vdots\\C_{n-1}\end{pmatrix}=\begin{pmatrix}f(0)\\f(\frac{2\pi}{n})\\\vdots\\f(\frac{2\pi(n-1)}{n})\end{pmatrix}\)</span>，得 <span class="math inline">\(\begin{pmatrix}C_0\\C_1\\\vdots\\C_{n-1}\end{pmatrix}=\dfrac{\overline{F_{n}}}{n}\begin{pmatrix}f(0)\\f(\frac{2\pi}{n})\\\vdots\\f(\frac{2\pi(n-1)}{n})\end{pmatrix}\)</span></p>
-<p>快速傅里叶变换（FFT，二十世纪前十算法之一）对傅里叶矩阵 <span class="math inline">\(F_{2n}\)</span> 进行分解（<span class="math inline">\(\omega=e^{i\frac{2\pi}{2n}}\)</span>） <span class="math display">\[
-PF_{2n}=\begin{bmatrix}I_n&amp; D_n\\I_n&amp;-D_n\end{bmatrix}\begin{bmatrix}F_n&amp;0\\0&amp;F_n\end{bmatrix}
-\]</span> 其中 <span class="math inline">\(P\)</span> 将所有奇数列放在左侧，所有偶数列放在右侧，<span class="math inline">\(D_n=\mbox{diag}(1,\omega,\cdots,\omega^{n-1})\)</span></p>
-<p>证明：针对 <span class="math inline">\(A=\begin{bmatrix}I_n&amp; D_n\\I_n&amp;-D_n\end{bmatrix}\begin{bmatrix}F_n&amp;0\\0&amp;F_n\end{bmatrix}\)</span> 的第 <span class="math inline">\(i\)</span> 行第 <span class="math inline">\(j\)</span> 列（下标从 <span class="math inline">\(0\)</span> 开始）分类讨论有 <span class="math display">\[
-A(i,j)=
-\begin{cases}
-F_n(i,j)=\omega_{n}^{ij}=\omega_{2n}^{2ij}&amp;0\leq i\leq n-1,0\leq j\leq n-1\\
-F_{n}(i-n,j)=\omega_{n}^{(i-n)j}=\omega_{2n}^{2(i-n)j}&amp; n\leq i\leq 2n-1,0\leq j\leq n-1\\
-F_{n}(i,j-n)\cdot \omega_{2n}^{i}=\omega_{n}^{i(j-n)}\cdot \omega_{2n}^{i}=\omega_{2n}^{(2j+1)i}&amp; 0\leq i\leq n-1,n\leq j\leq 2n-1\\
-F_{n}(i-n,j-n)\cdot \omega_{2n}^{i-n}=\omega_{2n}^{(2j+1)(i-n)}&amp; n\leq i\leq 2n-1,0\leq j\leq n-1
-\end{cases}
-\]</span> 从而固定 <span class="math inline">\(i\)</span> ，可知将 <span class="math inline">\((0,1,\cdots,2n-1,2n)\)</span> 所有奇数列放在左侧所有偶数列放在右侧后形成 <span class="math display">\[
-(0,2,\cdots,2n),(1,3,\cdots,2n-1)
-\]</span> 满足上述 <span class="math inline">\(A(i,j)\)</span> 的要求</p>
-
+              <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="ea86a6316cd68ddf9832eb3d992d6388c14e715efb3e03f861200e6690472039">e7afc1c46960c9bb27baee99fccd4b1c8e0508b6ec5c3d787a821d3afc84065cec909bcfe5e4da779cd03e4d2473d0b8b68d89dcc5e0a688cd5eb9db5f67f664a12efae81fea06dbf3bdc81dfb59027daa84c4e42750177b531669efd56ac9ab1342c6ff4e88e2b414ec06b52283dad1c4e525edaa46953f3255ee09f9c792a3e627b46f84090dc1f36e48e41420627c0f2ffad1e1b4471c935c6e79d0d9edaa4cf370cf4be4003f5fa16024fd19afa33384b1a9a46a01e8ae73579e8f7d6ee4459642c30d384d052c21e059e67da880aea9ac59058f6e0f4f7e72f4dc4a0355239f13da6b19672feb6c6b398e80d09475512652e35f8e4c42f5dd4dfa0baabc3859f54ea2ee0ff76846b5014ef45e6265c69d4732a7ccfd99eca39817dcdd5aa357d338b8ac4748a121f2234f2f12f5d7116c2d3c50b263fdaafa23c6a9be1f486b2cde00f8e72929d4a14a0ed487424718e0b48848d87e38cfd06b65ba3e93ffe2b1e4d2cb969ae35d59d1edb3e4ce350f0822ad98907574e3094d40ff0676b88f117660c1dc1c604ca9d51b0a5aadbc0c4e60835c84edee273dda0089ee350de05eb052d5a1bf753ed466cf7dd849eff15f2c421dd8961610e18af8637a739b41ed804fa080488e67df2a6acd284c81d28150849f63bac9096ed32cfa84b0995fc57bf47f07332092b44ded6a655c80413374b83e05dfd4b75737c57da3b94012c730bfbbd9b273e9fd658dec986f37e43e49949f5e3ceda262404d115762e882d3769027f0f43e5e76d21ea11b74c5635b771e40c50de46a235028091561af864a451d70ce36ce5a1c6b69d49d28c3d9d031187305b0f66ac723fbd3f8d9e700cad349f15ab137bdd5530075ccdb0e4f04bf44b8d24660ffc22ed8b6eeee125aedd7b39f966d749c1180b3bff3c61ea6c31450b2bc834a2d8bb35659706e711681d5218b34ad1505197ebf226a6b722d16133d19d91df1aadf374af3a0fdf48c4f5d702d1569845597682ea17ecdfb2d4108a913a207322d558079afbadc888f0d2dbc7eed60f1edf4acb5bb204e117de5c5c6e30ada21a12385390291550a768e7b8780548eb4f86e70e8af840d10e9930f32834e8c5626ce0e7bfde00f66e87f348682cc811e812212deea987931ead26d30efb7ea6fae3f4386c9f6b149705caf1ff6dcf3a32ed56849ba2bf465bd7401bdda9602778ef2f7314a5814e2990b41f0b12fd3b19f5e53ce03aed595b64f7a962aa02b8af23c486d71800621c793cd10b1c2b340b2d9f220424bfa4f91cd3ed17049048e8544d40155cc78cc5d3cce3cce57309c73b1019b735aee65ae4caf647012706822b46ed5688afc38e60282c33b1683990b5b5b230ae1651f211da794d585e4892089ea113aee4380f448101132dd8d0a882a23d43d24de66749561f1af9120b1375eca7da8dfb0784a775842e9b75616c2090231e0be929395e4ce1a94755d49fd8a982fce8a569f32ae834e44be083cf2ac657ffd1c0c66b38a8d8e32c2543c0e5b6f42722b2e1bde164e56d367742771b074d74b5d9592241fa7c31d5778a16f52b068d5e5ea5a68d9f8b647e54d11b12006903f22a7f8d5beb4cb44945ef8b7caf41efe971f73ce83fb2cd75ff556a8eee52237a22f970b2202890a6d095e5ac5b7334ed5e80f745f808b55276316ac0c5868b14299c922f0c74aab869b616fefdbc7211b4a313f9be4675561849926ab790039d834</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
               
             </div>
             <hr/>
@@ -342,12 +303,12 @@ F_{n}(i-n,j-n)\cdot \omega_{2n}^{i-n}=\omega_{2n}^{(2j+1)(i-n)}&amp; n\leq i\leq
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  <a href="/categories/%E9%9A%8F%E6%83%B3/" class="category-chain-item">随想</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0%E9%80%89%E8%AE%B2/" class="category-chain-item">高等代数选讲</a>
+  <a href="/categories/%E9%9A%8F%E6%83%B3/%E7%94%9F%E6%B4%BB/" class="category-chain-item">生活</a>
   
   
 
@@ -364,7 +325,7 @@ F_{n}(i-n,j-n)\cdot \omega_{2n}^{i-n}=\omega_{2n}^{(2j+1)(i-n)}&amp; n\leq i\leq
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0%E9%80%89%E8%AE%B2%E7%AC%94%E8%AE%B0/">#高等代数选讲笔记</a>
+        <a href="/tags/%E7%94%9F%E6%B4%BB%E9%9A%8F%E6%83%B3/">#生活随想</a>
       
     </div>
   
@@ -376,8 +337,8 @@ F_{n}(i-n,j-n)\cdot \omega_{2n}^{i-n}=\omega_{2n}^{(2j+1)(i-n)}&amp; n\leq i\leq
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Complex matrix (Chapter 1)</div>
-      <div>https://lr-tsinghua11.github.io/2022/03/12/Math/Advanced%20Linear%20Algebra/Complex%20matrix%EF%BC%88Chapter%201%EF%BC%89/</div>
+      <div>Emotion 5</div>
+      <div>https://lr-tsinghua11.github.io/2022/05/28/Emotion%205/</div>
     </div>
     <div class="license-meta">
       
@@ -389,7 +350,7 @@ F_{n}(i-n,j-n)\cdot \omega_{2n}^{i-n}=\omega_{2n}^{(2j+1)(i-n)}&amp; n\leq i\leq
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年3月12日</div>
+          <div>2022年5月28日</div>
         </div>
       
       
@@ -414,29 +375,6 @@ F_{n}(i-n,j-n)\cdot \omega_{2n}^{i-n}=\omega_{2n}^{(2j+1)(i-n)}&amp; n\leq i\leq
 
 
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/03/13/Thoughts%20on%20the%20third%20week%20of%20blog%20building/" title="Thoughts on the third week of blog building">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Thoughts on the third week of blog building</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/03/11/Math/Calculus/Calculus%20A2%20notes%EF%BC%88Chapter%20four%EF%BC%89/" title="Calculus_A2_notes_Chapter_three（WXF）">
-                        <span class="hidden-mobile">Calculus_A2_notes_Chapter_three（WXF）</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
               
             </div>
 
