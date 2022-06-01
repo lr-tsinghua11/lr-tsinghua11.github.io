@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>ComputerSystem note for the first class</title>
+    <link href="/2022/06/01/CongYou/"/>
+    <url>/2022/06/01/CongYou/</url>
+    
+    <content type="html"><![CDATA[<h2 id="算力需要提升">算力需要提升</h2><p>原始架构在传递方面有一定局限，<span class="math inline">\(1000\mbox{GB/s}\)</span>，但是最终数据流不到 <span class="math inline">\(\mbox{1GB/s}\)</span> <span class="math display">\[\begin{array}{|c|c|c|c|c|}\hline &amp; \text { 计算器件 } &amp; \text { 计算范式 } &amp; \text { 算子 } &amp; \text { 架构 } \\\hline \text { 冯诺依曼计算系统 } &amp; \text { 场效应晶体管 } &amp; \text { 布尔逻辑数字计算 } &amp; \text { 与门, 非门 } &amp; \text { 存算分离 } \\\hline \text { 存算一体计算系统 } &amp; \text { 忆阻器 } &amp; \text { 物理定律模拟计算 } &amp; \text { 乘法, 加法 } &amp; \text { 存算一体 } \\\hline\end{array}\]</span></p><h2 id="基于忆阻器的存算一体技术">基于忆阻器的存算一体技术</h2><p><img src="https://pic.imgdb.cn/item/62971fb30947543129a912f9.jpg" /></p><p><img src="https://pic.imgdb.cn/item/6297216f0947543129ab5a96.jpg" /></p><p>模拟计算机会导致许多误差（在物理层面的），虽然其在矩阵乘法效率上有很大的优势，但是有一定局限性。</p><figure><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20220601163002009.png" alt="image-20220601163002009" /><figcaption aria-hidden="true">image-20220601163002009</figcaption></figure><p><img src="https://pic.imgdb.cn/item/629723f80947543129ae816a.jpg" /></p><ul><li>将带来从底层器件到编译器等层面的改变, 实 现新计算机系统, 但不改变现有编程语言。 &gt; 新计算系统能效将提高 <span class="math inline">\(10^{2}-10^{3}\)</span> 倍以上, 达到 1POPs/W。 &gt; 单芯片算力可以得到有效提升, 达到 500TOPs 或者 1POPS 。</li></ul><p><img src="https://pic.imgdb.cn/item/629725640947543129b06dff.jpg" /></p><p>大脑对少于一定值的信号会忽略，但对大于一定值的信号会放大，类脑计算能在一些复杂问题中发挥作用（入）</p><p><img src="https://pic.imgdb.cn/item/629725eb0947543129b11dc8.jpg" /></p><p><img src="https://pic.imgdb.cn/item/6297267d0947543129b1e400.jpg" /></p><p>大脑神经元 <span class="math inline">\(10^{11}\)</span> 量级，突触为 <span class="math inline">\(10^{15}\)</span> 量级，要实现仿生型的芯片，还有很多关键技术需要突破</p><h2 id="小结">小结</h2><ul><li>后摩尔时代传统架构AI芯片面临严峻的算力和能效瓶颈；</li><li>存算一体是突破传统架构中存储墙、功耗墙的好办法；</li><li>基于存算一体(模拟计算)的 <span class="math inline">\(\mathbf{NPU}\)</span> 任重道远:新器件、新电路、新架构、新算法、新工具链；</li><li>更远的未来,需要超越模拟计算,开发"类脑芯片"?</li></ul><p>光计算使用光的干涉来模拟 <span class="math inline">\(0\)</span> 和 <span class="math inline">\(1\)</span>，还缺乏功能演示，没有到 <span class="math inline">\(\mathbf{array}\)</span> 的环节</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机</category>
+      
+      <category>未央从游坊</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>未央微电子方向从游坊</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Functional plotter</title>
     <link href="/2022/05/25/Program/Functional%20plotter/"/>
     <url>/2022/05/25/Program/Functional%20plotter/</url>
