@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>The Saltwater Room</title>
+    <link href="/2022/06/10/video%20test/"/>
+    <url>/2022/06/10/video%20test/</url>
+    
+    <content type="html"><![CDATA[<p><div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"lang":"zh-cn//语言","screenshot":true,"hotkey":true,"preload":"auto","volume":0.9,"video":{"url":"https://lr-tsinghua11.github.io/video/The Saltwater Room.mp4","pic":"https://lr-tsinghua11.github.io/img/深空之海.jpg"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>测试</category>
+      
+      <category>视频</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>视频测试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>A practice for Calculus final exam</title>
     <link href="/2022/06/03/%E5%BE%AE%E7%A7%AF%E5%88%86%E6%9C%9F%E6%9C%AB%E6%A8%A1%E6%8B%9F%E8%80%83%E8%AF%95%E8%AF%95%E9%A2%98/"/>
     <url>/2022/06/03/%E5%BE%AE%E7%A7%AF%E5%88%86%E6%9C%9F%E6%9C%AB%E6%A8%A1%E6%8B%9F%E8%80%83%E8%AF%95%E8%AF%95%E9%A2%98/</url>
