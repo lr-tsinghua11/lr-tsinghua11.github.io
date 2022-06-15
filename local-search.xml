@@ -8,7 +8,7 @@
     <link href="/2022/06/10/video%20test/"/>
     <url>/2022/06/10/video%20test/</url>
     
-    <content type="html"><![CDATA[<p><div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"lang":"zh-cn//语言","screenshot":true,"hotkey":true,"preload":"auto","volume":0.9,"video":{"url":"https://lr-tsinghua11.github.io/video/The Saltwater Room.mp4","pic":"https://lr-tsinghua11.github.io/img/深空之海.jpg"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://pic.imgdb.cn/item/62a9310b09475431296abb57.jpg" /></p><p><div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"lang":"zh-cn//语言","screenshot":true,"hotkey":true,"preload":"auto","volume":0.9,"video":{"url":"https://lr-tsinghua11.github.io/video/The Saltwater Room.mp4","pic":"https://lr-tsinghua11.github.io/img/深空之海.jpg"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></p>]]></content>
     
     
     <categories>
