@@ -16,23 +16,23 @@
   <meta name="author" content="Tony">
   <meta name="keywords" content="">
   
-    <meta name="description" content="电子系暑培第一讲笔记，重新巩固了一些 linux 以及 shell 操作">
+    <meta name="description" content="量子力学：真正的黑色魔法演算。  ——阿尔伯特·爱因斯坦">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux and Shell in Department of Electronics">
-<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/07/04/Program/%E7%94%B5%E5%AD%90%E7%B3%BBlinux%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="Shor&#39;s Algorithm">
+<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/07/06/Shor's%20Algorithm/index.html">
 <meta property="og:site_name" content="Tony">
-<meta property="og:description" content="电子系暑培第一讲笔记，重新巩固了一些 linux 以及 shell 操作">
+<meta property="og:description" content="量子力学：真正的黑色魔法演算。  ——阿尔伯特·爱因斯坦">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E9%9B%BE%E4%B8%AD%E6%BA%AA%E6%B5%81.jpg">
-<meta property="article:published_time" content="2022-07-04T14:21:08.000Z">
-<meta property="article:modified_time" content="2022-07-04T04:28:46.198Z">
+<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E9%87%8F%E5%AD%90%E7%BA%A0%E7%BC%A0.jpg">
+<meta property="article:published_time" content="2022-07-06T15:07:15.000Z">
+<meta property="article:modified_time" content="2022-07-06T15:12:06.897Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="Linux 命令行技术">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E9%9B%BE%E4%B8%AD%E6%BA%AA%E6%B5%81.jpg">
+<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E9%87%8F%E5%AD%90%E7%BA%A0%E7%BC%A0.jpg">
   
   
-  <title>Linux and Shell in Department of Electronics - Tony</title>
+  <title>Shor&#39;s Algorithm - Tony</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,12 +195,12 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E9%9B%BE%E4%B8%AD%E6%BA%AA%E6%B5%81.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/%E9%87%8F%E5%AD%90%E7%BA%A0%E7%BC%A0.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
-          <span id="subtitle" title="Linux and Shell in Department of Electronics">
+          <span id="subtitle" title="Shor&#39;s Algorithm">
             
           </span>
         </div>
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-04 22:21" pubdate>
-          2022年7月4日 晚上
+        <time datetime="2022-07-06 23:07" pubdate>
+          2022年7月6日 晚上
         </time>
       </span>
     
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          5.4k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          18 分钟
+          46 分钟
         
       </span>
     
@@ -273,56 +273,81 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Linux and Shell in Department of Electronics</h1>
+            <h1 style="display: none">Shor&#39;s Algorithm</h1>
             
             <div class="markdown-body">
               
-              <p><strong>终端是什么？</strong></p>
-<p>CLI: command line interface GUI: graphic user interface</p>
-<p>早期终端是一种硬件，当前把终端转换成软件，例如 <span class="math inline">\(Terminal\)</span> ，实际上叫终端模拟器</p>
-<p><img src="https://pic.imgdb.cn/item/62c2d35d5be16ec74a6b3b7a.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
-<p>shell 为何叫壳：</p>
-<p><img src="https://pic.imgdb.cn/item/62c2d4065be16ec74a6c19bf.jpg" srcset="/img/loading.gif" lazyload style="zoom:75%;" /></p>
-<p>linux 分配用户，例如以下代码新建用户： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">liudu@L0510410:/mnt/c/Users/18472$ sudo useradd -m -d /home/test test<br>Liudu@L0510410:/mnt/c/Users/18472$ cd /home<br>liudu@L0510410:/home$ ls<br></code></pre></td></tr></table></figure></p>
-<p><img src="https://pic.imgdb.cn/item/62c2d5675be16ec74a6ddb4e.jpg" srcset="/img/loading.gif" lazyload /></p>
-<p>查看当前系统中的全部用户组： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat /etc/group<br></code></pre></td></tr></table></figure></p>
-<p>查看目录下所有文件的权限，<span class="math inline">\(\mbox{ll}\)</span> 等价于 <span class="math inline">\(\mbox{ls -al}\)</span> ，第一个字符代表文件类型，三个紧随的 <span class="math inline">\(rwx\)</span> 代表读、写、执行，如 <code>-rw-r--r--</code>，三个三元字符组分别代表文件所有者的权限、文件的组的权限、所有其他用户的权限。</p>
-<p>改变文件权限方法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">chmod [-R] [u/g/o/a] [+/-/=] [r/w/x] [file]<br></code></pre></td></tr></table></figure>
-<p>数字方法可以更简洁地修改文件权限。表示方法是为每个权限赋予权重，读的权重为4，写的权重为2，执行的权重为1（与二进制编码相同)。在表示每类用户的权限时，把该类用户所拥有的全部权限的权重相加，得到一个0-7的数，再按属主、属组、其他用户的顺序排列起来，得到一个三位数，表示该文件的权限。数字方法只能直接设定文件权限，不能增添或者删除权限。</p>
-<p>不管三七二十一，一个文件打不开，直接 <code>chmod 777 file</code>，获取最高权限，但这是很不负责任的。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta"># </span><span class="language-bash">安装可视化文件树的包</span><br>sudo apt install tree<br><span class="hljs-meta"># </span><span class="language-bash">查看根目录下两级的文件树</span><br>tree -L 2 /<br><span class="hljs-meta"># </span><span class="language-bash">查看当前目录下的文件树，加上 -a 会显示隐藏目录</span><br>tree <br><span class="hljs-meta"># </span><span class="language-bash">-h 指人易读的方式列出空间大小，列出文件系统的整体磁盘用量</span><br>df -h<br><span class="hljs-meta"># </span><span class="language-bash">列出当前目录下各文件的大小</span><br>du -h<br><span class="hljs-meta"># </span><span class="language-bash">指定文件大小</span><br>du -h file<br></code></pre></td></tr></table></figure>
-<p>在目录下查找文件并在 <code>vscode</code> 中打开</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">find test.txt -exec code &#123;&#125; \;<br></code></pre></td></tr></table></figure>
-<p>使用 <code>ln</code> 创建软连接（浅蓝色），和快捷方式一样，如果快捷方式所指代的文件被删，会变红</p>
-<p>加上 <code>-s</code> 为软链接，不加为硬链接</p>
-<p><img src="https://pic.imgdb.cn/item/62c2e6165be16ec74a83ff65.jpg" srcset="/img/loading.gif" lazyload /></p>
-<p>系统命令，<code>top</code> 命令查看“任务管理器”，<code>ps</code> 命令查看进程，<code>-x</code> 可以查看其他用户进程，<code>-u</code> 显示较为详细的信息，<code>-a</code> 查看所有进程</p>
-<p>终止进程，在 <code>top</code> 种查找 <code>PID</code> 序号，然后执行终止命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">kill PID<br></code></pre></td></tr></table></figure>
-<p>查找当前安装的 apt 软件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">apt list --installed<br></code></pre></td></tr></table></figure>
-<p><code>cat</code> 本身是用来连接文件，但基本用来输出文件内容，加入 <code>-n</code> 可以显示行号</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat 1.txt 2.txt &gt; 3.txt <br></code></pre></td></tr></table></figure>
-<p><img src="https://pic.imgdb.cn/item/62c2ea7d5be16ec74a89e603.jpg" srcset="/img/loading.gif" lazyload /></p>
-<p><strong><code>grep</code> 指令</strong>用于过滤文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta"># </span><span class="language-bash">在 3.txt 中查找并标红 a 字符</span><br>grep a 3.txt<br><span class="hljs-meta"># </span><span class="language-bash">匹配字符需要加上单引号‘’，匹配以 abc 开头的字符</span><br>grep &#x27;\&lt;abc&#x27; 3.txt<br><span class="hljs-meta"># </span><span class="language-bash">当前目录下查找以 abc 开头的字符，必须加上 -r</span><br>grep -r &#x27;abc.*&#x27; ./<br></code></pre></td></tr></table></figure>
-<p><strong>Vim 编辑器</strong></p>
-<p>切换到输入模式 <code>I</code>，切换到命令模式 <code>Esc</code>，输入 <code>:</code> 进入底线命令模式，再次输入 <code>wq</code> 便可以退出</p>
-<p><img src="https://pic.imgdb.cn/item/62c2ebae5be16ec74a8b8c8e.jpg" srcset="/img/loading.gif" lazyload /></p>
-<p>管道，将两个或者多个命令连接在一起，将上一个命令的输出作为下一个命令的输入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta"># </span><span class="language-bash">查找当前目录下含 1 的文件</span><br>ls | grep 1<br><span class="hljs-meta"># </span><span class="language-bash">计算 1+ ··· + 100</span><br>echo &#123;1..100&#125; | tr &#x27; &#x27; &#x27;+&#x27; | bc <br></code></pre></td></tr></table></figure>
-<p><strong>shell 脚本</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta"># </span><span class="language-bash">函数写法</span><br>function test()&#123;<br>		echo &quot;参数1: $&#123;1&#125;！&quot;;  # 通过$&#123;n&#125;来获取传入函数的第n个参数<br>		echo &quot;参数10：$&#123;10&#125;！&quot;; # 双引号括起来的字符串中可以引用变量<br>		n=$(($&#123;1&#125;+$&#123;10&#125;));<br>		return Sn;          # 如果不加return,则返回值为最后一条命令的结果<br>&#125;<br>test 1 2 3 4 5 6 7 8 9 10;  #调用函数时依序传递参数<br>echo $?;    #可以通过变量$？来获取函数的返回值或者上一条命令的结果<br></code></pre></td></tr></table></figure>
-<p><code>bash</code> 命令进入子 shell，<code>export a</code> 将变量 <code>a</code> 外部导入到子 shell 中，输入 <code>exit</code> 退出</p>
-<p><strong>SSH</strong>：Secure Shell, 安全外壳协议</p>
-<p><strong>作业</strong>：</p>
-<ol type="1">
-<li><p>在 Linux 上新建一个用户并赋予超级用户权限，设置家目录和默认 shell (为 bash )，并设置 Linux 在输入 sudo 密码时显示星号。请将全部命令及输出截图打包。</p></li>
-<li><p>请编写 Shell 脚本，求 <span class="math inline">\(100\)</span> 以内的奇数和。结果打印到标准输出设备。</p></li>
-<li><p>请编写 Shell 脚本，在家目录下新建 <span class="math inline">\(d a t a\)</span> 目录并向其中新建 100 个名为 test1. txt, <span class="math inline">\(\cdots\)</span>, test100. txt的文件。之后查找到 data 目录下所有文件名包含“5”的文件，并向 其中分别写入文件名中的数字这么多行的“abcd”。</p></li>
-</ol>
-<p>作业自愿选择是否完成和完成程度。提交时打包成一个文件，命名为 班级 姓名+学号，上传至 ***</p>
+              <p>传统部分成功率的数学证明参考 B 站视频 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ua411L7a9?spm_id_from=333.337.search-card.all.click&amp;vd_source=d9afebd071d024f27b0f4860d8972d67">Shor算法 | 如何用量子计算机分解质因数？</a></p>
+<h2 id="构造素因子的传统方法初等数论">构造素因子的传统方法（初等数论）</h2>
+<p>1: 找一个整数 <span class="math inline">\(1&lt;a&lt;N\)</span> ，计算 <span class="math inline">\(\operatorname{gcd}(a, N)\)</span></p>
+<p>2: 若 <span class="math inline">\(\operatorname{gcd}(a, N)&gt;1\)</span> ，则已经找到了 <span class="math inline">\(N\)</span> 的一个非平凡因子</p>
+<p>3: 若 <span class="math inline">\(\operatorname{gcd}(a, N)=1\)</span> ，则用<strong>量子算法</strong>找到最小的满足 <span class="math inline">\(a^{r} \equiv 1(\bmod N)\)</span> 的正整数 <span class="math inline">\(r\)</span> （也称作 <span class="math inline">\(a\)</span> 模 <span class="math inline">\(N\)</span> 的阶， <span class="math inline">\(\left.r=\operatorname{ord}_{N}(a)\right)\)</span></p>
+<p>4: 若 <span class="math inline">\(2 \nmid r\)</span> ，或 <span class="math inline">\(a^{\frac{r}{2}} \equiv-1(\bmod N)\)</span> ，则返回第一步重新找一个 <span class="math inline">\(a\)</span></p>
+<p>5: 若 <span class="math inline">\(2 \mid r\)</span> ，且 <span class="math inline">\(a^{\frac{r}{2}} \not \equiv-1(\bmod N)\)</span> ，则有 <span class="math inline">\(N \mid\left(a^{\frac{r}{2}}+1\right)\left(a^{\frac{r}{2}}-1\right)\)</span> ，可以证明，通过求出 <span class="math inline">\(\operatorname{gcd}\left(a^{\frac{r}{2}}+1, N\right)\)</span> 或 <span class="math inline">\(\operatorname{gcd}\left(a^{\frac{r}{2}}-1, N\right)\)</span> 一定可以找到 <span class="math inline">\(N\)</span> 的一个非平凡因子</p>
+<h2 id="r为偶的成功率算法成功率">r为偶的成功率（算法成功率）</h2>
+<p>这里 <span class="math inline">\(a\)</span> 为 <span class="math inline">\(a=1,2, \cdots ,N-1\)</span> 中的随机数，令 <span class="math inline">\(r=\operatorname{ord}_{N}(a)\)</span><span class="math inline">\(,P(\mbox{success})\)</span><span class="math inline">\(=P\left(2 \mid r \wedge a^{\frac{r}{2}} \not \equiv-1(\bmod N)\right)\)</span></p>
+<p>分解 <span class="math inline">\(N\)</span> 有 <span class="math inline">\(N=p_{1}^{\alpha_{1}} p_{2}^{\alpha_{2}} \cdots p_{m}^{\alpha_{m}}\)</span> 由有限阿贝尔群的基本定理：</p>
+<blockquote>
+<p><strong>模 <span class="math inline">\(\mathrm{N}\)</span> 乘法群 <span class="math inline">\((\mathbb{Z} / N \mathbb{Z})^{\times}\)</span>可分解为若干循环群的直积。</strong>例如对下列表格，实际为中国剩余（孙子）定理的解</p>
+<p><span class="math inline">\(5\)</span> 和 <span class="math inline">\(7\)</span> 分别在模 <span class="math inline">\(7\)</span> 和模 <span class="math inline">\(5\)</span> 意义下的数论倒数为 <span class="math inline">\(3\)</span> 和 <span class="math inline">\(3\)</span>，所以对元素 <span class="math inline">\(a\in( \mathbb{Z} / 5 \mathbb{Z})^{\times},b\in( \mathbb{Z} / 7 \mathbb{Z})^{\times}\)</span></p>
+<p>其直积的计算为 <span class="math inline">\(a\cdot 3\cdot 7+b\cdot 3\cdot 5=3(7a+5b)\)</span>，如 <span class="math inline">\(a=4,b=6,3(28+30)=174=34\pmod{35}\)</span></p>
+</blockquote>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\begin{array}{r|cccccc}
+(\mathbb{Z} / 5 \mathbb{Z})^{\times}\large {\backslash}\normalsize (\mathbb{Z} / 7 \mathbb{Z})^{\times} &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\
+\hline1 &amp; 1 &amp; 16 &amp; 31 &amp; 11 &amp; 26 &amp; 6 \\
+2&amp; 22 &amp; 2 &amp; 17 &amp; 32 &amp; 12 &amp; 27 \\
+3&amp; 8 &amp; 23 &amp; 3 &amp; 18 &amp; 33 &amp; 13 \\
+4&amp; 29 &amp; 9 &amp; 24 &amp; 4 &amp; 19 &amp; 34
+\end{array}
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\((\mathbb{Z} / N \mathbb{Z})^{\times} \cong\left(\mathbb{Z} / p_{1}^{\alpha_{1}} \mathbb{Z}\right)^{\times} \times\left(\mathbb{Z} / p_{2}^{\alpha_{2}} \mathbb{Z}\right)^{\times} \times \cdots \times\left(\mathbb{Z} / p_{m}^{\alpha_{m}} \mathbb{Z}\right)\)</span> ，<span class="math inline">\(\left(\mathbb{Z} / p_{i}^{\alpha_{i}} \mathbb{Z}\right)^{\times} \cong C_{\varphi(p^{\alpha})}\left(p_{i}&gt;2\right)\)</span> <span class="math display">\[
+\begin{aligned}
+&amp;a=1 \ldots N-1, r=\operatorname{ord}_{N}(a) \\
+&amp;P(\text { success })=P\left(2 \mid r \wedge a^{\frac{r}{2}} \not \equiv-1 \quad(\bmod N)\right) \\
+&amp;N=p_{1}^{\alpha_{1}} p_{2}^{\alpha_{2}} \cdots p_{m}^{\alpha_{m}}
+\end{aligned}
+\]</span> 定义 <span class="math inline">\(r=\operatorname{ord}_{N}(a), r_{i}=\operatorname{ord}_{p_{i}^{\alpha_{i}}}(a)\)</span> ，有 <span class="math inline">\(r=\operatorname{lcm}\left(r_{1}, r_{2}, \ldots, r_{m}\right) ， 2 \nmid r \Longleftrightarrow \forall i, 2 \nmid r_{i}\)</span> 定义 <span class="math inline">\(v_{2}(n)=\max _{k}\left\{2^{k} \mid n\right\}\)</span> 表示 <span class="math inline">\(n\)</span> 中因子 <span class="math inline">\(2\)</span> 的次数， <span class="math display">\[
+\begin{aligned}
+a^{\frac{r}{2}} \equiv-1 \quad(\bmod N) &amp; \Longleftrightarrow \forall i, a^{\frac{r}{2}} \equiv-1 \quad\left(\bmod p_{i}^{\alpha_{i}}\right) \\
+&amp; \Longleftrightarrow \forall i, 2 \nmid r / r_{i} \\
+&amp; \Longleftrightarrow \forall i, j, v_{2}\left(r_{i}\right)=v_{2}\left(r_{j}\right)
+\end{aligned}
+\]</span> 对于随机的 <span class="math inline">\(a\)</span> ，不能通过 <span class="math inline">\(a\)</span> 找到 <span class="math inline">\(N\)</span> 的非平凡因子当且仅当 <span class="math inline">\(\forall i, j, v_{2}\left(r_{i}\right)=v_{2}\left(r_{j}\right)\)</span></p>
+<p><span class="math display">\[
+P\left(v_{2}\left(r_{i}\right)=t\right)= \begin{cases}\dfrac{1}{2^{v_{2}(\varphi(n))}} &amp; t=0 \\ \dfrac{1}{2^{v_{2}(\varphi(n))-t+1}} &amp; 1 \leq t \leq v_{2}(\varphi(n))\end{cases}
+\]</span> 对于与 <span class="math inline">\(N\)</span> 互质的所有 <span class="math inline">\(a\)</span> ，失败概率 <span class="math display">\[
+P(\text { fail })=P\left(2 \nmid r \vee a^{\frac{r}{2}} \equiv-1 \quad(\bmod N)\right)=\sum_{t} \prod_{i} P\left(v_{2}\left(r_{i}\right)=t\right)
+\]</span> 当 <span class="math inline">\(N=p^{k}, 2 p^{k},(k \geq 1)\)</span> 时， <span class="math inline">\(P(\)</span><span class="math inline">\(\mbox{fail}\)</span><span class="math inline">\()=1\)</span> ，否则 <span class="math inline">\(P(\)</span><span class="math inline">\(\mbox{fail}\)</span><span class="math inline">\() \leq \dfrac{1}{2}\)</span></p>
+<p>这些情况也可以设计量子电路在更小的时间复杂度内得到判定，从而成功概率 <span class="math inline">\(&gt;\dfrac{1}{2}\)</span></p>
+<h2 id="将求阶算法转换为相位估计法">将求阶算法转换为相位估计法</h2>
+<p>对于酉变换 <span class="math inline">\(U:|y\rangle\mapsto|xy\pmod{N}\rangle\)</span>，已知 <span class="math inline">\(r\)</span> 为 <span class="math inline">\(x\)</span> 模 <span class="math inline">\(N\)</span> 的阶，即满足 <span class="math inline">\(x^{t}\equiv 1\pmod{N}\)</span> 的最小正整数 <span class="math inline">\(t\)</span></p>
+<p>任取 <span class="math inline">\(0\leq s\leq r-1\)</span>，则可以构造性地给出 <span class="math inline">\(U\)</span> 变换的一个特征向量 <span class="math display">\[
+|u_s\rangle=\large \dfrac{1}{\sqrt{r}}\sum_{k=0}^{r-1}e^{-\frac{2\pi isk}{r}}|x^{k}\bmod{N}\rangle
+\]</span> 计算可知 <span class="math inline">\(U|u_s\rangle=\dfrac{1}{\sqrt{r}}\displaystyle \sum_{k=0}^{r-1}e^{-\frac{2\pi isk}{r}}|x^{k+1}\bmod{N}\rangle=\dfrac{1}{\sqrt{r}}e^{\frac{2\pi is}{r}}\sum_{k=0}^{r-1}e^{-\frac{2\pi is(k+1)}{r}}|x^{k+1}\bmod{N}\rangle\)</span> 由 <span class="math inline">\(x^{r}=1\)</span></p>
+<p>则 <span class="math inline">\(\{x,x^2,\cdots,x^{r-1},x^{r}\}=\{1,x,x^2,\cdots,x^{r-1}\}\)</span> 则 <span class="math inline">\(\boxed{U|u_s\rangle=e^{\frac{2\pi is}{r}}|u_s\rangle}\)</span>，故 <span class="math inline">\(e^{\frac{2\pi is}{r}}\)</span> 为 <span class="math inline">\(U\)</span> 的特征值</p>
+<p>从而制备酉变换 <span class="math inline">\(U\)</span>，只要确定 $$ 精度内的相位 <span class="math inline">\(\small\Delta \normalsize \varphi =\dfrac{2\pi s}{r}\)</span>（误差分析给出比特数 <span class="math inline">\(t=n+\left \lceil \log \left(2+\dfrac{1}{2\epsilon}\right)\right\rceil\)</span>）</p>
+<p>便在一定精度内得到 <span class="math inline">\(s=\dfrac{ \small\Delta \normalsize \varphi r}{2\pi}\)</span>，由连分式算法，任意有理数连分式经过有限步可以终止，从而 <span class="math inline">\(s\)</span> 可求</p>
+<h2 id="相位估计法">相位估计法</h2>
+<p>在给定精度得到相应需要 <span class="math inline">\(t\)</span> 比特后，搭建如下量子电路： <img src="https://pic.imgdb.cn/item/62c59c765be16ec74a874b1b.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>通俗来说，上面 <span class="math inline">\(t\)</span> 比特给出一系列“平铺”的量子纠缠态，具体写成数学表达式有 <span class="math display">\[
+\begin{aligned}
+\frac{1}{2^{t / 2}}\left(|0\rangle+e^{2 \pi i 2^{t-1} \varphi}|1\rangle\right)\left(|0\rangle+e^{2 \pi i 2^{t-2} \varphi}|1\rangle\right) &amp; \ldots\left(|0\rangle+e^{2 \pi i 2^{0} \varphi}|1\rangle\right) \\
+&amp;=\frac{1}{2^{t / 2}} \sum_{k=0}^{2^{t}-1} e^{2 \pi i \varphi k}|k\rangle .
+\end{aligned}
+\]</span> 这里求和式的结果可以观察为二进制展开得到，用逆快速傅里叶变换便可以 <span class="math inline">\(t\)</span> 位（概率为 $1-$）精度的 <span class="math inline">\(\varphi\)</span></p>
+<p><strong>只要设计上符合各精度要求，便可以逼近得到实例酉变换的相位 <span class="math inline">\(\varphi\)</span>，进而用连分数算法逼近出一个随机数 <span class="math inline">\(a\)</span> 模 <span class="math inline">\(N\)</span> 意义下的阶 <span class="math inline">\(s\)</span>，该 <span class="math inline">\(s\)</span> 为偶数的概率也是可观的（ <span class="math inline">\(&gt; \dfrac{1}{2}\)</span>），实在不行的话多尝试几个随机数 <span class="math inline">\(a\)</span>，只要找到一个阶数为偶数的 <span class="math inline">\(a\)</span>，便可以使用欧几里得算法得到 <span class="math inline">\(N\)</span> 的一个非平凡素因子。</strong></p>
+<p>至此，从理论上大数分解在量子计算机中可以有效（多项式时间复杂度）求出，具体复杂度上界为 <span class="math display">\[
+O(N^2\log N\log \log N)
+\]</span> 远超经典计算机（目前为 <span class="math inline">\(O(2^{(\log N)^c}),c=\dfrac{1}{2}\ \mbox{or } c=\dfrac{1}{3}\)</span> 后者基于一个数论猜想），达到指数加速</p>
+<h2 id="总结">总结</h2>
+<p>根据当今密码学的应用，如果这个算法被真正实现于硬件（需要解决纯化、噪声等一系列问题）并证明有效，</p>
+<p>当前的 <span class="math inline">\(\mbox{RSA}\)</span> 公钥体系，以及基于椭圆曲线的加密体系都可以在 <span class="math inline">\(\mbox{Shor}\)</span> 算法的框架进一步优化下得到有效破解</p>
+<p>可以说，大部分互联网所谓的安全加密体系都会被崩塌，美国甚至成立了<strong>后量子密码协议</strong>，专门用于对抗量子算法对当前算法的威胁，不过至少当前经典密码学中的格密码学未被量子算法所破解，许多加密协议可以通过引入格密码学的方式更加安全。</p>
+<p>我之所以费尽心思写这篇 <span class="math inline">\(\mbox{Shor}\)</span> 算法，是因为我好久没有过被这种数理构思所折服的感觉了，上次应该是高一推导分析力学最终得到最小作用量原理 <span class="math inline">\(\delta S=0\)</span> 的时候，希望探索世界总能带给我震撼……</p>
+<p>不知道几十年后的发展怎么样，个人还是有所期待和充满信心吧，这些算法基本都是 <span class="math inline">\(25\)</span> 年前提出的，不知道这些算法最后会对人类有害，还是有利，个人还是希望生产力的解放带来全球的福祉吧。</p>
 
               
             </div>
@@ -374,8 +399,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Linux and Shell in Department of Electronics</div>
-      <div>https://lr-tsinghua11.github.io/2022/07/04/Program/%E7%94%B5%E5%AD%90%E7%B3%BBlinux%E7%AC%94%E8%AE%B0/</div>
+      <div>Shor&#39;s Algorithm</div>
+      <div>https://lr-tsinghua11.github.io/2022/07/06/Shor&#39;s%20Algorithm/</div>
     </div>
     <div class="license-meta">
       
@@ -387,7 +412,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月4日</div>
+          <div>2022年7月6日</div>
         </div>
       
       
@@ -417,18 +442,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/06/Shor&#39;s%20Algorithm/" title="Shor&#39;s Algorithm">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Shor&#39;s Algorithm</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/28/Summary%20of%20freshman%20year/" title="Summary of freshman year">
-                        <span class="hidden-mobile">Summary of freshman year</span>
+                      <a href="/2022/07/04/Program/%E7%94%B5%E5%AD%90%E7%B3%BBlinux%E7%AC%94%E8%AE%B0/" title="Linux and Shell in Department of Electronics">
+                        <span class="hidden-mobile">Linux and Shell in Department of Electronics</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
