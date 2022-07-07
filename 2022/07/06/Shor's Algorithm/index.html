@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E9%87%8F%E5%AD%90%E7%BA%A0%E7%BC%A0.jpg">
 <meta property="article:published_time" content="2022-07-06T15:07:15.000Z">
-<meta property="article:modified_time" content="2022-07-07T11:02:06.508Z">
+<meta property="article:modified_time" content="2022-07-07T11:50:51.108Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="Linux 命令行技术">
 <meta name="twitter:card" content="summary_large_image">
@@ -328,7 +328,7 @@ P(\text { fail })=P\left(2 \nmid r \vee a^{\frac{r}{2}} \equiv-1 \quad(\bmod N)\
 |u_s\rangle=\large \dfrac{1}{\sqrt{r}}\sum_{k=0}^{r-1}e^{-\frac{2\pi isk}{r}}|x^{k}\bmod{N}\rangle
 \]</span> 计算可知 <span class="math inline">\(U|u_s\rangle=\dfrac{1}{\sqrt{r}}\displaystyle \sum_{k=0}^{r-1}e^{-\frac{2\pi isk}{r}}|x^{k+1}\bmod{N}\rangle=\dfrac{1}{\sqrt{r}}e^{\frac{2\pi is}{r}}\sum_{k=0}^{r-1}e^{-\frac{2\pi is(k+1)}{r}}|x^{k+1}\bmod{N}\rangle\)</span> 由 <span class="math inline">\(x^{r}=1\)</span></p>
 <p>则 <span class="math inline">\(\{x,x^2,\cdots,x^{r-1},x^{r}\}=\{1,x,x^2,\cdots,x^{r-1}\}\)</span> 则 <span class="math inline">\(\boxed{U|u_s\rangle=e^{\frac{2\pi is}{r}}|u_s\rangle}\)</span>，故 <span class="math inline">\(e^{\frac{2\pi is}{r}}\)</span> 为 <span class="math inline">\(U\)</span> 的特征值</p>
-<p>从而制备酉变换 <span class="math inline">\(U\)</span>，只要确定 $$ 精度内的相位 <span class="math inline">\(\small\Delta \normalsize \varphi =\dfrac{2\pi s}{r}\)</span>（误差分析给出比特数 <span class="math inline">\(t=n+\left \lceil \log \left(2+\dfrac{1}{2\epsilon}\right)\right\rceil\)</span>）</p>
+<p>从而制备酉变换 <span class="math inline">\(U\)</span>，只要确定 <span class="math inline">\(\epsilon\)</span> 精度内的相位 <span class="math inline">\(\small\Delta \normalsize \varphi =\dfrac{2\pi s}{r}\)</span>（误差分析给出比特数 <span class="math inline">\(t=n+\left \lceil \log \left(2+\dfrac{1}{2\epsilon}\right)\right\rceil\)</span>）</p>
 <p>便在一定精度内得到 <span class="math inline">\(s=\dfrac{ \small\Delta \normalsize \varphi r}{2\pi}\)</span>，由连分式算法，任意有理数连分式经过有限步可以终止，从而 <span class="math inline">\(s\)</span> 可求</p>
 <h2 id="相位估计法">相位估计法</h2>
 <p>在给定精度得到相应需要 <span class="math inline">\(t\)</span> 比特后，搭建如下量子电路： <img src="https://pic.imgdb.cn/item/62c59c765be16ec74a874b1b.jpg" srcset="/img/loading.gif" lazyload /></p>
