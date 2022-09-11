@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E6%BA%AA%E4%B8%AD%E5%B0%8F%E8%88%9F.jpg">
 <meta property="article:published_time" content="2022-09-11T11:33:27.000Z">
-<meta property="article:modified_time" content="2022-09-11T11:42:22.640Z">
+<meta property="article:modified_time" content="2022-09-11T16:02:30.845Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="rust">
 <meta name="twitter:card" content="summary_large_image">
@@ -277,7 +277,7 @@
             
             <div class="markdown-body">
               
-              <h1 id="rust-class-1">Rust class 1</h1>
+              <h1 id="lecture-1">Lecture 1</h1>
 <h2 id="语言特性">语言特性</h2>
 <p><strong>高效：</strong>Python 解释器，java 虚拟机，而 rust <strong>没有运行时</strong>，在 bare metal（裸机）上运行。</p>
 <p>安卓基于 java，苹果 swift，有相应的垃圾回收机制，易卡顿，而 rust 没有垃圾收集机制。</p>
@@ -882,7 +882,7 @@ Unicode 中文乱码速查表
 <p>Rust 标准库提供了线程 <code>std::thread</code>，每个线程有自己的栈和状态，使用闭包来指定线程的行为</p>
 <h3 id="线程句柄">线程句柄</h3>
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">use</span> std::thread;<br><span class="hljs-keyword">let</span> <span class="hljs-variable">handle</span> = thread::<span class="hljs-title function_ invoke__">spawn</span>(|| &#123;<br>  <span class="hljs-string">&quot;Hello, world!&quot;</span><br>&#125;);<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;:?&#125;&quot;</span>, handle.<span class="hljs-title function_ invoke__">join</span>());<br></code></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sequence">main-&gt;&gt;new_thread: spawn<br>new_thread-&gt;&gt;main: join<br></code></pre></td></tr></table></figure>
+<p><img src="https://lr-tsinghua11.github.io/img/video_editor/blackboard.png" srcset="/img/loading.gif" lazyload /></p>
 <p><code>join()</code> 会阻塞当前线程的执行，直到句柄对应的线程终止，其返回 <code>Ok</code> 或者 <code>Err</code></p>
 <p><code>thread::park()</code> 可以暂停自己的执行，之后可以通过现成的 <code>unpark()</code> 来继续执行</p>
 <h3 id="线程与所有权">线程与所有权</h3>
