@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E6%95%B0%E5%AD%97%E6%98%9F%E7%A9%BA.jpg">
 <meta property="article:published_time" content="2022-03-06T15:43:19.000Z">
-<meta property="article:modified_time" content="2022-03-10T15:52:02.587Z">
+<meta property="article:modified_time" content="2022-03-10T15:52:02.000Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="面向对象编程作业">
 <meta name="twitter:card" content="summary_large_image">
@@ -294,56 +294,138 @@
             <div class="markdown-body">
               
               <h1 id="面向对象编程第二次作业">面向对象编程第二次作业</h1>
-<p><strong>Object-Oriented Programming <span class="math inline">\(\bullet\)</span> Homework <span class="math inline">\(\mathbf{2}\)</span></strong></p>
+<p><strong>Object-Oriented Programming <span
+class="math inline">\(\bullet\)</span> Homework <span
+class="math inline">\(\mathbf{2}\)</span></strong></p>
 <h2 id="模型">模型</h2>
 <h3 id="穷举法">穷举法</h3>
-<p>对输入的正整数<span class="math inline">\(a,b\ (1\leq a,b\leq 10^{9})\)</span>，从两者较小者不断递减，验证是否均整除<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span></p>
+<p>对输入的正整数<span class="math inline">\(a,b\ (1\leq a,b\leq
+10^{9})\)</span>，从两者较小者不断递减，验证是否均整除<span
+class="math inline">\(a\)</span>和<span
+class="math inline">\(b\)</span></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">GCDAndLCM::EnumerateGCD</span><span class="hljs-params">(<span class="hljs-type">int</span> num1, <span class="hljs-type">int</span> num2)</span> </span>&#123;<br>    <span class="hljs-type">int</span> ans = (num1 &gt; num2) ? num2 : num1;<br>    <span class="hljs-keyword">while</span> (num1 % ans != <span class="hljs-number">0</span> || num2 % ans != <span class="hljs-number">0</span>)<br>        ans--;<br>    <span class="hljs-keyword">return</span> ans;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>关键代码如上，写成单独函数的形式便于测量时间</p>
 <h3 id="欧几里得算法">欧几里得算法</h3>
-<p>对正整数<span class="math inline">\(a,b(a&lt;b)\)</span>，有<span class="math inline">\(\mbox{gcd}(a,b)=\mbox{gcd}(b\%a,a)\)</span>，称为欧几里得算法。</p>
-<p>证明：由带余除法定理，若<span class="math inline">\(b&gt;a\)</span>，则<span class="math inline">\(\exists\  q\in Z,r\in[0,a-1),s.t.\ b=aq+r\)</span>，从而<span class="math inline">\(\mbox{gcd}(a,b\%a)=\mbox{gcd}(a,r)=\mbox{gcd}(a,b-aq)=\mbox{gcd}(a,b)\)</span> 则使用递归法计算两个正整数的最大公约数，关键代码如下。</p>
+<p>对正整数<span class="math inline">\(a,b(a&lt;b)\)</span>，有<span
+class="math inline">\(\mbox{gcd}(a,b)=\mbox{gcd}(b\%a,a)\)</span>，称为欧几里得算法。</p>
+<p>证明：由带余除法定理，若<span
+class="math inline">\(b&gt;a\)</span>，则<span
+class="math inline">\(\exists\  q\in Z,r\in[0,a-1),s.t.\
+b=aq+r\)</span>，从而<span
+class="math inline">\(\mbox{gcd}(a,b\%a)=\mbox{gcd}(a,r)=\mbox{gcd}(a,b-aq)=\mbox{gcd}(a,b)\)</span>
+则使用递归法计算两个正整数的最大公约数，关键代码如下。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">GCDAndLCM::EuclideanGCD</span><span class="hljs-params">(<span class="hljs-type">int</span> num1, <span class="hljs-type">int</span> num2)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (num1 &lt; num2)<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">EuclideanGCD</span>(num2, num1);<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-built_in">return</span> (num1 % num2 == <span class="hljs-number">0</span>) ? num2 : <span class="hljs-built_in">EuclideanGCD</span>(num2, num1 % num2);<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>当其中一数整除另一数时，返回前者，否则继续辗转相除法，同时不断调整使得前者不小于后者。由数论结论有<span class="math inline">\([a,b]=\dfrac{ab}{(a,b)}\)</span>，从而最小公倍数可求</p>
+<p>当其中一数整除另一数时，返回前者，否则继续辗转相除法，同时不断调整使得前者不小于后者。由数论结论有<span
+class="math inline">\([a,b]=\dfrac{ab}{(a,b)}\)</span>，从而最小公倍数可求</p>
 <h3 id="类的定义">类的定义</h3>
-<p>本次编程头文件<span class="math inline">\(GCDAndLCM.h\)</span>中类的定义以及对应方法如下，其中输入数据<span class="math inline">\(N\)</span>、输出结果<span class="math inline">\(\mbox{GCD}\)</span>和<span class="math inline">\(\mbox{LCM}\)</span>以及相关的时间放在<span class="math inline">\(\mbox{private}\)</span>内，其余构造函数、析构函数以及输入、方法计算、自动测试、时间测量相关函数头放在<span class="math inline">\(\mbox{public}\)</span>中。</p>
+<p>本次编程头文件<span
+class="math inline">\(GCDAndLCM.h\)</span>中类的定义以及对应方法如下，其中输入数据<span
+class="math inline">\(N\)</span>、输出结果<span
+class="math inline">\(\mbox{GCD}\)</span>和<span
+class="math inline">\(\mbox{LCM}\)</span>以及相关的时间放在<span
+class="math inline">\(\mbox{private}\)</span>内，其余构造函数、析构函数以及输入、方法计算、自动测试、时间测量相关函数头放在<span
+class="math inline">\(\mbox{public}\)</span>中。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">GCDAndLCM</span> &#123;<br>    <span class="hljs-keyword">private</span>:<br>        <span class="hljs-type">int</span> a, b;<br>        <span class="hljs-type">int</span> GCD;<br>        <span class="hljs-type">long</span> <span class="hljs-type">long</span> LCM;<br>        <span class="hljs-type">double</span> timeGCD,timeLCM;<br>        <span class="hljs-type">double</span> frequency;<br>    <span class="hljs-keyword">public</span>:<br>        <span class="hljs-built_in">GCDAndLCM</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>, <span class="hljs-type">int</span> j = <span class="hljs-number">0</span>, <span class="hljs-type">int</span> t1 = <span class="hljs-number">0</span>, <span class="hljs-type">int</span> t2 = <span class="hljs-number">0</span>);<br>        <span class="hljs-built_in">GCDAndLCM</span>(<span class="hljs-type">const</span> GCDAndLCM&amp; g):<span class="hljs-built_in">a</span>(g.a),<span class="hljs-built_in">b</span>(g.b),<span class="hljs-built_in">GCD</span>(g.GCD),<span class="hljs-built_in">LCM</span>(g.LCM),<span class="hljs-built_in">timeGCD</span>(g.timeGCD),<span class="hljs-built_in">timeLCM</span>(g.timeLCM),<span class="hljs-built_in">frequency</span>(g.frequency) &#123;&#125;<br>        <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">input</span><span class="hljs-params">()</span></span>;       <span class="hljs-comment">//获取数据存入a,b中</span><br>        <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">EnumerateGCD</span><span class="hljs-params">(<span class="hljs-type">int</span> num1, <span class="hljs-type">int</span> num2)</span></span>;<br>        <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">EuclideanGCD</span><span class="hljs-params">(<span class="hljs-type">int</span> num1, <span class="hljs-type">int</span> num2)</span></span>;<br>        <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">getGCDResults</span><span class="hljs-params">()</span></span>;   <span class="hljs-comment">//计算最大公约数</span><br>        <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">getLCMResults</span><span class="hljs-params">()</span></span>;   <span class="hljs-comment">//计算最小公倍数</span><br>        <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">singleTest</span><span class="hljs-params">()</span></span>;  <span class="hljs-comment">//手动输入测试</span><br>        <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">autoTest</span><span class="hljs-params">()</span></span>;    <span class="hljs-comment">//自动化测试</span><br>        <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">inquiry</span><span class="hljs-params">()</span></span>;     <span class="hljs-comment">//询问测试方法</span><br>        ~<span class="hljs-built_in">GCDAndLCM</span>() &#123;&#125;<br>    &#125;;<br></code></pre></td></tr></table></figure>
-<p>由于若<span class="math inline">\((a,b)=1\)</span>即<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>互素时，<span class="math inline">\([a,b]=a\cdot b\)</span>可以达到<span class="math inline">\(10^{18}\)</span>量级，从而使用<span class="math inline">\(\mbox{long long}\)</span>数据类型存储<span class="math inline">\(\mbox{LCM}\)</span>（最小公倍数）。使用<span class="math inline">\(\mbox{&lt;windows.h&gt;}\)</span>中<span class="math inline">\(QueryPerformanceFrequency(\&amp;F)\longrightarrow frequency = F.QuadPart\)</span>获取使用频率，便于后面高精度计算所用时间。</p>
+<p>由于若<span class="math inline">\((a,b)=1\)</span>即<span
+class="math inline">\(a\)</span>和<span
+class="math inline">\(b\)</span>互素时，<span
+class="math inline">\([a,b]=a\cdot b\)</span>可以达到<span
+class="math inline">\(10^{18}\)</span>量级，从而使用<span
+class="math inline">\(\mbox{long long}\)</span>数据类型存储<span
+class="math inline">\(\mbox{LCM}\)</span>（最小公倍数）。使用<span
+class="math inline">\(\mbox{&lt;windows.h&gt;}\)</span>中<span
+class="math inline">\(QueryPerformanceFrequency(\&amp;F)\longrightarrow
+frequency =
+F.QuadPart\)</span>获取使用频率，便于后面高精度计算所用时间。</p>
 <h2 id="验证">验证</h2>
-<p>本实验结合不同情况，编写两种测试，一种为手动输入范围内两个正整数进行测试，输出两种方法对应结果和所需要时间。另一种测试方式为自动测试，使用<span class="math inline">\(\mbox{&lt;ctime&gt;}\)</span>中的随机数<span class="math inline">\(\mbox{rand()}\)</span>相乘，将两种方法计算的结果进行比较、输出结果以及对应时间。</p>
+<p>本实验结合不同情况，编写两种测试，一种为手动输入范围内两个正整数进行测试，输出两种方法对应结果和所需要时间。另一种测试方式为自动测试，使用<span
+class="math inline">\(\mbox{&lt;ctime&gt;}\)</span>中的随机数<span
+class="math inline">\(\mbox{rand()}\)</span>相乘，将两种方法计算的结果进行比较、输出结果以及对应时间。</p>
 <h3 id="手动输入测试">手动输入测试</h3>
-<p>在初始询问时输入<span class="math inline">\(\mbox{0}\)</span>进入手动输入测试模式，输入不同的数字输出结果以及消耗时间：</p>
+<p>在初始询问时输入<span
+class="math inline">\(\mbox{0}\)</span>进入手动输入测试模式，输入不同的数字输出结果以及消耗时间：</p>
 <p><img src="https://pic.imgdb.cn/item/622a1bb15baa1a80ab53a725.jpg" srcset="/img/loading.gif" lazyload style="zoom:80%;" /></p>
-<p>可以看出，对于第二种方法，计算时间在<span class="math inline">\(10^{-3}\mbox{ms}\sim 10^{-6}\mbox{s}\)</span>量级，也就是<span class="math inline">\(1\mbox{s}\)</span>内可以至少计算完一百万组数据的最大公约数和最小公倍数，而第一种穷举的方法计算时间随输入数据线性增加。</p>
+<p>可以看出，对于第二种方法，计算时间在<span
+class="math inline">\(10^{-3}\mbox{ms}\sim
+10^{-6}\mbox{s}\)</span>量级，也就是<span
+class="math inline">\(1\mbox{s}\)</span>内可以至少计算完一百万组数据的最大公约数和最小公倍数，而第一种穷举的方法计算时间随输入数据线性增加。</p>
 <h3 id="自动测试">自动测试</h3>
-<p>在询问时输入<span class="math inline">\(\mbox{1}\)</span>进入自动化测试模式，连续两次使用两个随机数相乘得到<span class="math inline">\(a,b\)</span>，采用两种算法计算对应最大公约数和最小公倍数，比对两者是否相同，输出结果，重复该过程<span class="math inline">\(10\)</span>次，最后输出两种方法时间分别消耗的总时间，以下为某次输出结果。 <span class="math display">\[
+<p>在询问时输入<span
+class="math inline">\(\mbox{1}\)</span>进入自动化测试模式，连续两次使用两个随机数相乘得到<span
+class="math inline">\(a,b\)</span>，采用两种算法计算对应最大公约数和最小公倍数，比对两者是否相同，输出结果，重复该过程<span
+class="math inline">\(10\)</span>次，最后输出两种方法时间分别消耗的总时间，以下为某次输出结果。
+<span class="math display">\[
 \small
 \begin{array}{|c|c|c|}
-\hline \text { 测试序号 } &amp; \text { 最大公约数 } &amp; \text { 最小公倍数 } \\
-\hline \# 1 &amp; (130743583,573423651)=17 &amp; {[130743583,573423651]=4410086041687149} \\
-\hline \# 2 &amp; (369064716,30402746)=2 &amp; {[369064716,30402746]=5610290409055068} \\
-\hline \# 3 &amp; (594322690,82811424)=2 &amp; {[594322690,82811424]=24608354137205280} \\
-\hline \# 4 &amp; (104223784,11654964)=4 &amp; {[104223784,11654964]=303681112615944} \\
-\hline \# 5 &amp; (864568560,349050135)=15 &amp; {[864568560,349050135]=20118518172317040} \\
-\hline \# 6 &amp; (258643100,230600502)=2 &amp; {[258643100,230600502]=29821614349418100} \\
-\hline \# 7 &amp; (108403370,193179162)=46 &amp; {[108403370,193179162]=455245047273390} \\
-\hline \# 8 &amp; (47632487,289415316)=1 &amp; {[47632487,289415316]=13785571276970892} \\
-\hline \# 9 &amp; (3119375,68440383)=1 &amp; {[3119375,68440383]=213491219720625} \\
-\hline \# 10 &amp; (251300764,156068087)=1 &amp; {[251300764,156068087]=39220029499118468} \\
+\hline \text { 测试序号 } &amp; \text { 最大公约数 } &amp; \text {
+最小公倍数 } \\
+\hline \# 1 &amp; (130743583,573423651)=17 &amp;
+{[130743583,573423651]=4410086041687149} \\
+\hline \# 2 &amp; (369064716,30402746)=2 &amp;
+{[369064716,30402746]=5610290409055068} \\
+\hline \# 3 &amp; (594322690,82811424)=2 &amp;
+{[594322690,82811424]=24608354137205280} \\
+\hline \# 4 &amp; (104223784,11654964)=4 &amp;
+{[104223784,11654964]=303681112615944} \\
+\hline \# 5 &amp; (864568560,349050135)=15 &amp;
+{[864568560,349050135]=20118518172317040} \\
+\hline \# 6 &amp; (258643100,230600502)=2 &amp;
+{[258643100,230600502]=29821614349418100} \\
+\hline \# 7 &amp; (108403370,193179162)=46 &amp;
+{[108403370,193179162]=455245047273390} \\
+\hline \# 8 &amp; (47632487,289415316)=1 &amp;
+{[47632487,289415316]=13785571276970892} \\
+\hline \# 9 &amp; (3119375,68440383)=1 &amp;
+{[3119375,68440383]=213491219720625} \\
+\hline \# 10 &amp; (251300764,156068087)=1 &amp;
+{[251300764,156068087]=39220029499118468} \\
 \hline
 \end{array}
-\]</span> <span class="math inline">\(\mbox{All the tests are right! Enumerate algorithm cost 10.941s, Euclidean algorithm cost 3.03e-05s.}\)</span>，与手动输入测试结果基本吻合。</p>
+\]</span> <span class="math inline">\(\mbox{All the tests are right!
+Enumerate algorithm cost 10.941s, Euclidean algorithm cost
+3.03e-05s.}\)</span>，与手动输入测试结果基本吻合。</p>
 <h2 id="分析">分析</h2>
 <h3 id="复杂度">复杂度</h3>
-<p>对于穷举法，显然消耗时间正比于数据规模<span class="math inline">\(N\)</span>,从而其时间复杂度为<span class="math inline">\(O(N)\)</span>。</p>
-<p>对于欧几里得算法，每次时间的消耗与<span class="math inline">\(a,b\)</span>的增加并非线性，比如当<span class="math inline">\(a,b\)</span>很大，但<span class="math inline">\(|a-b|=1\)</span>时，计算最大公约数只消耗了两倍的常数时间。则从最坏的时间消耗来看，<span class="math inline">\((N,m)\longrightarrow (m,n)\)</span>，<span class="math inline">\(m&lt; \dfrac{N}{2}\)</span>，则最坏情况下每次数据只能达到减半，时间复杂度为<span class="math inline">\(O(\log N)\)</span>。</p>
-<p>在上述自动化测试中，前者规模<span class="math inline">\(N_1=\dfrac{1}{10}\displaystyle \sum_{i=1}^{i=10}\min(a_i,b_i)\approx 1.1\times 10^{8}\)</span>，后者规模<span class="math inline">\(N_2=\dfrac{1}{20}\displaystyle \sum_{i=1}^{10}(a_i+b_i) \approx 2.4\times 10^{8}\)</span>，在欧几里得算法最坏的情况下，两者理论时间消耗之比<span class="math inline">\(\dfrac{t_1}{t_2}\sim \dfrac{N_1}{\log N_2}\approx 3.95\times 10^{6}\)</span>，与测得数据<span class="math inline">\(\dfrac{t_1}{t_2}=\dfrac{10.941\mbox{s}}{3.03\times 10^{-5}\mbox{s}}\approx 3.61\times 10^{6}\)</span>基本一致。</p>
-<p>显然，穷举法空间复杂度为<span class="math inline">\(O(1)\)</span>，而欧几里得算法由于使用递归，需要存储步骤中的数据，空间复杂度为<span class="math inline">\(O(\log N)\)</span></p>
+<p>对于穷举法，显然消耗时间正比于数据规模<span
+class="math inline">\(N\)</span>,从而其时间复杂度为<span
+class="math inline">\(O(N)\)</span>。</p>
+<p>对于欧几里得算法，每次时间的消耗与<span
+class="math inline">\(a,b\)</span>的增加并非线性，比如当<span
+class="math inline">\(a,b\)</span>很大，但<span
+class="math inline">\(|a-b|=1\)</span>时，计算最大公约数只消耗了两倍的常数时间。则从最坏的时间消耗来看，<span
+class="math inline">\((N,m)\longrightarrow (m,n)\)</span>，<span
+class="math inline">\(m&lt;
+\dfrac{N}{2}\)</span>，则最坏情况下每次数据只能达到减半，时间复杂度为<span
+class="math inline">\(O(\log N)\)</span>。</p>
+<p>在上述自动化测试中，前者规模<span
+class="math inline">\(N_1=\dfrac{1}{10}\displaystyle
+\sum_{i=1}^{i=10}\min(a_i,b_i)\approx 1.1\times
+10^{8}\)</span>，后者规模<span
+class="math inline">\(N_2=\dfrac{1}{20}\displaystyle
+\sum_{i=1}^{10}(a_i+b_i) \approx 2.4\times
+10^{8}\)</span>，在欧几里得算法最坏的情况下，两者理论时间消耗之比<span
+class="math inline">\(\dfrac{t_1}{t_2}\sim \dfrac{N_1}{\log N_2}\approx
+3.95\times 10^{6}\)</span>，与测得数据<span
+class="math inline">\(\dfrac{t_1}{t_2}=\dfrac{10.941\mbox{s}}{3.03\times
+10^{-5}\mbox{s}}\approx 3.61\times 10^{6}\)</span>基本一致。</p>
+<p>显然，穷举法空间复杂度为<span
+class="math inline">\(O(1)\)</span>，而欧几里得算法由于使用递归，需要存储步骤中的数据，空间复杂度为<span
+class="math inline">\(O(\log N)\)</span></p>
 <h3 id="优缺点">优缺点</h3>
-<p>从耗时的角度，欧几里得算法远快于穷举法，而且在函数递归调用次数可达<span class="math inline">\(10^{3}\)</span>，在数据规模小于<span class="math inline">\(2^{10^{3}}\approx 10^{300}\)</span>内均不会出现栈溢出的问题。从而欧几里得算法为当前计算最大公约数和最小公倍数的主流算法。</p>
+<p>从耗时的角度，欧几里得算法远快于穷举法，而且在函数递归调用次数可达<span
+class="math inline">\(10^{3}\)</span>，在数据规模小于<span
+class="math inline">\(2^{10^{3}}\approx
+10^{300}\)</span>内均不会出现栈溢出的问题。从而欧几里得算法为当前计算最大公约数和最小公倍数的主流算法。</p>
 <h3 id="有效性充分性">有效性、充分性</h3>
-<p>由上述验证可以看出，对于输入数据的绝对最大值<span class="math inline">\(2^{31}-1\)</span>和<span class="math inline">\(2^{31}-2\)</span>，其最小公倍数<span class="math inline">\((2^{31}-1)\cdot (2^{31}-2)= 4.61\times 10^{18}&lt;\max{\mbox{(long long)}}=2^{63}-1=9.22\times 10^{18}\)</span>，输入数据能保证输出结果，保证了充分性。</p>
-<p>有效性不能完全通过遍历验证，因为遍历组合达到<span class="math inline">\(\sim \dfrac{1}{2}\cdot 2^{31}\cdot 2^{31}=2^{61}\)</span>，不可能全部验证通过，但在自动化测试检验以及数学公式的推导下，该程序有效性能够很好地保证。</p>
+<p>由上述验证可以看出，对于输入数据的绝对最大值<span
+class="math inline">\(2^{31}-1\)</span>和<span
+class="math inline">\(2^{31}-2\)</span>，其最小公倍数<span
+class="math inline">\((2^{31}-1)\cdot (2^{31}-2)= 4.61\times
+10^{18}&lt;\max{\mbox{(long long)}}=2^{63}-1=9.22\times
+10^{18}\)</span>，输入数据能保证输出结果，保证了充分性。</p>
+<p>有效性不能完全通过遍历验证，因为遍历组合达到<span
+class="math inline">\(\sim \dfrac{1}{2}\cdot 2^{31}\cdot
+2^{31}=2^{61}\)</span>，不可能全部验证通过，但在自动化测试检验以及数学公式的推导下，该程序有效性能够很好地保证。</p>
 
               
             </div>

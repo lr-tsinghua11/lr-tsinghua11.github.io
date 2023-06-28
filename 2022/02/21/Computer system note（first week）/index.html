@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E6%9C%9D%E9%98%B3%E5%B3%A1%E8%B0%B7.jpg">
 <meta property="article:published_time" content="2022-02-21T15:42:51.000Z">
-<meta property="article:modified_time" content="2022-03-06T15:27:07.485Z">
+<meta property="article:modified_time" content="2022-03-06T15:27:07.000Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="计算机系统研讨笔记">
 <meta name="twitter:card" content="summary_large_image">
@@ -300,28 +300,51 @@
 <li>Build systems: hackers trying to write interesting software</li>
 </ul>
 <h2 id="problems-occured">Problems occured</h2>
-<p><strong>Emergent properties</strong>: when combined together, problem exists. <span class="math inline">\(112bytes\to250bytes\)</span></p>
-<p><strong>Propagation of Effects</strong>: Small mistake effect the whole.</p>
-<p><strong>Incommensurate Scaliing</strong>: Non-linear extension. Equaling enlarge the animal is wrong. Ipv4-&gt;Ipv6</p>
+<p><strong>Emergent properties</strong>: when combined together, problem
+exists. <span class="math inline">\(112bytes\to250bytes\)</span></p>
+<p><strong>Propagation of Effects</strong>: Small mistake effect the
+whole.</p>
+<p><strong>Incommensurate Scaliing</strong>: Non-linear extension.
+Equaling enlarge the animal is wrong. Ipv4-&gt;Ipv6</p>
 <p><strong>Trade-offs</strong>: Waterbed effect</p>
 <h2 id="solutions">Solutions</h2>
 <ol type="1">
-<li><strong>Modularity</strong>: <span class="math inline">\(\mbox{Bugcount}\sim N,\mbox{Dugtime}\sim N^2\)</span>，</li>
+<li><strong>Modularity</strong>: <span
+class="math inline">\(\mbox{Bugcount}\sim N,\mbox{Dugtime}\sim
+N^2\)</span>，</li>
 </ol>
-<p>if have <span class="math inline">\(k\)</span> modules, then <span class="math inline">\(\mbox{Bugtime }\sim(\dfrac{N}{k})^2\cdot k=\dfrac{N^2}{k}\)</span></p>
+<p>if have <span class="math inline">\(k\)</span> modules, then <span
+class="math inline">\(\mbox{Bugtime }\sim(\dfrac{N}{k})^2\cdot
+k=\dfrac{N^2}{k}\)</span></p>
 <ol start="2" type="1">
-<li><p><strong>Abstraction</strong>: <span class="math inline">\(\begin{cases}natural\  and\  effective\\fewer \ interactions\end{cases}\)</span> strong boundaries. E.g: OOP, Client and service, Virtualization</p></li>
-<li><p><strong>Layering</strong>: only interact with the same layer and the layer under or on it. OSI seven layers <span class="math inline">\(\to\)</span> TCP/IP</p></li>
+<li><p><strong>Abstraction</strong>: <span
+class="math inline">\(\begin{cases}natural\  and\  effective\\fewer \
+interactions\end{cases}\)</span> strong boundaries. E.g: OOP, Client and
+service, Virtualization</p></li>
+<li><p><strong>Layering</strong>: only interact with the same layer and
+the layer under or on it. OSI seven layers <span
+class="math inline">\(\to\)</span> TCP/IP</p></li>
 </ol>
-<p>CPU,Chip <span class="math inline">\(\to\)</span> ISA <span class="math inline">\(\to\)</span> Software <span class="math inline">\(\large \mbox{decouple}\)</span></p>
+<p>CPU,Chip <span class="math inline">\(\to\)</span> ISA <span
+class="math inline">\(\to\)</span> Software <span
+class="math inline">\(\large \mbox{decouple}\)</span></p>
 <ol start="4" type="1">
-<li><strong>Hierachy</strong>: small systems make up the larger one.</li>
+<li><strong>Hierachy</strong>: small systems make up the larger
+one.</li>
 </ol>
 <p>Design for iteration</p>
 <p>Waterfall to Agile model</p>
-<p><strong>麻省理工法（好事）</strong>：简化、正确、持续、完整，样样都好 <span class="math inline">\(LISP\)</span> 系统，大型系统、“宝石”系统</p>
-<p><strong>新泽西方法（坏事亦好）</strong>：<span class="math inline">\(\large\begin{cases}简洁:\ 实现&gt;连接\\正确性: \ 简洁&gt;准确\\持续:\ 简洁&gt;持续,\ 减少引入不常见情形\\完整:\ 简洁&gt;完整,(\ \exists \ 简洁\ )\ 完整&gt;持续\end{cases}\)</span> <span class="math inline">\(\mbox{Unix}/C\)</span> 为典型，<strong>通用性</strong>强</p>
-<p>对于 <span class="math inline">\(PC\)</span> 机故障，<span class="math inline">\(MIT\)</span> 工程师函数实现简单，连接困难；<span class="math inline">\(Unix\)</span> 工程师采用随机报错的方式解决问题</p>
+<p><strong>麻省理工法（好事）</strong>：简化、正确、持续、完整，样样都好
+<span class="math inline">\(LISP\)</span> 系统，大型系统、“宝石”系统</p>
+<p><strong>新泽西方法（坏事亦好）</strong>：<span
+class="math inline">\(\large\begin{cases}简洁:\ 实现&gt;连接\\正确性: \
+简洁&gt;准确\\持续:\ 简洁&gt;持续,\ 减少引入不常见情形\\完整:\
+简洁&gt;完整,(\ \exists \ 简洁\ )\ 完整&gt;持续\end{cases}\)</span>
+<span class="math inline">\(\mbox{Unix}/C\)</span>
+为典型，<strong>通用性</strong>强</p>
+<p>对于 <span class="math inline">\(PC\)</span> 机故障，<span
+class="math inline">\(MIT\)</span> 工程师函数实现简单，连接困难；<span
+class="math inline">\(Unix\)</span> 工程师采用随机报错的方式解决问题</p>
 
               
             </div>

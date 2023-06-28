@@ -1,0 +1,979 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Tony">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="微积分A(2)期末模拟考试试题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A practice for Calculus final exam">
+<meta property="og:url" content="https://lr-tsinghua11.github.io/2022/06/03/Math/%E5%BE%AE%E7%A7%AF%E5%88%86A(2)%E6%9C%9F%E6%9C%AB%E6%A8%A1%E6%8B%9F%E8%80%83%E8%AF%95%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="Tony">
+<meta property="og:description" content="微积分A(2)期末模拟考试试题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E6%BC%AB%E5%B1%B1%E9%81%8D%E9%87%8E.jpg">
+<meta property="article:published_time" content="2022-06-03T04:52:29.000Z">
+<meta property="article:modified_time" content="2022-10-08T06:12:44.000Z">
+<meta property="article:author" content="Tony">
+<meta property="article:tag" content="微积分期末模拟考试">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E6%BC%AB%E5%B1%B1%E9%81%8D%E9%87%8E.jpg">
+  
+  
+  <title>A practice for Calculus final exam - Tony</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lr-tsinghua11.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong> Learning_rate&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/%E6%BC%AB%E5%B1%B1%E9%81%8D%E9%87%8E.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          <span id="subtitle" title="A practice for Calculus final exam">
+            
+          </span>
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-03 12:52" pubdate>
+          2022年6月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">A practice for Calculus final exam</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2022年10月8日 下午
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <p>一、选择题</p>
+<p>1、马鞍面 <span class="math inline">\(z=x y\)</span> 被圆柱面 <span
+class="math inline">\(x^{2}+y^{2}=1\)</span>
+所截，截得的有界部分曲面的面积为 <span
+class="math inline">\((B)\)</span></p>
+<ol type="A">
+<li><p><span class="math inline">\(\dfrac{1}{3} \pi(2
+\sqrt{2}+1)\)</span></p></li>
+<li><p><span class="math inline">\(\dfrac{2}{3} \pi(2
+\sqrt{2}-1)\)</span></p></li>
+<li><p><span class="math inline">\(\dfrac{1}{3} \pi(2
+\sqrt{2}-1)\)</span></p></li>
+<li><p><span class="math inline">\(\dfrac{2}{3}
+\pi(\sqrt{2}-1)\)</span></p></li>
+</ol>
+<p>2、设曲线 <span class="math inline">\(L\)</span> 为从点 <span
+class="math inline">\(A(-1,1)\)</span> 沿曲线 <span
+class="math inline">\(y=x^{2}\)</span> 到点 <span
+class="math inline">\(B(0,0)\)</span> 再沿直线 <span
+class="math inline">\(y=0\)</span> 到点 <span
+class="math inline">\(C(2,0)\)</span> 的路径，则 <span
+class="math inline">\(\displaystyle \int_{L}\left(12
+x+\mathrm{e}^{y}\right) \mathrm{d} x+\left(x \mathrm{e}^{y}-\cos
+y\right) \mathrm{d} y=\)</span> <span
+class="math inline">\((A)\)</span></p>
+<ol type="A">
+<li><p><span class="math inline">\(20+\mathrm{e}+\sin
+1\)</span></p></li>
+<li><p><span class="math inline">\(2 \mathrm{e}+\sin 1\)</span></p></li>
+<li><p><span class="math inline">\(10+\mathrm{e}^{2}+\sin
+1\)</span></p></li>
+<li><p><span class="math inline">\(\mathrm{e}+\sin 1\)</span></p></li>
+</ol>
+<p>3、幂级数 <span class="math inline">\(\displaystyle
+\sum_{n=1}^{\infty} \frac{1}{n}(x-1)^{n}\)</span> 的收敛域为 <span
+class="math inline">\((B)\)</span></p>
+<ol type="A">
+<li><p><span class="math inline">\([0,2]\)</span></p></li>
+<li><p><span class="math inline">\([0,2)\)</span></p></li>
+<li><p><span class="math inline">\((0,1)\)</span></p></li>
+<li><p><span class="math inline">\([0,1]\)</span></p></li>
+</ol>
+<p>4、设 <span class="math inline">\(f\)</span> 连续, 交换累次积分的次序
+<span class="math inline">\(\displaystyle \int_{1}^{2} \mathrm{~d} x
+\int_{0}^{x} f(x, y) \mathrm{d} y=\)</span> <span
+class="math inline">\((B)\)</span></p>
+<ol type="A">
+<li><p><span class="math inline">\(\displaystyle \int_{0}^{2}
+\mathrm{dy} \int_{y}^{2} f(x, y) \mathrm{d} x\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int_{0}^{1}
+\mathrm{~d} y \int_{1}^{2} f(x, y) \mathrm{d} x+\int_{1}^{2} \mathrm{~d}
+y \int_{y}^{2} f(x, y) \mathrm{d} x\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int_{0}^{x}
+\mathrm{dy} \int_{1}^{2} f(x, y) \mathrm{d} x\)</span></p></li>
+</ol>
+<p>5、设 <span class="math inline">\(L\)</span> 是球面 <span
+class="math inline">\(x^{2}+y^{2}+z^{2}=1\)</span> 与平面 <span
+class="math inline">\(x+y+z=0\)</span> 的交线，则 <span
+class="math inline">\(\displaystyle \int_{L} x^{2} \mathrm{~d}
+l=\)</span> <span class="math inline">\((C)\)</span></p>
+<ol type="A">
+<li><p><span class="math inline">\(2 \pi\)</span></p></li>
+<li><p><span class="math inline">\(\pi\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \frac{2}{3}
+\pi\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \frac{1}{2}
+\pi\)</span></p></li>
+</ol>
+<p>6、级数 <span class="math inline">\(\displaystyle
+\sum_{n=1}^{\infty}(-1)^{n+1} \frac{2^{n}}{n !}\)</span> 的收敛性为
+<span class="math inline">\((C)\)</span></p>
+<ol type="A">
+<li><p>条件收敛</p></li>
+<li><p>发散</p></li>
+<li><p>绝对收敛</p></li>
+</ol>
+<p>7、设 <span class="math inline">\(\Omega\)</span> 为由圆柱面 <span
+class="math inline">\(x^{2}+y^{2}=1\)</span>, 锥面 <span
+class="math inline">\(z=\sqrt{x^{2}+y^{2}}\)</span> 和平面 <span
+class="math inline">\(z=0\)</span> 所围成的空间有界区域，则三重积分
+<span class="math inline">\(\displaystyle \iiint_{\Omega} z \mathrm{~d}
+x \mathrm{~d} y \mathrm{~d} z=\)</span> <span
+class="math inline">\((A)\)</span></p>
+<ol type="A">
+<li><p><span class="math inline">\(\displaystyle
+\frac{\pi}{4}\)</span></p></li>
+<li><p><span class="math inline">\(\pi\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle
+\frac{\pi}{2}\)</span></p></li>
+<li><p>2</p></li>
+</ol>
+<p>二、填空题</p>
+<p>8、设 <span class="math inline">\(2 \pi\)</span> 周期函数 <span
+class="math inline">\(f(x)=\left\{\begin{array}{l}4 ; x \in[-\pi, 0) \\
+0 ; x \in[0, \pi)\end{array}\right.\)</span> 的形式 Fourier
+级数的和函数为 <span class="math inline">\(S(x)\)</span> ，则 <span
+class="math inline">\(S(0)=\stackrel{\Large
+2}{\_\_\_\_\_\_}\)</span></p>
+<p>9、若 <span class="math inline">\((x+3 y) \mathrm{d} x+(k x+y)
+\mathrm{d} y=0\)</span> 为全微分方程，则常数 <span
+class="math inline">\(k=\stackrel{\Large 3}{\_\_\_\_\_\_}\)</span></p>
+<p>10、柱面 <span class="math inline">\(x^{2}+y^{2}=2 x\)</span>
+夹在锥面 <span class="math inline">\(z=\sqrt{x^{2}+y^{2}}\)</span>
+和平面 <span class="math inline">\(z=0\)</span> 之间部分的面积为 <span
+class="math inline">\(\stackrel{\Large 8}{\_\_\_\_\_\_}\)</span></p>
+<p>11、设 <span class="math inline">\(S\)</span> 为单位球面 <span
+class="math inline">\((x-1)^{2}+(y-2)^{2}+(z-3)^{2}=1\)</span> ，则
+<span class="math inline">\(\dfrac{1}{\pi} \displaystyle
+\iint_{S}(x+y+z) \mathrm{d} S=\stackrel{\Large
+24}{\_\_\_\_\_\_}\)</span></p>
+<p>12、设 <span class="math inline">\(\overrightarrow{\mathbf{F}}(x, y,
+z)=(y z, z x, x y)\)</span> ，则 <span
+class="math inline">\(\|\operatorname{rot}
+\overrightarrow{\mathbf{F}}(x, y, z)\|=\stackrel{\Large
+0}{\_\_\_\_\_\_}\)</span></p>
+<p>13、封闭曲线 <span
+class="math inline">\(\left(x^{2}+y^{2}\right)^{2}=2\left(x^{2}-y^{2}\right)(x
+\geq 0)\)</span> 所围区域的面积为 <span
+class="math inline">\(\stackrel{\Large 1}{\_\_\_\_\_\_}\)</span></p>
+<p>14、设 <span class="math inline">\(L^{+}\)</span>为逆时针旋转的椭圆
+<span class="math inline">\(x^{2}+4 y^{2}=1\)</span> ，则 <span
+class="math inline">\(\displaystyle \oint_{L^{+}} \frac{x^{2}
+\mathrm{~d} x+y^{3} \mathrm{~d} y}{x^{2}+4 y^{2}}=\stackrel{\Large
+0}{\_\_\_\_\_\_}\)</span></p>
+<p>15、设 <span class="math inline">\(L: x^{2}+y^{2}=1\)</span> ，则
+<span class="math inline">\(\displaystyle \frac{1}{\pi}
+\int_{L}(x+y)^{2} \mathrm{~d} l=\stackrel{\Large
+2}{\_\_\_\_\_\_}\)</span></p>
+<p>16、设曲面 <span class="math inline">\(\mathrm{S}^{+}:
+z=1\left(x^{2}+y^{2} \leq 1\right)\)</span> ，方向向上。则 <span
+class="math inline">\(\displaystyle \frac{1}{\pi} \iint_{\mathrm{S}^{+}}
+x \mathrm{~d} y \wedge \mathrm{d} z+y \mathrm{~d} z \wedge \mathrm{d}
+x+z \mathrm{~d} x \wedge \mathrm{d} y=\stackrel{\Large
+1}{\_\_\_\_\_\_}\)</span></p>
+<p>17、设 <span class="math inline">\(f(x)\)</span> 是以 2
+为周期的周期函数， <span class="math inline">\(f(x)=x ， x
+\in[0,1]\)</span> 。若 <span class="math inline">\(f(x)\)</span>
+的形式Fourier级数为 <span class="math inline">\(\displaystyle
+\sum_{n=1}^{\infty} b_{n} \sin n \pi x\)</span> ，则 <span
+class="math inline">\(5 \pi b_{5}=\stackrel{\Large
+2}{\_\_\_\_\_\_}\)</span></p>
+<p>18、设 <span class="math inline">\(f(x, y)=x^{2} y^{2}\)</span>
+，则在点 <span class="math inline">\((1,1)\)</span> 处， <span
+class="math inline">\(\operatorname{div}(\operatorname{grad}
+f)=\stackrel{\Large 4}{\_\_\_\_\_\_}\)</span></p>
+<p>19、记 <span
+class="math inline">\(L^{+}\)</span>为逆时针旋转的有向封闭曲线 <span
+class="math inline">\(|x|+|y|=1\)</span> ，则 <span
+class="math inline">\(\displaystyle \frac{1}{\pi} \oint_{L^{+}} \frac{x
+\mathrm{~d} y-y \mathrm{~d} x}{x^{2}+y^{2}}=\stackrel{\Large
+2}{\_\_\_\_\_\_}\)</span></p>
+<p>20、设 <span class="math inline">\(L^{+}\)</span>为从 <span
+class="math inline">\((0,0)\)</span> 点到 <span
+class="math inline">\((1,2)\)</span> 点的有向线段，则 <span
+class="math inline">\(\displaystyle \int_{L^{+}} x y^{2} \mathrm{~d}
+x+x^{2} y \mathrm{~d} y=\stackrel{\Large 2}{\_\_\_\_\_\_}\)</span></p>
+<p>三、主观题</p>
+<p>1、设 <span class="math inline">\(\Omega\)</span> 为由 <span
+class="math inline">\(z=1-\left(x^{2}+y^{2}\right)\)</span> 和 <span
+class="math inline">\(x^{2}+y^{2}+z^{2}=1\)</span>
+围成的空间有界区域，求 <span class="math inline">\(\displaystyle
+\iiint_{\Omega} z \mathrm{~d} x \mathrm{~d} y \mathrm{~d} z\)</span>
+<span class="math inline">\(\stackrel{\
+\dfrac{\pi}{12}}{\_\_\_\_\_\_}\)</span></p>
+<p>2、证明函数项级数 <span class="math inline">\(\displaystyle
+\sum_{k=1}^{\infty} k^{2} \mathrm{e}^{-k x}\)</span> 的和函数 <span
+class="math inline">\(S(x)\)</span> 在其收敛域内连续可微。</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%80%83%E8%AF%95/" class="category-chain-item">考试</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%80%83%E8%AF%95/%E5%BE%AE%E7%A7%AF%E5%88%86/" class="category-chain-item">微积分</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86%E6%9C%9F%E6%9C%AB%E6%A8%A1%E6%8B%9F%E8%80%83%E8%AF%95/">#微积分期末模拟考试</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>A practice for Calculus final exam</div>
+      <div>https://lr-tsinghua11.github.io/2022/06/03/Math/%E5%BE%AE%E7%A7%AF%E5%88%86A(2)%E6%9C%9F%E6%9C%AB%E6%A8%A1%E6%8B%9F%E8%80%83%E8%AF%95%E8%AF%95%E9%A2%98/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Tony</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月3日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/03/%C3%A5%C2%BE%C2%AE%C3%A7%C2%A7%C2%AF%C3%A5%C2%88%C2%86%C3%A6%C2%9C%C2%9F%C3%A6%C2%9C%C2%AB%C3%A6%C2%A8%C2%A1%C3%A6%C2%8B%C2%9F%C3%A8%C2%80%C2%83%C3%A8%C2%AF%C2%95%C3%A8%C2%AF%C2%95%C3%A9%C2%A2%C2%98/" title="A practice for Calculus final exam">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">A practice for Calculus final exam</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/01/CongYou/" title="memristor in Weiyang Congyou">
+                        <span class="hidden-mobile">memristor in Weiyang Congyou</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"forest"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var title = subtitle.title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

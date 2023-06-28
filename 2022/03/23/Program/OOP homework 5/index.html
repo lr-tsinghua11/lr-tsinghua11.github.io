@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E5%B1%82%E6%9E%97%E5%B0%BD%E7%87%83%E6%B1%9F%E6%B5%81.jpg">
 <meta property="article:published_time" content="2022-03-23T14:47:34.000Z">
-<meta property="article:modified_time" content="2022-03-25T07:20:25.256Z">
+<meta property="article:modified_time" content="2022-03-25T07:20:25.000Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="面向对象编程作业">
 <meta name="twitter:card" content="summary_large_image">
@@ -294,37 +294,70 @@
             <div class="markdown-body">
               
               <h1 id="面向对象编程第五次作业">面向对象编程第五次作业</h1>
-<p><strong>Object-Oriented Programming <span class="math inline">\(\bullet\)</span> Homework <span class="math inline">\(\mathbf{5}\)</span></strong></p>
-<p>本文从模型、验证两个方面构建复数类的软件库（包含加减乘除、前置（后置）加（减）以及乘方九种运算符号），使用<span class="math inline">\(\mbox{doctest}\)</span>工具进行自动化测试，共验证<span class="math inline">\(1273\)</span>个测试点，使用手动验证和自动化验证完备地给出不同情况下复数的运算</p>
+<p><strong>Object-Oriented Programming <span
+class="math inline">\(\bullet\)</span> Homework <span
+class="math inline">\(\mathbf{5}\)</span></strong></p>
+<p>本文从模型、验证两个方面构建复数类的软件库（包含加减乘除、前置（后置）加（减）以及乘方九种运算符号），使用<span
+class="math inline">\(\mbox{doctest}\)</span>工具进行自动化测试，共验证<span
+class="math inline">\(1273\)</span>个测试点，使用手动验证和自动化验证完备地给出不同情况下复数的运算</p>
 <p><strong>关键词:</strong> 复数;运算符;对拍器;完备性</p>
 <h2 id="模型">模型</h2>
 <h3 id="基本运算">基本运算</h3>
-<p>对复数的加法减法，即为对应实部虚部的相加，乘法除法的运算如下： <span class="math display">\[
-(a+bi)(c+di)=ac-bd+(bc+ad)i,\ \dfrac{a+bi}{c+di}=\dfrac{ac+bd+(bc-ad)i}{c^2+d^2}
+<p>对复数的加法减法，即为对应实部虚部的相加，乘法除法的运算如下： <span
+class="math display">\[
+(a+bi)(c+di)=ac-bd+(bc+ad)i,\
+\dfrac{a+bi}{c+di}=\dfrac{ac+bd+(bc-ad)i}{c^2+d^2}
 \]</span> 相应的代码实现比较简单</p>
 <h3 id="前后置加减">前（后）置加（减）</h3>
-<p>对于前置加和后置加，应用运算操作符的静态多态性（函数重载，两者通过<span class="math inline">\(int\)</span>的标识差别），对前置和后置的声明如下：</p>
+<p>对于前置加和后置加，应用运算操作符的静态多态性（函数重载，两者通过<span
+class="math inline">\(int\)</span>的标识差别），对前置和后置的声明如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++">complex&amp; <span class="hljs-keyword">operator</span>++();      <span class="hljs-comment">//前置加</span><br>complex <span class="hljs-keyword">operator</span>++(<span class="hljs-type">int</span>);    <span class="hljs-comment">//后置加</span><br>complex&amp; <span class="hljs-keyword">operator</span>--();      <span class="hljs-comment">//前置减</span><br>complex <span class="hljs-keyword">operator</span>--(<span class="hljs-type">int</span>);    <span class="hljs-comment">//后置减</span><br></code></pre></td></tr></table></figure>
-<p>由前置运算符要求先做加加（或者减减）运算，再赋值，后置运算符要求先赋值，后做加加（或者减减）运算，前者直接返回运算后的<span class="math inline">\((*this)\)</span>指针，后者返回提前"备份"好的<span class="math inline">\(old\)</span>，相应函数实现如下：</p>
+<p>由前置运算符要求先做加加（或者减减）运算，再赋值，后置运算符要求先赋值，后做加加（或者减减）运算，前者直接返回运算后的<span
+class="math inline">\((*this)\)</span>指针，后者返回提前"备份"好的<span
+class="math inline">\(old\)</span>，相应函数实现如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++">complex&amp; complex::<span class="hljs-keyword">operator</span>++() &#123;<br>        m_real++;<br>        <span class="hljs-built_in">show</span>(<span class="hljs-string">&quot;（前++）= &quot;</span>);<br>        <span class="hljs-keyword">return</span> (*<span class="hljs-keyword">this</span>);<br>&#125;<br>complex complex::<span class="hljs-keyword">operator</span>++(<span class="hljs-type">int</span>) &#123;<br>        complex old = *<span class="hljs-keyword">this</span>;<br>        m_real++;<br>        <span class="hljs-built_in">show</span>(<span class="hljs-string">&quot;（后++）= &quot;</span>);<br>        <span class="hljs-keyword">return</span> old;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="复数的幂">复数的幂</h3>
-<p>对于复数<span class="math inline">\(z\)</span>，<span class="math inline">\(z^0=1\)</span>，其<span class="math inline">\(a\)</span>次正整数幂为<span class="math inline">\(\large z^{a}=\underbrace{z \cdot z \cdots \cdot z}_{\small \mbox{a个z}}\)</span>，负整数幂次对应为相应正整数幂次的倒数，对应幂次函数实现如下：</p>
+<p>对于复数<span class="math inline">\(z\)</span>，<span
+class="math inline">\(z^0=1\)</span>，其<span
+class="math inline">\(a\)</span>次正整数幂为<span
+class="math inline">\(\large z^{a}=\underbrace{z \cdot z \cdots \cdot
+z}_{\small
+\mbox{a个z}}\)</span>，负整数幂次对应为相应正整数幂次的倒数，对应幂次函数实现如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++">complex complex::<span class="hljs-keyword">operator</span>^(<span class="hljs-type">int</span> a) &#123;<br>    <span class="hljs-keyword">if</span> (a == <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">complex</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a &gt; <span class="hljs-number">0</span>) &#123;<br>        complex <span class="hljs-built_in">temp</span>(m_real, m_imaginary);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; a - <span class="hljs-number">1</span>; i++) &#123;<br>                temp = temp * (*<span class="hljs-keyword">this</span>);<br>        &#125;<br>        <span class="hljs-keyword">return</span> temp;<br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        complex <span class="hljs-built_in">temp</span>(m_real, m_imaginary);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; -a - <span class="hljs-number">1</span>; i++) &#123;<br>                temp = temp * (*<span class="hljs-keyword">this</span>);<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">complex</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>) / temp;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="验证">验证</h2>
 <h3 id="样例测试">样例测试</h3>
 <p>构造不同的复数对象，分为有复平面四个象限的点，"纯实数"，"纯虚数"六种类型，例如对加法、减法、前（后）置加（减）使用手动构造的样例，截图如下（使用Ubuntu的Linux系统编辑和debug代码）：</p>
 <p><img src="https://pic.imgdb.cn/item/623d688327f86abb2a9e35ce.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
 <h3 id="自动化测试对拍器">自动化测试（对拍器）</h3>
-<p>上述测试比较机械化，针对复数的乘法和除法而言，使用极坐标进行检验，在极坐标下的乘法和除法计算如下： <span class="math display">\[z_1=r_1e^{i\theta_1},z_2=r_2e^{i\theta_2},z_1\cdot z_2=r_1r_2\cdot e^{i(\theta_1 +\theta_2)},\dfrac{z_1}{z_2}=\dfrac{r_1}{r_2}\cdot e^{i(\theta_1 -\theta_2)}\]</span> 在<span class="math inline">\(&lt;cmath&gt;\)</span>中有可以计算反三角函数以及根式，由于需要遍历每个象限，使用四重for循环逐一整点验证，对应自动化测试代码如下：</p>
+<p>上述测试比较机械化，针对复数的乘法和除法而言，使用极坐标进行检验，在极坐标下的乘法和除法计算如下：
+<span
+class="math display">\[z_1=r_1e^{i\theta_1},z_2=r_2e^{i\theta_2},z_1\cdot
+z_2=r_1r_2\cdot e^{i(\theta_1
++\theta_2)},\dfrac{z_1}{z_2}=\dfrac{r_1}{r_2}\cdot e^{i(\theta_1
+-\theta_2)}\]</span> 在<span
+class="math inline">\(&lt;cmath&gt;\)</span>中有可以计算反三角函数以及根式，由于需要遍历每个象限，使用四重for循环逐一整点验证，对应自动化测试代码如下：</p>
 <p><img src="https://pic.imgdb.cn/item/623d689d27f86abb2a9eedfe.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
-<p>而对除法运算需要着重验证分母为<span class="math inline">\(0\)</span>的异常处理情况，对应for循环跳过相应情况，提前验证分母为0的情况，对应输出<span class="math inline">\(\mbox{Zero cannot be divisor!}\)</span></p>
-<p>对幂次运算也可使用极坐标进行计算 <span class="math inline">\(z^{a}=(re^{i\theta})^{a}=(r^{a})\cdot e^{ia\theta}\)</span></p>
-<p>同理使用上述方法进行验证的时候，发现<span class="math inline">\((z^{1.2})^{2.4}=z^{2.88}\)</span>次方不能过相应测试，使用linux下gdb测试工具（见：<a href="https://lr-tsinghua11.github.io/2022/03/18/Program/gdb%20to%20debug/" class="uri">https://lr-tsinghua11.github.io/2022/03/18/Program/gdb%20to%20debug/</a>，为本人博客）</p>
-<p>最后发现错误是因为复数的分数幂不是唯一的，例如<span class="math inline">\(\sqrt{i}=\pm \dfrac{1+i}{\sqrt{2}}\)</span>，或者说复变函数<span class="math inline">\(f(z)=z^{\frac{1}{n}},n\geq 2\in \mathbb{Z}\)</span>不是单值的，则修改了测试代码，使幂次都是整数，最后均通过测试，截图如下：</p>
+<p>而对除法运算需要着重验证分母为<span
+class="math inline">\(0\)</span>的异常处理情况，对应for循环跳过相应情况，提前验证分母为0的情况，对应输出<span
+class="math inline">\(\mbox{Zero cannot be divisor!}\)</span></p>
+<p>对幂次运算也可使用极坐标进行计算 <span
+class="math inline">\(z^{a}=(re^{i\theta})^{a}=(r^{a})\cdot
+e^{ia\theta}\)</span></p>
+<p>同理使用上述方法进行验证的时候，发现<span
+class="math inline">\((z^{1.2})^{2.4}=z^{2.88}\)</span>次方不能过相应测试，使用linux下gdb测试工具（见：<a
+href="https://lr-tsinghua11.github.io/2022/03/18/Program/gdb%20to%20debug/"
+class="uri">https://lr-tsinghua11.github.io/2022/03/18/Program/gdb%20to%20debug/</a>，为本人博客）</p>
+<p>最后发现错误是因为复数的分数幂不是唯一的，例如<span
+class="math inline">\(\sqrt{i}=\pm
+\dfrac{1+i}{\sqrt{2}}\)</span>，或者说复变函数<span
+class="math inline">\(f(z)=z^{\frac{1}{n}},n\geq 2\in
+\mathbb{Z}\)</span>不是单值的，则修改了测试代码，使幂次都是整数，最后均通过测试，截图如下：</p>
 <p><img src="https://pic.imgdb.cn/item/623d68c527f86abb2aa000b4.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
 <h2 id="完备性">完备性</h2>
-<p>加减乘除等简单运算使用手动输入不同象限的测试样例，对乘法、除法以及乘方运算以极坐标的方式形成"对拍器"，同时使用for循环对复平面上各种情况的点都进行了计算和验证，由于浮点数误差，实验结果<span class="math inline">\(\leq 10^{-12}\)</span>范围均通过。</p>
-<p>在边界条件上，除法讨论了分母为<span class="math inline">\(0\)</span>的情况，乘方排除了分数幂次的情况，在类型划分和边界判定上均进行完备的测试。</p>
+<p>加减乘除等简单运算使用手动输入不同象限的测试样例，对乘法、除法以及乘方运算以极坐标的方式形成"对拍器"，同时使用for循环对复平面上各种情况的点都进行了计算和验证，由于浮点数误差，实验结果<span
+class="math inline">\(\leq 10^{-12}\)</span>范围均通过。</p>
+<p>在边界条件上，除法讨论了分母为<span
+class="math inline">\(0\)</span>的情况，乘方排除了分数幂次的情况，在类型划分和边界判定上均进行完备的测试。</p>
 
               
             </div>
@@ -429,7 +462,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/20/Program/Linux%20to%20convert%20files/" title="Linux to convert files">
+                      <a href="/2022/03/20/CS/Linux%20to%20convert%20files/" title="Linux to convert files">
                         <span class="hidden-mobile">Linux to convert files</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>

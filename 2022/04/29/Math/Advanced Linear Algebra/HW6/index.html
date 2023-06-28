@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E6%BA%AA%E4%B8%AD%E5%B0%8F%E8%88%9F.jpg">
 <meta property="article:published_time" content="2022-04-29T14:58:21.000Z">
-<meta property="article:modified_time" content="2022-05-03T02:49:54.443Z">
+<meta property="article:modified_time" content="2022-05-03T02:49:54.000Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="高代作业">
 <meta name="twitter:card" content="summary_large_image">
@@ -293,87 +293,283 @@
             
             <div class="markdown-body">
               
-              <h1 id="largetextcolorbluemboxadvanced-algebra-small-mathbbhwmathrm6-_textcolorblue2022.4.29"><span class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra } \small \mathbb{HW}\mathrm{6}}\ \ \ \ \ \ _\textcolor{blue}{2022.4.29}\)</span></h1>
-<h2 id="small-mboxvandermode-matrix">1.6.1<span class="math inline">\(\ \small \mbox{Vandermode matrix}\)</span></h2>
-<p>Let <span class="math inline">\(V\)</span> be the space of real polynomials of degree less than <span class="math inline">\(n\)</span>. So <span class="math inline">\(\operatorname{dim} V=n\)</span>. Then for each <span class="math inline">\(a \in \mathbb{R}\)</span>, the evaluation <span class="math inline">\(\mathrm{ev}_{a}\)</span> is a dual vector.</p>
-<p>For any real numbers <span class="math inline">\(a_{1}, \ldots, a_{n} \in \mathbb{R}\)</span>, consider the map <span class="math inline">\(L: V \rightarrow \mathbb{R}^{n}\)</span> such that <span class="math inline">\(L(p)=\left[\begin{array}{c}p\left(a_{1}\right) \\ \vdots \\ p\left(a_{n}\right)\end{array}\right]\)</span>.</p>
+              <h1
+id="largetextcolorbluemboxadvanced-algebra-small-mathbbhwmathrm6-_textcolorblue2022.4.29"><span
+class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra }
+\small \mathbb{HW}\mathrm{6}}\ \ \ \ \ \
+_\textcolor{blue}{2022.4.29}\)</span></h1>
+<h2 id="small-mboxvandermode-matrix">1.6.1<span class="math inline">\(\
+\small \mbox{Vandermode matrix}\)</span></h2>
+<p>Let <span class="math inline">\(V\)</span> be the space of real
+polynomials of degree less than <span class="math inline">\(n\)</span>.
+So <span class="math inline">\(\operatorname{dim} V=n\)</span>. Then for
+each <span class="math inline">\(a \in \mathbb{R}\)</span>, the
+evaluation <span class="math inline">\(\mathrm{ev}_{a}\)</span> is a
+dual vector.</p>
+<p>For any real numbers <span class="math inline">\(a_{1}, \ldots, a_{n}
+\in \mathbb{R}\)</span>, consider the map <span class="math inline">\(L:
+V \rightarrow \mathbb{R}^{n}\)</span> such that <span
+class="math inline">\(L(p)=\left[\begin{array}{c}p\left(a_{1}\right) \\
+\vdots \\ p\left(a_{n}\right)\end{array}\right]\)</span>.</p>
 <ol type="1">
-<li>Write out the matrix for <span class="math inline">\(L\)</span> under the basis <span class="math inline">\(1, x, \ldots, x^{n-1}\)</span> for <span class="math inline">\(V\)</span> and the standard basis for <span class="math inline">\(\mathbb{R}^{n}\)</span>. (Do you know the name for this matrix?)</li>
-<li>Prove that <span class="math inline">\(L\)</span> is invertible if and only if <span class="math inline">\(a_{1}, \ldots, a_{n}\)</span> are distinct. (If you can name the matrix <span class="math inline">\(L\)</span>, then you may use its determinant formula without proof.)</li>
-<li>Show that <span class="math inline">\(\mathrm{ev}_{a_{1}}, \ldots, \mathrm{ev}_{a_{n}}\)</span> form a basis for <span class="math inline">\(V^{*}\)</span> if and only if all <span class="math inline">\(a_{1}, \ldots, a_{n}\)</span> are distinct.</li>
-<li>Set <span class="math inline">\(n=3\)</span>. Find polynomials <span class="math inline">\(p_{1}, p_{2}, p_{3}\)</span> such that <span class="math inline">\(p_{i}(j)=\delta_{i j}\)</span> for <span class="math inline">\(i, j \in\{-1,0,1\}\)</span>.</li>
-<li>Set <span class="math inline">\(n=4\)</span>, and consider <span class="math inline">\(\mathrm{ev}_{-2}, \mathrm{ev}_{-1}, \mathrm{ev}_{0}, \mathrm{ev}_{1}, \mathrm{ev}_{2} \in V^{*}\)</span>. Since <span class="math inline">\(\operatorname{dim} V^{*}=4\)</span>, these must be linearly dependent. Find a non-trivial linear combination of these which is zero.</li>
+<li>Write out the matrix for <span class="math inline">\(L\)</span>
+under the basis <span class="math inline">\(1, x, \ldots,
+x^{n-1}\)</span> for <span class="math inline">\(V\)</span> and the
+standard basis for <span class="math inline">\(\mathbb{R}^{n}\)</span>.
+(Do you know the name for this matrix?)</li>
+<li>Prove that <span class="math inline">\(L\)</span> is invertible if
+and only if <span class="math inline">\(a_{1}, \ldots, a_{n}\)</span>
+are distinct. (If you can name the matrix <span
+class="math inline">\(L\)</span>, then you may use its determinant
+formula without proof.)</li>
+<li>Show that <span class="math inline">\(\mathrm{ev}_{a_{1}}, \ldots,
+\mathrm{ev}_{a_{n}}\)</span> form a basis for <span
+class="math inline">\(V^{*}\)</span> if and only if all <span
+class="math inline">\(a_{1}, \ldots, a_{n}\)</span> are distinct.</li>
+<li>Set <span class="math inline">\(n=3\)</span>. Find polynomials <span
+class="math inline">\(p_{1}, p_{2}, p_{3}\)</span> such that <span
+class="math inline">\(p_{i}(j)=\delta_{i j}\)</span> for <span
+class="math inline">\(i, j \in\{-1,0,1\}\)</span>.</li>
+<li>Set <span class="math inline">\(n=4\)</span>, and consider <span
+class="math inline">\(\mathrm{ev}_{-2}, \mathrm{ev}_{-1},
+\mathrm{ev}_{0}, \mathrm{ev}_{1}, \mathrm{ev}_{2} \in V^{*}\)</span>.
+Since <span class="math inline">\(\operatorname{dim} V^{*}=4\)</span>,
+these must be linearly dependent. Find a non-trivial linear combination
+of these which is zero.</li>
 </ol>
 <hr />
-<p><span class="math inline">\((1)\)</span> <span class="math inline">\(L=\left[\begin{array}{cccc} 1 &amp; a_{1} &amp; \cdots &amp; a_{1}^{n-1} \\ 1 &amp; a_{2} &amp; \cdots &amp; a_{2}^{n-1} \\ \vdots &amp; &amp; &amp; \vdots \\ 1 &amp; a_{n} &amp; \cdots &amp; a_{n}^{n-1} \end{array}\right]\)</span><strong>Vandermode matrix</strong></p>
-<p>Calculate its inverse and we can get standard basis using Lagrange interpolation. <span class="math display">\[
+<p><span class="math inline">\((1)\)</span> <span
+class="math inline">\(L=\left[\begin{array}{cccc} 1 &amp; a_{1} &amp;
+\cdots &amp; a_{1}^{n-1} \\ 1 &amp; a_{2} &amp; \cdots &amp; a_{2}^{n-1}
+\\ \vdots &amp; &amp; &amp; \vdots \\ 1 &amp; a_{n} &amp; \cdots &amp;
+a_{n}^{n-1} \end{array}\right]\)</span><strong>Vandermode
+matrix</strong></p>
+<p>Calculate its inverse and we can get standard basis using Lagrange
+interpolation. <span class="math display">\[
 \left(\begin{array}{cccc}
 1 &amp; a_{1} &amp; \cdots &amp; a_{1}^{n-1} \\
 1 &amp; a_{2} &amp; \cdots &amp; a_{2}^{n-1} \\
 \vdots &amp; &amp; &amp; \vdots \\
 1 &amp; a_{n} &amp; \cdots &amp; a_{n}^{n-1}
-\end{array}\right)\left(\begin{array}{c}x_{0} \\ x_{1} \\ x_{2} \\ \vdots \\ x_{n-1}\end{array}\right)=\left(\begin{array}{c}y_{0} \\ y_{1} \\ y_{2} \\ \vdots \\ y_{n-1}\end{array}\right)\\\left(\begin{array}{cccc}
+\end{array}\right)\left(\begin{array}{c}x_{0} \\ x_{1} \\ x_{2} \\
+\vdots \\ x_{n-1}\end{array}\right)=\left(\begin{array}{c}y_{0} \\ y_{1}
+\\ y_{2} \\ \vdots \\
+y_{n-1}\end{array}\right)\\\left(\begin{array}{cccc}
 1 &amp; a_{1} &amp; \cdots &amp; a_{1}^{n-1} \\
 1 &amp; a_{2} &amp; \cdots &amp; a_{2}^{n-1} \\
 \vdots &amp; &amp; &amp; \vdots \\
 1 &amp; a_{n} &amp; \cdots &amp; a_{n}^{n-1}
-\end{array}\right)^{-1}\left(\begin{array}{c}y_{0} \\ y_{1} \\ y_{2} \\ \vdots \\ y_{n-1}\end{array}\right)=\left(\begin{array}{c}x_{0} \\ x_{1} \\ x_{2} \\ \vdots \\ x_{n-1}\end{array}\right)
-\]</span> Construct polynomial <span class="math inline">\(f(a)=\displaystyle \sum_{i}y_i \prod_{j \neq i} \frac{a-a_{j}}{a_{i}-a_{j}}\)</span> So <span class="math inline">\(f(a_i)=x_i\)</span></p>
-<p>So <span class="math inline">\(\left(V^{-1}\right)_{i j}\)</span> is the coefficient of <span class="math inline">\(\displaystyle \prod_{k \neq i} \frac{a-a_{k}}{a_{i}-a_{k}}\)</span> at <span class="math inline">\(x^{j-1}\)</span> , which is <span class="math inline">\(\displaystyle\left(V^{-1}\right)_{i j}=\left[x^{j-1}\right] \prod_{k \neq i} \frac{a-a_{k}}{a_{i}-a_{k}}\)</span> <span class="math display">\[
-\left(V^{-1}\right)_{i j}=(-1)^{j+1} \frac{\displaystyle \sum_{0 \leq p_{1}&lt;\cdots&lt;p_{n-\zeta} ; p_{1}, p_{2}, \cdots p_{n-j} \neq i} x_{p_{1}} x_{p_{2}} \cdots x_{p_{n-j}}}{\displaystyle \prod_{0 \leq k&lt;n ; k \neq i}\left(x_{k}-x_{i}\right)}
-\]</span> The column of the <span class="math inline">\((V^{-1})\)</span> is the standard basis of <span class="math inline">\(V\)</span></p>
-<p><span class="math inline">\((2)\)</span> <span class="math inline">\(\det L=\displaystyle \prod_{1\leq i\leq j\leq n }(a_i-a_j)\neq 0\Longleftrightarrow a_i\neq a_j\)</span></p>
-<p><span class="math inline">\((3)\)</span> <span class="math inline">\(e v_{a_{1}}, \cdots, ev_{a_n}\)</span> form a basis for <span class="math inline">\(V^{*} \Longleftrightarrow e v_{a_{1}}, e v_{a_{2}}, \cdots, ev_{a_n}\)</span>, evan are linearly indepenctent.</p>
-<p>The matrix <span class="math inline">\(\left(\begin{array}{c}e v_{a_{1}} \\ e v_{a_{2}} \\ \vdots \\ e v_{a_{n}}\end{array}\right)\)</span> is invertible, which means <span class="math inline">\(L\)</span> is invertible. According to <span class="math inline">\(\small(2)\)</span>, <span class="math inline">\(a_i\)</span> are distinct.</p>
-<p><span class="math inline">\((4)\)</span> Pick original basis <span class="math inline">\(\{1,x,x^2\}\)</span> So <span class="math inline">\(\alpha_{1}=(1,-1,1) \quad \alpha_{2}=(1,0,0) \quad \alpha_{3}=(1,1,1)\)</span> <span class="math display">\[
-A=\left(\begin{array}{l}\alpha_{1} \\ \alpha_{2} \\ \alpha_{3}\end{array}\right)=\left(\begin{array}{ccc}1 &amp; -1 &amp; 1 \\ 1 &amp; 0 &amp; 0 \\ 1 &amp; 1 &amp; 1\end{array}\right) \quad A^{-1}=\left(\begin{array}{ccc}0 &amp; 1 &amp; 0 \\ -\frac{1}{2} &amp; 0 &amp; \frac{1}{2} \\ \frac{1}{2} &amp; -1 &amp; \frac{1}{2}\end{array}\right)
-\]</span> So <span class="math inline">\(p_{1}=-\dfrac{1}{2} x+\dfrac{1}{2} x^{2} \quad p_{2}=1-x^{2} \quad p_{3}=\dfrac{1}{2} x+\dfrac{1}{2} x^{2}\)</span></p>
-<p><span class="math inline">\((5)\)</span> Set <span class="math inline">\(p(x)=ax^3+bx^2+cx+d\)</span> and <span class="math display">\[m e v_{-2}+n e v_{-1}+p e v_{0}+q e v_{1}+r e v_{2}=0\]</span> <span class="math display">\[
+\end{array}\right)^{-1}\left(\begin{array}{c}y_{0} \\ y_{1} \\ y_{2} \\
+\vdots \\ y_{n-1}\end{array}\right)=\left(\begin{array}{c}x_{0} \\ x_{1}
+\\ x_{2} \\ \vdots \\ x_{n-1}\end{array}\right)
+\]</span> Construct polynomial <span
+class="math inline">\(f(a)=\displaystyle \sum_{i}y_i \prod_{j \neq i}
+\frac{a-a_{j}}{a_{i}-a_{j}}\)</span> So <span
+class="math inline">\(f(a_i)=x_i\)</span></p>
+<p>So <span class="math inline">\(\left(V^{-1}\right)_{i j}\)</span> is
+the coefficient of <span class="math inline">\(\displaystyle \prod_{k
+\neq i} \frac{a-a_{k}}{a_{i}-a_{k}}\)</span> at <span
+class="math inline">\(x^{j-1}\)</span> , which is <span
+class="math inline">\(\displaystyle\left(V^{-1}\right)_{i
+j}=\left[x^{j-1}\right] \prod_{k \neq i}
+\frac{a-a_{k}}{a_{i}-a_{k}}\)</span> <span class="math display">\[
+\left(V^{-1}\right)_{i j}=(-1)^{j+1} \frac{\displaystyle \sum_{0 \leq
+p_{1}&lt;\cdots&lt;p_{n-\zeta} ; p_{1}, p_{2}, \cdots p_{n-j} \neq i}
+x_{p_{1}} x_{p_{2}} \cdots x_{p_{n-j}}}{\displaystyle \prod_{0 \leq
+k&lt;n ; k \neq i}\left(x_{k}-x_{i}\right)}
+\]</span> The column of the <span
+class="math inline">\((V^{-1})\)</span> is the standard basis of <span
+class="math inline">\(V\)</span></p>
+<p><span class="math inline">\((2)\)</span> <span
+class="math inline">\(\det L=\displaystyle \prod_{1\leq i\leq j\leq n
+}(a_i-a_j)\neq 0\Longleftrightarrow a_i\neq a_j\)</span></p>
+<p><span class="math inline">\((3)\)</span> <span
+class="math inline">\(e v_{a_{1}}, \cdots, ev_{a_n}\)</span> form a
+basis for <span class="math inline">\(V^{*} \Longleftrightarrow e
+v_{a_{1}}, e v_{a_{2}}, \cdots, ev_{a_n}\)</span>, evan are linearly
+indepenctent.</p>
+<p>The matrix <span class="math inline">\(\left(\begin{array}{c}e
+v_{a_{1}} \\ e v_{a_{2}} \\ \vdots \\ e
+v_{a_{n}}\end{array}\right)\)</span> is invertible, which means <span
+class="math inline">\(L\)</span> is invertible. According to <span
+class="math inline">\(\small(2)\)</span>, <span
+class="math inline">\(a_i\)</span> are distinct.</p>
+<p><span class="math inline">\((4)\)</span> Pick original basis <span
+class="math inline">\(\{1,x,x^2\}\)</span> So <span
+class="math inline">\(\alpha_{1}=(1,-1,1) \quad \alpha_{2}=(1,0,0) \quad
+\alpha_{3}=(1,1,1)\)</span> <span class="math display">\[
+A=\left(\begin{array}{l}\alpha_{1} \\ \alpha_{2} \\
+\alpha_{3}\end{array}\right)=\left(\begin{array}{ccc}1 &amp; -1 &amp; 1
+\\ 1 &amp; 0 &amp; 0 \\ 1 &amp; 1 &amp; 1\end{array}\right) \quad
+A^{-1}=\left(\begin{array}{ccc}0 &amp; 1 &amp; 0 \\ -\frac{1}{2} &amp; 0
+&amp; \frac{1}{2} \\ \frac{1}{2} &amp; -1 &amp;
+\frac{1}{2}\end{array}\right)
+\]</span> So <span class="math inline">\(p_{1}=-\dfrac{1}{2}
+x+\dfrac{1}{2} x^{2} \quad p_{2}=1-x^{2} \quad p_{3}=\dfrac{1}{2}
+x+\dfrac{1}{2} x^{2}\)</span></p>
+<p><span class="math inline">\((5)\)</span> Set <span
+class="math inline">\(p(x)=ax^3+bx^2+cx+d\)</span> and <span
+class="math display">\[m e v_{-2}+n e v_{-1}+p e v_{0}+q e v_{1}+r e
+v_{2}=0\]</span> <span class="math display">\[
 \begin{gathered}
-e v_{-2}=-8 a+4 b-2 c+d \quad e v_{-1}=-a+b-c+d \quad e v_{0}=d\\ \quad e v_{1}=a+b+c+d \quad e v_{2}=8 a+4 b+2 c+d\\
-\left(\begin{array}{ccccc}-8 &amp; -1 &amp; 0 &amp; 1 &amp; 8 \\ 4 &amp; 1 &amp; 0 &amp; 1 &amp; 4 \\ -2 &amp; -1 &amp; 0 &amp; 1 &amp; 2 \\ 1 &amp; 1 &amp; 1 &amp; 1 &amp;1\end{array}\right)\left(\begin{array}{l}m \\ n \\ p \\ q \\ r\end{array}\right)=\boldsymbol 0
+e v_{-2}=-8 a+4 b-2 c+d \quad e v_{-1}=-a+b-c+d \quad e v_{0}=d\\ \quad
+e v_{1}=a+b+c+d \quad e v_{2}=8 a+4 b+2 c+d\\
+\left(\begin{array}{ccccc}-8 &amp; -1 &amp; 0 &amp; 1 &amp; 8 \\ 4 &amp;
+1 &amp; 0 &amp; 1 &amp; 4 \\ -2 &amp; -1 &amp; 0 &amp; 1 &amp; 2 \\ 1
+&amp; 1 &amp; 1 &amp; 1 &amp;1\end{array}\right)\left(\begin{array}{l}m
+\\ n \\ p \\ q \\ r\end{array}\right)=\boldsymbol 0
 \end{gathered}
-\]</span> Solve that <span class="math inline">\(e v_{-2}-4 e v_{-1}+6 e v_{0}-4 e v_{1}+e v_{2}=0\)</span></p>
-<h2 id="small-mboxdual-vector-in-polynomials">1.6.2<span class="math inline">\(\ \small \mbox{dual vector in polynomials}\)</span></h2>
-<p>Let <span class="math inline">\(V\)</span> be the space of real polynomials of degree less than <span class="math inline">\(3\)</span>. Which of the following is a dual vector? Prove it or show why not.</p>
+\]</span> Solve that <span class="math inline">\(e v_{-2}-4 e v_{-1}+6 e
+v_{0}-4 e v_{1}+e v_{2}=0\)</span></p>
+<h2 id="small-mboxdual-vector-in-polynomials">1.6.2<span
+class="math inline">\(\ \small \mbox{dual vector in
+polynomials}\)</span></h2>
+<p>Let <span class="math inline">\(V\)</span> be the space of real
+polynomials of degree less than <span class="math inline">\(3\)</span>.
+Which of the following is a dual vector? Prove it or show why not.</p>
 <ol type="1">
-<li><span class="math inline">\(p \mapsto \operatorname{ev}_{5}((x+1) p(x))\)</span>.</li>
-<li><span class="math inline">\(p \mapsto \lim _{x \rightarrow \infty} \dfrac{p(x)}{x}\)</span>.</li>
-<li><span class="math inline">\(p \mapsto \lim _{x \rightarrow \infty} \dfrac{p(x)}{x^{2}}\)</span>.</li>
-<li><span class="math inline">\(p \mapsto p(3) p^{\prime}(4)\)</span>.</li>
-<li><span class="math inline">\(p \mapsto \operatorname{deg}(p)\)</span>, the degree of the polynomial <span class="math inline">\(p\)</span>.</li>
+<li><span class="math inline">\(p \mapsto \operatorname{ev}_{5}((x+1)
+p(x))\)</span>.</li>
+<li><span class="math inline">\(p \mapsto \lim _{x \rightarrow \infty}
+\dfrac{p(x)}{x}\)</span>.</li>
+<li><span class="math inline">\(p \mapsto \lim _{x \rightarrow \infty}
+\dfrac{p(x)}{x^{2}}\)</span>.</li>
+<li><span class="math inline">\(p \mapsto p(3)
+p^{\prime}(4)\)</span>.</li>
+<li><span class="math inline">\(p \mapsto
+\operatorname{deg}(p)\)</span>, the degree of the polynomial <span
+class="math inline">\(p\)</span>.</li>
 </ol>
 <hr />
-<p><span class="math inline">\((1)\)</span> Yes. <span class="math inline">\(①\  e_{s}((x+1) p(x))=6 p(5)\)</span>. that is the map from <span class="math inline">\(V\)</span> to <span class="math inline">\(\mathbb{R}\)</span>. <span class="math inline">\(②\)</span> For <span class="math inline">\(\forall\  p, q \in V\)</span> and</p>
-<p><span class="math inline">\(\forall m, n \in \mathbb{R}, L(m p+n q)=6 m p(5)+6 n p(5)=m L(p)+n L(q)\)</span>, so its bilinear.</p>
-<p><span class="math inline">\((2)\)</span> No. Sometimes the limit doeen't exist when <span class="math inline">\(\mbox{deg}(p)\geq 2\)</span></p>
-<p><span class="math inline">\((3)\)</span> Yes. This vector is just a 'taking the coefficient of <span class="math inline">\(x^2\)</span>', which is bilinear.</p>
-<p><span class="math inline">\((4)\)</span> No. For instance, <span class="math inline">\(p(x)=x^{2}+2, q(x)=-2 x, \quad L(p)=11 \times 8=88 \quad L(q)=12\)</span></p>
-<p><span class="math inline">\(L(p+q)=5 \times 6=30 . \quad L(p+q) \neq L(p)+L(q)\)</span>. So it's not a dual vector.</p>
-<p><span class="math inline">\((5)\)</span> No. For instance, <span class="math inline">\(p(x)=x^{2}+x, q(x)=-x^{2}+1, L(p)=\operatorname{deg}(p)=2, L(q)=\operatorname{deg}(q)=2\)</span></p>
-<p><span class="math inline">\(L(p+q)=\operatorname{deg}(x+1)=1 . L(p)+L(q) \neq L(p+q)\)</span>. So it's not a clual vector</p>
-<h2 id="small-mboxdirectional-derivative">1.6.3<span class="math inline">\(\ \small \mbox{directional derivative}\)</span></h2>
-<p>Fix a differentiable function <span class="math inline">\(f: \mathbb{R}^{2} \rightarrow \mathbb{R}\)</span>, and fix a point <span class="math inline">\(\boldsymbol{p} \in \mathbb{R}^{2}\)</span>. For any vector <span class="math inline">\(\boldsymbol{v} \in \mathbb{R}^{2}\)</span>, then the directional derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\(\boldsymbol{p}\)</span> in the direction of <span class="math inline">\(\boldsymbol{v}\)</span> is defined as <span class="math inline">\(\nabla_{\boldsymbol{v}} f:=\lim _{t \rightarrow 0} \dfrac{f(\boldsymbol{p}+t \boldsymbol{v})-f(\boldsymbol{p})}{t} . S \mathrm{Show}\)</span> that the map <span class="math inline">\(\nabla f: \boldsymbol{v} \mapsto \nabla_{\boldsymbol{v}}(f)\)</span> is a dual vector in <span class="math inline">\(\left(\mathbb{R}^{2}\right)^{*}\)</span>, i.e., a row vector. Also, what are its "coordinates" under the standard dual basis? (Remark: In calculus, we write <span class="math inline">\(\nabla f\)</span> as a column vector for historical reasons. By all means, from a mathematical perspective, the correct way to write <span class="math inline">\(\nabla f\)</span> is to write it as a row vector, as illlustrated in this problem. (But don't annoy your calculus teachers though.... In your calculus class, you use whatever notation your calculus teacher told you.) (Extra Remark: If we use row vector, then the evaluation of <span class="math inline">\(\nabla f\)</span> at <span class="math inline">\(\boldsymbol{v}\)</span> is purely linear, and no inner product structure is needed, which is sweet. But if we HAVE TO write <span class="math inline">\(\nabla f\)</span> as a column vector (for historical reason), then we would have to do a dot product between <span class="math inline">\(\nabla f\)</span> and <span class="math inline">\(\boldsymbol{v}\)</span>, which now requires an inner product structure. That is an unnecessary dependence on an extra structure that actually should have no influence.)</p>
+<p><span class="math inline">\((1)\)</span> Yes. <span
+class="math inline">\(①\  e_{s}((x+1) p(x))=6 p(5)\)</span>. that is the
+map from <span class="math inline">\(V\)</span> to <span
+class="math inline">\(\mathbb{R}\)</span>. <span
+class="math inline">\(②\)</span> For <span
+class="math inline">\(\forall\  p, q \in V\)</span> and</p>
+<p><span class="math inline">\(\forall m, n \in \mathbb{R}, L(m p+n q)=6
+m p(5)+6 n p(5)=m L(p)+n L(q)\)</span>, so its bilinear.</p>
+<p><span class="math inline">\((2)\)</span> No. Sometimes the limit
+doeen't exist when <span class="math inline">\(\mbox{deg}(p)\geq
+2\)</span></p>
+<p><span class="math inline">\((3)\)</span> Yes. This vector is just a
+'taking the coefficient of <span class="math inline">\(x^2\)</span>',
+which is bilinear.</p>
+<p><span class="math inline">\((4)\)</span> No. For instance, <span
+class="math inline">\(p(x)=x^{2}+2, q(x)=-2 x, \quad L(p)=11 \times 8=88
+\quad L(q)=12\)</span></p>
+<p><span class="math inline">\(L(p+q)=5 \times 6=30 . \quad L(p+q) \neq
+L(p)+L(q)\)</span>. So it's not a dual vector.</p>
+<p><span class="math inline">\((5)\)</span> No. For instance, <span
+class="math inline">\(p(x)=x^{2}+x, q(x)=-x^{2}+1,
+L(p)=\operatorname{deg}(p)=2, L(q)=\operatorname{deg}(q)=2\)</span></p>
+<p><span class="math inline">\(L(p+q)=\operatorname{deg}(x+1)=1 .
+L(p)+L(q) \neq L(p+q)\)</span>. So it's not a clual vector</p>
+<h2 id="small-mboxdirectional-derivative">1.6.3<span
+class="math inline">\(\ \small \mbox{directional
+derivative}\)</span></h2>
+<p>Fix a differentiable function <span class="math inline">\(f:
+\mathbb{R}^{2} \rightarrow \mathbb{R}\)</span>, and fix a point <span
+class="math inline">\(\boldsymbol{p} \in \mathbb{R}^{2}\)</span>. For
+any vector <span class="math inline">\(\boldsymbol{v} \in
+\mathbb{R}^{2}\)</span>, then the directional derivative of <span
+class="math inline">\(f\)</span> at <span
+class="math inline">\(\boldsymbol{p}\)</span> in the direction of <span
+class="math inline">\(\boldsymbol{v}\)</span> is defined as <span
+class="math inline">\(\nabla_{\boldsymbol{v}} f:=\lim _{t \rightarrow 0}
+\dfrac{f(\boldsymbol{p}+t \boldsymbol{v})-f(\boldsymbol{p})}{t} . S
+\mathrm{Show}\)</span> that the map <span class="math inline">\(\nabla
+f: \boldsymbol{v} \mapsto \nabla_{\boldsymbol{v}}(f)\)</span> is a dual
+vector in <span
+class="math inline">\(\left(\mathbb{R}^{2}\right)^{*}\)</span>, i.e., a
+row vector. Also, what are its "coordinates" under the standard dual
+basis? (Remark: In calculus, we write <span class="math inline">\(\nabla
+f\)</span> as a column vector for historical reasons. By all means, from
+a mathematical perspective, the correct way to write <span
+class="math inline">\(\nabla f\)</span> is to write it as a row vector,
+as illlustrated in this problem. (But don't annoy your calculus teachers
+though.... In your calculus class, you use whatever notation your
+calculus teacher told you.) (Extra Remark: If we use row vector, then
+the evaluation of <span class="math inline">\(\nabla f\)</span> at <span
+class="math inline">\(\boldsymbol{v}\)</span> is purely linear, and no
+inner product structure is needed, which is sweet. But if we HAVE TO
+write <span class="math inline">\(\nabla f\)</span> as a column vector
+(for historical reason), then we would have to do a dot product between
+<span class="math inline">\(\nabla f\)</span> and <span
+class="math inline">\(\boldsymbol{v}\)</span>, which now requires an
+inner product structure. That is an unnecessary dependence on an extra
+structure that actually should have no influence.)</p>
 <hr />
-<p>Set <span class="math inline">\(\vec{v}=\begin{pmatrix}a\\b\end{pmatrix}\)</span>, since the function <span class="math inline">\(f\)</span> is differentiable, <span class="math inline">\(\nabla_{\vec{v}} f=\dfrac{\partial f(\vec{v})}{\partial x} \cdot \dfrac{a}{\sqrt{a^{2}+b^{2}}}+\dfrac{\partial f(\vec{v})}{\partial y} \dfrac{b}{\sqrt{a^{2}+b}}\)</span></p>
-<p>So the map <span class="math inline">\(\nabla f\)</span> is a map from <span class="math inline">\(\left(\mathbb{R}^{2}\right)^{*}\)</span> to <span class="math inline">\(\mathbb{R}\)</span>.And for <span class="math inline">\(\forall\)</span> diffential functions <span class="math inline">\(f, g, \forall m, n \in \mathbb{R}\)</span>, we have: <span class="math display">\[
+<p>Set <span
+class="math inline">\(\vec{v}=\begin{pmatrix}a\\b\end{pmatrix}\)</span>,
+since the function <span class="math inline">\(f\)</span> is
+differentiable, <span class="math inline">\(\nabla_{\vec{v}}
+f=\dfrac{\partial f(\vec{v})}{\partial x} \cdot
+\dfrac{a}{\sqrt{a^{2}+b^{2}}}+\dfrac{\partial f(\vec{v})}{\partial y}
+\dfrac{b}{\sqrt{a^{2}+b}}\)</span></p>
+<p>So the map <span class="math inline">\(\nabla f\)</span> is a map
+from <span
+class="math inline">\(\left(\mathbb{R}^{2}\right)^{*}\)</span> to <span
+class="math inline">\(\mathbb{R}\)</span>.And for <span
+class="math inline">\(\forall\)</span> diffential functions <span
+class="math inline">\(f, g, \forall m, n \in \mathbb{R}\)</span>, we
+have: <span class="math display">\[
 \begin{aligned}
-\nabla_{\vec{v}}(m f+n g) &amp;=\frac{\partial[m f(\vec{v})+n g(\vec{v})]}{\partial x} \cdot \frac{a}{\sqrt{a^{2}+b^{2}}}+\frac{\partial[m f(\vec{v})+n g(\vec{v})]}{\partial y} \cdot \frac{b}{\sqrt{a^{2}+b^{2}}} \\
+\nabla_{\vec{v}}(m f+n g) &amp;=\frac{\partial[m f(\vec{v})+n
+g(\vec{v})]}{\partial x} \cdot
+\frac{a}{\sqrt{a^{2}+b^{2}}}+\frac{\partial[m f(\vec{v})+n
+g(\vec{v})]}{\partial y} \cdot \frac{b}{\sqrt{a^{2}+b^{2}}} \\
 &amp;=m \nabla_{\vec{v}} f+n \nabla_{\vec{v}} g
 \end{aligned}
-\]</span> So the map <span class="math inline">\(\nabla f\)</span> is bilinear, i.e, is a dual vector in <span class="math inline">\(\left(\mathbb{R}^{2}\right)^{*}\)</span>.</p>
-<p>Since <span class="math inline">\(x\)</span>-axis and <span class="math inline">\(y\)</span>-axis are perpendicular, the standard dual basis is <span class="math inline">\(\dfrac{\partial f}{\partial x}\)</span> and <span class="math inline">\(\dfrac{\partial f}{\partial y} .\)</span> And the coordinates are <span class="math inline">\(\dfrac{\vec{v} \cdot \hat{x}}{\|\vec{v}\|}\)</span> and <span class="math inline">\(\dfrac{\vec{v} \cdot \hat{y}}{\|\vec{v}\|}\)</span></p>
+\]</span> So the map <span class="math inline">\(\nabla f\)</span> is
+bilinear, i.e, is a dual vector in <span
+class="math inline">\(\left(\mathbb{R}^{2}\right)^{*}\)</span>.</p>
+<p>Since <span class="math inline">\(x\)</span>-axis and <span
+class="math inline">\(y\)</span>-axis are perpendicular, the standard
+dual basis is <span class="math inline">\(\dfrac{\partial f}{\partial
+x}\)</span> and <span class="math inline">\(\dfrac{\partial f}{\partial
+y} .\)</span> And the coordinates are <span
+class="math inline">\(\dfrac{\vec{v} \cdot
+\hat{x}}{\|\vec{v}\|}\)</span> and <span
+class="math inline">\(\dfrac{\vec{v} \cdot
+\hat{y}}{\|\vec{v}\|}\)</span></p>
 <h2 id="section">1.6.4$ $</h2>
-<p>Consider a linear map <span class="math inline">\(L: V \rightarrow W\)</span> and its dual map <span class="math inline">\(L^{*}: W^{*} \rightarrow V^{*}\)</span>. Prove the following.</p>
+<p>Consider a linear map <span class="math inline">\(L: V \rightarrow
+W\)</span> and its dual map <span class="math inline">\(L^{*}: W^{*}
+\rightarrow V^{*}\)</span>. Prove the following.</p>
 <ol type="1">
-<li><span class="math inline">\(\operatorname{Ker}\left(L^{*}\right)\)</span> is exactly the collection of dual vectors in <span class="math inline">\(W^{*}\)</span> that kills <span class="math inline">\(\operatorname{Ran}(L)\)</span>.</li>
-<li><span class="math inline">\(\operatorname{Ran}\left(L^{*}\right)\)</span> is exactly the collection of dual vectors in <span class="math inline">\(V^{*}\)</span> that kills <span class="math inline">\(\operatorname{Ker}(L)\)</span>.</li>
+<li><span
+class="math inline">\(\operatorname{Ker}\left(L^{*}\right)\)</span> is
+exactly the collection of dual vectors in <span
+class="math inline">\(W^{*}\)</span> that kills <span
+class="math inline">\(\operatorname{Ran}(L)\)</span>.</li>
+<li><span
+class="math inline">\(\operatorname{Ran}\left(L^{*}\right)\)</span> is
+exactly the collection of dual vectors in <span
+class="math inline">\(V^{*}\)</span> that kills <span
+class="math inline">\(\operatorname{Ker}(L)\)</span>.</li>
 </ol>
 <hr />
-<p><span class="math inline">\((1)\)</span> First, all the elements in <span class="math inline">\(\ker(L^*)\in W^{*}\)</span>, so just prove <span class="math inline">\(\forall \ \vec{v}\in \ker(L^*),\vec{\omega}\in \mbox{Ran}(L),\vec{v}^{T}\cdot \vec{\omega}=0\)</span></p>
-<p><span class="math inline">\(L^{*}\vec{v}=0,L^{*}\vec{v}\cdot\vec{x}=0=\vec{v}^{T}(L\vec{x})\)</span>, set <span class="math inline">\(L\vec{x}=\vec{\omega}\)</span> So <span class="math inline">\(\vec{v}^{T}\cdot \vec{\omega}=\langle \vec{v},\vec{\omega}\rangle=0\)</span></p>
-<p><span class="math inline">\((2)\)</span> First, all the elements in <span class="math inline">\(\mbox{Ran}(L^{*})\in V^{*}\)</span> ,so just prove <span class="math inline">\(\forall \ \vec{v}\in \mbox{Ran}(L^*),\vec{\omega}\in \mbox{Ker}(L),\vec{v}^{T}\cdot \vec{\omega}=0\)</span></p>
-<p><span class="math inline">\(L\vec{\omega}=0,L\vec{\omega}\cdot\vec{x}=0=\vec{\omega}^{T}(L^{*}\vec{x})\)</span>, set <span class="math inline">\(L^{*}\vec{x}=\vec{v}\)</span>, So <span class="math inline">\(\vec{\omega}^{T}\cdot \vec{v}=\langle \vec{\omega},\vec{v}\rangle=0\)</span></p>
+<p><span class="math inline">\((1)\)</span> First, all the elements in
+<span class="math inline">\(\ker(L^*)\in W^{*}\)</span>, so just prove
+<span class="math inline">\(\forall \ \vec{v}\in
+\ker(L^*),\vec{\omega}\in \mbox{Ran}(L),\vec{v}^{T}\cdot
+\vec{\omega}=0\)</span></p>
+<p><span
+class="math inline">\(L^{*}\vec{v}=0,L^{*}\vec{v}\cdot\vec{x}=0=\vec{v}^{T}(L\vec{x})\)</span>,
+set <span class="math inline">\(L\vec{x}=\vec{\omega}\)</span> So <span
+class="math inline">\(\vec{v}^{T}\cdot \vec{\omega}=\langle
+\vec{v},\vec{\omega}\rangle=0\)</span></p>
+<p><span class="math inline">\((2)\)</span> First, all the elements in
+<span class="math inline">\(\mbox{Ran}(L^{*})\in V^{*}\)</span> ,so just
+prove <span class="math inline">\(\forall \ \vec{v}\in
+\mbox{Ran}(L^*),\vec{\omega}\in \mbox{Ker}(L),\vec{v}^{T}\cdot
+\vec{\omega}=0\)</span></p>
+<p><span
+class="math inline">\(L\vec{\omega}=0,L\vec{\omega}\cdot\vec{x}=0=\vec{\omega}^{T}(L^{*}\vec{x})\)</span>,
+set <span class="math inline">\(L^{*}\vec{x}=\vec{v}\)</span>, So <span
+class="math inline">\(\vec{\omega}^{T}\cdot \vec{v}=\langle
+\vec{\omega},\vec{v}\rangle=0\)</span></p>
 
               
             </div>
@@ -478,7 +674,7 @@ e v_{-2}=-8 a+4 b-2 c+d \quad e v_{-1}=-a+b-c+d \quad e v_{0}=d\\ \quad e v_{1}=
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/24/Math/Advanced%20Linear%20Algebra/Advanced%20Algebra%20Midterm/" title="Advanced Algebra Midterm">
+                      <a href="/2022/04/24/Math/Advanced%20Algebra%20Midterm/" title="Advanced Algebra Midterm">
                         <span class="hidden-mobile">Advanced Algebra Midterm</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>

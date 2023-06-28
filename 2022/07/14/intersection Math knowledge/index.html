@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E5%A7%91%E8%8B%8F%E5%9F%8E%E5%A4%96%E5%AF%92%E5%B1%B1%E5%AF%BA.jpg">
 <meta property="article:published_time" content="2022-07-14T14:12:22.000Z">
-<meta property="article:modified_time" content="2022-07-14T14:56:09.721Z">
+<meta property="article:modified_time" content="2022-07-14T14:56:09.000Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="求交问题">
 <meta name="twitter:card" content="summary_large_image">
@@ -295,84 +295,238 @@
               
               <h1 id="特殊曲线曲面">特殊曲线曲面</h1>
 <h2 id="bernstein-多项式">$Bernstein $ 多项式</h2>
-<p>定义 <span class="math inline">\(B_n(t)=\dfrac{n!}{i!(n-i)!}(1-t)^{n-i}t^{i}\ \ \ \ \ i=0\cdots n\)</span></p>
-<p>性质 ① 非负：<span class="math inline">\(B_{i,n}(t)\geq 0,\ \ 1\leq t\leq 1\)</span>；② 归一：<span class="math inline">\(\displaystyle\sum_{i=0}^n{B_{i,n}(t)}=(1-t+t)^{n}=1\)</span>（二项式定理）</p>
-<p>③ 对称性：<span class="math inline">\(B_{i,n}(t)=B_{n-i,n}(1-t)\)</span>； ④ 递归：<span class="math inline">\(B_{i,n}(t)=(1-t)B_{i,n-1}(t)+tB_{i-1,n-1}(t)\)</span>；</p>
-<p>⑤ 升阶：<span class="math inline">\(B_{i,n}(t)=(1-\dfrac{i}{n+1})B_{i,n+1}(t)+\dfrac{i+1}{n+1}B_{i+1,n+1}(t)\)</span>；</p>
-<p>⑥ 线性精度：<span class="math inline">\(t=\displaystyle \sum_{i=0}^n\dfrac{i}{n}B_{i,n}(t)\)</span>，表明单项式 <span class="math inline">\(t\)</span> 可以表示为 <span class="math inline">\(n\)</span> 次 <span class="math inline">\(Bernstein\)</span> 多项式的加权组合</p>
-<p>⑦ 求导：<span class="math inline">\(\dfrac{dB_{i,n}(t)}{dt}=n(B_{i-1,n-1}(t)-B_{i,n-1}(t))\)</span>；</p>
-<p>对于一般多项式 <span class="math inline">\(f(t)=a_nt^n+a_{n-1}t^{n-1}+\cdots a_1t+a_0\)</span> 可以看作 <span class="math inline">\(\{t^n,t^{n-1},\cdots,1\}\)</span> 的线性组合</p>
-<p>若换成基向量 <span class="math inline">\(\{B_{i,n}(t)\},0\leq i\leq n\)</span> 称为 <span class="math inline">\(Bernstein\)</span> 基，注意：用 <span class="math inline">\(Bernstein\)</span> 基做展开不唯一</p>
-<p><span class="math inline">\(f(t)+g(t)=\begin{cases}m=n,f+g=\displaystyle \sum_{i=0}^m(f_i^m+g_i^m)B_{i,m}(t)\\m\neq n,f+g=\displaystyle\sum_{i=0}^m(\large f_i^m+\normalsize\sum_{j=\max\{0,i-m+n\}}^{\min\{n,i\}}\frac{\begin{pmatrix}n\\j\end{pmatrix}\begin{pmatrix}m-n\\i-j\end{pmatrix}}{\begin{pmatrix}m\\i\end{pmatrix}}g_j^{n})B_{i,m}(t)\end{cases}\)</span></p>
-<p>意义：以 <span class="math inline">\(Berstein\)</span> 基作展开虽然更复杂，但是保证了数值稳定性</p>
-<h2 id="bacuteezier-曲线"><span class="math inline">\(B\acute{e}zier\)</span> 曲线</h2>
-<p>以 <span class="math inline">\(Berstein\)</span> 基函数为参数函数，给定"控制顶点" <span class="math inline">\(\{\vec{b_0},\vec{b_1}\cdots \vec{b_n}\}\)</span>，则空间曲线方程 <span class="math display">\[
+<p>定义 <span
+class="math inline">\(B_n(t)=\dfrac{n!}{i!(n-i)!}(1-t)^{n-i}t^{i}\ \ \ \
+\ i=0\cdots n\)</span></p>
+<p>性质 ① 非负：<span class="math inline">\(B_{i,n}(t)\geq 0,\ \ 1\leq
+t\leq 1\)</span>；② 归一：<span
+class="math inline">\(\displaystyle\sum_{i=0}^n{B_{i,n}(t)}=(1-t+t)^{n}=1\)</span>（二项式定理）</p>
+<p>③ 对称性：<span
+class="math inline">\(B_{i,n}(t)=B_{n-i,n}(1-t)\)</span>； ④ 递归：<span
+class="math inline">\(B_{i,n}(t)=(1-t)B_{i,n-1}(t)+tB_{i-1,n-1}(t)\)</span>；</p>
+<p>⑤ 升阶：<span
+class="math inline">\(B_{i,n}(t)=(1-\dfrac{i}{n+1})B_{i,n+1}(t)+\dfrac{i+1}{n+1}B_{i+1,n+1}(t)\)</span>；</p>
+<p>⑥ 线性精度：<span class="math inline">\(t=\displaystyle
+\sum_{i=0}^n\dfrac{i}{n}B_{i,n}(t)\)</span>，表明单项式 <span
+class="math inline">\(t\)</span> 可以表示为 <span
+class="math inline">\(n\)</span> 次 <span
+class="math inline">\(Bernstein\)</span> 多项式的加权组合</p>
+<p>⑦ 求导：<span
+class="math inline">\(\dfrac{dB_{i,n}(t)}{dt}=n(B_{i-1,n-1}(t)-B_{i,n-1}(t))\)</span>；</p>
+<p>对于一般多项式 <span
+class="math inline">\(f(t)=a_nt^n+a_{n-1}t^{n-1}+\cdots
+a_1t+a_0\)</span> 可以看作 <span
+class="math inline">\(\{t^n,t^{n-1},\cdots,1\}\)</span> 的线性组合</p>
+<p>若换成基向量 <span class="math inline">\(\{B_{i,n}(t)\},0\leq i\leq
+n\)</span> 称为 <span class="math inline">\(Bernstein\)</span>
+基，注意：用 <span class="math inline">\(Bernstein\)</span>
+基做展开不唯一</p>
+<p><span
+class="math inline">\(f(t)+g(t)=\begin{cases}m=n,f+g=\displaystyle
+\sum_{i=0}^m(f_i^m+g_i^m)B_{i,m}(t)\\m\neq
+n,f+g=\displaystyle\sum_{i=0}^m(\large
+f_i^m+\normalsize\sum_{j=\max\{0,i-m+n\}}^{\min\{n,i\}}\frac{\begin{pmatrix}n\\j\end{pmatrix}\begin{pmatrix}m-n\\i-j\end{pmatrix}}{\begin{pmatrix}m\\i\end{pmatrix}}g_j^{n})B_{i,m}(t)\end{cases}\)</span></p>
+<p>意义：以 <span class="math inline">\(Berstein\)</span>
+基作展开虽然更复杂，但是保证了数值稳定性</p>
+<h2 id="bacuteezier-曲线"><span
+class="math inline">\(B\acute{e}zier\)</span> 曲线</h2>
+<p>以 <span class="math inline">\(Berstein\)</span>
+基函数为参数函数，给定"控制顶点" <span
+class="math inline">\(\{\vec{b_0},\vec{b_1}\cdots
+\vec{b_n}\}\)</span>，则空间曲线方程 <span class="math display">\[
 \vec{r}(t)=\displaystyle\sum_{i=0}^{n}\vec{b_i}B_{i,n}(t),t\in[0,1]
-\]</span> 性质：① 几何不变性：对 <span class="math inline">\(\vec{b_i}\)</span> 平移旋转，<span class="math inline">\(\vec{r}(t)\)</span> 的形状保持不变；</p>
-<p>​ <span class="math inline">\(\Large\ \)</span>② 对称性：<span class="math inline">\(\displaystyle \sum_{i=0}^n\vec{b_i}B_{i,n}(t)=\sum_{i=0}^n\vec{b_{n-i}}B_{i,n}(1-t)\)</span>（反向拟合曲线）</p>
-<p>​ ② <span class="math inline">\(\dot{\vec{r}(t)}=n\displaystyle\sum_{i=0}^{n-1}(\vec{b}_{i+1}-\vec{b}_{i})B_{i,n-1}(t)\)</span>，也为 <span class="math inline">\(B\acute{e}zier\)</span> 曲线（向量相应改变）</p>
-<p>​ ③ <span class="math inline">\(\vec{r}(t)\)</span> 为包围 <span class="math inline">\(\{\vec{b_i}\}^n\)</span> 的最小凸区域（曲线凸包，<span class="math inline">\(\large convex\)</span>），进而对于直线和 <span class="math inline">\(B\acute{e}zier\)</span> 曲线求交问题有：</p>
-<p><strong>变差缩减</strong>：直线与 <span class="math inline">\(B\acute{e}zier\)</span> 曲线的交点 <span class="math inline">\(\leq\)</span> 直线与凸包边界的交点（凸包应用：求交算法，光顺检测）</p>
-<p>​ ④不是所有的向量组都有 <span class="math inline">\(B\acute{e}zier\)</span> 曲线，有 <span class="math inline">\(\dot{r(0)}=n(\vec{b_1}-\vec{b_0}),\dot{r(1)}=n(\vec{b_n}-\vec{b_{n-1}})\)</span> 如果初始绕原点转</p>
-<p>动后不能在一圈之内得到末态方向，由于凸包的性质则不能构成 <span class="math inline">\(B\acute{e}zier\)</span> 曲线</p>
-<h2 id="bacuteezier-曲面"><span class="math inline">\(B\acute{e}zier\)</span> 曲面</h2>
-<p>定义 <span class="math inline">\(\vec{r}(u,v)=\displaystyle\sum_{i=0}^m\sum_{j=0}^n\vec{b_{ij}}B_{i,m}(u)B_{i,n}(v)\ \ u,v\in[0,1]\)</span>，与 <span class="math inline">\(B\acute{e}zier\)</span> 曲线性质相似：几何不变、端点边界、凸包</p>
-<h2 id="b-样条曲线面"><span class="math inline">\(B-\)</span>样条曲线/面</h2>
-<p>给定节点向量 <span class="math inline">\(T=(t_0,t_1,t_2\cdots t_n)\)</span> 其中 <span class="math inline">\(t_0\leq t_1\leq t_2\cdots t_n\)</span>，对区间划分，定义 <span class="math inline">\(DB-\)</span>样条基函数 <span class="math inline">\(N_{i,k}(t)\)</span></p>
-<p><span class="math inline">\(N_{i,1}(t)=\begin{cases}1,t_i\leq t\leq t_{i+1}\\0,\mbox{otherwise}\end{cases}\)</span> ，显然在节点处不连续，当 <span class="math inline">\(k&gt;1,i=0,1\cdots n\)</span> 时，有递推式</p>
-<p><span class="math inline">\(N_{i,k}(t)=\dfrac{t-t_i}{t_{i+k-1}-t_i}N_{i,k-1}(t)+\dfrac{t_{i+k}-t}{t_{i+k}-t_{i+1}}N_{i+1,k-1}(t)\)</span> ，代入计算有</p>
-<p><span class="math inline">\(N_{0,2}=(\dfrac{t-t_0}{t_1-t_0})N_{0,1}(t)+(\dfrac{t_2-t}{t_2-t_1})N_{1,1}(t)\)</span>，为锯齿状，在节点处连续，导数不连续</p>
-<p><span class="math inline">\(N_{0,3}(t)=\dfrac{(t-t_0)^2}{(t_2-t_0)(t_1-t_0)}N_{0,1}(t)+((\dfrac{t-t_0}{t_2-t_0})(\dfrac{t_2-t}{t_2-t_1})+(\dfrac{t-t_1}{t_2-t_1})(\dfrac{t_3-t}{t_3-t_1}))N_{1,1}\)</span>，拱形状</p>
-<p>在节点处导数连续，但二阶导不连续，一般地有 <span class="math inline">\(N_{i,k}(t)\)</span> 在节点处 <span class="math inline">\((k-2)\)</span> 阶导连续，<span class="math inline">\((k-1)\)</span> 阶导不连续</p>
-<p>性质：① 正值：<span class="math inline">\(N_{i,k}(t)&gt; 0,t\in(t_i,t_{i+k})\)</span>；</p>
-<p><span class="math inline">\(\Large\ \)</span> ② 局部支撑（<span class="math inline">\(\mbox{support}\)</span>）：<span class="math inline">\(N_{i,k}(t)=0,t\leq t_i\ or \ t\geq t_{i+k}\)</span>；</p>
-<p><span class="math inline">\(\Large\ \)</span> ③ 单位分割：<span class="math inline">\(\displaystyle \sum_{i=0}^{n}N_{i,k}(t)=1,t\in[t_0,t_n]\)</span>；</p>
-<p><span class="math inline">\(\Large\ \)</span> ④ 连续性：<span class="math inline">\(N_{i,k}(t)\)</span> 在单节点处是 <span class="math inline">\(C^{k-2}\)</span> 阶连续的</p>
-<p>有 <span class="math inline">\(\mbox{de\ Boor}\)</span> 算法（求值与剖分）得到 <span class="math inline">\(B-\)</span>样条曲线 <span class="math display">\[
-r(t)=\sum_{i=0}^{n+j}\boldsymbol{p}_i^jN_{i,k-j}(t),\ \boldsymbol p_i^j=(1-\alpha_i^j)\boldsymbol p_{i-1}^{j-1}+\alpha_i^j\boldsymbol p_{i}^{j-1},\alpha_i^j=\dfrac{\bar{t}-t_i}{t_{i+k-j}-t_i},\boldsymbol p_j^0=\boldsymbol p_j
-\]</span> <span class="math inline">\(B\)</span> 样条曲线是一种特殊的 <span class="math inline">\(B\acute{e}zier\)</span> 曲线，具体来说端点为 <span class="math inline">\(k\)</span> 重节点</p>
-<p><span class="math inline">\(B-\)</span>样条曲面定义为 <span class="math inline">\(\vec{r}(u,v)=\displaystyle \sum_{i=0}^{m}\sum_{j=0}^{n}\vec{P_{i,j}}N_{i,k}(u)N_{j,k}(v)\)</span></p>
+\]</span> 性质：① 几何不变性：对 <span
+class="math inline">\(\vec{b_i}\)</span> 平移旋转，<span
+class="math inline">\(\vec{r}(t)\)</span> 的形状保持不变；</p>
+<p>​ <span class="math inline">\(\Large\ \)</span>② 对称性：<span
+class="math inline">\(\displaystyle
+\sum_{i=0}^n\vec{b_i}B_{i,n}(t)=\sum_{i=0}^n\vec{b_{n-i}}B_{i,n}(1-t)\)</span>（反向拟合曲线）</p>
+<p>​ ② <span
+class="math inline">\(\dot{\vec{r}(t)}=n\displaystyle\sum_{i=0}^{n-1}(\vec{b}_{i+1}-\vec{b}_{i})B_{i,n-1}(t)\)</span>，也为
+<span class="math inline">\(B\acute{e}zier\)</span>
+曲线（向量相应改变）</p>
+<p>​ ③ <span class="math inline">\(\vec{r}(t)\)</span> 为包围 <span
+class="math inline">\(\{\vec{b_i}\}^n\)</span>
+的最小凸区域（曲线凸包，<span class="math inline">\(\large
+convex\)</span>），进而对于直线和 <span
+class="math inline">\(B\acute{e}zier\)</span> 曲线求交问题有：</p>
+<p><strong>变差缩减</strong>：直线与 <span
+class="math inline">\(B\acute{e}zier\)</span> 曲线的交点 <span
+class="math inline">\(\leq\)</span>
+直线与凸包边界的交点（凸包应用：求交算法，光顺检测）</p>
+<p>​ ④不是所有的向量组都有 <span
+class="math inline">\(B\acute{e}zier\)</span> 曲线，有 <span
+class="math inline">\(\dot{r(0)}=n(\vec{b_1}-\vec{b_0}),\dot{r(1)}=n(\vec{b_n}-\vec{b_{n-1}})\)</span>
+如果初始绕原点转</p>
+<p>动后不能在一圈之内得到末态方向，由于凸包的性质则不能构成 <span
+class="math inline">\(B\acute{e}zier\)</span> 曲线</p>
+<h2 id="bacuteezier-曲面"><span
+class="math inline">\(B\acute{e}zier\)</span> 曲面</h2>
+<p>定义 <span
+class="math inline">\(\vec{r}(u,v)=\displaystyle\sum_{i=0}^m\sum_{j=0}^n\vec{b_{ij}}B_{i,m}(u)B_{i,n}(v)\
+\ u,v\in[0,1]\)</span>，与 <span
+class="math inline">\(B\acute{e}zier\)</span>
+曲线性质相似：几何不变、端点边界、凸包</p>
+<h2 id="b-样条曲线面"><span
+class="math inline">\(B-\)</span>样条曲线/面</h2>
+<p>给定节点向量 <span class="math inline">\(T=(t_0,t_1,t_2\cdots
+t_n)\)</span> 其中 <span class="math inline">\(t_0\leq t_1\leq t_2\cdots
+t_n\)</span>，对区间划分，定义 <span
+class="math inline">\(DB-\)</span>样条基函数 <span
+class="math inline">\(N_{i,k}(t)\)</span></p>
+<p><span class="math inline">\(N_{i,1}(t)=\begin{cases}1,t_i\leq t\leq
+t_{i+1}\\0,\mbox{otherwise}\end{cases}\)</span> ，显然在节点处不连续，当
+<span class="math inline">\(k&gt;1,i=0,1\cdots n\)</span>
+时，有递推式</p>
+<p><span
+class="math inline">\(N_{i,k}(t)=\dfrac{t-t_i}{t_{i+k-1}-t_i}N_{i,k-1}(t)+\dfrac{t_{i+k}-t}{t_{i+k}-t_{i+1}}N_{i+1,k-1}(t)\)</span>
+，代入计算有</p>
+<p><span
+class="math inline">\(N_{0,2}=(\dfrac{t-t_0}{t_1-t_0})N_{0,1}(t)+(\dfrac{t_2-t}{t_2-t_1})N_{1,1}(t)\)</span>，为锯齿状，在节点处连续，导数不连续</p>
+<p><span
+class="math inline">\(N_{0,3}(t)=\dfrac{(t-t_0)^2}{(t_2-t_0)(t_1-t_0)}N_{0,1}(t)+((\dfrac{t-t_0}{t_2-t_0})(\dfrac{t_2-t}{t_2-t_1})+(\dfrac{t-t_1}{t_2-t_1})(\dfrac{t_3-t}{t_3-t_1}))N_{1,1}\)</span>，拱形状</p>
+<p>在节点处导数连续，但二阶导不连续，一般地有 <span
+class="math inline">\(N_{i,k}(t)\)</span> 在节点处 <span
+class="math inline">\((k-2)\)</span> 阶导连续，<span
+class="math inline">\((k-1)\)</span> 阶导不连续</p>
+<p>性质：① 正值：<span class="math inline">\(N_{i,k}(t)&gt;
+0,t\in(t_i,t_{i+k})\)</span>；</p>
+<p><span class="math inline">\(\Large\ \)</span> ② 局部支撑（<span
+class="math inline">\(\mbox{support}\)</span>）：<span
+class="math inline">\(N_{i,k}(t)=0,t\leq t_i\ or \ t\geq
+t_{i+k}\)</span>；</p>
+<p><span class="math inline">\(\Large\ \)</span> ③ 单位分割：<span
+class="math inline">\(\displaystyle
+\sum_{i=0}^{n}N_{i,k}(t)=1,t\in[t_0,t_n]\)</span>；</p>
+<p><span class="math inline">\(\Large\ \)</span> ④ 连续性：<span
+class="math inline">\(N_{i,k}(t)\)</span> 在单节点处是 <span
+class="math inline">\(C^{k-2}\)</span> 阶连续的</p>
+<p>有 <span class="math inline">\(\mbox{de\ Boor}\)</span>
+算法（求值与剖分）得到 <span class="math inline">\(B-\)</span>样条曲线
+<span class="math display">\[
+r(t)=\sum_{i=0}^{n+j}\boldsymbol{p}_i^jN_{i,k-j}(t),\ \boldsymbol
+p_i^j=(1-\alpha_i^j)\boldsymbol p_{i-1}^{j-1}+\alpha_i^j\boldsymbol
+p_{i}^{j-1},\alpha_i^j=\dfrac{\bar{t}-t_i}{t_{i+k-j}-t_i},\boldsymbol
+p_j^0=\boldsymbol p_j
+\]</span> <span class="math inline">\(B\)</span> 样条曲线是一种特殊的
+<span class="math inline">\(B\acute{e}zier\)</span> 曲线，具体来说端点为
+<span class="math inline">\(k\)</span> 重节点</p>
+<p><span class="math inline">\(B-\)</span>样条曲面定义为 <span
+class="math inline">\(\vec{r}(u,v)=\displaystyle
+\sum_{i=0}^{m}\sum_{j=0}^{n}\vec{P_{i,j}}N_{i,k}(u)N_{j,k}(v)\)</span></p>
 <h2 id="nurbs-曲线"><span class="math inline">\(NURBS\)</span> 曲线</h2>
-<p><span class="math inline">\(NURBS\)</span> 曲线非均匀有理 <span class="math inline">\(B-\)</span>样条，定义： <span class="math display">\[
-\displaystyle \vec{r}(t)=\dfrac{\displaystyle\sum_{i=0}^n\omega_i\vec{p_i}N_{i,k}(t)}{\displaystyle\sum_{i=0}^n\omega_iN_{i,k}(t)},\mbox{where}\  \begin{cases}N_{i,1}(t)=\begin{cases}1,t_i\leq t\leq t_{i+1}\\0,\mbox{otherwise}\end{cases}\\N_{i,k}(t)=\dfrac{t-t_i}{t_{i+k-1}-t_i}N_{i,k-1}(t)+\dfrac{t_{i+k}-t}{t_{i+k}-t_{i+1}}N_{i+1,k-1}(t)\end{cases}
-\]</span> 圆锥曲线等二次曲线都可以写成 <span class="math inline">\(NURB\)</span> 曲线的形式</p>
-<p>例：<span class="math inline">\(\dfrac{1}{4}\)</span> 椭圆：<span class="math inline">\(\begin{cases}x=a\cos \theta\\y=b\sin \theta\end{cases}\ ,\theta\in[0,\dfrac{\pi}{2}]\)</span>，若令 <span class="math inline">\(t=\tan \dfrac{\theta}{2}\)</span>，有 <span class="math inline">\(\begin{cases}x=a\cdot \cfrac{1-t^2}{1+t^2}\\y=b\cdot \dfrac{2t}{1+t^2}\end{cases},\ t\in[0,1]\)</span> <span class="math display">\[
+<p><span class="math inline">\(NURBS\)</span> 曲线非均匀有理 <span
+class="math inline">\(B-\)</span>样条，定义： <span
+class="math display">\[
+\displaystyle
+\vec{r}(t)=\dfrac{\displaystyle\sum_{i=0}^n\omega_i\vec{p_i}N_{i,k}(t)}{\displaystyle\sum_{i=0}^n\omega_iN_{i,k}(t)},\mbox{where}\  \begin{cases}N_{i,1}(t)=\begin{cases}1,t_i\leq
+t\leq
+t_{i+1}\\0,\mbox{otherwise}\end{cases}\\N_{i,k}(t)=\dfrac{t-t_i}{t_{i+k-1}-t_i}N_{i,k-1}(t)+\dfrac{t_{i+k}-t}{t_{i+k}-t_{i+1}}N_{i+1,k-1}(t)\end{cases}
+\]</span> 圆锥曲线等二次曲线都可以写成 <span
+class="math inline">\(NURB\)</span> 曲线的形式</p>
+<p>例：<span class="math inline">\(\dfrac{1}{4}\)</span> 椭圆：<span
+class="math inline">\(\begin{cases}x=a\cos \theta\\y=b\sin
+\theta\end{cases}\ ,\theta\in[0,\dfrac{\pi}{2}]\)</span>，若令 <span
+class="math inline">\(t=\tan \dfrac{\theta}{2}\)</span>，有 <span
+class="math inline">\(\begin{cases}x=a\cdot
+\cfrac{1-t^2}{1+t^2}\\y=b\cdot \dfrac{2t}{1+t^2}\end{cases},\
+t\in[0,1]\)</span> <span class="math display">\[
 \vec{r}(t)=(a\cdot\dfrac{1-t^2}{1+t^2},b\cdot\dfrac{2t}{1+t^2})=\dfrac{\omega_0(1-t)^2\vec{b_0}+2\omega_1t(1-t)\vec{b_1}+\omega_2t^2\vec{b_2}}{\omega_0(1-t)^2+2\omega_1t(1-t)+\omega_2t^2}
-\]</span> 代入对应系数相等解得 <span class="math inline">\(\omega_2=2\omega_0=2\omega_1,\vec{b_0}=(a,0),\vec{b_1}=(a,b),\vec{b_2}=(0,b)\)</span></p>
-<p>定义 <span class="math inline">\(NURBS\)</span> 曲面 <span class="math inline">\(\displaystyle \vec{r}(t)=\dfrac{\displaystyle\sum_{i=0}^m\sum_{j=0}^n\omega_{ij}\vec{p_i}N_{i,k}(u)N_{j,k}(v)}{\displaystyle\sum_{i=0}^m\sum_{j=0}^n\omega_{ij}N_{i,k}(u)N_{j,k}(v)}\)</span>，在当今建模主流应用曲面</p>
-<p>其中当 <span class="math inline">\(u=u_0\)</span> 时为 <span class="math inline">\(NURBS\)</span> 二次曲面，例如圆环面（ <span class="math inline">\(\mbox{Torus}\)</span> ），旋转面</p>
-<p>当今学术界提出实现 <span class="math inline">\(C^2\)</span> 连续的样条</p>
+\]</span> 代入对应系数相等解得 <span
+class="math inline">\(\omega_2=2\omega_0=2\omega_1,\vec{b_0}=(a,0),\vec{b_1}=(a,b),\vec{b_2}=(0,b)\)</span></p>
+<p>定义 <span class="math inline">\(NURBS\)</span> 曲面 <span
+class="math inline">\(\displaystyle
+\vec{r}(t)=\dfrac{\displaystyle\sum_{i=0}^m\sum_{j=0}^n\omega_{ij}\vec{p_i}N_{i,k}(u)N_{j,k}(v)}{\displaystyle\sum_{i=0}^m\sum_{j=0}^n\omega_{ij}N_{i,k}(u)N_{j,k}(v)}\)</span>，在当今建模主流应用曲面</p>
+<p>其中当 <span class="math inline">\(u=u_0\)</span> 时为 <span
+class="math inline">\(NURBS\)</span> 二次曲面，例如圆环面（ <span
+class="math inline">\(\mbox{Torus}\)</span> ），旋转面</p>
+<p>当今学术界提出实现 <span class="math inline">\(C^2\)</span>
+连续的样条</p>
 <h1 id="曲线和曲面的表示">曲线和曲面的表示</h1>
 <h2 id="平面曲线奇异点性质">平面曲线奇异点性质</h2>
-<p>对隐式曲线<span class="math inline">\(f(x,y)=0\)</span>，奇异点判据<span class="math inline">\(\dfrac{\partial f}{\partial x}\big |_{x=x_0}=0\ and\ \dfrac{\partial f}{\partial y}\big |_{y=y_0}=0\)</span>，奇异点为<span class="math inline">\((x_0,y_0)\)</span></p>
-<p>①二次曲线<span class="math inline">\(a_{11}x^2+2a_{12}xy+a_{22}y^2+2a_{13}x+2a_{23}y+a_{33}=0\)</span> 存在奇异点；</p>
+<p>对隐式曲线<span
+class="math inline">\(f(x,y)=0\)</span>，奇异点判据<span
+class="math inline">\(\dfrac{\partial f}{\partial x}\big |_{x=x_0}=0\
+and\ \dfrac{\partial f}{\partial y}\big
+|_{y=y_0}=0\)</span>，奇异点为<span
+class="math inline">\((x_0,y_0)\)</span></p>
+<p>①二次曲线<span
+class="math inline">\(a_{11}x^2+2a_{12}xy+a_{22}y^2+2a_{13}x+2a_{23}y+a_{33}=0\)</span>
+存在奇异点；</p>
 <p>②退化为两条相交直线，或者退化为单个点；</p>
-<p>③<span class="math display">\[ \left| \matrix{  a_{11} &amp; a_{12} &amp; a_{13}\\a_{21} &amp; a_{22} &amp; a_{23}\\a_{31} &amp; a_{32} &amp; a_{33}\\} \right|=0 \]</span></p>
+<p>③<span class="math display">\[ \left| \matrix{  a_{11} &amp; a_{12}
+&amp; a_{13}\\a_{21} &amp; a_{22} &amp; a_{23}\\a_{31} &amp; a_{32}
+&amp; a_{33}\\} \right|=0 \]</span></p>
 <p>条件①②③等价</p>
 <h2 id="空间曲面">空间曲面</h2>
-<p>①<span class="math inline">\(f(x,y,z)=0\)</span> 的法向量为 <span class="math inline">\(n=(\dfrac{\partial f}{\partial x},\dfrac{\partial f}{\partial y},\dfrac{\partial f}{\partial z})\)</span>，其切平面点法式方程为 <span class="math display">\[
-\dfrac{\partial f}{\partial x}\big|_{x=x_0}(x-x_0)+\dfrac{\partial f}{\partial y}\big |_{y=y_0}(y-y_0)+\dfrac{\partial f}{\partial z}\big |_{z=z_0}(z-z_0)=0
-\]</span> 空间曲面奇异点存在的充要条件： <span class="math inline">\(\dfrac{\partial f}{\partial x}\big |_{x=x_0}=\dfrac{\partial f}{\partial y}\big |_{y=y_0}=\dfrac{\partial f}{\partial z}\big |_{z=z_0}=0\)</span></p>
-<p>对一般二次曲面<span class="math inline">\(Ax^2+By^2+Cz^2+Dxy+Eyz+Fxz+Gx+Hy+Iz+J=0\)</span></p>
+<p>①<span class="math inline">\(f(x,y,z)=0\)</span> 的法向量为 <span
+class="math inline">\(n=(\dfrac{\partial f}{\partial x},\dfrac{\partial
+f}{\partial y},\dfrac{\partial f}{\partial
+z})\)</span>，其切平面点法式方程为 <span class="math display">\[
+\dfrac{\partial f}{\partial x}\big|_{x=x_0}(x-x_0)+\dfrac{\partial
+f}{\partial y}\big |_{y=y_0}(y-y_0)+\dfrac{\partial f}{\partial z}\big
+|_{z=z_0}(z-z_0)=0
+\]</span> 空间曲面奇异点存在的充要条件： <span
+class="math inline">\(\dfrac{\partial f}{\partial x}\big
+|_{x=x_0}=\dfrac{\partial f}{\partial y}\big |_{y=y_0}=\dfrac{\partial
+f}{\partial z}\big |_{z=z_0}=0\)</span></p>
+<p>对一般二次曲面<span
+class="math inline">\(Ax^2+By^2+Cz^2+Dxy+Eyz+Fxz+Gx+Hy+Iz+J=0\)</span></p>
 <p>一般情况下是：椭球面、双曲面、抛物面，有圆锥面，相交双平面等均有奇异点</p>
-<p>例1: <span class="math inline">\(z^2=x^2+y^2\)</span>在<span class="math inline">\((0,0,0)\)</span>处法向量为 <span class="math inline">\(n=(0,0,0)\)</span>，不可导，无切平面方程</p>
-<p>例2: <span class="math inline">\(z=xy\)</span> 换参数 <span class="math inline">\(x=u+v,y=u-v\)</span>，得到<span class="math inline">\(z=u^2-v^2\)</span>为双曲面方程</p>
-<p>隐函数定理：<span class="math inline">\(f(x,y,z)=0\)</span>，只要<span class="math inline">\(\dfrac{\partial f}{\partial z}\ne 0\)</span></p>
-<p>②空间曲面参数表示 <span class="math inline">\(x=x(t),y=y(t),z=z(t)\)</span>，切线矢量<span class="math inline">\(r=(\dfrac{dx}{dt},\dfrac{dy}{dt},\dfrac{dz}{dt})\)</span></p>
-<p>对球坐标下 <span class="math inline">\(x=r\cdot cos\alpha \cdot sin\theta\ \ \ y=r\cdot sin\alpha \cdot sin\theta\ \ \ z=r\cdot cos\theta\)</span> <span class="math inline">\(ds^2=r^2sin\theta drd\theta d\alpha\)</span></p>
+<p>例1: <span class="math inline">\(z^2=x^2+y^2\)</span>在<span
+class="math inline">\((0,0,0)\)</span>处法向量为 <span
+class="math inline">\(n=(0,0,0)\)</span>，不可导，无切平面方程</p>
+<p>例2: <span class="math inline">\(z=xy\)</span> 换参数 <span
+class="math inline">\(x=u+v,y=u-v\)</span>，得到<span
+class="math inline">\(z=u^2-v^2\)</span>为双曲面方程</p>
+<p>隐函数定理：<span
+class="math inline">\(f(x,y,z)=0\)</span>，只要<span
+class="math inline">\(\dfrac{\partial f}{\partial z}\ne 0\)</span></p>
+<p>②空间曲面参数表示 <span
+class="math inline">\(x=x(t),y=y(t),z=z(t)\)</span>，切线矢量<span
+class="math inline">\(r=(\dfrac{dx}{dt},\dfrac{dy}{dt},\dfrac{dz}{dt})\)</span></p>
+<p>对球坐标下 <span class="math inline">\(x=r\cdot cos\alpha \cdot
+sin\theta\ \ \ y=r\cdot sin\alpha \cdot sin\theta\ \ \ z=r\cdot
+cos\theta\)</span> <span class="math inline">\(ds^2=r^2sin\theta
+drd\theta d\alpha\)</span></p>
 <h2 id="空间曲线">空间曲线</h2>
-<p>①使用两个空间曲面相交 <span class="math inline">\(f(x,y,z)=0\ and \ g(x,y,z)=0\)</span>，其在某点处的切线向量与两个空间曲面的法向量均垂直</p>
-<p><span class="math inline">\(n_1=(\dfrac{\partial f}{\partial x}\big |_{x=x_0},\dfrac{\partial f}{\partial y}\big |_{y=y_0},\dfrac{\partial f}{\partial z}\big |_{z=z_0})\ \ \ n_2=(\dfrac{\partial g}{\partial x}\big |_{x=x_0},\dfrac{\partial g}{\partial y}\big |_{y=y_0},\dfrac{\partial g}{\partial z}\big |_{z=z_0})\)</span>，从而 <span class="math inline">\(l=n_1\times n_2\)</span></p>
-<p>②弧长微元$ds=|r(t+dt)-r(t)| <span class="math inline">\(，空间曲线有奇异点的条件\)</span>=0<span class="math inline">\(，例：\)</span>y<sup>2=x</sup>3<span class="math inline">\(有\)</span>x$轴上下两段</p>
-<p>参数方程 <span class="math inline">\(x=t^3,y=t^2\)</span>，在<span class="math inline">\(t=0\)</span> 处 <span class="math inline">\(\dfrac{dr}{dt}=(0,0)\)</span>，则称<span class="math inline">\((0,0)\)</span>为奇异点（又称Cusp点），计算其弧长积分为 <span class="math display">\[
-s(t_1,t_2)=\int_{t_1}^{t_2}\sqrt{4t^2+9t^4}dt=\int_{t_1}^{t_2}\sqrt{1+\frac{9}{4}t^2}d(t^2)=\frac{2}{3}(1+\frac{9}{4}t^2)^{\frac{3}{2}}\big |_{t_1}^{t_2}
-\]</span> 在 <span class="math inline">\(t=0\)</span> 处积分处不连续，需要分段</p>
+<p>①使用两个空间曲面相交 <span class="math inline">\(f(x,y,z)=0\ and \
+g(x,y,z)=0\)</span>，其在某点处的切线向量与两个空间曲面的法向量均垂直</p>
+<p><span class="math inline">\(n_1=(\dfrac{\partial f}{\partial x}\big
+|_{x=x_0},\dfrac{\partial f}{\partial y}\big |_{y=y_0},\dfrac{\partial
+f}{\partial z}\big |_{z=z_0})\ \ \ n_2=(\dfrac{\partial g}{\partial
+x}\big |_{x=x_0},\dfrac{\partial g}{\partial y}\big
+|_{y=y_0},\dfrac{\partial g}{\partial z}\big |_{z=z_0})\)</span>，从而
+<span class="math inline">\(l=n_1\times n_2\)</span></p>
+<p>②弧长微元$ds=|r(t+dt)-r(t)| <span
+class="math inline">\(，空间曲线有奇异点的条件\)</span>=0<span
+class="math inline">\(，例：\)</span>y<sup>2=x</sup>3<span
+class="math inline">\(有\)</span>x$轴上下两段</p>
+<p>参数方程 <span class="math inline">\(x=t^3,y=t^2\)</span>，在<span
+class="math inline">\(t=0\)</span> 处 <span
+class="math inline">\(\dfrac{dr}{dt}=(0,0)\)</span>，则称<span
+class="math inline">\((0,0)\)</span>为奇异点（又称Cusp点），计算其弧长积分为
+<span class="math display">\[
+s(t_1,t_2)=\int_{t_1}^{t_2}\sqrt{4t^2+9t^4}dt=\int_{t_1}^{t_2}\sqrt{1+\frac{9}{4}t^2}d(t^2)=\frac{2}{3}(1+\frac{9}{4}t^2)^{\frac{3}{2}}\big
+|_{t_1}^{t_2}
+\]</span> 在 <span class="math inline">\(t=0\)</span>
+处积分处不连续，需要分段</p>
 <h1 id="曲线的微分几何">曲线的微分几何</h1>
-<h2 id="位矢弧长参数-_vecr-vecrs">位矢（弧长参数）<span class="math inline">\(\ \ _{\vec{r}\ =\ \vec{r}(s)}\)</span></h2>
-<p>对 <span class="math inline">\(\vec{r}=\vec{r}(t)\)</span> ，中 <span class="math inline">\(t\)</span> 为任意参数，如果令 <span class="math inline">\(t=s\)</span> ，则代入弧长微元 <span class="math inline">\(ds=|\dot{r}(t)|dt\)</span> 有<span class="math inline">\(|\dot{\vec{r}(s)}|=1\)</span></p>
-<p>写成点乘形式有 <span class="math inline">\(\dot{\vec{r}(s)}\cdot \dot{\vec{r}(s)}=0\)</span>，两边求导有 <span class="math inline">\(\ddot{\vec{r}(s)}\cdot \dot{\vec{r}(s)}=0\)</span></p>
+<h2 id="位矢弧长参数-_vecr-vecrs">位矢（弧长参数）<span
+class="math inline">\(\ \ _{\vec{r}\ =\ \vec{r}(s)}\)</span></h2>
+<p>对 <span class="math inline">\(\vec{r}=\vec{r}(t)\)</span> ，中 <span
+class="math inline">\(t\)</span> 为任意参数，如果令 <span
+class="math inline">\(t=s\)</span> ，则代入弧长微元 <span
+class="math inline">\(ds=|\dot{r}(t)|dt\)</span> 有<span
+class="math inline">\(|\dot{\vec{r}(s)}|=1\)</span></p>
+<p>写成点乘形式有 <span class="math inline">\(\dot{\vec{r}(s)}\cdot
+\dot{\vec{r}(s)}=0\)</span>，两边求导有 <span
+class="math inline">\(\ddot{\vec{r}(s)}\cdot
+\dot{\vec{r}(s)}=0\)</span></p>
 <p>即若用弧长作为参数，则位矢对弧长的一阶导和位矢对弧长的二阶导相互正交</p>
-<p><strong>例</strong>：对于圆周运动，使用弧长参数 <span class="math inline">\(s=R\cdot \omega t\)</span> <span class="math display">\[
+<p><strong>例</strong>：对于圆周运动，使用弧长参数 <span
+class="math inline">\(s=R\cdot \omega t\)</span> <span
+class="math display">\[
 \begin{equation}
 \left\{
         \begin{array}{}
@@ -381,32 +535,88 @@ s(t_1,t_2)=\int_{t_1}^{t_2}\sqrt{4t^2+9t^4}dt=\int_{t_1}^{t_2}\sqrt{1+\frac{9}{4
         \end{array}
 \right.
 \end{equation}
-\]</span> 得 <span class="math inline">\(\vec{r}(s)=(R\cdot cos(\dfrac{s}{R}),R\cdot sin(\dfrac{s}{R}))\)</span>，有<span class="math inline">\(\dot{\vec{r}(s)}=(-sin(\dfrac{s}{R}),cos(\dfrac{s}{R}))\)</span></p>
-<p><span class="math inline">\(\ddot{\vec{r}(s)}=(-\dfrac{1}{R}\cdot cos(\dfrac{s}{R}),-\dfrac{1}{R}\cdot sin(\dfrac{s}{R}))\)</span>，后两者相互正交，且 <span class="math inline">\(|\ddot{\vec{r}(s)}|=\dfrac{1}{R}\)</span></p>
+\]</span> 得 <span class="math inline">\(\vec{r}(s)=(R\cdot
+cos(\dfrac{s}{R}),R\cdot sin(\dfrac{s}{R}))\)</span>，有<span
+class="math inline">\(\dot{\vec{r}(s)}=(-sin(\dfrac{s}{R}),cos(\dfrac{s}{R}))\)</span></p>
+<p><span class="math inline">\(\ddot{\vec{r}(s)}=(-\dfrac{1}{R}\cdot
+cos(\dfrac{s}{R}),-\dfrac{1}{R}\cdot
+sin(\dfrac{s}{R}))\)</span>，后两者相互正交，且 <span
+class="math inline">\(|\ddot{\vec{r}(s)}|=\dfrac{1}{R}\)</span></p>
 <p>另一种理解方式：位矢对弧长的导数相当于是一个正则化的速度矢量，该速度矢量的大小不</p>
 <p>变，其变化一定沿其法向，两者相互正交</p>
-<p>曲率的计算方式：有 <span class="math inline">\(\rho=\dfrac{ds}{d\theta}=\dfrac{\dot{\vec{r}}(s+ds)-\dot{\vec{r}}(s)}{\ddot{\vec{r}(s)}\cdot d\theta}\)</span>，由分子两矢量与其差构成等腰三角形</p>
-<p><span class="math inline">\(ds\to 0\)</span> 时，<span class="math inline">\(\dot{\vec{r}}(s+ds)-\dot{\vec{r}}(s)=|\dot{\vec{r}(s)}|\cdot d\theta=1\cdot d\theta\)</span>，从而消去有 <span class="math inline">\(\rho=\dfrac{1}{|\ddot{\vec{r}(s)}|}\)</span>，即 <span class="math inline">\(|\ddot{\vec{r}(s)}|=\kappa\)</span></p>
-<p>定义，单位主法向量 <span class="math inline">\(\vec{n}(s)=\dfrac{\ddot{\vec{r}(s)}}{|\ddot{\vec{r}(s)}|}\)</span>，单位切向量 <span class="math inline">\(\vec{t}=\dot{\vec{r}(s)}\)</span></p>
-<p>对任意一点处， <span class="math inline">\(\vec{n}\)</span> 和 <span class="math inline">\(\vec{t}\)</span> 两者张成的平面就是密切平面，若为平面曲线，则密切平面不变</p>
+<p>曲率的计算方式：有 <span
+class="math inline">\(\rho=\dfrac{ds}{d\theta}=\dfrac{\dot{\vec{r}}(s+ds)-\dot{\vec{r}}(s)}{\ddot{\vec{r}(s)}\cdot
+d\theta}\)</span>，由分子两矢量与其差构成等腰三角形</p>
+<p><span class="math inline">\(ds\to 0\)</span> 时，<span
+class="math inline">\(\dot{\vec{r}}(s+ds)-\dot{\vec{r}}(s)=|\dot{\vec{r}(s)}|\cdot
+d\theta=1\cdot d\theta\)</span>，从而消去有 <span
+class="math inline">\(\rho=\dfrac{1}{|\ddot{\vec{r}(s)}|}\)</span>，即
+<span class="math inline">\(|\ddot{\vec{r}(s)}|=\kappa\)</span></p>
+<p>定义，单位主法向量 <span
+class="math inline">\(\vec{n}(s)=\dfrac{\ddot{\vec{r}(s)}}{|\ddot{\vec{r}(s)}|}\)</span>，单位切向量
+<span class="math inline">\(\vec{t}=\dot{\vec{r}(s)}\)</span></p>
+<p>对任意一点处， <span class="math inline">\(\vec{n}\)</span> 和 <span
+class="math inline">\(\vec{t}\)</span>
+两者张成的平面就是密切平面，若为平面曲线，则密切平面不变</p>
 <p>对于空间曲线，密切平面就随着点的运动变化而变化</p>
-<p>定义副法向量 $=  $，有 <span class="math inline">\((\vec{t},\vec{n},\vec{b})\)</span> 为以 <span class="math inline">\(P\)</span> 点为原点的一组坐标架，有 <span class="math inline">\(\vec{b}=\dot{\vec{r}(s)}\times \dfrac{\ddot{\vec{r}(s)}}{\kappa}\)</span></p>
-<p>考虑 $(s) $ 的变化有 <span class="math inline">\(\vec{n} \cdot \vec{n}=1\)</span>，求导有 <span class="math inline">\(\dot{\vec{n}(s)}\ \bot\  \ddot{\vec{n}(s)}\)</span>，从而令 <span class="math inline">\(\dot{\vec{n}(s)}=\mu\vec{t}+\tau\vec{b}\)</span>，则 <span class="math inline">\(\vec{b}\)</span> 变化</p>
-<p><span class="math inline">\(\dot{\vec{b}(s)}=\dfrac{d}{ds}(\vec{t}\times \vec{n})=\ddot{\vec{r}(s)}\times \dfrac{\ddot{\vec{r}(s)}}{|\ddot{\vec{r}(s)}|}+\vec{t}\times \dfrac{d\vec{n}}{ds}=0+\vec{t}\times (\mu\vec{t}+\tau\vec{b})=-\tau\vec{n}\)</span>（右手螺旋）</p>
-<p>定义 <span class="math inline">\(\tau\)</span> 为曲线的挠率，几何意义：<span class="math inline">\(\vec{b}\)</span> 为密切平面中单位切向量和单位法向量的叉乘，即为密切</p>
-<p>平面的法向量，<span class="math inline">\(\dot{\vec{b}(s)}\)</span> 代表密切平面法向量方向的变化，即曲线局部摆脱密切平面的趋势，若挠</p>
+<p>定义副法向量 $= $，有 <span
+class="math inline">\((\vec{t},\vec{n},\vec{b})\)</span> 为以 <span
+class="math inline">\(P\)</span> 点为原点的一组坐标架，有 <span
+class="math inline">\(\vec{b}=\dot{\vec{r}(s)}\times
+\dfrac{\ddot{\vec{r}(s)}}{\kappa}\)</span></p>
+<p>考虑 $(s) $ 的变化有 <span class="math inline">\(\vec{n} \cdot
+\vec{n}=1\)</span>，求导有 <span class="math inline">\(\dot{\vec{n}(s)}\
+\bot\  \ddot{\vec{n}(s)}\)</span>，从而令 <span
+class="math inline">\(\dot{\vec{n}(s)}=\mu\vec{t}+\tau\vec{b}\)</span>，则
+<span class="math inline">\(\vec{b}\)</span> 变化</p>
+<p><span
+class="math inline">\(\dot{\vec{b}(s)}=\dfrac{d}{ds}(\vec{t}\times
+\vec{n})=\ddot{\vec{r}(s)}\times
+\dfrac{\ddot{\vec{r}(s)}}{|\ddot{\vec{r}(s)}|}+\vec{t}\times
+\dfrac{d\vec{n}}{ds}=0+\vec{t}\times
+(\mu\vec{t}+\tau\vec{b})=-\tau\vec{n}\)</span>（右手螺旋）</p>
+<p>定义 <span class="math inline">\(\tau\)</span>
+为曲线的挠率，几何意义：<span class="math inline">\(\vec{b}\)</span>
+为密切平面中单位切向量和单位法向量的叉乘，即为密切</p>
+<p>平面的法向量，<span class="math inline">\(\dot{\vec{b}(s)}\)</span>
+代表密切平面法向量方向的变化，即曲线局部摆脱密切平面的趋势，若挠</p>
 <p>率处处为0，则该曲线为平面曲线</p>
-<p>计算挠率的方法：对 <span class="math inline">\(\dot{\vec{b}(s)}=-\tau\cdot \vec{n}(s)\)</span>，两边点乘 <span class="math inline">\(\vec{n}(s)\)</span> 计算得<span class="math inline">\(\tau=-\vec{n}(s)\cdot \dot{\vec{b}(s)}=\)</span></p>
-<p><span class="math inline">\(-\dfrac{\ddot{\vec{r}(s)}}{\kappa}\cdot (\dfrac{\dot{\vec{r}(s)}\times \ddot{\vec{r}(s)}}{\kappa})&#39;=\dfrac{(\dot{\vec{r}},\ddot{\vec{r}},\dddot{\vec{r}})}{\ddot{\vec{r}\cdot} \ddot{\vec{r}}}\)</span>，其中 <span class="math inline">\((a,b,c)\)</span> 表示混合积（平行六面体有向体积）</p>
-<p><strong>例</strong>：等距螺线 <span class="math inline">\(\vec{r}(t)=(acos(t),asin(t),bt)\)</span>，弧长参数：<span class="math inline">\(\vec{r}(s)=(acos(\dfrac{s}{c}),asin(\dfrac{s}{c}),\dfrac{bs}{c})\)</span></p>
-<p>代入公式有曲率半径 <span class="math inline">\(\rho=\dfrac{1}{|\ddot{\vec{r}}(s)|}=\dfrac{c^2}{a}\)</span>，计算挠率 <span class="math inline">\(\tau=\dfrac{b}{c^2}\)</span></p>
-<h2 id="位矢一般参数-_vecr-vecrt">位矢（一般参数）<span class="math inline">\(\ \ _{\vec{r}\ =\ \vec{r}(t)}\)</span></h2>
-<p>要求 <span class="math inline">\(s=s(t)\)</span> 是单调的，对一般参数求导有</p>
-<p><span class="math inline">\(\dot{\vec{r}(t)}=\dfrac{d\vec{r}}{ds}\dfrac{ds}{dt}\)</span>，令速率 <span class="math inline">\(v=|\dfrac{ds}{dt}|\)</span>，有 <span class="math inline">\(\dot{\vec{r}(t)}=\dfrac{d\vec{r}}{ds}|v|\)</span>，为一阶导公式</p>
-<p><span class="math inline">\(\ddot{\vec{r}(t)}=\dfrac{d}{dt}(\dot{\vec{r}(s)}\cdot |v|)=\ddot{\vec{r}(s)}|v|^2+\dot{\vec{r}(s)}\dfrac{d|v|}{dt}=\dfrac{|v|^2}{\rho }\vec{n}+\dfrac{d|v|}{dt}\vec{t}\)</span></p>
-<p>称 <span class="math inline">\(\kappa\)</span> 变号的点为拐点，<span class="math inline">\(ds\)</span> 是不依赖参数的</p>
+<p>计算挠率的方法：对 <span
+class="math inline">\(\dot{\vec{b}(s)}=-\tau\cdot
+\vec{n}(s)\)</span>，两边点乘 <span
+class="math inline">\(\vec{n}(s)\)</span> 计算得<span
+class="math inline">\(\tau=-\vec{n}(s)\cdot
+\dot{\vec{b}(s)}=\)</span></p>
+<p><span class="math inline">\(-\dfrac{\ddot{\vec{r}(s)}}{\kappa}\cdot
+(\dfrac{\dot{\vec{r}(s)}\times
+\ddot{\vec{r}(s)}}{\kappa})&#39;=\dfrac{(\dot{\vec{r}},\ddot{\vec{r}},\dddot{\vec{r}})}{\ddot{\vec{r}\cdot}
+\ddot{\vec{r}}}\)</span>，其中 <span
+class="math inline">\((a,b,c)\)</span>
+表示混合积（平行六面体有向体积）</p>
+<p><strong>例</strong>：等距螺线 <span
+class="math inline">\(\vec{r}(t)=(acos(t),asin(t),bt)\)</span>，弧长参数：<span
+class="math inline">\(\vec{r}(s)=(acos(\dfrac{s}{c}),asin(\dfrac{s}{c}),\dfrac{bs}{c})\)</span></p>
+<p>代入公式有曲率半径 <span
+class="math inline">\(\rho=\dfrac{1}{|\ddot{\vec{r}}(s)|}=\dfrac{c^2}{a}\)</span>，计算挠率
+<span class="math inline">\(\tau=\dfrac{b}{c^2}\)</span></p>
+<h2 id="位矢一般参数-_vecr-vecrt">位矢（一般参数）<span
+class="math inline">\(\ \ _{\vec{r}\ =\ \vec{r}(t)}\)</span></h2>
+<p>要求 <span class="math inline">\(s=s(t)\)</span>
+是单调的，对一般参数求导有</p>
+<p><span
+class="math inline">\(\dot{\vec{r}(t)}=\dfrac{d\vec{r}}{ds}\dfrac{ds}{dt}\)</span>，令速率
+<span class="math inline">\(v=|\dfrac{ds}{dt}|\)</span>，有 <span
+class="math inline">\(\dot{\vec{r}(t)}=\dfrac{d\vec{r}}{ds}|v|\)</span>，为一阶导公式</p>
+<p><span
+class="math inline">\(\ddot{\vec{r}(t)}=\dfrac{d}{dt}(\dot{\vec{r}(s)}\cdot
+|v|)=\ddot{\vec{r}(s)}|v|^2+\dot{\vec{r}(s)}\dfrac{d|v|}{dt}=\dfrac{|v|^2}{\rho
+}\vec{n}+\dfrac{d|v|}{dt}\vec{t}\)</span></p>
+<p>称 <span class="math inline">\(\kappa\)</span> 变号的点为拐点，<span
+class="math inline">\(ds\)</span> 是不依赖参数的</p>
 <h2 id="fernet-serret-公式">Fernet-Serret 公式</h2>
-<p>将上述产生的坐标架 <span class="math inline">\((\vec{t},\vec{n},\vec{b})\)</span> 对弧长参数的导数写成矩阵形式： <span class="math display">\[
+<p>将上述产生的坐标架 <span
+class="math inline">\((\vec{t},\vec{n},\vec{b})\)</span>
+对弧长参数的导数写成矩阵形式： <span class="math display">\[
 \begin{pmatrix}
 \boldsymbol t&#39;\\\boldsymbol n&#39;\\\boldsymbol b&#39;
 \end{pmatrix}=\begin{pmatrix}
@@ -416,44 +626,157 @@ s(t_1,t_2)=\int_{t_1}^{t_2}\sqrt{4t^2+9t^4}dt=\int_{t_1}^{t_2}\sqrt{1+\frac{9}{4
 \end{pmatrix}\begin{pmatrix}
 \boldsymbol t\\\boldsymbol n\\\boldsymbol b
 \end{pmatrix}
-\]</span> 则 <span class="math inline">\(\kappa=\kappa(s)\)</span> 和 <span class="math inline">\(\tau=\tau(s)\)</span> 称为曲线的内在方程。</p>
-<p>若两者以及初始条件 <span class="math inline">\(\vec{r}(0),\dot{\vec{r}(0)},\ddot{\vec{r}(0)},\ddot{\vec{r}(0)}\)</span> 均已知，则该空间曲线可以确定</p>
+\]</span> 则 <span class="math inline">\(\kappa=\kappa(s)\)</span> 和
+<span class="math inline">\(\tau=\tau(s)\)</span>
+称为曲线的内在方程。</p>
+<p>若两者以及初始条件 <span
+class="math inline">\(\vec{r}(0),\dot{\vec{r}(0)},\ddot{\vec{r}(0)},\ddot{\vec{r}(0)}\)</span>
+均已知，则该空间曲线可以确定</p>
 <h1 id="曲面的微分几何">曲面的微分几何</h1>
 <h2 id="切平面和法向量">切平面和法向量</h2>
 <p>对某些变换后的一组参数坐标满足其中一个参数为定值时形成的曲线簇和另一组曲线簇相互正交</p>
-<p>如 <span class="math inline">\((x,y),(r,\theta),(s,t)_{(x=s+t,y=s-t)},(r,\theta,\phi)\)</span> 等等</p>
-<p>定义曲面 <span class="math inline">\(S\)</span> 的方程满足其每一个点的位矢 <span class="math inline">\(\vec{r}=\vec{r}(u,v)\)</span>，考虑参数空间中的一条空间曲线</p>
-<p><span class="math inline">\(u=u(t),v=v(t)\)</span> 在该参数空间条件下 <span class="math inline">\(\vec{r}=\vec{r}(u(t),v(t))\)</span> 也为空间曲线，其切向量全微分为</p>
-<p><span class="math inline">\(\dot{\vec{r}(t)}=\dfrac{\partial \vec{r}}{\partial u}\dot{u}+\dfrac{\partial \vec{r}}{\partial v}\dot{v}\)</span>，其法向量为两者的叉乘 <span class="math inline">\(\vec{N}=\dfrac{\dfrac{\partial r}{\partial u}\times \dfrac{\partial r}{\partial v}}{|\dfrac{\partial r}{\partial u}\times \dfrac{\partial r}{\partial v}|}\)</span></p>
-<p>当 <span class="math inline">\(\dfrac{\partial r}{\partial u}\times \dfrac{\partial r}{\partial v}=0\)</span> 时对应的点为奇异点，如圆锥面的顶点，椭圆圆锥的顶点</p>
+<p>如 <span
+class="math inline">\((x,y),(r,\theta),(s,t)_{(x=s+t,y=s-t)},(r,\theta,\phi)\)</span>
+等等</p>
+<p>定义曲面 <span class="math inline">\(S\)</span>
+的方程满足其每一个点的位矢 <span
+class="math inline">\(\vec{r}=\vec{r}(u,v)\)</span>，考虑参数空间中的一条空间曲线</p>
+<p><span class="math inline">\(u=u(t),v=v(t)\)</span> 在该参数空间条件下
+<span class="math inline">\(\vec{r}=\vec{r}(u(t),v(t))\)</span>
+也为空间曲线，其切向量全微分为</p>
+<p><span class="math inline">\(\dot{\vec{r}(t)}=\dfrac{\partial
+\vec{r}}{\partial u}\dot{u}+\dfrac{\partial \vec{r}}{\partial
+v}\dot{v}\)</span>，其法向量为两者的叉乘 <span
+class="math inline">\(\vec{N}=\dfrac{\dfrac{\partial r}{\partial
+u}\times \dfrac{\partial r}{\partial v}}{|\dfrac{\partial r}{\partial
+u}\times \dfrac{\partial r}{\partial v}|}\)</span></p>
+<p>当 <span class="math inline">\(\dfrac{\partial r}{\partial u}\times
+\dfrac{\partial r}{\partial v}=0\)</span>
+时对应的点为奇异点，如圆锥面的顶点，椭圆圆锥的顶点</p>
 <h2 id="曲面的第一基本齐式度量">曲面的第一基本齐式（度量）</h2>
-<p><span class="math inline">\(ds=|\dfrac{d\vec{r}}{dt}|dt=|\dfrac{\partial \vec{r}}{\partial u}\cdot \dfrac{du}{dt}+\dfrac{\partial \vec{r}}{\partial v}\cdot \dfrac{dv}{dt}|=\sqrt{Edu^2+2Fdudv+Gdv^2}\)</span></p>
-<p>其中定义 <span class="math inline">\(E=\dfrac{\partial \vec{r}}{\partial u}\cdot \dfrac{\partial \vec{r}}{\partial u}\)</span>，<span class="math inline">\(F=\dfrac{\partial \vec{r}}{\partial u}\cdot \dfrac{\partial \vec{r}}{\partial v}\)</span>，<span class="math inline">\(G=\dfrac{\partial \vec{r}}{\partial v}\cdot \dfrac{\partial \vec{r}}{\partial v}\)</span>，三者为第一基本齐式系数</p>
-<p>有第一基本齐式 <span class="math inline">\(I=Edu^2+2Fdudv+Gdv^2=\dfrac{1}{E}(Edu+Fdv)^2+\dfrac{EG-F^2}{E}dv^2\)</span></p>
-<p><strong>例</strong>：对球面 <span class="math inline">\(\vec{r}=(Rsin\theta cos\phi,Rsin\theta sin\phi,Rcos\theta)\)</span> 计算有 <span class="math inline">\(I=Rd\theta^2+R^2sin^2\theta d\phi^2\)</span></p>
-<p>对 <span class="math inline">\(\vec{r}=\vec{r}(u(t),v(t))\)</span>，计算两个切矢之间的夹角有 <span class="math inline">\(cos\omega=\dfrac{\dfrac{\partial \vec{r}}{\partial u}\cdot \dfrac{\partial \vec{r}}{\partial v}}{|\dfrac{\partial \vec{r}}{\partial u}||\dfrac{\partial \vec{r}}{\partial v}|}=\dfrac{F}{\sqrt{EG}}\)</span></p>
-<p>从而有面积微元 <span class="math inline">\(\delta A=sinw\cdot \sqrt{EG}\delta u\delta v=\sqrt{EG-F^2}\delta u \delta v\)</span></p>
+<p><span
+class="math inline">\(ds=|\dfrac{d\vec{r}}{dt}|dt=|\dfrac{\partial
+\vec{r}}{\partial u}\cdot \dfrac{du}{dt}+\dfrac{\partial
+\vec{r}}{\partial v}\cdot
+\dfrac{dv}{dt}|=\sqrt{Edu^2+2Fdudv+Gdv^2}\)</span></p>
+<p>其中定义 <span class="math inline">\(E=\dfrac{\partial
+\vec{r}}{\partial u}\cdot \dfrac{\partial \vec{r}}{\partial
+u}\)</span>，<span class="math inline">\(F=\dfrac{\partial
+\vec{r}}{\partial u}\cdot \dfrac{\partial \vec{r}}{\partial
+v}\)</span>，<span class="math inline">\(G=\dfrac{\partial
+\vec{r}}{\partial v}\cdot \dfrac{\partial \vec{r}}{\partial
+v}\)</span>，三者为第一基本齐式系数</p>
+<p>有第一基本齐式 <span
+class="math inline">\(I=Edu^2+2Fdudv+Gdv^2=\dfrac{1}{E}(Edu+Fdv)^2+\dfrac{EG-F^2}{E}dv^2\)</span></p>
+<p><strong>例</strong>：对球面 <span
+class="math inline">\(\vec{r}=(Rsin\theta cos\phi,Rsin\theta
+sin\phi,Rcos\theta)\)</span> 计算有 <span
+class="math inline">\(I=Rd\theta^2+R^2sin^2\theta d\phi^2\)</span></p>
+<p>对 <span
+class="math inline">\(\vec{r}=\vec{r}(u(t),v(t))\)</span>，计算两个切矢之间的夹角有
+<span class="math inline">\(cos\omega=\dfrac{\dfrac{\partial
+\vec{r}}{\partial u}\cdot \dfrac{\partial \vec{r}}{\partial
+v}}{|\dfrac{\partial \vec{r}}{\partial u}||\dfrac{\partial
+\vec{r}}{\partial v}|}=\dfrac{F}{\sqrt{EG}}\)</span></p>
+<p>从而有面积微元 <span class="math inline">\(\delta A=sinw\cdot
+\sqrt{EG}\delta u\delta v=\sqrt{EG-F^2}\delta u \delta v\)</span></p>
 <p>应用：①计算面积；②计算弧长</p>
-<p><strong>例</strong>：对柱面 <span class="math inline">\(x^2+y^2=R^2\)</span> 使用柱坐标有 <span class="math inline">\((Rcos\theta,Rsin\theta,z)\)</span>，有 <span class="math inline">\((\theta,z)\)</span> 相当于 <span class="math inline">\((u,v)\)</span>，</p>
-<p>求导有 <span class="math inline">\(\dfrac{\partial\vec{r}}{\partial \theta}=(-Rsin\theta,Rcos\theta,0),\dfrac{\partial \vec{r}}{\partial z}=(0,0,1)\)</span>，则 <span class="math inline">\(E=R^2,F=0,G=1\)</span>，代入有</p>
+<p><strong>例</strong>：对柱面 <span
+class="math inline">\(x^2+y^2=R^2\)</span> 使用柱坐标有 <span
+class="math inline">\((Rcos\theta,Rsin\theta,z)\)</span>，有 <span
+class="math inline">\((\theta,z)\)</span> 相当于 <span
+class="math inline">\((u,v)\)</span>，</p>
+<p>求导有 <span class="math inline">\(\dfrac{\partial\vec{r}}{\partial
+\theta}=(-Rsin\theta,Rcos\theta,0),\dfrac{\partial \vec{r}}{\partial
+z}=(0,0,1)\)</span>，则 <span
+class="math inline">\(E=R^2,F=0,G=1\)</span>，代入有</p>
 <p><span class="math inline">\(I=R^2d\theta^2+dz\)</span></p>
-<p><strong>例</strong>：求双曲抛物面 <span class="math inline">\(\vec{r}=(u,v,uv)\)</span> 当 <span class="math inline">\(u,v\)</span> 取正半轴以及 <span class="math inline">\(u^2+v^2\leq1\)</span> 围成的区域面积</p>
-<p><span class="math inline">\(\dfrac{\partial \vec{r}}{\partial u}=(1,0,v)\)</span>，<span class="math inline">\(\dfrac{\partial \vec{r}}{\partial v}=(0,1,u)\)</span>，则有 <span class="math inline">\(E=1+v^2,F=uv,G=1+u^2\)</span>，代入面积微元</p>
-<p><span class="math inline">\(dA=\sqrt{(1+v^2)(1+u^2)-u^2v^2}dudv=\sqrt{1+v^2+u^2}dudv\)</span>，换成极坐标积分有</p>
-<p><span class="math inline">\(S=\displaystyle\int_0^{\frac{\pi}{2}}d\theta\int_0^1\sqrt{1+r^2}rdr=\dfrac{\pi}{6}(2\sqrt{2}-1)\)</span></p>
+<p><strong>例</strong>：求双曲抛物面 <span
+class="math inline">\(\vec{r}=(u,v,uv)\)</span> 当 <span
+class="math inline">\(u,v\)</span> 取正半轴以及 <span
+class="math inline">\(u^2+v^2\leq1\)</span> 围成的区域面积</p>
+<p><span class="math inline">\(\dfrac{\partial \vec{r}}{\partial
+u}=(1,0,v)\)</span>，<span class="math inline">\(\dfrac{\partial
+\vec{r}}{\partial v}=(0,1,u)\)</span>，则有 <span
+class="math inline">\(E=1+v^2,F=uv,G=1+u^2\)</span>，代入面积微元</p>
+<p><span
+class="math inline">\(dA=\sqrt{(1+v^2)(1+u^2)-u^2v^2}dudv=\sqrt{1+v^2+u^2}dudv\)</span>，换成极坐标积分有</p>
+<p><span
+class="math inline">\(S=\displaystyle\int_0^{\frac{\pi}{2}}d\theta\int_0^1\sqrt{1+r^2}rdr=\dfrac{\pi}{6}(2\sqrt{2}-1)\)</span></p>
 <h2 id="曲面的第二基本齐式曲率">曲面的第二基本齐式（曲率）</h2>
-<p>量化曲面的曲率考虑曲面 <span class="math inline">\(S\)</span> 上通过点 <span class="math inline">\(P\)</span> 的一条曲线 <span class="math inline">\(C\)</span> 在 <span class="math inline">\(P\)</span> 处的单位法向量关系有： <span class="math display">\[
+<p>量化曲面的曲率考虑曲面 <span class="math inline">\(S\)</span>
+上通过点 <span class="math inline">\(P\)</span> 的一条曲线 <span
+class="math inline">\(C\)</span> 在 <span
+class="math inline">\(P\)</span> 处的单位法向量关系有： <span
+class="math display">\[
 \vec{k}=\dfrac{d\vec{t}}{ds}=\kappa\vec{n}=\vec{k}_n+\vec{k}_g
-\]</span> 其中，<span class="math inline">\(\vec{k}_n\)</span> 为法曲率向量为曲率向量在曲面法向的投影，称为法曲率向量；<span class="math inline">\(\vec{k}_g\)</span> 为曲率向量在曲面切平面的投影，称为测地曲率向量（当 <span class="math inline">\(\vec{k_n}=0\)</span> 时曲线在该点朝“前”走，若该曲线处处法向量都等于测地曲率向量，则该曲线为测地线，代表连接起点和终点最短的曲线 ），对于 <span class="math inline">\(\vec{\kappa_n}\)</span> 的计算有 <span class="math display">\[
-\because \boldsymbol N\cdot \boldsymbol t=0\ \therefore\dfrac{d\boldsymbol t}{ds}\cdot \boldsymbol N+\dfrac{d\boldsymbol N}{ds}\cdot \boldsymbol t=0,\ \vec{\boldsymbol \kappa_n}=\dfrac{d\boldsymbol t}{ds}\cdot \boldsymbol N=-\dfrac{d\boldsymbol N}{ds}\cdot t=-\dfrac{d\boldsymbol r}{ds}\cdot \dfrac{d\boldsymbol N}{ds}=-\dfrac{d\boldsymbol r\cdot d\boldsymbol N}{d\boldsymbol r\cdot d\boldsymbol r}
-\]</span> 令 <span class="math inline">\(L=-\dfrac{\partial \boldsymbol r}{\partial u}\cdot \dfrac{\partial \boldsymbol N}{\partial u},M=-\dfrac{1}{2}(\dfrac{\partial \boldsymbol r}{\partial u}\cdot \dfrac{\partial \boldsymbol N}{\partial v}+\dfrac{\partial \boldsymbol r}{\partial v}\cdot \dfrac{\partial \boldsymbol N}{\partial u})=-\dfrac{\partial \boldsymbol r}{\partial u}\cdot \dfrac{\partial \boldsymbol N}{\partial v}=\dfrac{\partial \boldsymbol r}{\partial v}\cdot \dfrac{\partial \boldsymbol N}{\partial u},N=-\dfrac{\partial \boldsymbol r}{\partial v}\cdot \dfrac{\partial \boldsymbol N}{\partial v}\)</span></p>
-<p><span class="math inline">\(\dfrac{\partial \boldsymbol r}{\partial u}\cdot \boldsymbol N=0,\dfrac{\partial \boldsymbol r}{\partial v}\cdot \boldsymbol N=0\)</span> ，均对 <span class="math inline">\(u,v\)</span> 求导代入有 <span class="math inline">\(L=\dfrac{\partial^2 \boldsymbol r}{\partial u^2}\cdot \boldsymbol N,M=\dfrac{\partial ^2\boldsymbol r}{\partial u\partial v}\cdot \boldsymbol N,N=\dfrac{\partial^2 \boldsymbol r}{\partial v^2}\cdot \boldsymbol N\)</span> 有 <span class="math display">\[
-\kappa_n=-\dfrac{d\boldsymbol r\cdot d\boldsymbol N}{d\boldsymbol r\cdot d\boldsymbol r}=\dfrac{Ldu^2+2Mdudv+Ndv^2}{Edu^2+2Fdudv+Gdv^2}
-\]</span> 称分子 <span class="math inline">\(H=Ldu^2+2Mdudv+Ndv^2\)</span> 为第二基本齐式，若定义 <span class="math inline">\(\lambda=\dfrac{dv}{du}\)</span> 为曲线 <span class="math inline">\(C\)</span> 在 <span class="math inline">\(P\)</span> 点处的切线方向</p>
-<p>则对给定参数 <span class="math inline">\((u,v)\)</span> 下，<span class="math inline">\(\boldsymbol \kappa_n=\dfrac{H}{I}=\dfrac{L+2M\lambda+N\lambda^2}{E+2F\lambda+G\lambda^2}=f(\lambda)\)</span>，有 <span class="math inline">\(\kappa_{max},\kappa_{min}\)</span></p>
-<p>即曲面上给定点 <span class="math inline">\(P\)</span> 处的法曲率只依赖于切向 <span class="math inline">\(\lambda\)</span> ，进而得到 <span class="math inline">\(Meusnier\)</span> 定理：曲面 <span class="math inline">\(S\)</span> 上过点 <span class="math inline">\(P\)</span> 且具有相同切向的所有曲线具有相同的法曲率</p>
-<p>定义高斯曲率 <span class="math inline">\(K=\kappa_{min}\kappa_{max}\)</span>，平均曲率 <span class="math inline">\(H=\dfrac{\kappa_{min}+\kappa_{max}}{2}\)</span></p>
-<p>主曲率为 <span class="math inline">\(f(\lambda)\)</span> 取得最大值最小值时对应的切线方向，<span class="math inline">\(Euler\)</span> 定理：选取 <span class="math inline">\(xy\)</span> 轴为 <span class="math inline">\(\kappa_{max},\kappa_{min}\)</span> 对应方向，设 <span class="math inline">\(\vec{t}\)</span> 与 <span class="math inline">\(x\)</span> 轴方向夹角为 <span class="math inline">\(\theta\)</span> ，有法曲率 <span class="math inline">\(\large\kappa_n\small{(\vec{t})}=\large\kappa_{max}\cos^2 \theta+\large\kappa_{min}\sin ^2\theta\)</span> ，当 <span class="math inline">\(\large\kappa_{max}=2\large\kappa_{min}\)</span> 时图像如下</p>
+\]</span> 其中，<span class="math inline">\(\vec{k}_n\)</span>
+为法曲率向量为曲率向量在曲面法向的投影，称为法曲率向量；<span
+class="math inline">\(\vec{k}_g\)</span>
+为曲率向量在曲面切平面的投影，称为测地曲率向量（当 <span
+class="math inline">\(\vec{k_n}=0\)</span>
+时曲线在该点朝“前”走，若该曲线处处法向量都等于测地曲率向量，则该曲线为测地线，代表连接起点和终点最短的曲线
+），对于 <span class="math inline">\(\vec{\kappa_n}\)</span> 的计算有
+<span class="math display">\[
+\because \boldsymbol N\cdot \boldsymbol t=0\
+\therefore\dfrac{d\boldsymbol t}{ds}\cdot \boldsymbol
+N+\dfrac{d\boldsymbol N}{ds}\cdot \boldsymbol t=0,\ \vec{\boldsymbol
+\kappa_n}=\dfrac{d\boldsymbol t}{ds}\cdot \boldsymbol
+N=-\dfrac{d\boldsymbol N}{ds}\cdot t=-\dfrac{d\boldsymbol r}{ds}\cdot
+\dfrac{d\boldsymbol N}{ds}=-\dfrac{d\boldsymbol r\cdot d\boldsymbol
+N}{d\boldsymbol r\cdot d\boldsymbol r}
+\]</span> 令 <span class="math inline">\(L=-\dfrac{\partial \boldsymbol
+r}{\partial u}\cdot \dfrac{\partial \boldsymbol N}{\partial
+u},M=-\dfrac{1}{2}(\dfrac{\partial \boldsymbol r}{\partial u}\cdot
+\dfrac{\partial \boldsymbol N}{\partial v}+\dfrac{\partial \boldsymbol
+r}{\partial v}\cdot \dfrac{\partial \boldsymbol N}{\partial
+u})=-\dfrac{\partial \boldsymbol r}{\partial u}\cdot \dfrac{\partial
+\boldsymbol N}{\partial v}=\dfrac{\partial \boldsymbol r}{\partial
+v}\cdot \dfrac{\partial \boldsymbol N}{\partial u},N=-\dfrac{\partial
+\boldsymbol r}{\partial v}\cdot \dfrac{\partial \boldsymbol N}{\partial
+v}\)</span></p>
+<p><span class="math inline">\(\dfrac{\partial \boldsymbol r}{\partial
+u}\cdot \boldsymbol N=0,\dfrac{\partial \boldsymbol r}{\partial v}\cdot
+\boldsymbol N=0\)</span> ，均对 <span class="math inline">\(u,v\)</span>
+求导代入有 <span class="math inline">\(L=\dfrac{\partial^2 \boldsymbol
+r}{\partial u^2}\cdot \boldsymbol N,M=\dfrac{\partial ^2\boldsymbol
+r}{\partial u\partial v}\cdot \boldsymbol N,N=\dfrac{\partial^2
+\boldsymbol r}{\partial v^2}\cdot \boldsymbol N\)</span> 有 <span
+class="math display">\[
+\kappa_n=-\dfrac{d\boldsymbol r\cdot d\boldsymbol N}{d\boldsymbol r\cdot
+d\boldsymbol r}=\dfrac{Ldu^2+2Mdudv+Ndv^2}{Edu^2+2Fdudv+Gdv^2}
+\]</span> 称分子 <span
+class="math inline">\(H=Ldu^2+2Mdudv+Ndv^2\)</span>
+为第二基本齐式，若定义 <span
+class="math inline">\(\lambda=\dfrac{dv}{du}\)</span> 为曲线 <span
+class="math inline">\(C\)</span> 在 <span
+class="math inline">\(P\)</span> 点处的切线方向</p>
+<p>则对给定参数 <span class="math inline">\((u,v)\)</span> 下，<span
+class="math inline">\(\boldsymbol
+\kappa_n=\dfrac{H}{I}=\dfrac{L+2M\lambda+N\lambda^2}{E+2F\lambda+G\lambda^2}=f(\lambda)\)</span>，有
+<span class="math inline">\(\kappa_{max},\kappa_{min}\)</span></p>
+<p>即曲面上给定点 <span class="math inline">\(P\)</span>
+处的法曲率只依赖于切向 <span class="math inline">\(\lambda\)</span>
+，进而得到 <span class="math inline">\(Meusnier\)</span> 定理：曲面
+<span class="math inline">\(S\)</span> 上过点 <span
+class="math inline">\(P\)</span>
+且具有相同切向的所有曲线具有相同的法曲率</p>
+<p>定义高斯曲率 <span
+class="math inline">\(K=\kappa_{min}\kappa_{max}\)</span>，平均曲率
+<span
+class="math inline">\(H=\dfrac{\kappa_{min}+\kappa_{max}}{2}\)</span></p>
+<p>主曲率为 <span class="math inline">\(f(\lambda)\)</span>
+取得最大值最小值时对应的切线方向，<span
+class="math inline">\(Euler\)</span> 定理：选取 <span
+class="math inline">\(xy\)</span> 轴为 <span
+class="math inline">\(\kappa_{max},\kappa_{min}\)</span> 对应方向，设
+<span class="math inline">\(\vec{t}\)</span> 与 <span
+class="math inline">\(x\)</span> 轴方向夹角为 <span
+class="math inline">\(\theta\)</span> ，有法曲率 <span
+class="math inline">\(\large\kappa_n\small{(\vec{t})}=\large\kappa_{max}\cos^2
+\theta+\large\kappa_{min}\sin ^2\theta\)</span> ，当 <span
+class="math inline">\(\large\kappa_{max}=2\large\kappa_{min}\)</span>
+时图像如下</p>
 <p><img src="https://pic.imgdb.cn/item/62d0258ff54cd3f9371814f6.jpg" srcset="/img/loading.gif" lazyload style="zoom:33%;" /></p>
 
               
@@ -549,7 +872,7 @@ s(t_1,t_2)=\int_{t_1}^{t_2}\sqrt{4t^2+9t^4}dt=\int_{t_1}^{t_2}\sqrt{1+\frac{9}{4
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/11/rust/" title="Rust Notes">
+                      <a href="/2022/09/11/CS/rust/" title="Rust Notes">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Rust Notes</span>
                         <span class="visible-mobile">上一篇</span>
@@ -559,8 +882,8 @@ s(t_1,t_2)=\int_{t_1}^{t_2}\sqrt{4t^2+9t^4}dt=\int_{t_1}^{t_2}\sqrt{1+\frac{9}{4
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/06/Shor&#39;s%20Algorithm/" title="Shor&#39;s Algorithm">
-                        <span class="hidden-mobile">Shor&#39;s Algorithm</span>
+                      <a href="/2022/07/14/research/intersection%20Math%20knowledge/" title="intersection Math knowledge">
+                        <span class="hidden-mobile">intersection Math knowledge</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

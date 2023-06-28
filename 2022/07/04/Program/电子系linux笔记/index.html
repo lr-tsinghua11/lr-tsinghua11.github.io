@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E9%9B%BE%E4%B8%AD%E6%BA%AA%E6%B5%81.jpg">
 <meta property="article:published_time" content="2022-07-04T14:21:08.000Z">
-<meta property="article:modified_time" content="2022-07-04T04:28:46.198Z">
+<meta property="article:modified_time" content="2022-07-04T04:28:46.000Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="Linux 命令行技术">
 <meta name="twitter:card" content="summary_large_image">
@@ -295,50 +295,76 @@
               
               <p><strong>终端是什么？</strong></p>
 <p>CLI: command line interface GUI: graphic user interface</p>
-<p>早期终端是一种硬件，当前把终端转换成软件，例如 <span class="math inline">\(Terminal\)</span> ，实际上叫终端模拟器</p>
+<p>早期终端是一种硬件，当前把终端转换成软件，例如 <span
+class="math inline">\(Terminal\)</span> ，实际上叫终端模拟器</p>
 <p><img src="https://pic.imgdb.cn/item/62c2d35d5be16ec74a6b3b7a.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
 <p>shell 为何叫壳：</p>
 <p><img src="https://pic.imgdb.cn/item/62c2d4065be16ec74a6c19bf.jpg" srcset="/img/loading.gif" lazyload style="zoom:75%;" /></p>
 <p>linux 分配用户，例如以下代码新建用户： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">liudu@L0510410:/mnt/c/Users/18472$ sudo useradd -m -d /home/test test<br>Liudu@L0510410:/mnt/c/Users/18472$ cd /home<br>liudu@L0510410:/home$ ls<br></code></pre></td></tr></table></figure></p>
-<p><img src="https://pic.imgdb.cn/item/62c2d5675be16ec74a6ddb4e.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://pic.imgdb.cn/item/62c2d5675be16ec74a6ddb4e.jpg" srcset="/img/loading.gif" lazyload /></p>
 <p>查看当前系统中的全部用户组： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat /etc/group<br></code></pre></td></tr></table></figure></p>
-<p>查看目录下所有文件的权限，<span class="math inline">\(\mbox{ll}\)</span> 等价于 <span class="math inline">\(\mbox{ls -al}\)</span> ，第一个字符代表文件类型，三个紧随的 <span class="math inline">\(rwx\)</span> 代表读、写、执行，如 <code>-rw-r--r--</code>，三个三元字符组分别代表文件所有者的权限、文件的组的权限、所有其他用户的权限。</p>
+<p>查看目录下所有文件的权限，<span
+class="math inline">\(\mbox{ll}\)</span> 等价于 <span
+class="math inline">\(\mbox{ls -al}\)</span>
+，第一个字符代表文件类型，三个紧随的 <span
+class="math inline">\(rwx\)</span> 代表读、写、执行，如
+<code>-rw-r--r--</code>，三个三元字符组分别代表文件所有者的权限、文件的组的权限、所有其他用户的权限。</p>
 <p>改变文件权限方法：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">chmod [-R] [u/g/o/a] [+/-/=] [r/w/x] [file]<br></code></pre></td></tr></table></figure>
 <p>数字方法可以更简洁地修改文件权限。表示方法是为每个权限赋予权重，读的权重为4，写的权重为2，执行的权重为1（与二进制编码相同)。在表示每类用户的权限时，把该类用户所拥有的全部权限的权重相加，得到一个0-7的数，再按属主、属组、其他用户的顺序排列起来，得到一个三位数，表示该文件的权限。数字方法只能直接设定文件权限，不能增添或者删除权限。</p>
-<p>不管三七二十一，一个文件打不开，直接 <code>chmod 777 file</code>，获取最高权限，但这是很不负责任的。</p>
+<p>不管三七二十一，一个文件打不开，直接
+<code>chmod 777 file</code>，获取最高权限，但这是很不负责任的。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta"># </span><span class="language-bash">安装可视化文件树的包</span><br>sudo apt install tree<br><span class="hljs-meta"># </span><span class="language-bash">查看根目录下两级的文件树</span><br>tree -L 2 /<br><span class="hljs-meta"># </span><span class="language-bash">查看当前目录下的文件树，加上 -a 会显示隐藏目录</span><br>tree <br><span class="hljs-meta"># </span><span class="language-bash">-h 指人易读的方式列出空间大小，列出文件系统的整体磁盘用量</span><br>df -h<br><span class="hljs-meta"># </span><span class="language-bash">列出当前目录下各文件的大小</span><br>du -h<br><span class="hljs-meta"># </span><span class="language-bash">指定文件大小</span><br>du -h file<br></code></pre></td></tr></table></figure>
 <p>在目录下查找文件并在 <code>vscode</code> 中打开</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">find test.txt -exec code &#123;&#125; \;<br></code></pre></td></tr></table></figure>
-<p>使用 <code>ln</code> 创建软连接（浅蓝色），和快捷方式一样，如果快捷方式所指代的文件被删，会变红</p>
+<p>使用 <code>ln</code>
+创建软连接（浅蓝色），和快捷方式一样，如果快捷方式所指代的文件被删，会变红</p>
 <p>加上 <code>-s</code> 为软链接，不加为硬链接</p>
-<p><img src="https://pic.imgdb.cn/item/62c2e6165be16ec74a83ff65.jpg" srcset="/img/loading.gif" lazyload /></p>
-<p>系统命令，<code>top</code> 命令查看“任务管理器”，<code>ps</code> 命令查看进程，<code>-x</code> 可以查看其他用户进程，<code>-u</code> 显示较为详细的信息，<code>-a</code> 查看所有进程</p>
-<p>终止进程，在 <code>top</code> 种查找 <code>PID</code> 序号，然后执行终止命令：</p>
+<p><img
+src="https://pic.imgdb.cn/item/62c2e6165be16ec74a83ff65.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>系统命令，<code>top</code> 命令查看“任务管理器”，<code>ps</code>
+命令查看进程，<code>-x</code> 可以查看其他用户进程，<code>-u</code>
+显示较为详细的信息，<code>-a</code> 查看所有进程</p>
+<p>终止进程，在 <code>top</code> 种查找 <code>PID</code>
+序号，然后执行终止命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">kill PID<br></code></pre></td></tr></table></figure>
 <p>查找当前安装的 apt 软件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">apt list --installed<br></code></pre></td></tr></table></figure>
-<p><code>cat</code> 本身是用来连接文件，但基本用来输出文件内容，加入 <code>-n</code> 可以显示行号</p>
+<p><code>cat</code> 本身是用来连接文件，但基本用来输出文件内容，加入
+<code>-n</code> 可以显示行号</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat 1.txt 2.txt &gt; 3.txt <br></code></pre></td></tr></table></figure>
-<p><img src="https://pic.imgdb.cn/item/62c2ea7d5be16ec74a89e603.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://pic.imgdb.cn/item/62c2ea7d5be16ec74a89e603.jpg" srcset="/img/loading.gif" lazyload /></p>
 <p><strong><code>grep</code> 指令</strong>用于过滤文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta"># </span><span class="language-bash">在 3.txt 中查找并标红 a 字符</span><br>grep a 3.txt<br><span class="hljs-meta"># </span><span class="language-bash">匹配字符需要加上单引号‘’，匹配以 abc 开头的字符</span><br>grep &#x27;\&lt;abc&#x27; 3.txt<br><span class="hljs-meta"># </span><span class="language-bash">当前目录下查找以 abc 开头的字符，必须加上 -r</span><br>grep -r &#x27;abc.*&#x27; ./<br></code></pre></td></tr></table></figure>
 <p><strong>Vim 编辑器</strong></p>
-<p>切换到输入模式 <code>I</code>，切换到命令模式 <code>Esc</code>，输入 <code>:</code> 进入底线命令模式，再次输入 <code>wq</code> 便可以退出</p>
-<p><img src="https://pic.imgdb.cn/item/62c2ebae5be16ec74a8b8c8e.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>切换到输入模式 <code>I</code>，切换到命令模式 <code>Esc</code>，输入
+<code>:</code> 进入底线命令模式，再次输入 <code>wq</code> 便可以退出</p>
+<p><img
+src="https://pic.imgdb.cn/item/62c2ebae5be16ec74a8b8c8e.jpg" srcset="/img/loading.gif" lazyload /></p>
 <p>管道，将两个或者多个命令连接在一起，将上一个命令的输出作为下一个命令的输入</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta"># </span><span class="language-bash">查找当前目录下含 1 的文件</span><br>ls | grep 1<br><span class="hljs-meta"># </span><span class="language-bash">计算 1+ ··· + 100</span><br>echo &#123;1..100&#125; | tr &#x27; &#x27; &#x27;+&#x27; | bc <br></code></pre></td></tr></table></figure>
 <p><strong>shell 脚本</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta"># </span><span class="language-bash">函数写法</span><br>function test()&#123;<br>		echo &quot;参数1: $&#123;1&#125;！&quot;;  # 通过$&#123;n&#125;来获取传入函数的第n个参数<br>		echo &quot;参数10：$&#123;10&#125;！&quot;; # 双引号括起来的字符串中可以引用变量<br>		n=$(($&#123;1&#125;+$&#123;10&#125;));<br>		return Sn;          # 如果不加return,则返回值为最后一条命令的结果<br>&#125;<br>test 1 2 3 4 5 6 7 8 9 10;  #调用函数时依序传递参数<br>echo $?;    #可以通过变量$？来获取函数的返回值或者上一条命令的结果<br></code></pre></td></tr></table></figure>
-<p><code>bash</code> 命令进入子 shell，<code>export a</code> 将变量 <code>a</code> 外部导入到子 shell 中，输入 <code>exit</code> 退出</p>
+<p><code>bash</code> 命令进入子 shell，<code>export a</code> 将变量
+<code>a</code> 外部导入到子 shell 中，输入 <code>exit</code> 退出</p>
 <p><strong>SSH</strong>：Secure Shell, 安全外壳协议</p>
 <p><strong>作业</strong>：</p>
 <ol type="1">
-<li><p>在 Linux 上新建一个用户并赋予超级用户权限，设置家目录和默认 shell (为 bash )，并设置 Linux 在输入 sudo 密码时显示星号。请将全部命令及输出截图打包。</p></li>
-<li><p>请编写 Shell 脚本，求 <span class="math inline">\(100\)</span> 以内的奇数和。结果打印到标准输出设备。</p></li>
-<li><p>请编写 Shell 脚本，在家目录下新建 <span class="math inline">\(d a t a\)</span> 目录并向其中新建 100 个名为 test1. txt, <span class="math inline">\(\cdots\)</span>, test100. txt的文件。之后查找到 data 目录下所有文件名包含“5”的文件，并向 其中分别写入文件名中的数字这么多行的“abcd”。</p></li>
+<li><p>在 Linux 上新建一个用户并赋予超级用户权限，设置家目录和默认 shell
+(为 bash )，并设置 Linux 在输入 sudo
+密码时显示星号。请将全部命令及输出截图打包。</p></li>
+<li><p>请编写 Shell 脚本，求 <span class="math inline">\(100\)</span>
+以内的奇数和。结果打印到标准输出设备。</p></li>
+<li><p>请编写 Shell 脚本，在家目录下新建 <span class="math inline">\(d a
+t a\)</span> 目录并向其中新建 100 个名为 test1. txt, <span
+class="math inline">\(\cdots\)</span>, test100. txt的文件。之后查找到
+data 目录下所有文件名包含“5”的文件，并向
+其中分别写入文件名中的数字这么多行的“abcd”。</p></li>
 </ol>
-<p>作业自愿选择是否完成和完成程度。提交时打包成一个文件，命名为 班级 姓名+学号，上传至 ***</p>
+<p>作业自愿选择是否完成和完成程度。提交时打包成一个文件，命名为 班级
+姓名+学号，上传至 ***</p>
 
               
             </div>
@@ -433,7 +459,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/06/Shor&#39;s%20Algorithm/" title="Shor&#39;s Algorithm">
+                      <a href="/2022/07/06/research/Shor&#39;s%20Algorithm/" title="Shor&#39;s Algorithm">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Shor&#39;s Algorithm</span>
                         <span class="visible-mobile">上一篇</span>

@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E5%A4%9A%E4%BA%91%E8%8D%89%E5%8E%9F.jpg">
 <meta property="article:published_time" content="2022-05-03T02:51:25.000Z">
-<meta property="article:modified_time" content="2022-05-03T02:51:40.312Z">
+<meta property="article:modified_time" content="2022-05-03T02:51:40.000Z">
 <meta property="article:author" content="Tony">
 <meta property="article:tag" content="高代作业">
 <meta name="twitter:card" content="summary_large_image">
@@ -293,92 +293,317 @@
             
             <div class="markdown-body">
               
-              <h1 id="largetextcolorbluemboxadvanced-algebra-small-mathbbhwmathrm7-_textcolorblue2022.5.3"><span class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra } \small \mathbb{HW}\mathrm{7}}\ \ \ \ \ \ _\textcolor{blue}{2022.5.3}\)</span></h1>
-<h2 id="small-mboxbra-map-and-riesz-map">1.7.1<span class="math inline">\(\ \small \mbox{bra map and Riesz map}\)</span></h2>
-<p>On the space <span class="math inline">\(\mathbb{R}^{n}\)</span>, we fix a symmetric positive-definite matrix <span class="math inline">\(A\)</span>, and define <span class="math inline">\((\boldsymbol{v}, \boldsymbol{w})=\boldsymbol{v}^{\mathrm{T}}A\boldsymbol{w}\)</span></p>
+              <h1
+id="largetextcolorbluemboxadvanced-algebra-small-mathbbhwmathrm7-_textcolorblue2022.5.3"><span
+class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra }
+\small \mathbb{HW}\mathrm{7}}\ \ \ \ \ \
+_\textcolor{blue}{2022.5.3}\)</span></h1>
+<h2 id="small-mboxbra-map-and-riesz-map">1.7.1<span
+class="math inline">\(\ \small \mbox{bra map and Riesz
+map}\)</span></h2>
+<p>On the space <span class="math inline">\(\mathbb{R}^{n}\)</span>, we
+fix a symmetric positive-definite matrix <span
+class="math inline">\(A\)</span>, and define <span
+class="math inline">\((\boldsymbol{v},
+\boldsymbol{w})=\boldsymbol{v}^{\mathrm{T}}A\boldsymbol{w}\)</span></p>
 <ol type="1">
 <li>Show that this is an inner product.</li>
-<li>The Riesz map (inverse of the bra map) from <span class="math inline">\(V^{*}\)</span> to <span class="math inline">\(V\)</span> would send a row vector <span class="math inline">\(\boldsymbol{v}^{\mathrm{T}}\)</span> to what?</li>
-<li>The bra map from <span class="math inline">\(V\)</span> to <span class="math inline">\(V^{*}\)</span> would send a vector <span class="math inline">\(\boldsymbol{v}\)</span> to what?</li>
-<li>The dual of the Riesz map from <span class="math inline">\(V^{*}\)</span> to <span class="math inline">\(V\)</span> would send a row vector <span class="math inline">\(\boldsymbol{v}^{\mathrm{T}}\)</span> to what?</li>
+<li>The Riesz map (inverse of the bra map) from <span
+class="math inline">\(V^{*}\)</span> to <span
+class="math inline">\(V\)</span> would send a row vector <span
+class="math inline">\(\boldsymbol{v}^{\mathrm{T}}\)</span> to what?</li>
+<li>The bra map from <span class="math inline">\(V\)</span> to <span
+class="math inline">\(V^{*}\)</span> would send a vector <span
+class="math inline">\(\boldsymbol{v}\)</span> to what?</li>
+<li>The dual of the Riesz map from <span
+class="math inline">\(V^{*}\)</span> to <span
+class="math inline">\(V\)</span> would send a row vector <span
+class="math inline">\(\boldsymbol{v}^{\mathrm{T}}\)</span> to what?</li>
 </ol>
 <hr />
 <p><span class="math inline">\((1)\)</span> Easy to prove.</p>
-<p><span class="math inline">\((2)\)</span> The bra map means <span class="math inline">\(\forall \ \langle \boldsymbol{v}|\in \mathcal{B},s.t.\langle \boldsymbol{v}|:\boldsymbol{\omega\longmapsto}\langle\boldsymbol{v},\boldsymbol{\omega}\rangle=\boldsymbol{v}^{\mathrm{T}}A\boldsymbol{w}\)</span> So the inverse of <span class="math inline">\(\langle \boldsymbol{v}|\)</span> is make <span class="math inline">\(\boldsymbol{v}^{\mathrm{T}}A\)</span></p>
-<p>to <span class="math inline">\(\boldsymbol {v}\)</span>, which is from <span class="math inline">\(V^{*}\)</span> to <span class="math inline">\(V\)</span>. Set <span class="math inline">\(\boldsymbol{u}=\boldsymbol {v}^{T}A\)</span>, so <span class="math inline">\(\boldsymbol{v}^{T}=\boldsymbol{u}A^{-1}\)</span> then transpose it we can get <span class="math inline">\(\boldsymbol{v}=(A^{-1})^{T}\boldsymbol{u^{T}}\)</span></p>
-<p>So if the input is <span class="math inline">\(\boldsymbol{v}^{T}\in V^{*}\)</span>, the output is <span class="math inline">\((A^{-1})^{T}(\boldsymbol v^{T})^{T}=(A^{-1})^{T}\boldsymbol{v}\in V\)</span></p>
-<p><span class="math inline">\((3)\)</span> Obviously, it sends <span class="math inline">\(\boldsymbol{v}\)</span> to <span class="math inline">\(\boldsymbol{v}^{T}A\)</span></p>
-<p><span class="math inline">\((4)\)</span> I guess the result is the same with <span class="math inline">\(\small(2)\)</span>, which sends <span class="math inline">\(\boldsymbol {v}^{T}\)</span> to <span class="math inline">\((A^{-1})^{T}\boldsymbol{v}\)</span></p>
-<h2 id="small-mboxwhat-is-a-derivative">1.7.2<span class="math inline">\(\ \small \mbox{What is a derivative}\)</span></h2>
-<p>The discussions in this problem holds for all manifolds <span class="math inline">\(M\)</span>. But for simplicities sake, suppose <span class="math inline">\(M=\mathbb{R}^{3}\)</span> for this problem.</p>
-<p>Let <span class="math inline">\(V\)</span> be the space of all analytic functions from <span class="math inline">\(M\)</span> to <span class="math inline">\(\mathbb{R}\)</span>. Here analytic means <span class="math inline">\(f(x, y, z)\)</span> is a infinite polynomial series (its Taylor expansion) with variables <span class="math inline">\(x, y, z\)</span>. Approximately <span class="math inline">\(f(x, y, z)=a_{0}+a_{1} x+a_{2} y+\)</span> <span class="math inline">\(a_{3} z+a_{4} x^{2}+a_{5} x y+a_{6} x z+a_{7} y^{2}+\ldots\)</span>, and things should converge always.</p>
-<p>Then a dual vector <span class="math inline">\(v \in V^{*}\)</span> is said to be a "derivation at <span class="math inline">\(\boldsymbol{p} \in M^{\prime \prime}\)</span> if it satisfy the following Leibniz rule (or product rule): <span class="math display">\[
+<p><span class="math inline">\((2)\)</span> The bra map means <span
+class="math inline">\(\forall \ \langle \boldsymbol{v}|\in
+\mathcal{B},s.t.\langle
+\boldsymbol{v}|:\boldsymbol{\omega\longmapsto}\langle\boldsymbol{v},\boldsymbol{\omega}\rangle=\boldsymbol{v}^{\mathrm{T}}A\boldsymbol{w}\)</span>
+So the inverse of <span class="math inline">\(\langle
+\boldsymbol{v}|\)</span> is make <span
+class="math inline">\(\boldsymbol{v}^{\mathrm{T}}A\)</span></p>
+<p>to <span class="math inline">\(\boldsymbol {v}\)</span>, which is
+from <span class="math inline">\(V^{*}\)</span> to <span
+class="math inline">\(V\)</span>. Set <span
+class="math inline">\(\boldsymbol{u}=\boldsymbol {v}^{T}A\)</span>, so
+<span
+class="math inline">\(\boldsymbol{v}^{T}=\boldsymbol{u}A^{-1}\)</span>
+then transpose it we can get <span
+class="math inline">\(\boldsymbol{v}=(A^{-1})^{T}\boldsymbol{u^{T}}\)</span></p>
+<p>So if the input is <span class="math inline">\(\boldsymbol{v}^{T}\in
+V^{*}\)</span>, the output is <span
+class="math inline">\((A^{-1})^{T}(\boldsymbol
+v^{T})^{T}=(A^{-1})^{T}\boldsymbol{v}\in V\)</span></p>
+<p><span class="math inline">\((3)\)</span> Obviously, it sends <span
+class="math inline">\(\boldsymbol{v}\)</span> to <span
+class="math inline">\(\boldsymbol{v}^{T}A\)</span></p>
+<p><span class="math inline">\((4)\)</span> I guess the result is the
+same with <span class="math inline">\(\small(2)\)</span>, which sends
+<span class="math inline">\(\boldsymbol {v}^{T}\)</span> to <span
+class="math inline">\((A^{-1})^{T}\boldsymbol{v}\)</span></p>
+<h2 id="small-mboxwhat-is-a-derivative">1.7.2<span
+class="math inline">\(\ \small \mbox{What is a derivative}\)</span></h2>
+<p>The discussions in this problem holds for all manifolds <span
+class="math inline">\(M\)</span>. But for simplicities sake, suppose
+<span class="math inline">\(M=\mathbb{R}^{3}\)</span> for this
+problem.</p>
+<p>Let <span class="math inline">\(V\)</span> be the space of all
+analytic functions from <span class="math inline">\(M\)</span> to <span
+class="math inline">\(\mathbb{R}\)</span>. Here analytic means <span
+class="math inline">\(f(x, y, z)\)</span> is a infinite polynomial
+series (its Taylor expansion) with variables <span
+class="math inline">\(x, y, z\)</span>. Approximately <span
+class="math inline">\(f(x, y, z)=a_{0}+a_{1} x+a_{2} y+\)</span> <span
+class="math inline">\(a_{3} z+a_{4} x^{2}+a_{5} x y+a_{6} x z+a_{7}
+y^{2}+\ldots\)</span>, and things should converge always.</p>
+<p>Then a dual vector <span class="math inline">\(v \in V^{*}\)</span>
+is said to be a "derivation at <span
+class="math inline">\(\boldsymbol{p} \in M^{\prime \prime}\)</span> if
+it satisfy the following Leibniz rule (or product rule): <span
+class="math display">\[
 v(f g)=f(\boldsymbol{p}) v(g)+g(\boldsymbol{p}) v(f) .
-\]</span> (Note the similarity with your traditional product rule <span class="math inline">\((f g)^{\prime}(x)=f(x) g^{\prime}(x)+g(x) f^{\prime}(x)\)</span>.) Prove the following:</p>
+\]</span> (Note the similarity with your traditional product rule <span
+class="math inline">\((f g)^{\prime}(x)=f(x) g^{\prime}(x)+g(x)
+f^{\prime}(x)\)</span>.) Prove the following:</p>
 <ol type="1">
-<li>Constant functions in <span class="math inline">\(V\)</span> must be sent to zero by all derivations at any point.</li>
-<li>Let <span class="math inline">\(x, y, z \in V\)</span> be the coordinate function. Suppose <span class="math inline">\(\boldsymbol{p}=\left[\begin{array}{l}p_{1} \\ p_{2} \\ p_{3}\end{array}\right]\)</span>, then for any derivation <span class="math inline">\(v\)</span> at <span class="math inline">\(\boldsymbol{p}\)</span>, then we have <span class="math inline">\(v\left(\left(x-p_{1}\right) f\right)=f(\boldsymbol{p}) v(x), v\left(\left(y-p_{2}\right) f\right)=f(\boldsymbol{p}) v(y)\)</span> and <span class="math inline">\(v\left(\left(z-p_{3}\right) f\right)=f(\boldsymbol{p}) v(z)\)</span>.</li>
-<li>Let <span class="math inline">\(x, y, z \in V\)</span> be the coordinate function. Suppose <span class="math inline">\(\boldsymbol{p}=\left[\begin{array}{l}p_{1} \\ p_{2} \\ p_{3}\end{array}\right]\)</span>, then for any derivation <span class="math inline">\(v\)</span> at <span class="math inline">\(\boldsymbol{p}\)</span>, then we have <span class="math inline">\(v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=0\)</span> for any non-negative integers <span class="math inline">\(a, b, c\)</span> such that <span class="math inline">\(a+b+c&gt;1\)</span>.</li>
-<li>Let <span class="math inline">\(x, y, z \in V\)</span> be the coordinate function. Suppose <span class="math inline">\(\boldsymbol{p}=\left[\begin{array}{l}p_{1} \\ p_{2} \\ p_{3}\end{array}\right]\)</span>, then for any derivation <span class="math inline">\(v\)</span> at <span class="math inline">\(\boldsymbol{p}, v(f)=\)</span> <span class="math inline">\(\dfrac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) v(y)+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) v(z)\)</span>. (Hint: use the Taylor expansion of <span class="math inline">\(f\)</span> at <span class="math inline">\(\left.\boldsymbol{p} .\right)\)</span></li>
-<li>Any derivation <span class="math inline">\(v\)</span> at <span class="math inline">\(\boldsymbol{p}\)</span> must be exactly the directional derivative operator <span class="math inline">\(\nabla_{\boldsymbol{v}}\)</span> where <span class="math inline">\(\boldsymbol{v}=\left[\begin{array}{l}v(x) \\ v(y) \\ v(z)\end{array}\right]\)</span>. (Remark: So, algebraically speaking, tangent vectors are exactly derivations, i.e., things that satisfy the Leibniz rule.)</li>
+<li>Constant functions in <span class="math inline">\(V\)</span> must be
+sent to zero by all derivations at any point.</li>
+<li>Let <span class="math inline">\(x, y, z \in V\)</span> be the
+coordinate function. Suppose <span
+class="math inline">\(\boldsymbol{p}=\left[\begin{array}{l}p_{1} \\
+p_{2} \\ p_{3}\end{array}\right]\)</span>, then for any derivation <span
+class="math inline">\(v\)</span> at <span
+class="math inline">\(\boldsymbol{p}\)</span>, then we have <span
+class="math inline">\(v\left(\left(x-p_{1}\right)
+f\right)=f(\boldsymbol{p}) v(x), v\left(\left(y-p_{2}\right)
+f\right)=f(\boldsymbol{p}) v(y)\)</span> and <span
+class="math inline">\(v\left(\left(z-p_{3}\right)
+f\right)=f(\boldsymbol{p}) v(z)\)</span>.</li>
+<li>Let <span class="math inline">\(x, y, z \in V\)</span> be the
+coordinate function. Suppose <span
+class="math inline">\(\boldsymbol{p}=\left[\begin{array}{l}p_{1} \\
+p_{2} \\ p_{3}\end{array}\right]\)</span>, then for any derivation <span
+class="math inline">\(v\)</span> at <span
+class="math inline">\(\boldsymbol{p}\)</span>, then we have <span
+class="math inline">\(v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=0\)</span>
+for any non-negative integers <span class="math inline">\(a, b,
+c\)</span> such that <span
+class="math inline">\(a+b+c&gt;1\)</span>.</li>
+<li>Let <span class="math inline">\(x, y, z \in V\)</span> be the
+coordinate function. Suppose <span
+class="math inline">\(\boldsymbol{p}=\left[\begin{array}{l}p_{1} \\
+p_{2} \\ p_{3}\end{array}\right]\)</span>, then for any derivation <span
+class="math inline">\(v\)</span> at <span
+class="math inline">\(\boldsymbol{p}, v(f)=\)</span> <span
+class="math inline">\(\dfrac{\partial f}{\partial x}(\boldsymbol{p})
+v(x)+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) v(y)+\dfrac{\partial
+f}{\partial z}(\boldsymbol{p}) v(z)\)</span>. (Hint: use the Taylor
+expansion of <span class="math inline">\(f\)</span> at <span
+class="math inline">\(\left.\boldsymbol{p} .\right)\)</span></li>
+<li>Any derivation <span class="math inline">\(v\)</span> at <span
+class="math inline">\(\boldsymbol{p}\)</span> must be exactly the
+directional derivative operator <span
+class="math inline">\(\nabla_{\boldsymbol{v}}\)</span> where <span
+class="math inline">\(\boldsymbol{v}=\left[\begin{array}{l}v(x) \\ v(y)
+\\ v(z)\end{array}\right]\)</span>. (Remark: So, algebraically speaking,
+tangent vectors are exactly derivations, i.e., things that satisfy the
+Leibniz rule.)</li>
 </ol>
 <hr />
-<p><span class="math inline">\((1)\)</span> Set <span class="math inline">\(f(\vec{p})\equiv a\)</span>, because <span class="math inline">\(v(f g)=f(\boldsymbol{p}) v(g)+g(\boldsymbol{p}) v(f)\)</span> and <span class="math inline">\(v\in V^{*}\)</span> is linear, <span class="math inline">\(v(fg)=av(g)+g(\boldsymbol{p})v(f)\)</span></p>
-<p>Set <span class="math inline">\(g=f\)</span>, so <span class="math inline">\(v(ff)=2av(f)=v(af)=av(f)\)</span> If <span class="math inline">\(a=0\)</span>, <span class="math inline">\(v(g)=v(0)=v(gg)=0+0=0\)</span> If <span class="math inline">\(a\neq 0\)</span></p>
-<p><span class="math inline">\(av(f)=0\)</span>, and <span class="math inline">\(v(f)=0\)</span> So constant functions in <span class="math inline">\(V\)</span> are all sent to <span class="math inline">\(0\)</span></p>
-<p><span class="math inline">\((2)\)</span> Calculate <span class="math inline">\(v((x-p_1)f)=f(\boldsymbol {p})v(x-p_1)+(x-p_1)(\boldsymbol{p})v(f)\)</span> And <span class="math inline">\(x(\boldsymbol{p})=p_1,p_1(\boldsymbol{p})=p_1\)</span></p>
-<p>So <span class="math inline">\((x-p_1)(\boldsymbol{p})=0\)</span> For constant <span class="math inline">\(\boldsymbol{p}\)</span>, <span class="math inline">\(v(\boldsymbol{p}=0)\)</span> So <span class="math inline">\(v((x-p_1)f)=f(\boldsymbol{p})(v(x)-v(p_1))=f(\boldsymbol{p})v(x)\)</span></p>
-<p><span class="math inline">\((3)\)</span> As <span class="math inline">\(a,b,c\)</span> are all integers, if <span class="math inline">\(a,b,c&lt;1\)</span>, the sum of them is <span class="math inline">\(a+b+c\leq 0\)</span>, contradiction</p>
-<p>So at least one intergers is <span class="math inline">\(\geq 1\)</span>, without loss of generalization, assume <span class="math inline">\(a\geq 1\)</span></p>
-<p><span class="math inline">\(v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=v(x-p_1)((x-p_1)^{a-1}(y-p_2)^b(z-p_3)^c)(\boldsymbol{p})\)</span></p>
-<p>And if <span class="math inline">\(a&gt; 1\)</span>, <span class="math inline">\((x-p_1)^{a-1}(\boldsymbol{p})=(x-p_1)^{a-2}(x-p_1)(\boldsymbol{p})=0\)</span> if <span class="math inline">\(a=1\)</span>, then <span class="math inline">\(b+c&gt;0\)</span></p>
-<p>at least one integer in <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> <span class="math inline">\(\geq 1\)</span>, without of generalization, assume <span class="math inline">\(b\geq 1\)</span>. Then</p>
-<p><span class="math inline">\((y-p_2)^{b}(\boldsymbol{p})=(y-p_2)^{b-1}(y-p_2)(\boldsymbol{p})=0\)</span> So <span class="math inline">\(v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=0\)</span></p>
-<p><span class="math inline">\((4)\)</span> Use Taylor expansion for <span class="math inline">\(f\)</span>, we have <span class="math display">\[
-f(x, y, z)=f\left(p_{1}, p_{2}, p_{3}\right)+\frac{\partial f}{\partial x}(\boldsymbol{p})\left(x-p_{1}\right)+\frac{\partial f}{\partial y}(\boldsymbol{p})\left(y-p_{2}\right)+\frac{\partial f}{\partial z}(\boldsymbol{p})\left(z-p_{3}\right)+o(|\boldsymbol{r}-\boldsymbol{p}|)
-\]</span> According to <span class="math inline">\((3)\)</span>, the remainder <span class="math inline">\(o(|\boldsymbol{r}-\boldsymbol{p}|)=\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c},a+b+c&gt;1\)</span></p>
-<p>So <span class="math inline">\(v(o(|\boldsymbol{r}-\boldsymbol{p}|))=0\)</span> For constant number <span class="math inline">\(v\)</span> sends to <span class="math inline">\(0\)</span>. Take <span class="math inline">\(v\)</span> function to the Taylor expansion <span class="math display">\[
-v(f)=\dfrac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) v(y)+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) v(z)
-\]</span> Which shows the complete differential at <span class="math inline">\(\boldsymbol{p}\)</span></p>
-<p><span class="math inline">\((5)\)</span> Just calculate the directional derivative <span class="math inline">\(\nabla_{\boldsymbol{v}}\)</span> where <span class="math inline">\(\boldsymbol{v}=\left[\begin{array}{l}v(x) \\ v(y) \\ v(z)\end{array}\right]\)</span> <span class="math display">\[
+<p><span class="math inline">\((1)\)</span> Set <span
+class="math inline">\(f(\vec{p})\equiv a\)</span>, because <span
+class="math inline">\(v(f g)=f(\boldsymbol{p}) v(g)+g(\boldsymbol{p})
+v(f)\)</span> and <span class="math inline">\(v\in V^{*}\)</span> is
+linear, <span
+class="math inline">\(v(fg)=av(g)+g(\boldsymbol{p})v(f)\)</span></p>
+<p>Set <span class="math inline">\(g=f\)</span>, so <span
+class="math inline">\(v(ff)=2av(f)=v(af)=av(f)\)</span> If <span
+class="math inline">\(a=0\)</span>, <span
+class="math inline">\(v(g)=v(0)=v(gg)=0+0=0\)</span> If <span
+class="math inline">\(a\neq 0\)</span></p>
+<p><span class="math inline">\(av(f)=0\)</span>, and <span
+class="math inline">\(v(f)=0\)</span> So constant functions in <span
+class="math inline">\(V\)</span> are all sent to <span
+class="math inline">\(0\)</span></p>
+<p><span class="math inline">\((2)\)</span> Calculate <span
+class="math inline">\(v((x-p_1)f)=f(\boldsymbol
+{p})v(x-p_1)+(x-p_1)(\boldsymbol{p})v(f)\)</span> And <span
+class="math inline">\(x(\boldsymbol{p})=p_1,p_1(\boldsymbol{p})=p_1\)</span></p>
+<p>So <span class="math inline">\((x-p_1)(\boldsymbol{p})=0\)</span> For
+constant <span class="math inline">\(\boldsymbol{p}\)</span>, <span
+class="math inline">\(v(\boldsymbol{p}=0)\)</span> So <span
+class="math inline">\(v((x-p_1)f)=f(\boldsymbol{p})(v(x)-v(p_1))=f(\boldsymbol{p})v(x)\)</span></p>
+<p><span class="math inline">\((3)\)</span> As <span
+class="math inline">\(a,b,c\)</span> are all integers, if <span
+class="math inline">\(a,b,c&lt;1\)</span>, the sum of them is <span
+class="math inline">\(a+b+c\leq 0\)</span>, contradiction</p>
+<p>So at least one intergers is <span class="math inline">\(\geq
+1\)</span>, without loss of generalization, assume <span
+class="math inline">\(a\geq 1\)</span></p>
+<p><span
+class="math inline">\(v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=v(x-p_1)((x-p_1)^{a-1}(y-p_2)^b(z-p_3)^c)(\boldsymbol{p})\)</span></p>
+<p>And if <span class="math inline">\(a&gt; 1\)</span>, <span
+class="math inline">\((x-p_1)^{a-1}(\boldsymbol{p})=(x-p_1)^{a-2}(x-p_1)(\boldsymbol{p})=0\)</span>
+if <span class="math inline">\(a=1\)</span>, then <span
+class="math inline">\(b+c&gt;0\)</span></p>
+<p>at least one integer in <span class="math inline">\(b\)</span> and
+<span class="math inline">\(c\)</span> <span class="math inline">\(\geq
+1\)</span>, without of generalization, assume <span
+class="math inline">\(b\geq 1\)</span>. Then</p>
+<p><span
+class="math inline">\((y-p_2)^{b}(\boldsymbol{p})=(y-p_2)^{b-1}(y-p_2)(\boldsymbol{p})=0\)</span>
+So <span
+class="math inline">\(v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=0\)</span></p>
+<p><span class="math inline">\((4)\)</span> Use Taylor expansion for
+<span class="math inline">\(f\)</span>, we have <span
+class="math display">\[
+f(x, y, z)=f\left(p_{1}, p_{2}, p_{3}\right)+\frac{\partial f}{\partial
+x}(\boldsymbol{p})\left(x-p_{1}\right)+\frac{\partial f}{\partial
+y}(\boldsymbol{p})\left(y-p_{2}\right)+\frac{\partial f}{\partial
+z}(\boldsymbol{p})\left(z-p_{3}\right)+o(|\boldsymbol{r}-\boldsymbol{p}|)
+\]</span> According to <span class="math inline">\((3)\)</span>, the
+remainder <span
+class="math inline">\(o(|\boldsymbol{r}-\boldsymbol{p}|)=\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c},a+b+c&gt;1\)</span></p>
+<p>So <span
+class="math inline">\(v(o(|\boldsymbol{r}-\boldsymbol{p}|))=0\)</span>
+For constant number <span class="math inline">\(v\)</span> sends to
+<span class="math inline">\(0\)</span>. Take <span
+class="math inline">\(v\)</span> function to the Taylor expansion <span
+class="math display">\[
+v(f)=\dfrac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\dfrac{\partial
+f}{\partial y}(\boldsymbol{p}) v(y)+\dfrac{\partial f}{\partial
+z}(\boldsymbol{p}) v(z)
+\]</span> Which shows the complete differential at <span
+class="math inline">\(\boldsymbol{p}\)</span></p>
+<p><span class="math inline">\((5)\)</span> Just calculate the
+directional derivative <span
+class="math inline">\(\nabla_{\boldsymbol{v}}\)</span> where <span
+class="math inline">\(\boldsymbol{v}=\left[\begin{array}{l}v(x) \\ v(y)
+\\ v(z)\end{array}\right]\)</span> <span class="math display">\[
 \begin{aligned}
-\nabla_{v} f &amp;=\lim _{t \rightarrow 0^{+}} \frac{f(\boldsymbol{p}+t \boldsymbol{v})-f(\boldsymbol{p})}{t} \\
-&amp;=\lim _{t \rightarrow 0^{+}} \dfrac{f(\boldsymbol{p})+\dfrac{\partial f}{\partial x}(\boldsymbol{p}) v(x) t+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) v(y) t+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) v(z) t+o(\|\boldsymbol{v}\| t)-f(\boldsymbol{p})}{t} \\
-&amp;=\frac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\frac{\partial f}{\partial y}(\boldsymbol{p}) v(y)+\frac{\partial f}{\partial z}(\boldsymbol{p}) v(z) \\
+\nabla_{v} f &amp;=\lim _{t \rightarrow 0^{+}} \frac{f(\boldsymbol{p}+t
+\boldsymbol{v})-f(\boldsymbol{p})}{t} \\
+&amp;=\lim _{t \rightarrow 0^{+}}
+\dfrac{f(\boldsymbol{p})+\dfrac{\partial f}{\partial x}(\boldsymbol{p})
+v(x) t+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) v(y)
+t+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) v(z)
+t+o(\|\boldsymbol{v}\| t)-f(\boldsymbol{p})}{t} \\
+&amp;=\frac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\frac{\partial
+f}{\partial y}(\boldsymbol{p}) v(y)+\frac{\partial f}{\partial
+z}(\boldsymbol{p}) v(z) \\
 &amp;=v(f)
 \end{aligned}
-\]</span> So derivative in calculus is just a vector in the dual space of <span class="math inline">\(R^{n}\)</span> which suits Leibniz rule</p>
-<h2 id="small-mboxwhat-is-a-vector-field">1.7.3<span class="math inline">\(\ \small \mbox{What is a vector field}\)</span></h2>
-<p>The discussions in this problem holds for all manifolds <span class="math inline">\(M\)</span>. But for simplicities sake, suppose <span class="math inline">\(M=\mathbb{R}^{3}\)</span> for this problem. Let <span class="math inline">\(V\)</span> be the space of all analytic functions from <span class="math inline">\(M\)</span> to <span class="math inline">\(\mathbb{R}\)</span> as usual. We say <span class="math inline">\(X: V \rightarrow V\)</span> is a vector field on <span class="math inline">\(X\)</span> if <span class="math inline">\(X(f g)=f X(g)+g X(f)\)</span>, i.e., the Leibniz rule again! Prove the following:</p>
+\]</span> So derivative in calculus is just a vector in the dual space
+of <span class="math inline">\(R^{n}\)</span> which suits Leibniz
+rule</p>
+<h2 id="small-mboxwhat-is-a-vector-field">1.7.3<span
+class="math inline">\(\ \small \mbox{What is a vector
+field}\)</span></h2>
+<p>The discussions in this problem holds for all manifolds <span
+class="math inline">\(M\)</span>. But for simplicities sake, suppose
+<span class="math inline">\(M=\mathbb{R}^{3}\)</span> for this problem.
+Let <span class="math inline">\(V\)</span> be the space of all analytic
+functions from <span class="math inline">\(M\)</span> to <span
+class="math inline">\(\mathbb{R}\)</span> as usual. We say <span
+class="math inline">\(X: V \rightarrow V\)</span> is a vector field on
+<span class="math inline">\(X\)</span> if <span
+class="math inline">\(X(f g)=f X(g)+g X(f)\)</span>, i.e., the Leibniz
+rule again! Prove the following:</p>
 <ol type="1">
-<li><p>Show that <span class="math inline">\(X_{\boldsymbol{p}}: V \rightarrow \mathbb{R}\)</span> such that <span class="math inline">\(X_{\boldsymbol{p}}(f)=(X(f))(\boldsymbol{p})\)</span> is a derivation at <span class="math inline">\(\boldsymbol{p}\)</span>. (Hence <span class="math inline">\(X\)</span> is indeed a vector field, since it is the same as picking a tangent vector at each point.)</p></li>
-<li><p>Note that each <span class="math inline">\(f\)</span> on <span class="math inline">\(M\)</span> induces a covector field <span class="math inline">\(\mathrm{d} f\)</span>. Then at each point <span class="math inline">\(\boldsymbol p\)</span>, the cotangent vector <span class="math inline">\(\mathrm{d} f\)</span> and the tangent vector <span class="math inline">\(X\)</span> would evaluate to some number. So <span class="math inline">\(\mathrm{d} f(X)\)</span> is a function <span class="math inline">\(M \rightarrow \mathbb{R}\)</span>. Show that <span class="math inline">\(\mathrm{d} f(X)=X(f)\)</span>, i.e., the two are the same. (Hint: just use definitions and calculate directly.)</p></li>
-<li><p>If <span class="math inline">\(X, Y: V \rightarrow V\)</span> are vector fields, then note that <span class="math inline">\(X \circ Y: V \rightarrow V\)</span> might not be a vector field. (Leibniz rule might fail.) However, show that <span class="math inline">\(X \circ Y-Y \circ X\)</span> is always a vector field.</p></li>
-<li><p>On a related note, show that if <span class="math inline">\(A, B\)</span> are skew-symmetric matrices, then <span class="math inline">\(A B-B A\)</span> is still skewsymmetric. (Skew-symmetric matrices actually corresponds to certain vector fields on the manifold of orthogonal matrices. So this is no coincidence.)</p></li>
+<li><p>Show that <span class="math inline">\(X_{\boldsymbol{p}}: V
+\rightarrow \mathbb{R}\)</span> such that <span
+class="math inline">\(X_{\boldsymbol{p}}(f)=(X(f))(\boldsymbol{p})\)</span>
+is a derivation at <span class="math inline">\(\boldsymbol{p}\)</span>.
+(Hence <span class="math inline">\(X\)</span> is indeed a vector field,
+since it is the same as picking a tangent vector at each
+point.)</p></li>
+<li><p>Note that each <span class="math inline">\(f\)</span> on <span
+class="math inline">\(M\)</span> induces a covector field <span
+class="math inline">\(\mathrm{d} f\)</span>. Then at each point <span
+class="math inline">\(\boldsymbol p\)</span>, the cotangent vector <span
+class="math inline">\(\mathrm{d} f\)</span> and the tangent vector <span
+class="math inline">\(X\)</span> would evaluate to some number. So <span
+class="math inline">\(\mathrm{d} f(X)\)</span> is a function <span
+class="math inline">\(M \rightarrow \mathbb{R}\)</span>. Show that <span
+class="math inline">\(\mathrm{d} f(X)=X(f)\)</span>, i.e., the two are
+the same. (Hint: just use definitions and calculate directly.)</p></li>
+<li><p>If <span class="math inline">\(X, Y: V \rightarrow V\)</span> are
+vector fields, then note that <span class="math inline">\(X \circ Y: V
+\rightarrow V\)</span> might not be a vector field. (Leibniz rule might
+fail.) However, show that <span class="math inline">\(X \circ Y-Y \circ
+X\)</span> is always a vector field.</p></li>
+<li><p>On a related note, show that if <span class="math inline">\(A,
+B\)</span> are skew-symmetric matrices, then <span
+class="math inline">\(A B-B A\)</span> is still skewsymmetric.
+(Skew-symmetric matrices actually corresponds to certain vector fields
+on the manifold of orthogonal matrices. So this is no
+coincidence.)</p></li>
 </ol>
 <hr />
-<p><span class="math inline">\((1)\)</span> <span class="math inline">\(X_{\boldsymbol{p}}(fg)=(X(fg))(\boldsymbol{p})=(fX(g)+gX(f))(\boldsymbol{p})=f(\boldsymbol{p})X(g)(\boldsymbol{p})+g(\boldsymbol{p})X(f)(\boldsymbol{p})\)</span></p>
-<p><span class="math inline">\(=f(\boldsymbol{p})X_{\boldsymbol{p}}(g)+g(\boldsymbol{p})X_{\boldsymbol{p}}(f)\)</span> So it suits the definition of derivative at <span class="math inline">\(\boldsymbol{p}\)</span></p>
-<p><span class="math inline">\((2)\)</span> <span class="math inline">\(X_{\boldsymbol{p}}:V\rightarrow R\)</span> So <span class="math inline">\(X_{\boldsymbol{p}}\in V^{*}\)</span> <span class="math inline">\(X_{p}=\left[\begin{array}{c} X_{\boldsymbol{p}}(X) &amp; X_{p}(Y) &amp; X_{p}(Z) \end{array}\right]\)</span></p>
-<p><span class="math inline">\(df(X)(\boldsymbol{p})=df_{\boldsymbol{p} }(X_{\boldsymbol{p}})\)</span> where <span class="math inline">\(df=\left[\begin{array}{c} \dfrac{\partial f}{\partial x}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial y}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial z}(\boldsymbol{p})\\ \end{array}\right]\)</span> combine them together then we have</p>
-<p>From <span class="math inline">\(\small (1.4)\)</span> <span class="math inline">\((X(f))(\boldsymbol{p})=X_{p}(f)=\dfrac{\partial f}{\partial x}(\boldsymbol{p}) X_{\boldsymbol{p}}(X)+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) X_{\boldsymbol{p}}(Y)+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) X_{\boldsymbol{p}}(Z)\)</span></p>
-<p><span class="math inline">\(=\left[\begin{array}{c} X_{\boldsymbol{p}}(X) &amp; X_{p}(Y) &amp; X_{p}(Z) \end{array}\right]\left[\begin{array}{c} \dfrac{\partial f}{\partial x}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial y}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial z}(\boldsymbol{p})\\ \end{array}\right]=df(X)\)</span></p>
-<p><span class="math inline">\((3)\)</span> Just unfold the fomula <span class="math display">\[
+<p><span class="math inline">\((1)\)</span> <span
+class="math inline">\(X_{\boldsymbol{p}}(fg)=(X(fg))(\boldsymbol{p})=(fX(g)+gX(f))(\boldsymbol{p})=f(\boldsymbol{p})X(g)(\boldsymbol{p})+g(\boldsymbol{p})X(f)(\boldsymbol{p})\)</span></p>
+<p><span
+class="math inline">\(=f(\boldsymbol{p})X_{\boldsymbol{p}}(g)+g(\boldsymbol{p})X_{\boldsymbol{p}}(f)\)</span>
+So it suits the definition of derivative at <span
+class="math inline">\(\boldsymbol{p}\)</span></p>
+<p><span class="math inline">\((2)\)</span> <span
+class="math inline">\(X_{\boldsymbol{p}}:V\rightarrow R\)</span> So
+<span class="math inline">\(X_{\boldsymbol{p}}\in V^{*}\)</span> <span
+class="math inline">\(X_{p}=\left[\begin{array}{c} X_{\boldsymbol{p}}(X)
+&amp; X_{p}(Y) &amp; X_{p}(Z) \end{array}\right]\)</span></p>
+<p><span class="math inline">\(df(X)(\boldsymbol{p})=df_{\boldsymbol{p}
+}(X_{\boldsymbol{p}})\)</span> where <span
+class="math inline">\(df=\left[\begin{array}{c} \dfrac{\partial
+f}{\partial x}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial
+y}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial z}(\boldsymbol{p})\\
+\end{array}\right]\)</span> combine them together then we have</p>
+<p>From <span class="math inline">\(\small (1.4)\)</span> <span
+class="math inline">\((X(f))(\boldsymbol{p})=X_{p}(f)=\dfrac{\partial
+f}{\partial x}(\boldsymbol{p}) X_{\boldsymbol{p}}(X)+\dfrac{\partial
+f}{\partial y}(\boldsymbol{p}) X_{\boldsymbol{p}}(Y)+\dfrac{\partial
+f}{\partial z}(\boldsymbol{p}) X_{\boldsymbol{p}}(Z)\)</span></p>
+<p><span class="math inline">\(=\left[\begin{array}{c}
+X_{\boldsymbol{p}}(X) &amp; X_{p}(Y) &amp; X_{p}(Z)
+\end{array}\right]\left[\begin{array}{c} \dfrac{\partial f}{\partial
+x}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial y}(\boldsymbol{p})\\
+\dfrac{\partial f}{\partial z}(\boldsymbol{p})\\
+\end{array}\right]=df(X)\)</span></p>
+<p><span class="math inline">\((3)\)</span> Just unfold the fomula <span
+class="math display">\[
 \begin{gathered}
-(X\circ Y-Y\circ X)(fg)=X\circ Y(fg)-Y\circ X(fg)=X\circ (fY(g)+gY(f))-Y\circ (fX(g)+gX(f))\\
-=\small f (X\circ Y)g+X(f)Y(g)+g (X\circ Y)f+X(g)Y(f)-(f (Y\circ X)g+Y(f)X(g)+g (Y\circ X)f+Y(g)X(f))\\
+(X\circ Y-Y\circ X)(fg)=X\circ Y(fg)-Y\circ X(fg)=X\circ
+(fY(g)+gY(f))-Y\circ (fX(g)+gX(f))\\
+=\small f (X\circ Y)g+X(f)Y(g)+g (X\circ Y)f+X(g)Y(f)-(f (Y\circ
+X)g+Y(f)X(g)+g (Y\circ X)f+Y(g)X(f))\\
 =f(X\circ Y-Y\circ X)g+g(X\circ Y-Y\circ X)f
 \end{gathered}
-\]</span> So <span class="math inline">\(X\circ Y-Y \circ X\)</span> suits the Leibniz rule, which is a vector field.</p>
-<p><span class="math inline">\((4)\)</span> Calculate directly we can prove <span class="math inline">\((AB-BA)^{T}=-(AB-BA)\)</span> <span class="math display">\[
+\]</span> So <span class="math inline">\(X\circ Y-Y \circ X\)</span>
+suits the Leibniz rule, which is a vector field.</p>
+<p><span class="math inline">\((4)\)</span> Calculate directly we can
+prove <span class="math inline">\((AB-BA)^{T}=-(AB-BA)\)</span> <span
+class="math display">\[
 \begin{aligned}
 (A B-B A)^{T} =(A B)^{T}-(B A)^{T}
 =(B^{T} A^{T}-A^{T} B^{T}) \\
 =(-B)(-A)-(-A)(-B) =BA-AB=-(A B-B A)
 \end{aligned}
-\]</span> For all the positive orthogonal matrices <span class="math inline">\(\mathcal{Q}\)</span> <span class="math inline">\(\forall \ Q\in \mathcal{Q},\det(Q)=1\)</span>. At one matrix, its tangent vector</p>
-<p><span class="math inline">\((Q+A)^{T}(Q+A)=I=(Q^{T}+A^{T})(Q+A)=I\Longrightarrow A=-A^{T},||A||\to 0\)</span></p>
-<p>are all Skew-symmetric matrices. According to <span class="math inline">\(\small (3)\)</span>, <span class="math inline">\(AB-BA\)</span> is also a Skew-symmetric matrix</p>
+\]</span> For all the positive orthogonal matrices <span
+class="math inline">\(\mathcal{Q}\)</span> <span
+class="math inline">\(\forall \ Q\in \mathcal{Q},\det(Q)=1\)</span>. At
+one matrix, its tangent vector</p>
+<p><span
+class="math inline">\((Q+A)^{T}(Q+A)=I=(Q^{T}+A^{T})(Q+A)=I\Longrightarrow
+A=-A^{T},||A||\to 0\)</span></p>
+<p>are all Skew-symmetric matrices. According to <span
+class="math inline">\(\small (3)\)</span>, <span
+class="math inline">\(AB-BA\)</span> is also a Skew-symmetric matrix</p>
 
               
             </div>
@@ -473,7 +698,7 @@ v(f)=\dfrac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\dfrac{\partial f}{\par
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/03/Physics%20Report/" title="Physics of report">
+                      <a href="/2022/05/03/Physics/Physics%20Report/" title="Physics of report">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Physics of report</span>
                         <span class="visible-mobile">上一篇</span>
