@@ -25,8 +25,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E9%93%B6%E6%9F%B1.jpg">
 <meta property="article:published_time" content="2022-12-15T03:13:42.000Z">
-<meta property="article:modified_time" content="2023-07-01T07:04:36.597Z">
+<meta property="article:modified_time" content="2023-07-01T07:32:45.933Z">
 <meta property="article:author" content="Learning_rate">
+<meta property="article:tag" content="实验报告">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E9%93%B6%E6%9F%B1.jpg">
   
@@ -234,7 +235,7 @@
         
         
         
-          110 分钟
+          107 分钟
         
       </span>
     
@@ -292,183 +293,90 @@
             
             <div class="markdown-body">
               
-              <h1 id="同轴光子晶体实验报告">同轴光子晶体实验报告</h1>
-<center>
-<div style="height:2mm;">
-
-</div>
-<div style="font-family:华文楷体;font-size:14pt;">
-learning_rate 未央软-11 2022.12.12
-<div style="height:2mm;">
-
-</div>
-</center>
+              <h1 id="同轴光子晶体实验报告"><a href="#同轴光子晶体实验报告" class="headerlink" title="同轴光子晶体实验报告"></a>同轴光子晶体实验报告</h1><center><div style='height:2mm;'></div><div style="font-family:华文楷体;font-size:14pt;"> learning_rate 未央软-11 2022.12.12 <div style='height:2mm;'>   </div></center>
 <div>
-<div style="width:54px;float:left; font-family:方正公文黑体;">
-<b>摘要: </b>
-</div>
-<div style="overflow:hidden; font-family:华文楷体;">
-本实验使用信号发生器和示波器测试电路传输效率和相位，推导同轴电缆的特征阻抗、传播常数、衰减系数参数，理解相速度和群速度的概念。使用同一种特征阻抗的同轴电缆交替连接组成同轴光子晶体，测量并计算传输效率、等效折射率、群速度等物理量。在同轴晶体中引入缺陷后，观察透射峰并同时测试特性。使用
-MATLAB 编程计算上述物理量的理论值。实验结果与理论吻合度较好。
-<div style="height:4mm;">
-
-</div>
+<div style="width:54px;float:left; font-family:方正公文黑体;"><b>摘要: </b></div> 
+<div style="overflow:hidden; font-family:华文楷体;">本实验使用信号发生器和示波器测试电路传输效率和相位，推导同轴电缆的特征阻抗、传播常数、衰减系数参数，理解相速度和群速度的概念。使用同一种特征阻抗的同轴电缆交替连接组成同轴光子晶体，测量并计算传输效率、等效折射率、群速度等物理量。在同轴晶体中引入缺陷后，观察透射峰并同时测试特性。使用 MATLAB 编程计算上述物理量的理论值。实验结果与理论吻合度较好。<div style='height:4mm;'> </div>
 </div>
 <div>
-<div style="width:64px;float:left; font-family:方正公文黑体;">
-<b>关键词: </b>
-</div>
-<div style="overflow:hidden;line-height:16pt">
-同轴光子晶体; 能带理论; 色散关系; 衰减关系; "超光速"现象
-</div>
-</div>
-<br>
-</div>
-<center>
-<div style="height:2mm;">
+<div style="width:64px;float:left; font-family:方正公文黑体;"><b>关键词: </b></div> 
+<div style="overflow:hidden;line-height:16pt">同轴光子晶体; 能带理论; 色散关系; 衰减关系; "超光速"现象 </div>
+  </div><br></div>
+<center><div style='height:2mm;'></div><div style="font-family:黑体;font-size:14pt;"> 目录  <div style='height:2mm;'>   </div></center>
 
-</div>
-<div style="font-family:黑体;font-size:14pt;">
-目录
-<div style="height:2mm;">
 
-</div>
-</center>
-<h2 id="实验仪器">实验仪器</h2>
-<p>信号发生器、示波器、测试电缆（约 <span
-class="math inline">\(1\text{m}\)</span> 长）、同轴电缆（约 <span
-class="math inline">\(5\text{m}\)</span> 长）、三通接头、<span
-class="math inline">\(50\Omega\)</span> 电阻。</p>
-<h2 id="实验原理">实验原理</h2>
-<h3 id="同轴电缆电学参数">同轴电缆电学参数</h3>
-<p>对于两种特征阻抗的同轴电览交替连接构成的同轴光子晶体，当两种电缆的特征阻抗之比
-<span class="math inline">\(Z_{0 H} / Z_{0 L}\)</span>
-越大、连接的电缆的数量越多，电磁带隙特性以及快慢光效应越明显。</p>
-<p>常用同轴电缆的特征阻抗为 <span class="math inline">\(75
-\Omega\)</span> 和 <span class="math inline">\(50 \Omega\)</span>
-。使用这两种电缆的话阻抗比偏小，且两种电缆内外导体间介质的介电常数 <span
-class="math inline">\(\varepsilon_r\)</span>
-通不同，对应的半波长以及电缆长度也不同。</p>
+
+<h2 id="实验仪器"><a href="#实验仪器" class="headerlink" title="实验仪器"></a>实验仪器</h2><p>信号发生器、示波器、测试电缆（约 $1\text{m}$ 长）、同轴电缆（约 $5\text{m}$ 长）、三通接头、$50\Omega$ 电阻。</p>
+<h2 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h2><h3 id="同轴电缆电学参数"><a href="#同轴电缆电学参数" class="headerlink" title="同轴电缆电学参数"></a>同轴电缆电学参数</h3><p>对于两种特征阻抗的同轴电览交替连接构成的同轴光子晶体，当两种电缆的特征阻抗之比 $Z_{0 H} / Z_{0 L}$ 越大、连接的电缆的数量越多，电磁带隙特性以及快慢光效应越明显。</p>
+<p>常用同轴电缆的特征阻抗为 $75 \Omega$ 和 $50 \Omega$ 。使用这两种电缆的话阻抗比偏小，且两种电缆内外导体间介质的介电常数 $\varepsilon_r$ 通不同，对应的半波长以及电缆长度也不同。</p>
 <p>本实验<strong>只使用一种特征阻抗的同轴电缆</strong>。通过并联两根电缆的方法获得另一特征阻抗以及更高的阻抗比。</p>
 <p><img src="/img/同轴光子晶体实验报告/image-20221208210228754.png" srcset="/img/loading.gif" lazyload alt="image-20221208210228754" style="zoom: 50%;" /></p>
-<center>
-<figcaption>
-<b>图1</b> 单根同轴电缆的等效电路模型
-</figcaption>
-</center>
-<p>同轴电缆的等效电路如图 <span class="math inline">\(5\)</span>
-所示，其中 <span class="math inline">\(R,L,G\)</span>
-分别为单位长度同轴电缆的电阻、电感、电容，且结合电磁学知识可知 <span
-class="math display">\[
+<center><figcaption><b>图1</b> 单根同轴电缆的等效电路模型</figcaption></center>
+
+<p>同轴电缆的等效电路如图 $5$ 所示，其中 $R,L,G$ 分别为单位长度同轴电缆的电阻、电感、电容，且结合电磁学知识可知</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \begin{cases}
-C &amp; =\dfrac{2 \pi \varepsilon_0 \varepsilon_r}{\ln (b / a)} \\
-L &amp; =\dfrac{\mu_0 \mu_r}{2 \pi} \ln \dfrac{b}{a}
+C & =\dfrac{2 \pi \varepsilon_0 \varepsilon_r}{\ln (b / a)} \\
+L & =\dfrac{\mu_0 \mu_r}{2 \pi} \ln \dfrac{b}{a}
 \end{cases}
-\end{equation}
-\]</span> 其中 <span class="math inline">\(a,b\)</span>
-为同轴电缆的内外径，<span
-class="math inline">\(\epsilon_r,\mu_r\)</span>
-分别为同轴电缆内外的相对介电常数以及相对磁导率，沿同轴电缆方向共有两个方向叠加，对应通解为
-<span class="math display">\[
+\end{equation}</script><p>其中 $a,b$ 为同轴电缆的内外径，$\epsilon_r,\mu_r$ 分别为同轴电缆内外的相对介电常数以及相对磁导率，沿同轴电缆方向共有两个方向叠加，对应通解为</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \begin{aligned}
-&amp; v=v^{+}(x)+v^{-}(x)=V_0^{+} e^{-\gamma x}+V_0^{-} e^{\gamma x} \\
-&amp; i=i^{+}(x)+i^{-}(x)=\frac{1}{Z_0}\left(V_0^{+} e^{-\gamma
-x}-V_0^{-} e^{\gamma x}\right)
+& v=v^{+}(x)+v^{-}(x)=V_0^{+} e^{-\gamma x}+V_0^{-} e^{\gamma x} \\
+& i=i^{+}(x)+i^{-}(x)=\frac{1}{Z_0}\left(V_0^{+} e^{-\gamma x}-V_0^{-} e^{\gamma x}\right)
 \end{aligned}
-\end{equation}
-\]</span> 对应电压波，其中 <span
-class="math inline">\(\gamma=\alpha+j\beta\)</span> 为电缆的传播常数，
-其表达式如下 <span class="math display">\[
+\end{equation}</script><p>对应电压波，其中 $\gamma=\alpha+j\beta$ 为电缆的传播常数， 其表达式如下</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \alpha+j \beta=\sqrt{(R+j \omega L)\left(G+j \omega C\right)}
-\end{equation}
-\]</span> 且定义<strong>特征阻抗</strong> <span class="math display">\[
+\end{equation}</script><p>且定义<strong>特征阻抗</strong></p>
+<script type="math/tex; mode=display">
 \begin{equation}
 Z_0=\sqrt{\dfrac{R+j \omega L}{G+j \omega C}}
-\end{equation}
-\]</span> 本实验中，电缆的损耗很小，有 <span
-class="math inline">\(R\ll\omega L,G\ll\omega C\)</span>，做近似有 <span
-class="math display">\[
+\end{equation}</script><p>本实验中，电缆的损耗很小，有 $R\ll\omega L,G\ll\omega C$，做近似有</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \left\{\begin{array}{l}
-Z_0=\sqrt{\dfrac{L}{C}}=\dfrac{\ln (b / a)}{2 \pi} \sqrt{\dfrac{\mu_0
-\mu_r}{\epsilon_0 \epsilon_r}} \\
+Z_0=\sqrt{\dfrac{L}{C}}=\dfrac{\ln (b / a)}{2 \pi} \sqrt{\dfrac{\mu_0 \mu_r}{\epsilon_0 \epsilon_r}} \\
 \beta=\omega \sqrt{L C}=\omega \sqrt{\epsilon_0 \mu_0 \epsilon_r \mu_r}
 \end{array}\right.
-\end{equation}
-\]</span></p>
-<h3 id="透射与反射">透射与反射</h3>
-<p>对于半无限长的同轴电缆，信号从同轴电缆始端输入后，只有沿 <span
-class="math inline">\(+\)</span>
-方向传输的行波。实际同轴电缆都是有限长的，此时需考虑同轴电缆末端对信号的影响。</p>
-<p>两根特征阻抗分别为 <span class="math inline">\(Z_0\)</span> 和 <span
-class="math inline">\(Z_1\)</span>
-的同轴电缆连接在一起，两根同轴电缆之间的连接线很短，远小于信号波长和传输线长度。输入信号通过阻抗为
-<span class="math inline">\(Z_0\)</span> 的同轴电缆到达连接处的电压为
-<span class="math inline">\(V_i\)</span>，透射信号在连接处的电压为 <span
-class="math inline">\(V_t\)</span> ，反射信号在连接处的电压为 <span
-class="math inline">\(V_r\)</span> ，满足如下方程 <span
-class="math display">\[
+\end{equation}</script><h3 id="透射与反射"><a href="#透射与反射" class="headerlink" title="透射与反射"></a>透射与反射</h3><p>对于半无限长的同轴电缆，信号从同轴电缆始端输入后，只有沿 $+$ 方向传输的行波。实际同轴电缆都是有限长的，此时需考虑同轴电缆末端对信号的影响。</p>
+<p>两根特征阻抗分别为 $Z_0$ 和 $Z_1$ 的同轴电缆连接在一起，两根同轴电缆之间的连接线很短，远小于信号波长和传输线长度。输入信号通过阻抗为 $Z_0$ 的同轴电缆到达连接处的电压为 $V_i$，透射信号在连接处的电压为 $V_t$ ，反射信号在连接处的电压为 $V_r$ ，满足如下方程</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \left\{\begin{array}{l}
 V_i+V_r=V_t \\
 V_i / Z_0=V_r / Z_0+V_t / Z_1
 \end{array}\right.
-\end{equation}
-\]</span></p>
-<h3 id="测量同轴光子晶体特性">测量同轴光子晶体特性</h3>
-<p>由群速度公式 <span class="math display">\[
+\end{equation}</script><h3 id="测量同轴光子晶体特性"><a href="#测量同轴光子晶体特性" class="headerlink" title="测量同轴光子晶体特性"></a>测量同轴光子晶体特性</h3><p>由群速度公式</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 v_g=\dfrac{c} {n+\omega \dfrac{d n}{d \omega}}
-\end{equation}
-\]</span></p>
-<p>可测得某一频率下示波器 <span class="math inline">\(\mathrm{Ch}
-2\)</span> 相对于 <span class="math inline">\(\mathrm{Ch} 1\)</span>
-的相位差 <span
-class="math inline">\(\varphi\)</span>，投输入待测电路的信号为 <span
-class="math inline">\(\cos \omega t\)</span>，初始相位为 0。输出信号为
-<span class="math inline">\(\cos (\omega t+\varphi)\)</span>，相位变化为
-<span class="math inline">\(\varphi\)</span> <span
-class="math display">\[
+\end{equation}</script><p>可测得某一频率下示波器 $\mathrm{Ch} 2$ 相对于 $\mathrm{Ch} 1$ 的相位差 $\varphi$，投输入待测电路的信号为 $\cos \omega t$，初始相位为 0。输出信号为 $\cos (\omega t+\varphi)$，相位变化为 $\varphi$</p>
+<script type="math/tex; mode=display">
 \begin{equation}
-\cos (\omega t+\varphi)=\cos \omega\left(t-t_p\right) \Rightarrow
-\varphi=-\omega t_p
-\end{equation}
-\]</span> 将同轴光子晶体效为一根折射率为 <span
-class="math inline">\(n\)</span> 的均匀同轴电线，则延时 <span
-class="math inline">\(t_p\)</span> 与等效折射率 <span
-class="math inline">\(n\)</span> 的关系为 <span class="math display">\[
+\cos (\omega t+\varphi)=\cos \omega\left(t-t_p\right) \Rightarrow \varphi=-\omega t_p
+\end{equation}</script><p>将同轴光子晶体效为一根折射率为 $n$ 的均匀同轴电线，则延时 $t_p$ 与等效折射率 $n$ 的关系为</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 t_p=\dfrac{Ln}{c}
-\end{equation}
-\]</span> 公式 (10)(11) 联立计算得到 <span class="math display">\[
+\end{equation}</script><p>公式 (10)(11) 联立计算得到</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 n=-\frac{\varphi c}{\omega L}=-\frac{\varphi c}{2 \pi f L}
-\end{equation}
-\]</span></p>
-<h2 id="电学参数理论计算mathbfa部分">电学参数理论计算<span
-class="math inline">\((\,\mathbf{A}\,\)</span>部分<span
-class="math inline">\()\)</span></h2>
-<h3 id="衰减系数和幅度">衰减系数和幅度</h3>
-<p>由电压幅度值<strong>每米减少</strong> <span
-class="math inline">\(\mathbf{0.571\%}\ll1\)</span>，从而由衰减幅度公式
-<span class="math display">\[
+\end{equation}</script><h2 id="电学参数理论计算-mathbf-A-部分"><a href="#电学参数理论计算-mathbf-A-部分" class="headerlink" title="电学参数理论计算$(\,\mathbf{A}\,$部分$)$"></a>电学参数理论计算$(\,\mathbf{A}\,$部分$)$</h2><h3 id="衰减系数和幅度"><a href="#衰减系数和幅度" class="headerlink" title="衰减系数和幅度"></a>衰减系数和幅度</h3><p>由电压幅度值<strong>每米减少</strong> $\mathbf{0.571\%}\ll1$，从而由衰减幅度公式</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 V(x)=V_0 e^{-\alpha x}
-\end{equation}
-\]</span> 取近似 <span class="math inline">\(V_0e^{-\alpha x}\approx
-V_0(1-\alpha x)\)</span>，故 <span class="math inline">\(\alpha \approx
-0.00571\)</span>，或者严格计算有 <span class="math display">\[
-\alpha =-\ln
-(1-0.571\%)=\textcolor{blue}{0.0057264}\color{blue}\text{m}^{-1}
-\]</span> 代入公式 (1) 计算 <span
-class="math inline">\(10\text{m},20\text{m},30\text{m}\)</span>
-处的幅度列表如下（保留三位小数）</p>
+\end{equation}</script><p>取近似 $V_0e^{-\alpha x}\approx V_0(1-\alpha x)$，故 $\alpha \approx 0.00571$，或者严格计算有</p>
+<script type="math/tex; mode=display">
+\alpha =-\ln (1-0.571\%)=\textcolor{blue}{0.0057264}\color{blue}\text{m}^{-1}</script><p>代入公式 (1) 计算 $10\text{m},20\text{m},30\text{m}$ 处的幅度列表如下（保留三位小数）</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>距离/m</th>
 <th>0</th>
 <th>10</th>
@@ -477,7 +385,7 @@ class="math inline">\(10\text{m},20\text{m},30\text{m}\)</span>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>幅度/V</td>
 <td>1.000</td>
 <td>0.944</td>
@@ -486,71 +394,38 @@ class="math inline">\(10\text{m},20\text{m},30\text{m}\)</span>
 </tr>
 </tbody>
 </table>
-<center>
-<figcaption>
-<b>表1</b> 信号幅度随距离的变化
-</figcaption>
-</center>
-<h3 id="电缆并联">电缆并联</h3>
-<p>由图 1 可知，记每一小段 <span class="math inline">\(\Delta x\)</span>
-对应的复阻抗为 <span class="math inline">\(\Delta Z\)</span>，总复阻抗为
-<span class="math inline">\(N\Delta
-Z\)</span>，则始末并联和每一小段处并联是等效的 <span
-class="math display">\[
-\sum_{i}\dfrac{\Delta Z\cdot \Delta Z}{\Delta Z+\Delta
-Z}=\dfrac{1}{2}\sum_{i}\Delta Z=\dfrac{\displaystyle \sum_{i}\Delta
-Z\cdot \displaystyle \sum_{i}\Delta Z}{\displaystyle \sum_{i}\Delta
-Z+\displaystyle \sum_{i}\Delta Z}
-\]</span> 由并联性质 <span class="math display">\[
-R^{\prime}=\textcolor{blue}{\dfrac{R}{2}},L^{\prime}=\textcolor{blue}{\dfrac{L}{2}},G^{\prime}=\textcolor{blue}{2G},C^{\prime}=\textcolor{blue}{2C}
-\]</span> 代入公式 (5)(6) 得 <span class="math display">\[
+</div>
+<center><figcaption><b>表1</b> 信号幅度随距离的变化</figcaption></center>
+
+<h3 id="电缆并联"><a href="#电缆并联" class="headerlink" title="电缆并联"></a>电缆并联</h3><p>由图 1 可知，记每一小段 $\Delta x$  对应的复阻抗为 $\Delta Z$，总复阻抗为 $N\Delta Z$，则始末并联和每一小段处并联是等效的</p>
+<script type="math/tex; mode=display">
+\sum_{i}\dfrac{\Delta Z\cdot \Delta Z}{\Delta Z+\Delta Z}=\dfrac{1}{2}\sum_{i}\Delta Z=\dfrac{\displaystyle \sum_{i}\Delta Z\cdot \displaystyle \sum_{i}\Delta Z}{\displaystyle \sum_{i}\Delta Z+\displaystyle \sum_{i}\Delta Z}</script><p>由并联性质</p>
+<script type="math/tex; mode=display">
+R^{\prime}=\textcolor{blue}{\dfrac{R}{2}},L^{\prime}=\textcolor{blue}{\dfrac{L}{2}},G^{\prime}=\textcolor{blue}{2G},C^{\prime}=\textcolor{blue}{2C}</script><p>代入公式 (5)(6) 得</p>
+<script type="math/tex; mode=display">
 \begin{equation}
-Z_0^{\prime}=\textcolor{blue}{\frac{1}{2} Z_0},
-\alpha^{\prime}=\textcolor{blue}{\alpha},
-\beta^{\prime}=\textcolor{blue}{\beta}
-\end{equation}
-\]</span>
-一种更简便的想法是电压相同时，电流变成原来的两倍，从而<strong>复阻抗折半</strong>，而每个电缆上的电流衰减幅度以及相位变化与原来相同，总比例也不变，从而传播系数不变。</p>
-<h3 id="高低阻抗交替连接">高低阻抗交替连接</h3>
-<p>由上问可知，高特征阻抗使用单根电缆，低特征阻抗使用并联电缆，且有
-<span class="math display">\[
+Z_0^{\prime}=\textcolor{blue}{\frac{1}{2} Z_0}, \alpha^{\prime}=\textcolor{blue}{\alpha}, \beta^{\prime}=\textcolor{blue}{\beta}
+\end{equation}</script><p>一种更简便的想法是电压相同时，电流变成原来的两倍，从而<strong>复阻抗折半</strong>，而每个电缆上的电流衰减幅度以及相位变化与原来相同，总比例也不变，从而传播系数不变。</p>
+<h3 id="高低阻抗交替连接"><a href="#高低阻抗交替连接" class="headerlink" title="高低阻抗交替连接"></a>高低阻抗交替连接</h3><p>由上问可知，高特征阻抗使用单根电缆，低特征阻抗使用并联电缆，且有</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \frac{Z_{0 H}}{Z_{0 L}}=\textcolor{blue}{2}
-\end{equation}
-\]</span> 可以通过<strong>多次并联</strong>的方法得到更高的阻抗比。</p>
-<h3 id="频率计算">频率计算</h3>
-<p>由电磁波公式 <span class="math display">\[
+\end{equation}</script><p>可以通过<strong>多次并联</strong>的方法得到更高的阻抗比。</p>
+<h3 id="频率计算"><a href="#频率计算" class="headerlink" title="频率计算"></a>频率计算</h3><p>由电磁波公式</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 f=\frac{v}{\lambda}=\frac{c}{\sqrt{\epsilon_r \mu_r} \lambda}
-\end{equation}
-\]</span> 代入计算得 <span class="math display">\[
-f_0=\frac{c}{\sqrt{\epsilon_r \mu_r} \lambda} \approx \frac{299792458
-\mathrm{~m} / s}{\sqrt{2.354} \cdot 10
-\mathrm{~m}}=\textcolor{blue}{19.540
-\mathrm{~}\mathrm{MHz}},\dfrac{1}{2}f_0=\textcolor{blue}{9.770
-\mathrm{~}\mathrm{MHz}}
-\]</span></p>
-<h2 id="间接测量色散关系mathbfb部分">间接测量色散关系<span
-class="math inline">\((\,\mathbf{B}\,\)</span>部分<span
-class="math inline">\()\)</span></h2>
-<h3 id="正常光子晶体">正常光子晶体</h3>
-<h4 id="测量数据">测量数据</h4>
-<p>以 <span class="math inline">\(1 \mathrm{MHz}\)</span> 为间隔，在
-<span class="math inline">\(1 \mathrm{MHz}\)</span> 至 <span
-class="math inline">\(20 \mathrm{MHz}\)</span>
-范围内改变频率，观察示波器 <span class="math inline">\(\mathrm{Ch}
-1\)</span> 和 <span class="math inline">\(\mathrm{Ch} 2\)</span>
-的峰峰值及其变化情况，测试电路图如下</p>
+\end{equation}</script><p>代入计算得</p>
+<script type="math/tex; mode=display">
+f_0=\frac{c}{\sqrt{\epsilon_r \mu_r} \lambda} \approx \frac{299792458 \mathrm{~m} / s}{\sqrt{2.354} \cdot 10 \mathrm{~m}}=\textcolor{blue}{19.540 \mathrm{~}\mathrm{MHz}},\dfrac{1}{2}f_0=\textcolor{blue}{9.770 \mathrm{~}\mathrm{MHz}}</script><h2 id="间接测量色散关系-mathbf-B-部分"><a href="#间接测量色散关系-mathbf-B-部分" class="headerlink" title="间接测量色散关系$(\,\mathbf{B}\,$部分$)$"></a>间接测量色散关系$(\,\mathbf{B}\,$部分$)$</h2><h3 id="正常光子晶体"><a href="#正常光子晶体" class="headerlink" title="正常光子晶体"></a>正常光子晶体</h3><h4 id="测量数据"><a href="#测量数据" class="headerlink" title="测量数据"></a>测量数据</h4><p>以 $1 \mathrm{MHz}$ 为间隔，在 $1 \mathrm{MHz}$ 至 $20 \mathrm{MHz}$ 范围内改变频率，观察示波器 $\mathrm{Ch} 1$ 和 $\mathrm{Ch} 2$ 的峰峰值及其变化情况，测试电路图如下</p>
 <p><img src="/img/同轴光子晶体实验报告/image-20221210120748918.png" srcset="/img/loading.gif" lazyload alt="image-20221210120748918" style="zoom: 33%;" /></p>
-<center>
-<figcaption>
-<b>图2</b> 同轴光子晶体测试电路
-</figcaption>
-</center>
+<center><figcaption><b>图2</b> 同轴光子晶体测试电路</figcaption></center>
+
 <p>测量数据整理如下</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>f (MHz)</th>
 <th>V1pp (V)</th>
 <th>V2pp (V)</th>
@@ -558,121 +433,121 @@ class="math inline">\(20 \mathrm{MHz}\)</span>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td>10.250</td>
 <td>9.220</td>
 <td>-72.10</td>
 </tr>
-<tr class="even">
+<tr>
 <td>2</td>
 <td>10.260</td>
 <td>9.380</td>
 <td>-139.80</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>3</td>
 <td>10.270</td>
 <td>8.750</td>
 <td>147.70</td>
 </tr>
-<tr class="even">
+<tr>
 <td>4</td>
 <td>10.280</td>
 <td>8.730</td>
 <td>80.80</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>5</td>
 <td>10.270</td>
 <td>8.250</td>
 <td>2.70</td>
 </tr>
-<tr class="even">
+<tr>
 <td>6</td>
 <td>10.320</td>
 <td>7.590</td>
 <td>-66.40</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>7</td>
 <td>10.480</td>
 <td>5.890</td>
 <td>-166.90</td>
 </tr>
-<tr class="even">
+<tr>
 <td>8</td>
 <td>10.510</td>
 <td>2.320</td>
 <td>138.10</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>9</td>
 <td>10.570</td>
 <td>1.450</td>
 <td>112.60</td>
 </tr>
-<tr class="even">
+<tr>
 <td>10</td>
 <td>10.640</td>
 <td>1.360</td>
 <td>92.10</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>11</td>
 <td>10.750</td>
 <td>1.850</td>
 <td>68.20</td>
 </tr>
-<tr class="even">
+<tr>
 <td>12</td>
 <td>10.860</td>
 <td>4.160</td>
 <td>27.00</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>13</td>
 <td>10.980</td>
 <td>8.000</td>
 <td>-63.80</td>
 </tr>
-<tr class="even">
+<tr>
 <td>14</td>
 <td>11.110</td>
 <td>8.160</td>
 <td>-145.60</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>15</td>
 <td>11.280</td>
 <td>8.770</td>
 <td>140.40</td>
 </tr>
-<tr class="even">
+<tr>
 <td>16</td>
 <td>11.450</td>
 <td>8.700</td>
 <td>71.10</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>17</td>
 <td>11.630</td>
 <td>9.190</td>
 <td>2.40</td>
 </tr>
-<tr class="even">
+<tr>
 <td>18</td>
 <td>11.810</td>
 <td>8.670</td>
 <td>-67.30</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>19</td>
 <td>12.060</td>
 <td>9.340</td>
 <td>-131.90</td>
 </tr>
-<tr class="even">
+<tr>
 <td>20</td>
 <td>12.310</td>
 <td>9.030</td>
@@ -680,323 +555,289 @@ class="math inline">\(20 \mathrm{MHz}\)</span>
 </tr>
 </tbody>
 </table>
-<center>
-<figcaption>
-<b>表2</b> 正常光子晶体Ch1 和 Ch2 峰峰值和相位差随频率变化
-</figcaption>
-</center>
-<h4 id="传输效率和等效折射率">传输效率和等效折射率</h4>
-<p>同轴晶体未接入、阻抗匹配状态下 <span
-class="math inline">\(50\Omega\)</span> 电阻上消耗的功率为 <span
-class="math inline">\(𝑃_1\)</span>，接入同轴光子晶体、阻抗匹配状态下
-<span class="math inline">\(50\Omega\)</span> 电阻上消耗的有功功率为
-<span class="math inline">\(P_2\)</span>，故计算公式如下 <span
-class="math display">\[
+</div>
+<center><figcaption><b>表2</b> 正常光子晶体Ch1 和 Ch2 峰峰值和相位差随频率变化</figcaption></center>
+
+<h4 id="传输效率和等效折射率"><a href="#传输效率和等效折射率" class="headerlink" title="传输效率和等效折射率"></a>传输效率和等效折射率</h4><p>同轴晶体未接入、阻抗匹配状态下 $50\Omega$ 电阻上消耗的功率为 $𝑃_1$，接入同轴光子晶体、阻抗匹配状态下 $50\Omega$ 电阻上消耗的有功功率为 $P_2$，故计算公式如下</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 P_i=\frac{V_i^2}{R_0} \quad i=1,2
-\end{equation}
-\]</span> 则传输效率 <span class="math display">\[
+\end{equation}</script><p>则传输效率</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \eta=\frac{P_2}{P_1}=\left(\frac{V_2}{V_1}\right)^2
-\end{equation}
-\]</span> 代入公式 (18)(12)
-计算效率以及折射率，其中相位差相对小频率来说需要减去 <span
-class="math inline">\(360^{\circ}\)</span>
-的整数倍，保证相位差是单调递减的，计算以及列表如下</p>
+\end{equation}</script><p>代入公式 (18)(12) 计算效率以及折射率，其中相位差相对小频率来说需要减去 $360^{\circ}$ 的整数倍，保证相位差是单调递减的，计算以及列表如下</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: center;">f (MHz)</th>
-<th style="text-align: center;">φ' (°)</th>
-<th style="text-align: center;">η</th>
-<th style="text-align: center;">n</th>
+<tr>
+<th style="text-align:center">f (MHz)</th>
+<th style="text-align:center">φ’ (°)</th>
+<th style="text-align:center">η</th>
+<th style="text-align:center">n</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">-72.10</td>
-<td style="text-align: center;">80.91%</td>
-<td style="text-align: center;">1.71548</td>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">-72.10</td>
+<td style="text-align:center">80.91%</td>
+<td style="text-align:center">1.71548</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">-139.80</td>
-<td style="text-align: center;">83.58%</td>
-<td style="text-align: center;">1.66313</td>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">-139.80</td>
+<td style="text-align:center">83.58%</td>
+<td style="text-align:center">1.66313</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">-212.30</td>
-<td style="text-align: center;">72.59%</td>
-<td style="text-align: center;">1.68375</td>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">-212.30</td>
+<td style="text-align:center">72.59%</td>
+<td style="text-align:center">1.68375</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">-279.20</td>
-<td style="text-align: center;">72.12%</td>
-<td style="text-align: center;">1.66076</td>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">-279.20</td>
+<td style="text-align:center">72.12%</td>
+<td style="text-align:center">1.66076</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">-357.30</td>
-<td style="text-align: center;">64.53%</td>
-<td style="text-align: center;">1.70025</td>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">-357.30</td>
+<td style="text-align:center">64.53%</td>
+<td style="text-align:center">1.70025</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">-426.40</td>
-<td style="text-align: center;">54.09%</td>
-<td style="text-align: center;">1.69089</td>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">-426.40</td>
+<td style="text-align:center">54.09%</td>
+<td style="text-align:center">1.69089</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td style="text-align: center;">-526.90</td>
-<td style="text-align: center;">31.59%</td>
-<td style="text-align: center;">1.79094</td>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">-526.90</td>
+<td style="text-align:center">31.59%</td>
+<td style="text-align:center">1.79094</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">8</td>
-<td style="text-align: center;">-581.90</td>
-<td style="text-align: center;">4.87%</td>
-<td style="text-align: center;">1.73065</td>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">-581.90</td>
+<td style="text-align:center">4.87%</td>
+<td style="text-align:center">1.73065</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">9</td>
-<td style="text-align: center;">-607.40</td>
-<td style="text-align: center;">1.88%</td>
-<td style="text-align: center;">1.60577</td>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">-607.40</td>
+<td style="text-align:center">1.88%</td>
+<td style="text-align:center">1.60577</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">-627.90</td>
-<td style="text-align: center;">1.63%</td>
-<td style="text-align: center;">1.49397</td>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">-627.90</td>
+<td style="text-align:center">1.63%</td>
+<td style="text-align:center">1.49397</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">11</td>
-<td style="text-align: center;">-651.80</td>
-<td style="text-align: center;">2.96%</td>
-<td style="text-align: center;">1.40985</td>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">-651.80</td>
+<td style="text-align:center">2.96%</td>
+<td style="text-align:center">1.40985</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">12</td>
-<td style="text-align: center;">-693.00</td>
-<td style="text-align: center;">14.67%</td>
-<td style="text-align: center;">1.37405</td>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">-693.00</td>
+<td style="text-align:center">14.67%</td>
+<td style="text-align:center">1.37405</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">13</td>
-<td style="text-align: center;">-783.80</td>
-<td style="text-align: center;">53.09%</td>
-<td style="text-align: center;">1.43454</td>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">-783.80</td>
+<td style="text-align:center">53.09%</td>
+<td style="text-align:center">1.43454</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">14</td>
-<td style="text-align: center;">-865.60</td>
-<td style="text-align: center;">53.95%</td>
-<td style="text-align: center;">1.47109</td>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">-865.60</td>
+<td style="text-align:center">53.95%</td>
+<td style="text-align:center">1.47109</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">15</td>
-<td style="text-align: center;">-939.60</td>
-<td style="text-align: center;">60.45%</td>
-<td style="text-align: center;">1.49040</td>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">-939.60</td>
+<td style="text-align:center">60.45%</td>
+<td style="text-align:center">1.49040</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">16</td>
-<td style="text-align: center;">-1008.90</td>
-<td style="text-align: center;">57.73%</td>
-<td style="text-align: center;">1.50030</td>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">-1008.90</td>
+<td style="text-align:center">57.73%</td>
+<td style="text-align:center">1.50030</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">17</td>
-<td style="text-align: center;">-1077.60</td>
-<td style="text-align: center;">62.44%</td>
-<td style="text-align: center;">1.50820</td>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">-1077.60</td>
+<td style="text-align:center">62.44%</td>
+<td style="text-align:center">1.50820</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">18</td>
-<td style="text-align: center;">-1147.30</td>
-<td style="text-align: center;">53.89%</td>
-<td style="text-align: center;">1.51654</td>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">-1147.30</td>
+<td style="text-align:center">53.89%</td>
+<td style="text-align:center">1.51654</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">19</td>
-<td style="text-align: center;">-1211.90</td>
-<td style="text-align: center;">59.98%</td>
-<td style="text-align: center;">1.51762</td>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">-1211.90</td>
+<td style="text-align:center">59.98%</td>
+<td style="text-align:center">1.51762</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">20</td>
-<td style="text-align: center;">-1284.50</td>
-<td style="text-align: center;">53.81%</td>
-<td style="text-align: center;">1.52811</td>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:center">-1284.50</td>
+<td style="text-align:center">53.81%</td>
+<td style="text-align:center">1.52811</td>
 </tr>
 </tbody>
 </table>
-<center>
-<figcaption>
-<b>表3</b> 正常光子晶体传输效率与等效折射率计算表格
-</figcaption>
-</center>
+</div>
+<center><figcaption><b>表3</b> 正常光子晶体传输效率与等效折射率计算表格</figcaption></center>
+
 <p>其效率和频率关系如下</p>
 <p><img src="/img/同轴光子晶体实验报告/eta-f.svg" srcset="/img/loading.gif" lazyload alt="eta-f" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图3</b> 正常光子晶体传输效率与频率关系曲线
-</figcaption>
-</center>
+<center><figcaption><b>图3</b> 正常光子晶体传输效率与频率关系曲线</figcaption></center>
+
 <p>等效折射率与频率的变化如下</p>
 <p><img src="/img/同轴光子晶体实验报告/n-f.svg" srcset="/img/loading.gif" lazyload alt="n-f" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图4</b> 正常光子晶体等效折射率与频率关系曲线
-</figcaption>
-</center>
-<p>由图表可得 <span
-class="math inline">\(f=\textcolor{blue}{1,2,3,4,5,13,14,15,16,17,18,19,20
-\mathrm{MHz}}\)</span> 为通带, <span
-class="math inline">\(f=\textcolor{blue}{8,9,10,11
-\mathrm{MHz}}\)</span> 为带隙，在 <span
-class="math inline">\(f=\textcolor{blue}{7,8,9,10,11 M H Z}\)</span>
-出现反常色散。</p>
-<h4 id="群速度">群速度</h4>
-<p>代入公式 (9) ，其中离散化处理 <span
-class="math inline">\(\dfrac{dn}{d\omega}\approx\dfrac{n_{k+1}-n_k}{\omega_{k+1}-\omega_{k}},k=1,\cdots,19\)</span>，列表如下（取
-<span class="math inline">\(\dfrac{v_g}{c}\)</span> 为纵坐标）</p>
+<center><figcaption><b>图4</b> 正常光子晶体等效折射率与频率关系曲线</figcaption></center>
+
+<p>由图表可得 $f=\textcolor{blue}{1,2,3,4,5,13,14,15,16,17,18,19,20 \mathrm{MHz}}$ 为通带, $f=\textcolor{blue}{8,9,10,11 \mathrm{MHz}}$ 为带隙，在 $f=\textcolor{blue}{7,8,9,10,11 M H Z}$ 出现反常色散。</p>
+<h4 id="群速度"><a href="#群速度" class="headerlink" title="群速度"></a>群速度</h4><p>代入公式 (9) ，其中离散化处理 $\dfrac{dn}{d\omega}\approx\dfrac{n_{k+1}-n_k}{\omega_{k+1}-\omega_{k}},k=1,\cdots,19$，列表如下（取 $\dfrac{v_g}{c}$ 为纵坐标）</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>f (MHz)</th>
 <th>ωdn/dω</th>
 <th>vg/c</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td>-0.05234</td>
 <td>0.60127</td>
 </tr>
-<tr class="even">
+<tr>
 <td>2</td>
 <td>0.04124</td>
 <td>0.58673</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>3</td>
 <td>-0.06900</td>
 <td>0.61929</td>
 </tr>
-<tr class="even">
+<tr>
 <td>4</td>
 <td>0.15799</td>
 <td>0.54983</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>5</td>
 <td>-0.04679</td>
 <td>0.60479</td>
 </tr>
-<tr class="even">
+<tr>
 <td>6</td>
 <td>0.60026</td>
 <td>0.43646</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>7</td>
 <td>-0.42203</td>
 <td>0.73051</td>
 </tr>
-<tr class="even">
+<tr>
 <td>8</td>
 <td>-0.99904</td>
 <td>1.36686</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>9</td>
 <td>-1.00621</td>
 <td>1.66789</td>
 </tr>
-<tr class="even">
+<tr>
 <td>10</td>
 <td>-0.84119</td>
 <td>1.53193</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>11</td>
 <td>-0.39378</td>
 <td>0.98418</td>
 </tr>
-<tr class="even">
+<tr>
 <td>12</td>
 <td>0.72587</td>
 <td>0.47621</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>13</td>
 <td>0.47518</td>
 <td>0.52364</td>
 </tr>
-<tr class="even">
+<tr>
 <td>14</td>
 <td>0.27029</td>
 <td>0.57426</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>15</td>
 <td>0.14856</td>
 <td>0.61015</td>
 </tr>
-<tr class="even">
+<tr>
 <td>16</td>
 <td>0.12638</td>
 <td>0.61475</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>17</td>
 <td>0.14183</td>
 <td>0.60605</td>
 </tr>
-<tr class="even">
+<tr>
 <td>18</td>
 <td>0.01941</td>
 <td>0.65106</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>19</td>
 <td>0.19927</td>
 <td>0.58245</td>
 </tr>
-<tr class="even">
+<tr>
 <td>20</td>
 <td>N/A</td>
 <td>N/A</td>
 </tr>
 </tbody>
 </table>
-<center>
-<figcaption>
-<b>表4</b> 正常光子晶体群速度计算表格
-</figcaption>
-</center>
+</div>
+<center><figcaption><b>表4</b> 正常光子晶体群速度计算表格</figcaption></center>
+
 <p>将群速度和频率作图如下</p>
 <p><img src="/img/同轴光子晶体实验报告/vg_c-f.svg" srcset="/img/loading.gif" lazyload alt="vg:c-f" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图5</b> 正常光子晶体群速度与频率关系曲线
-</figcaption>
-</center>
-<p>可以在处于反常色散频率时群速度可能超光速（对应 <span
-class="math inline">\(f=8 ,9 ,10\text{MHz}\)</span>）。</p>
-<h3 id="缺陷光子晶体">缺陷光子晶体</h3>
-<h4 id="测量数据-1">测量数据</h4>
-<p>在同轴光子晶体中增加一根同轴电缆，形成有缺陷的同轴电缆，按照
-<strong>4.1</strong> 节内容测量数据结果如下</p>
+<center><figcaption><b>图5</b> 正常光子晶体群速度与频率关系曲线</figcaption></center>
+
+<p>可以在处于反常色散频率时群速度可能超光速（对应 $f=8 ,9 ,10\text{MHz}$）。</p>
+<h3 id="缺陷光子晶体"><a href="#缺陷光子晶体" class="headerlink" title="缺陷光子晶体"></a>缺陷光子晶体</h3><h4 id="测量数据-1"><a href="#测量数据-1" class="headerlink" title="测量数据"></a>测量数据</h4><p>在同轴光子晶体中增加一根同轴电缆，形成有缺陷的同轴电缆，按照 <strong>4.1</strong>  节内容测量数据结果如下</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>f (MHz)</th>
 <th>V1pp (V)</th>
 <th>V2pp (V)</th>
@@ -1004,121 +845,121 @@ class="math inline">\(f=8 ,9 ,10\text{MHz}\)</span>）。</p>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td>10.250</td>
 <td>9.280</td>
 <td>-81.60</td>
 </tr>
-<tr class="even">
+<tr>
 <td>2</td>
 <td>10.260</td>
 <td>9.210</td>
 <td>-163.30</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>3</td>
 <td>10.270</td>
 <td>7.860</td>
 <td>119.80</td>
 </tr>
-<tr class="even">
+<tr>
 <td>4</td>
 <td>10.280</td>
 <td>8.570</td>
 <td>44.90</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>5</td>
 <td>10.260</td>
 <td>8.540</td>
 <td>-45.00</td>
 </tr>
-<tr class="even">
+<tr>
 <td>6</td>
 <td>10.310</td>
 <td>6.110</td>
 <td>-148.40</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>7</td>
 <td>10.380</td>
 <td>2.660</td>
 <td>150.00</td>
 </tr>
-<tr class="even">
+<tr>
 <td>8</td>
 <td>10.430</td>
 <td>1.980</td>
 <td>118.80</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>9</td>
 <td>10.490</td>
 <td>2.950</td>
 <td>84.30</td>
 </tr>
-<tr class="even">
+<tr>
 <td>10</td>
 <td>10.560</td>
 <td>4.990</td>
 <td>-34.40</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>11</td>
 <td>10.670</td>
 <td>2.340</td>
 <td>-90.10</td>
 </tr>
-<tr class="even">
+<tr>
 <td>12</td>
 <td>10.790</td>
 <td>2.340</td>
 <td>-122.70</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>13</td>
 <td>10.910</td>
 <td>4.550</td>
 <td>-172.50</td>
 </tr>
-<tr class="even">
+<tr>
 <td>14</td>
 <td>11.030</td>
 <td>7.790</td>
 <td>96.50</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>15</td>
 <td>11.190</td>
 <td>8.470</td>
 <td>4.30</td>
 </tr>
-<tr class="even">
+<tr>
 <td>16</td>
 <td>11.370</td>
 <td>7.760</td>
 <td>-76.20</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>17</td>
 <td>11.530</td>
 <td>8.570</td>
 <td>-151.80</td>
 </tr>
-<tr class="even">
+<tr>
 <td>18</td>
 <td>11.720</td>
 <td>8.490</td>
 <td>126.90</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>19</td>
 <td>11.960</td>
 <td>8.930</td>
 <td>51.80</td>
 </tr>
-<tr class="even">
+<tr>
 <td>20</td>
 <td>12.220</td>
 <td>8.670</td>
@@ -1126,138 +967,136 @@ class="math inline">\(f=8 ,9 ,10\text{MHz}\)</span>）。</p>
 </tr>
 </tbody>
 </table>
-<center>
-<figcaption>
-<b>表5</b> 缺陷光子晶体Ch1 和 Ch2 峰峰值和相位差随频率变化
-</figcaption>
-</center>
-<h4 id="传输效率和等效折射率-1">传输效率和等效折射率</h4>
-<p>同理代入公式 (16)(12) 列表如下</p>
+</div>
+<center><figcaption><b>表5</b> 缺陷光子晶体Ch1 和 Ch2 峰峰值和相位差随频率变化</figcaption></center>
+
+<h4 id="传输效率和等效折射率-1"><a href="#传输效率和等效折射率-1" class="headerlink" title="传输效率和等效折射率"></a>传输效率和等效折射率</h4><p>同理代入公式 (16)(12) 列表如下</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>f (MHz)</th>
-<th>φ' (°)</th>
+<th>φ’ (°)</th>
 <th>η</th>
 <th>n</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td>-81.60</td>
 <td>81.97%</td>
 <td>1.94151</td>
 </tr>
-<tr class="even">
+<tr>
 <td>2</td>
 <td>-163.30</td>
 <td>80.58%</td>
 <td>1.94270</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>3</td>
 <td>-240.20</td>
 <td>58.57%</td>
 <td>1.90503</td>
 </tr>
-<tr class="even">
+<tr>
 <td>4</td>
 <td>-315.10</td>
 <td>69.50%</td>
 <td>1.87430</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>5</td>
 <td>-405.00</td>
 <td>69.28%</td>
 <td>1.92724</td>
 </tr>
-<tr class="even">
+<tr>
 <td>6</td>
 <td>-508.40</td>
 <td>35.12%</td>
 <td>2.01606</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>7</td>
 <td>-570.00</td>
 <td>6.57%</td>
 <td>1.93743</td>
 </tr>
-<tr class="even">
+<tr>
 <td>8</td>
 <td>-601.20</td>
 <td>3.60%</td>
 <td>1.78805</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>9</td>
 <td>-635.70</td>
 <td>7.91%</td>
 <td>1.68058</td>
 </tr>
-<tr class="even">
+<tr>
 <td>10</td>
 <td>-754.40</td>
 <td>22.33%</td>
 <td>1.79495</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>11</td>
 <td>-810.10</td>
 <td>4.81%</td>
 <td>1.75225</td>
 </tr>
-<tr class="even">
+<tr>
 <td>12</td>
 <td>-842.70</td>
 <td>4.70%</td>
 <td>1.67087</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>13</td>
 <td>-892.50</td>
 <td>17.39%</td>
 <td>1.63348</td>
 </tr>
-<tr class="even">
+<tr>
 <td>14</td>
 <td>-983.50</td>
 <td>49.88%</td>
 <td>1.67146</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>15</td>
 <td>-1075.70</td>
 <td>57.29%</td>
 <td>1.70628</td>
 </tr>
-<tr class="even">
+<tr>
 <td>16</td>
 <td>-1156.20</td>
 <td>46.58%</td>
 <td>1.71935</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>17</td>
 <td>-1231.80</td>
 <td>55.25%</td>
 <td>1.72402</td>
 </tr>
-<tr class="even">
+<tr>
 <td>18</td>
 <td>-1313.10</td>
 <td>52.48%</td>
 <td>1.73570</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>19</td>
 <td>-1388.20</td>
 <td>55.75%</td>
 <td>1.73840</td>
 </tr>
-<tr class="even">
+<tr>
 <td>20</td>
 <td>-1467.30</td>
 <td>50.34%</td>
@@ -1265,31 +1104,21 @@ class="math inline">\(f=8 ,9 ,10\text{MHz}\)</span>）。</p>
 </tr>
 </tbody>
 </table>
-<center>
-<figcaption>
-<b>表6</b> 缺陷光子晶体传输效率与等效折射率计算表格
-</figcaption>
-</center>
-<p>其效率和频率关系如下，其中透射峰使用 <span
-class="math inline">\(\textcolor{red}{\swarrow}\)</span>
-标出，两侧由于多项式拟合的边界效应其峰可以排除</p>
+</div>
+<center><figcaption><b>表6</b> 缺陷光子晶体传输效率与等效折射率计算表格</figcaption></center>
+
+<p>其效率和频率关系如下，其中透射峰使用 $\textcolor{red}{\swarrow}$ 标出，两侧由于多项式拟合的边界效应其峰可以排除</p>
 <p><img src="/img/同轴光子晶体实验报告/eta-f-2.svg" srcset="/img/loading.gif" lazyload alt="eta-f-2" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图6</b> 缺陷光子晶体传输效率与频率关系曲线
-</figcaption>
-</center>
+<center><figcaption><b>图6</b> 缺陷光子晶体传输效率与频率关系曲线</figcaption></center>
+
 <p><img src="/img/同轴光子晶体实验报告/n-f-2.svg" srcset="/img/loading.gif" lazyload alt="n-f-2" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图7</b> 缺陷光子晶体等效折射率与频率关系曲线
-</figcaption>
-</center>
-<p>计算<strong>表 6</strong>和<strong>表
-3</strong>计算的传输效率之比，列表如下</p>
+<center><figcaption><b>图7</b> 缺陷光子晶体等效折射率与频率关系曲线</figcaption></center>
+
+<p>计算<strong>表 6</strong>和<strong>表 3</strong>计算的传输效率之比，列表如下</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>f (MHz)</th>
 <th>η1</th>
 <th>η2</th>
@@ -1297,121 +1126,121 @@ class="math inline">\(\textcolor{red}{\swarrow}\)</span>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td>80.91%</td>
 <td>81.97%</td>
 <td>1.013</td>
 </tr>
-<tr class="even">
+<tr>
 <td>2</td>
 <td>83.58%</td>
 <td>80.58%</td>
 <td>0.964</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>3</td>
 <td>72.59%</td>
 <td>58.57%</td>
 <td>0.807</td>
 </tr>
-<tr class="even">
+<tr>
 <td>4</td>
 <td>72.12%</td>
 <td>69.50%</td>
 <td>0.964</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>5</td>
 <td>64.53%</td>
 <td>69.28%</td>
 <td>1.074</td>
 </tr>
-<tr class="even">
+<tr>
 <td>6</td>
 <td>54.09%</td>
 <td>35.12%</td>
 <td>0.649</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>7</td>
 <td>31.59%</td>
 <td>6.57%</td>
 <td>0.208</td>
 </tr>
-<tr class="even">
+<tr>
 <td>8</td>
 <td>4.87%</td>
 <td>3.60%</td>
 <td>0.740</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>9</td>
 <td>1.88%</td>
 <td>7.91%</td>
 <td>4.202</td>
 </tr>
-<tr class="even">
+<tr>
 <td>10</td>
 <td>1.63%</td>
 <td>22.33%</td>
 <td>13.667</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>11</td>
 <td>2.96%</td>
 <td>4.81%</td>
 <td>1.624</td>
 </tr>
-<tr class="even">
+<tr>
 <td>12</td>
 <td>14.67%</td>
 <td>4.70%</td>
 <td>0.321</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>13</td>
 <td>53.09%</td>
 <td>17.39%</td>
 <td>0.328</td>
 </tr>
-<tr class="even">
+<tr>
 <td>14</td>
 <td>53.95%</td>
 <td>49.88%</td>
 <td>0.925</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>15</td>
 <td>60.45%</td>
 <td>57.29%</td>
 <td>0.948</td>
 </tr>
-<tr class="even">
+<tr>
 <td>16</td>
 <td>57.73%</td>
 <td>46.58%</td>
 <td>0.807</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>17</td>
 <td>62.44%</td>
 <td>55.25%</td>
 <td>0.885</td>
 </tr>
-<tr class="even">
+<tr>
 <td>18</td>
 <td>53.89%</td>
 <td>52.48%</td>
 <td>0.974</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>19</td>
 <td>59.98%</td>
 <td>55.75%</td>
 <td>0.929</td>
 </tr>
-<tr class="even">
+<tr>
 <td>20</td>
 <td>53.81%</td>
 <td>50.34%</td>
@@ -1419,188 +1248,152 @@ class="math inline">\(\textcolor{red}{\swarrow}\)</span>
 </tr>
 </tbody>
 </table>
-<center>
-<figcaption>
-<b>表7</b> 缺陷光子晶体传输效率与正常光子晶体传输效率之比
-</figcaption>
-</center>
+</div>
+<center><figcaption><b>表7</b> 缺陷光子晶体传输效率与正常光子晶体传输效率之比</figcaption></center>
+
 <p>将两者的传输效率之比绘图如下</p>
 <p><img src="/img/同轴光子晶体实验报告/eta2_eta1-f.svg" srcset="/img/loading.gif" lazyload alt="eta2:eta1-f" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图8</b> 两种光子晶体传输效率之比随频率的变化曲线
-</figcaption>
-</center>
-<p>可以看出在 <span class="math inline">\(f=9,10,11\text{MHz}\)</span>
-处的效率提升非常显著，其余基本在 <span class="math inline">\(1\)</span>
-附近波动。</p>
-<h4 id="群速度-1">群速度</h4>
-<p>同理离散化代入公式 (9) 计算群速度，列表如下</p>
+<center><figcaption><b>图8</b> 两种光子晶体传输效率之比随频率的变化曲线</figcaption></center>
+
+<p>可以看出在 $f=9,10,11\text{MHz}$ 处的效率提升非常显著，其余基本在 $1$ 附近波动。</p>
+<h4 id="群速度-1"><a href="#群速度-1" class="headerlink" title="群速度"></a>群速度</h4><p>同理离散化代入公式 (9) 计算群速度，列表如下</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>f (MHz)</th>
 <th>ωdn/dω</th>
 <th>vg/c</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td>0.00119</td>
 <td>0.51475</td>
 </tr>
-<tr class="even">
+<tr>
 <td>2</td>
 <td>-0.07534</td>
 <td>0.53552</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>3</td>
 <td>-0.09220</td>
 <td>0.55162</td>
 </tr>
-<tr class="even">
+<tr>
 <td>4</td>
 <td>0.21176</td>
 <td>0.47937</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>5</td>
 <td>0.44414</td>
 <td>0.42170</td>
 </tr>
-<tr class="even">
+<tr>
 <td>6</td>
 <td>-0.47178</td>
 <td>0.64755</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>7</td>
 <td>-1.04570</td>
 <td>1.12142</td>
 </tr>
-<tr class="even">
+<tr>
 <td>8</td>
 <td>-0.85972</td>
 <td>1.07721</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>9</td>
 <td>1.02929</td>
 <td>0.36902</td>
 </tr>
-<tr class="even">
+<tr>
 <td>10</td>
 <td>-0.42698</td>
 <td>0.73101</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>11</td>
 <td>-0.89521</td>
 <td>1.16681</td>
 </tr>
-<tr class="even">
+<tr>
 <td>12</td>
 <td>-0.44859</td>
 <td>0.81815</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>13</td>
 <td>0.49371</td>
 <td>0.47010</td>
 </tr>
-<tr class="even">
+<tr>
 <td>14</td>
 <td>0.48744</td>
 <td>0.46320</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>15</td>
 <td>0.19600</td>
 <td>0.52569</td>
 </tr>
-<tr class="even">
+<tr>
 <td>16</td>
 <td>0.07474</td>
 <td>0.55739</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>17</td>
 <td>0.19867</td>
 <td>0.52011</td>
 </tr>
-<tr class="even">
+<tr>
 <td>18</td>
 <td>0.04846</td>
 <td>0.56049</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>19</td>
 <td>0.13645</td>
 <td>0.53338</td>
 </tr>
-<tr class="even">
+<tr>
 <td>20</td>
 <td>N/A</td>
 <td>N/A</td>
 </tr>
 </tbody>
 </table>
-<center>
-<figcaption>
-<b>表8</b> 缺陷光子晶体群速度计算表格
-</figcaption>
-</center>
+</div>
+<center><figcaption><b>表8</b> 缺陷光子晶体群速度计算表格</figcaption></center>
+
 <p>其群速度和频率的曲线绘制如下</p>
 <p><img src="/img/同轴光子晶体实验报告/vg_c-f-2.svg" srcset="/img/loading.gif" lazyload alt="vg:c-f-2" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图9</b> 正常光子晶体和缺陷光子晶体群速度对比曲线
-</figcaption>
-</center>
-<p>由图像可知，在 <span class="math inline">\(f=9\text{MHz}\)</span>
-处出现强正常色散，该处的 <span class="math inline">\(v_g\)</span>
-显著小于 <span class="math inline">\(c\)</span>，为慢光速现象。</p>
-<h2 id="色散关系直接测量mathbfc部分">色散关系直接测量<span
-class="math inline">\((\,\mathbf{C}\,\)</span>部分<span
-class="math inline">\()\)</span></h2>
-<h3 id="特征频率">特征频率</h3>
-<p>在 50 kHz 至 150 kHz
-范围内改变信号发生器频率，观察脉冲信号的波形、幅度和延时变化情况。从上到下分别为
-<span class="math inline">\(114、130、160 \text{ kHz}\)</span>
-时的波形，前两者为幅度最小的两个频率，后者为频率之间信号幅度最大且延时最长的频率。</p>
+<center><figcaption><b>图9</b> 正常光子晶体和缺陷光子晶体群速度对比曲线</figcaption></center>
+
+<p>由图像可知，在 $f=9\text{MHz}$ 处出现强正常色散，该处的 $v_g$ 显著小于 $c$，为慢光速现象。</p>
+<h2 id="色散关系直接测量-mathbf-C-部分"><a href="#色散关系直接测量-mathbf-C-部分" class="headerlink" title="色散关系直接测量$(\,\mathbf{C}\,$部分$)$"></a>色散关系直接测量$(\,\mathbf{C}\,$部分$)$</h2><h3 id="特征频率"><a href="#特征频率" class="headerlink" title="特征频率"></a>特征频率</h3><p>在 50 kHz 至 150 kHz 范围内改变信号发生器频率，观察脉冲信号的波形、幅度和延时变化情况。从上到下分别为 $114、130、160 \text{ kHz}$ 时的波形，前两者为幅度最小的两个频率，后者为频率之间信号幅度最大且延时最长的频率。</p>
 <p><img src="/img/同轴光子晶体实验报告/image-20221210211706993.png" srcset="/img/loading.gif" lazyload alt="image-20221210211706993" style="zoom: 40%;" /></p>
-<center>
-<figcaption>
-<b>图10</b> 频率为 114kHz 脉冲信号波形
-</figcaption>
-</center>
+<center><figcaption><b>图10</b> 频率为 114kHz 脉冲信号波形</figcaption></center>
+
 <p><img src="/img/同轴光子晶体实验报告/image-20221210212548917.png" srcset="/img/loading.gif" lazyload alt="image-20221210212548917" style="zoom:40%;" /></p>
-<center>
-<figcaption>
-<b>图11</b> 频率为 130kHz 脉冲信号波形
-</figcaption>
-</center>
+<center><figcaption><b>图11</b> 频率为 130kHz 脉冲信号波形</figcaption></center>
+
 <p><img src="/img/同轴光子晶体实验报告/image-20221210212612934.png" srcset="/img/loading.gif" lazyload alt="image-20221210212612934" style="zoom:40%;" /></p>
-<center>
-<figcaption>
-<b>图12</b> 频率为 160kHz 脉冲信号波形
-</figcaption>
-</center>
-<h3 id="群速度计算">群速度计算</h3>
-<p>对图片截图计算中心波腹的延迟像素与示波器背景单位格点像素比例，例如对第一张图两者像素为
-333 和 543，故其延迟时间为 <span class="math display">\[
-t_1=\frac{333 \mathrm{~pix}}{543 \mathrm{~pix}} \cdot 500
-\mathrm{~ns}=306.6\text{~ns}
-\]</span> 同理对三幅图片处理列表如下，其中由于设置 <span
-class="math inline">\(100T\)</span>
-脉冲波形，高频正弦波信号的频率为原始频率的 <span
-class="math inline">\(100\)</span> 倍，使用 <span
-class="math inline">\(\text{MHz}\)</span> 单位方便统一</p>
+<center><figcaption><b>图12</b> 频率为 160kHz 脉冲信号波形</figcaption></center>
+
+<h3 id="群速度计算"><a href="#群速度计算" class="headerlink" title="群速度计算"></a>群速度计算</h3><p>对图片截图计算中心波腹的延迟像素与示波器背景单位格点像素比例，例如对第一张图两者像素为 333 和 543，故其延迟时间为</p>
+<script type="math/tex; mode=display">
+t_1=\frac{333 \mathrm{~pix}}{543 \mathrm{~pix}} \cdot 500 \mathrm{~ns}=306.6\text{~ns}</script><p>同理对三幅图片处理列表如下，其中由于设置 $100T$ 脉冲波形，高频正弦波信号的频率为原始频率的 $100$ 倍，使用 $\text{MHz}$ 单位方便统一</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>f (MHz)</th>
 <th>基准像素</th>
 <th>波腹像素</th>
@@ -1608,19 +1401,19 @@ class="math inline">\(\text{MHz}\)</span> 单位方便统一</p>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>11.4</td>
 <td>543</td>
 <td>333</td>
 <td>306.6</td>
 </tr>
-<tr class="even">
+<tr>
 <td>13.0</td>
 <td>493</td>
 <td>99</td>
 <td>100.4</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>16.0</td>
 <td>498</td>
 <td>164</td>
@@ -1628,107 +1421,82 @@ class="math inline">\(\text{MHz}\)</span> 单位方便统一</p>
 </tr>
 </tbody>
 </table>
-<center>
-<figcaption>
-<b>表9</b> 像素法延时长度计算
-</figcaption>
-</center>
-<p>由群速度代表波包的运动，<span
-class="math inline">\(v_{g}=\dfrac{l}{\Delta t}\)</span>，计算 <span
-class="math inline">\(\dfrac{v_g}{c}=\dfrac{l}{c\Delta t}\)</span>
-列表如下</p>
+</div>
+<center><figcaption><b>表9</b> 像素法延时长度计算</figcaption></center>
+
+<p>由群速度代表波包的运动，$v_{g}=\dfrac{l}{\Delta t}$，计算 $\dfrac{v_g}{c}=\dfrac{l}{c\Delta t}$ 列表如下</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>f (MHz)</th>
 <th>vg/c</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>11.4</td>
 <td>0.3807</td>
 </tr>
-<tr class="even">
+<tr>
 <td>13.0</td>
 <td>1.1628</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>16.0</td>
 <td>0.7090</td>
 </tr>
 </tbody>
 </table>
-<center>
-<figcaption>
-<b>表10</b> 群速度直接测量结果
-</figcaption>
-</center>
-<p>将该结果标注在<strong>图5</strong>中如下，其中 <span
-class="math inline">\(\textcolor{red}{\bullet}\)</span> 代表测量点</p>
+</div>
+<center><figcaption><b>表10</b> 群速度直接测量结果</figcaption></center>
+
+<p>将该结果标注在<strong>图5</strong>中如下，其中 $\textcolor{red}{\bullet}$ 代表测量点</p>
 <p><img src="/img/同轴光子晶体实验报告/vg_c-f-2-scatter.svg" srcset="/img/loading.gif" lazyload alt="vg:c-f-2-scatter" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图13</b> 利用脉冲直接测量和间接测量群速度比对
-</figcaption>
-</center>
+<center><figcaption><b>图13</b> 利用脉冲直接测量和间接测量群速度比对</figcaption></center>
+
 <p>可以发现，除中间点外，测量结果基本符合预期。</p>
-<h2 id="传输特性理论计算mathbfd.1-d.4部分">传输特性理论计算<span
-class="math inline">\((\,\mathbf{D.1-D.4}\,\)</span>部分<span
-class="math inline">\()\)</span></h2>
-<h3 id="叠加电压求解">叠加电压求解</h3>
-<p>由公式 (6) 的两个方程反解得 <span class="math display">\[
+<h2 id="传输特性理论计算-mathbf-D-1-D-4-部分"><a href="#传输特性理论计算-mathbf-D-1-D-4-部分" class="headerlink" title="传输特性理论计算$(\,\mathbf{D.1-D.4}\,$部分$)$"></a>传输特性理论计算$(\,\mathbf{D.1-D.4}\,$部分$)$</h2><h3 id="叠加电压求解"><a href="#叠加电压求解" class="headerlink" title="叠加电压求解"></a>叠加电压求解</h3><p>由公式 (6) 的两个方程反解得</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \begin{cases}
 V_0^{+} =\dfrac{1}{2}\left(v_2+Z_0 i_2\right) e^{\gamma l} \\
 V_0^{-} =\dfrac{1}{2}\left(v_2-Z_0 i_2\right) e^{-\gamma l}
 \end{cases}
-\end{equation}
-\]</span></p>
-<h3 id="传递矩阵计算">传递矩阵计算</h3>
-<p>取 <span class="math inline">\(x=0\)</span> 的点对应 <span
-class="math inline">\(v_1,i_1\)</span> <span class="math display">\[
+\end{equation}</script><h3 id="传递矩阵计算"><a href="#传递矩阵计算" class="headerlink" title="传递矩阵计算"></a>传递矩阵计算</h3><p>取 $x=0$ 的点对应 $v_1,i_1$</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \begin{cases}
 v_1=v^{+}(0)+v^{-}(0)=V_0^{+}+V_0^{-} \\
 i_1=i^{+}(0)+i^{-}(0)=\dfrac{1}{Z_0}\left(V_0^{+}-V_0^{-}\right)
 \end{cases}
-\end{equation}
-\]</span> 代入公式 (17) 得 <span class="math display">\[
+\end{equation}</script><p>代入公式 (17) 得</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \begin{aligned}
-v_1 &amp; =\frac{1}{2}\left(v_2+Z_0 i_2\right) e^{\gamma
-l}+\frac{1}{2}\left(v_2-Z_0 i_2\right) e^{-\gamma l} \\
-i_1 &amp; =\frac{1}{Z_0}\left(\frac{1}{2}\left(v_2+Z_0 i_2\right)
-e^{\gamma l}-\frac{1}{2}\left(v_2-Z_0 i_2\right) e^{-\gamma l}\right)
+v_1 & =\frac{1}{2}\left(v_2+Z_0 i_2\right) e^{\gamma l}+\frac{1}{2}\left(v_2-Z_0 i_2\right) e^{-\gamma l} \\
+i_1 & =\frac{1}{Z_0}\left(\frac{1}{2}\left(v_2+Z_0 i_2\right) e^{\gamma l}-\frac{1}{2}\left(v_2-Z_0 i_2\right) e^{-\gamma l}\right)
 \end{aligned}
-\end{equation}
-\]</span> 写成矩阵的形式如下 <span class="math display">\[
+\end{equation}</script><p>写成矩阵的形式如下</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \left[\begin{array}{l}
 v_1 \\
 i_1
 \end{array}\right]=\left[\begin{array}{cl}
-\cosh (\gamma l) &amp; Z_0 \sinh (\gamma l) \\
-\dfrac{1}{Z_0} \sinh (\gamma l) &amp; \cosh (\gamma l)
+\cosh (\gamma l) & Z_0 \sinh (\gamma l) \\
+\dfrac{1}{Z_0} \sinh (\gamma l) & \cosh (\gamma l)
 \end{array}\right] \cdot\left[\begin{array}{l}
 v_2 \\
 i_2
 \end{array}\right]
-\end{equation}
-\]</span> 则其中 <span class="math inline">\(\left[\begin{array}{cl}
-\cosh (\gamma l) &amp; Z_0 \sinh (\gamma l) \\ \dfrac{1}{Z_0} \sinh
-(\gamma l) &amp; \cosh (\gamma l) \end{array}\right]\)</span>
-为传递矩阵。</p>
-<h3 id="传递矩阵性质">传递矩阵性质</h3>
-<p>将两个同轴电缆串联连接如下</p>
+\end{equation}</script><p>则其中 $\left[\begin{array}{cl}<br>\cosh (\gamma l) &amp; Z_0 \sinh (\gamma l) \\<br>\dfrac{1}{Z_0} \sinh (\gamma l) &amp; \cosh (\gamma l)<br>\end{array}\right]$ 为传递矩阵。</p>
+<h3 id="传递矩阵性质"><a href="#传递矩阵性质" class="headerlink" title="传递矩阵性质"></a>传递矩阵性质</h3><p>将两个同轴电缆串联连接如下</p>
 <p><img src="/img/同轴光子晶体实验报告/image-20221211111629563.png" srcset="/img/loading.gif" lazyload alt="image-20221211111629563" style="zoom: 33%;" /></p>
-<center>
-<figcaption>
-<b>图14</b> 同轴光子晶体的其中两段级联同轴电缆
-</figcaption>
-</center>
-<p>由上节传递矩阵的性质 <span class="math display">\[
+<center><figcaption><b>图14</b> 同轴光子晶体的其中两段级联同轴电缆</figcaption></center>
+
+<p>由上节传递矩阵的性质</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \left[\begin{array}{l}
 v_1 \\
@@ -1743,8 +1511,8 @@ i_2
 v_3 \\
 i_3
 \end{array}\right]
-\end{equation}
-\]</span> 后者代入前者可得 <span class="math display">\[
+\end{equation}</script><p>后者代入前者可得</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \left[\begin{array}{l}
 v_1 \\
@@ -1753,136 +1521,70 @@ i_1
 v_3 \\
 i_3
 \end{array}\right]
-\end{equation}
-\]</span> 故总的传递矩阵为 <span class="math inline">\(A=A_1
-A_2\)</span>，从而通过传递矩阵相乘的方法可以得到若干个同轴光子晶体连接形成的等效传递矩阵。</p>
-<h3 id="负载电压表达式">负载电压表达式</h3>
-<p>令总传递矩阵 <span class="math inline">\(A_T=\left[\begin{array}{cc}A
-&amp; B \\ C &amp; D\end{array}\right]\)</span>，信号源电动势 <span
-class="math inline">\(e\)</span> 与内阻 <span
-class="math inline">\(Z_0\)</span>，联立方程 <span
-class="math display">\[
+\end{equation}</script><p>故总的传递矩阵为 $A=A_1 A_2$，从而通过传递矩阵相乘的方法可以得到若干个同轴光子晶体连接形成的等效传递矩阵。</p>
+<h3 id="负载电压表达式"><a href="#负载电压表达式" class="headerlink" title="负载电压表达式"></a>负载电压表达式</h3><p>令总传递矩阵 $A_T=\left[\begin{array}{cc}A &amp; B \ C &amp; D\end{array}\right]$，信号源电动势 $e$ 与内阻 $Z_0$，联立方程</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \left\{\begin{array}{l}
 {\left[\begin{array}{l}
 v_1 \\
 i_1
-\end{array}\right]=\left[\begin{array}{cc}A &amp; B \\ C &amp;
-D\end{array}\right]\cdot\left[\begin{array}{l}
+\end{array}\right]=\left[\begin{array}{cc}A & B \\ C & D\end{array}\right]\cdot\left[\begin{array}{l}
 v_L \\
 i_L
 \end{array}\right]} \\
 v_L=i_L \cdot Z_0 \\
 e=v_1+i_1 \cdot Z_0
 \end{array}\right.
-\end{equation}
-\]</span> 解得负载电压的表达式 <span class="math display">\[
+\end{equation}</script><p>解得负载电压的表达式</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 V_L=\frac{e}{A+\dfrac{1}{Z_0} B+Z_0 C+D}
-\end{equation}
-\]</span></p>
-<h2 id="编程计算mathbfd.5部分">编程计算<span
-class="math inline">\((\,\mathbf{D.5}\,\)</span>部分<span
-class="math inline">\()\)</span></h2>
-<p>使用 matlab 对给定数据进行模拟，已知单根同轴电缆的特征阻抗 <span
-class="math inline">\(Z_0=50 \Omega\)</span>，介质参数 <span
-class="math inline">\(\varepsilon_r=2.354 、 \mu_r \approx
-1\)</span>，衰减系数 <span class="math inline">\(\alpha=\)</span> <span
-class="math inline">\(1.810 \times 10^{-6} \sqrt{f}
-m^{-1}\)</span>，其中 <span class="math inline">\(f\)</span> 的单位为
-<span class="math inline">\(\mathrm{Hz}\)</span>。</p>
-<p>由连接图可知，令 <span class="math inline">\(A_1\)</span>
-为原始同轴电缆，<span class="math inline">\(A_2\)</span>
-为并联之后的同轴电缆，其总传递矩阵如下 <span class="math display">\[
+\end{equation}</script><h2 id="编程计算-mathbf-D-5-部分"><a href="#编程计算-mathbf-D-5-部分" class="headerlink" title="编程计算$(\,\mathbf{D.5}\,$部分$)$"></a>编程计算$(\,\mathbf{D.5}\,$部分$)$</h2><p>使用 matlab 对给定数据进行模拟，已知单根同轴电缆的特征阻抗 $Z_0=50 \Omega$，介质参数 $\varepsilon_r=2.354 、 \mu_r \approx 1$，衰减系数 $\alpha=$ $1.810 \times 10^{-6} \sqrt{f} m^{-1}$，其中 $f$ 的单位为 $\mathrm{Hz}$。</p>
+<p>由连接图可知，令 $A_1$ 为原始同轴电缆，$A_2$ 为并联之后的同轴电缆，其总传递矩阵如下</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 A_T=A_2 A_1 A_2 A_1 A_2 A_1 A_2
-\end{equation}
-\]</span></p>
-<h3 id="程序设计">程序设计</h3>
-<p>将转移矩阵对应的元素设计在函数中，例如第一个元素获取函数
-<code>A1()</code> 如下</p>
+\end{equation}</script><h3 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h3><p>将转移矩阵对应的元素设计在函数中，例如第一个元素获取函数 <code>A1()</code> 如下</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[a]</span> = <span class="hljs-title">A1</span><span class="hljs-params">(f)</span></span><br>    A1=[<span class="hljs-built_in">cosh</span>(ga(f)*<span class="hljs-number">5</span>) <span class="hljs-number">50</span>*<span class="hljs-built_in">sinh</span>(ga(f)*<span class="hljs-number">5</span>);<span class="hljs-number">1</span>/<span class="hljs-number">50</span>*<span class="hljs-built_in">sinh</span>(ga(f)*<span class="hljs-number">5</span>) <span class="hljs-built_in">cosh</span>(ga(f)*<span class="hljs-number">5</span>)];<br>    A2=[<span class="hljs-built_in">cosh</span>(ga(f)*<span class="hljs-number">5</span>) <span class="hljs-number">25</span>*<span class="hljs-built_in">sinh</span>(ga(f)*<span class="hljs-number">5</span>);<span class="hljs-number">1</span>/<span class="hljs-number">25</span>*<span class="hljs-built_in">sinh</span>(ga(f)*<span class="hljs-number">5</span>) <span class="hljs-built_in">cosh</span>(ga(f)*<span class="hljs-number">5</span>)];<br>    <span class="hljs-comment">% A=A2*A1*A2*A1*A2*A1*A2; % 缺陷光子晶体</span><br>    A=A2*A2*A2*A1*A2*A1*A2;   <span class="hljs-comment">% 正常光子晶体</span><br>    a=A(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>) ;<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
 <p>主函数针对<strong>传输效率、等效折射率、群速度</strong>计算，纵坐标标注不同结果</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs matlab">f = <span class="hljs-number">0</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">80</span>;<br>x = f;<br>angs = f;<br><span class="hljs-comment">% 计算效率</span><br><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:<span class="hljs-number">801</span><br>    x(<span class="hljs-built_in">i</span>) = eta(f(<span class="hljs-built_in">i</span>) * <span class="hljs-number">1e6</span>);<br><span class="hljs-keyword">end</span><br><span class="hljs-comment">% 计算相位差以及使用 unwrap() 函数</span><br><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:<span class="hljs-number">801</span><br>   angs(<span class="hljs-built_in">i</span>) = ang(f(<span class="hljs-built_in">i</span>)*<span class="hljs-number">1e6</span>);<br><span class="hljs-keyword">end</span><br>angs = <span class="hljs-built_in">unwrap</span>(angs);<br><span class="hljs-comment">% 计算等效等效折射率</span><br><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:<span class="hljs-number">801</span><br>   x(<span class="hljs-built_in">i</span>) = n(f(<span class="hljs-built_in">i</span>)*<span class="hljs-number">1e6</span>, angs(<span class="hljs-built_in">i</span>));<br><span class="hljs-keyword">end</span><br><span class="hljs-comment">% 计算群速度</span><br>vg = x(<span class="hljs-number">1</span>:<span class="hljs-number">800</span>);<br><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:<span class="hljs-number">800</span><br>   vg(<span class="hljs-built_in">i</span>) = <span class="hljs-number">1</span> / (x(<span class="hljs-built_in">i</span>) + f(<span class="hljs-built_in">i</span>)/<span class="hljs-number">0.1</span>*(x(<span class="hljs-built_in">i</span>+<span class="hljs-number">1</span>)-x(<span class="hljs-built_in">i</span>)));<br><span class="hljs-keyword">end</span><br><span class="hljs-comment">% 对不同情况绘制图像，选定不同的 y 轴标注</span><br><span class="hljs-comment">% plot(f, x);</span><br><span class="hljs-built_in">plot</span>(f(<span class="hljs-number">1</span>:<span class="hljs-number">800</span>), vg);<br>xlabel(<span class="hljs-string">&#x27;$f/MHz$&#x27;</span>, <span class="hljs-string">&#x27;interpreter&#x27;</span>, <span class="hljs-string">&#x27;latex&#x27;</span>, <span class="hljs-string">&#x27;FontSize&#x27;</span>, <span class="hljs-number">15</span>);<br><span class="hljs-comment">% ylabel(&#x27;$\eta$&#x27;, &#x27;interpreter&#x27;, &#x27;latex&#x27;, &#x27;FontSize&#x27;, 20);</span><br><span class="hljs-comment">% ylabel(&#x27;$n$&#x27;, &#x27;interpreter&#x27;, &#x27;latex&#x27;, &#x27;FontSize&#x27;, 20);</span><br>ylabel(<span class="hljs-string">&#x27;$\frac&#123;v_g&#125;&#123;c&#125;$&#x27;</span>, <span class="hljs-string">&#x27;interpreter&#x27;</span>, <span class="hljs-string">&#x27;latex&#x27;</span>, <span class="hljs-string">&#x27;FontSize&#x27;</span>, <span class="hljs-number">20</span>);<br></code></pre></td></tr></table></figure>
-<p>其中使用 <code>unwrap()</code>
-函数对相位差有跃变的情况加以处理，自动增加 <span
-class="math inline">\(n\pi\)</span>。</p>
-<h3 id="正常光子晶体-1">正常光子晶体</h3>
-<p>取定 <span class="math inline">\(\textcolor{blue}{f\in
-[0,8]\text{~MHz}}\)</span> 步长为 <span
-class="math inline">\(\textcolor{blue}{0.1\text{~MHZ}}\)</span>
-进行程序模拟，绘制图像如下</p>
-<h4 id="传输效率">传输效率</h4>
-<p><img src="/img/同轴光子晶体实验报告/eta-f-theory.svg" srcset="/img/loading.gif" lazyload alt="eta-f-theory" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图15</b> 正常光子晶体效率与频率关系曲线（程序模拟）
-</figcaption>
-</center>
+<p>其中使用 <code>unwrap()</code> 函数对相位差有跃变的情况加以处理，自动增加 $n\pi$。</p>
+<h3 id="正常光子晶体-1"><a href="#正常光子晶体-1" class="headerlink" title="正常光子晶体"></a>正常光子晶体</h3><p>取定 $\textcolor{blue}{f\in [0,8]\text{~MHz}}$ 步长为 $\textcolor{blue}{0.1\text{~MHZ}}$ 进行程序模拟，绘制图像如下</p>
+<h4 id="传输效率"><a href="#传输效率" class="headerlink" title="传输效率"></a>传输效率</h4><p><img src="/img/同轴光子晶体实验报告/eta-f-theory.svg" srcset="/img/loading.gif" lazyload alt="eta-f-theory" style="zoom:67%;" /></p>
+<center><figcaption><b>图15</b> 正常光子晶体效率与频率关系曲线（程序模拟）</figcaption></center>
+
 <p>从左往右依次为<strong>通带、带隙、通带</strong>交替产生，并且随着频率地增加，多次反射和透射产生的损耗增加，从而引起效率<strong>极值点下降</strong>。</p>
-<h4 id="等效折射率">等效折射率</h4>
-<p><img src="/img/同轴光子晶体实验报告/n-f-theory.svg" srcset="/img/loading.gif" lazyload alt="n-f-theory" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图16</b> 正常光子晶体等效折射率与频率关系曲线（程序模拟）
-</figcaption>
-</center>
+<h4 id="等效折射率"><a href="#等效折射率" class="headerlink" title="等效折射率"></a>等效折射率</h4><p><img src="/img/同轴光子晶体实验报告/n-f-theory.svg" srcset="/img/loading.gif" lazyload alt="n-f-theory" style="zoom:67%;" /></p>
+<center><figcaption><b>图16</b> 正常光子晶体等效折射率与频率关系曲线（程序模拟）</figcaption></center>
+
 <p>可以看出在频率逐渐增大的过程中存在多个反常色散区域，这与反常色散曲线吻合。</p>
-<h4 id="群速度-2">群速度</h4>
-<p><img src="/img/同轴光子晶体实验报告/vg-f-theory.svg" srcset="/img/loading.gif" lazyload alt="vg-f-theory" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图17</b> 正常光子晶体群速度与频率关系曲线（程序模拟）
-</figcaption>
-</center>
-<p>可以看出在反常色散区域群速度超过光速 <span
-class="math inline">\(c\)</span>，与预期吻合。</p>
-<h3 id="缺陷光子晶体-1">缺陷光子晶体</h3>
-<p>假定增加的电缆位于左侧，其总传递矩阵更改为 <span
-class="math display">\[
+<h4 id="群速度-2"><a href="#群速度-2" class="headerlink" title="群速度"></a>群速度</h4><p><img src="/img/同轴光子晶体实验报告/vg-f-theory.svg" srcset="/img/loading.gif" lazyload alt="vg-f-theory" style="zoom:67%;" /></p>
+<center><figcaption><b>图17</b> 正常光子晶体群速度与频率关系曲线（程序模拟）</figcaption></center>
+
+<p>可以看出在反常色散区域群速度超过光速 $c$，与预期吻合。</p>
+<h3 id="缺陷光子晶体-1"><a href="#缺陷光子晶体-1" class="headerlink" title="缺陷光子晶体"></a>缺陷光子晶体</h3><p>假定增加的电缆位于左侧，其总传递矩阵更改为</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 A_T^{\prime}=A_2 A_2 A_2 A_1 A_2 A_1 A_2
-\end{equation}
-\]</span></p>
-<h4 id="传输效率-1">传输效率</h4>
-<p>仅仅更改矩阵，其余代码不变，传输效率关系图如下</p>
+\end{equation}</script><h4 id="传输效率-1"><a href="#传输效率-1" class="headerlink" title="传输效率"></a>传输效率</h4><p>仅仅更改矩阵，其余代码不变，传输效率关系图如下</p>
 <p><img src="/img/同轴光子晶体实验报告/eta-f-theory-2.svg" srcset="/img/loading.gif" lazyload alt="eta-f-theory-2" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图18</b> 缺陷光子晶体效率与频率关系曲线（程序模拟）
-</figcaption>
-</center>
-<p>与<strong>图
-6</strong>对比，在每个通带和带隙之间增加了若干个透射峰（确切来说有 <span
-class="math inline">\(4\)</span> 个），与实测结论完全相符。</p>
-<h4 id="等效折射率-1">等效折射率</h4>
-<p><img src="/img/同轴光子晶体实验报告/n-f-theory-2.svg" srcset="/img/loading.gif" lazyload alt="n-f-theory-2" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图19</b> 缺陷光子晶体等效折射率与频率关系曲线（程序模拟）
-</figcaption>
-</center>
-<h4 id="群速度-3">群速度</h4>
-<p><img src="/img/同轴光子晶体实验报告/vg-f-theory-2.svg" srcset="/img/loading.gif" lazyload alt="vg-f-theory-2" style="zoom:67%;" /></p>
-<center>
-<figcaption>
-<b>图20</b> 缺陷光子晶体群速度与频率关系曲线（程序模拟）
-</figcaption>
-</center>
+<center><figcaption><b>图18</b> 缺陷光子晶体效率与频率关系曲线（程序模拟）</figcaption></center>
+
+<p>与<strong>图 6</strong>对比，在每个通带和带隙之间增加了若干个透射峰（确切来说有 $4$ 个），与实测结论完全相符。</p>
+<h4 id="等效折射率-1"><a href="#等效折射率-1" class="headerlink" title="等效折射率"></a>等效折射率</h4><p><img src="/img/同轴光子晶体实验报告/n-f-theory-2.svg" srcset="/img/loading.gif" lazyload alt="n-f-theory-2" style="zoom:67%;" /></p>
+<center><figcaption><b>图19</b> 缺陷光子晶体等效折射率与频率关系曲线（程序模拟）</figcaption></center>
+
+<h4 id="群速度-3"><a href="#群速度-3" class="headerlink" title="群速度"></a>群速度</h4><p><img src="/img/同轴光子晶体实验报告/vg-f-theory-2.svg" srcset="/img/loading.gif" lazyload alt="vg-f-theory-2" style="zoom:67%;" /></p>
+<center><figcaption><b>图20</b> 缺陷光子晶体群速度与频率关系曲线（程序模拟）</figcaption></center>
+
 <p>有缺陷的情形均与实际情况吻合，同时符合能带理论。</p>
-<h2 id="原始数据">原始数据</h2>
-<p><img src="/img/同轴光子晶体实验报告/image-20221212001029570.png" srcset="/img/loading.gif" lazyload alt="image-20221212001029570" style="zoom: 25%;" /></p>
-<center>
-<figcaption>
-<b>图21</b> 原始数据截图1
-</figcaption>
-</center>
+<h2 id="原始数据"><a href="#原始数据" class="headerlink" title="原始数据"></a>原始数据</h2><p><img src="/img/同轴光子晶体实验报告/image-20221212001029570.png" srcset="/img/loading.gif" lazyload alt="image-20221212001029570" style="zoom: 25%;" /></p>
+<center><figcaption><b>图21</b>  原始数据截图1</figcaption></center>
+
 <p><img src="/img/同轴光子晶体实验报告/image-20221212003217593.png" srcset="/img/loading.gif" lazyload alt="image-20221212003217593" style="zoom:25%;" /></p>
-<center>
-<figcaption>
-<b>图22</b> 原始数据截图2
-</figcaption>
-</center>
+<center><figcaption><b>图22</b>  原始数据截图2</figcaption></center>
+
 
               
             </div>
@@ -1918,6 +1620,13 @@ class="math inline">\(4\)</span> 个），与实测结论完全相符。</p>
 
     </div>
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">#实验报告</a>
+      
+    </div>
   
 </div>
 
