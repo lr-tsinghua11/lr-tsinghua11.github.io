@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E6%B0%B4%E9%9D%A2%E7%BB%BF%E6%A0%91.jpg">
 <meta property="article:published_time" content="2022-04-24T15:59:11.000Z">
-<meta property="article:modified_time" content="2023-06-28T15:55:37.116Z">
+<meta property="article:modified_time" content="2023-07-01T06:51:41.737Z">
 <meta property="article:author" content="Learning_rate">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E6%B0%B4%E9%9D%A2%E7%BB%BF%E6%A0%91.jpg">
@@ -285,7 +285,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年6月28日 晚上
+                    本文最后更新于：2023年7月1日 下午
                   
                 
               </p>
@@ -1200,7 +1200,7 @@ class="math inline">\(4\)</span> <span class="math display">\[
 J=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix},\begin{pmatrix}\lambda_1&amp;0\\0&amp;\lambda_2\end{pmatrix},\begin{pmatrix}z&amp;0\\0&amp;\bar{z}\end{pmatrix},\begin{pmatrix}1&amp;1\\0&amp;1\end{pmatrix}\
 \ \mbox{where} \ \lambda_1\lambda_2=|z|=1
 \]</span> Fixed points are <span
-class="math inline">\(\R,\{0,\infty\},\{\phi\},\{\infty\}\)</span>
+class="math inline">\(\text{R},\{0,\infty\},\{\phi\},\{\infty\}\)</span>
 Because their eigenvectors must be real <span
 class="math inline">\(A\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}x\\y\end{bmatrix}\)</span></p>
 
@@ -1355,6 +1355,12 @@ class="math inline">\(A\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}x\\y\end{
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -1646,6 +1652,44 @@ class="math inline">\(A\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}x\\y\end{
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

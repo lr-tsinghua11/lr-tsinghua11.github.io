@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E7%BB%BF%E8%8D%89%E5%A4%9A%E4%BA%91.jpg">
 <meta property="article:published_time" content="2022-06-18T04:37:59.000Z">
-<meta property="article:modified_time" content="2023-06-28T15:54:09.717Z">
+<meta property="article:modified_time" content="2023-07-01T06:49:06.042Z">
 <meta property="article:author" content="Learning_rate">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E7%BB%BF%E8%8D%89%E5%A4%9A%E4%BA%91.jpg">
@@ -234,7 +234,7 @@
         
         
         
-          973 分钟
+          974 分钟
         
       </span>
     
@@ -285,7 +285,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年6月28日 晚上
+                    本文最后更新于：2023年7月1日 下午
                   
                 
               </p>
@@ -943,14 +943,16 @@ class="math inline">\(0\)</span></p>
 <h2 id="section-12">5</h2>
 <p>判断以下极限的存在性; 若存在, 求出极限值。</p>
 <p><span class="math display">\[
-(1) \lim _{(x, y) \rightarrow(0,0)} \frac{\arcsin
-\left(x^{2}+y^{2}\right)}{x^{2}+y^{2}} &amp;
-(3) \lim _{(x, y) \rightarrow(0,0)}\left(x^{2}+y^{2}\right)
-\mathrm{e}^{x-y}&amp;
-(5) \lim _{(x, y) \rightarrow(0,0)} \frac{x+y}{|x|+|y|}\\
-(7) \lim _{(x, y) \rightarrow \infty} \frac{x+y}{x^{2}+x y+y^{2}}&amp;
-(9) \lim _{(x, y) \rightarrow \infty}\left(\frac{|x y|}{x^{2}+x
-y+y^{2}}\right)^{x^{2}}
+\begin{aligned}
+&amp;(1) \lim _{(x, y) \rightarrow(0,0)} \frac{\arcsin
+\left(x^2+y^2\right)}{x^2+y^2}\\
+&amp;(3) \lim _{(x, y) \rightarrow(0,0)}\left(x^2+y^2\right)
+\mathrm{e}^{x-y}\\
+&amp;(5) \lim _{(x, y) \rightarrow(0,0)} \frac{x+y}{|x|+|y|}\\
+&amp;(7) \lim _{(x, y) \rightarrow \infty} \frac{x+y}{x^2+x y+y^2}\\
+&amp;(9) \lim _{(x, y) \rightarrow \infty}\left(\frac{|x y|}{x^2+x
+y+y^2}\right)^{x^2}
+\end{aligned}
 \]</span></p>
 <hr />
 <p>解：<span class="math inline">\((1)\)</span> 令 <span
@@ -1651,10 +1653,12 @@ class="math display">\[
 \frac{\partial}{\partial \theta}\left(\sin \theta \frac{\partial
 u}{\partial \theta}\right)+\frac{1}{r^{2} \sin ^{2} \theta}
 \frac{\partial^{2} u}{\partial \varphi^{2}}
-\]</span> # <span
-class="math inline">\(\large\textcolor{blue}{微积分第四次作业\
-\small(W\times f)}\ \ \ \ \ \ _\textcolor{blue}{2022.3.22}\)</span></p>
+\]</span></p>
 </blockquote>
+<h1
+id="largetextcolorblue微积分第四次作业-smallwtimes-f-_textcolorblue2022.3.22"><span
+class="math inline">\(\large\textcolor{blue}{微积分第四次作业\
+\small(W\times f)}\ \ \ \ \ \ _\textcolor{blue}{2022.3.22}\)</span></h1>
 <h2 id="教材第一章总复习11">教材第一章总复习11</h2>
 <p>已知偏微分方程 (输运方程) <span
 class="math inline">\(\left\{\begin{array}{l}\dfrac{\partial z}{\partial
@@ -1772,24 +1776,25 @@ class="math inline">\(A A^{* T}=\)</span> <span
 class="math inline">\(\left.\operatorname{det}(A)
 I_{\circ}\right)\)</span></p>
 <hr />
-<p>解：由 <span class="math inline">\(D\det A(B_1)=\tr(A^{*T}B_1)=\det
-A\cdot \tr(A^{-1}B_1)\)</span>，继续变化 <span
+<p>解：由 <span class="math inline">\(D\det
+A(B_1)=\text{tr}(A^{*T}B_1)=\det A\cdot
+\text{tr}(A^{-1}B_1)\)</span>，继续变化 <span
 class="math inline">\(A\)</span> 为 <span
 class="math inline">\(B_2\)</span> 求导有</p>
 <p><span
-class="math inline">\(D(\tr(A^{-1}B_1))(B_2)=\tr((A+B_2)^{-1}B_1)-\tr(A^{-1}B_1)\)</span>
+class="math inline">\(D(\text{tr}(A^{-1}B_1))(B_2)=\text{tr}((A+B_2)^{-1}B_1)-\text{tr}(A^{-1}B_1)\)</span>
 由可逆运算的一阶“泰勒”展开</p>
 <p><span
 class="math inline">\((A+B_2)^{-1}=(A(I+A^{-1}B_2))^{-1}=(I+A^{-1}B_2)^{-1}A^{-1}=(I-A^{-1}B_2+o(B_2))A^{-1}\)</span></p>
 <p>则有 <span
-class="math inline">\(D(\tr(A^{-1}B_1))(B_2)=-\tr(A^{-1}B_2A^{-1}B_1)\)</span>，则由链式法则对
+class="math inline">\(D(\text{tr}(A^{-1}B_1))(B_2)=-\text{tr}(A^{-1}B_2A^{-1}B_1)\)</span>，则由链式法则对
 <span class="math inline">\(\det A\)</span> 的二阶展开式 <span
 class="math display">\[
 \partial ^2\det A=\det A\cdot (\tr(A^{-1}B_2)\cdot \tr(A^{-1}B_1)-\tr
 (A^{-1}B_2A^{-1}B_1))
 \]</span> 则 $$ 在 <span class="math inline">\(I\)</span> 处的 <span
 class="math inline">\(Taylor\)</span> 展开式有 <span
-class="math inline">\(1+\tr(B)+\dfrac{1}{2}(\tr^2(B)-\tr(B^2))+o(\tr(B^2))\)</span></p>
+class="math inline">\(1+\text{tr}(B)+\dfrac{1}{2}(\text{tr}^2(B)-\text{tr}(B^2))+o(\text{tr}(B^2))\)</span></p>
 <h2 id="讲义2.5.3">讲义2.5.3</h2>
 <p>求以下函数的极值和最值</p>
 <ol type="1">
@@ -4328,6 +4333,12 @@ class="math inline">\(\mathcal{q_1}\)</span> 的点电荷，其周围半径为
   
 
 
+  
+  
+
+
+
+
 
   <script>
   Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
@@ -4617,6 +4628,44 @@ class="math inline">\(\mathcal{q_1}\)</span> 的点电荷，其周围半径为
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
