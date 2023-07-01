@@ -1,0 +1,1020 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Learning_rate">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="寒假期间学习 Hugging face 所作笔记以及 mentor 提出问题的解答">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notes of Hugging face">
+<meta property="og:url" content="https://lr-tsinghua11.github.io/2023/01/14/NLP/Hugging%20face%20%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Learning_rate">
+<meta property="og:description" content="寒假期间学习 Hugging face 所作笔记以及 mentor 提出问题的解答">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E5%86%B0%E5%B1%B1%E6%B6%88%E8%9E%8D.jpg">
+<meta property="article:published_time" content="2023-01-14T12:37:29.000Z">
+<meta property="article:modified_time" content="2023-07-01T08:53:55.638Z">
+<meta property="article:author" content="Learning_rate">
+<meta property="article:tag" content="NLP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E5%86%B0%E5%B1%B1%E6%B6%88%E8%9E%8D.jpg">
+  
+  
+  <title>Notes of Hugging face - Learning_rate</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lr-tsinghua11.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong> Learning_rate&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/%E5%86%B0%E5%B1%B1%E6%B6%88%E8%9E%8D.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          <span id="subtitle" title="">
+            
+          </span>
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-01-14 20:37" pubdate>
+          2023年1月14日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Notes of Hugging face</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年7月1日 下午
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="hugging-face-笔记">Hugging face 笔记</h1>
+<h2 id="transformer-models">Transformer models</h2>
+<p><code>pipeline()</code>
+第一个参数为模型用途，第二个参数为社区中的模型名字，从而获取模型各种接口</p>
+<p><img src="/img/Hugging face 笔记/transformers_chrono.svg" srcset="/img/loading.gif" lazyload alt="A brief chronology of Transformers models." style="zoom:30%;" /></p>
+<p>GPT, BERT, BART/T5 使用不同策略，回归、编码、seq2seq</p>
+<p><em>causal/masked language modeling</em> 预测后面/中间</p>
+<p>预训练白手起家，微调增加限定，领域适应</p>
+<p>Pretrained -- fine-tuning the knowledge inside the model
+<strong>transfer</strong></p>
+<p>Transferring the knowledge of a pretrained model to a new model by
+initializing the second model <strong>with the first model's
+weight</strong>s.</p>
+<p>编码（理解语句）解码（输出语句）对应不同需求</p>
+<ul>
+<li>仅编码（预训练遮盖词语）：词句分类、命名识别</li>
+<li>仅解码（只知道前面的词语）：文本生成</li>
+<li>编码+解码（T5单一单词随机遮盖不同跨度单词）：翻译、总结</li>
+</ul>
+<p>语言模型通常是自监督的（通过预测下一个单词或者完形填空）</p>
+<p>BERT 编码架构，mask words，擅长事实性问题</p>
+<p>GPT 解码架构，自回归模型</p>
+<p>T5 解码-编码架构，多语言架构</p>
+<h2 id="architecture-of-transformers">Architecture of Transformers</h2>
+<p>Tokenizers 将自然语言转换成 ID
+Tensor，将参数传递给模型（一般维度很大）做预测，Tokenizers 再次将 IDs
+转换为自然语言</p>
+<p>分词三种：<strong>单词、字母、子单词</strong></p>
+<p>padding 需要结合 attention-masking 保证输出的稳定性</p>
+<p>model-head 将预测结果转换为目标输出</p>
+<h2 id="finetune-models">Finetune models</h2>
+<p>分批次使用 <code>Dataset.map(model, batch=true)</code>
+增加缓存，在多线程下以及多次访问下加速</p>
+<p>若训练前类型和模型不匹配，训练头部会随机增加权重</p>
+<h2 id="dataset-library">Dataset library</h2>
+<p><code>Dataset.map()</code> 操作数据，使用 <code>lambda</code>
+函数省去较小函数的构造</p>
+<p>常用 <code>filter()</code> 和 <code>map()</code> 函数</p>
+<p><strong>内存映</strong>射是指将一个文件映射成应用程序地址空间内某个地址范围</p>
+<h2 id="tokenizer-library">Tokenizer library</h2>
+<p>使用 <code>(example['train'] for example in dataset)</code>
+获得生成器，减少内存消耗</p>
+<p>DistilBERT，使用知识蒸馏技术</p>
+<p>tokenizer 不同</p>
+<p><strong>规范化</strong>（初始处理多空格、Unicode）、<strong>预标记化</strong>（拆分为单词）、<strong>后处理</strong>（掩码）</p>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 30%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>BERT</th>
+<th>GPT</th>
+<th>T5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>忽略双空格</td>
+<td>不忽略双空格</td>
+<td>不忽略双空格</td>
+</tr>
+<tr class="even">
+<td>空格删除，不可逆</td>
+<td>空格替换为 Ġ，可逆</td>
+<td>空格替换为 _，可逆</td>
+</tr>
+<tr class="odd">
+<td><strong>Wordpiece 算法</strong></td>
+<td><strong>BPE 算法</strong></td>
+<td><strong>Unigram 算法（Viterbi 算法）</strong></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\displaystyle
+\max_{i}\left(\dfrac{N_{i,\text{merge}}}{N_{i,\text{left}}\cdot
+N_{i,\text{right}}}\right)\to \{V\}\)</span></td>
+<td><span class="math inline">\(\displaystyle
+\max_{i}(N_{i,\text{merge}})\to \{V\}\)</span></td>
+<td><span class="math inline">\(\displaystyle\min\left[ -N\log \left
+(\prod_{\bigsqcup_{j}
+\text{Sub}_j\in\{\text{Words}\}}P(\text{Sub}_j)\right)\right]\)</span></td>
+</tr>
+<tr class="odd">
+<td>子串</td>
+<td>子串和合并规则</td>
+<td>子串</td>
+</tr>
+<tr class="even">
+<td>选取最长有效子串</td>
+<td>合并有效分词</td>
+<td>选取损失最小有效子串</td>
+</tr>
+<tr class="odd">
+<td>词汇量小</td>
+<td>词汇量小</td>
+<td>词汇量大</td>
+</tr>
+</tbody>
+</table>
+<h2 id="main-nlp-tasks">Main NLP tasks</h2>
+<p><strong>翻译任务</strong>：BLEU 分数衡量（双语互译质量评估辅助工具）①
+precision
+生成答案中有多大比例重合，存在<strong>常用词干扰</strong>，例如 <span
+class="math inline">\(\text{the the the the the the the}\)</span> 分数为
+<span class="math inline">\(100\%\)</span> ② modified precision
+考虑词语在参考翻译中出现次数截断计数 ③ 加入惩罚，避免词语短得分高 ③
+n-gram 增加翻译流畅性，与前者求几何平均 ④ Sentence brevity penalty
+短惩罚 <span class="math display">\[
+\mathrm{BP}=\begin{cases}
+1 &amp; \text { if } c&gt;r \\
+e^{(1-r / c)} &amp; \text { if } c \leq r
+\end{cases} ,
+\mathrm{BLEU}=\mathrm{BP} \cdot \exp \left(\sum_{n=1}^N w_n \log
+p_n\right) .
+\]</span> <strong>摘要</strong>：ROUGE 分数，recall
+标准答案中有多大比例重合，precision
+生成答案中有多大比例重合，两者综合考量，取调和平均 <span
+class="math inline">\(F_1=\dfrac{2P_1P_2}{P_1+P_2}\)</span>。</p>
+<p><strong>因果推断模型</strong>：数据集中设置
+<code>max_length</code></p>
+<p><strong>问答系统</strong>：合并为 [CLS] question [SEP] context [SEP]
+作为训练输入</p>
+<h2 id="ask-for-questions">Ask for questions</h2>
+<p>CUDA 出 bug 在 CPU 上跑，因为前者是异步的</p>
+<p>过拟合用于 debug，损失函数降为 0</p>
+<h1 id="hugging-face-course-问题">Hugging face course 问题</h1>
+<h2 id="一bertgptt5-的架构和区别">一、BERT/GPT/T5 的架构和区别</h2>
+<p><span class="math display">\[
+\begin{array}{|c|c|c|}
+\hline \text { BERT } &amp; \text { GPT } &amp; \text { T5 } \\
+\hline \text { incoder 架构 } &amp; \text { decoder 架构 } &amp; \text {
+incoder-decoder 架构 } \\
+\hline \text { 编码模型 } &amp; \text { 自回归模型 } &amp; \text {
+Seq2seq 模型 } \\
+\hline \text { 获取所有可见词 } &amp; \text { 获取前面词语 } &amp; \text
+{ 获取前面词语 } \\
+\hline \text { 分类, Full-mask } &amp; \text { 文本生成 } &amp; \text {
+跨多语言, 翻译总结 } \\
+\hline
+\end{array}
+\]</span></p>
+<p>tokenizer 预训练方法不同（子词算法不同）</p>
+<hr />
+<h2
+id="二不同架构一定对应不同任务吗">二、不同架构一定对应不同任务吗？</h2>
+<p>不同架构可以用来训练非匹配任务，但效果欠佳；当架构与任务类型匹配时，效果好。</p>
+<h2 id="三tokenizer-怎么拿到词语和数字的关系">三、Tokenizer
+怎么拿到词语和数字的关系？</h2>
+<ol type="1">
+<li><strong>规范化</strong>（初始处理多空格、Unicode）、<strong>预标记化</strong>（拆分为单词）</li>
+<li>使用不同字词<strong>切分算法</strong>：按<strong>字词</strong>划分，按<strong>字符</strong>划分，按<strong>子串</strong>划分（例如
+Wordpiece, BPE, Unigram 算法）结合语料训练构建得到词汇表（一般不超过
+<span class="math inline">\(50000\)</span> 个词汇）</li>
+<li>依据词汇表以及对应策略分词得到<strong>切片</strong>（##前缀处理）</li>
+<li><strong>后处理</strong>：标记掩码、偏移映射（每个标记的文本跨度）等索引</li>
+</ol>
+<hr />
+<h2
+id="四掩码模型的微调方法以及种类">四、掩码模型的微调方法以及种类</h2>
+<ol type="1">
+<li>导入数据</li>
+<li>切片张量化（小的 <code>max_length</code>
+占用内存小，有重叠划分）</li>
+<li>随机屏蔽（设定屏蔽比例，<strong>标记掩码</strong>和<strong>全词掩码</strong>）</li>
+</ol>
+<p>衡量方法：perplexity，交叉熵指数，数值越小意味着语法正确的句子概率更高</p>
+<p><span class="math display">\[
+\operatorname{perplexity}(S)=p\left(w_1, w_2, w_3, \ldots,
+w_m\right)^{-1 / m}
+\]</span></p>
+<blockquote>
+<p>困惑度 perplexity
+可以理解为，如果每个时间步都根据语言模型计算的概率分布随机挑词，那么平均情况下，挑多少个词才能挑到正确的那个。</p>
+</blockquote>
+<hr />
+<h2 id="五各种衡量指标">五、各种衡量指标</h2>
+<p><span class="math display">\[
+\begin{array}{|c|c|c|}
+\hline \text { BLEU } &amp; \text { ROUGE } &amp; \text { perlexity } \\
+\hline \text { 翻译 } &amp; \text { 摘要总结 } &amp; \text { 掩码模型 }
+\\
+\hline \text { 常用词干扰、长度短惩罚 } &amp; \text { recall + precision
+} &amp; \text { 交叉熵指数 } \\
+\hline \mathrm{BP} \cdot \exp \left(\sum_{n=1}^N w_n \log p_n\right)
+&amp; \dfrac{2 P_1 P_2}{P_1+P_2} &amp; p\left(w_1, \cdots,
+w_m\right)^{-1 / m} \\
+\hline \text { 高代表准确、流畅 } &amp; \text { 高代表准确、精炼 } &amp;
+\text { 高代表偏离统计模型 } \\
+\hline
+\end{array}
+\]</span></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/NLP/" class="category-chain-item">NLP</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/NLP/%E8%AE%A8%E8%AE%BA/" class="category-chain-item">讨论</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/NLP/">#NLP</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Notes of Hugging face</div>
+      <div>https://lr-tsinghua11.github.io/2023/01/14/NLP/Hugging%20face%20%E7%AC%94%E8%AE%B0/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Learning_rate</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年1月14日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/01/19/NLP/Attention_is_all_you_need_notes/" title="Attention is all you need">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Attention is all you need</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/01/09/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%BA%8C%E4%B8%8A%E6%80%BB%E7%BB%93/" title="Summary of autumn term in the second college">
+                        <span class="hidden-mobile">Summary of autumn term in the second college</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"forest"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var title = subtitle.title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
