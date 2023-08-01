@@ -200,7 +200,7 @@
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
-          <span id="subtitle" title="BERT, Pre-training of Deep Bidirectional Transformers for Language Understanding">
+          <span id="subtitle" title="">
             
           </span>
         </div>
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          603 字
+          584 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          6 分钟
+          5 分钟
         
       </span>
     
@@ -293,40 +293,29 @@
             
             <div class="markdown-body">
               
-              <h1
-id="mathbfbtextidirectional-mathbfetextncoder-mathbfrtextepresentationstextfrom-mathbfttextransformers"><span
-class="math inline">\(\mathbf{B}\text{idirectional}\
-\mathbf{E}\text{ncoder}\ \mathbf{R}\text{epresentations}\text{from}\
-\mathbf{T}\text{ransformers}\)</span></h1>
-<h2 id="key-points">Key-points</h2>
-<p><span class="math inline">\((1)\)</span>
-<strong>双向</strong>预训练；<span class="math inline">\((2)\)</span>
-统一模型解决任务；<span class="math inline">\((3)\)</span>
-无监督训练方式。</p>
-<p><span class="math display">\[
+              <h1 id="mathbf-B-text-idirectional-mathbf-E-text-ncoder-mathbf-R-text-epresentations-text-from-mathbf-T-text-ransformers"><a href="#mathbf-B-text-idirectional-mathbf-E-text-ncoder-mathbf-R-text-epresentations-text-from-mathbf-T-text-ransformers" class="headerlink" title="$\mathbf{B}\text{idirectional} \mathbf{E}\text{ncoder} \mathbf{R}\text{epresentations}\text{from} \mathbf{T}\text{ransformers}$"></a>$\mathbf{B}\text{idirectional} \mathbf{E}\text{ncoder} \mathbf{R}\text{epresentations}\text{from} \mathbf{T}\text{ransformers}$</h1><h2 id="Key-points"><a href="#Key-points" class="headerlink" title="Key-points"></a>Key-points</h2><p>$(1)$ <strong>双向</strong>预训练；$(2)$ 统一模型解决任务；$(3)$ 无监督训练方式。</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 \mathbf{MLM} \text{: masked language model}\\
 \mathbf{NSP} \text{: next sentence prediction}
-\end{cases}
-\]</span></p>
-<ul>
+\end{cases}</script><ul>
 <li>从 feature-based 到 fine-tuned，模型参数从不可变到可变。</li>
 <li>大规模数据集上无监督预训练加目标数据集微调，<strong>上下文</strong>均可获取。</li>
-<li>采用 Wordpiece 算法得到 <span class="math inline">\(30000\)</span>
-个词汇</li>
+<li>采用 Wordpiece 算法得到 $30000$ 个词汇</li>
 <li>embedding 有 Token, Segment, Position 三种。</li>
 </ul>
-<p>在 <span class="math inline">\(11\)</span> 个 NLP 任务上表现好。</p>
-<hr />
-<h2 id="ablation-study">Ablation study</h2>
-<p>该实验主要通过对比实验说明不同关键点融合的好处，本质思想是奥卡姆剃刀原理。</p>
+<p>在 $11$ 个 NLP 任务上表现好。</p>
+<hr>
+<h2 id="Ablation-study"><a href="#Ablation-study" class="headerlink" title="Ablation study"></a>Ablation study</h2><p>该实验主要通过对比实验说明不同关键点融合的好处，本质思想是奥卡姆剃刀原理。</p>
 <ul>
-<li><p><strong>预训练</strong>：没有 NSP 以及没有 NSP 且加上 LTR
-都会使结果变差</p></li>
-<li><p><strong>大小</strong>：原模型当大小变大时表现未必好，而该模型效果随模型大小增加而增加</p></li>
-<li><p><strong>训练步数</strong>：收敛速度较慢</p></li>
-<li><p><strong>Mask比例</strong>：概率 0.8:0.1:0.1 [MASK], 替代,
-保持不变时最好</p></li>
+<li><p><strong>预训练</strong>：没有 NSP 以及没有 NSP 且加上 LTR 都会使结果变差</p>
+</li>
+<li><p><strong>大小</strong>：原模型当大小变大时表现未必好，而该模型效果随模型大小增加而增加</p>
+</li>
+<li><p><strong>训练步数</strong>：收敛速度较慢</p>
+</li>
+<li><p><strong>Mask比例</strong>：概率 0.8:0.1:0.1 [MASK], 替代, 保持不变时最好</p>
+</li>
 </ul>
 
               
@@ -843,5 +832,20 @@ class="math inline">\(\mathbf{B}\text{idirectional}\
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

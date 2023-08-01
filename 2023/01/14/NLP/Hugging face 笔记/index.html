@@ -200,7 +200,7 @@
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
-          <span id="subtitle" title="Notes of Hugging face">
+          <span id="subtitle" title="">
             
           </span>
         </div>
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k 字
+          3.2k 字
         
       </span>
     
@@ -293,19 +293,13 @@
             
             <div class="markdown-body">
               
-              <h1 id="hugging-face-笔记">Hugging face 笔记</h1>
-<h2 id="transformer-models">Transformer models</h2>
-<p><code>pipeline()</code>
-第一个参数为模型用途，第二个参数为社区中的模型名字，从而获取模型各种接口</p>
+              <h1 id="Hugging-face-笔记"><a href="#Hugging-face-笔记" class="headerlink" title="Hugging face 笔记"></a>Hugging face 笔记</h1><h2 id="Transformer-models"><a href="#Transformer-models" class="headerlink" title="Transformer models"></a>Transformer models</h2><p><code>pipeline()</code> 第一个参数为模型用途，第二个参数为社区中的模型名字，从而获取模型各种接口</p>
 <p><img src="/img/Hugging face 笔记/transformers_chrono.svg" srcset="/img/loading.gif" lazyload alt="A brief chronology of Transformers models." style="zoom:30%;" /></p>
 <p>GPT, BERT, BART/T5 使用不同策略，回归、编码、seq2seq</p>
 <p><em>causal/masked language modeling</em> 预测后面/中间</p>
 <p>预训练白手起家，微调增加限定，领域适应</p>
-<p>Pretrained -- fine-tuning the knowledge inside the model
-<strong>transfer</strong></p>
-<p>Transferring the knowledge of a pretrained model to a new model by
-initializing the second model <strong>with the first model's
-weight</strong>s.</p>
+<p>Pretrained — fine-tuning  the knowledge inside the model <strong>transfer</strong></p>
+<p>Transferring the knowledge of a pretrained model to a new model by initializing the second model <strong>with the first model’s weight</strong>s.</p>
 <p>编码（理解语句）解码（输出语句）对应不同需求</p>
 <ul>
 <li>仅编码（预训练遮盖词语）：词句分类、命名识别</li>
@@ -316,177 +310,116 @@ weight</strong>s.</p>
 <p>BERT 编码架构，mask words，擅长事实性问题</p>
 <p>GPT 解码架构，自回归模型</p>
 <p>T5 解码-编码架构，多语言架构</p>
-<h2 id="architecture-of-transformers">Architecture of Transformers</h2>
-<p>Tokenizers 将自然语言转换成 ID
-Tensor，将参数传递给模型（一般维度很大）做预测，Tokenizers 再次将 IDs
-转换为自然语言</p>
+<h2 id="Architecture-of-Transformers"><a href="#Architecture-of-Transformers" class="headerlink" title="Architecture of Transformers"></a>Architecture of Transformers</h2><p>Tokenizers 将自然语言转换成 ID Tensor，将参数传递给模型（一般维度很大）做预测，Tokenizers 再次将 IDs 转换为自然语言</p>
 <p>分词三种：<strong>单词、字母、子单词</strong></p>
 <p>padding 需要结合 attention-masking 保证输出的稳定性</p>
 <p>model-head 将预测结果转换为目标输出</p>
-<h2 id="finetune-models">Finetune models</h2>
-<p>分批次使用 <code>Dataset.map(model, batch=true)</code>
-增加缓存，在多线程下以及多次访问下加速</p>
+<h2 id="Finetune-models"><a href="#Finetune-models" class="headerlink" title="Finetune models"></a>Finetune models</h2><p>分批次使用 <code>Dataset.map(model, batch=true)</code> 增加缓存，在多线程下以及多次访问下加速</p>
 <p>若训练前类型和模型不匹配，训练头部会随机增加权重</p>
-<h2 id="dataset-library">Dataset library</h2>
-<p><code>Dataset.map()</code> 操作数据，使用 <code>lambda</code>
-函数省去较小函数的构造</p>
+<h2 id="Dataset-library"><a href="#Dataset-library" class="headerlink" title="Dataset library"></a>Dataset library</h2><p> <code>Dataset.map()</code> 操作数据，使用 <code>lambda</code> 函数省去较小函数的构造</p>
 <p>常用 <code>filter()</code> 和 <code>map()</code> 函数</p>
 <p><strong>内存映</strong>射是指将一个文件映射成应用程序地址空间内某个地址范围</p>
-<h2 id="tokenizer-library">Tokenizer library</h2>
-<p>使用 <code>(example['train'] for example in dataset)</code>
-获得生成器，减少内存消耗</p>
+<h2 id="Tokenizer-library"><a href="#Tokenizer-library" class="headerlink" title="Tokenizer library"></a>Tokenizer library</h2><p>使用 <code>(example[&#39;train&#39;] for example in dataset)</code>  获得生成器，减少内存消耗</p>
 <p>DistilBERT，使用知识蒸馏技术</p>
 <p>tokenizer 不同</p>
 <p><strong>规范化</strong>（初始处理多空格、Unicode）、<strong>预标记化</strong>（拆分为单词）、<strong>后处理</strong>（掩码）</p>
+<div class="table-container">
 <table>
-<colgroup>
-<col style="width: 34%" />
-<col style="width: 30%" />
-<col style="width: 34%" />
-</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>BERT</th>
 <th>GPT</th>
 <th>T5</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>忽略双空格</td>
 <td>不忽略双空格</td>
 <td>不忽略双空格</td>
 </tr>
-<tr class="even">
+<tr>
 <td>空格删除，不可逆</td>
 <td>空格替换为 Ġ，可逆</td>
 <td>空格替换为 _，可逆</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>Wordpiece 算法</strong></td>
 <td><strong>BPE 算法</strong></td>
 <td><strong>Unigram 算法（Viterbi 算法）</strong></td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(\displaystyle
-\max_{i}\left(\dfrac{N_{i,\text{merge}}}{N_{i,\text{left}}\cdot
-N_{i,\text{right}}}\right)\to \{V\}\)</span></td>
-<td><span class="math inline">\(\displaystyle
-\max_{i}(N_{i,\text{merge}})\to \{V\}\)</span></td>
-<td><span class="math inline">\(\displaystyle\min\left[ -N\log \left
-(\prod_{\bigsqcup_{j}
-\text{Sub}_j\in\{\text{Words}\}}P(\text{Sub}_j)\right)\right]\)</span></td>
+<tr>
+<td>$\displaystyle \max_{i}\left(\dfrac{N_{i,\text{merge}}}{N_{i,\text{left}}\cdot N_{i,\text{right}}}\right)\to \{V\}$</td>
+<td>$\displaystyle \max_{i}(N_{i,\text{merge}})\to \{V\}$</td>
+<td>$\displaystyle\min\left[ -N\log \left (\prod_{\bigsqcup_{j} \text{Sub}_j\in\{\text{Words}\}}P(\text{Sub}_j)\right)\right]$</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>子串</td>
 <td>子串和合并规则</td>
 <td>子串</td>
 </tr>
-<tr class="even">
+<tr>
 <td>选取最长有效子串</td>
 <td>合并有效分词</td>
 <td>选取损失最小有效子串</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>词汇量小</td>
 <td>词汇量小</td>
 <td>词汇量大</td>
 </tr>
 </tbody>
 </table>
-<h2 id="main-nlp-tasks">Main NLP tasks</h2>
-<p><strong>翻译任务</strong>：BLEU 分数衡量（双语互译质量评估辅助工具）①
-precision
-生成答案中有多大比例重合，存在<strong>常用词干扰</strong>，例如 <span
-class="math inline">\(\text{the the the the the the the}\)</span> 分数为
-<span class="math inline">\(100\%\)</span> ② modified precision
-考虑词语在参考翻译中出现次数截断计数 ③ 加入惩罚，避免词语短得分高 ③
-n-gram 增加翻译流畅性，与前者求几何平均 ④ Sentence brevity penalty
-短惩罚 <span class="math display">\[
+</div>
+<h2 id="Main-NLP-tasks"><a href="#Main-NLP-tasks" class="headerlink" title="Main NLP tasks"></a>Main NLP tasks</h2><p><strong>翻译任务</strong>：BLEU 分数衡量（双语互译质量评估辅助工具）① precision 生成答案中有多大比例重合，存在<strong>常用词干扰</strong>，例如 $\text{the the the the the the the}$ 分数为 $100\%$ ② modified precision 考虑词语在参考翻译中出现次数截断计数 ③ 加入惩罚，避免词语短得分高 ③ n-gram 增加翻译流畅性，与前者求几何平均 ④ Sentence brevity penalty 短惩罚</p>
+<script type="math/tex; mode=display">
 \mathrm{BP}=\begin{cases}
-1 &amp; \text { if } c&gt;r \\
-e^{(1-r / c)} &amp; \text { if } c \leq r
+1 & \text { if } c>r \\
+e^{(1-r / c)} & \text { if } c \leq r
 \end{cases} ,
-\mathrm{BLEU}=\mathrm{BP} \cdot \exp \left(\sum_{n=1}^N w_n \log
-p_n\right) .
-\]</span> <strong>摘要</strong>：ROUGE 分数，recall
-标准答案中有多大比例重合，precision
-生成答案中有多大比例重合，两者综合考量，取调和平均 <span
-class="math inline">\(F_1=\dfrac{2P_1P_2}{P_1+P_2}\)</span>。</p>
-<p><strong>因果推断模型</strong>：数据集中设置
-<code>max_length</code></p>
-<p><strong>问答系统</strong>：合并为 [CLS] question [SEP] context [SEP]
-作为训练输入</p>
-<h2 id="ask-for-questions">Ask for questions</h2>
-<p>CUDA 出 bug 在 CPU 上跑，因为前者是异步的</p>
-<p>过拟合用于 debug，损失函数降为 0</p>
-<h1 id="hugging-face-course-问题">Hugging face course 问题</h1>
-<h2 id="一bertgptt5-的架构和区别">一、BERT/GPT/T5 的架构和区别</h2>
-<p><span class="math display">\[
+\mathrm{BLEU}=\mathrm{BP} \cdot \exp \left(\sum_{n=1}^N w_n \log p_n\right) .</script><p><strong>摘要</strong>：ROUGE 分数，recall 标准答案中有多大比例重合，precision 生成答案中有多大比例重合，两者综合考量，取调和平均 $F_1=\dfrac{2P_1P_2}{P_1+P_2}$。</p>
+<p><strong>因果推断模型</strong>：数据集中设置 <code>max_length</code></p>
+<p><strong>问答系统</strong>：合并为 [CLS] question [SEP] context [SEP] 作为训练输入</p>
+<h2 id="Ask-for-questions"><a href="#Ask-for-questions" class="headerlink" title="Ask for questions"></a>Ask for questions</h2><p>CUDA 出 bug 在 CPU 上跑，因为前者是异步的</p>
+<p>过拟合用于 debug，损失函数降为 0 </p>
+<h1 id="Hugging-face-course-问题"><a href="#Hugging-face-course-问题" class="headerlink" title="Hugging face course 问题"></a>Hugging face course 问题</h1><h2 id="一、BERT-GPT-T5-的架构和区别"><a href="#一、BERT-GPT-T5-的架构和区别" class="headerlink" title="一、BERT/GPT/T5 的架构和区别"></a>一、BERT/GPT/T5 的架构和区别</h2><script type="math/tex; mode=display">
 \begin{array}{|c|c|c|}
-\hline \text { BERT } &amp; \text { GPT } &amp; \text { T5 } \\
-\hline \text { incoder 架构 } &amp; \text { decoder 架构 } &amp; \text {
-incoder-decoder 架构 } \\
-\hline \text { 编码模型 } &amp; \text { 自回归模型 } &amp; \text {
-Seq2seq 模型 } \\
-\hline \text { 获取所有可见词 } &amp; \text { 获取前面词语 } &amp; \text
-{ 获取前面词语 } \\
-\hline \text { 分类, Full-mask } &amp; \text { 文本生成 } &amp; \text {
-跨多语言, 翻译总结 } \\
+\hline \text { BERT } & \text { GPT } & \text { T5 } \\
+\hline \text { incoder 架构 } & \text { decoder 架构 } & \text { incoder-decoder 架构 } \\
+\hline \text { 编码模型 } & \text { 自回归模型 } & \text { Seq2seq 模型 } \\
+\hline \text { 获取所有可见词 } & \text { 获取前面词语 } & \text { 获取前面词语 } \\
+\hline \text { 分类, Full-mask } & \text { 文本生成 } & \text { 跨多语言, 翻译总结 } \\
 \hline
-\end{array}
-\]</span></p>
-<p>tokenizer 预训练方法不同（子词算法不同）</p>
-<hr />
-<h2
-id="二不同架构一定对应不同任务吗">二、不同架构一定对应不同任务吗？</h2>
-<p>不同架构可以用来训练非匹配任务，但效果欠佳；当架构与任务类型匹配时，效果好。</p>
-<h2 id="三tokenizer-怎么拿到词语和数字的关系">三、Tokenizer
-怎么拿到词语和数字的关系？</h2>
-<ol type="1">
+\end{array}</script><p>tokenizer 预训练方法不同（子词算法不同）</p>
+<hr>
+<h2 id="二、不同架构一定对应不同任务吗？"><a href="#二、不同架构一定对应不同任务吗？" class="headerlink" title="二、不同架构一定对应不同任务吗？"></a>二、不同架构一定对应不同任务吗？</h2><p>不同架构可以用来训练非匹配任务，但效果欠佳；当架构与任务类型匹配时，效果好。</p>
+<h2 id="三、Tokenizer-怎么拿到词语和数字的关系？"><a href="#三、Tokenizer-怎么拿到词语和数字的关系？" class="headerlink" title="三、Tokenizer 怎么拿到词语和数字的关系？"></a>三、Tokenizer 怎么拿到词语和数字的关系？</h2><ol>
 <li><strong>规范化</strong>（初始处理多空格、Unicode）、<strong>预标记化</strong>（拆分为单词）</li>
-<li>使用不同字词<strong>切分算法</strong>：按<strong>字词</strong>划分，按<strong>字符</strong>划分，按<strong>子串</strong>划分（例如
-Wordpiece, BPE, Unigram 算法）结合语料训练构建得到词汇表（一般不超过
-<span class="math inline">\(50000\)</span> 个词汇）</li>
+<li>使用不同字词<strong>切分算法</strong>：按<strong>字词</strong>划分，按<strong>字符</strong>划分，按<strong>子串</strong>划分（例如 Wordpiece, BPE, Unigram 算法）结合语料训练构建得到词汇表（一般不超过 $50000$ 个词汇）</li>
 <li>依据词汇表以及对应策略分词得到<strong>切片</strong>（##前缀处理）</li>
 <li><strong>后处理</strong>：标记掩码、偏移映射（每个标记的文本跨度）等索引</li>
 </ol>
-<hr />
-<h2
-id="四掩码模型的微调方法以及种类">四、掩码模型的微调方法以及种类</h2>
-<ol type="1">
+<hr>
+<h2 id="四、掩码模型的微调方法以及种类"><a href="#四、掩码模型的微调方法以及种类" class="headerlink" title="四、掩码模型的微调方法以及种类"></a>四、掩码模型的微调方法以及种类</h2><ol>
 <li>导入数据</li>
-<li>切片张量化（小的 <code>max_length</code>
-占用内存小，有重叠划分）</li>
+<li>切片张量化（小的 <code>max_length</code> 占用内存小，有重叠划分）</li>
 <li>随机屏蔽（设定屏蔽比例，<strong>标记掩码</strong>和<strong>全词掩码</strong>）</li>
 </ol>
 <p>衡量方法：perplexity，交叉熵指数，数值越小意味着语法正确的句子概率更高</p>
-<p><span class="math display">\[
-\operatorname{perplexity}(S)=p\left(w_1, w_2, w_3, \ldots,
-w_m\right)^{-1 / m}
-\]</span></p>
-<blockquote>
-<p>困惑度 perplexity
-可以理解为，如果每个时间步都根据语言模型计算的概率分布随机挑词，那么平均情况下，挑多少个词才能挑到正确的那个。</p>
+<script type="math/tex; mode=display">
+\operatorname{perplexity}(S)=p\left(w_1, w_2, w_3, \ldots, w_m\right)^{-1 / m}</script><blockquote>
+<p>困惑度 perplexity 可以理解为，如果每个时间步都根据语言模型计算的概率分布随机挑词，那么平均情况下，挑多少个词才能挑到正确的那个。</p>
 </blockquote>
-<hr />
-<h2 id="五各种衡量指标">五、各种衡量指标</h2>
-<p><span class="math display">\[
+<hr>
+<h2 id="五、各种衡量指标"><a href="#五、各种衡量指标" class="headerlink" title="五、各种衡量指标"></a>五、各种衡量指标</h2><script type="math/tex; mode=display">
 \begin{array}{|c|c|c|}
-\hline \text { BLEU } &amp; \text { ROUGE } &amp; \text { perlexity } \\
-\hline \text { 翻译 } &amp; \text { 摘要总结 } &amp; \text { 掩码模型 }
-\\
-\hline \text { 常用词干扰、长度短惩罚 } &amp; \text { recall + precision
-} &amp; \text { 交叉熵指数 } \\
-\hline \mathrm{BP} \cdot \exp \left(\sum_{n=1}^N w_n \log p_n\right)
-&amp; \dfrac{2 P_1 P_2}{P_1+P_2} &amp; p\left(w_1, \cdots,
-w_m\right)^{-1 / m} \\
-\hline \text { 高代表准确、流畅 } &amp; \text { 高代表准确、精炼 } &amp;
-\text { 高代表偏离统计模型 } \\
+\hline \text { BLEU } & \text { ROUGE } & \text { perlexity } \\
+\hline \text { 翻译 } & \text { 摘要总结 } & \text { 掩码模型 } \\
+\hline \text { 常用词干扰、长度短惩罚 } & \text { recall + precision } & \text { 交叉熵指数 } \\
+\hline \mathrm{BP} \cdot \exp \left(\sum_{n=1}^N w_n \log p_n\right) & \dfrac{2 P_1 P_2}{P_1+P_2} & p\left(w_1, \cdots, w_m\right)^{-1 / m} \\
+\hline \text { 高代表准确、流畅 } & \text { 高代表准确、精炼 } & \text { 高代表偏离统计模型 } \\
 \hline
-\end{array}
-\]</span></p>
-
+\end{array}</script>
               
             </div>
             <hr/>
@@ -1001,5 +934,20 @@ w_m\right)^{-1 / m} \\
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
