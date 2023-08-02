@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/docker.png">
 <meta property="article:published_time" content="2023-08-01T11:29:14.000Z">
-<meta property="article:modified_time" content="2023-08-01T12:22:29.430Z">
+<meta property="article:modified_time" content="2023-08-02T16:38:18.702Z">
 <meta property="article:author" content="Learning_rate">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary_large_image">
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.8k 字
+          4.9k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          41 分钟
+          42 分钟
         
       </span>
     
@@ -286,38 +286,72 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年8月1日 晚上
+                    本文最后更新于：2023年8月3日 凌晨
                   
                 
               </p>
             
             <div class="markdown-body">
               
-              <h1 id="Docker-学习"><a href="#Docker-学习" class="headerlink" title="Docker 学习"></a>Docker 学习</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Docker 的吉祥物是 Moby Dock，最初是 dotCloud 公司的内部项目，在 2013 年 3 月以 Apache 2.0 协议开源，开放容器联盟 OCl (Open Container Initiative)。</p>
-<p>其使用 Go 语言实现，<a href="/img/docker.png">封面图片</a>是 Moby 和 Gopher 等小伙伴在一起玩耍。</p>
-<p>基于 Linux 内核的 cgroup、namespace 以 及 UnionFS 等技术实现对进程的封装隔离，最初基于 LXC (Linux Containers)，后来转向自行开发的 libcontainer</p>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>检查 Linux 系统版本</p>
+              <h1 id="docker-学习">Docker 学习</h1>
+<h2 id="简介">简介</h2>
+<p>Docker 的吉祥物是 Moby Dock，最初是 dotCloud 公司的内部项目，在 2013
+年 3 月以 Apache 2.0 协议开源，开放容器联盟 OCl (Open Container
+Initiative)。</p>
+<p>其使用 Go 语言实现，基于 Linux 内核的 cgroup、namespace 以 及 UnionFS
+等技术实现对进程的封装隔离，最初基于 LXC (Linux
+Containers)，后来转向自行开发的 libcontainer</p>
+<h2 id="环境">环境</h2>
+<p>检查 Linux 系统版本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">uname</span> -a<br></code></pre></td></tr></table></figure>
 <p>列出本地 Docker 环境中所有的 Docker 镜像</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker images<br></code></pre></td></tr></table></figure>
-<p>列出当前正在运行的 Docker 容器，ps = process status，加上 -a 则列出所有 Docker 容器</p>
+<p>列出当前正在运行的 Docker 容器，ps = process status，加上 -a
+则列出所有 Docker 容器</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker ps<br></code></pre></td></tr></table></figure>
-<h2 id="Docker-入门"><a href="#Docker-入门" class="headerlink" title="Docker 入门"></a>Docker 入门</h2><h3 id="交互式容器"><a href="#交互式容器" class="headerlink" title="交互式容器"></a>交互式容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 运行容器</span><br>$ docker run -it ubuntu bash<br><span class="hljs-comment"># 进入类似 Ubuntu 的”新环境“</span><br>root@f7cbdac22a02:/<span class="hljs-comment"># </span><br></code></pre></td></tr></table></figure>
-<p><code>-i</code> 保证 <code>STDIN</code> 是开启的，持久的标准输入是 <code>shell</code> 的半边天，<code>-t</code> 则是另外一个半边天，让 <code>docker</code> 将容器“打”到一个伪 <code>tty</code> 终端（该例子为 <code>bash</code>。这里没有给定名字，<code>docker</code> 会创建一个随机名，例如 <code>gray_cat</code>，加上名字的方法为 <code>--name [NAME]</code>。</p>
-<p>创建之后如同在新的 <code>bash</code> 环境下交互，输入 <code>exit</code> 或者 <code>Ctrl+D</code> 退出。输入 <code>docker start</code> 加上名字或者容器 ID 启动已经停止的容器，如要重新启动为 <code>docker restart</code>，但这都只是“启动”容器，要重新回到交互界面需要输入 <code>docker attach</code>。</p>
-<h3 id="守护式容器"><a href="#守护式容器" class="headerlink" title="守护式容器"></a>守护式容器</h3><p>交互式容器适合运行应用程序和服务，例如</p>
+<h2 id="docker-入门">Docker 入门</h2>
+<h3 id="交互式容器">交互式容器</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 运行容器</span><br>$ docker run -it ubuntu bash<br><span class="hljs-comment"># 进入类似 Ubuntu 的”新环境“</span><br>root@f7cbdac22a02:/<span class="hljs-comment"># </span><br></code></pre></td></tr></table></figure>
+<p><code>-i</code> 保证 <code>STDIN</code> 是开启的，持久的标准输入是
+<code>shell</code> 的半边天，<code>-t</code> 则是另外一个半边天，让
+<code>docker</code> 将容器“打”到一个伪 <code>tty</code> 终端（该例子为
+<code>bash</code>。这里没有给定名字，<code>docker</code>
+会创建一个随机名，例如 <code>gray_cat</code>，加上名字的方法为
+<code>--name [NAME]</code>。</p>
+<p>创建之后如同在新的 <code>bash</code> 环境下交互，输入
+<code>exit</code> 或者 <code>Ctrl+D</code> 退出。输入
+<code>docker start</code> 加上名字或者容器 ID
+启动已经停止的容器，如要重新启动为
+<code>docker restart</code>，但这都只是“启动”容器，要重新回到交互界面需要输入
+<code>docker attach</code>。</p>
+<h3 id="守护式容器">守护式容器</h3>
+<p>交互式容器适合运行应用程序和服务，例如</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># -d 代表放置在后台运行</span><br>$ docker run --name hello_world -d ubuntu bash -c <span class="hljs-string">&quot;while true: do echo hello world; sleep 1; done&quot;</span><br></code></pre></td></tr></table></figure>
-<p>该容器则没有 <code>shell</code> 会话可供交互。以下命令查看日志，其中 <code>-f</code> 与 <code>tail -f</code> 中的 <code>-f</code> 相似，用来监控日志的变化，而 <code>-t</code> 表示显示时间戳，可以看到如下输出</p>
+<p>该容器则没有 <code>shell</code> 会话可供交互。以下命令查看日志，其中
+<code>-f</code> 与 <code>tail -f</code> 中的 <code>-f</code>
+相似，用来监控日志的变化，而 <code>-t</code>
+表示显示时间戳，可以看到如下输出</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker logs -ft hello_world<br>2023-07-29T15:03:44.879386240Z hello world<br>2023-07-29T15:03:45.880515741Z hello world<br>2023-07-29T15:03:46.882173546Z hello world<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>时间间隔不是严格 1s 因素：系统调度、写入日志、获取时间耗时等。</p>
 </blockquote>
-<h3 id="容器信息"><a href="#容器信息" class="headerlink" title="容器信息"></a>容器信息</h3><p>查看容器进程、显示一个或者多个容器状态信息（整理为 markdown 格式）</p>
+<h3 id="容器信息">容器信息</h3>
+<p>查看容器进程、显示一个或者多个容器状态信息（整理为 markdown
+格式）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker top hello_world<br></code></pre></td></tr></table></figure>
-<div class="table-container">
 <table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 4%" />
+<col style="width: 7%" />
+<col style="width: 4%" />
+<col style="width: 5%" />
+<col style="width: 4%" />
+<col style="width: 8%" />
+<col style="width: 60%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>UID</th>
 <th>PID</th>
 <th>PPID</th>
@@ -329,7 +363,7 @@
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>root</td>
 <td>2282</td>
 <td>1922281</td>
@@ -337,9 +371,9 @@
 <td>23:09</td>
 <td>?</td>
 <td>00:00:00</td>
-<td>bash -c “while true; do echo hello world; sleep 1; done”</td>
+<td>bash -c "while true; do echo hello world; sleep 1; done"</td>
 </tr>
-<tr>
+<tr class="even">
 <td>root</td>
 <td>2282</td>
 <td>3542282</td>
@@ -351,12 +385,20 @@
 </tr>
 </tbody>
 </table>
-</div>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 显示所有正在运行容器，-q 代表显示容器 ID</span><br>$ docker stats <span class="hljs-string">&#x27;docker ps -a -q&#x27;</span><br></code></pre></td></tr></table></figure>
-<div class="table-container">
-<table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 24%" />
+<col style="width: 5%" />
+<col style="width: 19%" />
+<col style="width: 5%" />
+<col style="width: 11%" />
+<col style="width: 16%" />
+<col style="width: 4%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>CONTAINER ID</th>
 <th>NAME</th>
 <th>CPU %</th>
@@ -368,7 +410,7 @@
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>5639808ea117</td>
 <td>hello_world</td>
 <td>0.16%</td>
@@ -378,7 +420,7 @@
 <td>0B / 0B</td>
 <td>2</td>
 </tr>
-<tr>
+<tr class="even">
 <td>4127b9416379</td>
 <td>affectionate_cartwright</td>
 <td>2.39%</td>
@@ -388,7 +430,7 @@
 <td>24.6kB / 9.21MB</td>
 <td>191</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>79bbf82e8628</td>
 <td>pedantic_williams</td>
 <td>0.42%</td>
@@ -398,7 +440,7 @@
 <td>0B / 106kB</td>
 <td>83</td>
 </tr>
-<tr>
+<tr class="even">
 <td>cfb008147738</td>
 <td>musing_newton</td>
 <td>0.00%</td>
@@ -410,45 +452,67 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p>输入如下命令则可以停止容器，但容器仍在 <code>docker ps -a</code> 里，要想彻底删除，输入 <code>docker rm [NAME_OR_ID]</code></p>
+<p>输入如下命令则可以停止容器，但容器仍在 <code>docker ps -a</code>
+里，要想彻底删除，输入 <code>docker rm [NAME_OR_ID]</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用名称或者容器 ID</span><br>$ docker stop hello_world<br></code></pre></td></tr></table></figure>
-<p>自动重启容器加入 <code>--restart=always</code> 参数，深入查看容器信息命令 <code>docker inspect hello_world</code>，加入 <code>--format</code> 得到想要的指令</p>
+<p>自动重启容器加入 <code>--restart=always</code>
+参数，深入查看容器信息命令 <code>docker inspect hello_world</code>，加入
+<code>--format</code> 得到想要的指令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 获取容器的 IP 地址</span><br>$ docker inspect --format <span class="hljs-string">&#x27;&#123;&#123; .NetworkSettings.IPAddress&#125;&#125;&#x27;</span> hello_world<br></code></pre></td></tr></table></figure>
 <p>删除所有名为 <code>&lt;none&gt;</code> 的镜像</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker rmi $(docker images -f <span class="hljs-string">&quot;dangling=true&quot;</span> -q)<br></code></pre></td></tr></table></figure>
-<h2 id="镜像构建"><a href="#镜像构建" class="headerlink" title="镜像构建"></a>镜像构建</h2><p>列出存在宿主机某个 <code>/docker</code> 目录下的镜像 <code>docker images</code>；拉取镜像 <code>docker pull 用户名:仓库名</code>，Docker Hub 中有两类仓库，用户仓库和顶层仓库，后者是 Docker 公司选定的优质基础镜像；查找镜像 <code>docker search</code>；</p>
-<p>可以在镜像与 <code>bash</code> 交互的时候对镜像更改，退出之后 <code>docker commit 容器ID</code>，但这样做会导致镜像到最后臃肿，不推荐这样做，采用 <code>DockerFile</code> 编写构建脚本，例如在 <code>docker</code> 中换源且安装</p>
+<h2 id="镜像构建">镜像构建</h2>
+<p>列出存在宿主机某个 <code>/docker</code> 目录下的镜像
+<code>docker images</code>；拉取镜像
+<code>docker pull 用户名:仓库名</code>，Docker Hub
+中有两类仓库，用户仓库和顶层仓库，后者是 Docker
+公司选定的优质基础镜像；查找镜像 <code>docker search</code>；</p>
+<p>可以在镜像与 <code>bash</code> 交互的时候对镜像更改，退出之后
+<code>docker commit 容器ID</code>，但这样做会导致镜像到最后臃肿，不推荐这样做，采用
+<code>DockerFile</code> 编写构建脚本，例如在 <code>docker</code>
+中换源且安装</p>
+<p>注意 <code>COPY</code> 指令只能在当前 <code>DockerFile</code>
+目录以及子目录下进行，因为其描述的是一个可重复构建的、独立于任何特定主机的过程</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-comment"># 使用 NVIDIA PyTorch镜像作为基础镜像，这是一个基于PyTorch（一个流行的深度学习库）的镜像</span><br><span class="hljs-keyword">FROM</span> nvcr.io/nvidia/pytorch:<span class="hljs-number">23.06</span>-py3<br><br><span class="hljs-comment"># 更改 apt 的源为清华大学的镜像源，可以加快下载速度</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> sed -i <span class="hljs-string">&#x27;s/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g&#x27;</span> /etc/apt/sources.list</span><br><br><span class="hljs-comment"># 更新 apt 的软件源列表</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> apt-get update</span><br><br><span class="hljs-comment"># 设置 SHELL 为 bash</span><br><span class="hljs-keyword">SHELL</span><span class="language-bash"> [ <span class="hljs-string">&quot;/bin/bash&quot;</span>, <span class="hljs-string">&quot;-c&quot;</span> ]</span><br><br><span class="hljs-comment"># 安装一些实用工具和开发工具</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> DEBIAN_FRONTEND=noninteractive apt-get -y install \</span><br><span class="language-bash">        gcc \   <span class="hljs-comment"># GCC编译器</span></span><br>        g++ \   <span class="hljs-comment"># G++编译器</span><br>        zlib1g-dev \  <span class="hljs-comment"># zlib库和头文件，用于文件压缩</span><br>        <span class="hljs-comment"># ...（省略部分注释）</span><br>        software-properties-common   <span class="hljs-comment"># 一个用于管理软件源的工具</span><br><br><span class="hljs-comment"># 更改 pip 的源为中国科技大学的镜像源，可以加快下载速度</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> pip config <span class="hljs-built_in">set</span> global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> pip config <span class="hljs-built_in">set</span> global.extra-index-url https://mirrors.ustc.edu.cn/pypi/web/simple</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> pip config <span class="hljs-built_in">set</span> global.trusted-host mirrors.ustc.edu.cn</span><br><br><span class="hljs-comment"># 更新 pip 至最新版本</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> pip install --upgrade pip</span><br><br><span class="hljs-comment"># 将当前目录（即包含这个Dockerfile的目录）下的所有文件和文件夹复制到容器的 /workspace 目录下</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> . /workspace</span><br><br><span class="hljs-comment"># 设置容器中的当前工作目录为 /workspace</span><br><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /workspace</span><br><br><span class="hljs-comment"># 安装 /workspace 目录下的 Python 包，&quot;-e&quot; 选项表示以&quot;可编辑&quot;模式安装，即在开发环境下安装</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> pip install -e .</span><br></code></pre></td></tr></table></figure>
-<h2 id="Docker-compose"><a href="#Docker-compose" class="headerlink" title="Docker compose"></a>Docker compose</h2><p>Docker Compose 可以在单个主机上定义和运行多个 <code>docker</code> 的工具，使用 YAML 文件来配置应用程序的服务</p>
-<h3 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h3><p>创建 <code>docker compose.yml</code> 如下所示</p>
+<h2 id="docker-compose">Docker compose</h2>
+<p>Docker Compose 可以在单个主机上定义和运行多个 <code>docker</code>
+的工具，使用 YAML 文件来配置应用程序的服务</p>
+<h3 id="基本结构">基本结构</h3>
+<p>创建 <code>docker compose.yml</code> 如下所示</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">version:</span> <span class="hljs-string">&#x27;3&#x27;</span><br><span class="hljs-attr">services:</span><br>  <span class="hljs-attr">web:</span><br>    <span class="hljs-attr">build:</span> <span class="hljs-string">.</span><br>    <span class="hljs-attr">ports:</span><br>     <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;5000:5000&quot;</span><br>  <span class="hljs-attr">redis:</span><br>    <span class="hljs-attr">image:</span> <span class="hljs-string">&quot;redis:alpine&quot;</span><br></code></pre></td></tr></table></figure>
-<p>这个文件定义了两个服务：web 和 redis。web 服务将当前目录构建为 Docker 镜像，并绑定宿主机和容器的 5000 端口。redis 服务使用 Docker Hub 上的公共 Redis 镜像。</p>
-<h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><ul>
-<li><p><code>docker compose up</code>：根据 <code>compose.yml</code> 文件启动服务。</p>
-</li>
-<li><p><code>docker compose down</code>：停止并删除由 <code>up</code> 命令启动的所有容器。</p>
-</li>
-<li><p><code>docker compose build</code>：构建服务镜像。</p>
-</li>
-<li><p><code>docker compose ps</code>：列出由 <code>up</code> 命令启动的所有容器。</p>
-</li>
-<li><p><code>docker compose logs</code>：显示服务的日志。</p>
-</li>
+<p>这个文件定义了两个服务：web 和 redis。web 服务将当前目录构建为 Docker
+镜像，并绑定宿主机和容器的 5000 端口。redis 服务使用 Docker Hub 上的公共
+Redis 镜像。</p>
+<h3 id="常见命令">常见命令</h3>
+<ul>
+<li><p><code>docker compose up</code>：根据 <code>compose.yml</code>
+文件启动服务。</p></li>
+<li><p><code>docker compose down</code>：停止并删除由 <code>up</code>
+命令启动的所有容器。</p></li>
+<li><p><code>docker compose build</code>：构建服务镜像。</p></li>
+<li><p><code>docker compose ps</code>：列出由 <code>up</code>
+命令启动的所有容器。</p></li>
+<li><p><code>docker compose logs</code>：显示服务的日志。</p></li>
 </ul>
-<h3 id="Docker-Compose-的使用实例"><a href="#Docker-Compose-的使用实例" class="headerlink" title="Docker Compose 的使用实例"></a>Docker Compose 的使用实例</h3><p>下面是一个使用 Flask 和 Redis 的简单应用的示例。</p>
+<h3 id="docker-compose-的使用实例">Docker Compose 的使用实例</h3>
+<p>下面是一个使用 Flask 和 Redis 的简单应用的示例。</p>
 <p>首先，创建一个 <code>app.py</code> 文件，内容如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask<br><span class="hljs-keyword">from</span> redis <span class="hljs-keyword">import</span> Redis<br><br>app = Flask(__name__)<br>redis = Redis(host=<span class="hljs-string">&#x27;redis&#x27;</span>, port=<span class="hljs-number">6379</span>)<br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">hello</span>():<br>    count = redis.incr(<span class="hljs-string">&#x27;hits&#x27;</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;&quot;&quot;Hello World! This page is checked by <span class="hljs-subst">&#123;count&#125;</span> times&quot;&quot;&quot;</span><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    app.run(host=<span class="hljs-string">&quot;0.0.0.0&quot;</span>, debug=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
 <p>创建一个 <code>requirements.txt</code> 文件，内容如下：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">flask<br>redis<br></code></pre></td></tr></table></figure>
 <p>创建一个 <code>Dockerfile</code> 文件，内容如下：</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-comment"># 使用官方 Python 运行时作为父镜像</span><br><span class="hljs-keyword">FROM</span> python:<span class="hljs-number">3.7</span>-slim<br><br><span class="hljs-comment"># 将工作目录设置为 /app</span><br><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /app</span><br><br><span class="hljs-comment"># 将当前目录内容复制到容器的 /app 中</span><br><span class="hljs-keyword">ADD</span><span class="language-bash"> . /app</span><br><br><span class="hljs-comment"># 安装 requirements.txt 中指定的所有必需软件</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> pip install --no-cache-dir -r requirements.txt</span><br><br><span class="hljs-comment"># 让 80 端口可以让外界访问</span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">5000</span><br><br><span class="hljs-comment"># 定义环境变量</span><br><span class="hljs-keyword">ENV</span> NAME World<br><br><span class="hljs-comment"># 在容器启动时运行 app.py</span><br><span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">&quot;python&quot;</span>, <span class="hljs-string">&quot;app.py&quot;</span>]</span><br></code></pre></td></tr></table></figure>
-<p>在 <code>docker-compose.yml</code> 文件的 <code>web</code> 服务中，使用了 <code>build: .</code> 来指定使用当前目录下的 Dockerfile 构建镜像，依次执行以下指令</p>
+<p>在 <code>docker-compose.yml</code> 文件的 <code>web</code>
+服务中，使用了 <code>build: .</code> 来指定使用当前目录下的 Dockerfile
+构建镜像，依次执行以下指令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker compose build<br>$ docker compose up<br> ✔ Network docker_instruction_default    Created           0.1s <br> ✔ Container docker_instruction-redis-1  Created           0.0s <br> ✔ Container docker_instruction-web-1    Created           0.0s     <br></code></pre></td></tr></table></figure>
 <p>在浏览器中看到应用程序，每次刷新页面，页面上的数字都会增加。</p>
 <blockquote>
 <p>注意如果想修改代码，必须先 build 后再起(up)。</p>
 </blockquote>
+<h2 id="实战要点">实战要点</h2>
+<p>添加环境变量，用于设置 <code>OpenAI</code> API 相关参数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker run -e MY_VARIABLE=my_value -e ANOTHER_VARIABLE=another_value<br></code></pre></td></tr></table></figure>
 
               
             </div>

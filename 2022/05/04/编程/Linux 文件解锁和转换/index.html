@@ -293,34 +293,69 @@
             
             <div class="markdown-body">
               
-              <h1 id="解锁-mbox-pdf-密码并替换原始文件"><a href="#解锁-mbox-pdf-密码并替换原始文件" class="headerlink" title="解锁 $\mbox{pdf}$ 密码并替换原始文件"></a>解锁 $\mbox{pdf}$ 密码并替换原始文件</h1><p>每次解锁 $\mbox{pdf}$ 中的密码比较麻烦，当然有免费的在线网页资源 <a target="_blank" rel="noopener" href="https://smallpdf.com/cn/unlock-pdf">smallpdf</a> 不过每次需要上传文件，而且有一定的安全风险。使用 $\mbox{wsl}$ 安装 $\mbox{qpdf}$ 加上脚本编辑可以实现解锁 $\mbox{pdf}$ （在不知道密码的情况下，有暴力解锁的 $\mbox{linux}$ 安装包，不过现在 $\mbox{pdf}$ 升级了，貌似不能被暴力破解了……）</p>
-<p>在 $\mbox{linux/wsl}$ 环境下，安装 $\mbox{qpdf}$ </p>
+              <h1 id="解锁-mboxpdf-密码并替换原始文件">解锁 <span
+class="math inline">\(\mbox{pdf}\)</span> 密码并替换原始文件</h1>
+<p>每次解锁 <span class="math inline">\(\mbox{pdf}\)</span>
+中的密码比较麻烦，当然有免费的在线网页资源 <a
+target="_blank" rel="noopener" href="https://smallpdf.com/cn/unlock-pdf">smallpdf</a>
+不过每次需要上传文件，而且有一定的安全风险。使用 <span
+class="math inline">\(\mbox{wsl}\)</span> 安装 <span
+class="math inline">\(\mbox{qpdf}\)</span> 加上脚本编辑可以实现解锁
+<span class="math inline">\(\mbox{pdf}\)</span>
+（在不知道密码的情况下，有暴力解锁的 <span
+class="math inline">\(\mbox{linux}\)</span> 安装包，不过现在 <span
+class="math inline">\(\mbox{pdf}\)</span>
+升级了，貌似不能被暴力破解了……）</p>
+<p>在 <span class="math inline">\(\mbox{linux/wsl}\)</span> 环境下，安装
+<span class="math inline">\(\mbox{qpdf}\)</span></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt-get install qpdf<br></code></pre></td></tr></table></figure>
-<p>输入密码后便自动安装好了。之后，在当前目录下创建一个 $\mbox{unlockPDF}$ 文件</p>
+<p>输入密码后便自动安装好了。之后，在当前目录下创建一个 <span
+class="math inline">\(\mbox{unlockPDF}\)</span> 文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">touch unlockPDF<br></code></pre></td></tr></table></figure>
-<p>使用 $\mbox{nano}$ 进行编辑</p>
+<p>使用 <span class="math inline">\(\mbox{nano}\)</span> 进行编辑</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nano unlockPDF<br></code></pre></td></tr></table></figure>
-<p>在编辑界面中写入如下代码，其中 $#$ 开头的为注释</p>
+<p>在编辑界面中写入如下代码，其中 <span
+class="math inline">\(\#\)</span> 开头的为注释</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta"># </span><span class="language-bash">第一行代表在哪个 shell 命令下执行，可以修改为 python 成为 python 脚本</span><br><span class="hljs-meta"># </span><span class="language-bash">可以使用命令行 <span class="hljs-built_in">which</span> bash 找到当前控制台命令行所在位置（本质上命令也是一些文件）</span><br><span class="hljs-meta">#</span><span class="language-bash">!/usr/bin/bash</span><br><span class="hljs-meta"># </span><span class="language-bash">要求文件名中不能有空格，否则处理时会把文件名分割，其中一个成为命令使得程序运行失败</span><br><span class="hljs-meta"># </span><span class="language-bash">pdf名称，存储输入的第一个参数</span><br>pdfName=$1<br><span class="hljs-meta"># </span><span class="language-bash">密码，存储输入的第二个参数</span><br>password=$2<br><span class="hljs-meta"># </span><span class="language-bash">解锁 pdf 命令，安装 qpdf (sudo apt-get install qpdf) 便可以使用</span><br>qpdf -password=$password --decrypt $pdfName output.pdf<br><span class="hljs-meta"># </span><span class="language-bash">$? 为 0 代表上条命令执行成功</span><br>if [ $? -eq 0 ]; then<br>    # 删除原文件<br>    rm -rf $pdfName<br>    # 将得到的 output.pdf 名称修改为原来 pdf 的名称，达到替换的效果<br>    mv output.pdf $pdfName<br>    # 输出成功结果<br>    echo &quot;解锁成功，原文件被替换&quot;<br>else<br>    # 输出失败结果<br>    echo &quot;密码错误，或未安装qpdf&quot;<br>fi<br></code></pre></td></tr></table></figure>
-<p>可以看到 $\mbox{shell}$ 中的参数传递方式、$\mbox{if}$ 语句的输入、$=$ 的格式规范（不要在 $=$ 两侧加空格，<strong>加空格就代表分割命令</strong>，文件名也不能有空格）等与其他语言有些不同，需要加以熟悉，不过各语言之间的底层逻辑是相通的，只是各有千秋。</p>
-<p>编写好之后，由于 $\mbox{wsl}$ 与 $\mbox{windows}$ 的分隔机制，不能把写好的脚本直接放在 $\mbox{wsl}$ 控制台中，就直接放在文件夹中，专门用来处理文件，执行时输入</p>
+<p>可以看到 <span class="math inline">\(\mbox{shell}\)</span>
+中的参数传递方式、<span class="math inline">\(\mbox{if}\)</span>
+语句的输入、<span class="math inline">\(=\)</span> 的格式规范（不要在
+<span class="math inline">\(=\)</span>
+两侧加空格，<strong>加空格就代表分割命令</strong>，文件名也不能有空格）等与其他语言有些不同，需要加以熟悉，不过各语言之间的底层逻辑是相通的，只是各有千秋。</p>
+<p>编写好之后，由于 <span class="math inline">\(\mbox{wsl}\)</span> 与
+<span class="math inline">\(\mbox{windows}\)</span>
+的分隔机制，不能把写好的脚本直接放在 <span
+class="math inline">\(\mbox{wsl}\)</span>
+控制台中，就直接放在文件夹中，专门用来处理文件，执行时输入</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta"># </span><span class="language-bash">secure.pdf 为需要解锁的 pdf 文件，password 为解锁密码</span><br>./unlockPDF secure.pdf password<br></code></pre></td></tr></table></figure>
-<h1 id="转换文档的-mbox-Linux-命令行"><a href="#转换文档的-mbox-Linux-命令行" class="headerlink" title="转换文档的 $\mbox{Linux}$ 命令行"></a>转换文档的 $\mbox{Linux}$ 命令行</h1><p>（ wsl 环境下输入下行代码会自动提示安装对应包，由于在命令行中运行，十分简便）</p>
-<p><strong>转换 $\mbox{tex}$ 文件为 $\mbox{md}$ 文件</strong></p>
+<h1 id="转换文档的-mboxlinux-命令行">转换文档的 <span
+class="math inline">\(\mbox{Linux}\)</span> 命令行</h1>
+<p>（ wsl
+环境下输入下行代码会自动提示安装对应包，由于在命令行中运行，十分简便）</p>
+<p><strong>转换 <span class="math inline">\(\mbox{tex}\)</span> 文件为
+<span class="math inline">\(\mbox{md}\)</span> 文件</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">//需要安装 pandoc<br>pandoc -s OOP_Homework.tex -o OOp_Homework.md<br></code></pre></td></tr></table></figure>
-<p>使用 $\text {linux}$ 环境下<strong>合成多个 $pdf$</strong>（主要用于合成多个爬虫 $pdf$ 文件）</p>
+<p>使用 <span class="math inline">\(\text {linux}\)</span>
+环境下<strong>合成多个 <span
+class="math inline">\(pdf\)</span></strong>（主要用于合成多个爬虫 <span
+class="math inline">\(pdf\)</span> 文件）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">//需要安装 pdftk<br>pdftk $(<span class="hljs-built_in">ls</span> *.pdf) <span class="hljs-built_in">cat</span> output 教材.pdf<br></code></pre></td></tr></table></figure>
-<p>将<strong>多张原始图片合成为 $pdf$</strong>（主要用于合成手写作业）</p>
+<p>将<strong>多张原始图片合成为 <span
+class="math inline">\(pdf\)</span></strong>（主要用于合成手写作业）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs b">//需要安装 ImageMagick<br>convert *.jpg 作业.pdf<br></code></pre></td></tr></table></figure>
 <p>如果出现安全问题（如下）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">attempt to perform an operation not allowed by the security policy `PDF<span class="hljs-string">&#x27; @ error/constitute.c/IsCoderAuthorized/408.</span><br></code></pre></td></tr></table></figure>
-<p>需要使用权限修改 $policy.xml$ 文件，使用以下命令行进入此文件中，回车后会进入编辑模式</p>
+<p>需要使用权限修改 <span class="math inline">\(policy.xml\)</span>
+文件，使用以下命令行进入此文件中，回车后会进入编辑模式</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo nano /etc/ImageMagick-6/policy.xml<br></code></pre></td></tr></table></figure>
-<p>其中，$nano$ 是字符终端的文本编辑器，可以对文件进行修改</p>
+<p>其中，<span class="math inline">\(nano\)</span>
+是字符终端的文本编辑器，可以对文件进行修改</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml">…………//大概在文件结尾部分<br>   <span class="hljs-tag">&lt;<span class="hljs-name">policy</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">&quot;coder&quot;</span> <span class="hljs-attr">rights</span>=<span class="hljs-string">&quot;none&quot;</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;EPS&quot;</span> /&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">policy</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">&quot;coder&quot;</span> <span class="hljs-attr">rights</span>=<span class="hljs-string">&quot;none&quot;</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;PDF&quot;</span> /&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">policy</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">&quot;coder&quot;</span> <span class="hljs-attr">rights</span>=<span class="hljs-string">&quot;none&quot;</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;XPS&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
-<p>修改 $\mbox{PDF}$ 对应权限 <code>rights=&quot;none&quot;</code> $\Longrightarrow $ <code>rights=&quot;read|write&quot;</code></p>
+<p>修改 <span class="math inline">\(\mbox{PDF}\)</span> 对应权限
+<code>rights="none"</code> $$ <code>rights="read|write"</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">policy</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">&quot;coder&quot;</span> <span class="hljs-attr">rights</span>=<span class="hljs-string">&quot;none&quot;</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;EPS&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">policy</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">&quot;coder&quot;</span> <span class="hljs-attr">rights</span>=<span class="hljs-string">&quot;read|write&quot;</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;PDF&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">policy</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">&quot;coder&quot;</span> <span class="hljs-attr">rights</span>=<span class="hljs-string">&quot;none&quot;</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;XPS&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
-<p>$Ctrl+X$ 退出并输入 $Y$ 保存就可以使用了</p>
+<p><span class="math inline">\(Ctrl+X\)</span> 退出并输入 <span
+class="math inline">\(Y\)</span> 保存就可以使用了</p>
 
               
             </div>
