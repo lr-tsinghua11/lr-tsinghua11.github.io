@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          43k 字
+          14k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          355 分钟
+          118 分钟
         
       </span>
     
@@ -293,1287 +293,351 @@
             
             <div class="markdown-body">
               
-              <h1
-id="largetextcolorbluemboxadvanced-algebra-small-mathbbhwmathrm2-_textcolorblue2022.3.16"><span
-class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra }
-\small \mathbb{HW}\mathrm{2}}\ \ \ \ \ \
-_\textcolor{blue}{2022.3.16}\)</span></h1>
-<h2 id="small-mboxfour-subspaces">1.2.1<span class="math inline">\(\
-\small \mbox{four subspaces}\)</span></h2>
-<p>Prove or find counter examples.</p>
-<ol type="1">
-<li>For four subspaces, if any three of them are linearly independent,
-then the four subspaces are linearly independent.</li>
-<li>If subspaces <span class="math inline">\(V_{1}, V_{2}\)</span> are
-linearly independent, and <span class="math inline">\(V_{1}, V_{3},
-V_{4}\)</span> are linearly independent, and <span
-class="math inline">\(V_{2}, V_{3}, V_{4}\)</span> are linearly
-independent, then all four subspaces are linearly independent.</li>
-<li>If <span class="math inline">\(V_{1}, V_{2}\)</span> are linearly
-independent, and <span class="math inline">\(V_{3}, V_{4}\)</span> are
-linearly independent, and <span class="math inline">\(V_{1}+V_{2},
-V_{3}+V_{4}\)</span> are linearly independent, then all four subspaces
-are linearly independent.</li>
+              <h1 id="large-textcolor-blue-mbox-Advanced-Algebra-small-mathbb-HW-mathrm-2-textcolor-blue-2022-3-16"><a href="#large-textcolor-blue-mbox-Advanced-Algebra-small-mathbb-HW-mathrm-2-textcolor-blue-2022-3-16" class="headerlink" title="$\large\textcolor{blue}{\mbox{Advanced Algebra  } \small \mathbb{HW}\mathrm{2}}      _\textcolor{blue}{2022.3.16}$"></a>$\large\textcolor{blue}{\mbox{Advanced Algebra  } \small \mathbb{HW}\mathrm{2}}      _\textcolor{blue}{2022.3.16}$</h1><h2 id="1-2-1-small-mbox-four-subspaces"><a href="#1-2-1-small-mbox-four-subspaces" class="headerlink" title="1.2.1$ \small  \mbox{four subspaces}$"></a>1.2.1$ \small  \mbox{four subspaces}$</h2><p> Prove or find counter examples.</p>
+<ol>
+<li>For four subspaces, if any three of them are linearly independent, then the four subspaces are linearly independent.</li>
+<li>If subspaces $V_{1}, V_{2}$ are linearly independent, and $V_{1}, V_{3}, V_{4}$ are linearly independent, and $V_{2}, V_{3}, V_{4}$ are linearly independent, then all four subspaces are linearly independent.</li>
+<li>If $V_{1}, V_{2}$ are linearly independent, and $V_{3}, V_{4}$ are linearly independent, and $V_{1}+V_{2}, V_{3}+V_{4}$ are linearly independent, then all four subspaces are linearly independent.</li>
 </ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> Construct four subspaces
-below. It is obvious that any three of them are linearly independent,
-but four subspaces together are linearly dependent. （<span
-class="math inline">\(\dim \mathbb {R}^{3}=3\)</span>） <span
-class="math display">\[
-V_1=\{\begin{bmatrix}k\\0\\0\end{bmatrix}\mid k\in
-\mathbb{R}\},V_2=\{\begin{bmatrix}0\\k\\0\end{bmatrix}\mid k\in
-\mathbb{R}\},V_3=\{\begin{bmatrix}0\\0\\k\end{bmatrix}\mid k\in
-\mathbb{R}\},V_4=\{\begin{bmatrix}k\\k\\k\end{bmatrix}\mid k\in
-\mathbb{R}\}
-\]</span> <span class="math inline">\((2)\)</span> Construct four
-subspaces below. We can prove that each of <span
-class="math inline">\(V_1,V_2\)</span> and <span
-class="math inline">\(V_1,V_3,V_4\)</span> and <span
-class="math inline">\(V_2,V_3,V_4\)</span> are linearly independent.
-<span class="math display">\[
-V_1=\{\begin{bmatrix}k\\0\\0\end{bmatrix}\mid k\in
-\mathbb{R}\},V_2=\{\begin{bmatrix}0\\k\\0\end{bmatrix}\mid k\in
-\mathbb{R}\},V_3=\{\begin{bmatrix}k\\0\\k\end{bmatrix}\mid k\in
-\mathbb{R}\},V_4=\{\begin{bmatrix}0\\k\\k\end{bmatrix}\mid k\in
-\mathbb{R}\}
-\]</span> However, pick some special vectors from these subspaces and
-its linear combination are zero <span class="math display">\[
-1\cdot \begin{bmatrix}1\\0\\0\end{bmatrix}+(-1)\cdot
-\begin{bmatrix}0\\1\\0\end{bmatrix}+(-1)\begin{bmatrix}1\\0\\1\end{bmatrix}+1\cdot
-\begin{bmatrix}0\\1\\1\end{bmatrix}=\vec{0}
-\]</span> <span class="math inline">\((3)\)</span> Reduction to
-absurdity, assume that four real numbers that not all of them is zero
-<span class="math display">\[
-a_1\vec{v}_1+a_2\vec{v}_2+a_3\vec{v}_3+a_4\vec{v}_4=0
-\]</span> We can proof that <span
-class="math inline">\(a_1\vec{v}_1+a_2\vec{v}_2\neq 0\)</span>,
-otherwise according to the independence of <span
-class="math inline">\(V_1,V_2\)</span> and</p>
-<p><span class="math inline">\(V_3,V_4\)</span> <span
-class="math inline">\(a_1=a_2=0,a_3=a_4=0\)</span>, so <span
-class="math inline">\(a_1\vec{v}_1+a_2\vec{v}_2\neq
-0,a_3\vec{v}_3+a_4\vec{v}_4\neq 0\)</span></p>
-<p>But <span class="math inline">\(a_1\vec{v}_1+a_2\vec{v}_2\in
-V_1+V_2,a_3\vec{v}_3+a_4\vec{v}_4\in V_3+V_4\)</span>, so linear
-combination of <span
-class="math inline">\(a_1\vec{v}_1+a_2\vec{v}_2\)</span> and</p>
-<p><span class="math inline">\(a_3\vec{v}_3+a_4\vec{v}_4\)</span> can
-add up to <span class="math inline">\(0\)</span>, which is contrary to
-the independence of <span
-class="math inline">\(V_1+V_2.V_3+V_4\)</span></p>
+<hr>
+<p>$(1)$ Construct four subspaces below. It is obvious that any three of them are linearly independent, but four subspaces together are linearly dependent. （$\dim \mathbb {R}^{3}=3$）</p>
+<script type="math/tex; mode=display">
+V_1=\{\begin{bmatrix}k\\0\\0\end{bmatrix}\mid k\in \mathbb{R}\},V_2=\{\begin{bmatrix}0\\k\\0\end{bmatrix}\mid k\in \mathbb{R}\},V_3=\{\begin{bmatrix}0\\0\\k\end{bmatrix}\mid k\in \mathbb{R}\},V_4=\{\begin{bmatrix}k\\k\\k\end{bmatrix}\mid k\in \mathbb{R}\}</script><p>$(2)$ Construct four subspaces below. We can prove that each of  $V_1,V_2$ and $V_1,V_3,V_4$ and $V_2,V_3,V_4$ are linearly independent. </p>
+<script type="math/tex; mode=display">
+V_1=\{\begin{bmatrix}k\\0\\0\end{bmatrix}\mid k\in \mathbb{R}\},V_2=\{\begin{bmatrix}0\\k\\0\end{bmatrix}\mid k\in \mathbb{R}\},V_3=\{\begin{bmatrix}k\\0\\k\end{bmatrix}\mid k\in \mathbb{R}\},V_4=\{\begin{bmatrix}0\\k\\k\end{bmatrix}\mid k\in \mathbb{R}\}</script><p>However, pick some special vectors from these subspaces and its linear combination are zero</p>
+<script type="math/tex; mode=display">
+1\cdot \begin{bmatrix}1\\0\\0\end{bmatrix}+(-1)\cdot \begin{bmatrix}0\\1\\0\end{bmatrix}+(-1)\begin{bmatrix}1\\0\\1\end{bmatrix}+1\cdot \begin{bmatrix}0\\1\\1\end{bmatrix}=\vec{0}</script><p>$(3)$ Reduction to absurdity, assume that four real numbers that not all of them is zero</p>
+<script type="math/tex; mode=display">
+a_1\vec{v}_1+a_2\vec{v}_2+a_3\vec{v}_3+a_4\vec{v}_4=0</script><p>We can proof that $a_1\vec{v}_1+a_2\vec{v}_2\neq 0$, otherwise according to the independence of $V_1,V_2$ and </p>
+<p>$V_3,V_4$ $a_1=a_2=0,a_3=a_4=0$, so $a_1\vec{v}_1+a_2\vec{v}_2\neq 0,a_3\vec{v}_3+a_4\vec{v}_4\neq 0$</p>
+<p>But $a_1\vec{v}_1+a_2\vec{v}_2\in V_1+V_2,a_3\vec{v}_3+a_4\vec{v}_4\in V_3+V_4$, so linear combination of $a_1\vec{v}_1+a_2\vec{v}_2$ and </p>
+<p>$a_3\vec{v}_3+a_4\vec{v}_4$ can add up to $0$, which is contrary to the independence of $V_1+V_2.V_3+V_4$  </p>
 <p>All in all, the four subspaces must be linearly independence</p>
-<h2 id="small-mboxdecomposition-of-transpose">1.2.2<span
-class="math inline">\(\ \small \mbox{decomposition of
-transpose}\)</span></h2>
-<p>Let <span class="math inline">\(V\)</span> be the space of <span
-class="math inline">\(n \times n\)</span> real matrices. Let <span
-class="math inline">\(T: V \rightarrow V\)</span> be the transpose
-operation, i.e., <span class="math inline">\(T\)</span> sends <span
-class="math inline">\(A\)</span> to <span
-class="math inline">\(A^{\mathrm{T}}\)</span> for each <span
-class="math inline">\(A \in V\)</span>. Find a non-trivial <span
-class="math inline">\(T\)</span>-invariant decomposition of <span
-class="math inline">\(V\)</span>, and find the corresponding block form
-of <span class="math inline">\(T\)</span>. (Here we use real matrices
-for your convenience, but the statement is totally fine for complex
-matrices and conjugate transpose.)</p>
-<hr />
-<p>Set <span class="math inline">\(S=\{A\mid A=A^{T},A\in M_{n\times
-n}\}\)</span>, this decomposition is invariant. Because after
-transposing any symmetric matrix, the matrix remains itself.</p>
-<p>Set <span class="math inline">\(S&#39;=\{A\mid A=-A^{T},A\in
-M_{n\times n}\}\)</span>, <span
-class="math inline">\(A=-A^{T}\Longrightarrow
-A^{T}=-A=-(A^{T})^{T}\)</span>, so any antisymmetric matrix's transpose
-is antisymmetric.</p>
-<p>So decompose the linear map of <span class="math inline">\(T\)</span>
-into <span class="math inline">\(S\)</span> and <span
-class="math inline">\(S&#39;\)</span>, <span class="math inline">\(\dim
-S=\dfrac{n(n+1)}{2},\dim S&#39;=\dfrac{n(n-1)}{2}\)</span></p>
-<p>Because any <span class="math inline">\(n\times n\)</span> matrix
-<span
-class="math inline">\(B=\dfrac{B+B^{T}}{2}+\dfrac{B-B^{T}}{2}\)</span> ,
-so transpose <span class="math inline">\(T\)</span> can be
-decomposed</p>
-<p>into <span class="math inline">\(S\)</span> and <span
-class="math inline">\(S&#39;\)</span> two block form.</p>
-<p><span class="math inline">\(A\to
-\begin{pmatrix}\frac{A+A^{T}}{2}&amp;0\\0&amp;\frac{A-A^{T}}{2}\end{pmatrix}\)</span>
-so the corresponding block form of <span
-class="math inline">\(T\)</span> is <span
-class="math inline">\(\begin{pmatrix}I&amp;0\\0&amp;-I\end{pmatrix}\)</span></p>
-<h2 id="small-mboxultimate-subspaces">1.2.3<span class="math inline">\(\
-\small \mbox{ultimate subspaces }\)</span></h2>
-<p>Let <span class="math inline">\(p(x)\)</span> be any polynomial, and
-define <span class="math inline">\(p(A)\)</span> in the obvious manner.
-E.g., if <span class="math inline">\(p(x)=\)</span> <span
-class="math inline">\(x^{2}+2 x+3\)</span>, then <span
-class="math inline">\(p(A)=A^{2}+2 A+3 I\)</span>. We fix some <span
-class="math inline">\(n \times n\)</span> matrix <span
-class="math inline">\(A\)</span>.</p>
-<ol type="1">
-<li>If <span class="math inline">\(A B=B A\)</span>, show that <span
-class="math inline">\(\operatorname{Ker}(B),
-\operatorname{Ran}(B)\)</span> are both <span
-class="math inline">\(A\)</span>-invariant subspaces.</li>
-<li>Prove that <span class="math inline">\(A p(A)=p(A) A\)</span>.</li>
-<li>Conclude that <span class="math inline">\(N_{\infty}(A-\lambda I),
-R_{\infty}(A-\lambda I)\)</span> are both <span
-class="math inline">\(A\)</span>-invariant for any <span
-class="math inline">\(\lambda \in \mathbb{C}\)</span>.</li>
+<h2 id="1-2-2-small-mbox-decomposition-of-transpose"><a href="#1-2-2-small-mbox-decomposition-of-transpose" class="headerlink" title="1.2.2$ \small \mbox{decomposition of transpose}$"></a>1.2.2$ \small \mbox{decomposition of transpose}$</h2><p>Let $V$ be the space of $n \times n$ real matrices. Let $T: V \rightarrow V$ be the transpose operation, i.e., $T$ sends $A$ to $A^{\mathrm{T}}$ for each $A \in V$. Find a non-trivial $T$-invariant decomposition of $V$, and find the corresponding block form of $T$.<br>(Here we use real matrices for your convenience, but the statement is totally fine for complex matrices and conjugate transpose.)</p>
+<hr>
+<p>Set  $S=\{A\mid A=A^{T},A\in M_{n\times n}\}$, this decomposition is invariant. Because after transposing any symmetric matrix, the matrix remains itself. </p>
+<p>Set $S’=\{A\mid A=-A^{T},A\in M_{n\times n}\}$, $A=-A^{T}\Longrightarrow A^{T}=-A=-(A^{T})^{T}$, so any antisymmetric matrix’s transpose is antisymmetric. </p>
+<p>So decompose the linear map of  $T$ into $S$ and $S’$, $\dim S=\dfrac{n(n+1)}{2},\dim S’=\dfrac{n(n-1)}{2}$</p>
+<p>Because any $n\times n$ matrix $B=\dfrac{B+B^{T}}{2}+\dfrac{B-B^{T}}{2}$ , so transpose $T$ can be decomposed </p>
+<p>into $S$ and $S’$ two block form. </p>
+<p>$A\to \begin{pmatrix}\frac{A+A^{T}}{2}&amp;0\\0&amp;\frac{A-A^{T}}{2}\end{pmatrix}$ so the corresponding block form of $T$ is $\begin{pmatrix}I&amp;0\\0&amp;-I\end{pmatrix}$</p>
+<h2 id="1-2-3-small-mbox-ultimate-subspaces"><a href="#1-2-3-small-mbox-ultimate-subspaces" class="headerlink" title="1.2.3$ \small \mbox{ultimate subspaces }$"></a>1.2.3$ \small \mbox{ultimate subspaces }$</h2><p>Let $p(x)$ be any polynomial, and define $p(A)$ in the obvious manner. E.g., if $p(x)=$ $x^{2}+2 x+3$, then $p(A)=A^{2}+2 A+3 I$. We fix some $n \times n$ matrix $A$.</p>
+<ol>
+<li>If $A B=B A$, show that $\operatorname{Ker}(B), \operatorname{Ran}(B)$ are both $A$-invariant subspaces.</li>
+<li>Prove that $A p(A)=p(A) A$.</li>
+<li>Conclude that $N_{\infty}(A-\lambda I), R_{\infty}(A-\lambda I)$ are both $A$-invariant for any $\lambda \in \mathbb{C}$.</li>
 </ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> For any vector <span
-class="math inline">\(\vec{v}\in
-\mbox{Ker}(B),B\vec{v}=\vec{0}\)</span>, so <span
-class="math inline">\(B(A\vec{v})=BA\vec{v}=AB\vec{v}=0,A\vec{v}\in
-\mbox{Ker}(B)\)</span></p>
-<p>And for any vector <span class="math inline">\(\vec{v}\in
-\mbox{Ran}(B),B\vec{x}=\vec{v}\)</span>, so <span
-class="math inline">\(A\vec{v}=A(B\vec{v})=AB\vec{v}=BA\vec{v}=B(A\vec{v})\)</span></p>
-<p><span class="math inline">\(A\vec{v}\in \mbox{Ran}(B)\)</span>. So
-<span class="math inline">\(\mbox{Ker}(B)\)</span> and <span
-class="math inline">\(\mbox{Ran}(B)\)</span> are both <span
-class="math inline">\(A-\)</span>invariant subspaces</p>
-<p><span class="math inline">\((2)\)</span> Similar to polynomial, set
-<span class="math inline">\(p(A)=\displaystyle
-\sum_{i=0}^{n}a_{i}A^{n}\)</span>, so calculate <span
-class="math inline">\(Ap(A)\)</span><br />
-<span class="math display">\[
-Ap(A)=A\displaystyle
-\sum_{i=0}^{n}a_iA^{n}=\sum_{i=0}^{n}a_{i}A^{n+1}=(\sum_{i=0}^{n}a_{i}A^{n})A=p(A)A
-\]</span> <span class="math inline">\((3)\)</span> Due to limited
-dimension <span class="math inline">\(n\)</span> of <span
-class="math inline">\(A\)</span>, <span
-class="math inline">\(N_{\infty}(A-\lambda I)\)</span> and <span
-class="math inline">\(R_{\infty}(A-\lambda I)\)</span> are limited
-combinations</p>
-<p>of <span class="math inline">\(\mbox{Ker}(A-\lambda I)^{k}\)</span>
-and <span class="math inline">\(\mbox{Ran}(A-\lambda I)^{k}\)</span> .
-According to the conclusion from <span class="math inline">\(\small
-(1)\)</span> and $(2) $</p>
-<p><span class="math inline">\(A(A-\lambda I)=(A-\lambda I)A,A(A-\lambda
-I)^2=(A-\lambda I)^2A,\cdots ,A(A-\lambda I)^k=(A-\lambda
-I)^kA\)</span></p>
-<p>so <span class="math inline">\(\forall \ k\in Z\)</span> , <span
-class="math inline">\(\mbox{Ker}(A-\lambda I)^{k}\)</span> and <span
-class="math inline">\(\mbox{Ran}(A-\lambda I)^{k}\)</span> are all <span
-class="math inline">\(A-\)</span>invariant. Add them all together</p>
-<p>So, <span class="math inline">\(N_{\infty}(A-\lambda I),
-R_{\infty}(A-\lambda I)\)</span> are both <span
-class="math inline">\(A\)</span>-invariant for any <span
-class="math inline">\(\lambda \in \mathbb{C}\)</span>.</p>
-<h2 id="small-mboxinterchangeability-and-common-eigenvector">1.2.4<span
-class="math inline">\(\ \small \mbox{interchangeability and common
-eigenvector}\)</span></h2>
-<p>Note that any linear map must have at least one eigenvector. (You may
-try to prove this yourself, but it is not part of this homework.) You
-may use this fact freely in this problem. Fix any two <span
-class="math inline">\(n \times n\)</span> square matrices <span
-class="math inline">\(A, B\)</span>. Suppose <span
-class="math inline">\(A B=B A\)</span>.</p>
-<ol type="1">
-<li>If <span class="math inline">\(W\)</span> is an A-invariant
-subspace, show that <span class="math inline">\(A\)</span> has an
-eigenvector in <span class="math inline">\(W\)</span>.</li>
-<li>Show that <span class="math inline">\(\operatorname{Ker}(A-\lambda
-I)\)</span> is always <span class="math inline">\(B\)</span>-invariant
-for all <span class="math inline">\(\lambda \in \mathbb{C}\)</span>.
-(Hint: Last problem.)</li>
-<li>Show that <span class="math inline">\(A, B\)</span> has a common
-eigenvector. (Hint: Last two sub-problem.)</li>
+<hr>
+<p>$(1)$ For any vector $\vec{v}\in \mbox{Ker}(B),B\vec{v}=\vec{0}$, so $B(A\vec{v})=BA\vec{v}=AB\vec{v}=0,A\vec{v}\in \mbox{Ker}(B)$</p>
+<p>And for any vector $\vec{v}\in \mbox{Ran}(B),B\vec{x}=\vec{v}$, so $A\vec{v}=A(B\vec{v})=AB\vec{v}=BA\vec{v}=B(A\vec{v})$</p>
+<p>$A\vec{v}\in \mbox{Ran}(B)$. So $\mbox{Ker}(B)$ and $\mbox{Ran}(B)$ are both $A-$invariant subspaces</p>
+<p>$(2)$ Similar to polynomial, set $p(A)=\displaystyle \sum_{i=0}^{n}a_{i}A^{n}$, so calculate $Ap(A)$  </p>
+<script type="math/tex; mode=display">
+Ap(A)=A\displaystyle \sum_{i=0}^{n}a_iA^{n}=\sum_{i=0}^{n}a_{i}A^{n+1}=(\sum_{i=0}^{n}a_{i}A^{n})A=p(A)A</script><p>$(3)$ Due to limited dimension $n$ of $A$, $N_{\infty}(A-\lambda I)$ and $R_{\infty}(A-\lambda I)$ are limited combinations </p>
+<p>of $\mbox{Ker}(A-\lambda I)^{k}$ and $\mbox{Ran}(A-\lambda I)^{k}$ . According to the conclusion from $\small (1)$ and $\small (2) $ </p>
+<p>$A(A-\lambda I)=(A-\lambda I)A,A(A-\lambda I)^2=(A-\lambda I)^2A,\cdots ,A(A-\lambda I)^k=(A-\lambda I)^kA$</p>
+<p>so $\forall  k\in Z$ , $\mbox{Ker}(A-\lambda I)^{k}$ and $\mbox{Ran}(A-\lambda I)^{k}$ are all $A-$invariant. Add them all together </p>
+<p>So, $N_{\infty}(A-\lambda I), R_{\infty}(A-\lambda I)$ are both $A$-invariant for any $\lambda \in \mathbb{C}$.</p>
+<h2 id="1-2-4-small-mbox-interchangeability-and-common-eigenvector"><a href="#1-2-4-small-mbox-interchangeability-and-common-eigenvector" class="headerlink" title="1.2.4$ \small \mbox{interchangeability and common eigenvector}$"></a>1.2.4$ \small \mbox{interchangeability and common eigenvector}$</h2><p>Note that any linear map must have at least one eigenvector. (You may try to prove this yourself, but it is not part of this homework.) You may use this fact freely in this problem.<br>Fix any two $n \times n$ square matrices $A, B$. Suppose $A B=B A$.</p>
+<ol>
+<li>If $W$ is an A-invariant subspace, show that $A$ has an eigenvector in $W$.</li>
+<li>Show that $\operatorname{Ker}(A-\lambda I)$ is always $B$-invariant for all $\lambda \in \mathbb{C}$. (Hint: Last problem.)</li>
+<li>Show that $A, B$ has a common eigenvector. (Hint: Last two sub-problem.)</li>
 </ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> Construct a new linear map
-from <span class="math inline">\(W\)</span> to <span
-class="math inline">\(W\)</span> <span class="math display">\[
-W\longmapsto  W: \vec{w}\longmapsto A\vec{w}
-\]</span> According to the fact that any linear map must have at least
-one eigenvector, A has an eigenvector in <span
-class="math inline">\(W\)</span></p>
-<p><span class="math inline">\((2)\)</span> For any vector <span
-class="math inline">\(\vec{v}\)</span> from <span
-class="math inline">\(\mbox{Ker}(A-\lambda I)\)</span>, <span
-class="math inline">\((A-\lambda
-I)\vec{v}=0,A\vec{v}=\lambda\vec{v}\)</span>, use <span
-class="math inline">\(AB=BA\)</span></p>
-<p>Because <span class="math inline">\((A-\lambda
-I)(B\vec{v})=(AB-\lambda B)\vec{v}=(BA-\lambda B)\vec{v}=B(A-\lambda
-I)\vec{v}=0\)</span></p>
-<p>So <span class="math inline">\(\mbox{Ker}(A-\lambda I)\)</span> is
-<span class="math inline">\(B-\)</span>invariant for all <span
-class="math inline">\(\lambda \in \mathbb{C}\)</span></p>
-<p><span class="math inline">\((3)\)</span> According to <span
-class="math inline">\(\small (1)\)</span> and <span
-class="math inline">\(\small (2)\)</span>, there exists at least one
-eigenvector <span class="math inline">\(\vec{v}\)</span> in <span
-class="math inline">\(\mbox{Ker}(A-\lambda I)\)</span> that</p>
-<p><span class="math inline">\(B\vec{v}=\lambda_{B}\vec{v}\)</span> And
-the vector <span class="math inline">\(\vec{v}\)</span> also satisfies
-that <span
-class="math inline">\(A\vec{v}=\lambda_{A}\vec{v}\)</span></p>
-<p>So if <span class="math inline">\(A\)</span> and <span
-class="math inline">\(B\)</span> are interchangeable, they must have
-common eigenvector.</p>
-<h1
-id="largetextcolorbluemboxadvanced-algebra-small-mathbbhwmathrm3-_textcolorblue2022.3.24"><span
-class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra }
-\small \mathbb{HW}\mathrm{3}}\ \ \ \ \ \
-_\textcolor{blue}{2022.3.24}\)</span></h1>
-<h2 id="small-mboxjordan-normal-form">1.3.1<span class="math inline">\(\
-\small \mbox{jordan normal form}\)</span></h2>
-<p>Find a basis in the following vector space so that the linear map
-involved will be in Jordan normal form. Also find the Jordan normal
-form.</p>
-<ol type="1">
-<li><span class="math inline">\(V=\mathbb{C}^{2}\)</span> is a real
-vector space, and <span class="math inline">\(A: V \rightarrow
-V\)</span> that sends <span
-class="math inline">\(\left[\begin{array}{l}x \\
-y\end{array}\right]\)</span> to <span
-class="math inline">\(\left[\begin{array}{c}\bar{x}-\Re(y) \\ (1+i)
-\Im(x)-y\end{array}\right]\)</span> is a real linear map. (Here <span
-class="math inline">\(\bar{x}\)</span> means the complex conjugate of a
-complex number <span class="math inline">\(x\)</span>, and <span
-class="math inline">\(\Re(x), \Im(x)\)</span> means the real part and
-the imaginary part of a complex number <span class="math inline">\(x
-.)\)</span></li>
-<li><span class="math inline">\(V=P_{4}\)</span>, the real vector space
-space of all real polynomials of degree at most 4. And <span
-class="math inline">\(A: V \rightarrow V\)</span> is a linear map such
-that <span
-class="math inline">\(A(p(x))=p^{\prime}(x)+p(0)+p^{\prime}(0)
-x^{2}\)</span> for each polynomial <span class="math inline">\(p \in
-P_{4}\)</span>.</li>
-<li><span class="math inline">\(A=\left[\begin{array}{llll} &amp; &amp;
-&amp; a_{1} \\ &amp; &amp; a_{2} &amp; \\ &amp; a_{3} &amp; &amp; \\
-a_{4} &amp; &amp; &amp; \end{array}\right]\)</span>. Be careful here.
-Maybe we have many possibilities for its Jordan normal form depending on
-the values of <span class="math inline">\(a_{1}, a_{2}, a_{3},
-a_{4}\)</span>.</li>
+<hr>
+<p>$(1)$ Construct a new linear map from $W$ to $W$</p>
+<script type="math/tex; mode=display">
+W\longmapsto  W: \vec{w}\longmapsto A\vec{w}</script><p>According to the fact that any linear map must have at least one eigenvector, A has an eigenvector in $W$</p>
+<p>$(2)$ For any vector $\vec{v}$ from $\mbox{Ker}(A-\lambda I)$, $(A-\lambda I)\vec{v}=0,A\vec{v}=\lambda\vec{v}$, use $AB=BA$</p>
+<p>Because  $(A-\lambda I)(B\vec{v})=(AB-\lambda B)\vec{v}=(BA-\lambda B)\vec{v}=B(A-\lambda I)\vec{v}=0$</p>
+<p> So $\mbox{Ker}(A-\lambda I)$ is $B-$invariant for all $\lambda \in \mathbb{C}$</p>
+<p>$(3)$ According to $\small (1)$ and $\small (2)$, there exists at least one eigenvector $\vec{v}$ in $\mbox{Ker}(A-\lambda I)$ that </p>
+<p>$B\vec{v}=\lambda_{B}\vec{v}$ And the vector $\vec{v}$ also satisfies that $A\vec{v}=\lambda_{A}\vec{v}$</p>
+<p>So if $A$ and $B$ are interchangeable, they must have common eigenvector. </p>
+<h1 id="large-textcolor-blue-mbox-Advanced-Algebra-small-mathbb-HW-mathrm-3-textcolor-blue-2022-3-24"><a href="#large-textcolor-blue-mbox-Advanced-Algebra-small-mathbb-HW-mathrm-3-textcolor-blue-2022-3-24" class="headerlink" title="$\large\textcolor{blue}{\mbox{Advanced Algebra  } \small \mathbb{HW}\mathrm{3}}      _\textcolor{blue}{2022.3.24}$"></a>$\large\textcolor{blue}{\mbox{Advanced Algebra  } \small \mathbb{HW}\mathrm{3}}      _\textcolor{blue}{2022.3.24}$</h1><h2 id="1-3-1-small-mbox-jordan-normal-form"><a href="#1-3-1-small-mbox-jordan-normal-form" class="headerlink" title="1.3.1$ \small  \mbox{jordan normal form}$"></a>1.3.1$ \small  \mbox{jordan normal form}$</h2><p>Find a basis in the following vector space so that the linear map involved will be in Jordan normal form. Also find the Jordan normal form.</p>
+<ol>
+<li>$V=\mathbb{C}^{2}$ is a real vector space, and $A: V \rightarrow V$ that sends $\left[\begin{array}{l}x \ y\end{array}\right]$ to $\left[\begin{array}{c}\bar{x}-\Re(y) \ (1+i) \Im(x)-y\end{array}\right]$ is a real linear map. (Here $\bar{x}$ means the complex conjugate of a complex number $x$, and $\Re(x), \Im(x)$ means the real part and the imaginary part of a complex number $x .)$</li>
+<li>$V=P_{4}$, the real vector space space of all real polynomials of degree at most 4. And $A: V \rightarrow V$ is a linear map such that $A(p(x))=p^{\prime}(x)+p(0)+p^{\prime}(0) x^{2}$ for each polynomial $p \in P_{4}$.</li>
+<li>$A=\left[\begin{array}{llll} &amp; &amp; &amp; a_{1} \ &amp; &amp; a_{2} &amp; \ &amp; a_{3} &amp; &amp; \ a_{4} &amp; &amp; &amp; \end{array}\right]$. Be careful here. Maybe we have many possibilities for its Jordan normal form depending on the values of $a_{1}, a_{2}, a_{3}, a_{4}$.</li>
 </ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> <span
-class="math inline">\(A_1=\begin{pmatrix}1&amp;0&amp;-1&amp;0\\0&amp;-1&amp;0&amp;0\\0&amp;1&amp;-1&amp;0\\0&amp;1&amp;0&amp;-1\end{pmatrix}=\begin{pmatrix}1&amp;2&amp;1&amp;0\\0&amp;0&amp;4&amp;0\\0&amp;4&amp;0&amp;0\\0&amp;4&amp;0&amp;1\end{pmatrix}\begin{pmatrix}1&amp;0&amp;0&amp;0\\0&amp;-1&amp;1&amp;0\\0&amp;0&amp;-1&amp;0\\0&amp;0&amp;0&amp;-1\end{pmatrix}\begin{pmatrix}1&amp;2&amp;1&amp;0\\0&amp;0&amp;4&amp;0\\0&amp;4&amp;0&amp;0\\0&amp;4&amp;0&amp;1\end{pmatrix}^{-1}\)</span></p>
-<p><span class="math inline">\((2)\)</span> <span
-class="math inline">\(A:a_0+a_1x+a_2x^2+a_3x^3+a_4x^4\longmapsto(a_0+a_1)+2a_2x+(a_1+2a_3)x^2+4a_4x^3\)</span>
-<span class="math display">\[
+<hr>
+<p>$(1)$ $A_1=\begin{pmatrix}1&amp;0&amp;-1&amp;0\\0&amp;-1&amp;0&amp;0\\0&amp;1&amp;-1&amp;0\\0&amp;1&amp;0&amp;-1\end{pmatrix}=\begin{pmatrix}1&amp;2&amp;1&amp;0\\0&amp;0&amp;4&amp;0\\0&amp;4&amp;0&amp;0\\0&amp;4&amp;0&amp;1\end{pmatrix}\begin{pmatrix}1&amp;0&amp;0&amp;0\\0&amp;-1&amp;1&amp;0\\0&amp;0&amp;-1&amp;0\\0&amp;0&amp;0&amp;-1\end{pmatrix}\begin{pmatrix}1&amp;2&amp;1&amp;0\\0&amp;0&amp;4&amp;0\\0&amp;4&amp;0&amp;0\\0&amp;4&amp;0&amp;1\end{pmatrix}^{-1}$</p>
+<p>$(2)$ $A:a_0+a_1x+a_2x^2+a_3x^3+a_4x^4\longmapsto(a_0+a_1)+2a_2x+(a_1+2a_3)x^2+4a_4x^3$</p>
+<script type="math/tex; mode=display">
 \begin{gathered}
-\begin{pmatrix}1&amp;1&amp;0&amp;0&amp;0\\0&amp;0&amp;2&amp;0&amp;0\\0&amp;1&amp;0&amp;3&amp;0\\0&amp;0&amp;0&amp;0&amp;4\\0&amp;0&amp;0&amp;0&amp;0\end{pmatrix}=J\begin{pmatrix}1&amp;0&amp;0&amp;0&amp;0\\0&amp;\sqrt{2}&amp;0&amp;0&amp;0\\0&amp;0&amp;-\sqrt{2}&amp;0&amp;0\\0&amp;0&amp;0&amp;0&amp;1\\0&amp;0&amp;0&amp;0&amp;0\end{pmatrix}J^{-1}\\
-J=\begin{pmatrix}1&amp;\sqrt{2}+1&amp;1-\sqrt{2}&amp;12&amp;12\\0&amp;1&amp;1&amp;-12&amp;0\\0&amp;\dfrac{\sqrt{2}}{2}&amp;-\dfrac{\sqrt{2}}{2}&amp;0&amp;-6\\0&amp;0&amp;0&amp;4&amp;0\\0&amp;0&amp;0&amp;0&amp;1\end{pmatrix}
-\end{gathered}
-\]</span> <span class="math inline">\((3)\)</span> <span
-class="math display">\[
-J=\begin{pmatrix}J_{1,4}&amp;O\\O&amp;J_{2,3}\end{pmatrix},\mbox{where
-}J_{i,j}=\begin{cases}\begin{pmatrix}\sqrt{a_ia_j}&amp;0\\0&amp;-\sqrt{a_ia_j}\end{pmatrix}&amp;a_i\neq
-0,a_j\neq 0\\\begin{pmatrix}0&amp;0\\0&amp;0\end{pmatrix}&amp;a_i=
-0,a_j\neq 0\mbox{ or }a_i\neq 0,a_j=0
-\\\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}&amp;a_i=a_j=0\\\end{cases}
-\]</span></p>
-<h2 id="small-mboxpartitions-of-interger">1.3.2<span
-class="math inline">\(\ \small \mbox{partitions of
-interger}\)</span></h2>
-<p>A partition of integer <span class="math inline">\(n\)</span> is a
-way to write <span class="math inline">\(n\)</span> as a sum of other
-positive integers, say <span class="math inline">\(5=2+2+1\)</span>. If
-you always order the summands from large to small, you end up with a dot
-diagram, where each column represent an integer: <span
-class="math inline">\(\left[\begin{array}{ll}\cdot &amp; \cdot \\ \cdot
-&amp; \cdot \\ \cdot\end{array}\right]\)</span>. Similarly, <span
-class="math inline">\(7=4+2+1\)</span> should be represented as <span
-class="math inline">\(\left[\begin{array}{lll} \cdot &amp; \cdot &amp;
-\cdot \\ \cdot &amp; \cdot &amp; \\ \cdot &amp; &amp; \\ \cdot &amp;
-&amp; \end{array}\right]\)</span></p>
-<ol type="1">
-<li><p>If the Jordan normal form of an <span class="math inline">\(n
-\times n\)</span> nilpotent matrix <span
-class="math inline">\(A\)</span> is diag <span
-class="math inline">\(\left(J_{a_{1}}, J_{a_{2}}, \ldots,
-J_{a_{k}}\right)\)</span>, then we have a partition of integer <span
-class="math inline">\(n=a_{1}+\ldots+a_{k}\)</span>. However, we also
-have a partition of integer <span class="math inline">\(n=\small
-[\operatorname{dim} \operatorname{Ker}(A)]+\left[\operatorname{dim}
-\operatorname{Ker}\left(A^{2}\right)-\operatorname{dim}
-\operatorname{Ker}(A)\right]+\left[\operatorname{dim}
-\operatorname{Ker}\left(A^{3}\right)-\operatorname{dim}
-\operatorname{Ker}\left(A^{2}\right)\right]+\ldots\)</span> where we
-treat the content of each bracket as a positive integer. Can you find a
-relation between the two dot diagrams?</p></li>
-<li><p>A partition of integer <span
-class="math inline">\(n=a_{1}+\ldots+a_{k}\)</span> is called
-self-conjugate if, for the matrix <span
-class="math inline">\(A=\operatorname{diag}\left(J_{a_{1}}, J_{a_{2}},
-\ldots, J_{a_{k}}\right)\)</span>, the two dot diagrams you obtained
-above are the same. Show that, for a fixed integer n, the number of
-self-conjugate partition of <span class="math inline">\(n\)</span> is
-equal to the number of partition of <span
-class="math inline">\(n\)</span> into distinct odd positive integers.
-(Hint: For a self-conjugate dot diagram, count the total number of dots
-that are either in the first column or in the first row or in both. Is
-this always odd?)</p></li>
-<li><p>Suppose a 4 by 4 matrix <span class="math inline">\(A\)</span> is
-nilpotent and upper trianguler, and all <span class="math inline">\((i,
-j)\)</span> entries for <span class="math inline">\(i&lt;j\)</span> are
-chosen randomly and uniformly in the interval <span
-class="math inline">\([-1,1]\)</span>. What are the probabilities that
-its Jordan canonical form corresponds to the partitions <span
-class="math inline">\(4=4,4=3+1,4=2+2,4=2+1+1,4=1+1+1+1\)</span>
-?</p></li>
+\begin{pmatrix}1&1&0&0&0\\0&0&2&0&0\\0&1&0&3&0\\0&0&0&0&4\\0&0&0&0&0\end{pmatrix}=J\begin{pmatrix}1&0&0&0&0\\0&\sqrt{2}&0&0&0\\0&0&-\sqrt{2}&0&0\\0&0&0&0&1\\0&0&0&0&0\end{pmatrix}J^{-1}\\
+J=\begin{pmatrix}1&\sqrt{2}+1&1-\sqrt{2}&12&12\\0&1&1&-12&0\\0&\dfrac{\sqrt{2}}{2}&-\dfrac{\sqrt{2}}{2}&0&-6\\0&0&0&4&0\\0&0&0&0&1\end{pmatrix}
+\end{gathered}</script><p>$(3)$</p>
+<script type="math/tex; mode=display">
+J=\begin{pmatrix}J_{1,4}&O\\O&J_{2,3}\end{pmatrix},\mbox{where }J_{i,j}=\begin{cases}\begin{pmatrix}\sqrt{a_ia_j}&0\\0&-\sqrt{a_ia_j}\end{pmatrix}&a_i\neq 0,a_j\neq 0\\\begin{pmatrix}0&0\\0&0\end{pmatrix}&a_i= 0,a_j\neq 0\mbox{ or }a_i\neq 0,a_j=0 \\\begin{pmatrix}0&1\\0&0\end{pmatrix}&a_i=a_j=0\\\end{cases}</script><h2 id="1-3-2-small-mbox-partitions-of-interger"><a href="#1-3-2-small-mbox-partitions-of-interger" class="headerlink" title="1.3.2$ \small \mbox{partitions of interger}$"></a>1.3.2$ \small \mbox{partitions of interger}$</h2><p>A partition of integer $n$ is a way to write $n$ as a sum of other positive integers, say $5=2+2+1$. If you always order the summands from large to small, you end up with a dot diagram, where each column represent an integer: $\left[\begin{array}{ll}\cdot &amp; \cdot \ \cdot &amp; \cdot \ \cdot\end{array}\right]$. Similarly, $7=4+2+1$ should be represented as $\left[\begin{array}{lll}<br>\cdot &amp; \cdot &amp; \cdot \\<br>\cdot &amp; \cdot &amp; \\<br>\cdot &amp; &amp; \\<br>\cdot &amp; &amp;<br>\end{array}\right]$</p>
+<ol>
+<li>If the Jordan normal form of an $n \times n$ nilpotent matrix $A$ is diag $\left(J_{a_{1}}, J_{a_{2}}, \ldots, J_{a_{k}}\right)$, then we have a partition of integer $n=a_{1}+\ldots+a_{k}$. However, we also have a partition of integer $n=\small [\operatorname{dim} \operatorname{Ker}(A)]+\left[\operatorname{dim} \operatorname{Ker}\left(A^{2}\right)-\operatorname{dim} \operatorname{Ker}(A)\right]+\left[\operatorname{dim} \operatorname{Ker}\left(A^{3}\right)-\operatorname{dim} \operatorname{Ker}\left(A^{2}\right)\right]+\ldots$ where we treat the content of each bracket as a positive integer. Can you find a relation between the two dot diagrams?</li>
+<li><p>A partition of integer $n=a_{1}+\ldots+a_{k}$ is called self-conjugate if, for the matrix $A=\operatorname{diag}\left(J_{a_{1}}, J_{a_{2}}, \ldots, J_{a_{k}}\right)$, the two dot diagrams you obtained above are the same. Show that, for a fixed integer n, the number of self-conjugate partition of $n$ is equal to the number of partition of $n$ into distinct odd positive integers. (Hint: For a self-conjugate dot diagram, count the total number of dots that are either in the first column or in the first row or in both. Is this always odd?)</p>
+</li>
+<li><p>Suppose a 4 by 4 matrix $A$ is nilpotent and upper trianguler, and all $(i, j)$ entries for $i&lt;j$ are chosen randomly and uniformly in the interval $[-1,1]$. What are the probabilities that its Jordan canonical form corresponds to the partitions $4=4,4=3+1,4=2+2,4=2+1+1,4=1+1+1+1$ ?</p>
+</li>
 </ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> I can find that the sequence
-of each bracket' number is not incremental, which is just like the dot
-graph. Put <span class="math inline">\(\small [\operatorname{dim}
-\operatorname{Ker}(A)],\left[\operatorname{dim}
-\operatorname{Ker}\left(A^{2}\right)-\operatorname{dim}
-\operatorname{Ker}(A)\right],\left[\operatorname{dim}
-\operatorname{Ker}\left(A^{3}\right)-\operatorname{dim}
-\operatorname{Ker}\left(A^{2}\right)\right],\ldots\)</span> like the dot
-graph. According to the 'killing chain', the number of each row's dots
-of the dot graph is just <span
-class="math inline">\(a_1,a_2,a_3,\ldots\)</span></p>
-<p><span class="math inline">\((2)\)</span> The self-conjugate of the
-partition is just like a flying wing. Like this <span
-class="math inline">\(\left[\begin{array}{lll} \cdot &amp; \cdot &amp;
-\cdot &amp; \cdot&amp;\cdot &amp;\cdot \\ \cdot &amp; \cdot &amp; \cdot
-&amp; \cdot&amp;\cdot \\ \cdot &amp;\cdot &amp;\cdot &amp; \\\cdot
-&amp;\cdot &amp;\\ \cdot &amp;\cdot &amp;\\\cdot
-\end{array}\right]\)</span></p>
-<p>If rudely call this as a matrix <span
-class="math inline">\(A\)</span>, because of the condition, we have
-<span class="math inline">\(A=A^{T}\)</span>.</p>
-<p>Consider the outermost corner, the total number of the dots is <span
-class="math inline">\(n+n-1=2n-1\in \mbox{odd}\)</span></p>
-<p>And deprive each corner, the newest outermost corner also satisfies
-the odd condition.</p>
-<p>So every self-conjugate can be correspondence to odd-partition. And
-for each odd-partition, we can construct the matrix one corner by one
-corner.</p>
-<p>In conclusion, the two numbers are the same.</p>
-<p><span class="math inline">\((3)\)</span> <span
-class="math inline">\(A\)</span> is nilpotent and its dimension is <span
-class="math inline">\(4\)</span>, so <span
-class="math inline">\(A^{4}=O\)</span>. Consider the diagonal
-elements.</p>
-<p><span class="math inline">\(A^4(i,i)=(A(i,i))^4=0\)</span>, so <span
-class="math inline">\(A\)</span> is like <span
-class="math inline">\(A=\begin{pmatrix}0&amp;\mbox{ran}&amp;\mbox{ran}&amp;\mbox{ran}\\0&amp;0&amp;\mbox{ran}&amp;\mbox{ran}\\0&amp;0&amp;0&amp;\mbox{ran}\\0&amp;0&amp;0&amp;0\end{pmatrix}\)</span>.
-It is obvious that all the</p>
-<p>eigenvalues are <span class="math inline">\(0\)</span>. Consider
-<span
-class="math inline">\(\mbox{Ker}(A),\mbox{Ker}(A^2),\mbox{Ker}(A^3),\mbox{Ke}(A^4)\)</span>,
-dimension of each is nearly</p>
-<p><span class="math inline">\(1,2,3,4\)</span> , since each <span
-class="math inline">\(\mbox{ran}\)</span> is randomly chosen from <span
-class="math inline">\([-1,1]\)</span>. The probability <span
-class="math inline">\(4=1+1+1+1\)</span></p>
-<p>is <span class="math inline">\(1\)</span>, others are <span
-class="math inline">\(0\)</span>.</p>
-<h1
-id="largetextcolorbluemboxadvanced-algebra-small-mathbbhwmathrm6-_textcolorblue2022.4.29"><span
-class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra }
-\small \mathbb{HW}\mathrm{6}}\ \ \ \ \ \
-_\textcolor{blue}{2022.4.29}\)</span></h1>
-<h2 id="small-mboxvandermode-matrix">1.6.1<span class="math inline">\(\
-\small \mbox{Vandermode matrix}\)</span></h2>
-<p>Let <span class="math inline">\(V\)</span> be the space of real
-polynomials of degree less than <span class="math inline">\(n\)</span>.
-So <span class="math inline">\(\operatorname{dim} V=n\)</span>. Then for
-each <span class="math inline">\(a \in \mathbb{R}\)</span>, the
-evaluation <span class="math inline">\(\mathrm{ev}_{a}\)</span> is a
-dual vector.</p>
-<p>For any real numbers <span class="math inline">\(a_{1}, \ldots, a_{n}
-\in \mathbb{R}\)</span>, consider the map <span class="math inline">\(L:
-V \rightarrow \mathbb{R}^{n}\)</span> such that <span
-class="math inline">\(L(p)=\left[\begin{array}{c}p\left(a_{1}\right) \\
-\vdots \\ p\left(a_{n}\right)\end{array}\right]\)</span>.</p>
-<ol type="1">
-<li>Write out the matrix for <span class="math inline">\(L\)</span>
-under the basis <span class="math inline">\(1, x, \ldots,
-x^{n-1}\)</span> for <span class="math inline">\(V\)</span> and the
-standard basis for <span class="math inline">\(\mathbb{R}^{n}\)</span>.
-(Do you know the name for this matrix?)</li>
-<li>Prove that <span class="math inline">\(L\)</span> is invertible if
-and only if <span class="math inline">\(a_{1}, \ldots, a_{n}\)</span>
-are distinct. (If you can name the matrix <span
-class="math inline">\(L\)</span>, then you may use its determinant
-formula without proof.)</li>
-<li>Show that <span class="math inline">\(\mathrm{ev}_{a_{1}}, \ldots,
-\mathrm{ev}_{a_{n}}\)</span> form a basis for <span
-class="math inline">\(V^{*}\)</span> if and only if all <span
-class="math inline">\(a_{1}, \ldots, a_{n}\)</span> are distinct.</li>
-<li>Set <span class="math inline">\(n=3\)</span>. Find polynomials <span
-class="math inline">\(p_{1}, p_{2}, p_{3}\)</span> such that <span
-class="math inline">\(p_{i}(j)=\delta_{i j}\)</span> for <span
-class="math inline">\(i, j \in\{-1,0,1\}\)</span>.</li>
-<li>Set <span class="math inline">\(n=4\)</span>, and consider <span
-class="math inline">\(\mathrm{ev}_{-2}, \mathrm{ev}_{-1},
-\mathrm{ev}_{0}, \mathrm{ev}_{1}, \mathrm{ev}_{2} \in V^{*}\)</span>.
-Since <span class="math inline">\(\operatorname{dim} V^{*}=4\)</span>,
-these must be linearly dependent. Find a non-trivial linear combination
-of these which is zero.</li>
+<hr>
+<p>$(1)$ I can find that the sequence of each bracket’ number is not incremental, which is just like the dot graph. Put $\small [\operatorname{dim} \operatorname{Ker}(A)],\left[\operatorname{dim} \operatorname{Ker}\left(A^{2}\right)-\operatorname{dim} \operatorname{Ker}(A)\right],\left[\operatorname{dim} \operatorname{Ker}\left(A^{3}\right)-\operatorname{dim} \operatorname{Ker}\left(A^{2}\right)\right],\ldots$ like the dot graph. According to the ‘killing chain’, the number of each row’s dots of the dot graph is just $a_1,a_2,a_3,\ldots$ </p>
+<p>$(2)$ The self-conjugate of the partition is just like a flying wing. Like this $\left[\begin{array}{lll}<br>\cdot &amp; \cdot &amp; \cdot &amp; \cdot&amp;\cdot &amp;\cdot \\<br>\cdot &amp; \cdot &amp; \cdot &amp; \cdot&amp;\cdot \\<br>\cdot &amp;\cdot &amp;\cdot  &amp; \\\cdot &amp;\cdot  &amp;\\<br>\cdot &amp;\cdot  &amp;\\\cdot \end{array}\right]$</p>
+<p>If rudely call this as a matrix $A$, because of the condition, we have $A=A^{T}$.</p>
+<p>Consider the outermost corner, the total number of the dots is $n+n-1=2n-1\in \mbox{odd}$</p>
+<p>And deprive each corner, the newest outermost corner also satisfies the odd condition. </p>
+<p>So every self-conjugate can be correspondence to odd-partition. And for each odd-partition, we can construct the matrix one corner by one corner. </p>
+<p>In conclusion, the two numbers are the same. </p>
+<p>$(3)$ $A$ is nilpotent and its dimension is $4$, so $A^{4}=O$. Consider the diagonal elements. </p>
+<p>$A^4(i,i)=(A(i,i))^4=0$, so $A$ is like $A=\begin{pmatrix}0&amp;\mbox{ran}&amp;\mbox{ran}&amp;\mbox{ran}\\0&amp;0&amp;\mbox{ran}&amp;\mbox{ran}\\0&amp;0&amp;0&amp;\mbox{ran}\\0&amp;0&amp;0&amp;0\end{pmatrix}$. It is obvious that all the </p>
+<p>eigenvalues are $0$. Consider $\mbox{Ker}(A),\mbox{Ker}(A^2),\mbox{Ker}(A^3),\mbox{Ke}(A^4)$, dimension of each is nearly </p>
+<p>$1,2,3,4$ , since each $\mbox{ran}$ is randomly chosen from $[-1,1]$. The probability $4=1+1+1+1$</p>
+<p>is $1$, others are $0$.</p>
+<h1 id="large-textcolor-blue-mbox-Advanced-Algebra-small-mathbb-HW-mathrm-6-textcolor-blue-2022-4-29"><a href="#large-textcolor-blue-mbox-Advanced-Algebra-small-mathbb-HW-mathrm-6-textcolor-blue-2022-4-29" class="headerlink" title="$\large\textcolor{blue}{\mbox{Advanced Algebra  } \small \mathbb{HW}\mathrm{6}}      _\textcolor{blue}{2022.4.29}$"></a>$\large\textcolor{blue}{\mbox{Advanced Algebra  } \small \mathbb{HW}\mathrm{6}}      _\textcolor{blue}{2022.4.29}$</h1><h2 id="1-6-1-small-mbox-Vandermode-matrix"><a href="#1-6-1-small-mbox-Vandermode-matrix" class="headerlink" title="1.6.1$ \small  \mbox{Vandermode matrix}$"></a>1.6.1$ \small  \mbox{Vandermode matrix}$</h2><p>Let $V$ be the space of real polynomials of degree less than $n$. So $\operatorname{dim} V=n$. Then for each $a \in \mathbb{R}$, the evaluation $\mathrm{ev}_{a}$ is a dual vector.</p>
+<p>For any real numbers $a_{1}, \ldots, a_{n} \in \mathbb{R}$, consider the map $L: V \rightarrow \mathbb{R}^{n}$ such that $L(p)=\left[\begin{array}{c}p\left(a_{1}\right) \ \vdots \ p\left(a_{n}\right)\end{array}\right]$.</p>
+<ol>
+<li>Write out the matrix for $L$ under the basis $1, x, \ldots, x^{n-1}$ for $V$ and the standard basis for $\mathbb{R}^{n}$. (Do you know the name for this matrix?)</li>
+<li>Prove that $L$ is invertible if and only if $a_{1}, \ldots, a_{n}$ are distinct. (If you can name the matrix $L$, then you may use its determinant formula without proof.)</li>
+<li>Show that $\mathrm{ev}_{a_{1}}, \ldots, \mathrm{ev}_{a_{n}}$ form a basis for $V^{*}$ if and only if all $a_{1}, \ldots, a_{n}$ are distinct.</li>
+<li>Set $n=3$. Find polynomials $p_{1}, p_{2}, p_{3}$ such that $p_{i}(j)=\delta_{i j}$ for $i, j \in\{-1,0,1\}$.</li>
+<li>Set $n=4$, and consider $\mathrm{ev}_{-2}, \mathrm{ev}_{-1}, \mathrm{ev}_{0}, \mathrm{ev}_{1}, \mathrm{ev}_{2} \in V^{<em>}$. Since $\operatorname{dim} V^{</em>}=4$, these must be linearly dependent. Find a non-trivial linear combination of these which is zero.</li>
 </ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> <span
-class="math inline">\(L=\left[\begin{array}{cccc} 1 &amp; a_{1} &amp;
-\cdots &amp; a_{1}^{n-1} \\ 1 &amp; a_{2} &amp; \cdots &amp; a_{2}^{n-1}
-\\ \vdots &amp; &amp; &amp; \vdots \\ 1 &amp; a_{n} &amp; \cdots &amp;
-a_{n}^{n-1} \end{array}\right]\)</span><strong>Vandermode
-matrix</strong></p>
-<p>Calculate its inverse and we can get standard basis using Lagrange
-interpolation. <span class="math display">\[
+<hr>
+<p>$(1)$ $L=\left[\begin{array}{cccc}<br>1 &amp; a_{1} &amp; \cdots &amp; a_{1}^{n-1} \\<br>1 &amp; a_{2} &amp; \cdots &amp; a_{2}^{n-1} \\<br>\vdots &amp; &amp; &amp; \vdots \\<br>1 &amp; a_{n} &amp; \cdots &amp; a_{n}^{n-1}<br>\end{array}\right]$<strong>Vandermode matrix</strong> </p>
+<p>Calculate its inverse and we can get standard basis using Lagrange interpolation.</p>
+<script type="math/tex; mode=display">
 \left(\begin{array}{cccc}
-1 &amp; a_{1} &amp; \cdots &amp; a_{1}^{n-1} \\
-1 &amp; a_{2} &amp; \cdots &amp; a_{2}^{n-1} \\
-\vdots &amp; &amp; &amp; \vdots \\
-1 &amp; a_{n} &amp; \cdots &amp; a_{n}^{n-1}
-\end{array}\right)\left(\begin{array}{c}x_{0} \\ x_{1} \\ x_{2} \\
-\vdots \\ x_{n-1}\end{array}\right)=\left(\begin{array}{c}y_{0} \\ y_{1}
-\\ y_{2} \\ \vdots \\
-y_{n-1}\end{array}\right)\\\left(\begin{array}{cccc}
-1 &amp; a_{1} &amp; \cdots &amp; a_{1}^{n-1} \\
-1 &amp; a_{2} &amp; \cdots &amp; a_{2}^{n-1} \\
-\vdots &amp; &amp; &amp; \vdots \\
-1 &amp; a_{n} &amp; \cdots &amp; a_{n}^{n-1}
-\end{array}\right)^{-1}\left(\begin{array}{c}y_{0} \\ y_{1} \\ y_{2} \\
-\vdots \\ y_{n-1}\end{array}\right)=\left(\begin{array}{c}x_{0} \\ x_{1}
-\\ x_{2} \\ \vdots \\ x_{n-1}\end{array}\right)
-\]</span> Construct polynomial <span
-class="math inline">\(f(a)=\displaystyle \sum_{i}y_i \prod_{j \neq i}
-\frac{a-a_{j}}{a_{i}-a_{j}}\)</span> So <span
-class="math inline">\(f(a_i)=x_i\)</span></p>
-<p>So <span class="math inline">\(\left(V^{-1}\right)_{i j}\)</span> is
-the coefficient of <span class="math inline">\(\displaystyle \prod_{k
-\neq i} \frac{a-a_{k}}{a_{i}-a_{k}}\)</span> at <span
-class="math inline">\(x^{j-1}\)</span> , which is <span
-class="math inline">\(\displaystyle\left(V^{-1}\right)_{i
-j}=\left[x^{j-1}\right] \prod_{k \neq i}
-\frac{a-a_{k}}{a_{i}-a_{k}}\)</span> <span class="math display">\[
-\left(V^{-1}\right)_{i j}=(-1)^{j+1} \frac{\displaystyle \sum_{0 \leq
-p_{1}&lt;\cdots&lt;p_{n-\zeta} ; p_{1}, p_{2}, \cdots p_{n-j} \neq i}
-x_{p_{1}} x_{p_{2}} \cdots x_{p_{n-j}}}{\displaystyle \prod_{0 \leq
-k&lt;n ; k \neq i}\left(x_{k}-x_{i}\right)}
-\]</span> The column of the <span
-class="math inline">\((V^{-1})\)</span> is the standard basis of <span
-class="math inline">\(V\)</span></p>
-<p><span class="math inline">\((2)\)</span> <span
-class="math inline">\(\det L=\displaystyle \prod_{1\leq i\leq j\leq n
-}(a_i-a_j)\neq 0\Longleftrightarrow a_i\neq a_j\)</span></p>
-<p><span class="math inline">\((3)\)</span> <span
-class="math inline">\(e v_{a_{1}}, \cdots, ev_{a_n}\)</span> form a
-basis for <span class="math inline">\(V^{*} \Longleftrightarrow e
-v_{a_{1}}, e v_{a_{2}}, \cdots, ev_{a_n}\)</span>, evan are linearly
-indepenctent.</p>
-<p>The matrix <span class="math inline">\(\left(\begin{array}{c}e
-v_{a_{1}} \\ e v_{a_{2}} \\ \vdots \\ e
-v_{a_{n}}\end{array}\right)\)</span> is invertible, which means <span
-class="math inline">\(L\)</span> is invertible. According to <span
-class="math inline">\(\small(2)\)</span>, <span
-class="math inline">\(a_i\)</span> are distinct.</p>
-<p><span class="math inline">\((4)\)</span> Pick original basis <span
-class="math inline">\(\{1,x,x^2\}\)</span> So <span
-class="math inline">\(\alpha_{1}=(1,-1,1) \quad \alpha_{2}=(1,0,0) \quad
-\alpha_{3}=(1,1,1)\)</span> <span class="math display">\[
-A=\left(\begin{array}{l}\alpha_{1} \\ \alpha_{2} \\
-\alpha_{3}\end{array}\right)=\left(\begin{array}{ccc}1 &amp; -1 &amp; 1
-\\ 1 &amp; 0 &amp; 0 \\ 1 &amp; 1 &amp; 1\end{array}\right) \quad
-A^{-1}=\left(\begin{array}{ccc}0 &amp; 1 &amp; 0 \\ -\frac{1}{2} &amp; 0
-&amp; \frac{1}{2} \\ \frac{1}{2} &amp; -1 &amp;
-\frac{1}{2}\end{array}\right)
-\]</span> So <span class="math inline">\(p_{1}=-\dfrac{1}{2}
-x+\dfrac{1}{2} x^{2} \quad p_{2}=1-x^{2} \quad p_{3}=\dfrac{1}{2}
-x+\dfrac{1}{2} x^{2}\)</span></p>
-<p><span class="math inline">\((5)\)</span> Set <span
-class="math inline">\(p(x)=ax^3+bx^2+cx+d\)</span> and <span
-class="math display">\[m e v_{-2}+n e v_{-1}+p e v_{0}+q e v_{1}+r e
-v_{2}=0\]</span> <span class="math display">\[
+1 & a_{1} & \cdots & a_{1}^{n-1} \\
+1 & a_{2} & \cdots & a_{2}^{n-1} \\
+\vdots & & & \vdots \\
+1 & a_{n} & \cdots & a_{n}^{n-1}
+\end{array}\right)\left(\begin{array}{c}x_{0} \\ x_{1} \\ x_{2} \\ \vdots \\ x_{n-1}\end{array}\right)=\left(\begin{array}{c}y_{0} \\ y_{1} \\ y_{2} \\ \vdots \\ y_{n-1}\end{array}\right)\\\left(\begin{array}{cccc}
+1 & a_{1} & \cdots & a_{1}^{n-1} \\
+1 & a_{2} & \cdots & a_{2}^{n-1} \\
+\vdots & & & \vdots \\
+1 & a_{n} & \cdots & a_{n}^{n-1}
+\end{array}\right)^{-1}\left(\begin{array}{c}y_{0} \\ y_{1} \\ y_{2} \\ \vdots \\ y_{n-1}\end{array}\right)=\left(\begin{array}{c}x_{0} \\ x_{1} \\ x_{2} \\ \vdots \\ x_{n-1}\end{array}\right)</script><p>Construct polynomial $f(a)=\displaystyle \sum_{i}y_i \prod_{j \neq i} \frac{a-a_{j}}{a_{i}-a_{j}}$ So $f(a_i)=x_i$</p>
+<p>So $\left(V^{-1}\right)_{i j}$ is the coefficient of  $\displaystyle \prod_{k \neq i} \frac{a-a_{k}}{a_{i}-a_{k}}$ at $x^{j-1}$ , which is $\displaystyle\left(V^{-1}\right)_{i j}=\left[x^{j-1}\right] \prod_{k \neq i} \frac{a-a_{k}}{a_{i}-a_{k}}$</p>
+<script type="math/tex; mode=display">
+\left(V^{-1}\right)_{i j}=(-1)^{j+1} \frac{\displaystyle \sum_{0 \leq p_{1}<\cdots<p_{n-\zeta} ; p_{1}, p_{2}, \cdots p_{n-j} \neq i} x_{p_{1}} x_{p_{2}} \cdots x_{p_{n-j}}}{\displaystyle \prod_{0 \leq k<n ; k \neq i}\left(x_{k}-x_{i}\right)}</script><p>The column of the $(V^{-1})$ is the standard basis of $V$</p>
+<p>$(2)$ $\det L=\displaystyle \prod_{1\leq i\leq j\leq n }(a_i-a_j)\neq 0\Longleftrightarrow a_i\neq a_j$</p>
+<p>$(3)$ $e v_{a_{1}}, \cdots, ev_{a_n}$ form a basis for $V^{*} \Longleftrightarrow e v_{a_{1}}, e v_{a_{2}}, \cdots, ev_{a_n}$, evan are linearly indepenctent.</p>
+<p>The matrix $\left(\begin{array}{c}e v_{a_{1}} \ e v_{a_{2}} \ \vdots \ e v_{a_{n}}\end{array}\right)$ is invertible, which means $L$ is invertible. According to $\small(2)$, $a_i$ are distinct.</p>
+<p>$(4)$ Pick original basis $\{1,x,x^2\}$ So $\alpha_{1}=(1,-1,1) \quad \alpha_{2}=(1,0,0) \quad \alpha_{3}=(1,1,1)$</p>
+<script type="math/tex; mode=display">
+A=\left(\begin{array}{l}\alpha_{1} \\ \alpha_{2} \\ \alpha_{3}\end{array}\right)=\left(\begin{array}{ccc}1 & -1 & 1 \\ 1 & 0 & 0 \\ 1 & 1 & 1\end{array}\right) \quad A^{-1}=\left(\begin{array}{ccc}0 & 1 & 0 \\ -\frac{1}{2} & 0 & \frac{1}{2} \\ \frac{1}{2} & -1 & \frac{1}{2}\end{array}\right)</script><p>So $p_{1}=-\dfrac{1}{2} x+\dfrac{1}{2} x^{2} \quad p_{2}=1-x^{2} \quad p_{3}=\dfrac{1}{2} x+\dfrac{1}{2} x^{2}$</p>
+<p>$(5)$ Set $p(x)=ax^3+bx^2+cx+d$ and <script type="math/tex">m e v_{-2}+n e v_{-1}+p e v_{0}+q e v_{1}+r e v_{2}=0</script></p>
+<script type="math/tex; mode=display">
 \begin{gathered}
-e v_{-2}=-8 a+4 b-2 c+d \quad e v_{-1}=-a+b-c+d \quad e v_{0}=d\\ \quad
-e v_{1}=a+b+c+d \quad e v_{2}=8 a+4 b+2 c+d\\
-\left(\begin{array}{ccccc}-8 &amp; -1 &amp; 0 &amp; 1 &amp; 8 \\ 4 &amp;
-1 &amp; 0 &amp; 1 &amp; 4 \\ -2 &amp; -1 &amp; 0 &amp; 1 &amp; 2 \\ 1
-&amp; 1 &amp; 1 &amp; 1 &amp;1\end{array}\right)\left(\begin{array}{l}m
-\\ n \\ p \\ q \\ r\end{array}\right)=\boldsymbol 0
-\end{gathered}
-\]</span> Solve that <span class="math inline">\(e v_{-2}-4 e v_{-1}+6 e
-v_{0}-4 e v_{1}+e v_{2}=0\)</span></p>
-<h2 id="small-mboxdual-vector-in-polynomials">1.6.2<span
-class="math inline">\(\ \small \mbox{dual vector in
-polynomials}\)</span></h2>
-<p>Let <span class="math inline">\(V\)</span> be the space of real
-polynomials of degree less than <span class="math inline">\(3\)</span>.
-Which of the following is a dual vector? Prove it or show why not.</p>
-<ol type="1">
-<li><span class="math inline">\(p \mapsto \operatorname{ev}_{5}((x+1)
-p(x))\)</span>.</li>
-<li><span class="math inline">\(p \mapsto \lim _{x \rightarrow \infty}
-\dfrac{p(x)}{x}\)</span>.</li>
-<li><span class="math inline">\(p \mapsto \lim _{x \rightarrow \infty}
-\dfrac{p(x)}{x^{2}}\)</span>.</li>
-<li><span class="math inline">\(p \mapsto p(3)
-p^{\prime}(4)\)</span>.</li>
-<li><span class="math inline">\(p \mapsto
-\operatorname{deg}(p)\)</span>, the degree of the polynomial <span
-class="math inline">\(p\)</span>.</li>
+e v_{-2}=-8 a+4 b-2 c+d \quad e v_{-1}=-a+b-c+d \quad e v_{0}=d\\ \quad e v_{1}=a+b+c+d \quad e v_{2}=8 a+4 b+2 c+d\\
+\left(\begin{array}{ccccc}-8 & -1 & 0 & 1 & 8 \\ 4 & 1 & 0 & 1 & 4 \\ -2 & -1 & 0 & 1 & 2 \\ 1 & 1 & 1 & 1 &1\end{array}\right)\left(\begin{array}{l}m \\ n \\ p \\ q \\ r\end{array}\right)=\boldsymbol 0
+\end{gathered}</script><p>Solve that $e v_{-2}-4 e v_{-1}+6 e v_{0}-4 e v_{1}+e v_{2}=0$</p>
+<h2 id="1-6-2-small-mbox-dual-vector-in-polynomials"><a href="#1-6-2-small-mbox-dual-vector-in-polynomials" class="headerlink" title="1.6.2$ \small  \mbox{dual vector in polynomials}$"></a>1.6.2$ \small  \mbox{dual vector in polynomials}$</h2><p>Let $V$ be the space of real polynomials of degree less than $3$. Which of the following is a dual vector? Prove it or show why not.</p>
+<ol>
+<li>$p \mapsto \operatorname{ev}_{5}((x+1) p(x))$.</li>
+<li>$p \mapsto \lim _{x \rightarrow \infty} \dfrac{p(x)}{x}$.</li>
+<li>$p \mapsto \lim _{x \rightarrow \infty} \dfrac{p(x)}{x^{2}}$.</li>
+<li>$p \mapsto p(3) p^{\prime}(4)$.</li>
+<li>$p \mapsto \operatorname{deg}(p)$, the degree of the polynomial $p$.</li>
 </ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> Yes. <span
-class="math inline">\(①\  e_{s}((x+1) p(x))=6 p(5)\)</span>. that is the
-map from <span class="math inline">\(V\)</span> to <span
-class="math inline">\(\mathbb{R}\)</span>. <span
-class="math inline">\(②\)</span> For <span
-class="math inline">\(\forall\  p, q \in V\)</span> and</p>
-<p><span class="math inline">\(\forall m, n \in \mathbb{R}, L(m p+n q)=6
-m p(5)+6 n p(5)=m L(p)+n L(q)\)</span>, so its bilinear.</p>
-<p><span class="math inline">\((2)\)</span> No. Sometimes the limit
-doeen't exist when <span class="math inline">\(\mbox{deg}(p)\geq
-2\)</span></p>
-<p><span class="math inline">\((3)\)</span> Yes. This vector is just a
-'taking the coefficient of <span class="math inline">\(x^2\)</span>',
-which is bilinear.</p>
-<p><span class="math inline">\((4)\)</span> No. For instance, <span
-class="math inline">\(p(x)=x^{2}+2, q(x)=-2 x, \quad L(p)=11 \times 8=88
-\quad L(q)=12\)</span></p>
-<p><span class="math inline">\(L(p+q)=5 \times 6=30 . \quad L(p+q) \neq
-L(p)+L(q)\)</span>. So it's not a dual vector.</p>
-<p><span class="math inline">\((5)\)</span> No. For instance, <span
-class="math inline">\(p(x)=x^{2}+x, q(x)=-x^{2}+1,
-L(p)=\operatorname{deg}(p)=2, L(q)=\operatorname{deg}(q)=2\)</span></p>
-<p><span class="math inline">\(L(p+q)=\operatorname{deg}(x+1)=1 .
-L(p)+L(q) \neq L(p+q)\)</span>. So it's not a clual vector</p>
-<h2 id="small-mboxdirectional-derivative">1.6.3<span
-class="math inline">\(\ \small \mbox{directional
-derivative}\)</span></h2>
-<p>Fix a differentiable function <span class="math inline">\(f:
-\mathbb{R}^{2} \rightarrow \mathbb{R}\)</span>, and fix a point <span
-class="math inline">\(\boldsymbol{p} \in \mathbb{R}^{2}\)</span>. For
-any vector <span class="math inline">\(\boldsymbol{v} \in
-\mathbb{R}^{2}\)</span>, then the directional derivative of <span
-class="math inline">\(f\)</span> at <span
-class="math inline">\(\boldsymbol{p}\)</span> in the direction of <span
-class="math inline">\(\boldsymbol{v}\)</span> is defined as <span
-class="math inline">\(\nabla_{\boldsymbol{v}} f:=\lim _{t \rightarrow 0}
-\dfrac{f(\boldsymbol{p}+t \boldsymbol{v})-f(\boldsymbol{p})}{t} . S
-\mathrm{Show}\)</span> that the map <span class="math inline">\(\nabla
-f: \boldsymbol{v} \mapsto \nabla_{\boldsymbol{v}}(f)\)</span> is a dual
-vector in <span
-class="math inline">\(\left(\mathbb{R}^{2}\right)^{*}\)</span>, i.e., a
-row vector. Also, what are its "coordinates" under the standard dual
-basis? (Remark: In calculus, we write <span class="math inline">\(\nabla
-f\)</span> as a column vector for historical reasons. By all means, from
-a mathematical perspective, the correct way to write <span
-class="math inline">\(\nabla f\)</span> is to write it as a row vector,
-as illlustrated in this problem. (But don't annoy your calculus teachers
-though.... In your calculus class, you use whatever notation your
-calculus teacher told you.) (Extra Remark: If we use row vector, then
-the evaluation of <span class="math inline">\(\nabla f\)</span> at <span
-class="math inline">\(\boldsymbol{v}\)</span> is purely linear, and no
-inner product structure is needed, which is sweet. But if we HAVE TO
-write <span class="math inline">\(\nabla f\)</span> as a column vector
-(for historical reason), then we would have to do a dot product between
-<span class="math inline">\(\nabla f\)</span> and <span
-class="math inline">\(\boldsymbol{v}\)</span>, which now requires an
-inner product structure. That is an unnecessary dependence on an extra
-structure that actually should have no influence.)</p>
-<hr />
-<p>Set <span
-class="math inline">\(\vec{v}=\begin{pmatrix}a\\b\end{pmatrix}\)</span>,
-since the function <span class="math inline">\(f\)</span> is
-differentiable, <span class="math inline">\(\nabla_{\vec{v}}
-f=\dfrac{\partial f(\vec{v})}{\partial x} \cdot
-\dfrac{a}{\sqrt{a^{2}+b^{2}}}+\dfrac{\partial f(\vec{v})}{\partial y}
-\dfrac{b}{\sqrt{a^{2}+b}}\)</span></p>
-<p>So the map <span class="math inline">\(\nabla f\)</span> is a map
-from <span
-class="math inline">\(\left(\mathbb{R}^{2}\right)^{*}\)</span> to <span
-class="math inline">\(\mathbb{R}\)</span>.And for <span
-class="math inline">\(\forall\)</span> diffential functions <span
-class="math inline">\(f, g, \forall m, n \in \mathbb{R}\)</span>, we
-have: <span class="math display">\[
+<hr>
+<p>$(1)$ Yes.  $①  e_{s}((x+1) p(x))=6 p(5)$.  that is the map from $V$ to $\mathbb{R}$.  $②$ For $\forall  p, q \in V$ and </p>
+<p>$\forall m, n \in \mathbb{R}, L(m p+n q)=6 m p(5)+6 n p(5)=m L(p)+n L(q)$, so its bilinear.</p>
+<p>$(2)$ No. Sometimes the limit doeen’t exist when $\mbox{deg}(p)\geq 2$ </p>
+<p>$(3)$ Yes. This vector is just a ‘taking the coefficient of $x^2$’, which is bilinear. </p>
+<p>$(4)$ No. For instance, $p(x)=x^{2}+2, q(x)=-2 x, \quad L(p)=11 \times 8=88 \quad L(q)=12$</p>
+<p>$L(p+q)=5 \times 6=30 . \quad L(p+q) \neq L(p)+L(q)$. So it’s not a dual vector.</p>
+<p>$(5)$ No. For instance, $p(x)=x^{2}+x, q(x)=-x^{2}+1, L(p)=\operatorname{deg}(p)=2, L(q)=\operatorname{deg}(q)=2$</p>
+<p>$L(p+q)=\operatorname{deg}(x+1)=1 . L(p)+L(q) \neq L(p+q)$. So it’s not a clual vector</p>
+<h2 id="1-6-3-small-mbox-directional-derivative"><a href="#1-6-3-small-mbox-directional-derivative" class="headerlink" title="1.6.3$ \small  \mbox{directional derivative}$"></a>1.6.3$ \small  \mbox{directional derivative}$</h2><p>Fix a differentiable function $f: \mathbb{R}^{2} \rightarrow \mathbb{R}$, and fix a point $\boldsymbol{p} \in \mathbb{R}^{2}$. For any vector $\boldsymbol{v} \in \mathbb{R}^{2}$, then the directional derivative of $f$ at $\boldsymbol{p}$ in the direction of $\boldsymbol{v}$ is defined as $\nabla_{\boldsymbol{v}} f:=\lim _{t \rightarrow 0} \dfrac{f(\boldsymbol{p}+t \boldsymbol{v})-f(\boldsymbol{p})}{t} . S \mathrm{Show}$ that the map $\nabla f: \boldsymbol{v} \mapsto \nabla_{\boldsymbol{v}}(f)$ is a dual vector in $\left(\mathbb{R}^{2}\right)^{*}$, i.e., a row vector. Also, what are its “coordinates” under the standard dual basis?<br>(Remark: In calculus, we write $\nabla f$ as a column vector for historical reasons. By all means, from a mathematical perspective, the correct way to write $\nabla f$ is to write it as a row vector, as illlustrated in this problem. (But don’t annoy your calculus teachers though…. In your calculus class, you use whatever notation your calculus teacher told you.)<br>(Extra Remark: If we use row vector, then the evaluation of $\nabla f$ at $\boldsymbol{v}$ is purely linear, and no inner product structure is needed, which is sweet. But if we HAVE TO write $\nabla f$ as a column vector (for historical reason), then we would have to do a dot product between $\nabla f$ and $\boldsymbol{v}$, which now requires an inner product structure. That is an unnecessary dependence on an extra structure that actually should have no influence.)</p>
+<hr>
+<p>Set $\vec{v}=\begin{pmatrix}a\\b\end{pmatrix}$, since the function $f$ is differentiable,  $\nabla_{\vec{v}} f=\dfrac{\partial f(\vec{v})}{\partial x} \cdot \dfrac{a}{\sqrt{a^{2}+b^{2}}}+\dfrac{\partial f(\vec{v})}{\partial y} \dfrac{b}{\sqrt{a^{2}+b}}$</p>
+<p>So the map $\nabla f$ is a map from $\left(\mathbb{R}^{2}\right)^{*}$ to $\mathbb{R}$.And for $\forall$ diffential functions $f, g, \forall m, n \in \mathbb{R}$, we have:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\nabla_{\vec{v}}(m f+n g) &amp;=\frac{\partial[m f(\vec{v})+n
-g(\vec{v})]}{\partial x} \cdot
-\frac{a}{\sqrt{a^{2}+b^{2}}}+\frac{\partial[m f(\vec{v})+n
-g(\vec{v})]}{\partial y} \cdot \frac{b}{\sqrt{a^{2}+b^{2}}} \\
-&amp;=m \nabla_{\vec{v}} f+n \nabla_{\vec{v}} g
-\end{aligned}
-\]</span> So the map <span class="math inline">\(\nabla f\)</span> is
-bilinear, i.e, is a dual vector in <span
-class="math inline">\(\left(\mathbb{R}^{2}\right)^{*}\)</span>.</p>
-<p>Since <span class="math inline">\(x\)</span>-axis and <span
-class="math inline">\(y\)</span>-axis are perpendicular, the standard
-dual basis is <span class="math inline">\(\dfrac{\partial f}{\partial
-x}\)</span> and <span class="math inline">\(\dfrac{\partial f}{\partial
-y} .\)</span> And the coordinates are <span
-class="math inline">\(\dfrac{\vec{v} \cdot
-\hat{x}}{\|\vec{v}\|}\)</span> and <span
-class="math inline">\(\dfrac{\vec{v} \cdot
-\hat{y}}{\|\vec{v}\|}\)</span></p>
-<h2 id="section">1.6.4$ $</h2>
-<p>Consider a linear map <span class="math inline">\(L: V \rightarrow
-W\)</span> and its dual map <span class="math inline">\(L^{*}: W^{*}
-\rightarrow V^{*}\)</span>. Prove the following.</p>
-<ol type="1">
-<li><span
-class="math inline">\(\operatorname{Ker}\left(L^{*}\right)\)</span> is
-exactly the collection of dual vectors in <span
-class="math inline">\(W^{*}\)</span> that kills <span
-class="math inline">\(\operatorname{Ran}(L)\)</span>.</li>
-<li><span
-class="math inline">\(\operatorname{Ran}\left(L^{*}\right)\)</span> is
-exactly the collection of dual vectors in <span
-class="math inline">\(V^{*}\)</span> that kills <span
-class="math inline">\(\operatorname{Ker}(L)\)</span>.</li>
+\nabla_{\vec{v}}(m f+n g) &=\frac{\partial[m f(\vec{v})+n g(\vec{v})]}{\partial x} \cdot \frac{a}{\sqrt{a^{2}+b^{2}}}+\frac{\partial[m f(\vec{v})+n g(\vec{v})]}{\partial y} \cdot \frac{b}{\sqrt{a^{2}+b^{2}}} \\
+&=m \nabla_{\vec{v}} f+n \nabla_{\vec{v}} g
+\end{aligned}</script><p>So the map $\nabla f$ is bilinear, i.e, is a dual vector in $\left(\mathbb{R}^{2}\right)^{*}$.</p>
+<p>Since $x$-axis and $y$-axis are perpendicular, the standard dual basis is $\dfrac{\partial f}{\partial x}$ and $\dfrac{\partial f}{\partial y} .$<br>And the coordinates are $\dfrac{\vec{v} \cdot \hat{x}}{|\vec{v}|}$ and $\dfrac{\vec{v} \cdot \hat{y}}{|\vec{v}|}$</p>
+<h2 id="1-6-4-small-mbox-‘Big-map’-for-L"><a href="#1-6-4-small-mbox-‘Big-map’-for-L" class="headerlink" title="1.6.4$ \small  \mbox{‘Big map’ for $L$}$"></a>1.6.4$ \small  \mbox{‘Big map’ for $L$}$</h2><p>Consider a linear map $L: V \rightarrow W$ and its dual map $L^{<em>}: W^{</em>} \rightarrow V^{*}$. Prove the following.</p>
+<ol>
+<li>$\operatorname{Ker}\left(L^{<em>}\right)$ is exactly the collection of dual vectors in $W^{</em>}$ that kills $\operatorname{Ran}(L)$.</li>
+<li>$\operatorname{Ran}\left(L^{<em>}\right)$ is exactly the collection of dual vectors in $V^{</em>}$ that kills $\operatorname{Ker}(L)$.</li>
 </ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> First, all the elements in
-<span class="math inline">\(\ker(L^*)\in W^{*}\)</span>, so just prove
-<span class="math inline">\(\forall \ \vec{v}\in
-\ker(L^*),\vec{\omega}\in \mbox{Ran}(L),\vec{v}^{T}\cdot
-\vec{\omega}=0\)</span></p>
-<p><span
-class="math inline">\(L^{*}\vec{v}=0,L^{*}\vec{v}\cdot\vec{x}=0=\vec{v}^{T}(L\vec{x})\)</span>,
-set <span class="math inline">\(L\vec{x}=\vec{\omega}\)</span> So <span
-class="math inline">\(\vec{v}^{T}\cdot \vec{\omega}=\langle
-\vec{v},\vec{\omega}\rangle=0\)</span></p>
-<p><span class="math inline">\((2)\)</span> First, all the elements in
-<span class="math inline">\(\mbox{Ran}(L^{*})\in V^{*}\)</span> ,so just
-prove <span class="math inline">\(\forall \ \vec{v}\in
-\mbox{Ran}(L^*),\vec{\omega}\in \mbox{Ker}(L),\vec{v}^{T}\cdot
-\vec{\omega}=0\)</span></p>
-<p><span
-class="math inline">\(L\vec{\omega}=0,L\vec{\omega}\cdot\vec{x}=0=\vec{\omega}^{T}(L^{*}\vec{x})\)</span>,
-set <span class="math inline">\(L^{*}\vec{x}=\vec{v}\)</span>, So <span
-class="math inline">\(\vec{\omega}^{T}\cdot \vec{v}=\langle
-\vec{\omega},\vec{v}\rangle=0\)</span></p>
-<h1
-id="largetextcolorbluemboxadvanced-algebra-small-mathbbhwmathrm7-_textcolorblue2022.5.3"><span
-class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra }
-\small \mathbb{HW}\mathrm{7}}\ \ \ \ \ \
-_\textcolor{blue}{2022.5.3}\)</span></h1>
-<h2 id="small-mboxbra-map-and-riesz-map">1.7.1<span
-class="math inline">\(\ \small \mbox{bra map and Riesz
-map}\)</span></h2>
-<p>On the space <span class="math inline">\(\mathbb{R}^{n}\)</span>, we
-fix a symmetric positive-definite matrix <span
-class="math inline">\(A\)</span>, and define <span
-class="math inline">\((\boldsymbol{v},
-\boldsymbol{w})=\boldsymbol{v}^{\mathrm{T}}A\boldsymbol{w}\)</span></p>
-<ol type="1">
+<hr>
+<p>$(1)$ First, all the elements in $\ker(L^<em>)\in W^{</em>}$, so just prove $\forall  \vec{v}\in \ker(L^*),\vec{\omega}\in \mbox{Ran}(L),\vec{v}^{T}\cdot \vec{\omega}=0$</p>
+<p>$L^{<em>}\vec{v}=0,L^{</em>}\vec{v}\cdot\vec{x}=0=\vec{v}^{T}(L\vec{x})$, set $L\vec{x}=\vec{\omega}$ So $\vec{v}^{T}\cdot \vec{\omega}=\langle \vec{v},\vec{\omega}\rangle=0$</p>
+<p>$(2)$ First, all the elements in $\mbox{Ran}(L^{<em>})\in V^{</em>}$ ,so just prove $\forall  \vec{v}\in \mbox{Ran}(L^*),\vec{\omega}\in \mbox{Ker}(L),\vec{v}^{T}\cdot \vec{\omega}=0$</p>
+<p>$L\vec{\omega}=0,L\vec{\omega}\cdot\vec{x}=0=\vec{\omega}^{T}(L^{<em>}\vec{x})$, set $L^{</em>}\vec{x}=\vec{v}$, So $\vec{\omega}^{T}\cdot \vec{v}=\langle \vec{\omega},\vec{v}\rangle=0$</p>
+<h1 id="large-textcolor-blue-mbox-Advanced-Algebra-small-mathbb-HW-mathrm-7-textcolor-blue-2022-5-3"><a href="#large-textcolor-blue-mbox-Advanced-Algebra-small-mathbb-HW-mathrm-7-textcolor-blue-2022-5-3" class="headerlink" title="$\large\textcolor{blue}{\mbox{Advanced Algebra  } \small \mathbb{HW}\mathrm{7}}      _\textcolor{blue}{2022.5.3}$"></a>$\large\textcolor{blue}{\mbox{Advanced Algebra  } \small \mathbb{HW}\mathrm{7}}      _\textcolor{blue}{2022.5.3}$</h1><h2 id="1-7-1-small-mbox-bra-map-and-Riesz-map"><a href="#1-7-1-small-mbox-bra-map-and-Riesz-map" class="headerlink" title="1.7.1$ \small  \mbox{bra map and Riesz map}$"></a>1.7.1$ \small  \mbox{bra map and Riesz map}$</h2><p>On the space $\mathbb{R}^{n}$, we fix a symmetric positive-definite matrix $A$, and define $(\boldsymbol{v}, \boldsymbol{w})=\boldsymbol{v}^{\mathrm{T}}A\boldsymbol{w}$</p>
+<ol>
 <li>Show that this is an inner product.</li>
-<li>The Riesz map (inverse of the bra map) from <span
-class="math inline">\(V^{*}\)</span> to <span
-class="math inline">\(V\)</span> would send a row vector <span
-class="math inline">\(\boldsymbol{v}^{\mathrm{T}}\)</span> to what?</li>
-<li>The bra map from <span class="math inline">\(V\)</span> to <span
-class="math inline">\(V^{*}\)</span> would send a vector <span
-class="math inline">\(\boldsymbol{v}\)</span> to what?</li>
-<li>The dual of the Riesz map from <span
-class="math inline">\(V^{*}\)</span> to <span
-class="math inline">\(V\)</span> would send a row vector <span
-class="math inline">\(\boldsymbol{v}^{\mathrm{T}}\)</span> to what?</li>
+<li>The Riesz map (inverse of the bra map) from $V^{*}$ to $V$ would send a row vector $\boldsymbol{v}^{\mathrm{T}}$ to what?</li>
+<li>The bra map from $V$ to $V^{*}$ would send a vector $\boldsymbol{v}$ to what?</li>
+<li>The dual of the Riesz map from $V^{*}$ to $V$ would send a row vector $\boldsymbol{v}^{\mathrm{T}}$ to what?</li>
 </ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> Easy to prove.</p>
-<p><span class="math inline">\((2)\)</span> The bra map means <span
-class="math inline">\(\forall \ \langle \boldsymbol{v}|\in
-\mathcal{B},s.t.\langle
-\boldsymbol{v}|:\boldsymbol{\omega\longmapsto}\langle\boldsymbol{v},\boldsymbol{\omega}\rangle=\boldsymbol{v}^{\mathrm{T}}A\boldsymbol{w}\)</span>
-So the inverse of <span class="math inline">\(\langle
-\boldsymbol{v}|\)</span> is make <span
-class="math inline">\(\boldsymbol{v}^{\mathrm{T}}A\)</span></p>
-<p>to <span class="math inline">\(\boldsymbol {v}\)</span>, which is
-from <span class="math inline">\(V^{*}\)</span> to <span
-class="math inline">\(V\)</span>. Set <span
-class="math inline">\(\boldsymbol{u}=\boldsymbol {v}^{T}A\)</span>, so
-<span
-class="math inline">\(\boldsymbol{v}^{T}=\boldsymbol{u}A^{-1}\)</span>
-then transpose it we can get <span
-class="math inline">\(\boldsymbol{v}=(A^{-1})^{T}\boldsymbol{u^{T}}\)</span></p>
-<p>So if the input is <span class="math inline">\(\boldsymbol{v}^{T}\in
-V^{*}\)</span>, the output is <span
-class="math inline">\((A^{-1})^{T}(\boldsymbol
-v^{T})^{T}=(A^{-1})^{T}\boldsymbol{v}\in V\)</span></p>
-<p><span class="math inline">\((3)\)</span> Obviously, it sends <span
-class="math inline">\(\boldsymbol{v}\)</span> to <span
-class="math inline">\(\boldsymbol{v}^{T}A\)</span></p>
-<p><span class="math inline">\((4)\)</span> I guess the result is the
-same with <span class="math inline">\(\small(2)\)</span>, which sends
-<span class="math inline">\(\boldsymbol {v}^{T}\)</span> to <span
-class="math inline">\((A^{-1})^{T}\boldsymbol{v}\)</span></p>
-<h2 id="small-mboxwhat-is-a-derivative">1.7.2<span
-class="math inline">\(\ \small \mbox{What is a derivative}\)</span></h2>
-<p>The discussions in this problem holds for all manifolds <span
-class="math inline">\(M\)</span>. But for simplicities sake, suppose
-<span class="math inline">\(M=\mathbb{R}^{3}\)</span> for this
-problem.</p>
-<p>Let <span class="math inline">\(V\)</span> be the space of all
-analytic functions from <span class="math inline">\(M\)</span> to <span
-class="math inline">\(\mathbb{R}\)</span>. Here analytic means <span
-class="math inline">\(f(x, y, z)\)</span> is a infinite polynomial
-series (its Taylor expansion) with variables <span
-class="math inline">\(x, y, z\)</span>. Approximately <span
-class="math inline">\(f(x, y, z)=a_{0}+a_{1} x+a_{2} y+\)</span> <span
-class="math inline">\(a_{3} z+a_{4} x^{2}+a_{5} x y+a_{6} x z+a_{7}
-y^{2}+\ldots\)</span>, and things should converge always.</p>
-<p>Then a dual vector <span class="math inline">\(v \in V^{*}\)</span>
-is said to be a "derivation at <span
-class="math inline">\(\boldsymbol{p} \in M^{\prime \prime}\)</span> if
-it satisfy the following Leibniz rule (or product rule): <span
-class="math display">\[
-v(f g)=f(\boldsymbol{p}) v(g)+g(\boldsymbol{p}) v(f) .
-\]</span> (Note the similarity with your traditional product rule <span
-class="math inline">\((f g)^{\prime}(x)=f(x) g^{\prime}(x)+g(x)
-f^{\prime}(x)\)</span>.) Prove the following:</p>
-<ol type="1">
-<li>Constant functions in <span class="math inline">\(V\)</span> must be
-sent to zero by all derivations at any point.</li>
-<li>Let <span class="math inline">\(x, y, z \in V\)</span> be the
-coordinate function. Suppose <span
-class="math inline">\(\boldsymbol{p}=\left[\begin{array}{l}p_{1} \\
-p_{2} \\ p_{3}\end{array}\right]\)</span>, then for any derivation <span
-class="math inline">\(v\)</span> at <span
-class="math inline">\(\boldsymbol{p}\)</span>, then we have <span
-class="math inline">\(v\left(\left(x-p_{1}\right)
-f\right)=f(\boldsymbol{p}) v(x), v\left(\left(y-p_{2}\right)
-f\right)=f(\boldsymbol{p}) v(y)\)</span> and <span
-class="math inline">\(v\left(\left(z-p_{3}\right)
-f\right)=f(\boldsymbol{p}) v(z)\)</span>.</li>
-<li>Let <span class="math inline">\(x, y, z \in V\)</span> be the
-coordinate function. Suppose <span
-class="math inline">\(\boldsymbol{p}=\left[\begin{array}{l}p_{1} \\
-p_{2} \\ p_{3}\end{array}\right]\)</span>, then for any derivation <span
-class="math inline">\(v\)</span> at <span
-class="math inline">\(\boldsymbol{p}\)</span>, then we have <span
-class="math inline">\(v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=0\)</span>
-for any non-negative integers <span class="math inline">\(a, b,
-c\)</span> such that <span
-class="math inline">\(a+b+c&gt;1\)</span>.</li>
-<li>Let <span class="math inline">\(x, y, z \in V\)</span> be the
-coordinate function. Suppose <span
-class="math inline">\(\boldsymbol{p}=\left[\begin{array}{l}p_{1} \\
-p_{2} \\ p_{3}\end{array}\right]\)</span>, then for any derivation <span
-class="math inline">\(v\)</span> at <span
-class="math inline">\(\boldsymbol{p}, v(f)=\)</span> <span
-class="math inline">\(\dfrac{\partial f}{\partial x}(\boldsymbol{p})
-v(x)+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) v(y)+\dfrac{\partial
-f}{\partial z}(\boldsymbol{p}) v(z)\)</span>. (Hint: use the Taylor
-expansion of <span class="math inline">\(f\)</span> at <span
-class="math inline">\(\left.\boldsymbol{p} .\right)\)</span></li>
-<li>Any derivation <span class="math inline">\(v\)</span> at <span
-class="math inline">\(\boldsymbol{p}\)</span> must be exactly the
-directional derivative operator <span
-class="math inline">\(\nabla_{\boldsymbol{v}}\)</span> where <span
-class="math inline">\(\boldsymbol{v}=\left[\begin{array}{l}v(x) \\ v(y)
-\\ v(z)\end{array}\right]\)</span>. (Remark: So, algebraically speaking,
-tangent vectors are exactly derivations, i.e., things that satisfy the
-Leibniz rule.)</li>
+<hr>
+<p>$(1)$ Easy to prove.</p>
+<p>$(2)$ The bra map means $\forall  \langle \boldsymbol{v}|\in \mathcal{B},s.t.\langle \boldsymbol{v}|:\boldsymbol{\omega\longmapsto}\langle\boldsymbol{v},\boldsymbol{\omega}\rangle=\boldsymbol{v}^{\mathrm{T}}A\boldsymbol{w}$ So the inverse of $\langle \boldsymbol{v}|$ is make $\boldsymbol{v}^{\mathrm{T}}A$ </p>
+<p>to $\boldsymbol {v}$, which is from $V^{*}$ to $V$. Set $\boldsymbol{u}=\boldsymbol {v}^{T}A$, so $\boldsymbol{v}^{T}=\boldsymbol{u}A^{-1}$ then transpose it we can get $\boldsymbol{v}=(A^{-1})^{T}\boldsymbol{u^{T}}$</p>
+<p>So if the input is $\boldsymbol{v}^{T}\in V^{*}$, the output is $(A^{-1})^{T}(\boldsymbol v^{T})^{T}=(A^{-1})^{T}\boldsymbol{v}\in     V$</p>
+<p>$(3)$ Obviously, it sends $\boldsymbol{v}$ to $\boldsymbol{v}^{T}A$</p>
+<p>$(4)$ I guess the result is the same with $\small(2)$, which sends $\boldsymbol {v}^{T}$ to $(A^{-1})^{T}\boldsymbol{v}$</p>
+<h2 id="1-7-2-small-mbox-What-is-a-derivative"><a href="#1-7-2-small-mbox-What-is-a-derivative" class="headerlink" title="1.7.2$ \small  \mbox{What is a derivative}$"></a>1.7.2$ \small  \mbox{What is a derivative}$</h2><p>The discussions in this problem holds for all manifolds $M$. But for simplicities sake, suppose $M=\mathbb{R}^{3}$ for this problem.</p>
+<p>Let $V$ be the space of all analytic functions from $M$ to $\mathbb{R}$. Here analytic means $f(x, y, z)$ is a infinite polynomial series (its Taylor expansion) with variables $x, y, z$. Approximately $f(x, y, z)=a_{0}+a_{1} x+a_{2} y+$ $a_{3} z+a_{4} x^{2}+a_{5} x y+a_{6} x z+a_{7} y^{2}+\ldots$, and things should converge always.</p>
+<p>Then a dual vector $v \in V^{*}$ is said to be a “derivation at $\boldsymbol{p} \in M^{\prime \prime}$ if it satisfy the following Leibniz rule (or product rule):</p>
+<script type="math/tex; mode=display">
+v(f g)=f(\boldsymbol{p}) v(g)+g(\boldsymbol{p}) v(f) .</script><p>(Note the similarity with your traditional product rule $(f g)^{\prime}(x)=f(x) g^{\prime}(x)+g(x) f^{\prime}(x)$.)<br>Prove the following:</p>
+<ol>
+<li>Constant functions in $V$ must be sent to zero by all derivations at any point.</li>
+<li>Let $x, y, z \in V$ be the coordinate function. Suppose $\boldsymbol{p}=\left[\begin{array}{l}p_{1} \ p_{2} \ p_{3}\end{array}\right]$, then for any derivation $v$ at $\boldsymbol{p}$, then we have $v\left(\left(x-p_{1}\right) f\right)=f(\boldsymbol{p}) v(x), v\left(\left(y-p_{2}\right) f\right)=f(\boldsymbol{p}) v(y)$ and $v\left(\left(z-p_{3}\right) f\right)=f(\boldsymbol{p}) v(z)$.</li>
+<li>Let $x, y, z \in V$ be the coordinate function. Suppose $\boldsymbol{p}=\left[\begin{array}{l}p_{1} \ p_{2} \ p_{3}\end{array}\right]$, then for any derivation $v$ at $\boldsymbol{p}$, then we have $v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=0$ for any non-negative integers $a, b, c$ such that $a+b+c&gt;1$.</li>
+<li>Let $x, y, z \in V$ be the coordinate function. Suppose $\boldsymbol{p}=\left[\begin{array}{l}p_{1} \ p_{2} \ p_{3}\end{array}\right]$, then for any derivation $v$ at $\boldsymbol{p}, v(f)=$ $\dfrac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) v(y)+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) v(z)$. (Hint: use the Taylor expansion of $f$ at $\left.\boldsymbol{p} .\right)$</li>
+<li>Any derivation $v$ at $\boldsymbol{p}$ must be exactly the directional derivative operator $\nabla_{\boldsymbol{v}}$ where $\boldsymbol{v}=\left[\begin{array}{l}v(x) \ v(y) \ v(z)\end{array}\right]$.<br>(Remark: So, algebraically speaking, tangent vectors are exactly derivations, i.e., things that satisfy the Leibniz rule.)</li>
 </ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> Set <span
-class="math inline">\(f(\vec{p})\equiv a\)</span>, because <span
-class="math inline">\(v(f g)=f(\boldsymbol{p}) v(g)+g(\boldsymbol{p})
-v(f)\)</span> and <span class="math inline">\(v\in V^{*}\)</span> is
-linear, <span
-class="math inline">\(v(fg)=av(g)+g(\boldsymbol{p})v(f)\)</span></p>
-<p>Set <span class="math inline">\(g=f\)</span>, so <span
-class="math inline">\(v(ff)=2av(f)=v(af)=av(f)\)</span> If <span
-class="math inline">\(a=0\)</span>, <span
-class="math inline">\(v(g)=v(0)=v(gg)=0+0=0\)</span> If <span
-class="math inline">\(a\neq 0\)</span></p>
-<p><span class="math inline">\(av(f)=0\)</span>, and <span
-class="math inline">\(v(f)=0\)</span> So constant functions in <span
-class="math inline">\(V\)</span> are all sent to <span
-class="math inline">\(0\)</span></p>
-<p><span class="math inline">\((2)\)</span> Calculate <span
-class="math inline">\(v((x-p_1)f)=f(\boldsymbol
-{p})v(x-p_1)+(x-p_1)(\boldsymbol{p})v(f)\)</span> And <span
-class="math inline">\(x(\boldsymbol{p})=p_1,p_1(\boldsymbol{p})=p_1\)</span></p>
-<p>So <span class="math inline">\((x-p_1)(\boldsymbol{p})=0\)</span> For
-constant <span class="math inline">\(\boldsymbol{p}\)</span>, <span
-class="math inline">\(v(\boldsymbol{p}=0)\)</span> So <span
-class="math inline">\(v((x-p_1)f)=f(\boldsymbol{p})(v(x)-v(p_1))=f(\boldsymbol{p})v(x)\)</span></p>
-<p><span class="math inline">\((3)\)</span> As <span
-class="math inline">\(a,b,c\)</span> are all integers, if <span
-class="math inline">\(a,b,c&lt;1\)</span>, the sum of them is <span
-class="math inline">\(a+b+c\leq 0\)</span>, contradiction</p>
-<p>So at least one intergers is <span class="math inline">\(\geq
-1\)</span>, without loss of generalization, assume <span
-class="math inline">\(a\geq 1\)</span></p>
-<p><span
-class="math inline">\(v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=v(x-p_1)((x-p_1)^{a-1}(y-p_2)^b(z-p_3)^c)(\boldsymbol{p})\)</span></p>
-<p>And if <span class="math inline">\(a&gt; 1\)</span>, <span
-class="math inline">\((x-p_1)^{a-1}(\boldsymbol{p})=(x-p_1)^{a-2}(x-p_1)(\boldsymbol{p})=0\)</span>
-if <span class="math inline">\(a=1\)</span>, then <span
-class="math inline">\(b+c&gt;0\)</span></p>
-<p>at least one integer in <span class="math inline">\(b\)</span> and
-<span class="math inline">\(c\)</span> <span class="math inline">\(\geq
-1\)</span>, without of generalization, assume <span
-class="math inline">\(b\geq 1\)</span>. Then</p>
-<p><span
-class="math inline">\((y-p_2)^{b}(\boldsymbol{p})=(y-p_2)^{b-1}(y-p_2)(\boldsymbol{p})=0\)</span>
-So <span
-class="math inline">\(v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=0\)</span></p>
-<p><span class="math inline">\((4)\)</span> Use Taylor expansion for
-<span class="math inline">\(f\)</span>, we have <span
-class="math display">\[
-f(x, y, z)=f\left(p_{1}, p_{2}, p_{3}\right)+\frac{\partial f}{\partial
-x}(\boldsymbol{p})\left(x-p_{1}\right)+\frac{\partial f}{\partial
-y}(\boldsymbol{p})\left(y-p_{2}\right)+\frac{\partial f}{\partial
-z}(\boldsymbol{p})\left(z-p_{3}\right)+o(|\boldsymbol{r}-\boldsymbol{p}|)
-\]</span> According to <span class="math inline">\((3)\)</span>, the
-remainder <span
-class="math inline">\(o(|\boldsymbol{r}-\boldsymbol{p}|)=\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c},a+b+c&gt;1\)</span></p>
-<p>So <span
-class="math inline">\(v(o(|\boldsymbol{r}-\boldsymbol{p}|))=0\)</span>
-For constant number <span class="math inline">\(v\)</span> sends to
-<span class="math inline">\(0\)</span>. Take <span
-class="math inline">\(v\)</span> function to the Taylor expansion <span
-class="math display">\[
-v(f)=\dfrac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\dfrac{\partial
-f}{\partial y}(\boldsymbol{p}) v(y)+\dfrac{\partial f}{\partial
-z}(\boldsymbol{p}) v(z)
-\]</span> Which shows the complete differential at <span
-class="math inline">\(\boldsymbol{p}\)</span></p>
-<p><span class="math inline">\((5)\)</span> Just calculate the
-directional derivative <span
-class="math inline">\(\nabla_{\boldsymbol{v}}\)</span> where <span
-class="math inline">\(\boldsymbol{v}=\left[\begin{array}{l}v(x) \\ v(y)
-\\ v(z)\end{array}\right]\)</span> <span class="math display">\[
+<hr>
+<p>$(1)$ Set $f(\vec{p})\equiv a$, because $v(f g)=f(\boldsymbol{p}) v(g)+g(\boldsymbol{p}) v(f)$ and $v\in V^{*}$ is linear, $v(fg)=av(g)+g(\boldsymbol{p})v(f)$  </p>
+<p>Set $g=f$, so $v(ff)=2av(f)=v(af)=av(f)$ If $a=0$, $v(g)=v(0)=v(gg)=0+0=0$ If $a\neq 0$</p>
+<p>$av(f)=0$, and $v(f)=0$ So constant functions in $V$ are all sent to $0$</p>
+<p>$(2)$ Calculate $v((x-p_1)f)=f(\boldsymbol {p})v(x-p_1)+(x-p_1)(\boldsymbol{p})v(f)$ And $x(\boldsymbol{p})=p_1,p_1(\boldsymbol{p})=p_1$</p>
+<p>So $(x-p_1)(\boldsymbol{p})=0$ For constant $\boldsymbol{p}$, $v(\boldsymbol{p}=0)$ So $v((x-p_1)f)=f(\boldsymbol{p})(v(x)-v(p_1))=f(\boldsymbol{p})v(x)$</p>
+<p>$(3)$ As $a,b,c$ are all integers, if $a,b,c&lt;1$, the sum of them is $a+b+c\leq 0$, contradiction</p>
+<p>So at least one intergers is $\geq 1$, without loss of generalization, assume $a\geq 1$</p>
+<p>$v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=v(x-p_1)((x-p_1)^{a-1}(y-p_2)^b(z-p_3)^c)(\boldsymbol{p})$</p>
+<p>And if $a&gt; 1$, $(x-p_1)^{a-1}(\boldsymbol{p})=(x-p_1)^{a-2}(x-p_1)(\boldsymbol{p})=0$ if $a=1$, then $b+c&gt;0$</p>
+<p>at least one integer in $b$ and $c$ $\geq 1$, without of generalization, assume $b\geq 1$. Then </p>
+<p>$(y-p_2)^{b}(\boldsymbol{p})=(y-p_2)^{b-1}(y-p_2)(\boldsymbol{p})=0$ So $v\left(\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c}\right)=0$</p>
+<p>$(4)$ Use Taylor expansion for $f$, we have </p>
+<script type="math/tex; mode=display">
+f(x, y, z)=f\left(p_{1}, p_{2}, p_{3}\right)+\frac{\partial f}{\partial x}(\boldsymbol{p})\left(x-p_{1}\right)+\frac{\partial f}{\partial y}(\boldsymbol{p})\left(y-p_{2}\right)+\frac{\partial f}{\partial z}(\boldsymbol{p})\left(z-p_{3}\right)+o(|\boldsymbol{r}-\boldsymbol{p}|)</script><p>According to $(3)$, the remainder $o(|\boldsymbol{r}-\boldsymbol{p}|)=\left(x-p_{1}\right)^{a}\left(y-p_{2}\right)^{b}\left(z-p_{3}\right)^{c},a+b+c&gt;1$</p>
+<p>So $v(o(|\boldsymbol{r}-\boldsymbol{p}|))=0$ For constant number $v$ sends to $0$. Take $v$ function to the Taylor expansion</p>
+<script type="math/tex; mode=display">
+v(f)=\dfrac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) v(y)+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) v(z)</script><p>Which shows the complete differential at $\boldsymbol{p}$</p>
+<p>$(5)$ Just calculate the directional derivative $\nabla_{\boldsymbol{v}}$ where $\boldsymbol{v}=\left[\begin{array}{l}v(x) \ v(y) \ v(z)\end{array}\right]$</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\nabla_{v} f &amp;=\lim _{t \rightarrow 0^{+}} \frac{f(\boldsymbol{p}+t
-\boldsymbol{v})-f(\boldsymbol{p})}{t} \\
-&amp;=\lim _{t \rightarrow 0^{+}}
-\dfrac{f(\boldsymbol{p})+\dfrac{\partial f}{\partial x}(\boldsymbol{p})
-v(x) t+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) v(y)
-t+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) v(z)
-t+o(\|\boldsymbol{v}\| t)-f(\boldsymbol{p})}{t} \\
-&amp;=\frac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\frac{\partial
-f}{\partial y}(\boldsymbol{p}) v(y)+\frac{\partial f}{\partial
-z}(\boldsymbol{p}) v(z) \\
-&amp;=v(f)
-\end{aligned}
-\]</span> So derivative in calculus is just a vector in the dual space
-of <span class="math inline">\(R^{n}\)</span> which suits Leibniz
-rule</p>
-<h2 id="small-mboxwhat-is-a-vector-field">1.7.3<span
-class="math inline">\(\ \small \mbox{What is a vector
-field}\)</span></h2>
-<p>The discussions in this problem holds for all manifolds <span
-class="math inline">\(M\)</span>. But for simplicities sake, suppose
-<span class="math inline">\(M=\mathbb{R}^{3}\)</span> for this problem.
-Let <span class="math inline">\(V\)</span> be the space of all analytic
-functions from <span class="math inline">\(M\)</span> to <span
-class="math inline">\(\mathbb{R}\)</span> as usual. We say <span
-class="math inline">\(X: V \rightarrow V\)</span> is a vector field on
-<span class="math inline">\(X\)</span> if <span
-class="math inline">\(X(f g)=f X(g)+g X(f)\)</span>, i.e., the Leibniz
-rule again! Prove the following:</p>
-<ol type="1">
-<li><p>Show that <span class="math inline">\(X_{\boldsymbol{p}}: V
-\rightarrow \mathbb{R}\)</span> such that <span
-class="math inline">\(X_{\boldsymbol{p}}(f)=(X(f))(\boldsymbol{p})\)</span>
-is a derivation at <span class="math inline">\(\boldsymbol{p}\)</span>.
-(Hence <span class="math inline">\(X\)</span> is indeed a vector field,
-since it is the same as picking a tangent vector at each
-point.)</p></li>
-<li><p>Note that each <span class="math inline">\(f\)</span> on <span
-class="math inline">\(M\)</span> induces a covector field <span
-class="math inline">\(\mathrm{d} f\)</span>. Then at each point <span
-class="math inline">\(\boldsymbol p\)</span>, the cotangent vector <span
-class="math inline">\(\mathrm{d} f\)</span> and the tangent vector <span
-class="math inline">\(X\)</span> would evaluate to some number. So <span
-class="math inline">\(\mathrm{d} f(X)\)</span> is a function <span
-class="math inline">\(M \rightarrow \mathbb{R}\)</span>. Show that <span
-class="math inline">\(\mathrm{d} f(X)=X(f)\)</span>, i.e., the two are
-the same. (Hint: just use definitions and calculate directly.)</p></li>
-<li><p>If <span class="math inline">\(X, Y: V \rightarrow V\)</span> are
-vector fields, then note that <span class="math inline">\(X \circ Y: V
-\rightarrow V\)</span> might not be a vector field. (Leibniz rule might
-fail.) However, show that <span class="math inline">\(X \circ Y-Y \circ
-X\)</span> is always a vector field.</p></li>
-<li><p>On a related note, show that if <span class="math inline">\(A,
-B\)</span> are skew-symmetric matrices, then <span
-class="math inline">\(A B-B A\)</span> is still skewsymmetric.
-(Skew-symmetric matrices actually corresponds to certain vector fields
-on the manifold of orthogonal matrices. So this is no
-coincidence.)</p></li>
+\nabla_{v} f &=\lim _{t \rightarrow 0^{+}} \frac{f(\boldsymbol{p}+t \boldsymbol{v})-f(\boldsymbol{p})}{t} \\
+&=\lim _{t \rightarrow 0^{+}} \dfrac{f(\boldsymbol{p})+\dfrac{\partial f}{\partial x}(\boldsymbol{p}) v(x) t+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) v(y) t+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) v(z) t+o(\|\boldsymbol{v}\| t)-f(\boldsymbol{p})}{t} \\
+&=\frac{\partial f}{\partial x}(\boldsymbol{p}) v(x)+\frac{\partial f}{\partial y}(\boldsymbol{p}) v(y)+\frac{\partial f}{\partial z}(\boldsymbol{p}) v(z) \\
+&=v(f)
+\end{aligned}</script><p>So derivative in calculus is just a vector in the dual space of $R^{n}$ which suits Leibniz rule</p>
+<h2 id="1-7-3-small-mbox-What-is-a-vector-field"><a href="#1-7-3-small-mbox-What-is-a-vector-field" class="headerlink" title="1.7.3$ \small  \mbox{What is a vector field}$"></a>1.7.3$ \small  \mbox{What is a vector field}$</h2><p>The discussions in this problem holds for all manifolds $M$. But for simplicities sake, suppose $M=\mathbb{R}^{3}$ for this problem. Let $V$ be the space of all analytic functions from $M$ to $\mathbb{R}$ as usual.<br>We say $X: V \rightarrow V$ is a vector field on $X$ if $X(f g)=f X(g)+g X(f)$, i.e., the Leibniz rule again! Prove the following:</p>
+<ol>
+<li><p>Show that $X_{\boldsymbol{p}}: V \rightarrow \mathbb{R}$ such that $X_{\boldsymbol{p}}(f)=(X(f))(\boldsymbol{p})$ is a derivation at $\boldsymbol{p}$. (Hence $X$ is indeed a vector field, since it is the same as picking a tangent vector at each point.)</p>
+</li>
+<li><p>Note that each $f$ on $M$ induces a covector field $\mathrm{d} f$. Then at each point $\boldsymbol p$, the cotangent vector $\mathrm{d} f$ and the tangent vector $X$ would evaluate to some number. So $\mathrm{d} f(X)$ is a function $M \rightarrow \mathbb{R}$. Show that $\mathrm{d} f(X)=X(f)$, i.e., the two are the same. (Hint: just use definitions and calculate directly.)</p>
+</li>
+<li>If $X, Y: V \rightarrow V$ are vector fields, then note that $X \circ Y: V \rightarrow V$ might not be a vector field. (Leibniz rule might fail.) However, show that $X \circ Y-Y \circ X$ is always a vector field.</li>
+<li>On a related note, show that if $A, B$ are skew-symmetric matrices, then $A B-B A$ is still skewsymmetric. (Skew-symmetric matrices actually corresponds to certain vector fields on the manifold of orthogonal matrices. So this is no coincidence.)</li>
 </ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> <span
-class="math inline">\(X_{\boldsymbol{p}}(fg)=(X(fg))(\boldsymbol{p})=(fX(g)+gX(f))(\boldsymbol{p})=f(\boldsymbol{p})X(g)(\boldsymbol{p})+g(\boldsymbol{p})X(f)(\boldsymbol{p})\)</span></p>
-<p><span
-class="math inline">\(=f(\boldsymbol{p})X_{\boldsymbol{p}}(g)+g(\boldsymbol{p})X_{\boldsymbol{p}}(f)\)</span>
-So it suits the definition of derivative at <span
-class="math inline">\(\boldsymbol{p}\)</span></p>
-<p><span class="math inline">\((2)\)</span> <span
-class="math inline">\(X_{\boldsymbol{p}}:V\rightarrow R\)</span> So
-<span class="math inline">\(X_{\boldsymbol{p}}\in V^{*}\)</span> <span
-class="math inline">\(X_{p}=\left[\begin{array}{c} X_{\boldsymbol{p}}(X)
-&amp; X_{p}(Y) &amp; X_{p}(Z) \end{array}\right]\)</span></p>
-<p><span class="math inline">\(df(X)(\boldsymbol{p})=df_{\boldsymbol{p}
-}(X_{\boldsymbol{p}})\)</span> where <span
-class="math inline">\(df=\left[\begin{array}{c} \dfrac{\partial
-f}{\partial x}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial
-y}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial z}(\boldsymbol{p})\\
-\end{array}\right]\)</span> combine them together then we have</p>
-<p>From <span class="math inline">\(\small (1.4)\)</span> <span
-class="math inline">\((X(f))(\boldsymbol{p})=X_{p}(f)=\dfrac{\partial
-f}{\partial x}(\boldsymbol{p}) X_{\boldsymbol{p}}(X)+\dfrac{\partial
-f}{\partial y}(\boldsymbol{p}) X_{\boldsymbol{p}}(Y)+\dfrac{\partial
-f}{\partial z}(\boldsymbol{p}) X_{\boldsymbol{p}}(Z)\)</span></p>
-<p><span class="math inline">\(=\left[\begin{array}{c}
-X_{\boldsymbol{p}}(X) &amp; X_{p}(Y) &amp; X_{p}(Z)
-\end{array}\right]\left[\begin{array}{c} \dfrac{\partial f}{\partial
-x}(\boldsymbol{p})\\ \dfrac{\partial f}{\partial y}(\boldsymbol{p})\\
-\dfrac{\partial f}{\partial z}(\boldsymbol{p})\\
-\end{array}\right]=df(X)\)</span></p>
-<p><span class="math inline">\((3)\)</span> Just unfold the fomula <span
-class="math display">\[
+<hr>
+<p>$(1)$ $X_{\boldsymbol{p}}(fg)=(X(fg))(\boldsymbol{p})=(fX(g)+gX(f))(\boldsymbol{p})=f(\boldsymbol{p})X(g)(\boldsymbol{p})+g(\boldsymbol{p})X(f)(\boldsymbol{p})$</p>
+<p>$=f(\boldsymbol{p})X_{\boldsymbol{p}}(g)+g(\boldsymbol{p})X_{\boldsymbol{p}}(f)$ So it suits the definition of derivative at $\boldsymbol{p}$</p>
+<p>$(2)$ $X_{\boldsymbol{p}}:V\rightarrow R$ So $X_{\boldsymbol{p}}\in V^{*}$ $X_{p}=\left[\begin{array}{c}<br>X_{\boldsymbol{p}}(X) &amp;<br>X_{p}(Y) &amp;<br>X_{p}(Z)<br>\end{array}\right]$ </p>
+<p>$df(X)(\boldsymbol{p})=df_{\boldsymbol{p}<br>}(X_{\boldsymbol{p}})$ where  $df=\left[\begin{array}{c}<br>\dfrac{\partial f}{\partial x}(\boldsymbol{p})\\<br>\dfrac{\partial f}{\partial y}(\boldsymbol{p})\\<br>\dfrac{\partial f}{\partial z}(\boldsymbol{p})\\<br>\end{array}\right]$ combine them together then we have</p>
+<p>From $\small (1.4)$  $(X(f))(\boldsymbol{p})=X_{p}(f)=\dfrac{\partial f}{\partial x}(\boldsymbol{p}) X_{\boldsymbol{p}}(X)+\dfrac{\partial f}{\partial y}(\boldsymbol{p}) X_{\boldsymbol{p}}(Y)+\dfrac{\partial f}{\partial z}(\boldsymbol{p}) X_{\boldsymbol{p}}(Z)$</p>
+<p>$=\left[\begin{array}{c}<br>X_{\boldsymbol{p}}(X) &amp;<br>X_{p}(Y) &amp;<br>X_{p}(Z)<br>\end{array}\right]\left[\begin{array}{c}<br>\dfrac{\partial f}{\partial x}(\boldsymbol{p})\\<br>\dfrac{\partial f}{\partial y}(\boldsymbol{p})\\<br>\dfrac{\partial f}{\partial z}(\boldsymbol{p})\\<br>\end{array}\right]=df(X)$</p>
+<p>$(3)$ Just unfold the fomula</p>
+<script type="math/tex; mode=display">
 \begin{gathered}
-(X\circ Y-Y\circ X)(fg)=X\circ Y(fg)-Y\circ X(fg)=X\circ
-(fY(g)+gY(f))-Y\circ (fX(g)+gX(f))\\
-=\small f (X\circ Y)g+X(f)Y(g)+g (X\circ Y)f+X(g)Y(f)-(f (Y\circ
-X)g+Y(f)X(g)+g (Y\circ X)f+Y(g)X(f))\\
+(X\circ Y-Y\circ X)(fg)=X\circ Y(fg)-Y\circ X(fg)=X\circ (fY(g)+gY(f))-Y\circ (fX(g)+gX(f))\\
+=\small f (X\circ Y)g+X(f)Y(g)+g (X\circ Y)f+X(g)Y(f)-(f (Y\circ X)g+Y(f)X(g)+g (Y\circ X)f+Y(g)X(f))\\
 =f(X\circ Y-Y\circ X)g+g(X\circ Y-Y\circ X)f
-\end{gathered}
-\]</span> So <span class="math inline">\(X\circ Y-Y \circ X\)</span>
-suits the Leibniz rule, which is a vector field.</p>
-<p><span class="math inline">\((4)\)</span> Calculate directly we can
-prove <span class="math inline">\((AB-BA)^{T}=-(AB-BA)\)</span> <span
-class="math display">\[
+\end{gathered}</script><p>So $X\circ Y-Y \circ X$ suits the Leibniz rule, which is a vector field. </p>
+<p>$(4)$ Calculate directly we can prove $(AB-BA)^{T}=-(AB-BA)$</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
 (A B-B A)^{T} =(A B)^{T}-(B A)^{T}
 =(B^{T} A^{T}-A^{T} B^{T}) \\
 =(-B)(-A)-(-A)(-B) =BA-AB=-(A B-B A)
-\end{aligned}
-\]</span> For all the positive orthogonal matrices <span
-class="math inline">\(\mathcal{Q}\)</span> <span
-class="math inline">\(\forall \ Q\in \mathcal{Q},\det(Q)=1\)</span>. At
-one matrix, its tangent vector</p>
-<p><span
-class="math inline">\((Q+A)^{T}(Q+A)=I=(Q^{T}+A^{T})(Q+A)=I\Longrightarrow
-A=-A^{T},||A||\to 0\)</span></p>
-<p>are all Skew-symmetric matrices. According to <span
-class="math inline">\(\small (3)\)</span>, <span
-class="math inline">\(AB-BA\)</span> is also a Skew-symmetric matrix</p>
+\end{aligned}</script><p>For all the positive orthogonal matrices $\mathcal{Q}$  $\forall  Q\in \mathcal{Q},\det(Q)=1$. At one matrix, its tangent vector </p>
+<p>$(Q+A)^{T}(Q+A)=I=(Q^{T}+A^{T})(Q+A)=I\Longrightarrow A=-A^{T},||A||\to 0$</p>
+<p>are all Skew-symmetric matrices. According to $\small (3)$, $AB-BA$ is also a Skew-symmetric matrix</p>
 <blockquote>
-<p><span class="math inline">\(\Large \mathbf{If\ your\ life\ is\
-tense,\ it\ could\ be\ a\ tensor. }\)</span></p>
+<p> $\Large \mathbf{If your life is tense, it could be a tensor. }$</p>
 </blockquote>
-<h1
-id="largetextcolorbluemboxadvanced-algebra-small-mathbbhwmathrm8-_textcolorblue2022.5.9"><span
-class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra }
-\small \mathbb{HW}\mathrm{8}}\ \ \ \ \ \
-_\textcolor{blue}{2022.5.9}\)</span></h1>
-<h2 id="small-mboxelementary-layer-operations-for-tensors">1.8.1<span
-class="math inline">\(\ \small \mbox{Elementary layer operations for
-tensors}\)</span></h2>
-<p>Note that, for "2D" matrices we have row and column operations, and
-the two kinds of operations corresponds to the two dimensions of the
-array.</p>
-<p>For simplicity, let <span class="math inline">\(M\)</span> be a <span
-class="math inline">\(2 \times 2 \times 2\)</span> "3D matrix". Then we
-have "row layer operations", "column layer operations", "horizontal
-layer operations". The three kinds corresponds to the three dimensions
-of the array. We interpret this as a multilinear map <span
-class="math inline">\(M: \mathbb{R}^{2} \times \mathbb{R}^{2} \times
-\mathbb{R}^{2} \rightarrow \mathbb{R}\)</span>. Let <span
-class="math inline">\(\left(\left(\mathbb{R}^{2}\right)^{*}\right)^{\otimes
-3}\)</span> be the space of all multilinear maps from <span
-class="math inline">\(\mathbb{R}^{2} \times \mathbb{R}^{2} \times
-\mathbb{R}^{2}\)</span> to <span
-class="math inline">\(\mathbb{R}\)</span>.</p>
-<ol type="1">
-<li>Given <span class="math inline">\(\alpha, \beta, \gamma
-\in\left(\mathbb{R}^{2}\right)^{*}\)</span>, what is the <span
-class="math inline">\((i, j, k)\)</span>-entry of the "3D matrix" <span
-class="math inline">\(\alpha \otimes \beta \otimes \gamma\)</span> in
-terms of the coordinates of <span class="math inline">\(\alpha, \beta,
-\gamma\)</span> ? Here <span class="math inline">\(\alpha \otimes \beta
-\otimes \gamma\)</span> is the multilinear map sending <span
-class="math inline">\((\boldsymbol{u}, \boldsymbol{v},
-\boldsymbol{w})\)</span> to the real number <span
-class="math inline">\(\alpha(\boldsymbol{u}) \beta(\boldsymbol{v})
-\gamma(\boldsymbol{w})\)</span>.</li>
-<li>Let <span class="math inline">\(E\)</span> be an elementary matrix.
-Then we can send <span class="math inline">\(\alpha \otimes \beta
-\otimes \gamma\)</span> to <span class="math inline">\((\alpha E)
-\otimes \beta \otimes \gamma\)</span>. Why can this be extended to a
-linear map <span
-class="math inline">\(M_{E}:\left(\left(\mathbb{R}^{2}\right)^{*}\right)^{\otimes
-3} \rightarrow\left(\left(\mathbb{R}^{2}\right)^{*}\right)^{\otimes
-3}\)</span> ? (This gives a formula for the "elementary layer
-operations" on "3D matrices", where the three kinds of layer operations
-corresponds to applying <span class="math inline">\(E\)</span> to the
-three arguments respectively.)</li>
-<li>Show that elementary layer operations preserve rank. Here we say
-<span class="math inline">\(M\)</span> has rank <span
-class="math inline">\(r\)</span> if <span
-class="math inline">\(r\)</span> is the smallest possible integer such
-that <span class="math inline">\(M\)</span> can be written as the linear
-combination of <span class="math inline">\(r\)</span> "rank one" maps,
-i.e., maps of the kind <span class="math inline">\(\alpha \otimes \beta
-\otimes \gamma\)</span> for some <span class="math inline">\(\alpha,
-\beta, \gamma \in\left(\mathbb{R}^{2}\right)^{*}\)</span>.</li>
-<li>Show that, if some "2D" layer matrix of a "3D matrix" has rank r,
-then the <span class="math inline">\(3 D\)</span> matrix has rank at
-least <span class="math inline">\(r\)</span>.</li>
-<li>Let <span class="math inline">\(M\)</span> be made of two layers,
-<span class="math inline">\(\left[\begin{array}{ll}1 &amp; 0 \\ 0 &amp;
-1\end{array}\right]\)</span> and <span
-class="math inline">\(\left[\begin{array}{ll}0 &amp; 1 \\ 1 &amp;
-0\end{array}\right]\)</span>. Find its rank.</li>
-<li>(Read only) Despite some practical interests, finding the tensor
-rank in general is NOT easy. In fact, it is NP-complete just for
-3-tensors over finite field. Furthermore, a tensor with all real entries
-might have different real rank and complex rank.</li>
+<h1 id="large-textcolor-blue-mbox-Advanced-Algebra-small-mathbb-HW-mathrm-8-textcolor-blue-2022-5-9"><a href="#large-textcolor-blue-mbox-Advanced-Algebra-small-mathbb-HW-mathrm-8-textcolor-blue-2022-5-9" class="headerlink" title="$\large\textcolor{blue}{\mbox{Advanced Algebra  } \small \mathbb{HW}\mathrm{8}}      _\textcolor{blue}{2022.5.9}$"></a>$\large\textcolor{blue}{\mbox{Advanced Algebra  } \small \mathbb{HW}\mathrm{8}}      _\textcolor{blue}{2022.5.9}$</h1><h2 id="1-8-1-small-mbox-Elementary-layer-operations-for-tensors"><a href="#1-8-1-small-mbox-Elementary-layer-operations-for-tensors" class="headerlink" title="1.8.1$ \small  \mbox{Elementary layer operations for tensors}$"></a>1.8.1$ \small  \mbox{Elementary layer operations for tensors}$</h2><p>Note that, for “2D” matrices we have row and column operations, and the two kinds of operations corresponds to the two dimensions of the array.</p>
+<p>For simplicity, let $M$ be a $2 \times 2 \times 2$ “3D matrix”. Then we have “row layer operations”, “column layer operations”, “horizontal layer operations”. The three kinds corresponds to the three dimensions of the array.<br>We interpret this as a multilinear map $M: \mathbb{R}^{2} \times \mathbb{R}^{2} \times \mathbb{R}^{2} \rightarrow \mathbb{R}$. Let $\left(\left(\mathbb{R}^{2}\right)^{*}\right)^{\otimes 3}$ be the space of all multilinear maps from $\mathbb{R}^{2} \times \mathbb{R}^{2} \times \mathbb{R}^{2}$ to $\mathbb{R}$.</p>
+<ol>
+<li>Given $\alpha, \beta, \gamma \in\left(\mathbb{R}^{2}\right)^{*}$, what is the $(i, j, k)$-entry of the “3D matrix” $\alpha \otimes \beta \otimes \gamma$ in terms of the coordinates of $\alpha, \beta, \gamma$ ? Here $\alpha \otimes \beta \otimes \gamma$ is the multilinear map sending $(\boldsymbol{u}, \boldsymbol{v}, \boldsymbol{w})$ to the real number $\alpha(\boldsymbol{u}) \beta(\boldsymbol{v}) \gamma(\boldsymbol{w})$.</li>
+<li>Let $E$ be an elementary matrix. Then we can send $\alpha \otimes \beta \otimes \gamma$ to $(\alpha E) \otimes \beta \otimes \gamma$. Why can this be extended to a linear map $M_{E}:\left(\left(\mathbb{R}^{2}\right)^{<em>}\right)^{\otimes 3} \rightarrow\left(\left(\mathbb{R}^{2}\right)^{</em>}\right)^{\otimes 3}$ ? (This gives a formula for the “elementary layer operations” on “3D matrices”, where the three kinds of layer operations corresponds to applying $E$ to the three arguments respectively.)</li>
+<li>Show that elementary layer operations preserve rank. Here we say $M$ has rank $r$ if $r$ is the smallest possible integer such that $M$ can be written as the linear combination of $r$ “rank one” maps, i.e., maps of the kind $\alpha \otimes \beta \otimes \gamma$ for some $\alpha, \beta, \gamma \in\left(\mathbb{R}^{2}\right)^{*}$.</li>
+<li>Show that, if some “2D” layer matrix of a “3D matrix” has rank r, then the $3 D$ matrix has rank at least $r$.</li>
+<li>Let $M$ be made of two layers, $\left[\begin{array}{ll}1 &amp; 0 \ 0 &amp; 1\end{array}\right]$ and $\left[\begin{array}{ll}0 &amp; 1 \ 1 &amp; 0\end{array}\right]$. Find its rank.</li>
+<li>(Read only) Despite some practical interests, finding the tensor rank in general is NOT easy. In fact, it is NP-complete just for 3-tensors over finite field. Furthermore, a tensor with all real entries might have different real rank and complex rank.</li>
 </ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> According to the symmetry of
-dot product <span class="math inline">\(\langle\alpha,u\rangle=\langle
-u,\alpha\rangle\)</span> we have equation <span
-class="math inline">\(\alpha^Tu=u^T\alpha\)</span> So</p>
-<p><span class="math inline">\(\alpha^{T} u \beta^{T} v \gamma^{T}
-\omega=u^{T} \alpha \beta^{T} v \gamma^{T} \omega=u^{T}\left[\alpha
-\beta^{T} v \gamma_{1} \quad \partial \beta^{T} v \gamma_{2}\right]
-\omega\)</span> Compare to <span class="math inline">\([u^TA_1v\quad
-u^TA_2v]\omega\)</span> hence</p>
-<p><span
-class="math inline">\(A_{1}=\gamma_{1}\left(\begin{array}{ll}\alpha_{1}
-\beta_{1} &amp; \alpha_{1} \beta_{2} \\ \alpha_{2} \beta_{1} &amp;
-\alpha_{2}
-\beta_{2}\end{array}\right)=\gamma_1\alpha\beta^T,A_{2}=\gamma_{2}\left(\begin{array}{ll}\alpha_{1}
-\beta_{1} &amp; \alpha_{1} \beta_{2} \\ \alpha_{2} \beta_{1} &amp;
-\alpha_{2} \beta_{2}\end{array}\right)=\gamma_2\alpha\beta^T\)</span> .
-So <span
-class="math inline">\(A_{ijk}=\gamma_i\alpha_j\beta_k\)</span></p>
-<p><span class="math inline">\((2)\)</span> <span
-class="math inline">\(M_E\)</span> sends tensor <span
-class="math inline">\(M=[[A_1,A_2]]=[[\gamma_1\alpha
-\beta^T,\gamma_2\alpha \beta^T]]\)</span> to <span
-class="math inline">\(M&#39;=[[\gamma_1\alpha E \beta^T,\gamma_2\alpha
-E\beta^T]]\)</span></p>
-<p>For <span class="math inline">\(\alpha _1,\alpha_2\)</span> in <span
-class="math inline">\((\mathbb{R}^2)^*\)</span> as one part in <span
-class="math inline">\(((\mathbb{R}^2)^*)^{\otimes3}\)</span> <span
-class="math display">\[
-M_{k\alpha_1+\mu\alpha_2}=[[\gamma_1(k\alpha_1+\mu\alpha_2)
-\beta^T,\gamma_2(k\alpha_1+\mu\alpha_2) \beta^T]]=kM_{\alpha _1}+\mu
-M_{\alpha _2}\in ((\mathbb{R}^2)^*)^{\otimes3}
-\]</span> So for <span class="math inline">\(\alpha ,\beta\)</span> is
-linear. and for <span class="math inline">\(\gamma_1,\gamma_2\)</span>
-in <span class="math inline">\((\mathbb{R}^2)^*\)</span> as one part in
-<span class="math inline">\(((\mathbb{R}^2)^*)^{\otimes3}\)</span>, set
-<span class="math inline">\(\gamma_{11,12}\)</span> as the component of
-<span class="math inline">\(\gamma_1\)</span></p>
-<p><span class="math inline">\(\gamma_{21,22}\)</span> as the component
-of <span class="math inline">\(\gamma_2\)</span>, So <span
-class="math display">\[
-M_{k\gamma_1+\mu\gamma_2}=[[(k\gamma_{11}+\mu\gamma_{21})\alpha\beta^T,(k\gamma_{12}+\mu\gamma_{22})\alpha
-\beta^T]]=kM_{\gamma _1}+\mu M_{\gamma _2}\in
-((\mathbb{R}^2)^*)^{\otimes3}
-\]</span> So <span class="math inline">\(M_E\)</span> is a linear map,
-three operations at <span
-class="math inline">\(\alpha,\beta,\gamma\)</span></p>
-<p><span class="math inline">\((3)\)</span> Suppose <span
-class="math inline">\(M=\displaystyle \sum_{i=1}^rM_{base(i)}\)</span>
-if we operate elementary layer operations for <span
-class="math inline">\(M\)</span>, the right hand side</p>
-<p>is also in "rank one" maps, so <span class="math inline">\(r&#39;\leq
-r\)</span>. And if <span class="math inline">\(r&#39;&lt;r\)</span>,
-i.e., <span class="math inline">\(M&#39;=\displaystyle
-\sum_{i=1}^{r&#39;}M_{base(i)}\)</span> As elementary have its
-inverse</p>
-<p>operate the inverse of elementary operation, and we have
-contradiction, so <span class="math inline">\(r&#39;=r\)</span></p>
-<p><span class="math inline">\((4)\)</span> According to <span
-class="math inline">\(\mbox{SVD}\)</span>, the minimum number of
-decomposing a matrix into rank-<span class="math inline">\(1\)</span>
-matrixes equals to rank</p>
-<p>So if <span class="math inline">\(2D\)</span> matrix needs at least
-<span class="math inline">\(r\)</span> rank-<span
-class="math inline">\(1\)</span> matrixes to make up, since every
-rank-<span class="math inline">\(1\)</span> maps in <span
-class="math inline">\(\alpha \otimes \beta \otimes \gamma\)</span></p>
-<p>contains two rank-<span class="math inline">\(1\)</span> matrix, so
-the <span class="math inline">\(3D\)</span> matrix also needs at least
-<span class="math inline">\(r\)</span> rank-<span
-class="math inline">\(1\)</span> tensors to make up</p>
-<p><span class="math inline">\((5)\)</span> For <span
-class="math inline">\(A_1=\left[\begin{array}{ll}1 &amp; 0 \\ 0 &amp;
-1\end{array}\right]\)</span> its rank is <span
-class="math inline">\(2\)</span>, so <span
-class="math inline">\(r(M)\geq 2\)</span>. Besides, construct two
-rank-<span class="math inline">\(1\)</span> tensors <span
-class="math display">\[
-M_1=[[\dfrac{1}{2}\begin{bmatrix}1 &amp; 1 \\ 1 &amp;
-1\end{bmatrix},\dfrac{1}{2}\begin{bmatrix}1 &amp; 1 \\ 1 &amp;
-1\end{bmatrix}]],
-M_2=[[\dfrac{1}{2}\begin{bmatrix}1 &amp; -1 \\ -1 &amp;
-1\end{bmatrix},-\dfrac{1}{2}\begin{bmatrix}1 &amp; -1 \\ -1 &amp;
-1\end{bmatrix}]]
-\]</span> And <span class="math inline">\(M=M_1+M_2\)</span>, so its
-rank is <span class="math inline">\(2\)</span></p>
-<p><img
-src="https://pic.imgdb.cn/item/6278cb2909475431290238c1.jpg" srcset="/img/loading.gif" lazyload /></p>
-<h2 id="small-mboxijk-rank-3-tensor">1.8.2<span class="math inline">\(\
-\small \mbox{i+j+k rank-3 tensor}\)</span></h2>
-<p>Let <span class="math inline">\(M\)</span> be a <span
-class="math inline">\(3 \times 3 \times 3\)</span> "3D matrix" whose
-<span class="math inline">\((i, j, k)\)</span>-entry is <span
-class="math inline">\(i+j+k\)</span>. We interpret this as a multilinear
-map <span class="math inline">\(M: \mathbb{R}^{3} \times \mathbb{R}^{3}
-\times \mathbb{R}^{3} \rightarrow \mathbb{R}\)</span>.</p>
-<ol type="1">
-<li>Let <span
-class="math inline">\(\boldsymbol{v}=\left[\begin{array}{l}x \\ y \\
-z\end{array}\right]\)</span>, then <span
-class="math inline">\(M(\boldsymbol{v}, \boldsymbol{v},
-\boldsymbol{v})\)</span> is a polynomial in <span
-class="math inline">\(x, y, z\)</span>. What is this polynomial?</li>
-<li>Let <span class="math inline">\(\sigma:\{1,2,3\}
-\rightarrow\{1,2,3\}\)</span> be any bijection. Show that <span
-class="math inline">\(M\left(\boldsymbol{v}_{1}, \boldsymbol{v}_{2},
-\boldsymbol{v}_{3}\right)=M\left(\boldsymbol{v}_{\sigma(1)},
-\boldsymbol{v}_{\sigma(2)}, \boldsymbol{v}_{\sigma(3)}\right)\)</span>.
-(Hint: brute force works. But alternatively, try find the <span
-class="math inline">\((i, j, k)\)</span> entry of the multilinear map
-<span class="math inline">\(M^{\sigma}\)</span>, a map that sends <span
-class="math inline">\(\left(\boldsymbol{v}_{1}, \boldsymbol{v}_{2},
-\boldsymbol{v}_{3}\right)\)</span> to <span
-class="math inline">\(M\left(\boldsymbol{v}_{\sigma(1)},
-\boldsymbol{v}_{\sigma(2)},
-\boldsymbol{v}_{\sigma(3)}\right)\)</span>.)</li>
-<li>Show that the rank <span class="math inline">\(r\)</span> of <span
-class="math inline">\(M\)</span> is at least 2 and at most 3. (It is
-actually exactly three.)</li>
-<li>(Read only) Any study of polynomial of degree <span
-class="math inline">\(d\)</span> on <span
-class="math inline">\(n\)</span> variables is equivalent to the study of
-some symmetric <span class="math inline">\(d\)</span> tensor on <span
-class="math inline">\(\mathbb{R}^{n}\)</span>.</li>
+<hr>
+<p>$(1)$ According to the symmetry of dot product $\langle\alpha,u\rangle=\langle u,\alpha\rangle$ we have equation $\alpha^Tu=u^T\alpha$ So</p>
+<p>$\alpha^{T} u \beta^{T} v \gamma^{T} \omega=u^{T} \alpha \beta^{T} v \gamma^{T} \omega=u^{T}\left[\alpha \beta^{T} v \gamma_{1} \quad \partial \beta^{T} v \gamma_{2}\right] \omega$ Compare to $[u^TA_1v\quad u^TA_2v]\omega$ hence</p>
+<p>$A_{1}=\gamma_{1}\left(\begin{array}{ll}\alpha_{1} \beta_{1} &amp; \alpha_{1} \beta_{2} \ \alpha_{2} \beta_{1} &amp; \alpha_{2} \beta_{2}\end{array}\right)=\gamma_1\alpha\beta^T,A_{2}=\gamma_{2}\left(\begin{array}{ll}\alpha_{1} \beta_{1} &amp; \alpha_{1} \beta_{2} \ \alpha_{2} \beta_{1} &amp; \alpha_{2} \beta_{2}\end{array}\right)=\gamma_2\alpha\beta^T$ . So $A_{ijk}=\gamma_i\alpha_j\beta_k$</p>
+<p>$(2)$ $M_E$ sends tensor $M=[[A_1,A_2]]=[[\gamma_1\alpha \beta^T,\gamma_2\alpha \beta^T]]$ to $M’=[[\gamma_1\alpha E \beta^T,\gamma_2\alpha E\beta^T]]$</p>
+<p>For $\alpha _1,\alpha_2$ in $(\mathbb{R}^2)^<em>$ as one part in $((\mathbb{R}^2)^</em>)^{\otimes3}$ </p>
+<script type="math/tex; mode=display">
+M_{k\alpha_1+\mu\alpha_2}=[[\gamma_1(k\alpha_1+\mu\alpha_2) \beta^T,\gamma_2(k\alpha_1+\mu\alpha_2) \beta^T]]=kM_{\alpha _1}+\mu M_{\alpha _2}\in ((\mathbb{R}^2)^*)^{\otimes3}</script><p>So for $\alpha ,\beta$ is linear. and for $\gamma_1,\gamma_2$ in $(\mathbb{R}^2)^<em>$ as one part in $((\mathbb{R}^2)^</em>)^{\otimes3}$, set $\gamma_{11,12}$ as the component of $\gamma_1$</p>
+<p>$\gamma_{21,22}$ as the component of $\gamma_2$, So </p>
+<script type="math/tex; mode=display">
+M_{k\gamma_1+\mu\gamma_2}=[[(k\gamma_{11}+\mu\gamma_{21})\alpha\beta^T,(k\gamma_{12}+\mu\gamma_{22})\alpha \beta^T]]=kM_{\gamma _1}+\mu M_{\gamma _2}\in ((\mathbb{R}^2)^*)^{\otimes3}</script><p>So $M_E$ is a linear map, three operations at $\alpha,\beta,\gamma$ </p>
+<p>$(3)$ Suppose $M=\displaystyle \sum_{i=1}^rM_{base(i)}$ if we operate elementary layer operations for $M$, the right hand side </p>
+<p>is also in “rank one” maps, so $r’\leq r$. And if $r’&lt;r$, i.e., $M’=\displaystyle \sum_{i=1}^{r’}M_{base(i)}$ As elementary have its inverse</p>
+<p>operate the inverse of elementary operation, and we have contradiction, so $r’=r$</p>
+<p>$(4)$ According to $\mbox{SVD}$, the minimum number of decomposing a matrix into rank-$1$ matrixes equals to rank</p>
+<p>So if $2D$ matrix needs at least $r$ rank-$1$ matrixes to make up, since every rank-$1$ maps in $\alpha \otimes \beta \otimes \gamma$</p>
+<p>contains two rank-$1$ matrix, so the $3D$ matrix also needs at least $r$ rank-$1$ tensors to make up</p>
+<p>$(5)$ For $A_1=\left[\begin{array}{ll}1 &amp; 0 \ 0 &amp; 1\end{array}\right]$ its rank is $2$, so $r(M)\geq 2$. Besides, construct two rank-$1$ tensors </p>
+<script type="math/tex; mode=display">
+M_1=[[\dfrac{1}{2}\begin{bmatrix}1 & 1 \\ 1 & 1\end{bmatrix},\dfrac{1}{2}\begin{bmatrix}1 & 1 \\ 1 & 1\end{bmatrix}]],
+M_2=[[\dfrac{1}{2}\begin{bmatrix}1 & -1 \\ -1 & 1\end{bmatrix},-\dfrac{1}{2}\begin{bmatrix}1 & -1 \\ -1 & 1\end{bmatrix}]]</script><p>And $M=M_1+M_2$, so its rank is $2$</p>
+<p><img src="https://pic.imgdb.cn/item/6278cb2909475431290238c1.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="1-8-2-small-mbox-i-j-k-rank-3-tensor"><a href="#1-8-2-small-mbox-i-j-k-rank-3-tensor" class="headerlink" title="1.8.2$ \small  \mbox{i+j+k rank-3 tensor}$"></a>1.8.2$ \small  \mbox{i+j+k rank-3 tensor}$</h2><p>Let $M$ be a $3 \times 3 \times 3$ “3D matrix” whose $(i, j, k)$-entry is $i+j+k$. We interpret this as a multilinear map $M: \mathbb{R}^{3} \times \mathbb{R}^{3} \times \mathbb{R}^{3} \rightarrow \mathbb{R}$.</p>
+<ol>
+<li>Let $\boldsymbol{v}=\left[\begin{array}{l}x \ y \ z\end{array}\right]$, then $M(\boldsymbol{v}, \boldsymbol{v}, \boldsymbol{v})$ is a polynomial in $x, y, z$. What is this polynomial?</li>
+<li>Let $\sigma:\{1,2,3\} \rightarrow\{1,2,3\}$ be any bijection. Show that $M\left(\boldsymbol{v}_{1}, \boldsymbol{v}_{2}, \boldsymbol{v}_{3}\right)=M\left(\boldsymbol{v}_{\sigma(1)}, \boldsymbol{v}_{\sigma(2)}, \boldsymbol{v}_{\sigma(3)}\right)$. (Hint: brute force works. But alternatively, try find the $(i, j, k)$ entry of the multilinear map $M^{\sigma}$, a map that sends $\left(\boldsymbol{v}_{1}, \boldsymbol{v}_{2}, \boldsymbol{v}_{3}\right)$ to $M\left(\boldsymbol{v}_{\sigma(1)}, \boldsymbol{v}_{\sigma(2)}, \boldsymbol{v}_{\sigma(3)}\right)$.)</li>
+<li>Show that the rank $r$ of $M$ is at least 2 and at most 3. (It is actually exactly three.)</li>
+<li>(Read only) Any study of polynomial of degree $d$ on $n$ variables is equivalent to the study of some symmetric $d$ tensor on $\mathbb{R}^{n}$.</li>
 </ol>
-<hr />
-<p><span class="math inline">\((1)\)</span> <span
-class="math inline">\(M=[[\begin{bmatrix}3 &amp; 4 &amp; 5 \\ 4 &amp; 5
-&amp; 6\\5&amp; 6&amp;7\end{bmatrix},\begin{bmatrix}4 &amp; 5 &amp; 6 \\
-5 &amp; 6 &amp; 7\\6&amp; 7&amp;8\end{bmatrix},\begin{bmatrix}5 &amp; 6
-&amp; 7 \\ 6 &amp; 7 &amp; 8\\7&amp;
-8&amp;9\end{bmatrix}]]=[[A_1,A_2,A_3]]\)</span> And <span
-class="math inline">\(M(\boldsymbol v,\boldsymbol v,\boldsymbol
-v)\)</span> where <span
-class="math inline">\(\boldsymbol{v}=\begin{pmatrix}x\\y\\z\end{pmatrix}\)</span></p>
-<p><span class="math inline">\(=[\boldsymbol v^TA_1\boldsymbol v\quad
-\boldsymbol v^TA_2\boldsymbol v\quad \boldsymbol v^TA_3\boldsymbol
-v]\boldsymbol v=[\boldsymbol v^T\begin{bmatrix}3 &amp; 4 &amp; 5 \\ 4
-&amp; 5 &amp; 6\\5&amp; 6&amp;7\end{bmatrix}\boldsymbol v\quad
-\boldsymbol v^T\begin{bmatrix}4 &amp; 5 &amp; 6 \\ 5 &amp; 6 &amp;
-7\\6&amp; 7&amp;8\end{bmatrix}\boldsymbol v\quad \boldsymbol
-v^T\begin{bmatrix}5 &amp; 6 &amp; 7 \\ 6 &amp; 7 &amp; 8\\7&amp;
-8&amp;9\end{bmatrix}\boldsymbol v]\boldsymbol v\)</span></p>
-<p>Calculate it by <span
-class="math inline">\(\mbox{Mathematica}\)</span>, the result is <span
-class="math inline">\(p(x,y,z)=3 (x+y+z)^2 (x+2 y+3 z)\)</span></p>
-<p><img
-src="https://pic.imgdb.cn/item/6278d61109475431291e44d0.jpg" srcset="/img/loading.gif" lazyload /></p>
-<p><span class="math inline">\((2)\)</span> let a linear map from <span
-class="math inline">\(\mathbb{R}^{3} \times \mathbb{R}^{3} \times
-\mathbb{R}^{3}\)</span> to <span
-class="math inline">\(\mathbb{R}\)</span> sends <span
-class="math inline">\(\left(\boldsymbol{v}_{1}, \boldsymbol{v}_{2},
-\boldsymbol{v}_{3}\right)\)</span> to <span
-class="math inline">\(M\left(\boldsymbol{v}_{\sigma(1)},
-\boldsymbol{v}_{\sigma(2)},
-\boldsymbol{v}_{\sigma(3)}\right)\)</span></p>
-<p>Obviously, it's multi-linear since for <span
-class="math inline">\(\boldsymbol{v}_i\)</span> the evaluation result is
-linear no matter which position <span
-class="math inline">\(\boldsymbol{v}_i\)</span> is.</p>
-<p>And this map have a tensor such <span
-class="math inline">\(M&#39;=[[A_1&#39;,A_2&#39;,A_3&#39;]]\)</span>.
-Specialise <span class="math inline">\(\boldsymbol{v_i}\)</span> to get
-value of <span
-class="math inline">\(A_{1}&#39;,A_{2}&#39;,A_{3}&#39;\)</span></p>
-<p>Set <span
-class="math inline">\(\boldsymbol{b}_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\boldsymbol{b}_2=\begin{pmatrix}0\\1\\0\end{pmatrix},\boldsymbol{b}_3=\begin{pmatrix}0\\0\\1\end{pmatrix}\)</span>
-let <span
-class="math inline">\((\boldsymbol{v_1},\boldsymbol{v_2},\boldsymbol{v_3})=(\boldsymbol{b_i},\boldsymbol{b_j},\boldsymbol{b_k})\)</span>
-where <span class="math inline">\(1\leq i,j,k\leq 3\)</span></p>
-<p>and they can be the same. Put one of condition into the map so <span
-class="math display">\[
-A_{k(ij)}&#39;=A_{\sigma^{-1}(i)(\sigma^{-1}(j)\sigma^{-1}(k))}=\sigma^{-1}(i)+\sigma^{-1}(j)+\sigma^{-1}(k)=i+j+k
-\]</span> So for <span class="math inline">\(k=1,2,3\)</span> <span
-class="math inline">\(A_{k}&#39;=A_k\)</span>, which implies that <span
-class="math inline">\(M&#39;=M\)</span>, so the equation is proved.</p>
+<hr>
+<p>$(1)$ $M=[[\begin{bmatrix}3 &amp; 4 &amp; 5 \ 4 &amp; 5 &amp; 6\\5&amp; 6&amp;7\end{bmatrix},\begin{bmatrix}4 &amp; 5 &amp; 6 \ 5 &amp; 6 &amp; 7\\6&amp; 7&amp;8\end{bmatrix},\begin{bmatrix}5 &amp; 6 &amp; 7 \ 6 &amp; 7 &amp; 8\\7&amp; 8&amp;9\end{bmatrix}]]=[[A_1,A_2,A_3]]$ And $M(\boldsymbol v,\boldsymbol v,\boldsymbol v)$ where $\boldsymbol{v}=\begin{pmatrix}x\\y\\z\end{pmatrix}$</p>
+<p>$=[\boldsymbol v^TA_1\boldsymbol v\quad \boldsymbol v^TA_2\boldsymbol v\quad \boldsymbol v^TA_3\boldsymbol v]\boldsymbol v=[\boldsymbol v^T\begin{bmatrix}3 &amp; 4 &amp; 5 \ 4 &amp; 5 &amp; 6\\5&amp; 6&amp;7\end{bmatrix}\boldsymbol v\quad \boldsymbol v^T\begin{bmatrix}4 &amp; 5 &amp; 6 \ 5 &amp; 6 &amp; 7\\6&amp; 7&amp;8\end{bmatrix}\boldsymbol v\quad \boldsymbol v^T\begin{bmatrix}5 &amp; 6 &amp; 7 \ 6 &amp; 7 &amp; 8\\7&amp; 8&amp;9\end{bmatrix}\boldsymbol v]\boldsymbol v$</p>
+<p>Calculate it by $\mbox{Mathematica}$, the result is $p(x,y,z)=3 (x+y+z)^2 (x+2 y+3 z)$</p>
+<p><img src="https://pic.imgdb.cn/item/6278d61109475431291e44d0.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>$(2)$ let a linear map from $\mathbb{R}^{3} \times \mathbb{R}^{3} \times \mathbb{R}^{3}$ to $\mathbb{R}$ sends $\left(\boldsymbol{v}_{1}, \boldsymbol{v}_{2}, \boldsymbol{v}_{3}\right)$ to $M\left(\boldsymbol{v}_{\sigma(1)}, \boldsymbol{v}_{\sigma(2)}, \boldsymbol{v}_{\sigma(3)}\right)$</p>
+<p>Obviously, it’s multi-linear since for $\boldsymbol{v}_i$ the evaluation result is linear no matter which position $\boldsymbol{v}_i$ is.</p>
+<p>And this map have a tensor such $M’=[[A_1’,A_2’,A_3’]]$. Specialise $\boldsymbol{v_i}$ to get value of $A_{1}’,A_{2}’,A_{3}’$</p>
+<p>Set $\boldsymbol{b}_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\boldsymbol{b}_2=\begin{pmatrix}0\\1\\0\end{pmatrix},\boldsymbol{b}_3=\begin{pmatrix}0\\0\\1\end{pmatrix}$ let $(\boldsymbol{v_1},\boldsymbol{v_2},\boldsymbol{v_3})=(\boldsymbol{b_i},\boldsymbol{b_j},\boldsymbol{b_k})$ where $1\leq i,j,k\leq 3$</p>
+<p>and they can be the same. Put one of condition into the map so </p>
+<script type="math/tex; mode=display">
+A_{k(ij)}'=A_{\sigma^{-1}(i)(\sigma^{-1}(j)\sigma^{-1}(k))}=\sigma^{-1}(i)+\sigma^{-1}(j)+\sigma^{-1}(k)=i+j+k</script><p>So for $k=1,2,3$ $A_{k}’=A_k$, which implies that $M’=M$, so the equation is proved.</p>
 <blockquote>
-<p><strong>A brute try</strong> (failed):</p>
-<p>It is obvious that swaping <span
-class="math inline">\(\boldsymbol{v}_{i},\boldsymbol{v}_{j}\)</span> at
-most twice can make <span
-class="math inline">\(\boldsymbol{v}_1,\boldsymbol{v}_2,\boldsymbol{v}_3\)</span>
-$$ <span class="math inline">\(\boldsymbol{v}_{\sigma(1)},
-\boldsymbol{v}_{\sigma(2)}, \boldsymbol{v}_{\sigma(3)}\)</span></p>
-<p>If swap <span
-class="math inline">\(\boldsymbol{v}_{1},\boldsymbol{v}_{2}\)</span>,
-the value <span class="math inline">\(\boldsymbol v_1^TA_i\boldsymbol
-v_2=\boldsymbol v_2^TA_i\boldsymbol v_1,i=1,2,3\)</span>, since <span
-class="math inline">\(A_i=A_i^T\)</span> so the result stays the
-same.</p>
-<p>And if we swap <span
-class="math inline">\(\boldsymbol{v}_{2},\boldsymbol{v}_{3}\)</span>,
-<span class="math inline">\([\boldsymbol v_1^TA_1\boldsymbol v_2\quad
-\boldsymbol v_1^TA_2\boldsymbol v_2\quad \boldsymbol v_1^TA_3\boldsymbol
-v_2]\boldsymbol v_3=\boldsymbol v_1^TA_1\boldsymbol
-v_2v_{3x}+\boldsymbol v_1^TA_2\boldsymbol v_2v_{3y}+\boldsymbol
-v_1^TA_3\boldsymbol v_2v_{3z}\)</span></p>
+<p> <strong>A brute try</strong> (failed): </p>
+<p> It is obvious that swaping $\boldsymbol{v}_{i},\boldsymbol{v}_{j}$ at most twice can make $\boldsymbol{v}_1,\boldsymbol{v}_2,\boldsymbol{v}_3$ $\Longrightarrow $ $\boldsymbol{v}_{\sigma(1)}, \boldsymbol{v}_{\sigma(2)}, \boldsymbol{v}_{\sigma(3)}$</p>
+<p> If swap $\boldsymbol{v}_{1},\boldsymbol{v}_{2}$, the value $\boldsymbol v_1^TA_i\boldsymbol v_2=\boldsymbol v_2^TA_i\boldsymbol v_1,i=1,2,3$, since $A_i=A_i^T$ so the result stays the same. </p>
+<p> And if we swap $\boldsymbol{v}_{2},\boldsymbol{v}_{3}$, $[\boldsymbol v_1^TA_1\boldsymbol v_2\quad \boldsymbol v_1^TA_2\boldsymbol v_2\quad \boldsymbol v_1^TA_3\boldsymbol v_2]\boldsymbol v_3=\boldsymbol v_1^TA_1\boldsymbol v_2v_{3x}+\boldsymbol v_1^TA_2\boldsymbol v_2v_{3y}+\boldsymbol v_1^TA_3\boldsymbol v_2v_{3z}$</p>
 </blockquote>
-<p><span class="math inline">\((3)\)</span> According to <span
-class="math inline">\(1.8.1(4)\)</span>, since <span
-class="math inline">\(\mbox{rank}(A_i)=2\)</span>, so <span
-class="math inline">\(r\geq 2\)</span>. Then just construct a reasonable
-combination</p>
-<p>I guess <span
-class="math inline">\(\alpha=\begin{pmatrix}1\\1\\-1\end{pmatrix},\beta=\begin{pmatrix}1\\-1\\1\end{pmatrix},\gamma=\begin{pmatrix}-1\\1\\1\end{pmatrix}\)</span>
-so the rank-<span class="math inline">\(1\)</span> matrix like <span
-class="math display">\[
-\begin{bmatrix}a&amp;b&amp;c\\a&amp;b&amp;c\\-a&amp;-b&amp;-c\end{bmatrix},\begin{bmatrix}d&amp;e&amp;f\\-d&amp;-e&amp;-f\\d&amp;e&amp;f\end{bmatrix},\begin{bmatrix}-g&amp;-h&amp;-i\\g&amp;h&amp;i\\g&amp;h&amp;i\end{bmatrix},
-\]</span> And the linear combinations of these three matrixes are <span
-class="math inline">\(\begin{bmatrix}3 &amp; 4 &amp; 5 \\ 4 &amp; 5
-&amp; 6\\5&amp; 6&amp;7\end{bmatrix},\begin{bmatrix}4 &amp; 5 &amp; 6 \\
-5 &amp; 6 &amp; 7\\6&amp; 7&amp;8\end{bmatrix},\begin{bmatrix}5 &amp; 6
-&amp; 7 \\ 6 &amp; 7 &amp; 8\\7&amp; 8&amp;9\end{bmatrix}\)</span></p>
-<p>which transfers to three nine - dimensional equations, out of my hand
-ability, the coefficient matrix is <span class="math display">\[
+<p>$(3)$ According to $1.8.1(4)$, since $\mbox{rank}(A_i)=2$, so $r\geq 2$. Then just construct a reasonable combination</p>
+<p>I guess $\alpha=\begin{pmatrix}1\\1\-1\end{pmatrix},\beta=\begin{pmatrix}1\-1\\1\end{pmatrix},\gamma=\begin{pmatrix}-1\\1\\1\end{pmatrix}$ so the rank-$1$ matrix like</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}a&b&c\\a&b&c\\-a&-b&-c\end{bmatrix},\begin{bmatrix}d&e&f\\-d&-e&-f\\d&e&f\end{bmatrix},\begin{bmatrix}-g&-h&-i\\g&h&i\\g&h&i\end{bmatrix},</script><p>And the linear combinations of these three matrixes are $\begin{bmatrix}3 &amp; 4 &amp; 5 \ 4 &amp; 5 &amp; 6\\5&amp; 6&amp;7\end{bmatrix},\begin{bmatrix}4 &amp; 5 &amp; 6 \ 5 &amp; 6 &amp; 7\\6&amp; 7&amp;8\end{bmatrix},\begin{bmatrix}5 &amp; 6 &amp; 7 \ 6 &amp; 7 &amp; 8\\7&amp; 8&amp;9\end{bmatrix}$</p>
+<p>which transfers to three nine - dimensional equations, out of my hand ability, the coefficient matrix is</p>
+<script type="math/tex; mode=display">
 A=\left(
 \begin{array}{ccccccccc}
-1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; -1 &amp; 0 &amp; 0 \\
-  0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; -1 &amp; 0 \\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; -1 \\
-  0 &amp; 1 &amp; 0 &amp; 0 &amp; -1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; -1 &amp; 0 &amp; 0 &amp; 1 \\
-1 &amp; 0 &amp; 0 &amp; -1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
--1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
-0 &amp; -1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; -1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 \\
+ 1 & 0 & 0 & 1 & 0 & 0 & -1 & 0 & 0 \\
+  0 & 1 & 0 & 0 & 1 & 0 & 0 & -1 & 0 \\
+ 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & -1 \\
+  0 & 1 & 0 & 0 & -1 & 0 & 0 & 1 & 0 \\
+ 0 & 0 & 1 & 0 & 0 & -1 & 0 & 0 & 1 \\
+ 1 & 0 & 0 & -1 & 0 & 0 & 1 & 0 & 0 \\
+ -1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 \\
+ 0 & -1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 \\
+ 0 & 0 & -1 & 0 & 0 & 1 & 0 & 0 & 1 \\
 \end{array}
-\right),A\vec{x}=\vec{b}_{i}=\begin{pmatrix}3\\4\\5\\4\\5\\6\\5\\6\\7\end{pmatrix},\begin{pmatrix}4\\5\\6\\5\\6\\7\\6\\7\\8\end{pmatrix},\begin{pmatrix}5\\6\\7\\6\\7\\8\\7\\8\\9\end{pmatrix}
-\]</span> And the accurate solution is <span class="math display">\[
+\right),A\vec{x}=\vec{b}_{i}=\begin{pmatrix}3\\4\\5\\4\\5\\6\\5\\6\\7\end{pmatrix},\begin{pmatrix}4\\5\\6\\5\\6\\7\\6\\7\\8\end{pmatrix},\begin{pmatrix}5\\6\\7\\6\\7\\8\\7\\8\\9\end{pmatrix}</script><p>And the accurate solution is</p>
+<script type="math/tex; mode=display">
 \begin{gathered}
-\begin{bmatrix}3 &amp; 4 &amp; 5 \\ 4 &amp; 5 &amp; 6\\5&amp;
-6&amp;7\end{bmatrix}=\begin{bmatrix}3.5&amp;4.5&amp;5.5\\3.5&amp;4.5&amp;5.5\\-3.5&amp;-4.5&amp;-5.5\end{bmatrix}+
-\begin{bmatrix}4&amp;5&amp;6\\-4&amp;-5&amp;-6\\4&amp;5&amp;6\end{bmatrix}+\begin{bmatrix}-4.5&amp;-5.5&amp;-6.5\\4.5&amp;5.5&amp;6.5\\4.5&amp;5.5&amp;6.5\end{bmatrix}\\
-\begin{bmatrix}4 &amp; 5 &amp; 6 \\ 5 &amp; 6 &amp; 7\\6&amp;
-7&amp;8\end{bmatrix}=\begin{bmatrix}4.5&amp;5.5&amp;6.5\\4.5&amp;5.5&amp;6.5\\-4.5&amp;-5.5&amp;-6.5\end{bmatrix}+
-\begin{bmatrix}5&amp;6&amp;7\\-5&amp;-6&amp;-7\\5&amp;6&amp;7\end{bmatrix}+\begin{bmatrix}-5.5&amp;-6.5&amp;-7.5\\5.5&amp;6.5&amp;7.5\\5.5&amp;6.5&amp;7.5\end{bmatrix}\\
-\begin{bmatrix}5 &amp; 6 &amp; 7 \\ 6 &amp; 7 &amp; 8\\7&amp;
-8&amp;9\end{bmatrix}=\begin{bmatrix}5.5&amp;6.5&amp;7.5\\5.5&amp;6.5&amp;7.5\\-5.5&amp;-6.5&amp;-7.5\end{bmatrix}+
-\begin{bmatrix}6&amp;7&amp;8\\-6&amp;-7&amp;-8\\6&amp;7&amp;8\end{bmatrix}+\begin{bmatrix}-6.5&amp;-7.5&amp;-8.5\\6.5&amp;7.5&amp;8.5\\6.5&amp;7.5&amp;8.5\end{bmatrix}\\
-\end{gathered}
-\]</span> So it can be decomposed into three rank-<span
-class="math inline">\(1\)</span> tensors. So <span
-class="math inline">\(r\leq 3\)</span></p>
+\begin{bmatrix}3 & 4 & 5 \\ 4 & 5 & 6\\5& 6&7\end{bmatrix}=\begin{bmatrix}3.5&4.5&5.5\\3.5&4.5&5.5\\-3.5&-4.5&-5.5\end{bmatrix}+
+\begin{bmatrix}4&5&6\\-4&-5&-6\\4&5&6\end{bmatrix}+\begin{bmatrix}-4.5&-5.5&-6.5\\4.5&5.5&6.5\\4.5&5.5&6.5\end{bmatrix}\\
+\begin{bmatrix}4 & 5 & 6 \\ 5 & 6 & 7\\6& 7&8\end{bmatrix}=\begin{bmatrix}4.5&5.5&6.5\\4.5&5.5&6.5\\-4.5&-5.5&-6.5\end{bmatrix}+
+\begin{bmatrix}5&6&7\\-5&-6&-7\\5&6&7\end{bmatrix}+\begin{bmatrix}-5.5&-6.5&-7.5\\5.5&6.5&7.5\\5.5&6.5&7.5\end{bmatrix}\\
+\begin{bmatrix}5 & 6 & 7 \\ 6 & 7 & 8\\7& 8&9\end{bmatrix}=\begin{bmatrix}5.5&6.5&7.5\\5.5&6.5&7.5\\-5.5&-6.5&-7.5\end{bmatrix}+
+\begin{bmatrix}6&7&8\\-6&-7&-8\\6&7&8\end{bmatrix}+\begin{bmatrix}-6.5&-7.5&-8.5\\6.5&7.5&8.5\\6.5&7.5&8.5\end{bmatrix}\\
+\end{gathered}</script><p>So it can be decomposed into three rank-$1$ tensors. So $r\leq 3$</p>
 
               
             </div>

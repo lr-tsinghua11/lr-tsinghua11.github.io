@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          2.4k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          22 分钟
+          21 分钟
         
       </span>
     
@@ -293,121 +293,71 @@
             
             <div class="markdown-body">
               
-              <h1 id="lis-machine-learning">Li's Machine-Learning</h1>
-<h2 id="model-bias-optimazition-issue">Model bias &amp; Optimazition
-issue</h2>
-<p>训练过程中，先对 <code>training data</code> 的 <code>loss</code>
-进行判定，如果<strong>大</strong>，则考虑两种情况</p>
+              <h1 id="Li’s-Machine-Learning"><a href="#Li’s-Machine-Learning" class="headerlink" title="Li’s Machine-Learning"></a>Li’s Machine-Learning</h1><h2 id="Model-bias-amp-Optimazition-issue"><a href="#Model-bias-amp-Optimazition-issue" class="headerlink" title="Model bias &amp; Optimazition issue"></a>Model bias &amp; Optimazition issue</h2><p>训练过程中，先对 <code>training data</code> 的 <code>loss</code> 进行判定，如果<strong>大</strong>，则考虑两种情况</p>
 <ul>
 <li>模型不够弹性（Model bias）</li>
 <li>优化器做得不够好（Optimization）</li>
 </ul>
 <p>搜索范围不够广还是优化器不能达到全局最优（SVM）？</p>
-<p>如果发生下述情况，则说明优化器做得不够好 <span
-class="math display">\[
+<p>如果发生下述情况，则说明优化器做得不够好</p>
+<script type="math/tex; mode=display">
 \begin{array}{|c|c|c|c|c|c|}
-\hline &amp; \text { 1 layer } &amp; \text { 2 layer } &amp; \text { 3
-layer } &amp; \text { 4 layer } &amp; \text { 5 layer } \\
-\hline 2017-2020 &amp; 0.28 \mathrm{k} &amp; 0.18 \mathrm{k} &amp; 0.14
-\mathrm{k} &amp; 0.10 \mathrm{k} &amp; 0.34 \mathrm{k} \\
+\hline & \text { 1 layer } & \text { 2 layer } & \text { 3 layer } & \text { 4 layer } & \text { 5 layer } \\
+\hline 2017-2020 & 0.28 \mathrm{k} & 0.18 \mathrm{k} & 0.14 \mathrm{k} & 0.10 \mathrm{k} & 0.34 \mathrm{k} \\
 \hline
-\end{array}
-\]</span></p>
-<p>优化过程中 <code>Loss</code> 趋于不变，<span
-class="math inline">\(\nabla f\to 0\)</span>，可能在
-<code>Local minima</code> 或者
-<code>saddle point</code>，区别方法：Hesse matrix
-分别正定、既不正定也不负定 <span class="math display">\[
-L(\theta) \approx
-L\left(\theta^{\prime}\right)+\frac{1}{2}\left(\theta-\theta^{\prime}\right)^T
-H\left(\theta-\theta^{\prime}\right)
-\]</span></p>
-<blockquote>
-<p>在<strong>鞍点</strong>处往 <span class="math inline">\(\lambda
-&lt;0\)</span> 对应的特征向量方向 <span
-class="math inline">\(\vec{u}\)</span> 优化，<span
-class="math inline">\(H\vec{u}=\lambda \vec{u}\Longrightarrow
-L(\theta^{\prime})&lt;L(\theta)\)</span>，但实际中涉及二阶导和求解矩阵特征值运算，几乎不用。</p>
+\end{array}</script><p>优化过程中 <code>Loss</code> 趋于不变，$\nabla f\to 0$，可能在 <code>Local minima</code> 或者 <code>saddle point</code>，区别方法：Hesse matrix 分别正定、既不正定也不负定</p>
+<script type="math/tex; mode=display">
+L(\theta) \approx L\left(\theta^{\prime}\right)+\frac{1}{2}\left(\theta-\theta^{\prime}\right)^T H\left(\theta-\theta^{\prime}\right)</script><blockquote>
+<p> 在<strong>鞍点</strong>处往 $\lambda &lt;0$ 对应的特征向量方向 $\vec{u}$ 优化，$H\vec{u}=\lambda \vec{u}\Longrightarrow L(\theta^{\prime})&lt;L(\theta)$，但实际中涉及二阶导和求解矩阵特征值运算，几乎不用。</p>
 </blockquote>
-<p>维度高代表参数空间有更多的路可以走，实验给出，Hesse matrix
-中特征值大于 <span class="math inline">\(0\)</span> 的比例大多数集中在
-<span class="math inline">\(0.5\)</span> 附近，即多数情况下是卡在
-<code>saddle point</code>。</p>
+<p>维度高代表参数空间有更多的路可以走，实验给出，Hesse matrix 中特征值大于 $0$ 的比例大多数集中在 $0.5$ 附近，即多数情况下是卡在 <code>saddle point</code>。</p>
 <p><img src="/img/李宏毅机器学习笔记/image-20230207205526588.png" srcset="/img/loading.gif" lazyload alt="image-20230207205526588" style="zoom:33%;" /></p>
-<h2 id="critical-point">Critical point</h2>
-<h3 id="batch">Batch</h3>
-<p>不用所有的训练资料计算梯度，随机混合分组，每组 Batch
-更新同一组参数，能够节约时间，虽然噪声影响大，但轮数多。（Batch
-大不一定计算梯度时间长，现代硬件有平行运算能力）</p>
-<p>大的 Batch-size 往往得到比较差的模型，在 Training data 和 Test data
-上正确率都比较低，这是 Optimize 问题，因为不同的 Batch
-形成的噪声能更好地跨过 <code>saddle point</code>。小的 Batch-size 在
-Test data 上也表现好（一种解释是 Small batch 更容易进入“平原”）</p>
+<h2 id="Critical-point"><a href="#Critical-point" class="headerlink" title="Critical point"></a>Critical point</h2><h3 id="Batch"><a href="#Batch" class="headerlink" title="Batch"></a>Batch</h3><p>不用所有的训练资料计算梯度，随机混合分组，每组 Batch 更新同一组参数，能够节约时间，虽然噪声影响大，但轮数多。（Batch 大不一定计算梯度时间长，现代硬件有平行运算能力）</p>
+<p>大的 Batch-size 往往得到比较差的模型，在 Training data 和 Test data 上正确率都比较低，这是 Optimize 问题，因为不同的 Batch 形成的噪声能更好地跨过 <code>saddle point</code>。小的 Batch-size 在 Test data 上也表现好（一种解释是 Small batch 更容易进入“平原”）</p>
 <p><img src="/img/李宏毅机器学习笔记/image-20230207204504569.png" srcset="/img/loading.gif" lazyload alt="image-20230207204504569" style="zoom:20%;" /></p>
-<h3 id="momentum">Momentum</h3>
-<p>在原始梯度下降（Vanilla）中加入惯性，引入 <span
-class="math inline">\(m^{i}\)</span> 为每次改变中的质量，<span
-class="math inline">\(g^i\)</span> 为每次计算的梯度 <span
-class="math display">\[
+<h3 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h3><p>在原始梯度下降（Vanilla）中加入惯性，引入 $m^{i}$ 为每次改变中的质量，$g^i$ 为每次计算的梯度 </p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-m^2&amp;=\lambda m^1-\eta g^1\\
-\theta^2&amp;=\theta^1+m^2
-\end{aligned}
-\]</span> 容易跨过鞍点</p>
-<h2 id="learning_rate">Learning_rate</h2>
-<blockquote>
+m^2&=\lambda m^1-\eta g^1\\
+\theta^2&=\theta^1+m^2
+\end{aligned}</script><p>容易跨过鞍点</p>
+<h2 id="Learning-rate"><a href="#Learning-rate" class="headerlink" title="Learning_rate"></a>Learning_rate</h2><blockquote>
 <p>Adam means <strong>Adaptive momentum</strong>.</p>
 </blockquote>
-<h3 id="root-mean-squareadagrad">Root Mean Square(Adagrad)</h3>
-<p>在一个等高线椭圆狭长的优化问题上优化</p>
+<h3 id="Root-Mean-Square-Adagrad"><a href="#Root-Mean-Square-Adagrad" class="headerlink" title="Root Mean Square(Adagrad)"></a>Root Mean Square(Adagrad)</h3><p>在一个等高线椭圆狭长的优化问题上优化</p>
 <p><img src="/img/李宏毅机器学习笔记/image-20230207205820987.png" srcset="/img/loading.gif" lazyload alt="image-20230207205820987" style="zoom:33%;" /></p>
-<p>更新参数 <span class="math display">\[
-\theta_i^{t+1} \leftarrow \theta_i^{t}-\frac{\eta}{\sigma_i^t}g_i^{t}
-\]</span> 对每个参数 <span
-class="math inline">\(i\)</span>，使用前面梯度的方均根给参数 <span
-class="math inline">\(\sigma_i^t\)</span>，如下 <span
-class="math display">\[
-\theta_i^{t+1} \leftarrow \theta_i^{t}-\frac{\eta}{\sigma_i^t} g_i^{t}
-\quad \sigma_i^t=\sqrt{\frac{1}{t+1}
-\sum_{i=0}^t\left(g_{\dot{i}}^{t}\right)^2}
-\]</span> 即如果当前更新速度一直很慢的话可调大学习率，否则降低学习率</p>
-<h3 id="rmsprop">RMSProp</h3>
-<blockquote>
+<p>更新参数</p>
+<script type="math/tex; mode=display">
+\theta_i^{t+1} \leftarrow \theta_i^{t}-\frac{\eta}{\sigma_i^t}g_i^{t}</script><p>对每个参数 $i$，使用前面梯度的方均根给参数 $\sigma_i^t$，如下</p>
+<script type="math/tex; mode=display">
+\theta_i^{t+1} \leftarrow \theta_i^{t}-\frac{\eta}{\sigma_i^t} g_i^{t} \quad \sigma_i^t=\sqrt{\frac{1}{t+1} \sum_{i=0}^t\left(g_{\dot{i}}^{t}\right)^2}</script><p>即如果当前更新速度一直很慢的话可调大学习率，否则降低学习率</p>
+<h3 id="RMSProp"><a href="#RMSProp" class="headerlink" title="RMSProp"></a>RMSProp</h3><blockquote>
 <p>Google 使用的优化器</p>
 </blockquote>
-<p>上述要求梯度基本一样，加入超参数 <span
-class="math inline">\(\alpha\)</span> 表征前者调整的比例 <span
-class="math display">\[
-\theta_i^{t+1} \leftarrow \theta_i^{t}-\frac{\eta}{\sigma_i^t} g_i^{t}
-\quad
-\sigma_i^t=\sqrt{\alpha\left(\sigma_i^{t-1}\right)^2+(1-\alpha)\left(g_i^{t}\right)^2}
-\]</span> <strong>Adam</strong>：RMSProp + Momentum</p>
-<h3 id="learning-rate-scheduling">Learning Rate Scheduling</h3>
-<p><img src="/img/李宏毅机器学习笔记/image-20230207211811638.png" srcset="/img/loading.gif" lazyload alt="image-20230207211811638" style="zoom:33%;" /></p>
+<p>上述要求梯度基本一样，加入超参数 $\alpha$ 表征前者调整的比例</p>
+<script type="math/tex; mode=display">
+\theta_i^{t+1} \leftarrow \theta_i^{t}-\frac{\eta}{\sigma_i^t} g_i^{t} \quad \sigma_i^t=\sqrt{\alpha\left(\sigma_i^{t-1}\right)^2+(1-\alpha)\left(g_i^{t}\right)^2}</script><p><strong>Adam</strong>：RMSProp + Momentum</p>
+<h3 id="Learning-Rate-Scheduling"><a href="#Learning-Rate-Scheduling" class="headerlink" title="Learning Rate Scheduling"></a>Learning Rate Scheduling</h3><p><img src="/img/李宏毅机器学习笔记/image-20230207211811638.png" srcset="/img/loading.gif" lazyload alt="image-20230207211811638" style="zoom:33%;" /></p>
 <p>随着训练进行，将学习率本身不断减小</p>
-<p>Warm-up 黑科技，在训练初期逐渐增加
-<code>Learning_rate</code>，代表初期探索</p>
-<h2 id="overfitting">Overfitting</h2>
-<p>上述过程均检测正常，即 <code>training data</code> 中
-<code>loss</code> 较小，但 <code>testing data</code> 中
-<code>loss</code> 较大，一个极端的例子是</p>
-<p>Training data: <span class="math inline">\(\left\{\left(x^1,
-\hat{y}^1\right),\left(x^2, \hat{y}^2\right), \ldots,\left(x^N,
-\hat{y}^N\right)\right\}\)</span> <span class="math display">\[
+<p>Warm-up 黑科技，在训练初期逐渐增加 <code>Learning_rate</code>，代表初期探索</p>
+<h2 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h2><p>上述过程均检测正常，即 <code>training data</code> 中 <code>loss</code> 较小，但 <code>testing data</code> 中 <code>loss</code> 较大，一个极端的例子是</p>
+<p>Training data: $\left\{\left(x^1, \hat{y}^1\right),\left(x^2, \hat{y}^2\right), \ldots,\left(x^N, \hat{y}^N\right)\right\}$</p>
+<script type="math/tex; mode=display">
 f(x)=\left\{\begin{array}{cl}
-\hat{y}^i &amp; \exists x^i=x \\
-\text { random } &amp; \text { otherwise }
-\end{array} \quad\right.
-\]</span> model 越大，overfitting 的概率越大（另一种为
-mismatch，就算有更多的资料，训练集和测试集的分布不一样）</p>
+\hat{y}^i & \exists x^i=x \\
+\text { random } & \text { otherwise }
+\end{array} \quad\right.</script><p>model 越大，overfitting 的概率越大（另一种为 mismatch，就算有更多的资料，训练集和测试集的分布不一样）</p>
 <p><strong>解决办法：</strong></p>
 <ul>
-<li><p>Data augmentation，将图片水平翻转或者放大让训练集变大</p></li>
-<li><p>Constrain，让模型限制在某些函数上</p></li>
-<li><p>共用参数，限制参数 <span class="math display">\[
-\text{CNN}\in \text{Fully-Connected model}
-\]</span></p></li>
-<li><p>N-fold Cross Validation，提高 private-data 准确率</p></li>
+<li><p>Data augmentation，将图片水平翻转或者放大让训练集变大</p>
+</li>
+<li><p>Constrain，让模型限制在某些函数上</p>
+</li>
+<li><p>共用参数，限制参数</p>
+<script type="math/tex; mode=display">
+\text{CNN}\in \text{Fully-Connected model}</script></li>
+<li><p>N-fold Cross Validation，提高 private-data 准确率 </p>
+</li>
 </ul>
 <p>L2 正则化和 weight decay 是一样的，L2 正则就是权重衰减。</p>
 

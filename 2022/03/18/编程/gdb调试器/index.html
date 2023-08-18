@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          571 字
+          565 字
         
       </span>
     
@@ -293,21 +293,13 @@
             
             <div class="markdown-body">
               
-              <p>先使用编译器生成可执行文件，注意使用 <span
-class="math inline">\(-g\)</span>
-包含调试信息（保留变量名以及函数名方便调试）</p>
+              <p>先使用编译器生成可执行文件，注意使用 $-g$ 包含调试信息（保留变量名以及函数名方便调试）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc -g main.c -o main<br>g++ -g main.cpp -o main<br></code></pre></td></tr></table></figure>
-<p>然后使用 <span class="math inline">\(gdb\)</span>
-工具进入到调试界面中</p>
+<p>然后使用 $gdb$ 工具进入到调试界面中</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">gdb main<br>……………………<br>(gbd) 待输入的命令<br></code></pre></td></tr></table></figure>
-<p>监测单变量的变化（比如说 <span class="math inline">\(tot[1]\)</span>
-）</p>
+<p>监测单变量的变化（比如说 $tot[1]$ ）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">(gdb) watch tot[1]		//输入监测点名称，watch 代表当 tot[1] 变化时报告<br>(gbd) awatch tot[1]		//输入监测点名称，awatch 代表读取和写入 tot[1] 时都会报告<br>Hardware watchpoint 1: tot[1]	//输出监测标记信息（可以添加多个监测点）<br>(gdb) run			//或者简写 r，运行程序<br></code></pre></td></tr></table></figure>
-<p>每次监测变量改变的时候就会停下来报告改变量，停下来后可以打印当前程序的中间值
-<code>print tot[0]</code>（或者 <code>p tot[0]</code>）、单步运行程序
-<code>tot[1] += 1</code>、继续运行程序 <code>continue</code>（或者
-<code>c</code> ）修改对应变量的值
-<code>set variable tot[1] = 1</code></p>
+<p>每次监测变量改变的时候就会停下来报告改变量，停下来后可以打印当前程序的中间值 <code>print tot[0]</code>（或者 <code>p tot[0]</code>）、单步运行程序 <code>tot[1] += 1</code>、继续运行程序 <code>continue</code>（或者 <code>c</code> ）修改对应变量的值 <code>set variable tot[1] = 1</code></p>
 <p>将所有断点以及监视变量删除</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">(gdb) delete<br>Delete all breakpoints? (y or n) y<br></code></pre></td></tr></table></figure>
 <p>查看代码操作</p>

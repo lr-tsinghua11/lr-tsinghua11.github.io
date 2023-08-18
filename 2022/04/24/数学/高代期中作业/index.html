@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          33k 字
+          31k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          279 分钟
+          262 分钟
         
       </span>
     
@@ -293,917 +293,199 @@
             
             <div class="markdown-body">
               
-              <h1
-id="largetextcolorbluemboxadvanced-algebra-small-mathbfmidterm-_textcolorblue2022.4.21"><span
-class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra }
-\small \mathbf{Midterm}}\ \ \ \ \ \
-_\textcolor{blue}{2022.4.21}\)</span></h1>
-<h2 id="problem-1-small-mboxquaternions">Problem 1<span
-class="math inline">\(\ \small \mbox{Quaternions}\)</span></h2>
-<p>The quaternions are widely applied in computation graphics and
-computer games, and can also be used to simplify calculations that
-involves angular stuff or rotations. They are defiend as <span
-class="math inline">\(a+b i+c j+d k\)</span>, where <span
-class="math inline">\(a, b, c, d \in \mathbb{R}\)</span> and <span
-class="math inline">\(i^{2}=j^{2}=k^{2}=i j k=-1\)</span>. (In
-particular, the multiplication is defined <span class="math display">\[
-a s(a+b i+c j+d k)\left(a^{\prime}+b^{\prime} i+c^{\prime} j+d^{\prime}
-k\right)=\left(a a^{\prime}-b b^{\prime}-c c^{\prime}-d
-d^{\prime}\right)+\\\left(a b^{\prime}+b a^{\prime}+c d^{\prime}-d
-c^{\prime}\right) i+\left(a c^{\prime}+c a^{\prime}+d^{\prime}
-b-\right.\left.b d^{\prime}\right) j+\left(a d^{\prime}+d a^{\prime}+b
-c^{\prime}-c b^{\prime}\right) k
-\]</span> You don't really need to know this formula for this problem
-though.)</p>
-<p><span class="math inline">\((1)\)</span> Recall that we can formulate
-complex numbers as matrices. Similarly, let us try this for quaternions.
-Consider matrices of the form <span class="math display">\[
-a\left[\begin{array}{cccc}1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0
-&amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp;
-1\end{array}\right]+b\left[\begin{array}{cccc}0 &amp; -1 &amp; 0 &amp; 0
-\\ 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; -1 \\ 0 &amp; 0
-&amp; 1 &amp; 0\end{array}\right]+c\left[\begin{array}{cccc}0 &amp; 0
-&amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp;
-0 \\ 0 &amp; -1 &amp; 0 &amp;
-0\end{array}\right]+d\left[\begin{array}{cccc}0 &amp; 0 &amp; 0 &amp; -1
-\\ 0 &amp; 0 &amp; -1 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 1 &amp; 0
-&amp; 0 &amp; 0\end{array}\right]
-\]</span> where <span class="math inline">\(a, b, c, d \in
-\mathbb{R}\)</span>. Show that this gives a model of the quaternions as
-well, i.e., they satisfy <span class="math inline">\(i^{2}=j^{2}=k^{2}=i
-j k=-1\)</span>.</p>
-<p><span class="math inline">\((2)\)</span> You may interpret <span
-class="math inline">\(\left[\begin{array}{l}a \\ b \\ c \\
-d\end{array}\right] \in \mathbb{R}^{4}\)</span> as the quaternion <span
-class="math inline">\(a+b i+c j+d k\)</span>. Then for any quaternion
-<span class="math inline">\(q\)</span>, multiplying <span
-class="math inline">\(q\)</span> to <span class="math inline">\(a+b i+c
-j+d k\)</span> from the left gives a linear map <span
-class="math inline">\(\mathbb{R}^{4} \rightarrow \mathbb{R}^{4}:(a+b i+c
-j+d k) \mapsto q(a+b i+c j+d k)\)</span>. If <span
-class="math inline">\(q=r+x i+y j+z k\)</span>, what is the matrix <span
-class="math inline">\(L_{q}\)</span> for this linear map? What is the
-matrix <span class="math inline">\(R_{q}\)</span> for the linear map if
-we multiply <span class="math inline">\(q\)</span> from the right? Do we
-have <span class="math inline">\(L_{q} R_{q}=R_{q} L_{q}\)</span> ?</p>
-<p><span class="math inline">\((3)\)</span> The conjugate of a
-quaternion <span class="math inline">\(q=a+b i+c j+d k\)</span> is <span
-class="math inline">\(\bar{q}=a-b i-c j-d k\)</span>. Show that for a
-unit quaternion <span class="math inline">\(q\)</span> (i.e., <span
-class="math inline">\(q \bar{q}=1\)</span> ), the matrix <span
-class="math inline">\(L_{q} R_{\bar{q}}\)</span> has block form <span
-class="math inline">\(\left[\begin{array}{cc}1 &amp; 0 \\ 0 &amp;
-Q\end{array}\right]\)</span> where <span
-class="math inline">\(Q\)</span> is an orthogonal matrix. (Hint: The
-block form is easy. To see that <span class="math inline">\(Q\)</span>
-is orthogonal, an easy way is to show that <span
-class="math inline">\(\left(L_{q} R_{\bar{q}}\right)^{T}\left(L_{q}
-R_{\bar{q}}\right)=I\)</span> by understanding the meaning of the
-matrices involved.) (In particular, if you interpret a <span
-class="math inline">\(3 D\)</span> vector <span
-class="math inline">\((x, y, z)\)</span> as the quaternion <span
-class="math inline">\(v=0+x i+y j+z k \mathrm{~ , ~ t h e n ~ t h e ~ q
-u a t e r n i o n ~ m u l t i p l i c a t i o n ~ q v}\)</span> to some
-rotation of <span class="math inline">\(v\)</span>. This quaternion
-interpretation is currently one of the best way to compute 3D rotations
-in real life. Many of your games with <span class="math inline">\(3
-D\)</span> graphics depend on this.)</p>
-<hr />
-<p><span class="math inline">\((1)\)</span> Just calculate it.</p>
-<p><span class="math inline">\((2)\)</span> <span
-class="math inline">\(L_{q}=\begin{pmatrix}r&amp;-x&amp;-y&amp;-z\\x&amp;r&amp;-z&amp;y\\y&amp;z&amp;r&amp;-x\\z&amp;-y&amp;x&amp;r\end{pmatrix},R_{q}=\begin{pmatrix}r&amp;-x&amp;-y&amp;-z\\x&amp;r&amp;z&amp;-y\\y&amp;-z&amp;r&amp;x\\z&amp;y&amp;-x&amp;r\end{pmatrix}\)</span></p>
-<p><span
-class="math inline">\(R_qL_q=\begin{pmatrix}-x^2-y^2-z^2+r^2&amp;-2rx&amp;-2ry&amp;-2rz\\2rx&amp;-x^2+r^2+y^2+z^2&amp;-2xy&amp;-2xz\\2yr&amp;-2yx&amp;-y^2+z^2+r^2+x^2&amp;-2zy\\2zr&amp;2zx&amp;-2zy&amp;-z^2+r^2+x^2+y^2\end{pmatrix}\)</span></p>
-<p><span
-class="math inline">\(L_qR_q=\begin{pmatrix}-x^2-y^2-z^2+r^2&amp;-2rx&amp;-2ry&amp;-2rz\\2rx&amp;-x^2+r^2+y^2+z^2&amp;-2xy&amp;-2xz\\2yr&amp;-2yx&amp;-y^2+z^2+r^2+x^2&amp;-2zy\\2zr&amp;2zx&amp;-2zy&amp;-z^2+r^2+x^2+y^2\end{pmatrix}\)</span></p>
-<p>So <span class="math inline">\(L_qR_q=R_qL_q\)</span>, and it's
-obvious when looking at its linear map, which is both right for <span
-class="math inline">\(L_qR_q\)</span> and <span
-class="math inline">\(R_qL_q\)</span> : <span
-class="math inline">\(\mathbb{R}^{4} \rightarrow \mathbb{R}^{4}:(a+b i+c
-j+d k) \mapsto q(a+b i+c j+d k)q\)</span></p>
-<p><span class="math inline">\((3)\)</span> Calculate that <span
-class="math inline">\(q\bar{q}=1\Longleftrightarrow
-a^2+b^2+c^2+d^2=1\)</span> <span class="math display">\[
+              <h1 id="large-textcolor-blue-mbox-Advanced-Algebra-small-mathbf-Midterm-textcolor-blue-2022-4-21"><a href="#large-textcolor-blue-mbox-Advanced-Algebra-small-mathbf-Midterm-textcolor-blue-2022-4-21" class="headerlink" title="$\large\textcolor{blue}{\mbox{Advanced Algebra  } \small \mathbf{Midterm}}      _\textcolor{blue}{2022.4.21}$"></a>$\large\textcolor{blue}{\mbox{Advanced Algebra  } \small \mathbf{Midterm}}      _\textcolor{blue}{2022.4.21}$</h1><h2 id="Problem-1-small-mbox-Quaternions"><a href="#Problem-1-small-mbox-Quaternions" class="headerlink" title="Problem 1$ \small  \mbox{Quaternions}$"></a>Problem 1$ \small  \mbox{Quaternions}$</h2><p>The quaternions are widely applied in computation graphics and computer games, and can also be used to simplify calculations that involves angular stuff or rotations. They are defiend as $a+b i+c j+d k$, where $a, b, c, d \in \mathbb{R}$ and $i^{2}=j^{2}=k^{2}=i j k=-1$. (In particular, the multiplication is defined </p>
+<script type="math/tex; mode=display">
+a s(a+b i+c j+d k)\left(a^{\prime}+b^{\prime} i+c^{\prime} j+d^{\prime} k\right)=\left(a a^{\prime}-b b^{\prime}-c c^{\prime}-d d^{\prime}\right)+\\\left(a b^{\prime}+b a^{\prime}+c d^{\prime}-d c^{\prime}\right) i+\left(a c^{\prime}+c a^{\prime}+d^{\prime} b-\right.\left.b d^{\prime}\right) j+\left(a d^{\prime}+d a^{\prime}+b c^{\prime}-c b^{\prime}\right) k</script><p> You don’t really need to know this formula for this problem though.)</p>
+<p>$(1)$ Recall that we can formulate complex numbers as matrices. Similarly, let us try this for quaternions. Consider matrices of the form </p>
+<script type="math/tex; mode=display">
+a\left[\begin{array}{cccc}1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\end{array}\right]+b\left[\begin{array}{cccc}0 & -1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & -1 \\ 0 & 0 & 1 & 0\end{array}\right]+c\left[\begin{array}{cccc}0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0\end{array}\right]+d\left[\begin{array}{cccc}0 & 0 & 0 & -1 \\ 0 & 0 & -1 & 0 \\ 0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0\end{array}\right]</script><p> where $a, b, c, d \in \mathbb{R}$. Show that this gives a model of the quaternions as well, i.e., they satisfy $i^{2}=j^{2}=k^{2}=i j k=-1$.</p>
+<p>$(2)$ You may interpret $\left[\begin{array}{l}a \ b \ c \ d\end{array}\right] \in \mathbb{R}^{4}$ as the quaternion $a+b i+c j+d k$. Then for any quaternion $q$, multiplying $q$ to $a+b i+c j+d k$ from the left gives a linear map $\mathbb{R}^{4} \rightarrow \mathbb{R}^{4}:(a+b i+c j+d k) \mapsto q(a+b i+c j+d k)$. If $q=r+x i+y j+z k$, what is the matrix $L_{q}$ for this linear map? What is the matrix $R_{q}$ for the linear map if we multiply $q$ from the right? Do we have $L_{q} R_{q}=R_{q} L_{q}$ ?</p>
+<p>$(3)$ The conjugate of a quaternion $q=a+b i+c j+d k$ is $\bar{q}=a-b i-c j-d k$. Show that for a unit quaternion $q$ (i.e., $q \bar{q}=1$ ), the matrix $L_{q} R_{\bar{q}}$ has block form $\left[\begin{array}{cc}1 &amp; 0 \ 0 &amp; Q\end{array}\right]$ where $Q$ is an orthogonal matrix. (Hint: The block form is easy. To see that $Q$ is orthogonal, an easy way is to show that $\left(L_{q} R_{\bar{q}}\right)^{T}\left(L_{q} R_{\bar{q}}\right)=I$ by understanding the meaning of the matrices involved.) (In particular, if you interpret a $3 D$ vector $(x, y, z)$ as the quaternion $v=0+x i+y j+z k \mathrm{~ , ~ t h e n ~ t h e ~ q u a t e r n i o n ~ m u l t i p l i c a t i o n ~ q v}$ to some rotation of $v$. This quaternion interpretation is currently one of the best way to compute 3D rotations in real life. Many of your games with $3 D$ graphics depend on this.)</p>
+<hr>
+<p>$(1)$ Just calculate it. </p>
+<p>$(2)$ $L_{q}=\begin{pmatrix}r&amp;-x&amp;-y&amp;-z\\x&amp;r&amp;-z&amp;y\\y&amp;z&amp;r&amp;-x\\z&amp;-y&amp;x&amp;r\end{pmatrix},R_{q}=\begin{pmatrix}r&amp;-x&amp;-y&amp;-z\\x&amp;r&amp;z&amp;-y\\y&amp;-z&amp;r&amp;x\\z&amp;y&amp;-x&amp;r\end{pmatrix}$  </p>
+<p>$R_qL_q=\begin{pmatrix}-x^2-y^2-z^2+r^2&amp;-2rx&amp;-2ry&amp;-2rz\\2rx&amp;-x^2+r^2+y^2+z^2&amp;-2xy&amp;-2xz\\2yr&amp;-2yx&amp;-y^2+z^2+r^2+x^2&amp;-2zy\\2zr&amp;2zx&amp;-2zy&amp;-z^2+r^2+x^2+y^2\end{pmatrix}$</p>
+<p>$L_qR_q=\begin{pmatrix}-x^2-y^2-z^2+r^2&amp;-2rx&amp;-2ry&amp;-2rz\\2rx&amp;-x^2+r^2+y^2+z^2&amp;-2xy&amp;-2xz\\2yr&amp;-2yx&amp;-y^2+z^2+r^2+x^2&amp;-2zy\\2zr&amp;2zx&amp;-2zy&amp;-z^2+r^2+x^2+y^2\end{pmatrix}$</p>
+<p>So $L_qR_q=R_qL_q$, and it’s obvious when looking at its linear map, which is both right for $L_qR_q$ and $R_qL_q$ :  $\mathbb{R}^{4} \rightarrow \mathbb{R}^{4}:(a+b i+c j+d k) \mapsto q(a+b i+c j+d k)q$</p>
+<p>$(3)$ Calculate that $q\bar{q}=1\Longleftrightarrow a^2+b^2+c^2+d^2=1$ </p>
+<script type="math/tex; mode=display">
 \begin{gathered}
-L_qR_{\bar{q}}=\begin{pmatrix}a&amp;-b&amp;-c&amp;-d\\b&amp;a&amp;-d&amp;c\\c&amp;d&amp;a&amp;-b\\d&amp;-c&amp;b&amp;a\end{pmatrix}\begin{pmatrix}a&amp;b&amp;c&amp;d\\-b&amp;a&amp;-d&amp;c\\-c&amp;d&amp;a&amp;-b\\-d&amp;-c&amp;b&amp;a\end{pmatrix}\\=\begin{pmatrix}1&amp;0&amp;0&amp;0\\0&amp;a^2+b^2-c^2-d^2&amp;2(bc-ad)&amp;2(ac+bd)\\0&amp;2(ad+bc)&amp;a^2+c^2-b^2-d^2&amp;2(cd-ab)\\0&amp;2(bd-ac)&amp;2(ab-cd)&amp;a^2+d^2-b^2-c^2\end{pmatrix}
-\end{gathered}
-\]</span> The direct way to judge whether the matrix above is orthogonal
-is hard. So consider multiply <span class="math display">\[
-\left(L_{q} R_{\bar{q}}\right)^{T}\left(L_{q}
-R_{\bar{q}}\right)=R_{\bar{q}}^TL_q^TL_qR_{\bar{q}}
-\]</span> And calculate <span
-class="math inline">\(L_q^TL_q=I_4,R_{\bar{q}}^TR_{\bar{q}}=I_4\)</span>
-So this matrix has block form <span
-class="math inline">\(\begin{pmatrix}I&amp;O\\O&amp;Q\end{pmatrix}\)</span></p>
-<h2
-id="problem-2-small-mboxdrazin-inverse-and-differential-equation">Problem
-2<span class="math inline">\(\ \small \mbox{Drazin Inverse and
-Differential Equation}\)</span></h2>
-<p>Given an unknown vector-valued function <span
-class="math inline">\(\boldsymbol{v}(t)\)</span>, we know how to solve
-<span class="math inline">\(\boldsymbol{v}^{\prime}=A
-\boldsymbol{v}\)</span> for a constant matrix <span
-class="math inline">\(A\)</span>. But what if we have <span
-class="math inline">\(A \boldsymbol{v}^{\prime}+B
-\boldsymbol{v}=\mathbf{0}\)</span> for constant matrices? If <span
-class="math inline">\(A\)</span> is invertible, we can reorganize this
-into <span class="math inline">\(\boldsymbol{v}^{\prime}=-A^{-1} B
-\boldsymbol{v}\)</span> and solve it easily. But what if <span
-class="math inline">\(A\)</span> is not invertible?</p>
-<p>Here we introduce the Drazin inverse of a matrix. Recall that for any
-matrix A, according to the ultimate decomposition, <span
-class="math inline">\(A=X\left[\begin{array}{cc}A_{R} &amp; \\ &amp;
-A_{N}\end{array}\right] X^{-1}\)</span> where <span
-class="math inline">\(A_{R}\)</span> is invertible and <span
-class="math inline">\(A_{N}\)</span> is nilpotent. Then we define <span
-class="math inline">\(A^{(\mathrm{D})}=X\left[\begin{array}{ll}A_{R}^{-1}
-&amp; \\ &amp; 0\end{array}\right] X^{-1}\)</span> as the Drazin inverse
-of <span class="math inline">\(A\)</span></p>
-<p><span class="math inline">\((1)\)</span> Show that if <span
-class="math inline">\(\left[\begin{array}{ll}R &amp; \\ &amp;
-N\end{array}\right]=X\left[\begin{array}{cc}R^{\prime} &amp; \\ &amp;
-N^{\prime}\end{array}\right] X^{-1}\)</span> where <span
-class="math inline">\(R, R^{\prime}\)</span> are invertible and <span
-class="math inline">\(N, N^{\prime}\)</span> are nilpotent, then <span
-class="math inline">\(\left[\begin{array}{cc}R^{-1} &amp; \\ &amp;
-0\end{array}\right]=X\left[\begin{array}{cc}\left(R^{\prime}\right)^{-1}
-&amp; \\ &amp; 0\end{array}\right] X^{-1}\)</span>. (This shows that the
-Drazin inverse of <span class="math inline">\(A\)</span> is unique and
-does not depends on the choice of invertible-nilpotent decomposition
-<span class="math inline">\(A=X\left[\begin{array}{lll}A_{R} &amp; &amp;
-\\ &amp; A_{N}\end{array}\right] X^{-1}\)</span>.)</p>
-<p><span class="math inline">\((2)\)</span> Show that <span
-class="math inline">\(A A^{(\mathrm{D})}=A^{(\mathrm{D})} A,
-A^{(\mathrm{D})} A A^{(\mathrm{D})}=A^{(\mathrm{D})}\)</span>, and <span
-class="math inline">\(A^{(\mathrm{D})} A^{k+1}=A^{k}\)</span> where
-<span class="math inline">\(k\)</span> is the smallest integer such that
-<span
-class="math inline">\(\operatorname{Ker}\left(A^{k}\right)=\operatorname{Ker}\left(A^{k+1}\right)\)</span></p>
-<p><span class="math inline">\((3)\)</span> Calculate <span
-class="math inline">\(\left(\boldsymbol{a}
-\boldsymbol{b}^{*}\right)^{(\mathrm{D})}\)</span> for non-zero vectors
-<span class="math inline">\(\boldsymbol{a}, \boldsymbol{b} \in
-\mathbb{C}^{n}\)</span>. (Hint: Harder if you use brute force
-calculation with the definition. Easier if you can guess it out right,
-and prove that you have the right guess.)</p>
-<p><span class="math inline">\((4)\)</span> For fixed <span
-class="math inline">\(A\)</span>, show that we can find a polynomial
-<span class="math inline">\(p(x)\)</span> such that <span
-class="math inline">\(A^{(\mathrm{D})}=p(A)\)</span>. (Again, note that
-for different <span class="math inline">\(A\)</span> this polynomial may
-be different.) (Hint: Suppose <span
-class="math inline">\(A_{R}^{-1}=q\left(A_{R}\right)\)</span> for a
-polynomial <span class="math inline">\(q(x)\)</span>.)</p>
-<p><span class="math inline">\((5)\)</span> If <span
-class="math inline">\(A B=B A\)</span>, show that <span
-class="math inline">\(\mathrm{e}^{-A^{(\mathrm{D})} B t} A
-A^{(\mathrm{D})} \boldsymbol{v}_{0}\)</span> is a solution to <span
-class="math inline">\(A \boldsymbol{v}^{\prime}+B
-\boldsymbol{v}=\mathbf{0}\)</span> for any constant vector <span
-class="math inline">\(\boldsymbol{v}_{0}\)</span>. (This is one of the
-results in a paper by Campbell, Meyer and Rose in <span
-class="math inline">\(1967\)</span>.)</p>
-<hr />
-<p><span class="math inline">\((1)\)</span> Set <span
-class="math inline">\(X=\begin{bmatrix}A&amp;
-B\\C&amp;D\end{bmatrix}\)</span> so the equation can be simplified <span
-class="math display">\[
-\left[\begin{array}{ll}R &amp; \\ &amp;
-N\end{array}\right]=X\left[\begin{array}{cc}R^{\prime} &amp; \\ &amp;
-N^{\prime}\end{array}\right] X^{-1}\rightarrow
-\begin{bmatrix}R&amp;\\&amp;N\end{bmatrix}\begin{bmatrix}A&amp;
-B\\C&amp;D\end{bmatrix}=\begin{bmatrix}A&amp;
-B\\C&amp;D\end{bmatrix}\begin{bmatrix}R&amp;\\&amp;N\end{bmatrix}
-\]</span> For each block we have <span
-class="math inline">\(RA=AR&#39;,RB=BN&#39;,ND=DN&#39;\)</span>. Use
-induction to prove</p>
-<p><span class="math inline">\(R^nB=BN&#39;^{n}\)</span>, if <span
-class="math inline">\(n=k-1\)</span> <span
-class="math inline">\(R^{k-1}B=BN&#39;^{k-1}\)</span> is right, then
-<span class="math inline">\(R^{k}B=RBN^{k-1}=BN&#39;^{k}\)</span></p>
-<p>And <span class="math inline">\(N\)</span> is a nilpotent matrix, so
-after limited steps, it transfers to <span
-class="math inline">\(R^{n}B=O\)</span> and <span
-class="math inline">\(R\)</span> is invertible</p>
-<p>So <span class="math inline">\(B=O\)</span>, it's the same with <span
-class="math inline">\(C=O\)</span>, and <span
-class="math inline">\(X=\begin{bmatrix}A&amp;\\&amp;D\end{bmatrix}\)</span>
-since <span class="math inline">\(RA=AR&#39;\)</span>, <span
-class="math inline">\(R^{-1}A=A(R&#39;)^{-1}\)</span> <span
-class="math display">\[
-\begin{bmatrix}R^{-1}&amp; O\\O&amp;O\end{bmatrix}\begin{bmatrix}A&amp;
-O\\O&amp;D\end{bmatrix}=\begin{bmatrix}R^{-1}A&amp;
-O\\O&amp;O\end{bmatrix}=\begin{bmatrix}A(R&#39;)^{-1}&amp;
-O\\O&amp;O\end{bmatrix}=\begin{bmatrix}A&amp;
-O\\O&amp;D\end{bmatrix}\begin{bmatrix}(R&#39;)^{-1}&amp;
-O\\O&amp;O\end{bmatrix}
-\]</span> So <span class="math inline">\(\left[\begin{array}{cc}R^{-1}
-&amp; \\ &amp;
-0\end{array}\right]=X\left[\begin{array}{cc}\left(R^{\prime}\right)^{-1}
-&amp; \\ &amp; 0\end{array}\right] X^{-1}\)</span>, so the Drazin
-inverse is sole.</p>
-<p><span class="math inline">\((2)\)</span> <span
-class="math inline">\(AA^{(D)}=X\left[\begin{array}{cc}A_{R} &amp; \\
-&amp; A_{N}\end{array}\right] X^{-1}X\left[\begin{array}{ll}A_{R}^{-1}
-&amp; \\ &amp; 0\end{array}\right]
-X^{-1}=X\begin{bmatrix}I&amp;O\\O&amp;O\end{bmatrix}X^{-1}\)</span></p>
-<p><span
-class="math inline">\(A^{(D)}A=X\left[\begin{array}{ll}A_{R}^{-1} &amp;
-\\ &amp; 0\end{array}\right] X^{-1}X\left[\begin{array}{cc}A_{R} &amp;
-\\ &amp; A_{N}\end{array}\right]
-X^{-1}=X\begin{bmatrix}I&amp;O\\O&amp;O\end{bmatrix}X^{-1}=AA^{(D)}\)</span></p>
-<p><span
-class="math inline">\(A^{(D)}AA^{(D)}=X\begin{bmatrix}I&amp;O\\O&amp;O\end{bmatrix}X^{-1}X\left[\begin{array}{ll}A_{R}^{-1}
-&amp; \\ &amp; 0\end{array}\right]
-X^{-1}=X\left[\begin{array}{ll}A_{R}^{-1} &amp; \\ &amp;
-0\end{array}\right] X^{-1}=A^{(D)}\)</span></p>
-<p>By induction, <span
-class="math inline">\(A^{(D)}A^{k+1}=X\left[\begin{array}{ll}A_{R}^{-1}
-&amp; \\ &amp; O\end{array}\right]
-X^{-1}X\left[\begin{array}{cc}A_{R}^{k+1} &amp; \\ &amp;
-A_{N}^{k+1}\end{array}\right]
-X^{-1}=X\begin{bmatrix}A_R^{k}&amp;\\&amp;O\end{bmatrix}X^{-1}\)</span></p>
-<p>And <span class="math inline">\(A^{k}=X\left[\begin{array}{cc}A_{R}^k
-&amp; \\ &amp; A_{N}^k\end{array}\right] X^{-1}\)</span> if <span
-class="math inline">\(\ker{(A^{k})}=\ker{(A^{k+1})}\)</span> so <span
-class="math inline">\(\ker{(A_N^k)}=\ker{(A_{N}^{k+1})}\)</span></p>
-<p>let <span class="math inline">\(m\)</span> is the smallest number
-that satisfied <span class="math inline">\(A_N^m=O\)</span>, so <span
-class="math inline">\(k\leq m\)</span>, if <span
-class="math inline">\(k&lt;m\)</span>, that is to say</p>
-<p><span class="math inline">\(A_N^{k+1}\vec{x}=\vec{0}\Longrightarrow
-A_N^{k}\vec{x}=\vec{0}\)</span> and <span
-class="math inline">\(\ker{(A_{N}^{k})}=\ker{(A_{N}^{k+1})}=\cdots
-\ker{(A_{N}^{m})}=\mathbb{R}^{n}\)</span></p>
-<p>So <span class="math inline">\(A_N^{k}=O\)</span> , <span
-class="math inline">\(A^{(\mathrm{D})} A^{k+1}=A^{k}\)</span></p>
-<p><span class="math inline">\((3)\)</span> Can't solve this
-question</p>
-<p><span class="math inline">\((4)\)</span> For <span
-class="math inline">\(A_R\neq O\)</span>, let its minimal polynomial
-<span class="math inline">\(p(A_R)=p_1(A_R)+a I=O\)</span> because <span
-class="math inline">\(A_R\)</span></p>
-<p>is invertible, and its eigenpolynomial's constant term is not <span
-class="math inline">\(0\)</span>, so <span class="math inline">\(a\neq
-0\)</span>, <span class="math inline">\(p_2(A_R)A_R=-aI\)</span></p>
-<p>Define <span
-class="math inline">\(q(A_R)=-\dfrac{p_2(A_{R})}{a}\)</span> so $$
-polynomial <span class="math inline">\(q(x)\)</span> such that <span
-class="math inline">\(A_R^{-1}=q(A_R)\)</span>. Also define</p>
-<p><span class="math inline">\(k\)</span> is the smallest integer such
-that <span
-class="math inline">\(\operatorname{Ker}\left(A^{k}\right)=\operatorname{Ker}\left(A^{k+1}\right)\)</span>
-According to <span class="math inline">\(\small(2)\)</span>, we have</p>
-<p><span
-class="math inline">\(A_N^k=O,A^k=X\begin{bmatrix}A_R^k&amp;O\\O&amp;O\end{bmatrix}X^{-1}\)</span>,
-and multiply by <span
-class="math inline">\((q(A))^{k+1}=X\begin{pmatrix}(A_{R}^{-1})^{k+1}&amp;O\\O&amp;q(A_N)\end{pmatrix}X^{-1}\)</span></p>
-<p><span
-class="math inline">\(A^{k}q(A)^{k+1}=X\begin{bmatrix}A_R^k&amp;O\\O&amp;O\end{bmatrix}X^{-1}X\begin{pmatrix}(A_{R}^{-1})^{k+1}&amp;O\\O&amp;q(A_N)\end{pmatrix}X^{-1}=X\begin{bmatrix}A_R^{-1}&amp;O\\O&amp;O\end{bmatrix}X^{-1}=A^{(D)}\)</span></p>
-<p><span class="math inline">\((5)\)</span> First, <span
-class="math inline">\(A^{(D)}\)</span> and <span
-class="math inline">\(B\)</span> is community. let <span
-class="math inline">\(B^{\prime}=X^{-1}BX\)</span> so that <span
-class="math display">\[
-\begin{pmatrix}A_{R}&amp;O\\O&amp;A_N\end{pmatrix}B^{\prime}=B^{\prime}\begin{pmatrix}A_{R}&amp;O\\O&amp;A_N\end{pmatrix}
-\]</span> like question <span class="math inline">\(\small(1)\)</span>
-we can know that <span
-class="math inline">\(B^{\prime}=\begin{pmatrix}B_1&amp;O\\O&amp;B_4\end{pmatrix}\)</span>
-<span class="math inline">\(B_1\)</span> and <span
-class="math inline">\(A_R\)</span> is community</p>
-<p>so it's obvious that <span
-class="math inline">\(\begin{pmatrix}A_{R}^{-1}&amp;O\\O&amp;O\end{pmatrix}B^{\prime}=B^{\prime}\begin{pmatrix}A_{R}^{-1}&amp;O\\O&amp;O\end{pmatrix}\)</span>
-so <span class="math inline">\(A^{(D)}\)</span> and <span
-class="math inline">\(B\)</span> is community.</p>
-<p>Secondly, because <span
-class="math inline">\(AB=BA,AA^{(D)}=A^{(D)}A\)</span> we can prove that
-<span
-class="math inline">\((A^{(D)}Bt)^{i}A=A(A^{(D)}Bt)^{i}\)</span></p>
-<p>if <span class="math inline">\(i=k\)</span> right <span
-class="math inline">\((A^{(D)}Bt)^{k+1}A=A^{(D)}Bt(A^{(D)}Bt)^{k}A=A^{(D)}BtA(A^{(D)}Bt)^{k}=A(A^{(D)}Bt)^{k+1}\)</span></p>
-<p><span class="math inline">\(i=0\)</span> is right, By induction <span
-class="math inline">\((A^{(D)}Bt)^{i}A=A(A^{(D)}Bt)^{i}\)</span> is
-right. It is the same to</p>
-<p><span
-class="math inline">\((A^{(D)}Bt)^{i}A^{(D)}=A^{(D)}(A^{(D)}Bt)^{i}\)</span>,
-calculate the solution below <span class="math display">\[
+L_qR_{\bar{q}}=\begin{pmatrix}a&-b&-c&-d\\b&a&-d&c\\c&d&a&-b\\d&-c&b&a\end{pmatrix}\begin{pmatrix}a&b&c&d\\-b&a&-d&c\\-c&d&a&-b\\-d&-c&b&a\end{pmatrix}\\=\begin{pmatrix}1&0&0&0\\0&a^2+b^2-c^2-d^2&2(bc-ad)&2(ac+bd)\\0&2(ad+bc)&a^2+c^2-b^2-d^2&2(cd-ab)\\0&2(bd-ac)&2(ab-cd)&a^2+d^2-b^2-c^2\end{pmatrix}
+\end{gathered}</script><p>The direct way to judge whether the matrix above is orthogonal is hard. So consider multiply</p>
+<script type="math/tex; mode=display">
+\left(L_{q} R_{\bar{q}}\right)^{T}\left(L_{q} R_{\bar{q}}\right)=R_{\bar{q}}^TL_q^TL_qR_{\bar{q}}</script><p>And calculate $L_q^TL_q=I_4,R_{\bar{q}}^TR_{\bar{q}}=I_4$ So this matrix has block form $\begin{pmatrix}I&amp;O\\O&amp;Q\end{pmatrix}$</p>
+<h2 id="Problem-2-small-mbox-Drazin-Inverse-and-Differential-Equation"><a href="#Problem-2-small-mbox-Drazin-Inverse-and-Differential-Equation" class="headerlink" title="Problem 2$ \small  \mbox{Drazin Inverse and Differential Equation}$"></a>Problem 2$ \small  \mbox{Drazin Inverse and Differential Equation}$</h2><p>Given an unknown vector-valued function $\boldsymbol{v}(t)$, we know how to solve $\boldsymbol{v}^{\prime}=A \boldsymbol{v}$ for a constant matrix $A$. But what if we have $A \boldsymbol{v}^{\prime}+B \boldsymbol{v}=\mathbf{0}$ for constant matrices? If $A$ is invertible, we can reorganize this into $\boldsymbol{v}^{\prime}=-A^{-1} B \boldsymbol{v}$ and solve it easily. But what if $A$ is not invertible?</p>
+<p>Here we introduce the Drazin inverse of a matrix. Recall that for any matrix A, according to the ultimate decomposition, $A=X\left[\begin{array}{cc}A_{R} &amp; \ &amp; A_{N}\end{array}\right] X^{-1}$ where $A_{R}$ is invertible and $A_{N}$ is nilpotent. Then we define $A^{(\mathrm{D})}=X\left[\begin{array}{ll}A_{R}^{-1} &amp; \ &amp; 0\end{array}\right] X^{-1}$ as the Drazin inverse of $A$</p>
+<p>$(1)$ Show that if $\left[\begin{array}{ll}R &amp; \ &amp; N\end{array}\right]=X\left[\begin{array}{cc}R^{\prime} &amp; \ &amp; N^{\prime}\end{array}\right] X^{-1}$ where $R, R^{\prime}$ are invertible and $N, N^{\prime}$ are nilpotent, then $\left[\begin{array}{cc}R^{-1} &amp; \ &amp; 0\end{array}\right]=X\left[\begin{array}{cc}\left(R^{\prime}\right)^{-1} &amp; \ &amp; 0\end{array}\right] X^{-1}$. (This shows that the Drazin inverse of $A$ is unique and does not depends on the choice of invertible-nilpotent decomposition $A=X\left[\begin{array}{lll}A_{R} &amp; &amp; \ &amp; A_{N}\end{array}\right] X^{-1}$.)</p>
+<p>$(2)$ Show that $A A^{(\mathrm{D})}=A^{(\mathrm{D})} A, A^{(\mathrm{D})} A A^{(\mathrm{D})}=A^{(\mathrm{D})}$, and $A^{(\mathrm{D})} A^{k+1}=A^{k}$ where $k$ is the smallest integer such that $\operatorname{Ker}\left(A^{k}\right)=\operatorname{Ker}\left(A^{k+1}\right)$</p>
+<p>$(3)$ Calculate $\left(\boldsymbol{a} \boldsymbol{b}^{*}\right)^{(\mathrm{D})}$ for non-zero vectors $\boldsymbol{a}, \boldsymbol{b} \in \mathbb{C}^{n}$. (Hint: Harder if you use brute force calculation with the definition. Easier if you can guess it out right, and prove that you have the right guess.)</p>
+<p>$(4)$ For fixed $A$, show that we can find a polynomial $p(x)$ such that $A^{(\mathrm{D})}=p(A)$. (Again, note that for different $A$ this polynomial may be different.) (Hint: Suppose $A_{R}^{-1}=q\left(A_{R}\right)$ for a polynomial $q(x)$.)</p>
+<p>$(5)$ If $A B=B A$, show that $\mathrm{e}^{-A^{(\mathrm{D})} B t} A A^{(\mathrm{D})} \boldsymbol{v}_{0}$ is a solution to $A \boldsymbol{v}^{\prime}+B \boldsymbol{v}=\mathbf{0}$ for any constant vector $\boldsymbol{v}_{0}$. (This is one of the results in a paper by Campbell, Meyer and Rose in $1967$.)</p>
+<hr>
+<p>$(1)$ Set $X=\begin{bmatrix}A&amp; B\\C&amp;D\end{bmatrix}$  so the equation can be simplified </p>
+<script type="math/tex; mode=display">
+\left[\begin{array}{ll}R & \\ & N\end{array}\right]=X\left[\begin{array}{cc}R^{\prime} & \\ & N^{\prime}\end{array}\right] X^{-1}\rightarrow \begin{bmatrix}R&\\&N\end{bmatrix}\begin{bmatrix}A& B\\C&D\end{bmatrix}=\begin{bmatrix}A& B\\C&D\end{bmatrix}\begin{bmatrix}R&\\&N\end{bmatrix}</script><p>For each block we have $RA=AR’,RB=BN’,ND=DN’$. Use induction to prove </p>
+<p>$R^nB=BN’^{n}$, if $n=k-1$ $R^{k-1}B=BN’^{k-1}$ is right, then $R^{k}B=RBN^{k-1}=BN’^{k}$</p>
+<p>And $N$ is a nilpotent matrix, so after limited steps, it transfers to $R^{n}B=O$ and $R$ is invertible </p>
+<p>So $B=O$, it’s the same with $C=O$, and $X=\begin{bmatrix}A&amp;\\&amp;D\end{bmatrix}$ since $RA=AR’$, $R^{-1}A=A(R’)^{-1}$</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}R^{-1}& O\\O&O\end{bmatrix}\begin{bmatrix}A& O\\O&D\end{bmatrix}=\begin{bmatrix}R^{-1}A& O\\O&O\end{bmatrix}=\begin{bmatrix}A(R')^{-1}& O\\O&O\end{bmatrix}=\begin{bmatrix}A& O\\O&D\end{bmatrix}\begin{bmatrix}(R')^{-1}& O\\O&O\end{bmatrix}</script><p>So $\left[\begin{array}{cc}R^{-1} &amp; \ &amp; 0\end{array}\right]=X\left[\begin{array}{cc}\left(R^{\prime}\right)^{-1} &amp; \ &amp; 0\end{array}\right] X^{-1}$, so the Drazin inverse is sole. </p>
+<p>$(2)$ $AA^{(D)}=X\left[\begin{array}{cc}A_{R} &amp; \ &amp; A_{N}\end{array}\right] X^{-1}X\left[\begin{array}{ll}A_{R}^{-1} &amp; \ &amp; 0\end{array}\right] X^{-1}=X\begin{bmatrix}I&amp;O\\O&amp;O\end{bmatrix}X^{-1}$</p>
+<p>$A^{(D)}A=X\left[\begin{array}{ll}A_{R}^{-1} &amp; \ &amp; 0\end{array}\right] X^{-1}X\left[\begin{array}{cc}A_{R} &amp; \ &amp; A_{N}\end{array}\right] X^{-1}=X\begin{bmatrix}I&amp;O\\O&amp;O\end{bmatrix}X^{-1}=AA^{(D)}$</p>
+<p>$A^{(D)}AA^{(D)}=X\begin{bmatrix}I&amp;O\\O&amp;O\end{bmatrix}X^{-1}X\left[\begin{array}{ll}A_{R}^{-1} &amp; \ &amp; 0\end{array}\right] X^{-1}=X\left[\begin{array}{ll}A_{R}^{-1} &amp; \ &amp; 0\end{array}\right] X^{-1}=A^{(D)}$</p>
+<p>By induction, $A^{(D)}A^{k+1}=X\left[\begin{array}{ll}A_{R}^{-1} &amp; \ &amp; O\end{array}\right] X^{-1}X\left[\begin{array}{cc}A_{R}^{k+1} &amp; \ &amp; A_{N}^{k+1}\end{array}\right] X^{-1}=X\begin{bmatrix}A_R^{k}&amp;\\&amp;O\end{bmatrix}X^{-1}$</p>
+<p>And $A^{k}=X\left[\begin{array}{cc}A_{R}^k &amp; \ &amp; A_{N}^k\end{array}\right] X^{-1}$ if $\ker{(A^{k})}=\ker{(A^{k+1})}$ so $\ker{(A_N^k)}=\ker{(A_{N}^{k+1})}$ </p>
+<p>let $m$ is the smallest number that satisfied $A_N^m=O$, so $k\leq m$, if $k&lt;m$, that is to say</p>
+<p>$A_N^{k+1}\vec{x}=\vec{0}\Longrightarrow A_N^{k}\vec{x}=\vec{0}$  and  $\ker{(A_{N}^{k})}=\ker{(A_{N}^{k+1})}=\cdots \ker{(A_{N}^{m})}=\mathbb{R}^{n}$ </p>
+<p>So $A_N^{k}=O$ , $A^{(\mathrm{D})} A^{k+1}=A^{k}$</p>
+<p>$(3)$ Can’t solve this question</p>
+<p>$(4)$ For $A_R\neq O$, let its minimal polynomial $p(A_R)=p_1(A_R)+a I=O$ because $A_R$ </p>
+<p>is invertible, and its eigenpolynomial’s constant term is not $0$, so $a\neq 0$, $p_2(A_R)A_R=-aI$</p>
+<p>Define $q(A_R)=-\dfrac{p_2(A_{R})}{a}$ so $\exists $ polynomial $q(x)$ such that $A_R^{-1}=q(A_R)$. Also define </p>
+<p> $k$ is the smallest integer such that $\operatorname{Ker}\left(A^{k}\right)=\operatorname{Ker}\left(A^{k+1}\right)$ According to $\small(2)$, we have </p>
+<p>$A_N^k=O,A^k=X\begin{bmatrix}A_R^k&amp;O\\O&amp;O\end{bmatrix}X^{-1}$, and multiply by $(q(A))^{k+1}=X\begin{pmatrix}(A_{R}^{-1})^{k+1}&amp;O\\O&amp;q(A_N)\end{pmatrix}X^{-1}$</p>
+<p>$A^{k}q(A)^{k+1}=X\begin{bmatrix}A_R^k&amp;O\\O&amp;O\end{bmatrix}X^{-1}X\begin{pmatrix}(A_{R}^{-1})^{k+1}&amp;O\\O&amp;q(A_N)\end{pmatrix}X^{-1}=X\begin{bmatrix}A_R^{-1}&amp;O\\O&amp;O\end{bmatrix}X^{-1}=A^{(D)}$</p>
+<p>$(5)$ First, $A^{(D)}$ and $B$ is community. let $B^{\prime}=X^{-1}BX$ so that </p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}A_{R}&O\\O&A_N\end{pmatrix}B^{\prime}=B^{\prime}\begin{pmatrix}A_{R}&O\\O&A_N\end{pmatrix}</script><p> like question $\small(1)$ we can know that $B^{\prime}=\begin{pmatrix}B_1&amp;O\\O&amp;B_4\end{pmatrix}$  $B_1$ and $A_R$ is community</p>
+<p>so it’s obvious that $\begin{pmatrix}A_{R}^{-1}&amp;O\\O&amp;O\end{pmatrix}B^{\prime}=B^{\prime}\begin{pmatrix}A_{R}^{-1}&amp;O\\O&amp;O\end{pmatrix}$ so $A^{(D)}$ and $B$ is community. </p>
+<p>Secondly, because $AB=BA,AA^{(D)}=A^{(D)}A$ we can prove that $(A^{(D)}Bt)^{i}A=A(A^{(D)}Bt)^{i}$</p>
+<p>if $i=k$ right  $(A^{(D)}Bt)^{k+1}A=A^{(D)}Bt(A^{(D)}Bt)^{k}A=A^{(D)}BtA(A^{(D)}Bt)^{k}=A(A^{(D)}Bt)^{k+1}$</p>
+<p>$i=0$ is right, By induction $(A^{(D)}Bt)^{i}A=A(A^{(D)}Bt)^{i}$ is right. It is the same to </p>
+<p>$(A^{(D)}Bt)^{i}A^{(D)}=A^{(D)}(A^{(D)}Bt)^{i}$, calculate the solution below</p>
+<script type="math/tex; mode=display">
 \begin{gathered}
-A
-\boldsymbol{v}^{\prime}=-AA^{(D)}Be^{-A^{(D)}Bt}AA^{(D)}\boldsymbol{v}_{0}=-AA^{(D)}B\sum_{i=1}^{+\infty}\dfrac{1}{i!}(A^{(D)}Bt)^{i}AA^{(D)}\boldsymbol{v}_{0}\\
+A \boldsymbol{v}^{\prime}=-AA^{(D)}Be^{-A^{(D)}Bt}AA^{(D)}\boldsymbol{v}_{0}=-AA^{(D)}B\sum_{i=1}^{+\infty}\dfrac{1}{i!}(A^{(D)}Bt)^{i}AA^{(D)}\boldsymbol{v}_{0}\\
 =-AA^{(D)}BA\sum_{i=0}^{+\infty}\dfrac{1}{i!}(A^{(D)}Bt)^{i}A^{(D)}\boldsymbol{v}_{0}=-AA^{(D)}ABA^{(D)}\sum_{i=0}^{+\infty}\dfrac{1}{i!}(A^{(D)}Bt)^{i}\boldsymbol{v}_{0}\\
 =-BA\boxed{A^{(D)}AA^{(D)}}\sum_{i=0}^{+\infty}\dfrac{1}{i!}(A^{(D)}Bt)^{i}\boldsymbol{v}_{0}=-BA\boxed{A^{(D)}}\sum_{i=0}^{+\infty}\dfrac{1}{i!}(A^{(D)}Bt)^{i}\boldsymbol{v}_{0}\\
-=-BA\sum_{i=0}^{+\infty}\dfrac{1}{i!}(A^{(D)}Bt)^{i}A^{(D)}\boldsymbol{v}_{0}=-B\sum_{i=0}^{+\infty}\dfrac{1}{i!}(A^{(D)}Bt)^{i}AA^{(D)}\boldsymbol{v}_{0}=-B\boldsymbol
-{v}
-\end{gathered}
-\]</span> So <span class="math inline">\(\mathrm{e}^{-A^{(\mathrm{D})} B
-t} A A^{(\mathrm{D})} \boldsymbol{v}_{0}\)</span> is a solution to <span
-class="math inline">\(A \boldsymbol{v}^{\prime}+B
-\boldsymbol{v}=\mathbf{0}\)</span></p>
-<h2 id="problem-3-small-mboxsherman-morrison-woodburry-formula">Problem
-3<span class="math inline">\(\ \small \mbox{Sherman-Morrison-Woodburry
-Formula}\)</span></h2>
-<p>The famous Sherman-Morrison-Woodburry formula states that, for any
-<span class="math inline">\(m \times m\)</span> invertible matrix <span
-class="math inline">\(X, n \times n\)</span> invertible matrix <span
-class="math inline">\(Y, m \times n\)</span> matrix <span
-class="math inline">\(A\)</span> and <span class="math inline">\(n
-\times m\)</span> matrix <span class="math inline">\(B\)</span>, we have
-<span class="math inline">\((X-A Y B)^{-1}=X^{-1}+X^{-1} A\left(Y^{-1}-B
-X^{-1} A\right)^{-1} B X^{-1}\)</span>. This can be proven using block
-eliminations on <span class="math inline">\(\left[\begin{array}{cc}X
-&amp; -A \\ B &amp; Y\end{array}\right]\)</span>. Well, I always find
-that proof annoying. So let us not do that, and try to find some
-alternative proofs. To simplify, you can easily see that it is enough to
-establish the special case <span class="math inline">\(\left(I_{m}-A
-B\right)^{-1}=I_{m}+A\left(I_{n}-B A\right)^{-1} B .\)</span></p>
-<p>Consider the function <span
-class="math inline">\(f(x)=(1-x)^{-1}\)</span>. This function has a
-Taylor expansion <span
-class="math inline">\(f(x)=1+x+x^{2}+\ldots\)</span> for all <span
-class="math inline">\(|x|&lt;1\)</span> over the complex numbers. (This
-is also the sum of the geometric series, which you should have learned
-about in high school.)</p>
-<p><span class="math inline">\((1)\)</span> For any <span
-class="math inline">\(m \times n\)</span> matrix <span
-class="math inline">\(A\)</span> and <span class="math inline">\(n
-\times m\)</span> matrix <span class="math inline">\(B\)</span>, suppose
-<span class="math inline">\(I_{m}-A B\)</span> is invertible and all
-eigenvalues of <span class="math inline">\(AB\)</span> have absolute
-value less than 1. Write <span class="math inline">\(\left(I_{m}-A
-B\right)^{-1}\)</span> as the sum of a series of matrices.</p>
-<p><span class="math inline">\((2)\)</span> Using above idea, deduce the
-formula <span class="math inline">\(\left(I_{m}-A
-B\right)^{-1}=I_{m}+A\left(I_{n}-B A\right)^{-1} B\)</span>, when <span
-class="math inline">\(I_{m}+A B\)</span> and <span
-class="math inline">\(I_{n}-B A\)</span> are invertible and all
-eigenvalues of <span class="math inline">\(A B\)</span> and <span
-class="math inline">\(B A\)</span> have absolute value less than <span
-class="math inline">\(1 .\)</span> (Btw, note that <span
-class="math inline">\(A B\)</span> and <span class="math inline">\(B
-A\)</span> always have the same non-zero eigenvalues. You don't need
-this fact though.)</p>
-<p><span class="math inline">\((3)\)</span> Oops, unfortunately, the
-method above does not always work. It has many annoying requirements on
-eigenvalues. Let us now forget about Taylor expansion. In general, prove
-that <span class="math inline">\(A p(B A)=p(A B) A\)</span> for all
-polynomials <span class="math inline">\(p(x)\)</span>. (Hint: <span
-class="math inline">\(\operatorname{try} p(x)=x\)</span> first.)</p>
-<p><span class="math inline">\((4)\)</span> Show that for any function
-<span class="math inline">\(f(x)\)</span> and any two square matrix
-<span class="math inline">\(X, Y\)</span>, we can find a polynomial
-<span class="math inline">\(p(x)\)</span> such that <span
-class="math inline">\(p(X)=f(X)\)</span> and <span
-class="math inline">\(p(Y)=f(Y)\)</span> simultaneously. (Hint: block
-matrix.)</p>
-<p><span class="math inline">\((5)\)</span> Show that <span
-class="math inline">\(A f(B A)=f(A B) A\)</span> as long as <span
-class="math inline">\(f(A B)\)</span> and <span
-class="math inline">\(f(B A)\)</span> are defined.</p>
-<p><span class="math inline">\((6)\)</span> Verify that <span
-class="math inline">\(f(A B)=I_{m}+A f(B A) B\)</span>, using the
-identity above.</p>
-<hr />
-<p><span class="math inline">\((1)\)</span> let <span
-class="math inline">\(S=I_m+AB+(AB)^2+\cdots\)</span> the absolute value
-of <span class="math inline">\(AB\)</span> is less than <span
-class="math inline">\(1\)</span>, so it converges</p>
-<p>And <span
-class="math inline">\((I_m-AB)S=(I_m+AB+(AB)^2+\cdots)-(AB+(AB)^2+\cdots)=I_m\)</span>
-then</p>
-<p><span
-class="math inline">\(S=(I_m-AB)^{-1}=I_m+AB+(AB)^2+\cdots=\displaystyle
-\sum_{i=0}^{+\infty}(AB)^{i}\)</span></p>
-<p><span class="math inline">\((2)\)</span> <span
-class="math inline">\(RHS=I_m+\displaystyle
-A\sum_{i=0}^{+\infty}(BA)^{i}B=I_m+\sum_{i=0}^{+\infty}A(BA)^{i}B
-\stackrel{?}{=}\sum_{i=0}^{+\infty}(AB)^{i}=LHS\)</span></p>
-<p><span class="math inline">\((3)\)</span> <span
-class="math inline">\(p(x)=\displaystyle
-\sum_{i=0}^{n}a_ix^{i}\)</span>, it can be linearly decomposed into
-'single' polynomial. Consider <span
-class="math inline">\(x^{n}\)</span></p>
-<p>If <span class="math inline">\(n=k\)</span> is right, so <span
-class="math inline">\(A(BA)^{k+1}=A(BA)^{k}(BA)=(AB)^{k}ABA=(AB)^{k+1}A\)</span>
-<span class="math inline">\(n=k+1\)</span> is right, and <span
-class="math inline">\(n=0\)</span> is right. By induction, <span
-class="math inline">\(A p(B A)=p(A B) A\)</span> for each <span
-class="math inline">\(x^{n}\)</span> Add them together</p>
-<p>So <span class="math inline">\(A p(B A)=p(A B) A\)</span></p>
-<p><span class="math inline">\((4)\)</span> Construct a block matrix
-<span
-class="math inline">\(M=\begin{pmatrix}X&amp;O\\O&amp;Y\end{pmatrix}\)</span>
-for any fixed matrix <span class="math inline">\(M\)</span>, we can find
-a certain polynomial <span class="math inline">\(p(x)\)</span>, such
-that <span class="math inline">\(p(M)=f(M)\)</span> use the Taylor
-Series divide its minimal polynomial</p>
-<p><span
-class="math inline">\(p(\begin{pmatrix}X&amp;O\\O&amp;Y\end{pmatrix})=f(\begin{pmatrix}X&amp;O\\O&amp;Y\end{pmatrix})\)</span>
-so <span class="math inline">\(p(X)=f(X),p(Y)=f(Y)\)</span></p>
-<p><span class="math inline">\((5)\)</span> if fix <span
-class="math inline">\(A\)</span> and <span
-class="math inline">\(B\)</span>, according to the last question, we can
-find a polynomial <span class="math inline">\(p(x)\)</span> to replace
-the function <span class="math inline">\(f\)</span>. Also, according to
-the <span class="math inline">\(\small (3)\)</span> question, if <span
-class="math inline">\(f(A B)\)</span> and <span
-class="math inline">\(f(B A)\)</span> are defined, then <span
-class="math display">\[
-A f(B A)=f(A B) A
-\]</span> <span class="math inline">\((6)\)</span> let <span
-class="math inline">\(f(AB)=\displaystyle
-\sum_{i=0}^{+\infty}(AB)^{i}\)</span> so use the equation above <span
-class="math display">\[
+=-BA\sum_{i=0}^{+\infty}\dfrac{1}{i!}(A^{(D)}Bt)^{i}A^{(D)}\boldsymbol{v}_{0}=-B\sum_{i=0}^{+\infty}\dfrac{1}{i!}(A^{(D)}Bt)^{i}AA^{(D)}\boldsymbol{v}_{0}=-B\boldsymbol {v}
+\end{gathered}</script><p>So $\mathrm{e}^{-A^{(\mathrm{D})} B t} A A^{(\mathrm{D})} \boldsymbol{v}_{0}$ is a solution to $A \boldsymbol{v}^{\prime}+B \boldsymbol{v}=\mathbf{0}$</p>
+<h2 id="Problem-3-small-mbox-Sherman-Morrison-Woodburry-Formula"><a href="#Problem-3-small-mbox-Sherman-Morrison-Woodburry-Formula" class="headerlink" title="Problem 3$ \small  \mbox{Sherman-Morrison-Woodburry Formula}$"></a>Problem 3$ \small  \mbox{Sherman-Morrison-Woodburry Formula}$</h2><p>The famous Sherman-Morrison-Woodburry formula states that, for any $m \times m$ invertible matrix $X, n \times n$ invertible matrix $Y, m \times n$ matrix $A$ and $n \times m$ matrix $B$, we have $(X-A Y B)^{-1}=X^{-1}+X^{-1} A\left(Y^{-1}-B X^{-1} A\right)^{-1} B X^{-1}$. This can be proven using block eliminations on $\left[\begin{array}{cc}X &amp; -A \ B &amp; Y\end{array}\right]$. Well, I always find that proof annoying. So let us not do that, and try to find some alternative proofs. To simplify, you can easily see that it is enough to establish the special case $\left(I_{m}-A B\right)^{-1}=I_{m}+A\left(I_{n}-B A\right)^{-1} B .$</p>
+<p>Consider the function $f(x)=(1-x)^{-1}$. This function has a Taylor expansion $f(x)=1+x+x^{2}+\ldots$ for all $|x|&lt;1$ over the complex numbers. (This is also the sum of the geometric series, which you should have learned about in high school.)</p>
+<p>$(1)$ For any $m \times n$ matrix $A$ and $n \times m$ matrix $B$, suppose $I_{m}-A B$ is invertible and all eigenvalues of $AB$ have absolute value less than 1. Write $\left(I_{m}-A B\right)^{-1}$ as the sum of a series of matrices.</p>
+<p>$(2)$ Using above idea, deduce the formula $\left(I_{m}-A B\right)^{-1}=I_{m}+A\left(I_{n}-B A\right)^{-1} B$, when $I_{m}+A B$ and $I_{n}-B A$ are invertible and all eigenvalues of $A B$ and $B A$ have absolute value less than $1 .$ (Btw, note that $A B$ and $B A$ always have the same non-zero eigenvalues. You don’t need this fact though.)</p>
+<p>$(3)$ Oops, unfortunately, the method above does not always work. It has many annoying requirements on eigenvalues. Let us now forget about Taylor expansion. In general, prove that $A p(B A)=p(A B) A$ for all polynomials $p(x)$. (Hint: $\operatorname{try} p(x)=x$ first.)</p>
+<p>$(4)$ Show that for any function $f(x)$ and any two square matrix $X, Y$, we can find a polynomial $p(x)$ such that $p(X)=f(X)$ and $p(Y)=f(Y)$ simultaneously. (Hint: block matrix.)</p>
+<p>$(5)$ Show that $A f(B A)=f(A B) A$ as long as $f(A B)$ and $f(B A)$ are defined.</p>
+<p>$(6)$ Verify that $f(A B)=I_{m}+A f(B A) B$, using the identity above.</p>
+<hr>
+<p>$(1)$ let $S=I_m+AB+(AB)^2+\cdots$ the absolute value of $AB$ is less than $1$, so it converges</p>
+<p>And $(I_m-AB)S=(I_m+AB+(AB)^2+\cdots)-(AB+(AB)^2+\cdots)=I_m$ then </p>
+<p>$S=(I_m-AB)^{-1}=I_m+AB+(AB)^2+\cdots=\displaystyle \sum_{i=0}^{+\infty}(AB)^{i}$</p>
+<p>$(2)$ $RHS=I_m+\displaystyle A\sum_{i=0}^{+\infty}(BA)^{i}B=I_m+\sum_{i=0}^{+\infty}A(BA)^{i}B \stackrel{?}{=}\sum_{i=0}^{+\infty}(AB)^{i}=LHS$</p>
+<p>$(3)$ $p(x)=\displaystyle \sum_{i=0}^{n}a_ix^{i}$, it can be linearly decomposed into ‘single’ polynomial. Consider $x^{n}$ </p>
+<p>If $n=k$ is right, so  $A(BA)^{k+1}=A(BA)^{k}(BA)=(AB)^{k}ABA=(AB)^{k+1}A$  $n=k+1$ is right, and $n=0$ is right. By induction, $A p(B A)=p(A B) A$ for each $x^{n}$ Add them together </p>
+<p>So $A p(B A)=p(A B) A$</p>
+<p>$(4)$ Construct a block matrix $M=\begin{pmatrix}X&amp;O\\O&amp;Y\end{pmatrix}$ for any fixed matrix $M$, we can find a certain polynomial $p(x)$, such that $p(M)=f(M)$ use the Taylor Series divide its minimal polynomial </p>
+<p>$p(\begin{pmatrix}X&amp;O\\O&amp;Y\end{pmatrix})=f(\begin{pmatrix}X&amp;O\\O&amp;Y\end{pmatrix})$ so $p(X)=f(X),p(Y)=f(Y)$</p>
+<p>$(5)$ if fix $A$ and $B$, according to the last question, we can find a polynomial $p(x)$ to replace the function $f$. Also, according to the $\small (3)$ question,  if $f(A B)$ and $f(B A)$ are defined, then </p>
+<script type="math/tex; mode=display">
+A f(B A)=f(A B) A</script><p>$(6)$ let $f(AB)=\displaystyle \sum_{i=0}^{+\infty}(AB)^{i}$ so use the equation above </p>
+<script type="math/tex; mode=display">
 \begin{gathered}
-RHS=I_m+\displaystyle
-\sum_{i=0}^{+\infty}A(BA)^{i}B=I_m+Af(BA)B=I_m+f(AB)AB=\\I_m+\sum_{i=0}^{+\infty}(AB)^{i+1}
+RHS=I_m+\displaystyle \sum_{i=0}^{+\infty}A(BA)^{i}B=I_m+Af(BA)B=I_m+f(AB)AB=\\I_m+\sum_{i=0}^{+\infty}(AB)^{i+1}
 =\sum_{i=0}^{+\infty}(AB)^{i}=LHS
-\end{gathered}
-\]</span> So we prove the equality <span
-class="math inline">\(\left(I_{m}-A B\right)^{-1}=I_{m}+A\left(I_{n}-B
-A\right)^{-1} B\)</span></p>
-<h2 id="problem-4-small-mboxequations-of-matrixes">Problem 4<span
-class="math inline">\(\ \small \mbox{Equations of
-matrixes}\)</span></h2>
-<p>Let <span class="math inline">\(N\)</span> be the <span
-class="math inline">\(n \times n\)</span> nilpotent Jordan block.</p>
-<p><span class="math inline">\((1)\)</span> Show that the solutions to
-the Sylvester's equation <span class="math inline">\(N X-X N=0\)</span>
-are exactly the polynomials of <span
-class="math inline">\(N\)</span>.</p>
-<p><span class="math inline">\((2)\)</span> Suppose <span
-class="math inline">\(Y=\mathrm{e}^{N}\)</span>. Show that <span
-class="math inline">\(Y, Y-I,(Y-I)^{2}, \ldots,(Y-I)^{n-1}\)</span> are
-linearly independent in the space of matrixes, and they span the space
-of matrices made of polynomials of <span
-class="math inline">\(N\)</span>. (Consequently, <span
-class="math inline">\(N\)</span> is a polynomial of <span
-class="math inline">\(Y\)</span>.)</p>
-<p><span class="math inline">\((3)\)</span> Find all solutions <span
-class="math inline">\(X\)</span> to the matrix equation <span
-class="math inline">\(\mathrm{e}^{X}=\mathrm{e}^{N}\)</span>. (Make sure
-to consider COMPLEX matrixes <span
-class="math inline">\(X\)</span>.)</p>
-<p><span class="math inline">\((4)\)</span> Find real matrixes <span
-class="math inline">\(A, B\)</span> such that <span
-class="math inline">\(A B \neq B A\)</span> but <span
-class="math inline">\(\mathrm{e}^{A}=\mathrm{e}^{B}\)</span>. (Hint: for
-complex <span class="math inline">\(1 \times 1\)</span> matrices, try to
-find <span class="math inline">\(x \neq y \in \mathbb{C}\)</span> such
-that <span
-class="math inline">\(\mathrm{e}^{x}=\mathrm{e}^{y}\)</span>.)</p>
-<p><span class="math inline">\((5)\)</span> Prove that there is no
-solution <span class="math inline">\(X\)</span> to the equation <span
-class="math inline">\(\sin (X)=\left[\begin{array}{cc}1 &amp; 1996 \\ 0
-&amp; 1\end{array}\right]\)</span>. (This is a Putnam competition
-problem. I'm sure you know the year of the competition....)</p>
-<hr />
-<p>(1)$ let $ <span class="math inline">\(N=\left[\begin{array}{lllll}0
-&amp; &amp; &amp; &amp; \\ 1 &amp; 0 &amp; &amp; 0 &amp; \\ &amp; \ddots
-&amp; \ddots &amp; &amp; \\ 0 &amp; &amp; \ddots &amp; \ddots &amp; \\
-&amp; &amp; &amp; 1 &amp;
-0\end{array}\right],X=\left[\begin{array}{cccc}a_{11} &amp; a_{12} &amp;
-\cdots &amp; a_{1 n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2 n}
-\\ \vdots &amp; \vdots &amp; &amp; \vdots \\ a_{n 1} &amp; a_{n 2} &amp;
-\cdots &amp; a_{n n}\end{array}\right]\)</span></p>
-<p><span
-class="math inline">\(NX=\left[\begin{array}{cccc}0&amp;0&amp;\cdots&amp;0\\a_{11}
-&amp; a_{12} &amp; \cdots &amp; a_{1 n} \\ a_{21} &amp; a_{22} &amp;
-\cdots &amp; a_{2 n} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\
-a_{(n-1) 1} &amp; a_{(n-1) 2} &amp; \cdots &amp; a_{(n-1)
-n}\end{array}\right],XN=\left[\begin{array}{cccc}a_{12} &amp; a_{13}
-&amp; \cdots &amp; a_{1 (n-1)}&amp;0 \\ a_{22} &amp; a_{23} &amp; \cdots
-&amp; a_{2 (n-1)}&amp;0 \\ \vdots &amp; \vdots &amp; &amp; \vdots \\
-a_{n 2} &amp; a_{n 3} &amp; \cdots &amp; a_{n(n-1)
-}&amp;0\end{array}\right],\)</span></p>
-<p>some elements of each row are 'killed' step by step. like <span
-class="math inline">\(\{a_{12},a_{13}\cdots,a_{1n}\}\)</span></p>
-<p>neat <span class="math inline">\(\{a_{23},a_{24},\cdots
-,a_{2n}\},\{a_{34},a_{35},\cdots,a_{3n}\},\cdots,\{a_{(n-1)n}\}\)</span>
-and <span class="math inline">\(a_{ij}=a_{(i+k)(j+k)}\)</span></p>
-<p>So <span class="math inline">\(X=\left[\begin{array}{cccc}a_{11}
-&amp; 0 &amp; \cdots &amp; 0 \\ a_{21} &amp; a_{11} &amp; \cdots &amp; 0
-\\ \vdots &amp; \ddots &amp; &amp; \vdots \\ a_{n 1} &amp; \cdots
-&amp;a_{21}&amp;
-a_{11}\end{array}\right]=a_{11}I+a_{21}N+a_{31}N^{2}+\cdots
-+a_{n1}N^{n-1}=p(N)\)</span></p>
-<p><span class="math inline">\((2)\)</span> Use Taylor Series to <span
-class="math inline">\(Y=e^{N}=\displaystyle
-\sum_{i=0}^{+\infty}\dfrac{N^{i}}{i!}=\sum_{i=0}^{n-1}\dfrac{N^{i}}{i!}=I+\sum_{i=1}^{n-1}\dfrac{N^{i}}{i!}\)</span></p>
-<p><span class="math inline">\((Y-I)^{k}=\displaystyle
-(\sum_{i=1}^{n-1}\dfrac{N^{i}}{i!})^{k}\)</span> the minimum of <span
-class="math inline">\(N\)</span> is <span
-class="math inline">\(k\)</span>. So for <span
-class="math inline">\(\{Y, Y-I,(Y-I)^{2},
-\ldots,(Y-I)^{n-1}\}\)</span></p>
-<p>the minimum of <span class="math inline">\(N\)</span> is exactly
-$0,1,2,,n-1 $ and each <span class="math inline">\(N^{k}\)</span> is
-obviously independent</p>
-<p>So, they are linearly independent, the dimension of the polynomial of
-<span class="math inline">\(N\)</span> is <span
-class="math inline">\(n\)</span>, which is equal to the number of the
-base, so they span the whole space <span
-class="math inline">\(V\)</span>. Also, <span class="math inline">\(N\in
-V\)</span> and <span class="math inline">\(N\)</span> can be written by
-the combination of the base. Each base is just the polynomial of <span
-class="math inline">\(Y\)</span>. So, <span
-class="math inline">\(N=p(e^{N})\)</span></p>
-<p><span class="math inline">\((3)\)</span> Use Jordan factorization,
-every complex matrix <span class="math inline">\(A\)</span> can be
-divided into <span class="math display">\[
-A=XJX^{-1}
-\]</span> Obviously, one solution is <span
-class="math inline">\(x=N\)</span>, finding complex matrixes <span
-class="math inline">\(A_{I}\)</span> such that <span
-class="math inline">\(e^{A_{I}}=I\)</span> matters.</p>
-<p>And <span
-class="math inline">\(e^{A_{I}}=Xe^{J_{I}}X^{-1}=I\Longrightarrow
-e^{J_{I}}=I\)</span> And if <span
-class="math inline">\(J_{k}=\begin{bmatrix}\lambda&amp;1&amp;0&amp;\cdots&amp;0\\0&amp;\lambda&amp;1&amp;\cdots&amp;0\\0&amp;0&amp;\lambda&amp;\cdots&amp;0\\\vdots&amp;\vdots&amp;\vdots
-&amp;\ddots&amp;1\\0&amp;0&amp;0&amp;\cdots&amp;\lambda\end{bmatrix}\)</span>
-exists in <span class="math inline">\(J_{I}\)</span></p>
-<p>which will produce <span
-class="math inline">\(\dfrac{d^{n}e^{x}}{dx^{n}}\Large|\normalsize
-_{x=\lambda}\neq 0\)</span> as non-diagonal elements, causing
-contradiction.</p>
-<p>So <span class="math inline">\(J_{I}\)</span> is a diagonal matrix
-<span
-class="math inline">\(J_{I}=\mbox{diag}(z_1,z_2\cdots,z_{n})\)</span> So
-<span class="math inline">\(e^{z_i}=1\Longrightarrow z_{i}=2k\pi ,k\in
-\mathbb{Z}\)</span></p>
-<p>Some base soluitions to <span
-class="math inline">\(e^{X}=e^{N}\)</span> are <span
-class="math inline">\(X=N+2\pi\cdot\mbox{diag}(k_1,k_2,\cdots,k_{n}),k_{i}\in
-\mathbb{Z}\)</span></p>
-<p>And if want to add <span class="math inline">\(X\)</span> and <span
-class="math inline">\(X^{-1}\)</span>, because <span
-class="math inline">\(e^{A+B}=e^{A}e^{B}\)</span> needs <span
-class="math inline">\(AB=BA\)</span></p>
-<p><span class="math inline">\(N(XDX^{-1})=(XDX^{-1})N\Longrightarrow
-(X^{-1}NX)D=D(X^{-1}NX)\)</span> if and only if <span
-class="math inline">\(d_{i}=d_{j}\)</span></p>
-<p><span class="math inline">\(N+X\mbox{diag}(2\pi k,2\pi k,\cdots 2\pi
-k)X^{-1},k\in \mathbb{Z}\)</span> Can be added to the solutions</p>
-<p>So one part of the solutions are (can't prove these matrixes contain
-all the solutions) <span class="math display">\[
-\{N+2\pi\mbox{diag}(k_1,k_2,\cdots,k_{n}),k_{i}\in \mathbb{Z}\}\cup
-\{N+2\pi X\mbox{diag}(k,k,\cdots k)X^{-1},k\in \mathbb{Z},\det X\neq 0\}
-\]</span> <span class="math inline">\((4)\)</span> Because of the
-rotation <span class="math inline">\(e^{x+yi}=e^{x+(y+2k\pi)i}\)</span>
-So we can easily know that <span class="math display">\[
-\Large e^{\large
-\begin{pmatrix}0&amp;-2k\pi\\2k\pi&amp;0\end{pmatrix}}\normalsize
-=I_2,k\in \mathbb{Z}
-\]</span> But the 'standard complex' matrix <span
-class="math inline">\(aI+bJ=\begin{pmatrix}a&amp;-b\\b&amp;a\end{pmatrix}\)</span>
-is community. So let's try other matrixes meaning for rotations, which
-gives the <span class="math inline">\(I\)</span> itself. And the answer
-is <strong>Quaternions</strong></p>
-<p>Because of its non-commnuity. Like <span
-class="math inline">\((b_1i+c_1j)(b_2i+c_2j)=-b_1b_2-c_1c_2+(b_1c_2-c_1b_2)k\)</span></p>
-<p><span class="math inline">\(\neq
-(b_2i+c_2j)(b_1i+c_1j)=-b_1b_2-c_1c_2+(b_2c_1-c_2b_1)k\)</span> when
-<span class="math inline">\(b_1c_2\neq b_2c_1\)</span> and <span
-class="math inline">\(e^{2\pi i,j}=I_4\)</span> <span
-class="math display">\[
+\end{gathered}</script><p>So we prove the equality $\left(I_{m}-A B\right)^{-1}=I_{m}+A\left(I_{n}-B A\right)^{-1} B$</p>
+<h2 id="Problem-4-small-mbox-Equations-of-matrixes"><a href="#Problem-4-small-mbox-Equations-of-matrixes" class="headerlink" title="Problem 4$ \small  \mbox{Equations of matrixes}$"></a>Problem 4$ \small  \mbox{Equations of matrixes}$</h2><p>Let $N$ be the $n \times n$ nilpotent Jordan block.</p>
+<p>$(1)$ Show that the solutions to the Sylvester’s equation $N X-X N=0$ are exactly the polynomials of $N$.</p>
+<p>$(2)$ Suppose $Y=\mathrm{e}^{N}$. Show that $Y, Y-I,(Y-I)^{2}, \ldots,(Y-I)^{n-1}$ are linearly independent in the space of matrixes, and they span the space of matrices made of polynomials of $N$. (Consequently, $N$ is a polynomial of $Y$.)</p>
+<p>$(3)$ Find all solutions $X$ to the matrix equation $\mathrm{e}^{X}=\mathrm{e}^{N}$. (Make sure to consider COMPLEX matrixes $X$.)</p>
+<p>$(4)$ Find real matrixes $A, B$ such that $A B \neq B A$ but $\mathrm{e}^{A}=\mathrm{e}^{B}$. (Hint: for complex $1 \times 1$ matrices, try to find $x \neq y \in \mathbb{C}$ such that $\mathrm{e}^{x}=\mathrm{e}^{y}$.)</p>
+<p>$(5)$ Prove that there is no solution $X$ to the equation $\sin (X)=\left[\begin{array}{cc}1 &amp; 1996 \ 0 &amp; 1\end{array}\right]$. (This is a Putnam competition problem. I’m sure you know the year of the competition….)</p>
+<hr>
+<p>(1)$ let $ $N=\left[\begin{array}{lllll}0 &amp; &amp; &amp; &amp; \ 1 &amp; 0 &amp; &amp; 0 &amp; \ &amp; \ddots &amp; \ddots &amp; &amp; \ 0 &amp; &amp; \ddots &amp; \ddots &amp; \ &amp; &amp; &amp; 1 &amp; 0\end{array}\right],X=\left[\begin{array}{cccc}a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1 n} \ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2 n} \ \vdots &amp; \vdots &amp; &amp; \vdots \ a_{n 1} &amp; a_{n 2} &amp; \cdots &amp; a_{n n}\end{array}\right]$</p>
+<p>$NX=\left[\begin{array}{cccc}0&amp;0&amp;\cdots&amp;0\\a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1 n} \ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2 n} \ \vdots &amp; \vdots &amp; &amp; \vdots \ a_{(n-1) 1} &amp; a_{(n-1) 2} &amp; \cdots &amp; a_{(n-1) n}\end{array}\right],XN=\left[\begin{array}{cccc}a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1 (n-1)}&amp;0 \ a_{22} &amp; a_{23} &amp; \cdots &amp; a_{2 (n-1)}&amp;0 \ \vdots &amp; \vdots &amp; &amp; \vdots \ a_{n 2} &amp; a_{n 3} &amp; \cdots &amp; a_{n(n-1) }&amp;0\end{array}\right],$</p>
+<p>some elements of each row are ‘killed’ step by step. like $\{a_{12},a_{13}\cdots,a_{1n}\}$ </p>
+<p>neat  $\{a_{23},a_{24},\cdots ,a_{2n}\},\{a_{34},a_{35},\cdots,a_{3n}\},\cdots,\{a_{(n-1)n}\}$ and $a_{ij}=a_{(i+k)(j+k)}$</p>
+<p>So $X=\left[\begin{array}{cccc}a_{11} &amp; 0 &amp; \cdots &amp; 0 \ a_{21} &amp; a_{11} &amp; \cdots &amp; 0 \ \vdots &amp; \ddots &amp; &amp; \vdots \ a_{n 1}  &amp; \cdots &amp;a_{21}&amp; a_{11}\end{array}\right]=a_{11}I+a_{21}N+a_{31}N^{2}+\cdots +a_{n1}N^{n-1}=p(N)$</p>
+<p>$(2)$ Use Taylor Series to $Y=e^{N}=\displaystyle \sum_{i=0}^{+\infty}\dfrac{N^{i}}{i!}=\sum_{i=0}^{n-1}\dfrac{N^{i}}{i!}=I+\sum_{i=1}^{n-1}\dfrac{N^{i}}{i!}$</p>
+<p>$(Y-I)^{k}=\displaystyle (\sum_{i=1}^{n-1}\dfrac{N^{i}}{i!})^{k}$ the minimum of $N$ is $k$. So for  $\{Y, Y-I,(Y-I)^{2}, \ldots,(Y-I)^{n-1}\}$</p>
+<p> the minimum of $N$ is exactly $0,1,2,\cdots,n-1 $ and each $N^{k}$ is obviously independent</p>
+<p>So, they are linearly independent, the dimension of the polynomial of $N$ is $n$, which is equal to the number of the base, so they span the whole space $V$. Also, $N\in V$ and $N$ can be written by the combination of the base. Each base is just the polynomial of $Y$. So, $N=p(e^{N})$</p>
+<p>$(3)$ Use Jordan factorization, every complex matrix $A$ can be divided into </p>
+<script type="math/tex; mode=display">
+A=XJX^{-1}</script><p>Obviously, one solution is $x=N$, finding complex matrixes $A_{I}$ such that $e^{A_{I}}=I$ matters.</p>
+<p>And $e^{A_{I}}=Xe^{J_{I}}X^{-1}=I\Longrightarrow e^{J_{I}}=I$ And if $J_{k}=\begin{bmatrix}\lambda&amp;1&amp;0&amp;\cdots&amp;0\\0&amp;\lambda&amp;1&amp;\cdots&amp;0\\0&amp;0&amp;\lambda&amp;\cdots&amp;0\\\vdots&amp;\vdots&amp;\vdots &amp;\ddots&amp;1\\0&amp;0&amp;0&amp;\cdots&amp;\lambda\end{bmatrix}$ exists in $J_{I}$</p>
+<p>which will produce $\dfrac{d^{n}e^{x}}{dx^{n}}\Large|\normalsize _{x=\lambda}\neq 0$ as non-diagonal elements, causing contradiction.</p>
+<p>So $J_{I}$ is a diagonal matrix $J_{I}=\mbox{diag}(z_1,z_2\cdots,z_{n})$ So $e^{z_i}=1\Longrightarrow z_{i}=2k\pi ,k\in \mathbb{Z}$ </p>
+<p>Some base soluitions to $e^{X}=e^{N}$ are $X=N+2\pi\cdot\mbox{diag}(k_1,k_2,\cdots,k_{n}),k_{i}\in \mathbb{Z}$</p>
+<p>And if want to add $X$ and $X^{-1}$, because $e^{A+B}=e^{A}e^{B}$ needs $AB=BA$ </p>
+<p>$N(XDX^{-1})=(XDX^{-1})N\Longrightarrow (X^{-1}NX)D=D(X^{-1}NX)$ if and only if $d_{i}=d_{j}$</p>
+<p>$N+X\mbox{diag}(2\pi k,2\pi k,\cdots 2\pi k)X^{-1},k\in \mathbb{Z}$ Can be added to the solutions</p>
+<p>So one part of the solutions are (can’t prove these matrixes contain all the solutions)</p>
+<script type="math/tex; mode=display">
+\{N+2\pi\mbox{diag}(k_1,k_2,\cdots,k_{n}),k_{i}\in \mathbb{Z}\}\cup \{N+2\pi X\mbox{diag}(k,k,\cdots k)X^{-1},k\in \mathbb{Z},\det X\neq 0\}</script><p>$(4)$ Because of the rotation $e^{x+yi}=e^{x+(y+2k\pi)i}$ So we can easily know that </p>
+<script type="math/tex; mode=display">
+\Large e^{\large \begin{pmatrix}0&-2k\pi\\2k\pi&0\end{pmatrix}}\normalsize =I_2,k\in \mathbb{Z}</script><p>But the ‘standard complex’ matrix $aI+bJ=\begin{pmatrix}a&amp;-b\\b&amp;a\end{pmatrix}$ is community. So let’s try other matrixes meaning for rotations, which gives the $I$ itself. And the answer is <strong>Quaternions</strong></p>
+<p>Because of its non-commnuity. Like $(b_1i+c_1j)(b_2i+c_2j)=-b_1b_2-c_1c_2+(b_1c_2-c_1b_2)k$</p>
+<p>$\neq (b_2i+c_2j)(b_1i+c_1j)=-b_1b_2-c_1c_2+(b_2c_1-c_2b_1)k$ when $b_1c_2\neq b_2c_1$ and $e^{2\pi i,j}=I_4$</p>
+<script type="math/tex; mode=display">
 \begin{gathered}
-A=2\pi i=\begin{pmatrix}0&amp;-2\pi&amp;0&amp;0\\2\pi
-&amp;0&amp;0&amp;0\\0&amp;0&amp;0&amp;-2\pi\\0&amp;0&amp;2\pi&amp;0\end{pmatrix},B=2\pi
-j=\begin{pmatrix}0&amp;0&amp;-2\pi&amp;0\\0&amp;0&amp;0&amp;2\pi\\2\pi&amp;0&amp;0&amp;0\\0&amp;-2\pi&amp;0&amp;0\end{pmatrix}\\
-AB=4\pi^2\begin{pmatrix}0&amp;0&amp;0&amp;-1\\0&amp;0&amp;-1&amp;0\\0&amp;1&amp;0&amp;0\\1&amp;0&amp;0&amp;0\end{pmatrix}\neq
-BA=4\pi^2\begin{pmatrix}0&amp;0&amp;0&amp;1\\0&amp;0&amp;1&amp;0\\0&amp;-1&amp;0&amp;0\\-1&amp;0&amp;0&amp;0\end{pmatrix}\\
-\mbox{But}\ \ \
-e^{A}=e^{B}=\begin{pmatrix}1&amp;0&amp;0&amp;0\\0&amp;1&amp;0&amp;0\\0&amp;0&amp;1&amp;0\\0&amp;0&amp;0&amp;1\end{pmatrix}=I_4
-\end{gathered}
-\]</span></p>
-<p><span class="math inline">\((5)\)</span> Since <span
-class="math inline">\(f(x)=\sin x,g(x)=\cos x\)</span> are all matrix
-functions, and <span class="math inline">\(f(x)^2+g(x)^2=1\)</span> is
-right</p>
-<p>So <span class="math inline">\(\sin^2X+\cos ^2X=I\)</span> substitute
-<span class="math inline">\(\sin X=\left[\begin{array}{cc}1 &amp; 1996
-\\ 0 &amp; 1\end{array}\right]\)</span> we can get <span
-class="math inline">\(\cos^2 X=\left[\begin{array}{cc}0 &amp; -3992 \\ 0
-&amp; 0\end{array}\right]\)</span></p>
-<p>That is to say <span class="math inline">\(Y=\cos X\)</span> is
-nilpotent <span class="math inline">\(Y^{4}=O\)</span>. However, the
-matrix is $2 $. <span class="math inline">\(Y^{2}\)</span> must be <span
-class="math inline">\(O\)</span> ,</p>
-<p>which causes contradiction.</p>
-<h2 id="problem-5-small-mboxnewtons-method">Problem 5<span
-class="math inline">\(\ \small \mbox{Newton&#39;s Method}\)</span></h2>
-<p>As we have seen in class, <span
-class="math inline">\(\operatorname{sign}(X)\)</span> is useful to solve
-certain Sylvester's equations. Here we aim to find a way an
-approximation to <span
-class="math inline">\(\operatorname{sign}(X)\)</span>. Given a matrix
-<span class="math inline">\(A\)</span> with no purely imaginary
-eigenvalue, set <span class="math inline">\(X_{0}=A\)</span>, and set
-<span
-class="math inline">\(X_{n+1}=\dfrac{1}{2}\left(X_{n}+X_{n}^{-1}\right)\)</span>.
-(As a side note, a complex number <span class="math inline">\(z\)</span>
-is purely imaginary if its real part is zero. In particular, 0 is a
-purely imaginary number as well. So, if a matrix has no purely imaginary
-eigenvalue, then it is invertible.)</p>
-<p><span class="math inline">\((1)\)</span> Show that if <span
-class="math inline">\(X_{n}\)</span> has no purely imaginary eigenvalue,
-then <span class="math inline">\(X_{n+1}\)</span> has no purely
-imaginary eigenvalue. (So our inductive definition makes sense.)</p>
-<p><span class="math inline">\((2)\)</span> If <span
-class="math inline">\(A\)</span> is <span class="math inline">\(1 \times
-1\)</span>, and it is not purely imaginary, show that <span
-class="math inline">\(X_{n}\)</span> indeed coverge to sign <span
-class="math inline">\((A)\)</span>. (This question has little to do with
-linear algebra...) (Hint: <span
-class="math inline">\(\dfrac{f(x)-1}{f(x)+1}=\left(\dfrac{x-1}{x+1}\right)^{2}\)</span>
-where <span
-class="math inline">\(f(x)=\dfrac{1}{2}\left(x+\dfrac{1}{x}\right)\)</span>.</p>
-<p><span class="math inline">\((3)\)</span> If <span
-class="math inline">\(A\)</span> is diagonalizable and has no purely
-imaginary eigenvalue, show that <span
-class="math inline">\(X_{n}\)</span> indeed coverge to sign <span
-class="math inline">\((A)\)</span>. (Not part of this problem. But
-diagonalizable matrices are dense, so you can imagine that this is true
-in general.)</p>
-<p><span class="math inline">\((4)\)</span> Suppose <span
-class="math inline">\(A\)</span> is an <span class="math inline">\(n
-\times n\)</span> Jordan block with eigenvalue <span
-class="math inline">\(1\)</span>. Show that <span
-class="math inline">\(X_{n-1}=I\)</span>.</p>
-<hr />
-<p><span class="math inline">\((1)\)</span> Use Jordan block <span
-class="math inline">\(X_{n}=XJX^{-1}\)</span> <span
-class="math display">\[
-J=\begin{pmatrix}J_{1}\\&amp;\ddots\\&amp;&amp;J_{n}\end{pmatrix},J_{i}=\begin{bmatrix}\lambda_i&amp;1&amp;0&amp;\cdots&amp;0\\0&amp;\lambda_i&amp;1&amp;\cdots&amp;0\\0&amp;0&amp;\lambda_i&amp;\ddots&amp;0\\\vdots&amp;\vdots&amp;\vdots
-&amp;\ddots&amp;1\\0&amp;0&amp;0&amp;\cdots&amp;\lambda_i\end{bmatrix}
-\]</span> And <span class="math inline">\(\mathbf{Re}(\lambda_{i})\neq
-0\)</span> So <span
-class="math inline">\(X_n^{-1}=XJ^{-1}X^{-1}=X\begin{bmatrix}\lambda_i^{-1}&amp;a_1&amp;a_2&amp;\cdots&amp;a_{n-1}\\0&amp;\lambda_i^{-1}&amp;a_1&amp;\cdots&amp;a_{n-2}\\0&amp;0&amp;\lambda_i^{-1}&amp;\cdots&amp;a_{n-3}\\\vdots&amp;\vdots&amp;\vdots
-&amp;\ddots&amp;a_1\\0&amp;0&amp;0&amp;\cdots&amp;\lambda_i^{-1}\end{bmatrix}X^{-1}\)</span></p>
-<p>and <span
-class="math inline">\(\dfrac{X_n+X_n^{-1}}{2}=\dfrac{1}{2}X\begin{bmatrix}\lambda_i+\lambda_i^{-1}&amp;1+a_1&amp;a_2&amp;\cdots&amp;a_{n-1}\\0&amp;\lambda_i+\lambda_i^{-1}&amp;1+a_1&amp;\cdots&amp;a_{n-2}\\0&amp;0&amp;\lambda_i+\lambda_i^{-1}&amp;\cdots&amp;a_{n-3}\\\vdots&amp;\vdots&amp;\vdots
-&amp;\ddots&amp;1+a_1\\0&amp;0&amp;0&amp;\cdots&amp;\lambda_i+\lambda_i^{-1}\end{bmatrix}X^{-1}\)</span></p>
-<p>So the eigenvalue of <span class="math inline">\(X_{n+1}\)</span> is
-<span
-class="math inline">\(\lambda_i+\lambda_{i}^{-1}=(x_i+y_i)+\dfrac{1}{x_i+y_i}\)</span>
-its real part is <span class="math display">\[
-x_i+\dfrac{x_i}{x_i^2+y_i^2}=x_i(1+\dfrac{1}{x_i^2+y_i^2})\neq 0
-\]</span> So <span class="math inline">\(X_{n+1}\)</span> has no purely
-imaginary eigenvalue</p>
-<p><span class="math inline">\((2)\)</span> set <span
-class="math inline">\(f(x)=\dfrac{1}{2}(x+\dfrac{1}{x})\)</span> We have
-recursion formula <span
-class="math inline">\(\dfrac{f(x)-1}{f(x)+1}=\left(\dfrac{x-1}{x+1}\right)^{2}\)</span></p>
-<p><span class="math inline">\(A = x+yi\)</span> if <span
-class="math inline">\(\mathbf{Re}(A)=x&gt;0\)</span> So set <span
-class="math inline">\(a_n=\dfrac{X_{n}-1}{X_{n}+1}\)</span> it will be
-<span class="math inline">\(a_n=a_{n-1}^{2}\)</span></p>
-<p>By induction we can easily get <span
-class="math inline">\(a_n=a_1^{2^{n-1}}=(\dfrac{x-1+yi}{x+1+yi})^{2^{n}}\)</span>
-and the length of <span
-class="math inline">\(\dfrac{x-1+yi}{x+1+yi}\)</span></p>
-<p>is <span
-class="math inline">\(\sqrt{\dfrac{(x-1)^{2}+y^2}{(x+1)^2+y^2}}=\sqrt{1-\dfrac{4x}{(x+1)^2+y^2}}&lt;1\)</span>
-so let $n+$ <span class="math inline">\(\lim\limits_{n\to
-+\infty}a_n=0\)</span> <span class="math inline">\(X_{+\infty}\to
-1\)</span></p>
-<p>And if <span class="math inline">\(x&lt;0\)</span>, find a new path
-<span class="math inline">\(b_n=\dfrac{X_n+1}{X_n-1}\)</span>, also
-satisfy <span class="math inline">\(b_{n+1}=b_{n}^2\)</span> And the
-length</p>
-<p><span
-class="math inline">\(|\dfrac{x+1+yi}{x-1+yi}|=\sqrt{1+\dfrac{4x}{(x-1)^{2}+y^2}}&lt;1\)</span>
-so let <span class="math inline">\(n\to +\infty\)</span> <span
-class="math inline">\(\lim\limits_{n\to +\infty}a_n=0,X_{+\infty }\to
--1\)</span></p>
-<p>In conclusion, <span class="math inline">\(\lim\limits_{n\to
-+\infty}X_n=\begin{cases}1&amp;\mathbf{Re}(A)&gt;0\\-1&amp;\mathbf{Re}(A)&lt;0\end{cases}=\mbox{sign(A)}\)</span></p>
-<p><span class="math inline">\((3)\)</span> Actually, for every Jordan
-block <span
-class="math inline">\(J_{i}=\begin{bmatrix}\lambda_i&amp;1&amp;0&amp;\cdots&amp;0\\0&amp;\lambda_i&amp;1&amp;\cdots&amp;0\\0&amp;0&amp;\lambda_i&amp;\ddots&amp;0\\\vdots&amp;\vdots&amp;\vdots
-&amp;\ddots&amp;1\\0&amp;0&amp;0&amp;\cdots&amp;\lambda_i\end{bmatrix}\)</span>
-the diagonal elements</p>
-<p>stay the sequence transformation. <span
-class="math inline">\(\lambda_{i(n+1)}=\dfrac{1}{2}(\lambda_{in}+\lambda_{in}^{-1})\)</span>
-According to the <span class="math inline">\(\small (2)\)</span>
-question</p>
-<p><span class="math inline">\(\lim\limits_{n\to
-+\infty}\lambda_{in}=\mbox{sign}(\lambda_{i})\)</span> So the diagonal
-elements of <span class="math inline">\(\lim\limits_{n\to
-+\infty}X_{n}\)</span> are <span
-class="math inline">\(\mbox{sign}(\lambda_i)\)</span> Just consider
-<span class="math inline">\(\lambda_i&gt;0\)</span></p>
-<p>Then <span class="math inline">\(\mbox{sign}(\lambda_i)=1\)</span> So
-<span class="math inline">\(\lim\limits_{n\to
-+\infty}X_n=I+\displaystyle \sum_{i=1}^{n-1}b_i(J-\lambda
-I)^{i}\)</span> Take the limit for the original equation <span
-class="math inline">\(X_{n+1}=\dfrac{1}{2}\left(X_{n}+X_{n}^{-1}\right)\Longrightarrow
-I+\displaystyle \sum_{i=1}^{n-1}b_i(J-\lambda
-I)^{i}=\dfrac{1}{2}(I+\displaystyle \sum_{i=1}^{n-1}b_i(J-\lambda
-I)^{i}+(I+\displaystyle \sum_{i=1}^{n-1}b_i(J-\lambda
-I)^{i})^{-1})\)</span></p>
-<p>So <span class="math inline">\((I+\displaystyle
-\sum_{i=1}^{n-1}b_i(J-\lambda I)^{i})^{2}=I\)</span> then <span
-class="math inline">\(\displaystyle \sum_{i=1}^{n-1}(b_i^2(J-\lambda
-I)^{2i}+2b_i(J-\lambda I)^{i})=O\)</span></p>
-<p>We have proved that <span
-class="math inline">\(J,J-I,(J-I)^2,\cdots,(J-I)^{n-1}\)</span> are
-linearly independent</p>
-<p>So <span class="math inline">\(b_1=b_3=\cdots=b_{2j+1}=0\)</span> and
-<span class="math inline">\(b_1^2+2b_2=0\Longrightarrow
-b_2=0,\cdots,b_{j}^{2}+2b_{2j}=0\)</span></p>
-<p>For every even <span
-class="math inline">\(b_{\small\mbox{even}}=2^{n}\cdot c\)</span> where
-<span class="math inline">\(c\in \mbox{odd}\)</span> So <span
-class="math inline">\(b_{\small\mbox{even}}\)</span> will ultimately
-went to <span class="math inline">\(0\)</span>. So</p>
-<p><span class="math inline">\(\lim\limits_{n\to
-+\infty}X_{n}=I=\mbox{sign}(A)\)</span> when <span
-class="math inline">\(\lambda_i&lt;0\)</span> that is the same.</p>
-<p>Every matrix can be transformed into Jordan block and every Jordan
-block is right</p>
-<p>So the algorithm of <span
-class="math inline">\(X_{n+1}=\dfrac{1}{2}(X_n+X_{n}^{-1})\)</span> can
-give <span class="math inline">\(\mbox{sign}(A)\)</span> if <span
-class="math inline">\(A\)</span> has no purely eigenvalues</p>
-<p>And also, solving the equation <span
-class="math inline">\(AX+XB=C\)</span> by calculating <span
-class="math inline">\(\mbox{sign}\begin{pmatrix}A&amp;-C\\O&amp;B\end{pmatrix}\)</span>
-can be done</p>
-<p><span class="math inline">\((4)\)</span> <span
-class="math inline">\(A=I+J,J=\begin{bmatrix}0&amp;1&amp;0&amp;\cdots&amp;0\\0&amp;0&amp;1&amp;\cdots&amp;0\\0&amp;0&amp;0&amp;\ddots&amp;0\\\vdots&amp;\vdots&amp;\vdots
-&amp;\ddots&amp;1\\0&amp;0&amp;0&amp;\cdots&amp;0\end{bmatrix}\)</span>
-use Taylor series and note that <span
-class="math inline">\(J^{n}=O\)</span></p>
-<p><span
-class="math inline">\(X_0=I+J,X_1=\dfrac{1}{2}(I+J+(I+J)^{-1})=\dfrac{1}{2}(I+J+(I-J+J^2+\cdots+(-1)^{n-1}J^{n-1}))\)</span></p>
-<p><span class="math inline">\(=I+\dfrac{1}{2}J^2+\cdots\)</span> every
-step at least 'kill's the 'smallest one'. If after <span
-class="math inline">\(k\)</span> steps the result is <span
-class="math inline">\(X_{k}=I+a_{k+1}J^{k+1}+\cdots+a_{n-1}J^{n-1}\)</span>,
-then <span
-class="math inline">\(X_{k+1}=\dfrac{1}{2}(X_k+X_k^{-1})\)</span></p>
-<p><span
-class="math inline">\(=\dfrac{1}{2}((I+a_{k+1}J^{k+1}+\cdots+a_{n-1}J^{n-1})+(I+a_{k+1}J^{k+1}+\cdots+a_{n-1}J^{n-1})^{-1})\)</span></p>
-<p>the coefficient of <span class="math inline">\(J^{k+1}\)</span> is
-eliminated. By induction, <span
-class="math inline">\(X_{n-1}=I+a_nJ^{n}+\cdots=I\)</span></p>
-<h2 id="problem-6-small-mboxreal-möbius-transformations">Problem 6<span
-class="math inline">\(\ \small \mbox{Real Möbius
-transformations}\)</span></h2>
-<p>A Möbius transformation is a function <span class="math inline">\(f:
-x \mapsto \dfrac{a x+b}{c x+d}\)</span>. For example, scaling <span
-class="math inline">\(x \mapsto 2 x\)</span>, addition <span
-class="math inline">\(x \mapsto x+1\)</span>, inversion <span
-class="math inline">\(x \mapsto \dfrac{1}{x}\)</span> are all Mobius
-transformations. We may further define <span
-class="math inline">\(f(\infty)=\dfrac{a}{c}\)</span> and <span
-class="math inline">\(f\left(-\dfrac{d}{c}\right)=\infty\)</span>, as
-you can tell by taking limits. So Möbius transformations are actiong on
-the space <span class="math inline">\(\mathbb{R}
-\cup\{\infty\}\)</span>. In some sense, you are imagining the real line
-where <span class="math inline">\(\infty\)</span> and <span
-class="math inline">\(-\infty\)</span> are treated as the same thing
-(i.e., they are glued together), and you see that <span
-class="math inline">\(\mathbb{R} \cup\{\infty\}\)</span> is in fact a
-big circle. (You can skip these materials in this parenthesis. They are
-irrelavant but maybe of interest: geometrically, consider the circle
-<span class="math inline">\(C\)</span> on the xy-plane with center <span
-class="math inline">\((0,1 / 2)\)</span> and radius <span
-class="math inline">\(1 / 2\)</span>. Then imagine that the point <span
-class="math inline">\((0,1)\)</span> on the circle has a ray gun
-attached. For each point of the circle, the ray gun can shoot that
-point, and then go through it and intersect with the <span
-class="math inline">\(x\)</span>-axis somewhere. This would give a
-1-to-1 correspondence betwee the real line <span
-class="math inline">\(\mathbb{R}\)</span> and <span
-class="math inline">\(C-\{(0,1)\}\)</span>. Now think of <span
-class="math inline">\(\infty\)</span> as the point <span
-class="math inline">\((0,1)\)</span>, and you have thus build a 1-to-1
-correspondence bwteen <span class="math inline">\(\mathbb{R}
-\cup\{\infty\}\)</span> and the circle <span
-class="math inline">\(C\)</span>. The Möbius transformations act on
-<span class="math inline">\(\mathbb{R} \cup\{\infty\}\)</span>, so under
-this correspondence you can imagine them as acting on the circle <span
-class="math inline">\(C\)</span>. They usually stretch some portions of
-<span class="math inline">\(C\)</span> while shrinking some other
-portions. This corresponds to looking at this circle from various
-perspectives. For example, if you look at the circle from the left, then
-since the left portion of the circle is closer to your eyes, it appears
-to be larger, while the right portion of the circle appears to be
-smaller as it is further away from your eyes. For a more concrete
-example, consider <span class="math inline">\(x \mapsto 2 x\)</span>.
-This means you are moving your perspective to be closer to <span
-class="math inline">\((0,0)\)</span> on the circle, so that points near
-<span class="math inline">\((0,0)\)</span> are more spread out. Everyone
-is now repelled away from the origin and attracted towards the infinity
-point <span class="math inline">\((0,1)\)</span>.)</p>
+A=2\pi i=\begin{pmatrix}0&-2\pi&0&0\\2\pi &0&0&0\\0&0&0&-2\pi\\0&0&2\pi&0\end{pmatrix},B=2\pi j=\begin{pmatrix}0&0&-2\pi&0\\0&0&0&2\pi\\2\pi&0&0&0\\0&-2\pi&0&0\end{pmatrix}\\
+AB=4\pi^2\begin{pmatrix}0&0&0&-1\\0&0&-1&0\\0&1&0&0\\1&0&0&0\end{pmatrix}\neq BA=4\pi^2\begin{pmatrix}0&0&0&1\\0&0&1&0\\0&-1&0&0\\-1&0&0&0\end{pmatrix}\\
+\mbox{But}\ \ \ e^{A}=e^{B}=\begin{pmatrix}1&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1\end{pmatrix}=I_4
+\end{gathered}</script><p>$(5)$ Since $f(x)=\sin x,g(x)=\cos x$ are all matrix functions, and $f(x)^2+g(x)^2=1$ is right</p>
+<p>So $\sin^2X+\cos ^2X=I$ substitute $\sin X=\left[\begin{array}{cc}1 &amp; 1996 \ 0 &amp; 1\end{array}\right]$ we can get $\cos^2 X=\left[\begin{array}{cc}0 &amp; -3992 \ 0 &amp; 0\end{array}\right]$</p>
+<p>That is to say $Y=\cos X$ is nilpotent $Y^{4}=O$. However, the matrix is $2\times 2 $. $Y^{2}$ must be $O$ ,</p>
+<p>which causes contradiction. </p>
+<h2 id="Problem-5-small-mbox-Newton’s-Method"><a href="#Problem-5-small-mbox-Newton’s-Method" class="headerlink" title="Problem 5$ \small  \mbox{Newton’s Method}$"></a>Problem 5$ \small  \mbox{Newton’s Method}$</h2><p>As we have seen in class, $\operatorname{sign}(X)$ is useful to solve certain Sylvester’s equations. Here we aim to find a way an approximation to $\operatorname{sign}(X)$. Given a matrix $A$ with no purely imaginary eigenvalue, set $X_{0}=A$, and set $X_{n+1}=\dfrac{1}{2}\left(X_{n}+X_{n}^{-1}\right)$. (As a side note, a complex number $z$ is purely imaginary if its real part is zero. In particular, 0 is a purely imaginary number as well. So, if a matrix has no purely imaginary eigenvalue, then it is invertible.)</p>
+<p>$(1)$ Show that if $X_{n}$ has no purely imaginary eigenvalue, then $X_{n+1}$ has no purely imaginary eigenvalue. (So our inductive definition makes sense.)</p>
+<p>$(2)$ If $A$ is $1 \times 1$, and it is not purely imaginary, show that $X_{n}$ indeed coverge to sign $(A)$. (This question has little to do with linear algebra…) (Hint: $\dfrac{f(x)-1}{f(x)+1}=\left(\dfrac{x-1}{x+1}\right)^{2}$ where $f(x)=\dfrac{1}{2}\left(x+\dfrac{1}{x}\right)$.</p>
+<p>$(3)$ If $A$ is diagonalizable and has no purely imaginary eigenvalue, show that $X_{n}$ indeed coverge to sign $(A)$. (Not part of this problem. But diagonalizable matrices are dense, so you can imagine that this is true in general.)</p>
+<p>$(4)$ Suppose $A$ is an $n \times n$ Jordan block with eigenvalue $1$. Show that $X_{n-1}=I$.</p>
+<hr>
+<p>$(1)$ Use Jordan block $X_{n}=XJX^{-1}$</p>
+<script type="math/tex; mode=display">
+J=\begin{pmatrix}J_{1}\\&\ddots\\&&J_{n}\end{pmatrix},J_{i}=\begin{bmatrix}\lambda_i&1&0&\cdots&0\\0&\lambda_i&1&\cdots&0\\0&0&\lambda_i&\ddots&0\\\vdots&\vdots&\vdots &\ddots&1\\0&0&0&\cdots&\lambda_i\end{bmatrix}</script><p>And $\mathbf{Re}(\lambda_{i})\neq 0$ So $X_n^{-1}=XJ^{-1}X^{-1}=X\begin{bmatrix}\lambda_i^{-1}&amp;a_1&amp;a_2&amp;\cdots&amp;a_{n-1}\\0&amp;\lambda_i^{-1}&amp;a_1&amp;\cdots&amp;a_{n-2}\\0&amp;0&amp;\lambda_i^{-1}&amp;\cdots&amp;a_{n-3}\\\vdots&amp;\vdots&amp;\vdots &amp;\ddots&amp;a_1\\0&amp;0&amp;0&amp;\cdots&amp;\lambda_i^{-1}\end{bmatrix}X^{-1}$</p>
+<p>and $\dfrac{X_n+X_n^{-1}}{2}=\dfrac{1}{2}X\begin{bmatrix}\lambda_i+\lambda_i^{-1}&amp;1+a_1&amp;a_2&amp;\cdots&amp;a_{n-1}\\0&amp;\lambda_i+\lambda_i^{-1}&amp;1+a_1&amp;\cdots&amp;a_{n-2}\\0&amp;0&amp;\lambda_i+\lambda_i^{-1}&amp;\cdots&amp;a_{n-3}\\\vdots&amp;\vdots&amp;\vdots &amp;\ddots&amp;1+a_1\\0&amp;0&amp;0&amp;\cdots&amp;\lambda_i+\lambda_i^{-1}\end{bmatrix}X^{-1}$</p>
+<p>So the eigenvalue of $X_{n+1}$ is $\lambda_i+\lambda_{i}^{-1}=(x_i+y_i)+\dfrac{1}{x_i+y_i}$ its real part is </p>
+<script type="math/tex; mode=display">
+x_i+\dfrac{x_i}{x_i^2+y_i^2}=x_i(1+\dfrac{1}{x_i^2+y_i^2})\neq 0</script><p>So $X_{n+1}$ has no purely imaginary eigenvalue</p>
+<p>$(2)$ set $f(x)=\dfrac{1}{2}(x+\dfrac{1}{x})$ We have recursion formula $\dfrac{f(x)-1}{f(x)+1}=\left(\dfrac{x-1}{x+1}\right)^{2}$</p>
+<p>$A = x+yi$ if $\mathbf{Re}(A)=x&gt;0$ So set $a_n=\dfrac{X_{n}-1}{X_{n}+1}$ it will be $a_n=a_{n-1}^{2}$ </p>
+<p>By induction we can easily get $a_n=a_1^{2^{n-1}}=(\dfrac{x-1+yi}{x+1+yi})^{2^{n}}$ and the length of $\dfrac{x-1+yi}{x+1+yi}$ </p>
+<p>is $\sqrt{\dfrac{(x-1)^{2}+y^2}{(x+1)^2+y^2}}=\sqrt{1-\dfrac{4x}{(x+1)^2+y^2}}&lt;1$ so let $n\to +\infty $ $\lim\limits_{n\to +\infty}a_n=0$ $X_{+\infty}\to 1$</p>
+<p>And if $x&lt;0$, find a new path $b_n=\dfrac{X_n+1}{X_n-1}$, also satisfy $b_{n+1}=b_{n}^2$ And the length</p>
+<p>$|\dfrac{x+1+yi}{x-1+yi}|=\sqrt{1+\dfrac{4x}{(x-1)^{2}+y^2}}&lt;1$ so let $n\to +\infty$ $\lim\limits_{n\to +\infty}a_n=0,X_{+\infty }\to -1$</p>
+<p>In conclusion,  $\lim\limits_{n\to +\infty}X_n=\begin{cases}1&amp;\mathbf{Re}(A)&gt;0\-1&amp;\mathbf{Re}(A)&lt;0\end{cases}=\mbox{sign(A)}$</p>
+<p>$(3)$ Actually, for every Jordan block $J_{i}=\begin{bmatrix}\lambda_i&amp;1&amp;0&amp;\cdots&amp;0\\0&amp;\lambda_i&amp;1&amp;\cdots&amp;0\\0&amp;0&amp;\lambda_i&amp;\ddots&amp;0\\\vdots&amp;\vdots&amp;\vdots &amp;\ddots&amp;1\\0&amp;0&amp;0&amp;\cdots&amp;\lambda_i\end{bmatrix}$ the diagonal elements</p>
+<p>stay the sequence transformation. $\lambda_{i(n+1)}=\dfrac{1}{2}(\lambda_{in}+\lambda_{in}^{-1})$ According to the $\small (2)$ question</p>
+<p>$\lim\limits_{n\to +\infty}\lambda_{in}=\mbox{sign}(\lambda_{i})$ So the diagonal elements of $\lim\limits_{n\to +\infty}X_{n}$ are $\mbox{sign}(\lambda_i)$ Just consider $\lambda_i&gt;0$</p>
+<p>Then $\mbox{sign}(\lambda_i)=1$ So $\lim\limits_{n\to +\infty}X_n=I+\displaystyle \sum_{i=1}^{n-1}b_i(J-\lambda I)^{i}$ Take the limit for the original equation $X_{n+1}=\dfrac{1}{2}\left(X_{n}+X_{n}^{-1}\right)\Longrightarrow I+\displaystyle \sum_{i=1}^{n-1}b_i(J-\lambda I)^{i}=\dfrac{1}{2}(I+\displaystyle \sum_{i=1}^{n-1}b_i(J-\lambda I)^{i}+(I+\displaystyle \sum_{i=1}^{n-1}b_i(J-\lambda I)^{i})^{-1})$</p>
+<p>So $(I+\displaystyle \sum_{i=1}^{n-1}b_i(J-\lambda I)^{i})^{2}=I$ then $\displaystyle \sum_{i=1}^{n-1}(b_i^2(J-\lambda I)^{2i}+2b_i(J-\lambda I)^{i})=O$</p>
+<p>We have proved that $J,J-I,(J-I)^2,\cdots,(J-I)^{n-1}$ are linearly independent</p>
+<p>So $b_1=b_3=\cdots=b_{2j+1}=0$ and $b_1^2+2b_2=0\Longrightarrow b_2=0,\cdots,b_{j}^{2}+2b_{2j}=0$</p>
+<p>For every even $b_{\small\mbox{even}}=2^{n}\cdot c$ where $c\in \mbox{odd}$ So $b_{\small\mbox{even}}$ will ultimately went to $0$. So </p>
+<p>$\lim\limits_{n\to +\infty}X_{n}=I=\mbox{sign}(A)$ when $\lambda_i&lt;0$ that is the same. </p>
+<p>Every matrix can be transformed into Jordan block and every Jordan block is right</p>
+<p>So the algorithm of $X_{n+1}=\dfrac{1}{2}(X_n+X_{n}^{-1})$ can give $\mbox{sign}(A)$ if $A$ has no purely eigenvalues</p>
+<p>And also, solving the equation $AX+XB=C$ by calculating $\mbox{sign}\begin{pmatrix}A&amp;-C\\O&amp;B\end{pmatrix}$ can be done</p>
+<p>$(4)$ $A=I+J,J=\begin{bmatrix}0&amp;1&amp;0&amp;\cdots&amp;0\\0&amp;0&amp;1&amp;\cdots&amp;0\\0&amp;0&amp;0&amp;\ddots&amp;0\\\vdots&amp;\vdots&amp;\vdots &amp;\ddots&amp;1\\0&amp;0&amp;0&amp;\cdots&amp;0\end{bmatrix}$ use Taylor series and note that $J^{n}=O$</p>
+<p>$X_0=I+J,X_1=\dfrac{1}{2}(I+J+(I+J)^{-1})=\dfrac{1}{2}(I+J+(I-J+J^2+\cdots+(-1)^{n-1}J^{n-1}))$</p>
+<p>$=I+\dfrac{1}{2}J^2+\cdots$ every step at least ‘kill’s the ‘smallest one’. If after $k$ steps the result is $X_{k}=I+a_{k+1}J^{k+1}+\cdots+a_{n-1}J^{n-1}$, then $X_{k+1}=\dfrac{1}{2}(X_k+X_k^{-1})$</p>
+<p>$=\dfrac{1}{2}((I+a_{k+1}J^{k+1}+\cdots+a_{n-1}J^{n-1})+(I+a_{k+1}J^{k+1}+\cdots+a_{n-1}J^{n-1})^{-1})$ </p>
+<p>the coefficient of $J^{k+1}$ is eliminated. By induction, $X_{n-1}=I+a_nJ^{n}+\cdots=I$</p>
+<h2 id="Problem-6-small-mbox-Real-Mobius-transformations"><a href="#Problem-6-small-mbox-Real-Mobius-transformations" class="headerlink" title="Problem 6$ \small  \mbox{Real Möbius transformations}$"></a>Problem 6$ \small  \mbox{Real Möbius transformations}$</h2><p>A Möbius transformation is a function $f: x \mapsto \dfrac{a x+b}{c x+d}$. For example, scaling $x \mapsto 2 x$, addition $x \mapsto x+1$, inversion $x \mapsto \dfrac{1}{x}$ are all Mobius transformations. We may further define $f(\infty)=\dfrac{a}{c}$ and $f\left(-\dfrac{d}{c}\right)=\infty$, as you can tell by taking limits. So Möbius transformations are actiong on the space $\mathbb{R} \cup\{\infty\}$. In some sense, you are imagining the real line where $\infty$ and $-\infty$ are treated as the same thing (i.e., they are glued together), and you see that $\mathbb{R} \cup\{\infty\}$ is in fact a big circle.<br>(You can skip these materials in this parenthesis. They are irrelavant but maybe of interest: geometrically, consider the circle $C$ on the xy-plane with center $(0,1 / 2)$ and radius $1 / 2$. Then imagine that the point $(0,1)$ on the circle has a ray gun attached. For each point of the circle, the ray gun can shoot that point, and then go through it and intersect with the $x$-axis somewhere. This would give a 1-to-1 correspondence betwee the real line $\mathbb{R}$ and $C-\{(0,1)\}$. Now think of $\infty$ as the point $(0,1)$, and you have thus build a 1-to-1 correspondence bwteen $\mathbb{R} \cup\{\infty\}$ and the circle $C$. The Möbius transformations act on $\mathbb{R} \cup\{\infty\}$, so under this correspondence you can imagine them as acting on the circle $C$. They usually stretch some portions of $C$ while shrinking some other portions. This corresponds to looking at this circle from various perspectives. For example, if you look at the circle from the left, then since the left portion of the circle is closer to your eyes, it appears to be larger, while the right portion of the circle appears to be smaller as it is further away from your eyes. For a more concrete example, consider $x \mapsto 2 x$. This means you are moving your perspective to be closer to $(0,0)$ on the circle, so that points near $(0,0)$ are more spread out. Everyone is now repelled away from the origin and attracted towards the infinity point $(0,1)$.)</p>
 <p><img src="https://pic.imgdb.cn/item/62610514239250f7c5e6c98c.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
-<p>For any 2 by 2 invertible real matrix <span
-class="math inline">\(A=\left[\begin{array}{ll}a &amp; b \\ c &amp;
-d\end{array}\right]\)</span>, we can build a corresponding Möbius
-transformation <span class="math inline">\(f_{A}: \mathbb{R}
-\cup\{\infty\} \rightarrow \mathbb{R} \cup\{\infty\}\)</span> such that
-<span class="math inline">\(f_{A}(x)=\dfrac{a x+b}{c x+d}\)</span>.
-Obviously all Möbius transformation arises in this way.</p>
-<p><span class="math inline">\((1)\)</span> Show that <span
-class="math inline">\(f_{A} \circ f_{B}=f_{A B}\)</span> for any <span
-class="math inline">\(A, B\)</span>. In particular, if we simply write
-<span class="math inline">\(A\)</span> to represent the function <span
-class="math inline">\(f_{A}\)</span>, then the composition of <span
-class="math inline">\(A\)</span> and <span
-class="math inline">\(B\)</span> is the same as the matrix
-multiplication of <span class="math inline">\(A\)</span> and <span
-class="math inline">\(B\)</span>. (You may also check <span
-class="math inline">\(f_{A^{-1}}\)</span> is the inverse function of
-<span class="math inline">\(f_{A}\)</span> and so on. This is not
-required though.)</p>
-<p><span class="math inline">\((2)\)</span> Show that for any <span
-class="math inline">\(k \in \mathbb{R}-\{0\}, f_{A}=f_{k A}\)</span>.
-And conversely, if <span class="math inline">\(f_{A}=f_{B}\)</span>,
-then <span class="math inline">\(A=k B\)</span> for some complex
-constant <span class="math inline">\(k\)</span>. (So WLOG, to study a
-Möbius transformation <span class="math inline">\(f_{A}\)</span>, you
-can always scale A appropriately and assume that <span
-class="math inline">\(\operatorname{det}(A)=1\)</span>.)</p>
-<p><span class="math inline">\((3)\)</span> Interpret a vector <span
-class="math inline">\(\left[\begin{array}{l}x \\
-y\end{array}\right]\)</span> as a ratio <span
-class="math inline">\(\dfrac{x}{y}\)</span>. Then show that, under this
-interpretation, <span class="math inline">\(A\left[\begin{array}{l}x \\
-y\end{array}\right]\)</span> is interpreted exactly as the ratio <span
-class="math inline">\(f_{A}\left(\dfrac{x}{y}\right)\)</span>. (As a
-result, some literature write <span class="math inline">\(A\)</span> and
-<span class="math inline">\(f_{A}\)</span> interchangably and <span
-class="math inline">\(\left[\begin{array}{l}x \\
-y\end{array}\right]\)</span> and <span
-class="math inline">\(\dfrac{x}{y}\)</span> interchangably.)</p>
-<p><span class="math inline">\((4)\)</span> Show that there are only
-four kinds of Möbius transformations. There is a kind where <span
-class="math inline">\(f_{A}\)</span> has two fixed points in <span
-class="math inline">\(\mathbb{R} \cup\{\infty\}\)</span> (a typical
-example is <span class="math inline">\(x \mapsto 2 x\)</span> where 0
-and <span class="math inline">\(\infty\)</span> are the fixed points), a
-kind where <span class="math inline">\(f_{A}\)</span> has only one fixed
-point in <span class="math inline">\(\mathbb{R} \cup\{\infty\}\)</span>
-(a typical example is <span class="math inline">\(x \mapsto x+1\)</span>
-where <span class="math inline">\(\infty\)</span> is the only fixed
-point), and a kind without any fixed point in <span
-class="math inline">\(\mathbb{R} \cup\{\infty\}\)</span> (a typical
-example is <span class="math inline">\(x \mapsto-\dfrac{1}{x}\)</span>
-). Finally, there is a kind where everyone is fixed, i.e., the identity
-function <span class="math inline">\(x \mapsto x\)</span>.</p>
-<hr />
-<p><span class="math inline">\((1)\)</span> set <span
-class="math inline">\(A=\begin{pmatrix}a_1&amp;a_2\\a_3&amp;a_4\end{pmatrix},B=\begin{pmatrix}b_1&amp;b_2\\b_3&amp;b_4\end{pmatrix}\)</span>
-<span class="math inline">\(f_A\circ
-f_B(x)=f_A(\dfrac{b_1x+b_2}{b_3x+b_4})=\dfrac{a_1\dfrac{b_1x+b_2}{b_3x+b_4}+a_2}{a_3\dfrac{b_1x+b_2}{b_3x+b_4}+a_4}\)</span></p>
-<p><span
-class="math inline">\(=\dfrac{(a_1b_1+a_2b_3)x+(a_1b_2+a_2b_4)}{(a_3b_1+a_4b_3)x+(a_3b_2+a_4b_4)}=f_{AB}(x)=f_{\begin{pmatrix}a_1b_1+a_2b_3&amp;a_1b_2+a_3b_4\\a_3b_1+a_4b_3&amp;a_3b_2+a_4b_4\end{pmatrix}}(x)\)</span></p>
-<p>Check <span
-class="math inline">\(A^{-1}=\dfrac{1}{a_1a_4-a_2a_3}\begin{pmatrix}a_4&amp;-a_2\\-a_3&amp;a_1\end{pmatrix}\)</span>
-so <span
-class="math inline">\(f_{A^{-1}}(x)=\dfrac{a_4x-a_2}{-a_3x+a_1}\)</span>
-<span class="math inline">\((a_1a_4\neq a_2a_3)\)</span></p>
-<p><span
-class="math inline">\(x\stackrel{f_{A}}{\longmapsto}\dfrac{a_1x+a_2}{a_3x+a_4}\stackrel{f_{A^{-1}}}{\longmapsto}
-\dfrac{a_4\dfrac{a_1x+a_2}{a_3x+a_4}-a_2}{-a_3\dfrac{a_1x+a_2}{a_3x+a_4}+a_1}=\dfrac{(a_1a_4-a_2a_3)x}{a_1a_4-a_2a_3}=x\)</span>
-<span class="math inline">\(f_{A^{-1}}\)</span> is the inverse of <span
-class="math inline">\(f_{A}\)</span></p>
-<p><span class="math inline">\((2)\)</span> <span
-class="math inline">\(A=\begin{pmatrix}a_1&amp;a_2\\a_3&amp;a_4\end{pmatrix},f_{kA}(x)=\dfrac{ka_1x+ka_2}{ka_3x+ka_4}=\dfrac{a_1x+a_2}{a_3x+a_4}=f_{A}(x)\)</span>
-if <span class="math inline">\(k\neq 0\)</span></p>
-<p>If <span
-class="math inline">\(B=\begin{pmatrix}b_1&amp;b_2\\b_3&amp;b_4\end{pmatrix},f_{A}=f_{B}\)</span>
-we can get <span
-class="math inline">\(\dfrac{a_1x+a_2}{a_3x+a_4}=\dfrac{b_1x+b_2}{b_3x+b_4}\)</span>
-<span class="math inline">\(\Longrightarrow
-a_1b_3=a_3b_1,a_2b_4=b_2a_4\)</span></p>
-<p>Construct <span
-class="math inline">\(k=\dfrac{a_1b_4-a_2b_3}{b_1b_4-b_2b_3}+i\dfrac{a_1b_2-a_2b_1}{b_1b_4-b_2b_3}=\begin{pmatrix}\dfrac{a_1b_4-a_2b_3}{b_1b_4-b_2b_3}&amp;\dfrac{a_2b_1-a_1b_2}{b_1b_4-b_2b_3}\\\dfrac{a_1b_2-a_2b_1}{b_1b_4-b_2b_3}&amp;\dfrac{a_1b_4-a_2b_3}{b_1b_4-b_2b_3}\end{pmatrix}\)</span></p>
-<p>After too many calculations, <span
-class="math inline">\(A=kB=\begin{pmatrix}\dfrac{a_1b_4-a_2b_3}{b_1b_4-b_2b_3}&amp;\dfrac{a_2b_1-a_1b_2}{b_1b_4-b_2b_3}\\\dfrac{a_1b_2-a_2b_1}{b_1b_4-b_2b_3}&amp;\dfrac{a_1b_4-a_2b_3}{b_1b_4-b_2b_3}\end{pmatrix}B\)</span>
-is right.</p>
-<p><span class="math inline">\((3)\)</span> <span
-class="math inline">\(A\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}a_1&amp;a_2\\a_3&amp;a_4\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}a_1x+a_2y\\a_3x+a_4y\end{bmatrix}\)</span>
-which can be interpred as <span
-class="math inline">\(\dfrac{a_1x+a_2y}{a_3x+a_4y}\)</span></p>
-<p>and <span
-class="math inline">\(f_{A}(\dfrac{x}{y})=\dfrac{a_1\dfrac{x}{y}+a_2}{a_3\dfrac{x}{y}+a_4}=\dfrac{a_1x+a_2y}{a_3x+a_4y}\)</span>
-they are the same</p>
-<p><span class="math inline">\((4)\)</span> For all the <span
-class="math inline">\(2\times 2\)</span> matrixes <span
-class="math inline">\(A\)</span>, use Jordan block, <span
-class="math inline">\(A=XJX^{-1}\)</span> All types of the <span
-class="math inline">\(J\)</span> are <span
-class="math inline">\(4\)</span> <span class="math display">\[
-\det(J)=1\Longrightarrow
-J=\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix},\begin{pmatrix}\lambda_1&amp;0\\0&amp;\lambda_2\end{pmatrix},\begin{pmatrix}z&amp;0\\0&amp;\bar{z}\end{pmatrix},\begin{pmatrix}1&amp;1\\0&amp;1\end{pmatrix}\
-\ \mbox{where} \ \lambda_1\lambda_2=|z|=1
-\]</span> Fixed points are <span
-class="math inline">\(\text{R},\{0,\infty\},\{\phi\},\{\infty\}\)</span>
-Because their eigenvectors must be real <span
-class="math inline">\(A\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}x\\y\end{bmatrix}\)</span></p>
+<p>For any 2 by 2 invertible real matrix $A=\left[\begin{array}{ll}a &amp; b \ c &amp; d\end{array}\right]$, we can build a corresponding Möbius transformation $f_{A}: \mathbb{R} \cup\{\infty\} \rightarrow \mathbb{R} \cup\{\infty\}$ such that $f_{A}(x)=\dfrac{a x+b}{c x+d}$. Obviously all Möbius transformation arises in this way.</p>
+<p>$(1)$ Show that $f_{A} \circ f_{B}=f_{A B}$ for any $A, B$. In particular, if we simply write $A$ to represent the function $f_{A}$, then the composition of $A$ and $B$ is the same as the matrix multiplication of $A$ and $B$. (You may also check $f_{A^{-1}}$ is the inverse function of $f_{A}$ and so on. This is not required though.)</p>
+<p>$(2)$ Show that for any $k \in \mathbb{R}-\{0\}, f_{A}=f_{k A}$. And conversely, if $f_{A}=f_{B}$, then $A=k B$ for some complex constant $k$. (So WLOG, to study a Möbius transformation $f_{A}$, you can always scale A appropriately and assume that $\operatorname{det}(A)=1$.)</p>
+<p>$(3)$ Interpret a vector $\left[\begin{array}{l}x \ y\end{array}\right]$ as a ratio $\dfrac{x}{y}$. Then show that, under this interpretation, $A\left[\begin{array}{l}x \ y\end{array}\right]$ is interpreted exactly as the ratio $f_{A}\left(\dfrac{x}{y}\right)$. (As a result, some literature write $A$ and $f_{A}$ interchangably and $\left[\begin{array}{l}x \ y\end{array}\right]$ and $\dfrac{x}{y}$ interchangably.)</p>
+<p>$(4)$ Show that there are only four kinds of Möbius transformations. There is a kind where $f_{A}$ has two fixed points in $\mathbb{R} \cup\{\infty\}$ (a typical example is $x \mapsto 2 x$ where 0 and $\infty$ are the fixed points), a kind where $f_{A}$ has only one fixed point in $\mathbb{R} \cup\{\infty\}$ (a typical example is $x \mapsto x+1$ where $\infty$ is the only fixed point), and a kind without any fixed point in $\mathbb{R} \cup\{\infty\}$ (a typical example is $x \mapsto-\dfrac{1}{x}$ ). Finally, there is a kind where everyone is fixed, i.e., the identity function $x \mapsto x$.</p>
+<hr>
+<p>$(1)$ set $A=\begin{pmatrix}a_1&amp;a_2\\a_3&amp;a_4\end{pmatrix},B=\begin{pmatrix}b_1&amp;b_2\\b_3&amp;b_4\end{pmatrix}$ $f_A\circ f_B(x)=f_A(\dfrac{b_1x+b_2}{b_3x+b_4})=\dfrac{a_1\dfrac{b_1x+b_2}{b_3x+b_4}+a_2}{a_3\dfrac{b_1x+b_2}{b_3x+b_4}+a_4}$</p>
+<p>$=\dfrac{(a_1b_1+a_2b_3)x+(a_1b_2+a_2b_4)}{(a_3b_1+a_4b_3)x+(a_3b_2+a_4b_4)}=f_{AB}(x)=f_{\begin{pmatrix}a_1b_1+a_2b_3&amp;a_1b_2+a_3b_4\\a_3b_1+a_4b_3&amp;a_3b_2+a_4b_4\end{pmatrix}}(x)$</p>
+<p>Check $A^{-1}=\dfrac{1}{a_1a_4-a_2a_3}\begin{pmatrix}a_4&amp;-a_2\-a_3&amp;a_1\end{pmatrix}$ so $f_{A^{-1}}(x)=\dfrac{a_4x-a_2}{-a_3x+a_1}$ $(a_1a_4\neq a_2a_3)$</p>
+<p>$x\stackrel{f_{A}}{\longmapsto}\dfrac{a_1x+a_2}{a_3x+a_4}\stackrel{f_{A^{-1}}}{\longmapsto} \dfrac{a_4\dfrac{a_1x+a_2}{a_3x+a_4}-a_2}{-a_3\dfrac{a_1x+a_2}{a_3x+a_4}+a_1}=\dfrac{(a_1a_4-a_2a_3)x}{a_1a_4-a_2a_3}=x$ $f_{A^{-1}}$ is the inverse of  $f_{A}$ </p>
+<p>$(2)$ $A=\begin{pmatrix}a_1&amp;a_2\\a_3&amp;a_4\end{pmatrix},f_{kA}(x)=\dfrac{ka_1x+ka_2}{ka_3x+ka_4}=\dfrac{a_1x+a_2}{a_3x+a_4}=f_{A}(x)$ if $k\neq 0$</p>
+<p>If $B=\begin{pmatrix}b_1&amp;b_2\\b_3&amp;b_4\end{pmatrix},f_{A}=f_{B}$ we can get $\dfrac{a_1x+a_2}{a_3x+a_4}=\dfrac{b_1x+b_2}{b_3x+b_4}$ $\Longrightarrow a_1b_3=a_3b_1,a_2b_4=b_2a_4$</p>
+<p>Construct $k=\dfrac{a_1b_4-a_2b_3}{b_1b_4-b_2b_3}+i\dfrac{a_1b_2-a_2b_1}{b_1b_4-b_2b_3}=\begin{pmatrix}\dfrac{a_1b_4-a_2b_3}{b_1b_4-b_2b_3}&amp;\dfrac{a_2b_1-a_1b_2}{b_1b_4-b_2b_3}\\\dfrac{a_1b_2-a_2b_1}{b_1b_4-b_2b_3}&amp;\dfrac{a_1b_4-a_2b_3}{b_1b_4-b_2b_3}\end{pmatrix}$</p>
+<p>After too many calculations, $A=kB=\begin{pmatrix}\dfrac{a_1b_4-a_2b_3}{b_1b_4-b_2b_3}&amp;\dfrac{a_2b_1-a_1b_2}{b_1b_4-b_2b_3}\\\dfrac{a_1b_2-a_2b_1}{b_1b_4-b_2b_3}&amp;\dfrac{a_1b_4-a_2b_3}{b_1b_4-b_2b_3}\end{pmatrix}B$ is right.</p>
+<p>$(3)$ $A\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}a_1&amp;a_2\\a_3&amp;a_4\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}a_1x+a_2y\\a_3x+a_4y\end{bmatrix}$ which can be interpred as $\dfrac{a_1x+a_2y}{a_3x+a_4y}$</p>
+<p>and $f_{A}(\dfrac{x}{y})=\dfrac{a_1\dfrac{x}{y}+a_2}{a_3\dfrac{x}{y}+a_4}=\dfrac{a_1x+a_2y}{a_3x+a_4y}$ they are the same </p>
+<p>$(4)$ For all the $2\times 2$ matrixes $A$, use Jordan block, $A=XJX^{-1}$ All types of the $J$ are $4$ </p>
+<script type="math/tex; mode=display">
+\det(J)=1\Longrightarrow J=\begin{pmatrix}1&0\\0&1\end{pmatrix},\begin{pmatrix}\lambda_1&0\\0&\lambda_2\end{pmatrix},\begin{pmatrix}z&0\\0&\bar{z}\end{pmatrix},\begin{pmatrix}1&1\\0&1\end{pmatrix}\ \ \mbox{where} \ \lambda_1\lambda_2=|z|=1</script><p>Fixed points are $\text{R},\{0,\infty\},\{\phi\},\{\infty\}$ Because their eigenvectors must be real $A\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}x\\y\end{bmatrix}$</p>
 
               
             </div>

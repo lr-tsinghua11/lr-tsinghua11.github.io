@@ -286,43 +286,26 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：32 分钟前
+                    本文最后更新于：1 小时前
                   
                 
               </p>
             
             <div class="markdown-body">
               
-              <h1 id="网络学习">网络学习</h1>
-<h2 id="网络桥接">网络桥接</h2>
-<p><code>docker</code>
-使用<strong>网络桥接</strong>（bridge）来通信容器与宿主机进行通信，<code>docker0</code>
-是默认网络桥，其 IP 地址通常是
-<code>172.17.0.1</code>，可以在命令行中输入以下命令显示</p>
+              <h1 id="网络学习"><a href="#网络学习" class="headerlink" title="网络学习"></a>网络学习</h1><h2 id="网络桥接"><a href="#网络桥接" class="headerlink" title="网络桥接"></a>网络桥接</h2><p><code>docker</code> 使用<strong>网络桥接</strong>（bridge）来通信容器与宿主机进行通信，<code>docker0</code> 是默认网络桥，其 IP 地址通常是 <code>172.17.0.1</code>，可以在命令行中输入以下命令显示</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ ip addr show docker0<br>13: docker0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default <br>		......<br>    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0<br>		......<br></code></pre></td></tr></table></figure>
-<h2 id="网络检测">网络检测</h2>
-<p>检查端口是否开放并能够访问，<code>nc</code> 是 <code>netcat</code>
-的缩写，<code>-z</code> 只扫描端口，<code>-v</code> 工作在冗余模式</p>
+<h2 id="网络检测"><a href="#网络检测" class="headerlink" title="网络检测"></a>网络检测</h2><p>检查端口是否开放并能够访问，<code>nc</code> 是 <code>netcat</code> 的缩写，<code>-z</code> 只扫描端口，<code>-v</code> 工作在冗余模式</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ nc -zv 127.0.0.1 4000<br>Connection to 127.0.0.1 port 4000 [tcp/terabase] succeeded!<br><span class="hljs-comment"># 代表可以连接该端口</span><br></code></pre></td></tr></table></figure>
 <p>检测集群上的网络状况，安装 <code>nethogs</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo apt install nethogs<br>$ sudo nethogs<br><span class="hljs-comment"># 显示当前网路状况</span><br></code></pre></td></tr></table></figure>
-<h2 id="nccl">NCCL</h2>
-<p><strong>NCCL：</strong>在多机多卡训练过程中，作为面向GPU提供的集合通信库，能有效提高训练速度。</p>
-<p><strong>DMA(Direct Memory
-Access)</strong>：允许外部设备直接访问计算机内存，无需通过 CPU
-进行数据传输，减少 CPU 负担。</p>
-<p><strong>RDMA(Remote Direct Memory
-Access)</strong>：允许计算机在网络中从另一台计算机内存中读取或写入数据，而不需要远程系统的
-CPU 干预，这样能减少网络通信延迟和 CPU 负担。</p>
-<p><strong>InfiniBand</strong>：一个高性能、低延迟的网络通信架构，常用于高性能计算集群，支持
-RDMA 技术，</p>
-<p>显示当前 <code>InfiniBand</code> 网路设备状态工具，其中
-<code>state</code> 中的 <code>ACTIVE</code> 代表可以进行通信，而
-<code>DOWN</code> 代表不活动。</p>
-<p><code>400Gb/sec</code> 中的 <strong>b</strong> 代表
-<strong>bit</strong>，其等于 <strong>50GB/sec</strong>。</p>
-<p><code>Ethernet</code>
-代表以太网，与日常网络相同，在大模型训练过程中速度很慢。</p>
+<h2 id="NCCL"><a href="#NCCL" class="headerlink" title="NCCL"></a>NCCL</h2><p><strong>NCCL：</strong>在多机多卡训练过程中，作为面向GPU提供的集合通信库，能有效提高训练速度。</p>
+<p><strong>DMA(Direct Memory Access)</strong>：允许外部设备直接访问计算机内存，无需通过 CPU 进行数据传输，减少 CPU 负担。</p>
+<p><strong>RDMA(Remote Direct Memory Access)</strong>：允许计算机在网络中从另一台计算机内存中读取或写入数据，而不需要远程系统的 CPU 干预，这样能减少网络通信延迟和 CPU 负担。</p>
+<p><strong>InfiniBand</strong>：一个高性能、低延迟的网络通信架构，常用于高性能计算集群，支持 RDMA 技术，</p>
+<p>显示当前 <code>InfiniBand</code> 网路设备状态工具，其中 <code>state</code> 中的 <code>ACTIVE</code> 代表可以进行通信，而 <code>DOWN</code> 代表不活动。</p>
+<p><code>400Gb/sec</code> 中的 <strong>b</strong> 代表 <strong>bit</strong>，其等于 <strong>50GB/sec</strong>。</p>
+<p><code>Ethernet</code> 代表以太网，与日常网络相同，在大模型训练过程中速度很慢。</p>
 
               
             </div>
