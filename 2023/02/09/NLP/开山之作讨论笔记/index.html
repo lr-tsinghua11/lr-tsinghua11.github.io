@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.3k 字
+          4.4k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          36 分钟
+          37 分钟
         
       </span>
     
@@ -293,86 +293,195 @@
             
             <div class="markdown-body">
               
-              <h1 id="2-1-Discussion"><a href="#2-1-Discussion" class="headerlink" title="2.1_Discussion"></a>2.1_Discussion</h1><h2 id="Attention-is-all-you-need"><a href="#Attention-is-all-you-need" class="headerlink" title="Attention is all you need"></a>Attention is all you need</h2><p><img src="/img/2.1_Discussion/image-20230202135855274.png" srcset="/img/loading.gif" lazyload alt="image-20230202135855274" style="zoom:15%;" /></p>
-<center><figcaption> The Transformer - model architecture</figcaption></center>
-
-<h3 id="Q-K-V-具体的理解以及在物理中的对应"><a href="#Q-K-V-具体的理解以及在物理中的对应" class="headerlink" title="Q, K, V 具体的理解以及在物理中的对应"></a>Q, K, V 具体的理解以及在物理中的对应</h3><p>key-value 为一本字典，query 为用户查询，通过和 key 的<strong>匹配程度</strong>（不同注意力机制，加性注意力可以处理不等长的情况）去给 value 分配相应的权重。</p>
-<script type="math/tex; mode=display">
+              <h1 id="discussion">2.1_Discussion</h1>
+<h2 id="attention-is-all-you-need">Attention is all you need</h2>
+<p><img src="/img/2.1_Discussion/image-20230202135855274.png" srcset="/img/loading.gif" lazyload alt="image-20230202135855274" style="zoom:15%;" /></p>
+<center>
+<figcaption>
+The Transformer - model architecture
+</figcaption>
+</center>
+<h3 id="q-k-v-具体的理解以及在物理中的对应">Q, K, V
+具体的理解以及在物理中的对应</h3>
+<p>key-value 为一本字典，query 为用户查询，通过和 key
+的<strong>匹配程度</strong>（不同注意力机制，加性注意力可以处理不等长的情况）去给
+value 分配相应的权重。 <span class="math display">\[
 \begin{array}{|c|c|}
-\hline \text { 加性模型 } & \alpha\left(q, k_i\right)=v^T \tanh \left(W_k k_i+W_q q\right) \\
-\hline \text { 点积模型 } & \alpha\left(q, k_i\right)=q k_i^T \\
-\hline \text { 缩放点积模型 } & \alpha\left(q, k_i\right)=q k_i^T / \sqrt{d} \\
+\hline \text { 加性模型 } &amp; \alpha\left(q, k_i\right)=v^T \tanh
+\left(W_k k_i+W_q q\right) \\
+\hline \text { 点积模型 } &amp; \alpha\left(q, k_i\right)=q k_i^T \\
+\hline \text { 缩放点积模型 } &amp; \alpha\left(q, k_i\right)=q k_i^T /
+\sqrt{d} \\
 \hline
-\end{array}</script><p><strong>认知层面</strong>：大脑带着<strong>目标</strong>（query）去理解一段信息时，不同<strong>信息片段</strong>（key）引起的<strong>脑电波</strong>（value）不同，注意力会更多地分配给关联程度更高的信息，反之亦然，最后得到的总脑电波在注意力分配下脑电波的加权求和。（做英语阅读文章）</p>
+\end{array}
+\]</span>
+<strong>认知层面</strong>：大脑带着<strong>目标</strong>（query）去理解一段信息时，不同<strong>信息片段</strong>（key）引起的<strong>脑电波</strong>（value）不同，注意力会更多地分配给关联程度更高的信息，反之亦然，最后得到的总脑电波在注意力分配下脑电波的加权求和。（做英语阅读文章）</p>
 <p><strong>心理层面</strong>：在复杂环境下人类有效关注值得注意的点。</p>
 <p><strong>量子层面</strong>：一个定态量子体系，不同<strong>定态波函数</strong>（key）对应的<strong>能级</strong>（value）不同，当其<strong>归一的体系状态</strong>（query）确定后，通过与不同的定态波函数作内积得到相应的比例分配，则该体系总能量则是按照比例分配下能级的加权求和。</p>
-<h3 id="网络中的-Add-的作用？"><a href="#网络中的-Add-的作用？" class="headerlink" title="网络中的 Add 的作用？"></a>网络中的 Add 的作用？</h3><p>Add 表示<strong>残差连接</strong>（Residual Connection）用于防止<strong>梯度退化</strong>（由于回传通过链式法则，梯度在连乘的作用下趋于 $0$），每一层的输出为</p>
-<script type="math/tex; mode=display">
-\text{LayerNorm} (x+\operatorname{Sublayer}(x))</script><p>将模型从学习 $x\longrightarrow f(x)$ 到学习 $x\longrightarrow f(x)-x$，深度神经网络在<strong>恒等映射</strong>上当层数变大时表现不好，该操作将其降为 $0$ 使得效果变好。</p>
-<h3 id="Encoder-中-MASKED-的作用"><a href="#Encoder-中-MASKED-的作用" class="headerlink" title="Encoder 中 MASKED 的作用"></a>Encoder 中 MASKED 的作用</h3><p>在编码的时候能看到整个句子，但是在解码的时候预测第 $t$ 个词时前面的词不能被看到，为 <strong>auto-regressive</strong>，具体操作为矩阵计算之后把时刻 $t$ 之后的权重调整为 $-\infty$，经过 softmax 之后概率趋于 $0$。</p>
-<h3 id="编码器和解码器的数据传递"><a href="#编码器和解码器的数据传递" class="headerlink" title="编码器和解码器的数据传递"></a>编码器和解码器的数据传递</h3><p>编码器的输出作为 key 和 value 、解码器的输出作为 query 进入解码器的第二个多头注意力层。</p>
-<h3 id="Multi-的作用"><a href="#Multi-的作用" class="headerlink" title="Multi 的作用"></a>Multi 的作用</h3><p>投影 $h$ 次到不同的子空间，增加权重用来学习，相当于给出 $h$ 次学习的方式，允许模型在不同的子空间中学习相关的信息。</p>
-<script type="math/tex; mode=display">
-f(X)=\operatorname{softmax}\left(\dfrac{X W_Q X^T W_K}{\sqrt{d_k}}\right) X W_V</script><h3 id="使用-Layer-norm-的原因"><a href="#使用-Layer-norm-的原因" class="headerlink" title="使用 Layer-norm 的原因"></a>使用 Layer-norm 的原因</h3><p>Batch-norm 是针对每个<strong>特征</strong>下的所有 batch （<strong>样本</strong>）正则化</p>
-<p>Layer-norm 是针对每个 batch （<strong>样本</strong>）的所有<strong>特征</strong>正则化</p>
+<h3 id="网络中的-add-的作用">网络中的 Add 的作用？</h3>
+<p>Add 表示<strong>残差连接</strong>（Residual
+Connection）用于防止<strong>梯度退化</strong>（由于回传通过链式法则，梯度在连乘的作用下趋于
+<span class="math inline">\(0\)</span>），每一层的输出为 <span
+class="math display">\[
+\text{LayerNorm} (x+\operatorname{Sublayer}(x))
+\]</span> 将模型从学习 <span class="math inline">\(x\longrightarrow
+f(x)\)</span> 到学习 <span class="math inline">\(x\longrightarrow
+f(x)-x\)</span>，深度神经网络在<strong>恒等映射</strong>上当层数变大时表现不好，该操作将其降为
+<span class="math inline">\(0\)</span> 使得效果变好。</p>
+<h3 id="encoder-中-masked-的作用">Encoder 中 MASKED 的作用</h3>
+<p>在编码的时候能看到整个句子，但是在解码的时候预测第 <span
+class="math inline">\(t\)</span> 个词时前面的词不能被看到，为
+<strong>auto-regressive</strong>，具体操作为矩阵计算之后把时刻 <span
+class="math inline">\(t\)</span> 之后的权重调整为 <span
+class="math inline">\(-\infty\)</span>，经过 softmax 之后概率趋于 <span
+class="math inline">\(0\)</span>。</p>
+<h3 id="编码器和解码器的数据传递">编码器和解码器的数据传递</h3>
+<p>编码器的输出作为 key 和 value 、解码器的输出作为 query
+进入解码器的第二个多头注意力层。</p>
+<h3 id="multi-的作用">Multi 的作用</h3>
+<p>投影 <span class="math inline">\(h\)</span>
+次到不同的子空间，增加权重用来学习，相当于给出 <span
+class="math inline">\(h\)</span>
+次学习的方式，允许模型在不同的子空间中学习相关的信息。 <span
+class="math display">\[
+f(X)=\operatorname{softmax}\left(\dfrac{X W_Q X^T
+W_K}{\sqrt{d_k}}\right) X W_V
+\]</span></p>
+<h3 id="使用-layer-norm-的原因">使用 Layer-norm 的原因</h3>
+<p>Batch-norm 是针对每个<strong>特征</strong>下的所有 batch
+（<strong>样本</strong>）正则化</p>
+<p>Layer-norm 是针对每个 batch
+（<strong>样本</strong>）的所有<strong>特征</strong>正则化</p>
 <p>而语言模型输入的样本<strong>长度不一样</strong>，如果对每个特征下做正则化，则长短不一不稳定，而对每个样本正则化则长短固定，更稳定。</p>
-<h3 id="FFN-的作用"><a href="#FFN-的作用" class="headerlink" title="FFN 的作用"></a>FFN 的作用</h3><p>单隐藏层，把 $512$ 维的向量投影到 $2048$ 维向量，过一个 ReLU 激活函数，再投影回 $512$ 维向量，代表语义空间的转换。</p>
-<h3 id="总参数"><a href="#总参数" class="headerlink" title="总参数"></a>总参数</h3><p>词典大小为 $V$，记录隐藏层维度为 $H$，嵌入层参数大小为 $V\cdot H$，对 $Q,K,V$ 连接在一起的总投影矩阵大小 $3H^2$，计算完之后还有一个线性投影 $H^2$，再连上一个 MLP，参数为 $4H\cdot H$，前后两个共 $8H^2$，则总参数量为 $\boxed{VH+12H^2}$。</p>
-<h3 id="稀疏注意力（Sparse-Attention）的分类"><a href="#稀疏注意力（Sparse-Attention）的分类" class="headerlink" title="稀疏注意力（Sparse Attention）的分类"></a>稀疏注意力（<strong>Sparse Attention</strong>）的分类</h3><p><img src="/img/2.1_Discussion/image-20230203211311915.png" srcset="/img/loading.gif" lazyload alt="image-20230203211311915" style="zoom:33%;" /></p>
+<h3 id="ffn-的作用">FFN 的作用</h3>
+<p>单隐藏层，把 <span class="math inline">\(512\)</span> 维的向量投影到
+<span class="math inline">\(2048\)</span> 维向量，过一个 ReLU
+激活函数，再投影回 <span class="math inline">\(512\)</span>
+维向量，代表语义空间的转换。</p>
+<h3 id="总参数">总参数</h3>
+<p>词典大小为 <span class="math inline">\(V\)</span>，记录隐藏层维度为
+<span class="math inline">\(H\)</span>，嵌入层参数大小为 <span
+class="math inline">\(V\cdot H\)</span>，对 <span
+class="math inline">\(Q,K,V\)</span> 连接在一起的总投影矩阵大小 <span
+class="math inline">\(3H^2\)</span>，计算完之后还有一个线性投影 <span
+class="math inline">\(H^2\)</span>，再连上一个 MLP，参数为 <span
+class="math inline">\(4H\cdot H\)</span>，前后两个共 <span
+class="math inline">\(8H^2\)</span>，则总参数量为 <span
+class="math inline">\(\boxed{VH+12H^2}\)</span>。</p>
+<h3 id="稀疏注意力sparse-attention的分类">稀疏注意力（<strong>Sparse
+Attention</strong>）的分类</h3>
+<p><img src="/img/2.1_Discussion/image-20230203211311915.png" srcset="/img/loading.gif" lazyload alt="image-20230203211311915" style="zoom:33%;" /></p>
 <p><strong>Longformer</strong>：处理超长文本，将<strong>局部性</strong>和<strong>全局</strong>的影响结合起来</p>
-<ol>
+<ol type="1">
 <li>Sliding window attention (band attention)</li>
 <li>Dilated sliding window attention</li>
 <li>Global+Sliding attention</li>
 </ol>
 <p><img src="/img/2.1_Discussion/image-20230203212030556.png" srcset="/img/loading.gif" lazyload alt="image-20230203212030556" style="zoom:30%;" /></p>
-<p><strong>Big Bird</strong>：Random attention + Window attention + Global attention</p>
-<p><strong>Routing Transformer</strong>：使用 K-means 聚类 query 和 keys</p>
-<p><strong>Reformer</strong>：Multi-round Locality Sensitive Hashing，$O(n\log n)$</p>
+<p><strong>Big Bird</strong>：Random attention + Window attention +
+Global attention</p>
+<p><strong>Routing Transformer</strong>：使用 K-means 聚类 query 和
+keys</p>
+<p><strong>Reformer</strong>：Multi-round Locality Sensitive
+Hashing，<span class="math inline">\(O(n\log n)\)</span></p>
 <p>稀疏性的缺点</p>
 <ul>
 <li>Softmax 无法很好的稀疏化</li>
 <li>没有严格的理论证明稀疏注意力有足够强的表达能力</li>
 </ul>
-<h2 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h2><p>增加一个输出，ELMo 基于<strong>双向</strong>和基于特征，但使用的架构是循环神经网路 ，GPT 使用 <strong>Transformer</strong> 架构</p>
+<h2 id="bert">BERT</h2>
+<p>增加一个输出，ELMo
+基于<strong>双向</strong>和基于特征，但使用的架构是循环神经网路 ，GPT
+使用 <strong>Transformer</strong> 架构</p>
 <p><strong>迁移学习</strong>：在一个比较大的数据集上训练，然后拿到其他地方用（常用在计算机视觉）</p>
-<h3 id="CLS-有什么作用？"><a href="#CLS-有什么作用？" class="headerlink" title="[CLS] 有什么作用？"></a>[CLS] 有什么作用？</h3><p>代表 Classification，该词在分类任务能在 Attention 之后对所有词作加权平均，能够更加准确地综合整个句子的信息，方便在分类等任务上进行微调。</p>
-<h3 id="位置编码和-Transformer-的不同"><a href="#位置编码和-Transformer-的不同" class="headerlink" title="位置编码和 Transformer 的不同"></a>位置编码和 Transformer 的不同</h3><p>使用训练出来的绝对位置编码</p>
-<h3 id="Mask-比例"><a href="#Mask-比例" class="headerlink" title="Mask 比例"></a>Mask 比例</h3><p>在掩码预测任务中，输入是句子中遮掩掉几个词经过 BERT 网络输出每个字的向量表征。训练中 <strong>15%</strong> 的词全被 Mask 掉，由于需要微调的时候新输入的数据和之前的数据不同，从而使用 0.8:0.1:0.1 进行替换并做 Ablation study。</p>
-<h1 id="2-9-discussion"><a href="#2-9-discussion" class="headerlink" title="2.9 discussion"></a>2.9 discussion</h1><h2 id="BERT-后续问题"><a href="#BERT-后续问题" class="headerlink" title="BERT 后续问题"></a>BERT 后续问题</h2><h3 id="L-和-h-在小模型和大模型上的依赖关系"><a href="#L-和-h-在小模型和大模型上的依赖关系" class="headerlink" title="L 和 h 在小模型和大模型上的依赖关系"></a>L 和 h 在小模型和大模型上的依赖关系</h3><h3 id="eisum-的作用"><a href="#eisum-的作用" class="headerlink" title="eisum() 的作用"></a>eisum() 的作用</h3><p>爱因斯坦求和，在 <code>model</code> 中叠加位置编码时使用，为 <code>layer-multiplication</code> 和词向量 <code>dot-product</code> 的综合，代码和理解如下</p>
+<h3 id="cls-有什么作用">[CLS] 有什么作用？</h3>
+<p>代表 Classification，该词在分类任务能在 Attention
+之后对所有词作加权平均，能够更加准确地综合整个句子的信息，方便在分类等任务上进行微调。</p>
+<h3 id="位置编码和-transformer-的不同">位置编码和 Transformer
+的不同</h3>
+<p>使用训练出来的绝对位置编码</p>
+<h3 id="mask-比例">Mask 比例</h3>
+<p>在掩码预测任务中，输入是句子中遮掩掉几个词经过 BERT
+网络输出每个字的向量表征。训练中 <strong>15%</strong> 的词全被 Mask
+掉，由于需要微调的时候新输入的数据和之前的数据不同，从而使用 0.8:0.1:0.1
+进行替换并做 Ablation study。</p>
+<h1 id="discussion-1">2.9 discussion</h1>
+<h2 id="bert-后续问题">BERT 后续问题</h2>
+<h3 id="l-和-h-在小模型和大模型上的依赖关系">L 和 h
+在小模型和大模型上的依赖关系</h3>
+<h3 id="eisum-的作用">eisum() 的作用</h3>
+<p>爱因斯坦求和，在 <code>model</code> 中叠加位置编码时使用，为
+<code>layer-multiplication</code> 和词向量 <code>dot-product</code>
+的综合，代码和理解如下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">relative_position_scores = torch.einsum(<span class="hljs-string">&quot;bhld,lrd-&gt;bhlr&quot;</span>, query_layer, positional_embedding)<br></code></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-Q(K)&: \text{batch}\times \text{head} \times \text{layer}\times \text{dimension}\\
-P&: \text{layer}\times \text{relative} \times \text{dimension}\\
-R&: \text{batch}\times \text{head} \times \text{layer} \times \text{realative}
-\end{aligned}</script><p>固定 $l$ 层，在词向量维度上作<strong>内积</strong>，得到在每个样本的每个头上的词向量关联四维张量</p>
-<script type="math/tex; mode=display">
-R_{\text{bhlr}}=\sum_{d}Q_{bhld}P_{lrd}</script><h3 id="Mask-的打法"><a href="#Mask-的打法" class="headerlink" title="Mask 的打法"></a>Mask 的打法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">attention_mask = torch.cat([attention_mask, attention_mask.new_zeros((attention_mask.shape[<span class="hljs-number">0</span>], <span class="hljs-number">1</span>))], dim=-<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
-<p>给 attention_mask 每个维度补上 $0$，这里主要是 <code>padding</code> 操作。</p>
+Q(K)&amp;: \text{batch}\times \text{head} \times \text{layer}\times
+\text{dimension}\\
+P&amp;: \text{layer}\times \text{relative} \times \text{dimension}\\
+R&amp;: \text{batch}\times \text{head} \times \text{layer} \times
+\text{realative}
+\end{aligned}
+\]</span></p>
+<p>固定 <span class="math inline">\(l\)</span>
+层，在词向量维度上作<strong>内积</strong>，得到在每个样本的每个头上的词向量关联四维张量
+<span class="math display">\[
+R_{\text{bhlr}}=\sum_{d}Q_{bhld}P_{lrd}
+\]</span></p>
+<h3 id="mask-的打法">Mask 的打法</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">attention_mask = torch.cat([attention_mask, attention_mask.new_zeros((attention_mask.shape[<span class="hljs-number">0</span>], <span class="hljs-number">1</span>))], dim=-<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<p>给 attention_mask 每个维度补上 <span
+class="math inline">\(0\)</span>，这里主要是 <code>padding</code>
+操作。</p>
 <p>上述操作在构建输入，预测下一个词的输入</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">extended_attention_mask = (<span class="hljs-number">1.0</span> - extended_attention_mask) * torch.finfo(dtype).<span class="hljs-built_in">min</span><br></code></pre></td></tr></table></figure>
-<p>上述操作为打 [MASK] 的方法，其中 <code>torch.finfo(dtype).min</code> 代表最小值，在 <code>pytorch</code> 中源码如下</p>
+<p>上述操作为打 [MASK] 的方法，其中 <code>torch.finfo(dtype).min</code>
+代表最小值，在 <code>pytorch</code> 中源码如下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">In [*]: torch.finfo().<span class="hljs-built_in">min</span><br>Out[*]: -<span class="hljs-number">3.4028234663852886e+38</span><br></code></pre></td></tr></table></figure>
-<h3 id="Adam-原理"><a href="#Adam-原理" class="headerlink" title="Adam 原理"></a>Adam 原理</h3><p>其基于<strong>随机梯度下降</strong>和<strong>指数加权平均数</strong></p>
-<p>Adam在 SGD 基础上，为每个参数梯度增加了<strong>一阶动量</strong>（momentum）和<strong>二阶动量</strong>（variance）。</p>
-<p><strong>Require</strong>: $\alpha$ : Stepsize</p>
-<p><strong>Require</strong>: $\beta_1, \beta_2 \in[0,1)$ : Exponential decay rates for the moment estimates</p>
-<p><strong>Require</strong>: $f(\theta)$ : Stochastic objective function with parameters $\theta$</p>
-<p><strong>Require</strong>: $\theta_0$ : Initial parameter vector</p>
-<p>​        $m_0 \leftarrow 0$ (Initialize $1^{\text {st }}$ moment vector)</p>
-<p>​        $v_0 \leftarrow 0$ (Initialize $2^{\text {nd }}$ moment vector)</p>
-<p>​        $t \leftarrow 0$ (Initialize timestep)</p>
-<p>​        <strong>while</strong> $\theta_t$ not converged <strong>do</strong></p>
-<p>​            $t \leftarrow t+1$</p>
-<p>​            $g_t \leftarrow \nabla_\theta f_t\left(\theta_{t-1}\right)$ (Get gradients w.r.t. stochastic objective at timestep $t$ )</p>
-<p>​            $m_t \leftarrow \beta_1 \cdot m_{t-1}+\left(1-\beta_1\right) \cdot g_t$ (Update biased first moment estimate)</p>
-<p>​            $v_t \leftarrow \beta_2 \cdot v_{t-1}+\left(1-\beta_2\right) \cdot g_t^2$ (Update biased second raw moment estimate)</p>
-<p>​            $\widehat{m}_t \leftarrow m_t /\left(1-\beta_1^t\right)$ (Compute bias-corrected first moment estimate)</p>
-<p>​            $\widehat{v}_t \leftarrow v_t /\left(1-\beta_2^t\right)$ (Compute bias-corrected second raw moment estimate)</p>
-<p>​            $\theta_t \leftarrow \theta_{t-1}-\alpha \cdot \widehat{m}_t /\left(\sqrt{\hat{v}_t}+\epsilon\right)$ (Update parameters)</p>
-<p>​        <strong>end while</strong></p>
-<p>​    <strong>return</strong> $\theta_t$ (Resulting parameters)</p>
+<h3 id="adam-原理">Adam 原理</h3>
+<p>其基于<strong>随机梯度下降</strong>和<strong>指数加权平均数</strong></p>
+<p>Adam在 SGD
+基础上，为每个参数梯度增加了<strong>一阶动量</strong>（momentum）和<strong>二阶动量</strong>（variance）。</p>
+<p><strong>Require</strong>: <span class="math inline">\(\alpha\)</span>
+: Stepsize</p>
+<p><strong>Require</strong>: <span class="math inline">\(\beta_1,
+\beta_2 \in[0,1)\)</span> : Exponential decay rates for the moment
+estimates</p>
+<p><strong>Require</strong>: <span
+class="math inline">\(f(\theta)\)</span> : Stochastic objective function
+with parameters <span class="math inline">\(\theta\)</span></p>
+<p><strong>Require</strong>: <span
+class="math inline">\(\theta_0\)</span> : Initial parameter vector</p>
+<p>​ <span class="math inline">\(m_0 \leftarrow 0\)</span> (Initialize
+<span class="math inline">\(1^{\text {st }}\)</span> moment vector)</p>
+<p>​ <span class="math inline">\(v_0 \leftarrow 0\)</span> (Initialize
+<span class="math inline">\(2^{\text {nd }}\)</span> moment vector)</p>
+<p>​ <span class="math inline">\(t \leftarrow 0\)</span> (Initialize
+timestep)</p>
+<p>​ <strong>while</strong> <span class="math inline">\(\theta_t\)</span>
+not converged <strong>do</strong></p>
+<p>​ <span class="math inline">\(t \leftarrow t+1\)</span></p>
+<p>​ <span class="math inline">\(g_t \leftarrow \nabla_\theta
+f_t\left(\theta_{t-1}\right)\)</span> (Get gradients w.r.t. stochastic
+objective at timestep <span class="math inline">\(t\)</span> )</p>
+<p>​ <span class="math inline">\(m_t \leftarrow \beta_1 \cdot
+m_{t-1}+\left(1-\beta_1\right) \cdot g_t\)</span> (Update biased first
+moment estimate)</p>
+<p>​ <span class="math inline">\(v_t \leftarrow \beta_2 \cdot
+v_{t-1}+\left(1-\beta_2\right) \cdot g_t^2\)</span> (Update biased
+second raw moment estimate)</p>
+<p>​ <span class="math inline">\(\widehat{m}_t \leftarrow m_t
+/\left(1-\beta_1^t\right)\)</span> (Compute bias-corrected first moment
+estimate)</p>
+<p>​ <span class="math inline">\(\widehat{v}_t \leftarrow v_t
+/\left(1-\beta_2^t\right)\)</span> (Compute bias-corrected second raw
+moment estimate)</p>
+<p>​ <span class="math inline">\(\theta_t \leftarrow \theta_{t-1}-\alpha
+\cdot \widehat{m}_t /\left(\sqrt{\hat{v}_t}+\epsilon\right)\)</span>
+(Update parameters)</p>
+<p>​ <strong>end while</strong></p>
+<p>​ <strong>return</strong> <span
+class="math inline">\(\theta_t\)</span> (Resulting parameters)</p>
 
               
             </div>

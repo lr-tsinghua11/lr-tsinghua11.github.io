@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          3.2k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          26 分钟
+          27 分钟
         
       </span>
     
@@ -293,34 +293,97 @@
             
             <div class="markdown-body">
               
-              <p>Python 编写工程项目时，对每份代码，编写流程基本都是</p>
-<script type="math/tex; mode=display">
-\Large \textcolor{black}{调库}\normalsize \Longrightarrow \Large \textcolor{black}{全局变量}\normalsize \Longrightarrow 
-\Large \textcolor{black}{装饰器}\normalsize \Longrightarrow 
+              <p>Python 编写工程项目时，对每份代码，编写流程基本都是 <span
+class="math display">\[
+\Large \textcolor{black}{调库}\normalsize \Longrightarrow \Large
+\textcolor{black}{全局变量}\normalsize \Longrightarrow
+\Large \textcolor{black}{装饰器}\normalsize \Longrightarrow
 \Large \textcolor{black}{子函数}\normalsize \Longrightarrow
-\Large \textcolor{black}{主函数}\normalsize</script><p>只要两者之间具有一定独立性，最好空开两行方便 $\mbox{Debug}$ 。（这个真的是教训啊！！<strong>一定要全局</strong>，编写过程中使用复用性更高的代码，如使用 $\mbox{len()}$ 获取迭代次数，避免数据换了后手动调浪费时间）</p>
-<h2 id="装饰器的使用"><a href="#装饰器的使用" class="headerlink" title="装饰器的使用"></a>装饰器的使用</h2><p>装饰器是为了在输出结果时告知当前运行函数名称，运行时间，方便快速定位 $\mbox{Bug}$ 位置，一个经典装饰器的代码如下：</p>
+\Large \textcolor{black}{主函数}\normalsize
+\]</span> 只要两者之间具有一定独立性，最好空开两行方便 <span
+class="math inline">\(\mbox{Debug}\)</span>
+。（这个真的是教训啊！！<strong>一定要全局</strong>，编写过程中使用复用性更高的代码，如使用
+<span class="math inline">\(\mbox{len()}\)</span>
+获取迭代次数，避免数据换了后手动调浪费时间）</p>
+<h2 id="装饰器的使用">装饰器的使用</h2>
+<p>装饰器是为了在输出结果时告知当前运行函数名称，运行时间，方便快速定位
+<span class="math inline">\(\mbox{Bug}\)</span>
+位置，一个经典装饰器的代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> functools<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">metric</span>(<span class="hljs-params">fn</span>):<br><span class="hljs-meta">    @functools.wraps(<span class="hljs-params">fn</span>)</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kw</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;start executing %s&#x27;</span> % (fn.__name__))<br>        start_time = time.time()<br>        result = fn(*args, **kw)<br>        end_time = time.time()<br>        t = <span class="hljs-number">1000</span> * (end_time - start_time)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;%s executed in %s ms&#x27;</span> % (fn.__name__, t))<br>        <span class="hljs-keyword">return</span> result<br>    <span class="hljs-keyword">return</span> wrapper<br></code></pre></td></tr></table></figure>
-<p>该装饰器告知开始运行函数、结束运行函数以及运行时间，在每次 <code>def &#39;name_of_fuction&#39;</code> 前一行加入 <code>@metric</code> 便可以实现装饰器功能</p>
-<h2 id="获取目录下所有文件"><a href="#获取目录下所有文件" class="headerlink" title="获取目录下所有文件"></a>获取目录下所有文件</h2><p>由于本次工作数据量庞大（成千上万个文件），从本地特定目录下读取该目录的所有文件，使用  $os$ 库中的 $listdir$ 函数获取目录下的文件名与目录拼接在一起，代码如下：</p>
+<p>该装饰器告知开始运行函数、结束运行函数以及运行时间，在每次
+<code>def 'name_of_fuction'</code> 前一行加入 <code>@metric</code>
+便可以实现装饰器功能</p>
+<h2 id="获取目录下所有文件">获取目录下所有文件</h2>
+<p>由于本次工作数据量庞大（成千上万个文件），从本地特定目录下读取该目录的所有文件，使用
+<span class="math inline">\(os\)</span> 库中的 <span
+class="math inline">\(listdir\)</span>
+函数获取目录下的文件名与目录拼接在一起，代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_list</span>(<span class="hljs-params">target</span>):<br>    dirs = os.listdir(target)	//获取目录下的文件名称并存为列表<br>    file_list = []				//初始化空列表<br>    <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> dirs:			//遍历列表中的每一个文件名称<br>         file_list.append(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;target&#125;</span>/<span class="hljs-subst">&#123;file&#125;</span>&quot;</span>)	//加到原来文件目录后面<br>    <span class="hljs-keyword">return</span> file_list	//得到一个具有该目录下所有文件位置的列表<br></code></pre></td></tr></table></figure>
-<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>使用 $\mbox{try}$ 和 $\mbox{except}$ 语法，前者后面语句出现错误则跳至 $\mbox{except}$ 处，最好联合输出报错信息 $\mbox{e}$ 以及错误所在文件搭配：</p>
+<h2 id="异常处理">异常处理</h2>
+<p>使用 <span class="math inline">\(\mbox{try}\)</span> 和 <span
+class="math inline">\(\mbox{except}\)</span>
+语法，前者后面语句出现错误则跳至 <span
+class="math inline">\(\mbox{except}\)</span> 处，最好联合输出报错信息
+<span class="math inline">\(\mbox{e}\)</span> 以及错误所在文件搭配：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(e)<br>    //<span class="hljs-built_in">print</span>(file)<br></code></pre></td></tr></table></figure>
-<p>在处理文件时容易发现“前端”的规范化有问题，此时 $\mbox{try-except}$ 的作用体现得更加显著，多次套用异常处理语句即可</p>
-<h2 id="计数器功能"><a href="#计数器功能" class="headerlink" title="计数器功能"></a>计数器功能</h2><p>导入计数器所在库 <code>from collections import Counter</code>，单个计数器本质上就是单个字典，使用  <code>类名 = Counter()</code> 初始化，之后遇到什么就以字典的形式进行计数（<code>Counter()</code> 内部自动实现了遇到新 <code>key</code> 值计数为 $1$ ，遇到旧 <code>key</code> 值计数器加 $1$ ），由于存在多个、相互独立的列表，在实际运用中使用列表保存多个字典：</p>
+<p>在处理文件时容易发现“前端”的规范化有问题，此时 <span
+class="math inline">\(\mbox{try-except}\)</span>
+的作用体现得更加显著，多次套用异常处理语句即可</p>
+<h2 id="计数器功能">计数器功能</h2>
+<p>导入计数器所在库
+<code>from collections import Counter</code>，单个计数器本质上就是单个字典，使用
+<code>类名 = Counter()</code>
+初始化，之后遇到什么就以字典的形式进行计数（<code>Counter()</code>
+内部自动实现了遇到新 <code>key</code> 值计数为 <span
+class="math inline">\(1\)</span> ，遇到旧 <code>key</code> 值计数器加
+<span class="math inline">\(1\)</span>
+），由于存在多个、相互独立的列表，在实际运用中使用列表保存多个字典：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">listDics = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-built_in">len</span>(dirLanguage)):	//从 xlsx 中读取的二维列表(第几列第几个词)<br>    tempDict = Counter()	//代表具有计数器功能的空字典<br>    listDics.append(tempDict)	//形成字典列表<br><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> tqdm(file_list):	//遍历并打开所有文件<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(file,<span class="hljs-string">&quot;r&quot;</span>,encoding = <span class="hljs-string">&quot;utf-8&quot;</span>,errors = <span class="hljs-string">&quot;ignore&quot;</span>) <span class="hljs-keyword">as</span> f:	<br>        getTitle = json.load(f)[<span class="hljs-string">&quot;title&quot;</span>]	//使用 json.load(f) 载入文件<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-built_in">len</span>(dirLanguage)):	//对二维列表的每一列<br>            <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> dirLanguage[i]:		//对应计数每一列<br>                listDict[i][word] += <span class="hljs-number">1</span>		//使用字典的方式计数<br><br></code></pre></td></tr></table></figure>
-<h2 id="mbox-json-文件收放自如"><a href="#mbox-json-文件收放自如" class="headerlink" title="$\mbox{json}$ 文件收放自如"></a>$\mbox{json}$ 文件收放自如</h2><p>从上个实例代码中可以看到，使用 <code>json.load(f)</code> 即可以实现读取对应 $\mbox{json}$ 文件的内容，即为 $\mbox{json}$ 文件的读取</p>
-<p>与之相对的为 $\mbox{json}$ 文件的写入，使用 <code>json.dump(写入名称,打开的文件(如f),ensure_ascii = False, indent = 2)</code>，注意打开文件时类型为 $\mbox{w\small+}$ ，为覆盖类型，例如</p>
+<h2 id="mboxjson-文件收放自如"><span
+class="math inline">\(\mbox{json}\)</span> 文件收放自如</h2>
+<p>从上个实例代码中可以看到，使用 <code>json.load(f)</code>
+即可以实现读取对应 <span class="math inline">\(\mbox{json}\)</span>
+文件的内容，即为 <span class="math inline">\(\mbox{json}\)</span>
+文件的读取</p>
+<p>与之相对的为 <span class="math inline">\(\mbox{json}\)</span>
+文件的写入，使用
+<code>json.dump(写入名称,打开的文件(如f),ensure_ascii = False, indent = 2)</code>，注意打开文件时类型为
+<span class="math inline">\(\mbox{w\small+}\)</span>
+，为覆盖类型，例如</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;./result.json&quot;</span>,<span class="hljs-string">&quot;w+&quot;</span>,encoding = <span class="hljs-string">&quot;utf-8&quot;</span>,errors = <span class="hljs-string">&quot;ignore&quot;</span>) <span class="hljs-keyword">as</span> f:<br>	json.dump(title_content,f,ensure_ascii = <span class="hljs-literal">False</span>, indent = <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
-<h2 id="可视化工作中的可视化（-mbox-tqdm-）"><a href="#可视化工作中的可视化（-mbox-tqdm-）" class="headerlink" title="可视化工作中的可视化（ $\mbox{tqdm}$ ）"></a>可视化工作中的可视化（ $\mbox{tqdm}$ ）</h2><p>导入进度条库 <code>from tqdm import tqdm</code> （in Arabic means <em>progress</em>, also in Spanish <em>te quiero demasiado</em> means <em>I love you so much. </em>），在迭代器处加入 $\mbox{tqdm}$ 就可以清晰地看到迭代所处位置，再也不用一直盯着闪烁的光标无脑等待了~~</p>
+<h2 id="可视化工作中的可视化-mboxtqdm">可视化工作中的可视化（ <span
+class="math inline">\(\mbox{tqdm}\)</span> ）</h2>
+<p>导入进度条库 <code>from tqdm import tqdm</code> （in Arabic means
+<em>progress</em>, also in Spanish <em>te quiero demasiado</em> means
+<em>I love you so much. </em>），在迭代器处加入 <span
+class="math inline">\(\mbox{tqdm}\)</span>
+就可以清晰地看到迭代所处位置，再也不用一直盯着闪烁的光标无脑等待了~~</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> tqdm(file_list):<br></code></pre></td></tr></table></figure>
-<p>在 $\mbox{Python}$ 交互式系统中可以达到这样效果，输入时保证可以需要输入就不会自动运行：</p>
-<p><img src="https://pic.imgdb.cn/item/6224c13c5baa1a80ab7af253.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
-<h2 id="在大字符串中查找小字符串出现次数"><a href="#在大字符串中查找小字符串出现次数" class="headerlink" title="在大字符串中查找小字符串出现次数"></a>在大字符串中查找小字符串出现次数</h2><p>使用字符串变量内置函数 $str.\mbox{count}$，直接返回次数。造轮子的事情尽量少做：</p>
+<p>在 <span class="math inline">\(\mbox{Python}\)</span>
+交互式系统中可以达到这样效果，输入时保证可以需要输入就不会自动运行：</p>
+<p><img
+src="https://pic.imgdb.cn/item/6224c13c5baa1a80ab7af253.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h2
+id="在大字符串中查找小字符串出现次数">在大字符串中查找小字符串出现次数</h2>
+<p>使用字符串变量内置函数 <span
+class="math inline">\(str.\mbox{count}\)</span>，直接返回次数。造轮子的事情尽量少做：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">str</span>.count(find_str)<br></code></pre></td></tr></table></figure>
-<h2 id="调试（工程能力的体现）"><a href="#调试（工程能力的体现）" class="headerlink" title="调试（工程能力的体现）"></a>调试（工程能力的体现）</h2><p>在编写代码中，尽管“前端”有可能背锅，但大部分的错误还是因为自己总像个小孩子一样“犯傻”，不过 $\mbox{Python}$ 毕竟还是“大人”使用的工具，要学会定位 $\mbox{Bug}$ 的能力：</p>
+<h2 id="调试工程能力的体现">调试（工程能力的体现）</h2>
+<p>在编写代码中，尽管“前端”有可能背锅，但大部分的错误还是因为自己总像个小孩子一样“犯傻”，不过
+<span class="math inline">\(\mbox{Python}\)</span>
+毕竟还是“大人”使用的工具，要学会定位 <span
+class="math inline">\(\mbox{Bug}\)</span> 的能力：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> IPython <span class="hljs-keyword">import</span> embed<br></code></pre></td></tr></table></figure>
-<p>$\mbox{embed}$ 函数有点像 $\mathbf{C}\large艹$ 中的断点调试，但是更好的一点是，在出现错误的地方打上 $\mbox{embed}$ 后程序会在指定的地方停止，同时保留了当前所有的存储变量，向外提供执行任意输入代码的接口，在 $\mbox{embed}$ 之后，$\mbox{print}$ 出当前的存储变量，或者手动输入（也可以多行复制）运行接下来的代码快速找到相应问题。虽然最后来说很多问题都比较弱智，但是就是这些弱智问题的 $\mbox{Debug}$ 很大程度影响了代码编写、维护以及（满足甲方需求）成功运行的总开发时长。</p>
+<p><span class="math inline">\(\mbox{embed}\)</span> 函数有点像 <span
+class="math inline">\(\mathbf{C}\large艹\)</span>
+中的断点调试，但是更好的一点是，在出现错误的地方打上 <span
+class="math inline">\(\mbox{embed}\)</span>
+后程序会在指定的地方停止，同时保留了当前所有的存储变量，向外提供执行任意输入代码的接口，在
+<span class="math inline">\(\mbox{embed}\)</span> 之后，<span
+class="math inline">\(\mbox{print}\)</span>
+出当前的存储变量，或者手动输入（也可以多行复制）运行接下来的代码快速找到相应问题。虽然最后来说很多问题都比较弱智，但是就是这些弱智问题的
+<span class="math inline">\(\mbox{Debug}\)</span>
+很大程度影响了代码编写、维护以及（满足甲方需求）成功运行的总开发时长。</p>
 
               
             </div>

@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          2.5k 字
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          20 分钟
+          21 分钟
         
       </span>
     
@@ -293,50 +293,125 @@
             
             <div class="markdown-body">
               
-              <h1 id="开山之作-text-mathbf-Attention-is-all-you-need"><a href="#开山之作-text-mathbf-Attention-is-all-you-need" class="headerlink" title="$开山之作\text{:} \mathbf{Attention is all you need}$"></a>$开山之作\text{:} \mathbf{Attention is all you need}$</h1><ol>
-<li><p><strong>CNN</strong> 并行但只能学习有限信息（<strong>时间短、效果差</strong>）</p>
-<p>学习远程句子困难，例如 making … more difficult，空间受限。</p>
-</li>
-<li><p><strong>RNN</strong> 学习全局信息但不能并行（<strong>时间长、效果好</strong>）</p>
-<p>输入顺序来分解计算 $h^{(t)}=f(h^{(t-1)}, x^{(t)})$，时间受限。</p>
-</li>
-<li><p><strong>Transformer</strong> 使用 self-attention 结合 Multi 机制，并行化+学习全局信息（<strong>时间短、效果好</strong>）</p>
-</li>
+              <h1 id="开山之作text-mathbfattention-is-all-you-need"><span
+class="math inline">\(开山之作\text{:}\ \mathbf{Attention\ is\ all\ you\
+need}\)</span></h1>
+<ol type="1">
+<li><p><strong>CNN</strong>
+并行但只能学习有限信息（<strong>时间短、效果差</strong>）</p>
+<p>学习远程句子困难，例如 making ... more difficult，空间受限。</p></li>
+<li><p><strong>RNN</strong>
+学习全局信息但不能并行（<strong>时间长、效果好</strong>）</p>
+<p>输入顺序来分解计算 <span class="math inline">\(h^{(t)}=f(h^{(t-1)},
+x^{(t)})\)</span>，时间受限。</p></li>
+<li><p><strong>Transformer</strong> 使用 self-attention 结合 Multi
+机制，并行化+学习全局信息（<strong>时间短、效果好</strong>）</p></li>
 </ol>
-<hr>
-<h2 id="mathbf-Scaled-dot-product-流程"><a href="#mathbf-Scaled-dot-product-流程" class="headerlink" title="$\mathbf{Scaled-dot product}$ 流程"></a>$\mathbf{Scaled-dot product}$ 流程</h2><p>令 $I$ 为 $\begin{bmatrix}a^1 &amp;a^2 &amp; \cdots &amp; a^n\end{bmatrix}$，权重 $I=WX$。每个 $\text{query, key and value}$ 分别为 $q^i, k^i, v^i$，组装为 $Q,K,V$，对应权重 $Q=W^{q}I,K=W^{k}I,V=W^{v}I$，$\text{query}$ 和 $\text{key}$ 点积并正则化得到</p>
-<script type="math/tex; mode=display">
-\alpha_{i j}=\frac{\left\langle q^i, k^j\right\rangle}{\sqrt{d_k}}\tag{1}</script><p>并计算 $\text{softmax}_{ij}=\hat{\alpha}_{ij}=\dfrac{\exp{\alpha_{ij}} }{\sum_{j} \exp(\alpha_{ij})}$，最后计算 $B=\hat{A}V$ 得到输出。</p>
-<p>如果有 $h$ 层，由于为线性空间变换，可以拼接矩阵然后作相同计算允许模型在<strong>不同的子空间</strong>中学习相关的信息，主要目的是抽取更加丰富的特征信息。</p>
-<p>这样就避免了循环神经网络中运算有先后的问题，同时复杂度没有卷积神经网络那么大（矩阵乘法运算也可以优化，论文中维度取为 $512,1024$ 等 $2$ 的幂次便于分治算法，详见参考算法导论中对贪心调度器的讨论）</p>
-<hr>
-<h2 id="时间复杂度降低"><a href="#时间复杂度降低" class="headerlink" title="时间复杂度降低"></a>时间复杂度降低</h2><p>在卷积神经网络中，由于要保证输出矩阵为方阵（每个词表示向量间的权重关系，一共 $n$ 个词，从而 $n\cdot d^2$ 个元素），而方阵中的每个元素都是通过卷积核运算得到的，令卷积核的大小为 $k$，则每个元素的浮点运算次数（$<br>\text{FLOP}$）为 $k\cdot n\cdot d^2$</p>
-<p>在注意力机制中，各矩阵维数 $Q, K, V: n \times d$</p>
+<hr />
+<h2 id="mathbfscaled-dot-product-流程"><span
+class="math inline">\(\mathbf{Scaled-dot\ product}\)</span> 流程</h2>
+<p>令 <span class="math inline">\(I\)</span> 为 <span
+class="math inline">\(\begin{bmatrix}a^1 &amp;a^2 &amp; \cdots &amp;
+a^n\end{bmatrix}\)</span>，权重 <span
+class="math inline">\(I=WX\)</span>。每个 <span
+class="math inline">\(\text{query, key and value}\)</span> 分别为 <span
+class="math inline">\(q^i, k^i, v^i\)</span>，组装为 <span
+class="math inline">\(Q,K,V\)</span>，对应权重 <span
+class="math inline">\(Q=W^{q}I,K=W^{k}I,V=W^{v}I\)</span>，<span
+class="math inline">\(\text{query}\)</span> 和 <span
+class="math inline">\(\text{key}\)</span> 点积并正则化得到</p>
+<p><span class="math display">\[
+\alpha_{i j}=\frac{\left\langle q^i,
+k^j\right\rangle}{\sqrt{d_k}}\tag{1}
+\]</span></p>
+<p>并计算 <span
+class="math inline">\(\text{softmax}_{ij}=\hat{\alpha}_{ij}=\dfrac{\exp{\alpha_{ij}}
+}{\sum_{j} \exp(\alpha_{ij})}\)</span>，最后计算 <span
+class="math inline">\(B=\hat{A}V\)</span> 得到输出。</p>
+<p>如果有 <span class="math inline">\(h\)</span>
+层，由于为线性空间变换，可以拼接矩阵然后作相同计算允许模型在<strong>不同的子空间</strong>中学习相关的信息，主要目的是抽取更加丰富的特征信息。</p>
+<p>这样就避免了循环神经网络中运算有先后的问题，同时复杂度没有卷积神经网络那么大（矩阵乘法运算也可以优化，论文中维度取为
+<span class="math inline">\(512,1024\)</span> 等 <span
+class="math inline">\(2\)</span>
+的幂次便于分治算法，详见参考算法导论中对贪心调度器的讨论）</p>
+<hr />
+<h2 id="时间复杂度降低">时间复杂度降低</h2>
+<p>在卷积神经网络中，由于要保证输出矩阵为方阵（每个词表示向量间的权重关系，一共
+<span class="math inline">\(n\)</span> 个词，从而 <span
+class="math inline">\(n\cdot d^2\)</span>
+个元素），而方阵中的每个元素都是通过卷积核运算得到的，令卷积核的大小为
+<span class="math inline">\(k\)</span>，则每个元素的浮点运算次数（$
+$）为 <span class="math inline">\(k\cdot n\cdot d^2\)</span></p>
+<p>在注意力机制中，各矩阵维数 <span class="math inline">\(Q, K, V: n
+\times d\)</span></p>
 <ul>
-<li>$Q K^T: n \times d$ 与 $d \times n$ 运算，得到 $n \times n$ 矩阵，复杂度为 $O\left(n^2 d\right)$</li>
-<li>$\text{softmax}$计算: 对每行复杂度为 $O(n)$，则 $n$ 行的复杂度为 $O\left(n^2\right)$</li>
-<li>加权和: $n \times n$ 与 $n \times d$ 运算，得到 $n \times d$ 矩阵，复杂度为 $O\left(n^2 d\right)$</li>
+<li><span class="math inline">\(Q K^T: n \times d\)</span> 与 <span
+class="math inline">\(d \times n\)</span> 运算，得到 <span
+class="math inline">\(n \times n\)</span> 矩阵，复杂度为 <span
+class="math inline">\(O\left(n^2 d\right)\)</span></li>
+<li><span class="math inline">\(\text{softmax}\)</span>计算:
+对每行复杂度为 <span class="math inline">\(O(n)\)</span>，则 <span
+class="math inline">\(n\)</span> 行的复杂度为 <span
+class="math inline">\(O\left(n^2\right)\)</span></li>
+<li>加权和: <span class="math inline">\(n \times n\)</span> 与 <span
+class="math inline">\(n \times d\)</span> 运算，得到 <span
+class="math inline">\(n \times d\)</span> 矩阵，复杂度为 <span
+class="math inline">\(O\left(n^2 d\right)\)</span></li>
 </ul>
-<p>在本文中将三者矩阵拆成 $h=8$ 个头用于并行计算，相当于第一个 $n$ 减少为 $r$，复杂度为 $O(rnd)$。$\text{Multi}$ 由此而来，不同的 $\text{Multi}$ 可以学习到不同的状态。</p>
-<hr>
-<h2 id="正则化系数推导"><a href="#正则化系数推导" class="headerlink" title="正则化系数推导"></a>正则化系数推导</h2><p>在论文中结合其注释可以推导，由公式 $(1)$ 中为两个维度为 $d_k$ 的向量点积，从线性空间的角度从 $\mathbb{R}^n\longrightarrow \mathbb{R}$，其误差会放大，假设 $q^{\prime}=q-\overline{q}$$,v^{\prime}=v-\overline{v}$，可以理解为中心偏差计算两者点积的期望和方差，假设两者方差相同</p>
-<script type="math/tex; mode=display">
+<p>在本文中将三者矩阵拆成 <span class="math inline">\(h=8\)</span>
+个头用于并行计算，相当于第一个 <span class="math inline">\(n\)</span>
+减少为 <span class="math inline">\(r\)</span>，复杂度为 <span
+class="math inline">\(O(rnd)\)</span>。<span
+class="math inline">\(\text{Multi}\)</span> 由此而来，不同的 <span
+class="math inline">\(\text{Multi}\)</span> 可以学习到不同的状态。</p>
+<hr />
+<h2 id="正则化系数推导">正则化系数推导</h2>
+<p>在论文中结合其注释可以推导，由公式 <span
+class="math inline">\((1)\)</span> 中为两个维度为 <span
+class="math inline">\(d_k\)</span> 的向量点积，从线性空间的角度从 <span
+class="math inline">\(\mathbb{R}^n\longrightarrow
+\mathbb{R}\)</span>，其误差会放大，假设 <span
+class="math inline">\(q^{\prime}=q-\overline{q}\)</span><span
+class="math inline">\(,v^{\prime}=v-\overline{v}\)</span>，可以理解为中心偏差计算两者点积的期望和方差，假设两者方差相同</p>
+<p><span class="math display">\[
 \begin{cases}
 \displaystyle E\left[\sum_{i}q_{i}v_{i}\right]=\sum_{i}E[q_i]E[v_i]=0\\
-\displaystyle E\left[\left(\sum_{i}q_{i}v_{i}\right)^2\right]=\sum_{i}E\left[q_{i}^2\right]E\left[v_{i}^2\right]=d_{k}\text{Var}(q_i)^2
-\end{cases}\tag{2}</script><p>如果除以 $\sqrt{d_{k}}$，则能保证方差不变，从而噪声不会展平，效果会更好。（这里保证初始的方差为 $1$，见后面的预处理）</p>
-<hr>
-<h2 id="mathbf-position-编码增加位置信息"><a href="#mathbf-position-编码增加位置信息" class="headerlink" title="$\mathbf{position}$ 编码增加位置信息"></a>$\mathbf{position}$ 编码增加位置信息</h2><p>论文中对输入向量增加了位置编码张量</p>
-<script type="math/tex; mode=display">
+\displaystyle
+E\left[\left(\sum_{i}q_{i}v_{i}\right)^2\right]=\sum_{i}E\left[q_{i}^2\right]E\left[v_{i}^2\right]=d_{k}\text{Var}(q_i)^2
+\end{cases}\tag{2}
+\]</span></p>
+<p>如果除以 <span
+class="math inline">\(\sqrt{d_{k}}\)</span>，则能保证方差不变，从而噪声不会展平，效果会更好。（这里保证初始的方差为
+<span class="math inline">\(1\)</span>，见后面的预处理）</p>
+<hr />
+<h2 id="mathbfposition-编码增加位置信息"><span
+class="math inline">\(\mathbf{position}\)</span> 编码增加位置信息</h2>
+<p>论文中对输入向量增加了位置编码张量</p>
+<p><span class="math display">\[
 \begin{aligned}
-P E_{(p o s, 2 i)} & =\sin \left(p o s / 10000^{2 i / d_{\text {model }}}\right) \\
-P E_{(p o s, 2 i+1)} & =\cos \left(p o s / 10000^{2 i / d_{\text {model }}}\right)
-\end{aligned}\tag{3}</script><p>在 NLP 任务中能学习到以 10000 个分词为跨度的权重已经达到极限了，相当于这些平面波构成词向量所有组合的“完备空间”。至于分奇偶是要求当位置变化 k 时，由三角函数公式均可被线性表出。</p>
+P E_{(p o s, 2 i)} &amp; =\sin \left(p o s / 10000^{2 i / d_{\text
+{model }}}\right) \\
+P E_{(p o s, 2 i+1)} &amp; =\cos \left(p o s / 10000^{2 i / d_{\text
+{model }}}\right)
+\end{aligned}\tag{3}
+\]</span></p>
+<p>在 NLP 任务中能学习到以 10000
+个分词为跨度的权重已经达到极限了，相当于这些平面波构成词向量所有组合的“完备空间”。至于分奇偶是要求当位置变化
+k 时，由三角函数公式均可被线性表出。</p>
 <p>位置编码也可以通过训练获得，两者效果相似。</p>
-<hr>
-<h2 id="隐藏层的正则化处理"><a href="#隐藏层的正则化处理" class="headerlink" title="隐藏层的正则化处理"></a>隐藏层的正则化处理</h2><p>这里运用中心极限定理将数据正则化，其中分布中添加的 $\epsilon&gt;0$ 是为了防止分母为 $0$。</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\mu_L&=\frac{1}{m} \sum_{i=1}^m x_i \\ \delta^2&=\frac{1}{m} \sum_{i=1}^m\left(x_i-\mu\right)^2 \\ L N\left(x_i\right)&=\alpha \frac{x_i-\mu_L}{\sqrt{\delta^2+\epsilon}}+\beta\end{aligned}\tag{4}</script><p>这样就能保证公式 $(2)$ 中的方差不变。</p>
+<hr />
+<h2 id="隐藏层的正则化处理">隐藏层的正则化处理</h2>
+<p>这里运用中心极限定理将数据正则化，其中分布中添加的 <span
+class="math inline">\(\epsilon&gt;0\)</span> 是为了防止分母为 <span
+class="math inline">\(0\)</span>。</p>
+<p><span class="math display">\[
+\begin{aligned}\mu_L&amp;=\frac{1}{m} \sum_{i=1}^m x_i \\
+\delta^2&amp;=\frac{1}{m} \sum_{i=1}^m\left(x_i-\mu\right)^2 \\ L
+N\left(x_i\right)&amp;=\alpha
+\frac{x_i-\mu_L}{\sqrt{\delta^2+\epsilon}}+\beta\end{aligned}\tag{4}
+\]</span></p>
+<p>这样就能保证公式 <span class="math inline">\((2)\)</span>
+中的方差不变。</p>
 
               
             </div>
