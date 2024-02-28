@@ -1,0 +1,1292 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Learning_rate">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="2024 年寒假期间学习强化学习笔记，主要参考《动手学习强化学习》这本书">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Foundation for machine learning">
+<meta property="og:url" content="https://lr-tsinghua11.github.io/2024/02/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Learning_rate">
+<meta property="og:description" content="2024 年寒假期间学习强化学习笔记，主要参考《动手学习强化学习》这本书">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0.png">
+<meta property="article:published_time" content="2024-02-01T05:17:04.000Z">
+<meta property="article:modified_time" content="2024-02-28T11:25:50.866Z">
+<meta property="article:author" content="Learning_rate">
+<meta property="article:tag" content="强化学习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lr-tsinghua11.github.io/img/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0.png">
+  
+  
+  <title>Foundation for machine learning - Learning_rate</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lr-tsinghua11.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong> Learning_rate&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          <span id="subtitle" title="">
+            
+          </span>
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-01 13:17" pubdate>
+          2024年2月1日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          13k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          108 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Foundation for machine learning</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：1 小时前
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h2 id="概念">概念</h2>
+<p><strong>有监督学习任务：</strong>找到一个最优的模型函数。使其在训练数据集上最小化一个给定的损失函数。
+<span class="math display">\[
+\text { 最优模型 }=\arg_{\text { 模型 }} \mathbb{E}_{\text {(特征,
+标签)}\sim \text{数据分布 }}[\text { 损失函数 }(\text { 标签, 模型
+}(\text { 特征 }))]
+\]</span>
+<strong>强化学习任务：</strong>最大化智能体策略在和动态环境交互过程中的价值。根据
+1.5
+节的分析，策略的价值可以等价转换成奖励函数在策略的占用度量上的期望，即:
+<span class="math display">\[
+\text { 最优策略 }=\arg \max _{\text {策略 }} \mathbb{E}_{\text
+{(状态。动作) 策略的占用度量 }}[\text { 奖励函数 }(\text { 状态, 动作)]
+}
+\]</span></p>
+<ul>
+<li>二者优化的途径是不同的，有监督学习直接通过优化模型对于数据特征的输出来优化目标，即<strong>修改目标函数而数据分布不变</strong>；强化学习则通过改变策略来调整智能体和环境交互数据的分布，进而优化目标，即<strong>修改数据分布而目标函数不变</strong>。</li>
+</ul>
+<h2 id="mab---多臂老虎机">MAB - 多臂老虎机</h2>
+<p>多臂老虎机问题可以表示为一个元组 <span
+class="math inline">\(\langle\mathcal{A}, \mathcal{R}\rangle\)</span>,
+其中: - <span class="math inline">\(\mathcal{A}\)</span>
+为动作集合，其中一个动作表示拉动一个拉杆。若多臂老虎机一共有 <span
+class="math inline">\(K\)</span> 根拉杆，那动作空间就是集合 <span
+class="math inline">\(\left\{a_1, \ldots, a_K\right\}\)</span>，我们用
+<span class="math inline">\(a_t \in \mathcal{A}\)</span>
+表示任意一个动作; - <span class="math inline">\(\mathcal{R}\)</span>
+为奖励概率分布，拉动每一根拉杆的动作 <span
+class="math inline">\(a\)</span> 都对应一个奖励概率分布 <span
+class="math inline">\(\mathcal{R}(r \mid a)\)</span>,
+不同拉杆的奖励分布通常是不同的。</p>
+<p>假设每个时间步只能拉动一个拉杆，多臂老虎机的目标为最大化一段时间步
+<span class="math inline">\(T\)</span> 内累积的奖励: <span
+class="math inline">\(\max \sum_{t=1}^T r_t, r_t \sim
+\mathcal{R}\left(\cdot \mid a_t\right)\)</span> 。其中 <span
+class="math inline">\(a_t\)</span> 表示在第 <span
+class="math inline">\(t\)</span> 时间步拉动某一拉杆的动作, <span
+class="math inline">\(r_t\)</span> 表示动作 <span
+class="math inline">\(a_t\)</span> 获得的奖励。</p>
+<p><strong>探索和利用</strong>两者之间的平衡</p>
+<ul>
+<li><strong><span class="math inline">\(\epsilon\)</span>
+贪心算法：</strong><span class="math inline">\(a_t= \begin{cases}\arg
+\max _{a \in \mathcal{A}} \hat{Q}(a), &amp; \text { 采样概率: }
+1-\epsilon \\ \text { 从 } \mathcal{A} \text { 中随机选择, } &amp; \text
+{ 采样概率: } \epsilon\end{cases}\)</span></li>
+<li><strong>上置信界算法：</strong>给定一个概率 <span
+class="math inline">\(p=e^{-2 N_t(a) U_t(a)^2}\Longrightarrow
+\hat{U}_t(a)=\sqrt{\dfrac{-\log p}{2
+N_t(a)}}\)</span>，根据霍夫丁不等式，<span
+class="math inline">\(Q_t(a)&lt;\hat{Q}_t(a)+\hat{U}_t(a)\)</span>
+至少以概率 <span class="math inline">\(1-p\)</span>
+成立，在每次拉杆前计算奖励期望的上界</li>
+<li><strong>汤普森采样算法：</strong>例如对二项分布的老虎机，其参数的概率分布为
+beta 分布</li>
+</ul>
+<h2 id="马尔科夫">马尔科夫</h2>
+<h3 id="马尔科夫过程">马尔科夫过程</h3>
+<p>用元组 <span class="math inline">\(\langle\mathcal{S},
+\mathcal{P}\rangle\)</span> 描述一个<strong>马尔可夫过程</strong>，其中
+<span class="math inline">\(\mathcal{S}\)</span>
+是有限数量的状态集合，<span class="math inline">\(\mathcal{P}\)</span>
+是状态转移矩阵（state transition matrix）。假设一共有 <span
+class="math inline">\(n\)</span> 个状态，此时 <span
+class="math inline">\(\mathcal{S}=\left\{s_1, s_2, \ldots,
+s_n\right\}\)</span>。状态转移矩阵 <span
+class="math inline">\(\mathcal{P}\)</span>
+定义了所有状态对之间的转移概率 <span class="math display">\[
+\mathcal{P}=\left[\begin{array}{ccc}
+P\left(s_1 | s_1\right) &amp; \cdots &amp; P\left(s_n | s_1\right) \\
+\vdots &amp; \ddots &amp; \vdots \\
+P\left(s_1 | s_n\right) &amp; \cdots &amp; P\left(s_n | s_n\right)
+\end{array}\right]
+\]</span> 当前状态是未来的充分统计量</p>
+<h3 id="mrp---马尔科夫奖励过程">MRP - 马尔科夫奖励过程</h3>
+<p>由 <span class="math inline">\(\langle\mathcal{S}, \mathcal{P}, r,
+\gamma\rangle\)</span> 构成： - <span
+class="math inline">\(\mathcal{S}\)</span> - 有限状态 - <span
+class="math inline">\(\mathcal{P}\)</span> - 状态转移矩阵。 - <span
+class="math inline">\(r\)</span> - 奖励函数，某个状态 <span
+class="math inline">\(s\)</span> 的奖励 <span
+class="math inline">\(r(s)\)</span> 指转移到该状态时可以获得奖励的期望。
+- <span class="math inline">\(\gamma\)</span> 是折扣因子 (discount
+factor) , <span class="math inline">\(\gamma\)</span> 的取值范围为 <span
+class="math inline">\([0,1)\)</span> 。远期利益有一定不确定性</p>
+<p>定义<strong>回报</strong>如下 <span class="math display">\[
+G_t=R_t+\gamma R_{t+1}+\gamma^2 R_{t+2}+\cdots=\sum_{k=0}^{\infty}
+\gamma^k R_{t+k}
+\]</span> 定义<strong>价值函数</strong> <span
+class="math inline">\(V(s)=\mathbb{E}\left[G_t \mid
+S_t=s\right]\)</span>，迭代法推出 <span
+class="math inline">\(V(s)=r(s)+\gamma \sum_{s^{\prime} \in S}
+p\left(s^{\prime} \mid s\right)
+V\left(s^{\prime}\right)\)</span>，为<strong>贝尔曼方程</strong>，记
+<span class="math display">\[ \mathcal{V}=\left[V\left(s_1\right),
+V\left(s_2\right), \ldots, V\left(s_n\right)\right]^T,
+\mathcal{R}=\left[r\left(s_1\right), r\left(s_2\right), \ldots,
+r\left(s_n\right)\right]^T\]</span> 矩阵形式以及解，该解法复杂度为 <span
+class="math inline">\(\mathcal{O}(n^3)\)</span> <span
+class="math display">\[
+\begin{aligned} \mathcal{V} &amp; =\mathcal{R}+\gamma \mathcal{P}
+\mathcal{V} \\ \mathcal{V} &amp; =(I-\gamma \mathcal{P})^{-1}
+\mathcal{R}\end{aligned}
+\]</span></p>
+<h3 id="mdp---马尔科夫决策过程">MDP - 马尔科夫决策过程</h3>
+<p>由 <span
+class="math inline">\(\langle\mathcal{S},\mathcal{A},\gamma,r(s,a),P\rangle\)</span>
+构成：</p>
+<ul>
+<li><span class="math inline">\(\mathcal{S}\)</span> - 状态集合</li>
+<li><span class="math inline">\(\mathcal{A}\)</span> - 动作集合</li>
+<li><span class="math inline">\(\gamma\)</span> -
+折扣因子（大多数情况下介于 0.95 和 0.99 之间）</li>
+<li><span class="math inline">\(r(s, a)\)</span> -
+奖励函数，此时奖励可以同时取决于状态 <span
+class="math inline">\(s\)</span> 和动作 <span
+class="math inline">\(a\)</span></li>
+<li><span class="math inline">\(P\left(s^{\prime} | s, a\right)\)</span>
+- 状态转移函数，表示在状态 <span class="math inline">\(s\)</span>
+执行动作 <span class="math inline">\(a\)</span> 之后到达状态 <span
+class="math inline">\(s^{\prime}\)</span>
+的概率（为三维数组或者连续的）</li>
+</ul>
+<p>定义<strong>策略</strong>，可以有确定性策略和随机性策略（根据概率分布）
+<span class="math display">\[
+\pi(a | s)=P\left(A_t=a | S_t=s\right)
+\]</span> 定义<strong>状态价值函数</strong>，代表基于某种策略 <span
+class="math inline">\(\pi\)</span> 下从状态 <span
+class="math inline">\(s\)</span> 出发的期望回报 <span
+class="math display">\[
+V^\pi(s)=\mathbb{E}_\pi\left[G_t | S_t=s\right]
+\]</span> 定义<strong>动作价值函数</strong>，代表基于某种策略 <span
+class="math inline">\(\pi\)</span> 下从状态 <span
+class="math inline">\(s\)</span> 执行动作 <span
+class="math inline">\(a\)</span> 的期望回报 <span
+class="math display">\[
+Q^\pi(s, a)=\mathbb{E}_\pi\left[G_t | S_t=s, A_t=a\right]
+\]</span> 全概率公式得到 <span class="math display">\[
+V^\pi(s)=\sum_{a \in A} \pi(a | s) Q^\pi(s, a)
+\]</span> 类似 MRP，在给定当前状态 <span
+class="math inline">\(s\)</span> 和执行动作 <span
+class="math inline">\(a\)</span> 下 <span class="math display">\[
+\begin{aligned} Q^\pi(s, a) &amp; =\mathbb{E}_\pi\left[R_t+\gamma
+Q^\pi\left(S_{t+1}, A_{t+1}\right) \mid S_t=s, A_t=a\right] \\ &amp;
+=r(s, a)+\gamma \sum_{s^{\prime} \in S} p\left(s^{\prime} \mid s,
+a\right) \sum_{a^{\prime} \in A} \pi\left(a^{\prime} \mid
+s^{\prime}\right) Q^\pi\left(s^{\prime}, a^{\prime}\right)\end{aligned}
+\]</span>
+<strong>最优状态价值</strong>是选择使最优动作价值最大的那个动作得到的状态价值
+<span class="math display">\[
+V^*(s)=\max _{a \in \mathcal{A}} Q^*(s, a)
+\]</span> 于是得到<strong>贝尔曼最优方程</strong> <span
+class="math display">\[
+\begin{aligned} V^*(s) &amp; =\max _{a \in \mathcal{A}}\left\{r(s,
+a)+\gamma \sum_{s^{\prime} \in \mathcal{S}} p\left(s^{\prime} \mid s,
+a\right) V^*\left(s^{\prime}\right)\right\} \\ Q^*(s, a) &amp; =r(s,
+a)+\gamma \sum_{s^{\prime} \in \mathcal{S}} p\left(s^{\prime} \mid s,
+a\right) \max _{a^{\prime} \in \mathcal{A}} Q^*\left(s^{\prime},
+a^{\prime}\right)\end{aligned}
+\]</span> ## 动态规划算法</p>
+<h3 id="价值策略迭代">价值策略迭代</h3>
+<p>随便初始化一个 <span class="math inline">\(V_0 \equiv
+0\)</span>，在<strong>最优贝尔曼方</strong>程上迭代，此时 <span
+class="math inline">\(V_{+\infty}=V^{\star}\)</span> <span
+class="math display">\[
+V_{k+1}(s) \leftarrow \max _{a \in \mathcal{A}}\left[\sum_{s^{\prime}
+\in \mathcal{S}} \mathbb{P}_{\mathcal{E}}\left(s^{\prime} \mid s,
+a\right)\left[r\left(s, a, s^{\prime}\right)+\gamma
+V_k\left(s^{\prime}\right)\right]\right]
+\]</span></p>
+<h3 id="策略提升">策略提升</h3>
+<p>得知状态价值函数的基础上优化策略，有<strong>完全贪心策略</strong>，只选择价值最大的那一个动作
+<span class="math display">\[
+\pi(a \mid s):= \begin{cases}1 &amp; a=\operatorname{argmax}_{a^{\prime}
+\in \mathcal{A}} Q\left(s, a^{\prime}\right) \\ 0 &amp; \text {
+otherwise }\end{cases}
+\]</span></p>
+<h2 id="时序差分算法">时序差分算法</h2>
+<p><strong>无模型的强化学习</strong>：环境的奖励函数和状态转移函数是未知的，只有不断地交互采样得到数据才能学习</p>
+<h3 id="sarsa-算法在线策略">Sarsa 算法（在线策略）</h3>
+<p><strong><span
+class="math inline">\(\epsilon\)</span>-贪心策略</strong>，有 <span
+class="math inline">\(1-\epsilon\)</span>
+的概率采用动作价值最大的那个动作，<span
+class="math inline">\(\epsilon\)</span> 概率从动作空间中随机采取一个动作
+<span class="math display">\[
+\pi(a \mid s)= \begin{cases}\epsilon /|\mathcal{A}|+1-\epsilon &amp;
+\text{ 如果 } a=\arg \max _{a^{\prime}} Q\left(s, a^{\prime}\right) \\
+\epsilon /|\mathcal{A}| &amp; \text { 其他动作 }\end{cases}
+\]</span> 蒙特卡洛方法直接拿到奖励然后更新，SARSA
+算法考虑下一个状态的价值估计，其中使用 <span
+class="math inline">\(\epsilon\)</span>-贪心策略估计动作函数 <span
+class="math display">\[
+Q\left(s_t, a_t\right) \leftarrow Q\left(s_t,
+a_t\right)+\alpha\left[r_t+\gamma Q\left(s_{t+1},
+a_{t+1}\right)-Q\left(s_t, a_t\right)\right]
+\]</span> 其中 <span class="math inline">\(r_t+\gamma
+V(s_{t+1})-V(s_t)\)</span> 被称为<strong>时序差分</strong>（temporal
+difference, TD），也可以多走几步，为<strong>多步 Sarsa 算法</strong>
+<span class="math display">\[
+Q\left(s_t, a_t\right) \leftarrow Q\left(s_t,
+a_t\right)+\alpha\left[r_t+\gamma r_{t+1}+\cdots+\gamma^n
+Q\left(s_{t+n}, a_{t+n}\right)-Q\left(s_t, a_t\right)\right]
+\]</span></p>
+<h3 id="q-learning-算法离线策略">Q-learning 算法（离线策略）</h3>
+<p>更新方式变为 <span class="math display">\[
+Q\left(s_t, a_t\right) \leftarrow Q\left(s_t,
+a_t\right)+\alpha\left[R_t+\gamma \max _a Q\left(s_{t+1},
+a\right)-Q\left(s_t, a_t\right)\right]
+\]</span> 本质上 Sarsa 算法是有了下一个状态后用当前策略（这里是 <span
+class="math inline">\(\epsilon\)</span>-贪心策略）去找到下一个或者多个状态的动作，从而更新相应的动作状态价值，Q-learning
+算法有了下一个状态后不用当前策略，而是选取最好的那个状态动作，这是由贝尔曼最优方程保证的</p>
+<blockquote>
+<p>采样数据的策略为<strong>行为策略</strong>，利用这些数据来更新的策略为<strong>目标策略</strong>，两者一样是<strong>在线策略</strong>，两者不一样是<strong>离线策略</strong>，</p>
+</blockquote>
+<h2 id="dyna-q-算法">Dyna-Q 算法</h2>
+<p>每次选取一个曾经访问过的状态 <span
+class="math inline">\(s\)</span>，采取曾经在该状态下执行过的动作 <span
+class="math inline">\(a\)</span>，通过模型得到转移后的状态 <span
+class="math inline">\(s^{\prime}\)</span> 以及奖励 <span
+class="math inline">\(r\)</span>，并根据这个模拟数据 <span
+class="math inline">\((s,a,r,s^{\prime})\)</span> 用 Q-learning
+的方式来更新动作价值函数。</p>
+<h2 id="dqn-算法深度-q-网络">DQN 算法（深度 Q 网络）</h2>
+<h3 id="原始算法">原始算法</h3>
+<p>Q-learning 的更新规则 <span class="math display">\[
+Q(s, a) \leftarrow Q(s, a)+\alpha\left[r+\gamma \max _{a^{\prime} \in
+\mathcal{A}} Q\left(s^{\prime}, a^{\prime}\right)-Q(s, a)\right]
+\]</span> 神经网络参数 <span
+class="math inline">\(\omega\)</span>，<span
+class="math inline">\(Q_{\omega}(s,a)\)</span> 表征 <span
+class="math inline">\(Q\)</span> 值，将 Q
+网络的损失函数构造为均方误差的形式 <span class="math display">\[
+\omega^*=\arg \min _\omega \frac{1}{2 N}
+\sum_{i=1}^N\left[Q_\omega\left(s_i, a_i\right)-\left(r_i+\gamma \max
+_{a^{\prime}} Q_\omega\left(s_i^{\prime},
+a^{\prime}\right)\right)\right]^2
+\]</span> 实际训练中使用 Buffer 池中抽样尽量使数据同分布，使用固定的
+target 模型更新原始模型，一定时间间隔之后将 target
+模型更新为原始模型。</p>
+<h3 id="double-dqn">Double DQN</h3>
+<p>训练过程中高估 <span class="math inline">\(Q\)</span> 值，改写为
+<span class="math display">\[
+r+\gamma Q_{\omega^{-}}\left(s^{\prime}, \underset{a^{\prime}}{\arg \max
+} Q_\omega\left(s^{\prime}, a^{\prime}\right)\right)
+\]</span>
+即不选取目标网络中最大价值动作，而是选择原始网络中的最大价值动作，这样某些不可能超过
+<span class="math inline">\(0\)</span> 的 <span
+class="math inline">\(Q\)</span> 值高估数量减少</p>
+<h3 id="dueling-dqn">Dueling DQN</h3>
+<p>价值函数 <span class="math inline">\(Q\)</span> 减去状态价值函数
+<span class="math inline">\(V\)</span>
+的结果定义为<strong>优势函数</strong> <span
+class="math inline">\(A\)</span>, 即 <span class="math inline">\(A(s,
+a)=Q(s, a)-V(s)\)</span> 。在同一个状态下, 所有动作的优势值之和为
+0。因为所有动作的动作价值的期望就是这个状态的状态价值。在 Dueling <span
+class="math inline">\(D Q N\)</span> 中，<span
+class="math inline">\(Q\)</span> 网络被建模为 <span
+class="math display">\[
+Q_{\eta, \alpha, \beta}(s, a)=V_{\eta, \alpha}(s)+A_{\eta, \beta}(s, a)
+\]</span> 由于这样对于相同的 <span class="math inline">\(Q\)</span>
+值，两者的值可以你增我减，可以固定最优动作的优势函数为 <span
+class="math inline">\(0\)</span> <span class="math display">\[
+Q_{\eta, \alpha, \beta}(s, a)=V_{\eta, \alpha}(s)+A_{\eta, \beta}(s,
+a)-\max _{a^{\prime}} A_{\eta, \beta}\left(s, a^{\prime}\right)
+\]</span> 也可以优势之和固定为 <span class="math inline">\(0\)</span>
+<span class="math display">\[
+Q_{\eta, \alpha, \beta}(s, a)=V_{\eta, \alpha}(s)+A_{\eta, \beta}(s,
+a)-\frac{1}{|\mathcal{A}|} \sum_{a^{\prime}} A_{\eta, \beta}\left(s,
+a^{\prime}\right)
+\]</span> 这样更加稳定</p>
+<h2 id="策略梯度算法">策略梯度算法</h2>
+<p>假设策略是关于参数 <span class="math inline">\(\theta\)</span>
+处处可微的函数，定义策略学习的目标函数为 <span class="math display">\[
+J(\theta)=\mathbb{E}_{s_0}\left[V^{\pi_\theta}\left(s_0\right)\right]
+\]</span> 代表所有状态下以 <span
+class="math inline">\(\pi_{\theta}\)</span> 策略获得价值的期望，可以推导
+<span class="math display">\[
+\begin{aligned}
+\nabla J(\theta)&amp;=\sum_{s\in
+\mathcal{S}}\nu^{\pi_{\theta}}(s)\sum_{a\in
+\mathcal{A}}\nabla_{\theta}\pi_{\theta}(a|s)Q^{^{\pi_{\theta}}}(s,a)\\
+&amp;=\sum_{s\in \mathcal{S}}\nu^{\pi_{\theta}(s)}\sum_{a\in
+\mathcal{A}}
+\pi_{\theta}(a|s)Q^{\pi_{\theta}}(s,a)\nabla_{\theta}\log\pi_{\theta}(a|s)\\
+&amp;=\mathbb{E}_{\pi_{\theta}}\left[Q^{\pi_{\theta}}(s,a)\nabla_{\theta}\log
+\pi_{\theta}(a|s)\right]
+\end{aligned}
+\]</span> <strong>Reinforce
+算法</strong>：有限步数环境下采样轨迹计算相应的价值，这是通过蒙特卡洛采样，估计是无偏的，对每个时间
+<span class="math inline">\(t\)</span>
+往后采样序列得到轨迹并计算回报并求和乘以策略对数的梯度 <span
+class="math display">\[
+\nabla_\theta
+J(\theta)=\mathbb{E}_{\pi_\theta}\left[\sum_{t=0}^T\left(\sum_{t^{\prime}=t}^T
+\gamma^{t^{\prime}-t} r_{t^{\prime}}\right) \nabla_\theta \log
+\pi_\theta\left(a_t \mid s_t\right)\right]
+\]</span></p>
+<p>使用当前策略采样，计算当前轨迹每个时刻 <span
+class="math inline">\(t\)</span> 往后的回报，记为 <span
+class="math inline">\(\psi_t\)</span>，然后梯度上升 <span
+class="math display">\[
+\theta\leftarrow \theta+\alpha \sum_{t}^{T}\psi_t
+\nabla_{\theta}\log\pi_{\theta}(a_t|s_t)
+\]</span></p>
+<blockquote>
+<p>[!NOTE]</p>
+<p>如果定义深度神经网络的所有操作为 <span
+class="math inline">\(F:I\rightarrow O\)</span>​，DQN 算法本质是用 <span
+class="math inline">\(F(s)[a]\)</span>​ 去拟合 <span
+class="math inline">\(Q(s,a)\)</span>​ ，与 Q-learning 的 <span
+class="math inline">\(Q^{*}\)</span>​
+两者的平方误差均值作损失函数，然后梯度下降；策略梯度算法本质是用 <span
+class="math inline">\(\text{Softmax}(F(s))[a]\)</span>​ 去拟合 <span
+class="math inline">\(\pi(a|s)\)</span>​​，梯度用公式推导，使用采样的样本梯度上升。</p>
+</blockquote>
+<h2 id="actor-critic-算法">Actor-Critic 算法</h2>
+<p>一个既学习价值函数，又学习策略函数的方法</p>
+<ul>
+<li><p>Actor 学习策略，使用策略梯度算法更新策略 <span
+class="math display">\[
+\theta_{\text{act}}=\theta_{\text{act}}+\alpha_\theta \sum_t \delta_t
+\nabla_\theta \log \pi_\theta\left(a_t \mid s_t\right)
+\]</span></p></li>
+<li><p>Critic 学习价值函数，类似 DQN，把下一个时刻的目标 <span
+class="math inline">\(r+\gamma V_{\omega}(s_{t+1})\)</span> 作为
+target，优化损失函数，梯度更新只有 <span
+class="math inline">\(V_{\omega}(s_{t})\)</span> 原始价值函数更新 <span
+class="math display">\[
+\mathcal{L}(\omega)=\dfrac{1}{2}(r+\gamma
+V_{\omega}(s_{t+1})-V_{\omega}(s_{t}))^2\\
+\nabla \mathcal{L}(\omega)=-(r+\gamma
+V_{\omega}(s_{t+1})-V_{\omega})\nabla V_{\omega}(s_{t})
+\]</span></p></li>
+</ul>
+<h2 id="trpo-算法">TRPO 算法</h2>
+<h3 id="如何更新策略">如何更新策略</h3>
+<p>新旧策略之间的差距为 <span class="math display">\[
+\begin{aligned}
+J(\theta^{\prime})-J(\theta)&amp;=\mathbb{E}_{\pi_{\theta}^{\prime}}\left[\sum_{t=0}^{\infty}\gamma^{t}[r(s_t,a_t)+\gamma
+V^{\pi_{\theta}}(s_{t+1})-V^{\pi_{\theta}}(s_t))]\right]\\
+&amp;:=\mathbb{E}_{\pi_{\theta^{\prime}}}\left[\sum_{t=0}^{\infty}\gamma^{t}A^{\pi_{\theta}}(s_t,a_t)\right]\\
+&amp;=\frac{1}{1-\gamma} \mathbb{E}_{s \sim \nu^\pi
+\pi_{\theta^{\prime}}} \mathbb{E}_{a \sim \pi_{\theta^{\prime}}
+\cdot(\cdot \mid s)}\left[A^{\pi_\theta}(s, a)\right]
+\end{aligned}
+\]</span> 其中 <span
+class="math inline">\(A^{\pi_{\prime}}(s_t,a_t)\)</span>
+为优势函数，<span
+class="math inline">\(\nu^{\pi}(s)=(1-\gamma)\sum_{t=0}^{\infty}\gamma^{t}P_{t}^{\pi}(s)\)</span>
+为状态访问分布，保证对所有的 <span class="math inline">\(s\)</span>
+求和为 <span class="math inline">\(1\)</span>。</p>
+<ul>
+<li>假设1：相邻两策略之间的状态访问分布变化不大，第一个期望不变</li>
+<li>假设2：相邻两策略之间的 KL 散度相近，信任区域为策略空间的一个球</li>
+</ul>
+<p>则需要优化的策略目标为 <span class="math display">\[
+\dfrac{\pi_{\theta^{\prime}}(a\mid s)}{\pi_{\theta}(a\mid
+s)}A^{\pi_{\theta_k}}(s,a)
+\]</span> 同时还要保证优化后的策略尽可能与原来相近</p>
+<p>在 <span class="math inline">\(\theta_{k}\)</span>​​
+附近一阶近似和二阶近似 <span class="math display">\[
+\begin{gathered}
+\mathbb{E}_{s \sim \nu^{\pi_\theta}} \mathbb{E}_{a \sim
+\pi_{\theta_k}(\cdot \mid s)}\left[\frac{\pi_{\theta^{\prime}}(a \mid
+s)}{\pi_{\theta_k}(a \mid s)} A^{\pi_{\theta_k}}(s, a)\right] \approx
+g^T\left(\theta^{\prime}-\theta_k\right) \\
+\mathbb{E}_{s \sim \nu^{\pi_{\theta_k}}}\left[D_{K
+L}\left(\pi_{\theta_k}(\cdot \mid s), \pi_{\theta^{\prime}}(\cdot \mid
+s)\right)\right] \approx
+\frac{1}{2}\left(\theta^{\prime}-\theta_k\right)^T
+H\left(\theta^{\prime}-\theta_k\right)
+\end{gathered}
+\]</span> 转换为优化问题 <span class="math display">\[
+\theta_{k+1}=\underset{\theta^{\prime}}{\arg \max }
+g^T\left(\theta^{\prime}-\theta_k\right) \quad \text { s.t. } \quad
+\frac{1}{2}\left(\theta^{\prime}-\theta_k\right)^T
+H\left(\theta^{\prime}-\theta_k\right) \leq \delta
+\]</span> <strong>KKT 条件</strong>，构造拉格朗日函数 <span
+class="math inline">\(L\left(\theta^{\prime},
+\lambda\right)=g^T\left(\theta^{\prime}-\theta_k\right)+\lambda\left(\delta-\dfrac{1}{2}\left(\theta^{\prime}-\theta_k\right)^T
+H\left(\theta^{\prime}-\theta_k\right)\right)\)</span></p>
+<ol type="1">
+<li>定长方程式</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \nabla_{\theta^{\prime}} L\left(\theta^{\prime},
+\lambda\right)=g-\lambda H\left(\theta^{\prime}-\theta_k\right)=0 \\
+&amp; \Rightarrow \theta^{\prime}=\theta_k+\frac{1}{\lambda} H^{-1} g
+\end{aligned}
+\]</span> 2. 原始可行性</p>
+<p><span class="math display">\[
+\frac{1}{2}\left(\theta^{\prime}-\theta_k\right)^T
+H\left(\theta^{\prime}-\theta_k\right) \leq \delta
+\]</span> 3. 对偶可行性</p>
+<p><span class="math display">\[
+\lambda \geq 0
+\]</span> 4. 互补松弛型 <span class="math display">\[
+   \lambda\left(\delta-\frac{1}{2}\left(\theta^{\prime}-\theta_k\right)^T
+H\left(\theta^{\prime}-\theta_k\right)\right)=0
+   \]</span></p>
+<p>可以解得 <span class="math display">\[
+\theta_{k+1}=\theta_{k}+\sqrt{\dfrac{2\delta}{g^{T}H^{-1}g}}H^{-1}g
+\]</span> 使用<strong>共轭梯度法</strong>求解 <span
+class="math inline">\(x=H^{-1}g\)</span>，代入 <span
+class="math display">\[
+\Delta\theta=\sqrt{\dfrac{2\delta}{x^{T}Hx}}x
+\]</span> <strong>线性搜索</strong>，找到最小的非负整数 <span
+class="math inline">\(i\)</span>，其中 <span
+class="math inline">\(\alpha\in(0,1)\)</span> <span
+class="math display">\[
+\theta_{k+1}=\theta_k+\alpha^i \sqrt{\frac{2 \delta}{x^T H x}} x
+\]</span> 使得新的 <span class="math inline">\(\theta_{k+1}\)</span>
+满足策略目标</p>
+<h3 id="广义优势估计gae">广义优势估计（GAE）</h3>
+<p>定义多步时序差分 <span class="math display">\[
+A_{t}^{(i)}=\sum_{j=0}^{i}\gamma^{j}\delta_{t+j}\\\delta_t=-V(s_t)+r_t+\gamma
+V(s_{t+1})
+\]</span> 使用数学归纳法可证明 <span class="math display">\[
+A_{t}^{(k)}=-V(s_t)+\sum_{i=0}^{k-1}\gamma^{i}r_{t+i}+\gamma^{k}V(s_{t+k})
+\]</span> 使用指数加权平均，有 <span
+class="math inline">\((1-\lambda)\sum_{i=0}^{\infty}\lambda^i=1\)</span>
+<span class="math display">\[
+\begin{aligned}
+A_{t}^{GAE}&amp;=(1-\lambda)(A_t^{(1)}+\lambda A_{t}^{(2)}+\lambda^2
+A_{t}^{(3)}+\cdots)\\
+&amp; =(1-\lambda)\left(\delta_t \frac{1}{1-\lambda}+\gamma \delta_{t+1}
+\frac{\lambda}{1-\lambda}+\gamma^2 \delta_{t+2}
+\frac{\lambda^2}{1-\lambda}+\cdots\right) \\ &amp;
+=\sum_{l=0}^{\infty}(\gamma \lambda)^l \delta_{t+l}
+\end{aligned}
+\]</span> 当 <span class="math inline">\(\lambda=0\)</span>
+时，为第一个差分 <span
+class="math inline">\(A_{t,\lambda=0}^{GAE}=\delta_t\)</span>，当 <span
+class="math inline">\(\lambda=1\)</span> 时，<span
+class="math inline">\(A_t^{G A E}=\sum_{l=0}^{\infty} \gamma^l
+\delta_{t+l}=\sum_{l=0}^{\infty} \gamma^l
+r_{t+l}-V\left(s_t\right)\)</span></p>
+<h2 id="ppo-算法"><font color='red'>PPO 算法</font></h2>
+<p>使用拉格朗日乘子法将 KL 散度前面的系数也放进目标函数中，定义如下
+<span class="math display">\[
+\underset{\theta}{\arg \max } \mathbb{E}_{s \sim \nu^{\pi_{\theta_k}}}
+\mathbb{E}_{a \sim \pi_{\theta_k}(\cdot \mid
+s)}\left[\dfrac{\pi_{\theta}(s|a)}{\pi_{\theta_k}(s|a)}A^{\pi_{\theta}}(s,a)-\beta
+D_{KL}[\pi_{\theta_k}(\cdot|s),\pi_{\theta}(\cdot|s)]\right]
+\]</span></p>
+<h3 id="ppo-惩罚">PPO-惩罚</h3>
+<p>令 <span
+class="math inline">\(d_k=D_{KL}^{\nu^{\pi_{\theta_k}}}(\pi_{\theta_k},\pi_\theta)\)</span>，<span
+class="math inline">\(\beta\)</span>​ 更新如下 <span
+class="math display">\[
+\beta_{k+1}= \begin{cases}\frac{\beta_k}{2}, &amp; \text { 如果 }
+d_k&lt;\frac{\delta}{1.5} \\ \beta_k \times 2, &amp; \text { 如果 }
+d_k&gt;\delta \times 1.5 \\ \beta_k, &amp; \text { 否则 }\end{cases}
+\]</span> 也就是散度太大的话权重调大，散度太低的话权重调小</p>
+<h3 id="ppo-截断">PPO-截断</h3>
+<p>根据优势函数在 <span
+class="math inline">\([1-\epsilon,1+\epsilon]\)</span> 前后截断 <span
+class="math display">\[
+\underset{\theta}{\arg \max } \mathbb{E}_{s \sim \nu}{
+}^{\pi_{\theta_k}} \mathbb{E}_{a \sim \pi_{\theta_k}(\cdot \mid
+s)}\left[\min \left(\frac{\pi_\theta(a \mid s)}{\pi_{\theta_k}(a \mid
+s)} A^{\pi_{\theta_k}}(s, a),
+\operatorname{clip}\left(\frac{\pi_\theta(a \mid s)}{\pi_{\theta_k}(a
+\mid s)}, 1-\epsilon, 1+\epsilon\right) A^{\pi_{\hat{\sigma}_k}}(s,
+a)\right)\right.
+\]</span> 如果 <span class="math inline">\(A&gt;0\)</span> 两者之比被
+<span class="math inline">\(1+\epsilon\)</span> 截断，如果 <span
+class="math inline">\(A&lt;0\)</span>，则被 <span
+class="math inline">\(1-\epsilon\)</span> 截断，为语言模型主流算法。</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" class="category-chain-item">计算机科学</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="category-chain-item">强化学习</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">#强化学习</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Foundation for machine learning</div>
+      <div>https://lr-tsinghua11.github.io/2024/02/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Learning_rate</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月1日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/01/20/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/" title="Summary of autumn term in the third college">
+                        <span class="hidden-mobile">Summary of autumn term in the third college</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"forest"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var title = subtitle.title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
