@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E7%BB%BF%E8%8D%89%E5%A4%9A%E4%BA%91.jpg">
 <meta property="article:published_time" content="2022-06-18T04:37:59.000Z">
-<meta property="article:modified_time" content="2023-07-01T07:34:01.226Z">
+<meta property="article:modified_time" content="2023-07-01T07:34:01.000Z">
 <meta property="article:author" content="Learning_rate">
 <meta property="article:tag" content="微积分 A(2)">
 <meta name="twitter:card" content="summary_large_image">
@@ -235,7 +235,7 @@
         
         
         
-          974 分钟
+          973 分钟
         
       </span>
     
@@ -286,7 +286,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：8 个月前
+                    本文最后更新于：1 年前
                   
                 
               </p>
@@ -512,7 +512,7 @@ class="math inline">\(。\vec{x}\neq\vec{y}\)</span>，<span
 class="math inline">\(f(0)=\vec{x}\)</span>，</p>
 <p><span
 class="math inline">\(f(1)=\vec{y}\)</span>，先证明该函数映射连续性。有线性函数
-<span class="math inline">\(g_1:[0,1]\longrightarrow \mathbb{R}^m,t
+<span class="math inline">\(g_1:[0,1]\longrightarrow  \mathbb{R}^m,t
 \longmapsto (1-t)\vec{x}+t\vec{y}\)</span> 连</p>
 <p>续，考虑函数 <span class="math inline">\(g_2:[0,1]\longrightarrow
 [0,1]t\longmapsto\|(1-t)\vec{x}+t\vec{y}\|\)</span>，由范数的正齐次性和三角不等式得
@@ -531,8 +531,8 @@ class="math inline">\(\|(1-t)\vec{x}+t\vec{y}\|\geq0\)</span>，若 <span
 class="math inline">\(\|(1-t)\vec{x}+t\vec{y}\|=0\)</span></p>
 <p>由正定性 <span class="math inline">\((1-t)\vec{x}+t\vec{y}=0\)</span>
 得 <span class="math inline">\(\vec{x}=-\vec{y}\)</span> ，只要 <span
-class="math inline">\(\vec{x}\neq -\vec{y}\Longrightarrow
-\|(1-t)\vec{x}+t\vec{y}\|\neq 0\)</span></p>
+class="math inline">\(\vec{x}\neq
+-\vec{y}\Longrightarrow  \|(1-t)\vec{x}+t\vec{y}\|\neq 0\)</span></p>
 <p>令 <span class="math inline">\(g_3:x\in(0,1]\longmapsto
 \dfrac{1}{x}\in[1,+\infty)\)</span> 为连续函数，复合函数 <span
 class="math inline">\(f(t)=(g_3\circ g_2)\cdot g_1\)</span> 也连续</p>
@@ -1041,13 +1041,10 @@ class="math display">\[
 class="math inline">\(|\displaystyle \inf _{\mathbf{y} \in
 \Omega}\|\mathbf{y}-\mathbf{x}\|-\displaystyle \inf _{\mathbf{y} \in
 \Omega}\|\mathbf{y}-\mathbf{x}_0\||\leq
-\|\mathbf{x}-\mathbf{x_0}\|\)</span>，则取 $=$，就有 <span
-class="math display">\[
-\forall \ \epsilon&gt;0,\exists\
-\delta=\epsilon,||\mathbf{x}-\mathbf{x}_0||&lt;\epsilon,|f(\mathbf{x})-f(\mathbf{x}_0)|\leq
-\delta=\epsilon
-\]</span> 则 <span class="math inline">\(\displaystyle
-f(\mathbf{x})=\inf _{\mathbf{y} \in
+\|\mathbf{x}-\mathbf{x_0}\|\)</span>，则取 $=<span
+class="math inline">\(，就有\)</span>$
+ &gt;0, =,||-_0||&lt;,|f()-f(_0)|= $$ 则 <span
+class="math inline">\(\displaystyle f(\mathbf{x})=\inf _{\mathbf{y} \in
 \Omega}\|\mathbf{y}-\mathbf{x}\|\)</span> 连续</p>
 <p><span class="math inline">\((b)\)</span> 由三角不等式 <span
 class="math inline">\(\|\mathbf{y^*}-\mathbf{y_n}\|+\|\mathbf{y_n}-\mathbf{x}\|\geq
@@ -1346,10 +1343,12 @@ x^{2}}{4+\displaystyle \sum_{i=0}^{n}\left(x^{i}\right)^{2}}, \cdots,
 <p>这是由于每个分量对 <span class="math inline">\(x^i\)</span>
 均是初等函数，从而该球极投影映射为可微映射</p>
 <p>雅可比矩阵定义 <span class="math inline">\(\displaystyle
-\left[\begin{array}{ccc} \dfrac{\partial X_{1}}{\partial x_{1}} &amp;
-\cdots &amp; \dfrac{\partial X_{1}}{\partial x_{m}} \\ \vdots &amp;
-\ddots &amp; \vdots \\ \dfrac{\partial X_{m+1}}{\partial x_{1}} &amp;
-\cdots &amp; \dfrac{\partial X_{m+1}}{\partial x_{m}}
+\left[\begin{array}{ccc}
+\dfrac{\partial X_{1}}{\partial x_{1}} &amp; \cdots &amp;
+\dfrac{\partial X_{1}}{\partial x_{m}} \\
+\vdots &amp; \ddots &amp; \vdots \\
+\dfrac{\partial X_{m+1}}{\partial x_{1}} &amp; \cdots &amp;
+\dfrac{\partial X_{m+1}}{\partial x_{m}}
 \end{array}\right]\)</span>，记该矩阵第 <span
 class="math inline">\(k\)</span> 行第 <span
 class="math inline">\(l\)</span> 列元素为 <span
@@ -1413,9 +1412,12 @@ class="math inline">\(\dfrac{\partial f}{\partial \theta},
 \dfrac{\partial f}{\partial \varphi}\)</span> 表示)。</p>
 <hr />
 <p>解：<span class="math inline">\((a)\)</span> 由几何关系得 <span
-class="math inline">\(\left(\begin{array}{l} x \\ y\\z
-\end{array}\right)=\left(\begin{gathered} r \sin\theta\cos\varphi \\ r
-\sin \theta\sin\varphi\\ r\cos\theta
+class="math inline">\(\left(\begin{array}{l}
+x \\ y\\z
+\end{array}\right)=\left(\begin{gathered}
+r \sin\theta\cos\varphi \\
+r \sin \theta\sin\varphi\\
+r\cos\theta
 \end{gathered}\right)\)</span>，显然该映射可微，对其求导得到雅克比矩阵
 <span class="math display">\[
 \left(\begin{gathered}\mathrm{d}x\\\mathrm{d}y\\\mathrm{d}z\end{gathered}\right)=
@@ -1426,15 +1428,19 @@ class="math inline">\(\left(\begin{array}{l} x \\ y\\z
 \end{pmatrix}\left(\begin{gathered}\mathrm{d}r\\\mathrm{d}\theta\\\mathrm{d}\varphi\end{gathered}\right)=J\left(\begin{gathered}\mathrm{d}r\\\mathrm{d}\theta\\\mathrm{d}\varphi\end{gathered}\right)
 \]</span> <span class="math inline">\((b)\)</span> 代入计算有 <span
 class="math inline">\(\mathbf{e}_r=\left(\begin{gathered}\sin\theta\cos\varphi\\
-\sin \theta\sin\varphi\\ \cos\theta\end{gathered}\right),
+\sin \theta\sin\varphi\\
+\cos\theta\end{gathered}\right),
 \mathbf{e}_\theta=\left(\begin{gathered}r\cos\theta\cos\varphi\\ r\cos
-\theta\sin\varphi\\ -r\sin\theta\end{gathered}\right),
+\theta\sin\varphi\\
+-r\sin\theta\end{gathered}\right),
 \mathbf{e}_\varphi=\left(\begin{gathered}-r\sin\theta\sin\varphi\\ r\sin
-\theta\cos\varphi\\ 0\end{gathered}\right)\)</span> <span
-class="math display">\[
+\theta\cos\varphi\\
+0\end{gathered}\right)\)</span> <span class="math display">\[
 \begin{gathered}\langle\mathbf{e}_r,\mathbf{e}_r\rangle=1,\langle\mathbf{e}_r,\mathbf{e}_\theta\rangle=0,\langle\mathbf{e}_r,\mathbf{e}_\varphi\rangle=0,\langle\mathbf{e}_\theta,\mathbf{e}_\theta\rangle=r^2,\langle\mathbf{e}_\theta,\mathbf{e}_\varphi\rangle=0,\langle\mathbf{e}_\varphi,\mathbf{e}_\varphi\rangle=r^2\sin^2\theta\end{gathered}
 \]</span> 则度量矩阵为 <span class="math inline">\(\left(\begin{array}{}
-1 &amp; 0 &amp;0\\ 0 &amp; r^{2}&amp;0\\ 0&amp;0&amp;r^2\sin^2\theta
+1 &amp; 0 &amp;0\\
+0 &amp; r^{2}&amp;0\\
+0&amp;0&amp;r^2\sin^2\theta
 \end{array}\right)\)</span></p>
 <p><span class="math inline">\((c)\)</span> 由 <span
 class="math inline">\(\small(a)\)</span> 中雅可比矩阵计算行列式 <span
@@ -1503,9 +1509,12 @@ class="math inline">\(\dfrac{\partial f}{\partial \theta},
 \dfrac{\partial f}{\partial \varphi}\)</span> 表示)。</p>
 <hr />
 <p>解：<span class="math inline">\((a)\)</span> 由几何关系得 <span
-class="math inline">\(\left(\begin{array}{l} x \\ y\\z
-\end{array}\right)=\left(\begin{gathered} (a+b\cos \theta)\cos \varphi
-\\ (a+b\cos \theta)\sin \varphi\\ b\sin\theta
+class="math inline">\(\left(\begin{array}{l}
+x \\ y\\z
+\end{array}\right)=\left(\begin{gathered}
+(a+b\cos \theta)\cos \varphi  \\
+(a+b\cos \theta)\sin \varphi\\
+b\sin\theta
 \end{gathered}\right)\)</span>，显然其可微，对其求导有 <span
 class="math display">\[
 \left(\begin{array}{l}
@@ -1536,10 +1545,13 @@ class="math display">\[
 \theta)^{2}\end{gathered}
 \]</span> <span class="math inline">\((c)\)</span> 由梯度表达式 <span
 class="math inline">\(\nabla f(\theta,\varphi)=\left(
-\mathbf{e}_{\theta},\mathbf{e}_\varphi\right)\left(\begin{array}{} b^2
-&amp; 0 \\ 0 &amp; (a+b\cos \theta)^2
-\end{array}\right)^{-1}\left(\begin{array}{c} \partial_{\theta} f\\
-\partial_{\varphi} f \end{array}\right)\\\)</span></p>
+\mathbf{e}_{\theta},\mathbf{e}_\varphi\right)\left(\begin{array}{}
+b^2 &amp; 0 \\
+0 &amp; (a+b\cos \theta)^2
+\end{array}\right)^{-1}\left(\begin{array}{c}
+\partial_{\theta} f\\
+\partial_{\varphi} f
+\end{array}\right)\\\)</span></p>
 <p>得到 <span class="math inline">\(\nabla
 f(\theta,\varphi)=\dfrac{1}{b^2}\dfrac{\partial f}{\partial
 \theta}\mathbf{e}_{\theta}+\dfrac{1}{(a+b\cos
@@ -1799,8 +1811,9 @@ class="math inline">\(1+\text{tr}(B)+\dfrac{1}{2}(\text{tr}^2(B)-\text{tr}(B^2))
 <h2 id="讲义2.5.3">讲义2.5.3</h2>
 <p>求以下函数的极值和最值</p>
 <ol type="1">
-<li><p><span class="math inline">\(u=\sin x+\sin y+\sin z-\sin (x+y+z)(0
-\leq x, y, z \leq \pi)\)</span></p></li>
+<li><p><span
+class="math inline">\(u=\sin  x+\sin  y+\sin  z-\sin  (x+y+z)(0 \leq x,
+y, z \leq \pi)\)</span></p></li>
 <li><p><span class="math inline">\(f(\mathbf{x})=\dfrac{\langle A
 \mathbf{x}, \mathbf{x}\rangle}{\langle\mathbf{x},
 \mathbf{x}\rangle}(\mathbf{x} \neq \mathbf{0})\)</span>, 其中 <span
@@ -1867,8 +1880,8 @@ class="math inline">\(4\)</span>，同时也是最大值，对最小值有三角
 \sin  (x)+\sin  (y)+\sin  (z)-\sin  (x+y+z)=4
 \sin  \left(\frac{x+y}{2}\right) \sin  \left(\frac{x+z}{2}\right)
 \sin  \left(\frac{y+z}{2}\right)
-\]</span> 代入取值范围有 <span class="math inline">\(\sin
-(\dfrac{x+y}{2}),\sin (\dfrac{x+z}{2}),\sin (\dfrac{y+z}{2})\geq
+\]</span> 代入取值范围有 <span
+class="math inline">\(\sin  (\dfrac{x+y}{2}),\sin  (\dfrac{x+z}{2}),\sin  (\dfrac{y+z}{2})\geq
 0\)</span>，则最小值为 <span class="math inline">\(0\)</span></p>
 <p>综上所述原函数有极大值 <span
 class="math inline">\(4\)</span>，无极小值，有最大值 <span
@@ -2620,8 +2633,9 @@ class="math inline">\(Q(\dfrac{Rx_0}{\sqrt{x_0^2+y_0^2}},\dfrac{Ry_0}{\sqrt{x_0^
 <p>考虑经度、纬度恒为定值的两条微元，取纬度 <span
 class="math inline">\(\varphi\sim \varphi+d\varphi\)</span> 处 <span
 class="math inline">\(d\theta\)</span> 的正交微圆弧，令其长度相同</p>
-<p><span class="math inline">\(d\theta\cdot
-R\cos\varphi=Rd\varphi\Longrightarrow d\theta=\dfrac{d\varphi}{\cos
+<p><span
+class="math inline">\(d\theta\cdot  R\cos\varphi=Rd\varphi\Longrightarrow
+d\theta=\dfrac{d\varphi}{\cos
 \varphi}\)</span>，该两条圆弧映射后的长度分别为 $Rd$ 和 <span
 class="math inline">\(dz\)</span></p>
 <p>两者相等有 <span
@@ -2886,7 +2900,7 @@ yx}{1+x^2}|dx=2\int_0^{+\infty}|\dfrac{\cos yx}{1+x^2}|dx\)</span>
 \forall\  \epsilon &gt;0,\exists\ A&gt;0,s.t.\forall \
 A_1&gt;A_2&gt;A,\int_{A_1}^{A_2}|\dfrac{\cos yx}{1+x^2}|dx&lt;\epsilon
 \]</span> 放缩绝对值有 <span class="math inline">\(\forall\  \epsilon
-&gt;0,\exists\ A&gt;0,s.t.\forall\displaystyle \
+&gt;0,\exists\ A&gt;0,s.t.\forall\displaystyle  \
 A_1&gt;A_2&gt;A,|\int_{A_1}^{A_2}\dfrac{\cos yx}{1+x^2}dx|\leq
 \int_{A_1}^{A_2}|\dfrac{\cos yx}{1+x^2}|dx&lt;\epsilon\)</span></p>
 <p>由柯西收敛准则得原广义含参积分收敛</p>
@@ -3171,7 +3185,7 @@ e^{\frac{r^2}{a^2}}r^2\sin \theta  dr d\theta d\varphi\\
 <h2 id="习题3.4.10">习题3.4.10</h2>
 <p><span class="math inline">\(f(t)\)</span> 在 <span
 class="math inline">\((-\infty,+\infty)\)</span> 连续, <span
-class="math inline">\(f(t)=3\displaystyle \iiint_{x^{2}+y^{2}+z^{2}
+class="math inline">\(f(t)=3\displaystyle  \iiint_{x^{2}+y^{2}+z^{2}
 \leqslant t^{2}} f\left(\sqrt{x^{2}+y^{2}+z^{2}}\right) \mathrm{d} x
 \mathrm{~d} y \mathrm{~d} z+\)</span> <span
 class="math inline">\(\left|t^{3}\right|\)</span>, 求 <span
@@ -3924,7 +3938,7 @@ y-\mathrm{e}^{y} x \sin x \mathrm{~d} x\right)=0\\\mathrm{d}\left[(y-1)
 \end{gathered}
 \]</span> 则原方程的通解为 <span
 class="math inline">\(\mathrm{e}^{y}(y-1) \sin x+\mathrm{e}^{y} x \cos
-x=C, C\in R\)</span></p>
+x=C, C\in  R\)</span></p>
 <p><span class="math inline">\((2)\)</span> 两边除以 <span
 class="math inline">\(x^2+y^2\)</span> 有 <span
 class="math inline">\(\dfrac{x+y}{x^2+y^2}dx+\dfrac{y-x}{x^2+y^2}dy=0\)</span>
@@ -3976,7 +3990,7 @@ dx}=\dfrac{1}{x^2}\)</span> <span class="math display">\[
 d(x+\dfrac{\sin ^2y}{x})=0
 \end{gathered}
 \]</span> 则原方程的通解为 <span class="math inline">\(x+\dfrac{\sin
-^2y}{x}=C, C\in R\)</span></p>
+^2y}{x}=C, C\in  R\)</span></p>
 <h2 id="第四章总复习题-4">第四章总复习题 4</h2>
 <p>设 <span class="math inline">\(L \subset \mathbb{R}^{2}\)</span>
 为光滑闭曲线, 逆时针为正向, <span
