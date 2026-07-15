@@ -44,6 +44,8 @@
 
   <link  rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="/lib/katex/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -236,7 +238,7 @@
         
         
         
-          279 分钟
+          276 分钟
         
       </span>
     
@@ -294,26 +296,24 @@
             
             <div class="markdown-body">
               
-              <h1
-id="largetextcolorbluemboxadvanced-algebra-small-mathbfmidterm-_textcolorblue2022.4.21"><span
-class="math inline">\(\large\textcolor{blue}{\mbox{Advanced Algebra  }
-\small \mathbf{Midterm}}\ \ \ \ \ \
-_\textcolor{blue}{2022.4.21}\)</span></h1>
-<h2 id="problem-1-small-mboxquaternions">Problem 1<span
-class="math inline">\(\ \small  \mbox{Quaternions}\)</span></h2>
+              <h1 id="advanced-algebra-midterm-2022.4.21">Advanced Algebra Midterm
+(2022.4.21)</h1>
+<h2 id="problem-1-quaternions">Problem 1: Quaternions</h2>
 <p>The quaternions are widely applied in computation graphics and
 computer games, and can also be used to simplify calculations that
 involves angular stuff or rotations. They are defiend as <span
 class="math inline">\(a+b i+c j+d k\)</span>, where <span
 class="math inline">\(a, b, c, d \in \mathbb{R}\)</span> and <span
 class="math inline">\(i^{2}=j^{2}=k^{2}=i j k=-1\)</span>. (In
-particular, the multiplication is defined <span class="math display">\[
-a s(a+b i+c j+d k)\left(a^{\prime}+b^{\prime} i+c^{\prime} j+d^{\prime}
-k\right)=\left(a a^{\prime}-b b^{\prime}-c c^{\prime}-d
-d^{\prime}\right)+\\\left(a b^{\prime}+b a^{\prime}+c d^{\prime}-d
-c^{\prime}\right) i+\left(a c^{\prime}+c a^{\prime}+d^{\prime}
-b-\right.\left.b d^{\prime}\right) j+\left(a d^{\prime}+d a^{\prime}+b
-c^{\prime}-c b^{\prime}\right) k
+particular, the multiplication is defined as <span
+class="math display">\[
+\begin{aligned}
+(a+b i+c j+d k)\left(a&#39;+b&#39; i+c&#39; j+d&#39; k\right) ={}&amp;
+\left(a a&#39;-b b&#39;-c c&#39;-d d&#39;\right) \\
+&amp;+\left(a b&#39;+b a&#39;+c d&#39;-d c&#39;\right) i \\
+&amp;+\left(a c&#39;+c a&#39;+d&#39; b-b d&#39;\right) j \\
+&amp;+\left(a d&#39;+d a&#39;+b c&#39;-c b&#39;\right) k
+\end{aligned}
 \]</span> You don't really need to know this formula for this problem
 though.)</p>
 <p><span class="math inline">\((1)\)</span> Recall that we can formulate
@@ -363,20 +363,22 @@ R_{\bar{q}}\right)=I\)</span> by understanding the meaning of the
 matrices involved.) (In particular, if you interpret a <span
 class="math inline">\(3 D\)</span> vector <span
 class="math inline">\((x, y, z)\)</span> as the quaternion <span
-class="math inline">\(v=0+x i+y j+z k \mathrm{~ , ~ t h e n ~ t h e ~ q
-u a t e r n i o n ~ m u l t i p l i c a t i o n ~ q v}\)</span> to some
-rotation of <span class="math inline">\(v\)</span>. This quaternion
-interpretation is currently one of the best way to compute 3D rotations
-in real life. Many of your games with <span class="math inline">\(3
-D\)</span> graphics depend on this.)</p>
+class="math inline">\(v=0+x i+y j+z k\)</span>, then the quaternion
+multiplication <span class="math inline">\(q v \bar{q}\)</span>
+corresponds to some rotation of <span class="math inline">\(v\)</span>.
+This quaternion interpretation is currently one of the best way to
+compute 3D rotations in real life. Many of your games with <span
+class="math inline">\(3 D\)</span> graphics depend on this.)</p>
 <hr />
 <p><span class="math inline">\((1)\)</span> Just calculate it.</p>
 <p><span class="math inline">\((2)\)</span> <span
-class="math inline">\(L_{q}=\begin{pmatrix}r&amp;-x&amp;-y&amp;-z\\x&amp;r&amp;-z&amp;y\\y&amp;z&amp;r&amp;-x\\z&amp;-y&amp;x&amp;r\end{pmatrix},R_{q}=\begin{pmatrix}r&amp;-x&amp;-y&amp;-z\\x&amp;r&amp;z&amp;-y\\y&amp;-z&amp;r&amp;x\\z&amp;y&amp;-x&amp;r\end{pmatrix}\)</span></p>
-<p><span
-class="math inline">\(R_qL_q=\begin{pmatrix}-x^2-y^2-z^2+r^2&amp;-2rx&amp;-2ry&amp;-2rz\\2rx&amp;-x^2+r^2+y^2+z^2&amp;-2xy&amp;-2xz\\2yr&amp;-2yx&amp;-y^2+z^2+r^2+x^2&amp;-2zy\\2zr&amp;2zx&amp;-2zy&amp;-z^2+r^2+x^2+y^2\end{pmatrix}\)</span></p>
-<p><span
-class="math inline">\(L_qR_q=\begin{pmatrix}-x^2-y^2-z^2+r^2&amp;-2rx&amp;-2ry&amp;-2rz\\2rx&amp;-x^2+r^2+y^2+z^2&amp;-2xy&amp;-2xz\\2yr&amp;-2yx&amp;-y^2+z^2+r^2+x^2&amp;-2zy\\2zr&amp;2zx&amp;-2zy&amp;-z^2+r^2+x^2+y^2\end{pmatrix}\)</span></p>
+class="math display">\[
+L_{q}=\begin{pmatrix}r&amp;-x&amp;-y&amp;-z\\x&amp;r&amp;-z&amp;y\\y&amp;z&amp;r&amp;-x\\z&amp;-y&amp;x&amp;r\end{pmatrix},\qquad
+R_{q}=\begin{pmatrix}r&amp;-x&amp;-y&amp;-z\\x&amp;r&amp;z&amp;-y\\y&amp;-z&amp;r&amp;x\\z&amp;y&amp;-x&amp;r\end{pmatrix}
+\]</span></p>
+<p><span class="math display">\[
+R_qL_q=L_qR_q=\begin{pmatrix}r^2-x^2-y^2-z^2&amp;-2rx&amp;-2ry&amp;-2rz\\2rx&amp;r^2-x^2+y^2+z^2&amp;-2xy&amp;-2xz\\2yr&amp;-2yx&amp;r^2+x^2-y^2+z^2&amp;-2zy\\2zr&amp;2zx&amp;-2zy&amp;r^2+x^2+y^2-z^2\end{pmatrix}
+\]</span></p>
 <p>So <span class="math inline">\(L_qR_q=R_qL_q\)</span>, and it's
 obvious when looking at its linear map, which is both right for <span
 class="math inline">\(L_qR_q\)</span> and <span
@@ -397,10 +399,8 @@ R_{\bar{q}}\right)=R_{\bar{q}}^TL_q^TL_qR_{\bar{q}}
 class="math inline">\(L_q^TL_q=I_4,R_{\bar{q}}^TR_{\bar{q}}=I_4\)</span>
 So this matrix has block form <span
 class="math inline">\(\begin{pmatrix}I&amp;O\\O&amp;Q\end{pmatrix}\)</span></p>
-<h2
-id="problem-2-small-mboxdrazin-inverse-and-differential-equation">Problem
-2<span class="math inline">\(\ \small  \mbox{Drazin Inverse and
-Differential Equation}\)</span></h2>
+<h2 id="problem-2-drazin-inverse-and-differential-equation">Problem 2:
+Drazin Inverse and Differential Equation</h2>
 <p>Given an unknown vector-valued function <span
 class="math inline">\(\boldsymbol{v}(t)\)</span>, we know how to solve
 <span class="math inline">\(\boldsymbol{v}^{\prime}=A
@@ -601,9 +601,8 @@ A
 t} A A^{(\mathrm{D})} \boldsymbol{v}_{0}\)</span> is a solution to <span
 class="math inline">\(A \boldsymbol{v}^{\prime}+B
 \boldsymbol{v}=\mathbf{0}\)</span></p>
-<h2 id="problem-3-small-mboxsherman-morrison-woodburry-formula">Problem
-3<span class="math inline">\(\ \small  \mbox{Sherman-Morrison-Woodburry
-Formula}\)</span></h2>
+<h2 id="problem-3-shermanmorrisonwoodbury-formula">Problem 3:
+Sherman–Morrison–Woodbury Formula</h2>
 <p>The famous Sherman-Morrison-Woodburry formula states that, for any
 <span class="math inline">\(m \times m\)</span> invertible matrix <span
 class="math inline">\(X, n \times n\)</span> invertible matrix <span
@@ -1368,7 +1367,9 @@ class="math inline">\(A\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}x\\y\end{
 
   
   
-
+  
+  
+  
 
 
 
@@ -1662,43 +1663,33 @@ class="math inline">\(A\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}x\\y\end{
 
   <script>Fluid.plugins.imageCaption();</script>
 
+  <script  src="/lib/katex/katex.min.js" ></script>
+
+  <script  src="/lib/katex/auto-render.min.js" ></script>
+
   
       <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
+        (function () {
+          function typeset() {
+            renderMathInElement(document.body, {
+              delimiters: [
+                { left: '\\[', right: '\\]', display: true },
+                { left: '\\(', right: '\\)', display: false }
+              ],
+              ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'option'],
+              macros: { '\\mbox': '\\text' },
+              throwOnError: false,
+              strict: false
+            });
           }
-        };
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', typeset);
+          } else {
+            typeset();
+          }
+        })();
       </script>
     
-
-  <script  src="/lib/mathjax/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
@@ -1720,20 +1711,5 @@ class="math inline">\(A\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}x\\y\end{
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

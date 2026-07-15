@@ -44,6 +44,8 @@
 
   <link  rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="/lib/katex/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -455,9 +457,9 @@ class="math inline">\((x_0,y_0)\)</span></p>
 class="math inline">\(a_{11}x^2+2a_{12}xy+a_{22}y^2+2a_{13}x+2a_{23}y+a_{33}=0\)</span>
 存在奇异点；</p>
 <p>②退化为两条相交直线，或者退化为单个点；</p>
-<p>③<span class="math display">\[ \left| \matrix{  a_{11} &amp; a_{12}
+<p>③<span class="math display">\[ \begin{vmatrix}  a_{11} &amp; a_{12}
 &amp; a_{13}\\a_{21} &amp; a_{22} &amp; a_{23}\\a_{31} &amp; a_{32}
-&amp; a_{33}\\} \right|=0 \]</span></p>
+&amp; a_{33}\end{vmatrix}=0 \]</span></p>
 <p>条件①②③等价</p>
 <h2 id="空间曲面">空间曲面</h2>
 <p>①<span class="math inline">\(f(x,y,z)=0\)</span> 的法向量为 <span
@@ -938,7 +940,9 @@ class="math inline">\(\large\kappa_{max}=2\large\kappa_{min}\)</span>
 
   
   
-
+  
+  
+  
 
 
 
@@ -1232,43 +1236,33 @@ class="math inline">\(\large\kappa_{max}=2\large\kappa_{min}\)</span>
 
   <script>Fluid.plugins.imageCaption();</script>
 
+  <script  src="/lib/katex/katex.min.js" ></script>
+
+  <script  src="/lib/katex/auto-render.min.js" ></script>
+
   
       <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
+        (function () {
+          function typeset() {
+            renderMathInElement(document.body, {
+              delimiters: [
+                { left: '\\[', right: '\\]', display: true },
+                { left: '\\(', right: '\\)', display: false }
+              ],
+              ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'option'],
+              macros: { '\\mbox': '\\text' },
+              throwOnError: false,
+              strict: false
+            });
           }
-        };
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', typeset);
+          } else {
+            typeset();
+          }
+        })();
       </script>
     
-
-  <script  src="/lib/mathjax/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
@@ -1290,20 +1284,5 @@ class="math inline">\(\large\kappa_{max}=2\large\kappa_{min}\)</span>
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

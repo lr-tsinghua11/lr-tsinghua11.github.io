@@ -44,6 +44,8 @@
 
   <link  rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="/lib/katex/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -607,7 +609,9 @@ trick，学习到很多 mac terminal 相关插件，直接一个
 
   
   
-
+  
+  
+  
 
 
 
@@ -901,43 +905,33 @@ trick，学习到很多 mac terminal 相关插件，直接一个
 
   <script>Fluid.plugins.imageCaption();</script>
 
+  <script  src="/lib/katex/katex.min.js" ></script>
+
+  <script  src="/lib/katex/auto-render.min.js" ></script>
+
   
       <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
+        (function () {
+          function typeset() {
+            renderMathInElement(document.body, {
+              delimiters: [
+                { left: '\\[', right: '\\]', display: true },
+                { left: '\\(', right: '\\)', display: false }
+              ],
+              ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'option'],
+              macros: { '\\mbox': '\\text' },
+              throwOnError: false,
+              strict: false
+            });
           }
-        };
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', typeset);
+          } else {
+            typeset();
+          }
+        })();
       </script>
     
-
-  <script  src="/lib/mathjax/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
@@ -959,20 +953,5 @@ trick，学习到很多 mac terminal 相关插件，直接一个
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

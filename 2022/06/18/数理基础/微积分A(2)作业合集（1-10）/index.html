@@ -44,6 +44,8 @@
 
   <link  rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="/lib/katex/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -1943,19 +1945,19 @@ x^3}=y(y-1)(y-2)x^{y-3}&gt;0\)</span>，<span
 class="math inline">\(\dfrac{\partial ^2z}{\partial x^2}\)</span> 随
 <span class="math inline">\(x\)</span> 单调递增</p>
 <p>取点 <span class="math inline">\(\dfrac{\partial ^2z}{\partial
-x^2}\big{|}_{x\to 0^{+}}\to -\infty\)</span>，<span
+x^2}\big|_{x\to 0^{+}}\to -\infty\)</span>，<span
 class="math inline">\(\dfrac{\partial ^2z}{\partial
-x^2}\big{|}_{x=1}=2&gt;0\)</span>，由零点存在定理， <span
+x^2}\big|_{x=1}=2&gt;0\)</span>，由零点存在定理， <span
 class="math display">\[
 \exists\ !\ x_{0}\in (0,1),s.t.\dfrac{\partial ^2z}{\partial
-x^2}\big{|}_{x=x_0}=0
+x^2}\big|_{x=x_0}=0
 \]</span> 则 <span class="math inline">\(\dfrac{\partial z}{\partial
 x}\)</span> 当 <span class="math inline">\(x\in (0,x_0)\)</span>
 单调递减，当 <span class="math inline">\(x\in (x_0,+\infty)\)</span>
 单调递增，又 <span class="math inline">\(\dfrac{\partial z}{\partial
-x}\big{|}_{x=1}=0\)</span> 则有</p>
+x}\big|_{x=1}=0\)</span> 则有</p>
 <p><span class="math inline">\(\dfrac{\partial z}{\partial
-x}\big{|}_{x=x_0}&lt;0\)</span> 结合单调性可知，<span
+x}\big|_{x=x_0}&lt;0\)</span> 结合单调性可知，<span
 class="math inline">\(\dfrac{\partial z}{\partial x}\)</span> 在 <span
 class="math inline">\((0,+\infty)\)</span> 上有且仅有两个零点，一者
 <span class="math inline">\(x_1\in (0,x_0)\)</span> ，一者</p>
@@ -4361,7 +4363,9 @@ class="math inline">\(\mathcal{q_1}\)</span> 的点电荷，其周围半径为
 
   
   
-
+  
+  
+  
 
 
 
@@ -4655,43 +4659,33 @@ class="math inline">\(\mathcal{q_1}\)</span> 的点电荷，其周围半径为
 
   <script>Fluid.plugins.imageCaption();</script>
 
+  <script  src="/lib/katex/katex.min.js" ></script>
+
+  <script  src="/lib/katex/auto-render.min.js" ></script>
+
   
       <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
+        (function () {
+          function typeset() {
+            renderMathInElement(document.body, {
+              delimiters: [
+                { left: '\\[', right: '\\]', display: true },
+                { left: '\\(', right: '\\)', display: false }
+              ],
+              ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'option'],
+              macros: { '\\mbox': '\\text' },
+              throwOnError: false,
+              strict: false
+            });
           }
-        };
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', typeset);
+          } else {
+            typeset();
+          }
+        })();
       </script>
     
-
-  <script  src="/lib/mathjax/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
@@ -4713,20 +4707,5 @@ class="math inline">\(\mathcal{q_1}\)</span> 的点电荷，其周围半径为
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
