@@ -14,7 +14,7 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Learning_rate">
-  <meta name="keywords" content="">
+  <meta name="keywords" content="LLM,强化学习,Agent,深度学习,NLP,清华大学,Learning_rate">
   
     <meta name="description" content="Linux 系统下的文件解锁以及转换方法">
 <meta property="og:type" content="article">
@@ -25,24 +25,24 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://learningrate1.com/img/%E5%A4%9A%E4%BA%91%E8%93%9D%E5%A4%A9.jpg">
 <meta property="article:published_time" content="2022-05-04T13:33:18.000Z">
-<meta property="article:modified_time" content="2025-07-23T03:52:42.000Z">
+<meta property="article:modified_time" content="2022-05-04T13:33:18.000Z">
 <meta property="article:author" content="Learning_rate">
-<meta property="article:tag" content="shell">
+<meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://learningrate1.com/img/%E5%A4%9A%E4%BA%91%E8%93%9D%E5%A4%A9.jpg">
   
   
   <title>Unlock pdf by shell commands - Learning_rate</title>
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/github-markdown-css/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css" />
 
 
 
@@ -75,7 +75,8 @@
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 5.4.1"></head>
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Learning_rate" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -286,7 +287,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：1 年前
+                    本文最后更新于：4 年前
                   
                 
               </p>
@@ -316,7 +317,7 @@ class="math inline">\(\mbox{unlockPDF}\)</span> 文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nano unlockPDF<br></code></pre></td></tr></table></figure>
 <p>在编辑界面中写入如下代码，其中 <span
 class="math inline">\(\#\)</span> 开头的为注释</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta"># </span><span class="language-bash">第一行代表在哪个 shell 命令下执行，可以修改为 python 成为 python 脚本</span><br><span class="hljs-meta"># </span><span class="language-bash">可以使用命令行 <span class="hljs-built_in">which</span> bash 找到当前控制台命令行所在位置（本质上命令也是一些文件）</span><br><span class="hljs-meta">#</span><span class="language-bash">!/usr/bin/bash</span><br><span class="hljs-meta"># </span><span class="language-bash">要求文件名中不能有空格，否则处理时会把文件名分割，其中一个成为命令使得程序运行失败</span><br><span class="hljs-meta"># </span><span class="language-bash">pdf名称，存储输入的第一个参数</span><br>pdfName=$1<br><span class="hljs-meta"># </span><span class="language-bash">密码，存储输入的第二个参数</span><br>password=$2<br><span class="hljs-meta"># </span><span class="language-bash">解锁 pdf 命令，安装 qpdf (sudo apt-get install qpdf) 便可以使用</span><br>qpdf -password=$password --decrypt $pdfName output.pdf<br><span class="hljs-meta"># </span><span class="language-bash">$? 为 0 代表上条命令执行成功</span><br>if [ $? -eq 0 ]; then<br>    # 删除原文件<br>    rm -rf $pdfName<br>    # 将得到的 output.pdf 名称修改为原来 pdf 的名称，达到替换的效果<br>    mv output.pdf $pdfName<br>    # 输出成功结果<br>    echo &quot;解锁成功，原文件被替换&quot;<br>else<br>    # 输出失败结果<br>    echo &quot;密码错误，或未安装qpdf&quot;<br>fi<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">第一行代表在哪个 shell 命令下执行，可以修改为 python 成为 python 脚本</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">可以使用命令行 <span class="hljs-built_in">which</span> bash 找到当前控制台命令行所在位置（本质上命令也是一些文件）</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">!/usr/bin/bash</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">要求文件名中不能有空格，否则处理时会把文件名分割，其中一个成为命令使得程序运行失败</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">pdf名称，存储输入的第一个参数</span><br>pdfName=$1<br><span class="hljs-meta prompt_"># </span><span class="language-bash">密码，存储输入的第二个参数</span><br>password=$2<br><span class="hljs-meta prompt_"># </span><span class="language-bash">解锁 pdf 命令，安装 qpdf (<span class="hljs-built_in">sudo</span> apt-get install qpdf) 便可以使用</span><br>qpdf -password=$password --decrypt $pdfName output.pdf<br><span class="hljs-meta prompt_"># </span><span class="language-bash">$? 为 0 代表上条命令执行成功</span><br>if [ $? -eq 0 ]; then<br>    # 删除原文件<br>    rm -rf $pdfName<br>    # 将得到的 output.pdf 名称修改为原来 pdf 的名称，达到替换的效果<br>    mv output.pdf $pdfName<br>    # 输出成功结果<br>    echo &quot;解锁成功，原文件被替换&quot;<br>else<br>    # 输出失败结果<br>    echo &quot;密码错误，或未安装qpdf&quot;<br>fi<br></code></pre></td></tr></table></figure>
 <p>可以看到 <span class="math inline">\(\mbox{shell}\)</span>
 中的参数传递方式、<span class="math inline">\(\mbox{if}\)</span>
 语句的输入、<span class="math inline">\(=\)</span> 的格式规范（不要在
@@ -327,7 +328,7 @@ class="math inline">\(\#\)</span> 开头的为注释</p>
 的分隔机制，不能把写好的脚本直接放在 <span
 class="math inline">\(\mbox{wsl}\)</span>
 控制台中，就直接放在文件夹中，专门用来处理文件，执行时输入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta"># </span><span class="language-bash">secure.pdf 为需要解锁的 pdf 文件，password 为解锁密码</span><br>./unlockPDF secure.pdf password<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">secure.pdf 为需要解锁的 pdf 文件，password 为解锁密码</span><br>./unlockPDF secure.pdf password<br></code></pre></td></tr></table></figure>
 <h1 id="转换文档的-mboxlinux-命令行">转换文档的 <span
 class="math inline">\(\mbox{Linux}\)</span> 命令行</h1>
 <p>（ wsl
@@ -347,7 +348,7 @@ class="math inline">\(pdf\)</span></strong>（主要用于合成手写作业）<
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">attempt to perform an operation not allowed by the security policy `PDF<span class="hljs-string">&#x27; @ error/constitute.c/IsCoderAuthorized/408.</span><br></code></pre></td></tr></table></figure>
 <p>需要使用权限修改 <span class="math inline">\(policy.xml\)</span>
 文件，使用以下命令行进入此文件中，回车后会进入编辑模式</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo nano /etc/ImageMagick-6/policy.xml<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> nano /etc/ImageMagick-6/policy.xml<br></code></pre></td></tr></table></figure>
 <p>其中，<span class="math inline">\(nano\)</span>
 是字符终端的文本编辑器，可以对文件进行修改</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml">…………//大概在文件结尾部分<br>   <span class="hljs-tag">&lt;<span class="hljs-name">policy</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">&quot;coder&quot;</span> <span class="hljs-attr">rights</span>=<span class="hljs-string">&quot;none&quot;</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;EPS&quot;</span> /&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">policy</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">&quot;coder&quot;</span> <span class="hljs-attr">rights</span>=<span class="hljs-string">&quot;none&quot;</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;PDF&quot;</span> /&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">policy</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">&quot;coder&quot;</span> <span class="hljs-attr">rights</span>=<span class="hljs-string">&quot;none&quot;</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;XPS&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
@@ -388,7 +389,7 @@ class="math inline">\(Y\)</span> 保存就可以使用了</p>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/shell/">#shell</a>
+        <a href="/tags/%E7%BC%96%E7%A8%8B/">#编程</a>
       
     </div>
   
@@ -495,7 +496,7 @@ class="math inline">\(Y\)</span> 保存就可以使用了</p>
 
 
   <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+  Fluid.utils.createScript('/lib/mermaid/mermaid.min.js', function() {
     mermaid.initialize({"theme":"forest"});
   });
 </script>
@@ -579,8 +580,8 @@ class="math inline">\(Y\)</span> 保存就可以使用了</p>
 
   <!-- Scripts -->
   
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="/lib/nprogress/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":true,"trickleSpeed":100})
@@ -591,8 +592,8 @@ class="math inline">\(Y\)</span> 保存就可以使用了</p>
   </script>
 
 
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/lib/jquery/jquery.min.js" ></script>
+<script  src="/lib/bootstrap/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
@@ -603,7 +604,7 @@ class="math inline">\(Y\)</span> 保存就可以使用了</p>
 
 
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script  src="/lib/typed/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -654,7 +655,7 @@ class="math inline">\(Y\)</span> 保存就可以使用了</p>
 
   
 <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+  Fluid.utils.createScript('/lib/tocbot/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -725,7 +726,7 @@ class="math inline">\(Y\)</span> 保存就可以使用了</p>
         getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
 
       if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+        Fluid.utils.createScript('/lib/clipboard/clipboard.min.js', function() {
           var clipboard = new window.ClipboardJS('.copy-btn', {
             target: function(trigger) {
               var nodes = trigger.parentNode.childNodes;
@@ -752,7 +753,7 @@ class="math inline">\(Y\)</span> 保存就可以使用了</p>
 
   
 <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+  Fluid.utils.createScript('/lib/anchor-js/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -775,7 +776,7 @@ class="math inline">\(Y\)</span> 保存就可以使用了</p>
 
   
 <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('/lib/fancybox/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -790,7 +791,7 @@ class="math inline">\(Y\)</span> 保存就可以使用了</p>
             inlineMath: { '[+]': [['$', '$']] }
           },
           loader : {
-            load: ['ui/lazy']
+            
           },
           options: {
             renderActions: {
@@ -819,7 +820,7 @@ class="math inline">\(Y\)</span> 保存就可以使用了</p>
       </script>
     
 
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="/lib/mathjax/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

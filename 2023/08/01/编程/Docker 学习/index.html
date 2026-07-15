@@ -14,7 +14,7 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Learning_rate">
-  <meta name="keywords" content="">
+  <meta name="keywords" content="LLM,强化学习,Agent,深度学习,NLP,清华大学,Learning_rate">
   
     <meta name="description" content="环境配置一直是 cs 的门槛，而 Docker 使用虚拟化技术将应用本身与环境隔离开，保证环境一致性">
 <meta property="og:type" content="article">
@@ -25,24 +25,24 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://learningrate1.com/img/docker.png">
 <meta property="article:published_time" content="2023-08-01T11:29:14.000Z">
-<meta property="article:modified_time" content="2023-08-02T16:38:18.000Z">
+<meta property="article:modified_time" content="2023-08-01T11:29:14.000Z">
 <meta property="article:author" content="Learning_rate">
-<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://learningrate1.com/img/docker.png">
   
   
   <title>Introduction to Docker - Learning_rate</title>
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/github-markdown-css/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css" />
 
 
 
@@ -75,7 +75,8 @@
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 5.4.1"></head>
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Learning_rate" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -311,7 +312,7 @@ Containers)，后来转向自行开发的 libcontainer</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker ps<br></code></pre></td></tr></table></figure>
 <h2 id="docker-入门">Docker 入门</h2>
 <h3 id="交互式容器">交互式容器</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 运行容器</span><br>$ docker run -it ubuntu bash<br><span class="hljs-comment"># 进入类似 Ubuntu 的”新环境“</span><br>root@f7cbdac22a02:/<span class="hljs-comment"># </span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 运行容器</span><br>$ docker run -it ubuntu bash<br><span class="hljs-comment"># 进入类似 Ubuntu 的”新环境“</span><br>root@f7cbdac22a02:/# <br></code></pre></td></tr></table></figure>
 <p><code>-i</code> 保证 <code>STDIN</code> 是开启的，持久的标准输入是
 <code>shell</code> 的半边天，<code>-t</code> 则是另外一个半边天，让
 <code>docker</code> 将容器“打”到一个伪 <code>tty</code> 终端（该例子为
@@ -552,7 +553,7 @@ Redis 镜像。</p>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Docker/">#Docker</a>
+        <a href="/tags/%E7%BC%96%E7%A8%8B/">#编程</a>
       
     </div>
   
@@ -682,7 +683,7 @@ Redis 镜像。</p>
 
 
   <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+  Fluid.utils.createScript('/lib/mermaid/mermaid.min.js', function() {
     mermaid.initialize({"theme":"forest"});
   });
 </script>
@@ -766,8 +767,8 @@ Redis 镜像。</p>
 
   <!-- Scripts -->
   
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="/lib/nprogress/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":true,"trickleSpeed":100})
@@ -778,8 +779,8 @@ Redis 镜像。</p>
   </script>
 
 
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/lib/jquery/jquery.min.js" ></script>
+<script  src="/lib/bootstrap/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
@@ -790,7 +791,7 @@ Redis 镜像。</p>
 
 
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script  src="/lib/typed/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -841,7 +842,7 @@ Redis 镜像。</p>
 
   
 <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+  Fluid.utils.createScript('/lib/tocbot/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -912,7 +913,7 @@ Redis 镜像。</p>
         getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
 
       if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+        Fluid.utils.createScript('/lib/clipboard/clipboard.min.js', function() {
           var clipboard = new window.ClipboardJS('.copy-btn', {
             target: function(trigger) {
               var nodes = trigger.parentNode.childNodes;
@@ -939,7 +940,7 @@ Redis 镜像。</p>
 
   
 <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+  Fluid.utils.createScript('/lib/anchor-js/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -962,7 +963,7 @@ Redis 镜像。</p>
 
   
 <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('/lib/fancybox/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
@@ -977,7 +978,7 @@ Redis 镜像。</p>
             inlineMath: { '[+]': [['$', '$']] }
           },
           loader : {
-            load: ['ui/lazy']
+            
           },
           options: {
             renderActions: {
@@ -1006,7 +1007,7 @@ Redis 镜像。</p>
       </script>
     
 
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+  <script  src="/lib/mathjax/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
