@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lr-tsinghua11.github.io/img/%E6%B8%85%E6%96%B0%E4%BA%BA%E8%A1%8C%E9%81%93.jpg">
 <meta property="article:published_time" content="2022-05-25T08:53:37.000Z">
-<meta property="article:modified_time" content="2025-07-23T03:51:40.000Z">
+<meta property="article:modified_time" content="2026-07-15T18:16:05.400Z">
 <meta property="article:author" content="Learning_rate">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary_large_image">
@@ -286,7 +286,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：1 年前
+                    本文最后更新于：2 分钟前
                   
                 
               </p>
@@ -314,36 +314,36 @@
 字符串，用户在该界面中输入表达式、精度、自变量 <span
 class="math inline">\(x\)</span>
 取值范围等信息，输入结束之后，绘图器会自动识别函数表达式类型，结合步长以及定义域生成对应的图像。</p>
-<p><img src="https://pic.imgdb.cn/item/628c5b40094754312947880c.jpg" srcset="/img/loading.gif" lazyload style="zoom:70%;" /></p>
+<p><img src="/img/imgdb_628c5b40094754312947880c.jpg" srcset="/img/loading.gif" lazyload style="zoom:70%;" /></p>
 <h3 id="有理函数">有理函数</h3>
 <p>本函数绘图器首先实现只与加减乘除相关的基本函数，如<strong>多项式函数、带括号的多项式函数、有理分式函数</strong>。三者统一表达式为
 <span class="math inline">\(f(x)=\dfrac{P(x)}{Q(x)}\)</span> ，其中
 <span class="math inline">\(P(x)\)</span> 和 <span
 class="math inline">\(Q(x)\)</span> 均为多项式且 <span
 class="math inline">\(Q(x)\neq0\)</span>，绘制一些函数图像如下图所示：</p>
-<p><img src="https://pic.imgdb.cn/item/628bac030947543129840abd.jpg" srcset="/img/loading.gif" lazyload style="zoom:45%;" />
+<p><img src="/img/imgdb_628bac030947543129840abd.jpg" srcset="/img/loading.gif" lazyload style="zoom:45%;" />
 <span class="math display">\[
 \large 多项式函数:\ y=2x^3-x^2-3x+2,x\in[-1.5,1.5]
 \]</span>
-<img src="https://pic.imgdb.cn/item/628bac670947543129853239.jpg" srcset="/img/loading.gif" lazyload style="zoom:60%;" />
+<img src="/img/imgdb_628bac670947543129853239.jpg" srcset="/img/loading.gif" lazyload style="zoom:60%;" />
 <span class="math display">\[
 \large 含括号多项式函数:\ y=(x+1)\cdot (x-1)\cdot (x-2),x\in[-1.5,2.5]
 \]</span></p>
-<p><img src="https://pic.imgdb.cn/item/628bb7ce0947543129a22f14.jpg" srcset="/img/loading.gif" lazyload style="zoom:30%;" />
+<p><img src="/img/imgdb_628bb7ce0947543129a22f14.jpg" srcset="/img/loading.gif" lazyload style="zoom:30%;" />
 <span class="math display">\[
 \large 有理分式函数:\ y=\dfrac{x^2+1}{x^4+1},x\in[-2,2]
 \]</span></p>
 <h3 id="其余初等函数">其余初等函数</h3>
 <p>同时，该函数绘图器实现了<strong>三角函数、指数函数、对数函数</strong>的绘制</p>
-<p><img src="https://pic.imgdb.cn/item/628c5c40094754312948df9a.jpg" srcset="/img/loading.gif" lazyload style="zoom:30%;" />
+<p><img src="/img/imgdb_628c5c40094754312948df9a.jpg" srcset="/img/loading.gif" lazyload style="zoom:30%;" />
 <span class="math display">\[
 \large 三角混合函数:\ y=\sin x +\cos x,x\in[-5,5]
 \]</span>
-<img src="https://pic.imgdb.cn/item/628bb30c094754312995dbfc.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
+<img src="/img/imgdb_628bb30c094754312995dbfc.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
 <span class="math display">\[
 \large 指数函数:\ y=e^x,x\in[-2,1.5]
 \]</span>
-<img src="https://pic.imgdb.cn/item/628bb5ff09475431299db82e.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+<img src="/img/imgdb_628bb5ff09475431299db82e.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
 <span class="math display">\[
 \large 对数函数:\ y=\ln x,x\in[0.05,2]
 \]</span></p>
@@ -353,44 +353,44 @@ class="math inline">\(Q(x)\neq0\)</span>，绘制一些函数图像如下图所�
 class="math inline">\(\theta\)</span> 字符串，同时定义域会自动修改为
 <span
 class="math inline">\([0,2\pi]\)</span>（可修改），以绘制极坐标函数：</p>
-<p><img src="https://pic.imgdb.cn/item/628c3d4f094754312922da9b.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
+<p><img src="/img/imgdb_628c3d4f094754312922da9b.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
 <span class="math display">\[
 \large 阿基米德螺旋线:\ \rho=\theta,\theta\in[0,\dfrac{3}{2}\pi]
 \]</span>
-<img src="https://pic.imgdb.cn/item/628bb8790947543129a33300.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
+<img src="/img/imgdb_628bb8790947543129a33300.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
 <span class="math display">\[
 \large 星形线:\ \rho=1-\sin \theta,\theta\in[0,2\pi]
 \]</span>
-<img src="https://pic.imgdb.cn/item/628c3c4d094754312921f7f2.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
+<img src="/img/imgdb_628c3c4d094754312921f7f2.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
 <span class="math display">\[
 \large 极坐标函数(有理分式):\
 \rho=\dfrac{\theta-1}{\theta+1},\theta\in[0,2\pi]
 \]</span></p>
 <h3 id="混合函数">混合函数</h3>
 <p>上述函数可以组合成更一般的初等函数，一些<strong>比较优雅</strong>的函数如下图所示</p>
-<p><img src="https://pic.imgdb.cn/item/628c3b2f094754312920a828.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
+<p><img src="/img/imgdb_628c3b2f094754312920a828.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
 <span class="math display">\[
 \large 三角函数与多项式混合:\ y=(x+1)\cdot (\sin x+1),x\in[-2,2]
 \]</span>
-<img src="https://pic.imgdb.cn/item/628c6a8909475431295d6cc6.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+<img src="/img/imgdb_628c6a8909475431295d6cc6.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
 <span class="math display">\[
 \large 三角函数与指数混合:\ y=\cos x\cdot e^x,\theta\in[0,2\pi]
 \]</span>
-<img src="https://pic.imgdb.cn/item/628c98b20947543129a67d4b.jpg" srcset="/img/loading.gif" lazyload style="zoom:60%;" />
+<img src="/img/imgdb_628c98b20947543129a67d4b.jpg" srcset="/img/loading.gif" lazyload style="zoom:60%;" />
 <span class="math display">\[
 \large 指数函数和多项式混合:\ y=(x^2-1)e^x,x\in[-1,1]
 \]</span></p>
 <h3 id="极限修复函数">极限修复函数</h3>
 <p>除了一些定义域上连续可微的函数，本函数绘图器实现极限修复功能，可以绘制<strong>存在第一类间断点以及第二类间断点的函数</strong>，例如：</p>
-<p><img src="https://pic.imgdb.cn/item/628c519609475431293bb1c0.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
+<p><img src="/img/imgdb_628c519609475431293bb1c0.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
 <span class="math display">\[
 \large 与e相关的函数:\ y=x\ln(1+\dfrac{1}{x}),x\in[0,2]
 \]</span>
-<img src="https://pic.imgdb.cn/item/628c5829094754312943dcc9.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+<img src="/img/imgdb_628c5829094754312943dcc9.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
 <span class="math display">\[
 \large 一次函数:\ y=\dfrac{2x^2}{x},x\in[-2,2]
 \]</span>
-<img src="https://pic.imgdb.cn/item/628c4d0e094754312935d3af.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
+<img src="/img/imgdb_628c4d0e094754312935d3af.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" />
 <span class="math display">\[
 \large 正弦极限函数:\ y=\dfrac{\sin x}{x},x\in[-5,5]
 \]</span></p>
@@ -450,7 +450,7 @@ class="math inline">\(\LaTeX\)</span>
 图像中的白色背景转换为灰色，以适应函数图像的背景：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//更改背景颜色</span><br><span class="hljs-function"><span class="hljs-keyword">inline</span> QPixmap <span class="hljs-title">changeBackGroundColor</span><span class="hljs-params">(QPixmap img)</span></span>&#123;<br>    <span class="hljs-function">QColor <span class="hljs-title">white</span><span class="hljs-params">(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>)</span></span>;<br>    <span class="hljs-function">QColor <span class="hljs-title">grey</span><span class="hljs-params">(<span class="hljs-number">240</span>, <span class="hljs-number">240</span>, <span class="hljs-number">240</span>)</span></span>;<br>    QImage image = img.<span class="hljs-built_in">toImage</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> w = <span class="hljs-number">0</span>;w &lt; image.<span class="hljs-built_in">width</span>();w++)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> h = <span class="hljs-number">0</span>; h &lt; image.<span class="hljs-built_in">height</span>();h++)&#123;<br>            QRgb rgb = image.<span class="hljs-built_in">pixel</span>(w, h);<br>            <span class="hljs-keyword">if</span> (rgb == white.<span class="hljs-built_in">rgb</span>())<br>                image.<span class="hljs-built_in">setPixel</span>(w, h, grey.<span class="hljs-built_in">rgba</span>());<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> QPixmap::<span class="hljs-built_in">fromImage</span>(image);<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>该函数可以将以白色为背景的图片转换为以灰色为背景的图片：</p>
-<p><img src="https://pic.imgdb.cn/item/628b8d0509475431292d1d3a.jpg" srcset="/img/loading.gif" lazyload style="zoom:20%;" /></p>
+<p><img src="/img/imgdb_628b8d0509475431292d1d3a.jpg" srcset="/img/loading.gif" lazyload style="zoom:20%;" /></p>
 <h3 id="内联函数">内联函数</h3>
 <p><span class="math inline">\(\mbox{Utils.g}\)</span>
 文件中均使用内联函数，<span class="math inline">\(\mbox{wiki}\)</span>
@@ -595,7 +595,7 @@ x\}\{x}\small\wedge\normalsize
 \mbox{2+1\}}\)</span>），便可以获取对应图片，相应的 <span
 class="math inline">\(y=\dfrac{\sin x}{x^2+1}\)</span> 在该<a
 target="_blank" rel="noopener" href="https://latex.codecogs.com/png.latex?%5Cdpi%7B300%7D%20%5Cbg_white%20%5Chuge%20y=\dfrac%7B\sin%20x%7D%7Bx%5E2+1%7D">网址</a>中便可得到以下高清图片：</p>
-<p><img src="https://pic.imgdb.cn/item/628ce54c09475431292c425d.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
+<p><img src="/img/imgdb_628ce54c09475431292c425d.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
 <p>将一般表达式转换到 <span class="math inline">\(\LaTeX\)</span>
 表达式单独列封装成一个类 <span
 class="math inline">\(\mbox{latexImg.h/cpp}\)</span>，针对各种表达式进行替换，如：</p>
@@ -614,8 +614,7 @@ class="math inline">\(\mbox{mainwindow.cpp}\)</span> 中：</p>
 <h2 id="前端展示">前端展示</h2>
 <p>对于主窗口，使用 <span class="math inline">\(\mbox{Qt}\)</span>
 中的设计师界面添加相应的按钮以及修改相应的初始值，设计相应的前端框架界面</p>
-<p><img
-src="https://pic.imgdb.cn/item/628cf1f4094754312940eff6.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="/img/imgdb_628cf1f4094754312940eff6.jpg" srcset="/img/loading.gif" lazyload /></p>
 <p>对于从后端拿到的<strong>数据</strong>，分别进行等比例缩放以及在合适的位置处增加坐标轴和标度，从数学的角度来说，该步骤是将数据所在的线性空间<strong>线性且合适地映射</strong>到画布所在的线性空间。注意绘图原点在左上角，<span
 class="math inline">\(x\)</span> 方向向右，<span
 class="math inline">\(y\)</span>
@@ -633,8 +632,7 @@ class="math inline">\(y\)</span> 轴需要正负号分别计算：</p>
 <h3 id="高精度计时">高精度计时</h3>
 <p>关于这部分，可以访问本人博客有关 <span
 class="math inline">\(\mbox{OOP}\)</span>
-第二次小作业报告中的探讨，网址如下<a
-href="https://lr-tsinghua11.github.io/2022/03/06/Program/OOP%20Homework%202/">面向对象编程第二次作业</a></p>
+第二次小作业报告中的探讨，网址如下面向对象编程第二次作业（原文已删除）</p>
 <p>大致为调用相关 <span class="math inline">\(\mbox{API}\)</span>
 ，通过所在电脑的频率和计数器高精度计算相关时间，并将时间显示在图像标题处</p>
 <h2 id="单元测试">单元测试</h2>
@@ -701,7 +699,7 @@ class="math inline">\(\mbox{Visual studio}\)</span>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++">cout &lt;&lt; <span class="hljs-string">&quot;The result is &quot;</span> &lt;&lt; e.<span class="hljs-built_in">getValue</span>(<span class="hljs-number">0</span>) &lt;&lt; endl;<br>cout &lt;&lt; <span class="hljs-string">&quot;Judge is &quot;</span> &lt;&lt; e.judges[<span class="hljs-built_in">double</span>(<span class="hljs-number">0</span>)] &lt;&lt; endl;<br></code></pre></td></tr></table></figure>
 <p><span class="math inline">\(\mbox{Visual Studio}\)</span>
 中单元测试代码截屏如下：</p>
-<p><img src="https://pic.imgdb.cn/item/628cf6b7094754312948beb1.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" /></p>
+<p><img src="/img/imgdb_628cf6b7094754312948beb1.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" /></p>
 <h3 id="处理-latex-公式">处理 <span
 class="math inline">\(\LaTeX\)</span> 公式</h3>
 <p>在中后期编写处理 <span class="math inline">\(\LaTeX\)</span>
@@ -712,7 +710,7 @@ class="math inline">\(\mbox{IDE}\)</span> 的束缚，让代码输入输出全�
 <span class="math inline">\(\mbox{powershell}\)</span>
 中进行，能够达到快速 <span class="math inline">\(\mbox{Debug}\)</span>
 的效果，截图如下：</p>
-<p><img src="https://pic.imgdb.cn/item/628cf9e809475431294dfcd6.jpg" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
+<p><img src="/img/imgdb_628cf9e809475431294dfcd6.jpg" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></p>
 <p>其中可以在控制台中使用重定向 <code>&gt;</code>
 运算符将输入输出结果保存到相应的 <span
 class="math inline">\(\mbox{txt}\)</span>
@@ -731,7 +729,7 @@ class="math inline">\(\dfrac{1+\dfrac{1}{x}}{x}=\dfrac{x+1}{x^2}\)</span>
 <li><p>本次函数绘图器开发周期至少整整 <span
 class="math inline">\(7\)</span>
 天，从最开始的手足无措，到后面一点点列出需求文档不断进行实现和填充，在需求和实现之间追求高效率地开发，之前编写的函数绘图器需求文档截图如下：</p>
-<p><img src="https://pic.imgdb.cn/item/628cffa70947543129579805.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p></li>
+<p><img src="/img/imgdb_628cffa70947543129579805.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p></li>
 <li><p>从上图中可以发现有些功能仍然没有实现，由于时间原因只能先搁置一段时间。但这种
 <span class="math inline">\(\mbox{to-do-list}\)</span>
 的方式可以很大幅度提高大作业代码编写的效率</p></li>
