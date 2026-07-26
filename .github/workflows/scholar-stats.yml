@@ -1,0 +1,33 @@
+name: scholar-stats
+# Daily Google Scholar citation snapshot -> scholar-data branch.
+# This workflow file is generated from the Hexo blog source (source/.github/)
+# and re-deployed with every `hexo deploy`, so it survives force-pushes of main.
+on:
+  schedule:
+    - cron: '23 0 * * *'   # 00:23 UTC = 08:23 Beijing
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: scholar-data
+          path: data-branch
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install scholarly
+      - run: python .github/scripts/scholar_crawl.py data-branch/citations.json
+      - name: commit & push
+        run: |
+          cd data-branch
+          git config user.name "scholar-stats-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add citations.json
+          git diff --cached --quiet || { git commit -m "snapshot $(date -u +%F)"; git push; }
