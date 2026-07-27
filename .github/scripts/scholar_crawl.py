@@ -2,8 +2,13 @@
 """Daily Google Scholar snapshot for GitHub Actions.
 Appends {d, total, h, i10, papers} to the citations.json passed as argv[1]
 (one entry per day; same-day rerun replaces). Tries `scholarly` first, falls
-back to parsing the public profile page directly."""
-import json, re, sys, html, datetime, pathlib, urllib.request
+back to parsing the public profile page directly.
+
+Google blocks most datacenter IPs (incl. GitHub runners) with a captcha, so
+this script is BEST-EFFORT: after retries it exits 0 with a notice instead of
+failing the workflow. The authoritative daily snapshot is pushed from a local
+machine; this action only fills gaps on days it happens to get through."""
+import json, re, sys, html, time, random, datetime, pathlib, urllib.request
 
 USER = '-MGuqDcAAAAJ'
 UA = ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
@@ -32,7 +37,8 @@ def via_profile_page():
     raw = urllib.request.urlopen(req, timeout=40).read().decode('utf-8', 'replace')
     std = re.findall(r'gsc_rsb_std">(\d+)', raw)
     if not std:
-        raise RuntimeError('profile page did not parse (captcha?)')
+        snippet = re.sub(r'\s+', ' ', re.sub('<[^>]+>', ' ', raw))[:200]
+        raise RuntimeError(f'profile page did not parse (captcha?): {snippet}')
     papers = {}
     for t, c in re.findall(r'gsc_a_at"[^>]*>(.*?)</a>.*?gsc_a_ac gs_ibl"[^>]*>(\d*)</a>', raw, re.S):
         title = html.unescape(re.sub('<[^>]+>', '', t)).lower()
@@ -42,18 +48,32 @@ def via_profile_page():
                 break
     return dict(total=int(std[0]), h=int(std[2]), i10=int(std[4]), papers=papers)
 
+def fetch_with_retries(tries=3):
+    last = None
+    for i in range(tries):
+        for name, fn in (('scholarly', via_scholarly), ('profile-page', via_profile_page)):
+            try:
+                snap = fn()
+                print(f'source: {name} (attempt {i + 1})')
+                return snap
+            except Exception as e:
+                last = e
+                print(f'{name} attempt {i + 1} failed: {e}')
+        if i < tries - 1:
+            time.sleep(30 + random.uniform(0, 30))
+    print(f'::notice::Scholar unreachable from this runner after {tries} attempts '
+          f'({last}); skipping today — local pipeline will record the snapshot.')
+    sys.exit(0)  # best-effort: do not fail the workflow
+
 def main():
     out = pathlib.Path(sys.argv[1])
-    try:
-        snap = via_scholarly()
-        print('source: scholarly')
-    except Exception as e:
-        print(f'scholarly failed ({e}); falling back to profile page')
-        snap = via_profile_page()
-    snap = {'d': datetime.date.today().isoformat(), **snap}
-    if snap['total'] <= 0:
-        sys.exit('ABORT: total is 0, refusing to record')
     data = json.load(out.open()) if out.exists() else []
+    snap = {'d': datetime.date.today().isoformat(), **fetch_with_retries()}
+    if snap['total'] <= 0:
+        print('::notice::total is 0, refusing to record'); sys.exit(0)
+    if data and snap['total'] < 0.9 * data[-1]['total']:
+        print(f"::notice::total {snap['total']} dropped >10% vs last {data[-1]['total']}; "
+              'looks like a bad parse, skipping'); sys.exit(0)
     data = [s for s in data if s['d'] != snap['d']] + [snap]
     data.sort(key=lambda s: s['d'])
     json.dump(data, out.open('w'), ensure_ascii=False, indent=1)
