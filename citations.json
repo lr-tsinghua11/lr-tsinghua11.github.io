@@ -178,5 +178,23 @@
    "TeacherLM": 22,
    "MLE-RL": 0
   }
+ },
+ {
+  "d": "2026-08-29",
+  "total": 3834,
+  "h": 13,
+  "i10": 13,
+  "papers": {
+   "ChatGLM": 2347,
+   "GLM-4.5": 490,
+   "AgentTuning": 414,
+   "GLM-5": 253,
+   "T1": 91,
+   "TreeRL": 80,
+   "DeepDive": 57,
+   "AgentRL": 53,
+   "TeacherLM": 22,
+   "MLE-RL": 0
+  }
  }
 ]
