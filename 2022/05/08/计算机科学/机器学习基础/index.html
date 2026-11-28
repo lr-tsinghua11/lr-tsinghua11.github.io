@@ -7,32 +7,50 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile/apple-touch-icon.png">
+  <link rel="icon" href="/img/profile/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Learning_rate">
-  <meta name="keywords" content="LLM,强化学习,Agent,深度学习,NLP,清华大学,Learning_rate">
+  <link rel="preload" href="/fonts/wenkai-primary.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="author" content="鲁睿 Rui Lu">
+  <meta name="keywords" content="鲁睿,Rui Lu,KEG,GLM,Deep Search,Agentic RL,多智能体">
+  <meta name="description" content="机器学习课程笔记，整理模型、学习准则与优化算法，介绍期望风险、经验风险、梯度下降、正则化，以及监督学习、无监督学习和强化学习的区别。">
+  <meta name="robots" content="max-image-preview:large">
   
-    <meta name="description" content="跟 ly 每周六蹭他们的机器学习课程，专业知识，冲！">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Foundation for machine learning">
-<meta property="og:url" content="https://learningrate1.com/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/index.html">
-<meta property="og:site_name" content="Learning_rate">
-<meta property="og:description" content="跟 ly 每周六蹭他们的机器学习课程，专业知识，冲！">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://learningrate1.com/img/%E6%B9%96%E4%B9%8B%E4%BB%99%E5%A2%83.jpg">
-<meta property="article:published_time" content="2022-05-08T15:19:36.000Z">
-<meta property="article:modified_time" content="2022-05-08T15:19:36.000Z">
-<meta property="article:author" content="Learning_rate">
-<meta property="article:tag" content="机器学习">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://learningrate1.com/img/%E6%B9%96%E4%B9%8B%E4%BB%99%E5%A2%83.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="机器学习基础 | 鲁睿 Rui Lu">
+    <meta property="og:description" content="机器学习课程笔记，整理模型、学习准则与优化算法，介绍期望风险、经验风险、梯度下降、正则化，以及监督学习、无监督学习和强化学习的区别。">
+    <meta property="og:url" content="https://learningrate1.com/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/">
+    <meta property="og:site_name" content="鲁睿 Rui Lu · Learning_rate">
+    <meta property="og:locale" content="zh_CN">
+    
+      <meta property="og:image" content="https://learningrate1.com/img/social/784b3dfc09083fa5ab8e.png">
+      <meta property="og:image:alt" content="机器学习基础">
+      
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+      
+      <meta property="og:image:type" content="image/png">
+    
+    <meta property="article:published_time" content="2022-05-08T15:19:36.000Z">
+    <meta property="article:modified_time" content="2026-11-26T16:00:00.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lru43402768">
+    <meta name="twitter:title" content="机器学习基础 | 鲁睿 Rui Lu">
+    <meta name="twitter:description" content="机器学习课程笔记，整理模型、学习准则与优化算法，介绍期望风险、经验风险、梯度下降、正则化，以及监督学习、无监督学习和强化学习的区别。">
+    
+      <meta name="twitter:image" content="https://learningrate1.com/img/social/784b3dfc09083fa5ab8e.png">
+      <meta name="twitter:image:alt" content="机器学习基础">
+    
   
   
-  <title>Foundation for machine learning - Learning_rate</title>
+  <link rel="canonical" href="https://learningrate1.com/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/">
+  <link rel="alternate" type="application/atom+xml" title="鲁睿 Rui Lu · Learning_rate" href="/atom.xml">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://learningrate1.com/#rui-lu","name":"Rui Lu","alternateName":["鲁睿","Learning_rate"],"url":"https://learningrate1.com/","image":"https://learningrate1.com/img/profile/avatar.webp","email":"lu-r21@mails.tsinghua.edu.cn","sameAs":["https://scholar.google.com/citations?user=-MGuqDcAAAAJ","https://github.com/lr-tsinghua11","https://twitter.com/lru43402768","https://www.zhihu.com/people/er-ji-yi-4"],"jobTitle":"Ph.D. student in Computer Science","affiliation":[{"@type":"CollegeOrUniversity","name":"Tsinghua University","url":"https://www.tsinghua.edu.cn/"},{"@type":"Organization","name":"Knowledge Engineering Group (KEG), Tsinghua University","url":"https://keg.cs.tsinghua.edu.cn/"}],"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Bachelor of Science in Mathematics and Physics; Bachelor of Engineering in Software Engineering","credentialCategory":"Bachelor's degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Tsinghua University"}},"knowsAbout":["Deep Search","Multi-turn agentic reinforcement learning","Multi-agent collaboration","Terminal agents","AI for Science"],"description":"我是清华大学计算机系 KEG 实验室的直博二年级学生，自 2023 年起在智谱从事大模型训练工作。作为 GLM-4.5 / GLM-5 的核心贡献者，我负责优化基座模型的深度搜索（Deep Search）能力。我主要研究多轮强化学习与多智能体协作（Multi-turn Agentic RL & Multi-Agent Collaboration），近期在研究终端智能体（Terminal Agent），对大模型在科学研究中的应用（AI for Science）也很感兴趣。欢迎添加微信（微信号：learning_rate）和我交流！"},{"@type":"WebSite","@id":"https://learningrate1.com/#website","url":"https://learningrate1.com/","name":"鲁睿 Rui Lu · Learning_rate","alternateName":"Learning_rate","inLanguage":["zh-CN","en"],"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"BreadcrumbList","@id":"https://learningrate1.com/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"个人简介","item":"https://learningrate1.com/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://learningrate1.com/notes/"},{"@type":"ListItem","position":3,"name":"研究笔记","item":"https://learningrate1.com/notes/#research"}]},{"@type":"BlogPosting","@id":"https://learningrate1.com/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/#article","url":"https://learningrate1.com/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/","mainEntityOfPage":{"@id":"https://learningrate1.com/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/#page"},"headline":"机器学习基础","description":"机器学习课程笔记，整理模型、学习准则与优化算法，介绍期望风险、经验风险、梯度下降、正则化，以及监督学习、无监督学习和强化学习的区别。","image":"https://learningrate1.com/img/social/784b3dfc09083fa5ab8e.png","inLanguage":"zh-CN","author":{"@id":"https://learningrate1.com/#rui-lu"},"articleSection":"研究笔记","datePublished":"2022-05-08T15:19:36.000Z","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"}},{"@type":"WebPage","@id":"https://learningrate1.com/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/#page","url":"https://learningrate1.com/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/","name":"机器学习基础 | 鲁睿 Rui Lu","description":"机器学习课程笔记，整理模型、学习准则与优化算法，介绍期望风险、经验风险、梯度下降、正则化，以及监督学习、无监督学习和强化学习的区别。","inLanguage":"zh-CN","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"},"breadcrumb":{"@id":"https://learningrate1.com/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/#breadcrumb"},"mainEntity":{"@id":"https://learningrate1.com/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/#article"}}]}</script>
+  <title>机器学习基础 | 鲁睿 Rui Lu</title>
 
   <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
 
@@ -48,14 +66,13 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
+<!-- Keep Fluid's icon classes, with the original fonts served locally. -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
+<link rel="stylesheet" href="/lib/iconfont/core.css">
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+<link rel="stylesheet" href="/lib/iconfont/extra.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -68,32 +85,44 @@
 
 
 
+  
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/academic.css">
+<link rel="stylesheet" href="/css/benchmark.css">
+<link rel="stylesheet" href="/css/citations.css">
+<link rel="stylesheet" href="/css/figure-viewer.css">
+<link rel="stylesheet" href="/css/institution-marks.css">
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#718dcc","options":{"showSpinner":false,"trickleSpeed":180,"minimum":0.08}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Learning_rate" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
-<body>
+<body class="academic-site reading-site" data-topic="research">
+  <a class="skip-to-content" href="#main-content"><span data-edit-field="interface:skip.zh">跳转到正文</span></a>
   
 
   <header>
     
 
-<div class="header-inner" style="height: 70vh;">
+
+<div class="academic-header">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong> Learning_rate&#39;s blog</strong>
+      <strong>Learning_rate</strong>
     </a>
 
+    <a class="mobile-language d-lg-none" data-language-switch href="/en/notes/" lang="en" aria-label="Switch to English">EN</a>
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,8 +139,8 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
+                
+                <span data-edit-field="interface:profile.zh">个人简介</span>
               </a>
             </li>
           
@@ -121,45 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
+              <a class="nav-link" href="/notes/">
+                
+                <span data-edit-field="interface:notes.zh">文章</span>
               </a>
             </li>
           
@@ -170,12 +163,13 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
+                
+                <span data-edit-field="interface:friends.zh">友链</span>
               </a>
             </li>
           
         
+        <li class="nav-item language-item"><a class="nav-link language-switch" data-language-switch href="/en/notes/" lang="en" hreflang="en" aria-label="Switch to English"><span class="language-mark" aria-hidden="true">文</span>EN</a></li>
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -195,83 +189,22 @@
   </div>
 </nav>
 
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E6%B9%96%E4%B9%8B%E4%BB%99%E5%A2%83.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          <span id="subtitle" title="Foundation for machine learning">
-            
-          </span>
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-05-08 23:19" pubdate>
-          2022年5月8日 晚上
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          6.9k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          58 分钟
-        
-      </span>
-    
-
-    
-    
-      
-        <span id="busuanzi_container_page_pv" style="display: none">
-          <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="busuanzi_value_page_pv"></span> 次
-        </span>
-        
-      
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
 </div>
 
-</div>
 
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     
       
 
+<header class="reading-masthead" data-topic="research">
+  <nav class="reading-breadcrumbs" aria-label="文章位置">
+    <ol><li><a href="/">个人简介</a></li><li><a href="/notes/">文章</a></li><li><a href="/notes/#research">研究笔记</a></li></ol>
+  </nav>
+  <h1>机器学习基础</h1>
+  <p><time datetime="2022-05-08">2022.05.08</time><span class="reading-updated"><span aria-hidden="true"> · </span>更新于 <time datetime="2026-11-27">2026.11.27</time></span><span aria-hidden="true"> · </span><a class="reading-author" href="/" rel="author">鲁睿 Rui Lu</a><span class="reading-views" id="busuanzi_container_page_pv"><span aria-hidden="true"> · </span><span id="busuanzi_value_page_pv">—</span> <span data-edit-field="interface:article_views.zh">次阅读</span></span></p>
+</header>
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
     <div class="side-col d-none d-lg-block col-lg-2">
@@ -283,20 +216,11 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Foundation for machine learning</h1>
-            
-              <p class="note note-info">
-                
-                  
-                    本文最后更新于：4 年前
-                  
-                
-              </p>
-            
             <div class="markdown-body">
               
-              <h1 id="机器学习绪论">机器学习绪论</h1>
+              <p>这份笔记写于 2022
+年，记录了初学机器学习时整理的概念与公式。主体从模型、学习准则和优化算法展开，再讨论风险最小化、梯度下降与正则化；开头的历史回顾保留为当时的课堂记录。</p>
+<h2 id="机器学习绪论">机器学习绪论</h2>
 <p>机器学习的三起两落：</p>
 <p>第一次兴起，<span class="math inline">\(1958\
 \mbox{Perception}\)</span> ，<span class="math inline">\(1969\)</span>
@@ -329,8 +253,8 @@ f^n(x)))\)</span></p>
 <li><p>深度学习时代：花一定时间，挑选几个深度模型，选几个模型超参数，交给机器<strong>绞尽脑汁</strong>优化模型总的数千万/数权重参数</p></li>
 <li><p>后深度学习时代：花少量时间标注，让机器更<strong>绞尽脑汁</strong>学习模型</p></li>
 </ul>
-<h1 id="机器学习基础">机器学习基础</h1>
-<h2 id="三大要素">三大要素</h2>
+<h2 id="机器学习基础">机器学习基础</h2>
+<h3 id="三大要素">三大要素</h3>
 <p>机器学习：在计算机上从数据中产生“模型"的算法，称为学习算法</p>
 <p>例如，给定一系列芒果的性质以及其好坏，求另一种芒果性质的好坏</p>
 <p>三个基本要素：<strong>模型</strong>、<strong>学习准则</strong>、<strong>优化算法</strong></p>
@@ -345,14 +269,14 @@ class="math inline">\(\phi(x)\)</span> 为可学习的非线性基函数， <spa
 class="math inline">\(f(x, \theta)\)</span> 就等价于神经网络。</p></li>
 <li><p><strong>学习准则</strong>：期望风险（期望误差 <span
 class="math inline">\(\mbox{Expected Risk}\)</span>
-，衡量模型的好坏），损失函数定义如下 <span class="math display">\[
-\mathcal{R}(\theta)=\mathbb{E}_{(\boldsymbol{x}, y) \sim
-p_{r}(\boldsymbol{x}, y)}\mathcal{L}(y, f(\boldsymbol{x} ; \theta))
-\]</span>
+，衡量模型的好坏），损失函数定义如下 <span
+class="math display">\[\mathcal{R}(\theta)=\mathbb{E}_{(\boldsymbol{x},
+y) \sim p_{r}(\boldsymbol{x}, y)}\mathcal{L}(y, f(\boldsymbol{x} ;
+\theta))\]</span>
 表征所有样本的差异，能量化模型预测和真实标签之间的差异，（期望风险最小化准则）</p>
 <p><span class="math inline">\(0-1\)</span> 损失函数，正确为 <span
-class="math inline">\(1\)</span>，错误为 <span
-class="math inline">\(0\)</span>，平方损失函数：<span
+class="math inline">\(0\)</span>，错误为 <span
+class="math inline">\(1\)</span>，平方损失函数：<span
 class="math inline">\(\mathcal{L}(y, f(\boldsymbol{x} ; \theta))=(y-f(x,
 \theta))^{2}\)</span></p>
 <p>存在泛化错误 <span
@@ -360,32 +284,30 @@ class="math inline">\(g_{\mathcal{D}}(f)=\mathcal{R}(f)-\mathcal{R}_{\mathcal{D}
 m p}(f)\)</span>，真实数据分布未知，期望风险不可以计算</p>
 <p>利用大数定律，使用经验风险最小化，转化为最优化问题，使下列函数最小，在
 <span class="math inline">\(N\to \infty\)</span> 时两者相同 <span
-class="math display">\[
-\mathcal{R}_{\mathcal{D}}^{e m p}(\theta)=\frac{1}{N} \sum_{n=1}^{N}
-\mathcal{L}(y, f(\boldsymbol x ; \theta))
-\]</span></p></li>
+class="math display">\[\mathcal{R}_{\mathcal{D}}^{e m
+p}(\theta)=\frac{1}{N} \sum_{n=1}^{N} \mathcal{L}(y, f(\boldsymbol x ;
+\theta))\]</span></p></li>
 </ul>
 <p><img src="/img/imgdb_6277c4f9094754312923ec21.jpg" srcset="/img/loading.gif" lazyload style="zoom:80%;" /></p>
 <p>​</p>
 <ul>
 <li><strong>优化算法</strong>：梯度下降，迭代法，其中 <span
 class="math inline">\(\alpha\)</span> 定义为<strong>学习率</strong>
-<span class="math display">\[
-\begin{aligned} \theta_{t+1} &amp;=\theta_{t}-\alpha \frac{\partial
+<span class="math display">\[\begin{aligned} \theta_{t+1}
+&amp;=\theta_{t}-\alpha \frac{\partial
 \mathcal{R}_{\mathcal{D}}(\theta)}{\partial \theta} \\
 &amp;=\theta_{t}-\alpha \frac{1}{N} \sum_{n=1}^{N} \frac{\partial
 \mathcal{L}\left(y^{(n)}, f\left(x^{(n)} ;
-\theta\right)\right)}{\partial \theta} \end{aligned}
-\]</span> <img src="/img/imgdb_6277c3f809475431291f8974.jpg" srcset="/img/loading.gif" lazyload /></li>
+\theta\right)\right)}{\partial \theta} \end{aligned}\]</span> <img
+src="/img/imgdb_6277c3f809475431291f8974.jpg" srcset="/img/loading.gif" lazyload /></li>
 </ul>
 <p>​ <span class="math inline">\(\alpha\)</span>
 必须选择恰当（如上图所示）</p>
-<h2 id="数学基础">数学基础</h2>
-<p>正则化，一类通过限制模型复杂度，避免过拟合，提高泛化能力的犯法</p>
+<h3 id="数学基础">数学基础</h3>
+<p>正则化，一类通过限制模型复杂度，避免过拟合，提高泛化能力的方法</p>
 <p><span class="math inline">\(l_1\)</span> 和 <span
 class="math inline">\(l_2\)</span> 正则化，正方形、椭圆 <span
-class="math display">\[
-\begin{array}{llll}
+class="math display">\[\begin{array}{llll}
 \hline &amp; \text { 监督学习 } &amp; \text { 无监督学习 } &amp; \text {
 强化学习 } \\
 \hline \text { 训练样本 } &amp; \text { 训练集 } &amp; \text { 训练集 }
@@ -404,8 +326,7 @@ class="math display">\[
 &amp; \text { 最大似然估计 } &amp; \text { 最小重构错误 } &amp; \text {
 策略改进 } \\
 \hline
-\end{array}
-\]</span> 向量的范数：</p>
+\end{array}\]</span> 向量的范数：</p>
 <p><span class="math inline">\(\ell_{1}\)</span>
 范数为向量的各个元素的绝对值之和. <span
 class="math inline">\(\displaystyle
@@ -429,7 +350,7 @@ class="math inline">\(l_{2}\)</span> 范数的推广 <span
 class="math inline">\(\displaystyle
 \|\boldsymbol{W}\|_{F}=\sqrt{\sum_{m=1}^{M} \sum_{n=1}^{N}\left(w_{m
 n}\right)^{2}}\)</span></p>
-<h2 id="模型">模型</h2>
+<h3 id="模型">模型</h3>
 <ul>
 <li><p>线性模型</p>
 <ul>
@@ -452,15 +373,13 @@ class="math inline">\(g(\cdot)\)</span>
 回归，把分类决策问题压缩压缩到 <span
 class="math inline">\([0,1]\)</span> 区间内</li>
 </ul>
-<p><span class="math display">\[
-\sigma(x)=\dfrac{1}{1+e^{-x}}
-\]</span></p>
+<p><span
+class="math display">\[\sigma(x)=\dfrac{1}{1+e^{-x}}\]</span></p>
 <p>​ 先用线性函数组合特征: <span
 class="math inline">\(f=\boldsymbol{\omega}^{\mathrm{T}}
 \boldsymbol{x}\)</span>，利用 <span
 class="math inline">\(g(\cdot)=\sigma(\boldsymbol{x})\)</span>
-作非线性决策： <span class="math display">\[
-\begin{aligned}
+作非线性决策： <span class="math display">\[\begin{aligned}
 p(y=1 \mid \boldsymbol{x}) &amp;=\sigma\left(\boldsymbol{w}^{\top}
 \boldsymbol{x}\right) &amp; p(y=0 \mid \boldsymbol{x}) &amp;=1-p(y=1
 \mid \boldsymbol{x}) \\
@@ -468,23 +387,20 @@ p(y=1 \mid \boldsymbol{x}) &amp;=\sigma\left(\boldsymbol{w}^{\top}
 \boldsymbol{x}\right)} &amp; &amp;=\frac{\exp
 \left(-\boldsymbol{w}^{\top} \boldsymbol{x}\right)}{1+\exp
 \left(-\boldsymbol{w}^{\top} \boldsymbol{x}\right)}
-\end{aligned}
-\]</span> ​ <span class="math inline">\(Logistic\)</span>
+\end{aligned}\]</span> ​ <span class="math inline">\(Logistic\)</span>
 回归可以看作预测值为<strong>标签的对数几率</strong>的线性回归模型。因此，
-Logistic 回归也称为对数几率回归 <span class="math display">\[
-\boldsymbol{w}^{\top} \boldsymbol{x}=\log \frac{p(\bar{y}=1 \mid
-\boldsymbol{x})}{1-p(y=1 \mid \boldsymbol{x})} \quad \text {
-样本为正负例的后验概率的比值 }
-\]</span> ​ 衡量两个条件概率的差距，引入熵的概念，<strong>自信息</strong>
-<span class="math inline">\(I(x)=-\ln
+Logistic 回归也称为对数几率回归 <span
+class="math display">\[\boldsymbol{w}^{\top} \boldsymbol{x}=\log
+\frac{p(\bar{y}=1 \mid \boldsymbol{x})}{1-p(y=1 \mid \boldsymbol{x})}
+\quad \text { 样本为正负例的后验概率的比值 }\]</span> ​
+衡量两个条件概率的差距，引入熵的概念，<strong>自信息</strong> <span
+class="math inline">\(I(x)=-\ln
 (p(x))\)</span>，<strong>自信息的期望</strong> <span
-class="math display">\[
-\begin{aligned}
+class="math display">\[\begin{aligned}
 H(X) &amp;=\mathbb{E}_{X}[I(x)]
 =\mathbb{E}_{X}[-\log p(x)]
 =-\sum_{x \in X} p(x) \log p(x)
-\end{aligned}
-\]</span> ​ 对分布 <span class="math inline">\(p(x)\)</span>
+\end{aligned}\]</span> ​ 对分布 <span class="math inline">\(p(x)\)</span>
 的信息进行编码时，<strong>熵</strong>为自信息的期望为该信息编码所需要的最小长度</p>
 <p>​ 例如，如果选择题 <span class="math inline">\(ABCD\)</span>
 四个答案的概率为 <span class="math inline">\(\dfrac{1}{4}\)</span>
@@ -495,18 +411,15 @@ class="math inline">\(\log=\log_2\)</span></p>
 <p>​ <strong>交叉熵</strong>按照概率分布 <span
 class="math inline">\(q\)</span> 的最优编码对真实分布为 <span
 class="math inline">\(p\)</span> 的信息进行编码的长度 <span
-class="math display">\[
-\begin{aligned}
+class="math display">\[\begin{aligned}
 H(p, q) =\mathbb{E}_{p}[-\log q(x)]
 =-\sum_{x} p(x) \log q(x)
-\end{aligned}
-\]</span> ​
+\end{aligned}\]</span> ​
 基于交叉熵损失函数可以得到损失函数公式（<strong>准则</strong>），如果两个分布越靠近，交叉熵就会越小
-<span class="math display">\[
-\mathcal{R}(\mathbf{w})=-\frac{1}{N} \sum_{n=1}^{N}\left(y^{(n)} \log
-\hat{y}^{(n)}+\left(1-y^{(n)}\right) \log
-\left(1-\hat{y}^{(n)}\right)\right)
-\]</span> ​ 优化算法，求导有公式</p>
+<span class="math display">\[\mathcal{R}(\mathbf{w})=-\frac{1}{N}
+\sum_{n=1}^{N}\left(y^{(n)} \log \hat{y}^{(n)}+\left(1-y^{(n)}\right)
+\log \left(1-\hat{y}^{(n)}\right)\right)\]</span> ​
+优化算法，求导有公式</p>
 <p>​ 对一维数据拟合时该回归更好</p>
 <p><img src="/img/imgdb_6277cf15094754312952e57d.jpg" srcset="/img/loading.gif" lazyload /></p>
 <ul>
@@ -514,41 +427,38 @@ H(p, q) =\mathbb{E}_{p}[-\log q(x)]
 class="math inline">\(Logistic\)</span>
 回归，是上者的推广，其三要素如下</li>
 </ul>
-<p>​ 模型 <span class="math display">\[
-p(y=c \mid
+<p>​ 模型 <span class="math display">\[p(y=c \mid
 \boldsymbol{x})=\operatorname{softmax}\left(\boldsymbol{w}_{c}^{\top}
 \boldsymbol{x}\right)=\frac{\exp \left(\boldsymbol{w}_{c}^{\top}
 \boldsymbol{x}\right)}{\sum_{c^{\prime}=1}^{C} \exp
-\left(\boldsymbol{w}_{c^{\prime}}^{\top} \boldsymbol{x}\right)},
-\]</span> ​ 学习: 交叉熵损失 <span class="math inline">\(\quad
-\mathcal{R}(\boldsymbol{W})=-\frac{1}{N} \sum_{n=1}^{N} \sum_{c=1}^{c}
-\boldsymbol{y}_{c}^{(n)} \log \hat{\boldsymbol{y}}_{c}^{(n)}\)</span>
-<span class="math display">\[
-=-\frac{1}{N} \sum_{n=1}^{N}\left(\boldsymbol{y}^{(n)}\right)^{\top}
-\log \hat{\boldsymbol{y}}^{(n)},
-\]</span> ​ 优化算法 ：梯度下降 <span class="math display">\[
-\frac{\partial \mathcal{R}(\boldsymbol{W})}{\partial
-\boldsymbol{W}}=-\frac{1}{N} \sum_{n=1}^{N}
-\boldsymbol{x}^{(n)}\left(\boldsymbol{y}^{(n)}-\hat{\boldsymbol{y}}^{(n)}\right)^{\top}
-\]</span></p>
+\left(\boldsymbol{w}_{c^{\prime}}^{\top}
+\boldsymbol{x}\right)},\]</span> ​ 学习: 交叉熵损失 <span
+class="math inline">\(\quad \mathcal{R}(\boldsymbol{W})=-\frac{1}{N}
+\sum_{n=1}^{N} \sum_{c=1}^{c} \boldsymbol{y}_{c}^{(n)} \log
+\hat{\boldsymbol{y}}_{c}^{(n)}\)</span> <span
+class="math display">\[=-\frac{1}{N}
+\sum_{n=1}^{N}\left(\boldsymbol{y}^{(n)}\right)^{\top} \log
+\hat{\boldsymbol{y}}^{(n)},\]</span> ​ 优化算法 ：梯度下降 <span
+class="math display">\[\frac{\partial
+\mathcal{R}(\boldsymbol{W})}{\partial \boldsymbol{W}}=-\frac{1}{N}
+\sum_{n=1}^{N}
+\boldsymbol{x}^{(n)}\left(\boldsymbol{y}^{(n)}-\hat{\boldsymbol{y}}^{(n)}\right)^{\top}\]</span></p>
 <ul>
 <li>感知机（最简单的神经网络，一个神经元）</li>
 </ul>
-<p>​ 模型： <span class="math display">\[
-g(\mathbf{x}, \mathbf{w})=\left\{\begin{array}{lll}+1 &amp; \text { 当 }
-&amp; \mathbf{w}^{\mathrm{T}} \mathbf{x}&gt;0, \\ -1 &amp; \text { 当 }
-&amp; \mathbf{w}^{\mathrm{T}} \mathbf{x}&lt;0 .\end{array}\right.
-\]</span> ​ 学习准则 : <span class="math display">\[
-\mathcal{L}(\mathbf{w} ; \mathbf{x}, y)=\max \left(0,-y
-\mathbf{w}^{\mathrm{T}} \mathbf{x}\right)
-\]</span> ​ 优化算法：随机梯度下降 <span class="math display">\[
-\frac{\partial \mathcal{L}(\mathbf{w} ; \mathbf{x}, y)}{\partial
-\mathbf{w}}= \begin{cases}0 &amp; \text { 当 } y \mathbf{w}^{\mathrm{T}}
-\mathbf{x}&gt;0, \\ -y \mathbf{x} &amp; \text { 当 } y
-\mathbf{w}^{\mathrm{T}} \mathbf{x}&lt;0 .\end{cases}
-\]</span></p>
-<p><span class="math display">\[
-\begin{equation}
+<p>​ 模型： <span class="math display">\[g(\mathbf{x},
+\mathbf{w})=\left\{\begin{array}{lll}+1 &amp; \text { 当 } &amp;
+\mathbf{w}^{\mathrm{T}} \mathbf{x}&gt;0, \\ -1 &amp; \text { 当 } &amp;
+\mathbf{w}^{\mathrm{T}} \mathbf{x}&lt;0 .\end{array}\right.\]</span> ​
+学习准则 : <span class="math display">\[\mathcal{L}(\mathbf{w} ;
+\mathbf{x}, y)=\max \left(0,-y \mathbf{w}^{\mathrm{T}}
+\mathbf{x}\right)\]</span> ​ 优化算法：随机梯度下降 <span
+class="math display">\[\frac{\partial \mathcal{L}(\mathbf{w} ;
+\mathbf{x}, y)}{\partial \mathbf{w}}= \begin{cases}0 &amp; \text { 当 }
+y \mathbf{w}^{\mathrm{T}} \mathbf{x}&gt;0, \\ -y \mathbf{x} &amp; \text
+{ 当 } y \mathbf{w}^{\mathrm{T}} \mathbf{x}&lt;0
+.\end{cases}\]</span></p>
+<p><span class="math display">\[\begin{equation}
 \begin{array}{llll}
 \text { 线性模型 } &amp; \text { 激活函数 } &amp; \text { 损失函数 }
 &amp; \text { 优化方法 } \\
@@ -567,11 +477,27 @@ g(\mathbf{x}, \mathbf{w})=\left\{\begin{array}{lll}+1 &amp; \text { 当 }
 \boldsymbol{x}\right) &amp; \max \left(0,-y \boldsymbol{w}^{\top}
 \boldsymbol{x}\right) &amp; \text { 随机梯度下降 }
 \end{array}
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 
               
             </div>
+            
+
+<nav class="reading-next" aria-labelledby="reading-next-title">
+  <div class="reading-next-heading"><h2 id="reading-next-title">继续阅读</h2><a href="/notes/">全部文章 <span aria-hidden="true">↗</span></a></div>
+  <div class="reading-next-grid">
+    
+    
+      <a class="reading-next-card" href="/2024/02/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><small>2024.02</small><strong>强化学习笔记：从 MDP、Q-learning 到 PPO</strong><p>从多臂老虎机、MDP 和 Bellman 方程，到 Q-learning、DQN、策略梯度、TRPO 与 PPO 的学习笔记。</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/"><small>2025.07</small><strong>大模型推理论文笔记：强化学习、熵与推理时计算</strong><p>大模型推理论文阅读笔记，记录强化学习中的熵变化、PPO 与 GRPO、过程奖励，以及推理时计算和工具使用。按阅读月份整理方法、公式与原论文图表。</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2023/02/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><small>2023.02</small><strong>李宏毅机器学习笔记</strong><p>李宏毅机器学习课程笔记，整理模型偏差与优化问题、鞍点、batch size、Momentum、Adagrad、RMSProp、Adam、学习率调度、warm-up 和过拟</p><span aria-hidden="true">↗</span></a>
+    
+  </div>
+</nav>
+
+
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -620,14 +546,14 @@ g(\mathbf{x}, \mathbf{w})=\left\{\begin{array}{lll}+1 &amp; \text { 当 }
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Foundation for machine learning</div>
+      <div>机器学习基础</div>
       <div>https://learningrate1.com/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>Learning_rate</div>
+          <div>鲁睿 Rui Lu</div>
         </div>
       
       
@@ -663,9 +589,9 @@ g(\mathbf{x}, \mathbf{w})=\left\{\begin{array}{lll}+1 &amp; \text { 当 }
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/12/%E7%94%9F%E6%B4%BB/%E6%98%A5%E6%97%A5%E6%B8%85%E5%8D%8E/" title="Spring in THU">
+                      <a href="/2022/05/12/%E7%94%9F%E6%B4%BB/%E6%98%A5%E6%97%A5%E6%B8%85%E5%8D%8E/" title="春日清华">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Spring in THU</span>
+                        <span class="hidden-mobile">春日清华</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -673,8 +599,8 @@ g(\mathbf{x}, \mathbf{w})=\left\{\begin{array}{lll}+1 &amp; \text { 当 }
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" title="Physics of report">
-                        <span class="hidden-mobile">Physics of report</span>
+                      <a href="/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" title="基础物理实验报告：电磁感应、弦振动与受迫振动">
+                        <span class="hidden-mobile">基础物理实验报告：电磁感应、弦振动与受迫振动</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -763,7 +689,7 @@ g(\mathbf{x}, \mathbf{w})=\left\{\begin{array}{lll}+1 &amp; \text { 当 }
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 id="ModalLabel" class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -785,54 +711,53 @@ g(\mathbf{x}, \mathbf{w})=\left\{\begin{array}{lll}+1 &amp; \text { 当 }
   </main>
 
   <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
     
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
+<div class="footer-inner">
+  <div class="footer-content">
+    <span class="footer-copyright">© 2026 <span data-edit-field="profile:name">鲁睿</span></span>
+    <a href="/atom.xml" type="application/atom+xml" title="通过 RSS 阅读器订阅文章"><span data-edit-field="interface:subscribe_articles.zh">订阅文章（RSS）</span></a>
+  </div>
+  <div class="statistics" data-site-statistics data-statistics-src="https://busuanzi.ibruce.info/busuanzi/2.3//busuanzi.pure.mini.js">
+  <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span> <span data-edit-field="interface:views.zh">次访问</span></span>
+  <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span> <span data-edit-field="interface:visitors.zh">位访客</span></span>
+  <span data-preview-statistics hidden><span data-edit-field="interface:preview_stats.zh">访问统计在正式站点显示</span></span>
 </div>
 
-  
-  
   
 </div>
 
   </footer>
 
+  <script type="application/json" id="profile-layout">{"groups":{"home":["opening","benchmarks","education","research","honors","citations","notes"]},"styles":{}}</script>
   <!-- Scripts -->
   
   <script  src="/lib/nprogress/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
+    (() => {
+      NProgress.configure({"showSpinner":false,"trickleSpeed":180,"minimum":0.08});
+      let finished = false;
+      // Fast pages need no flash; background resources do not hold this open.
+      const showTimer = setTimeout(() => {
+        if (!finished && document.readyState === 'loading') NProgress.start();
+      }, 150);
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(showTimer);
+        NProgress.done();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish, { once: true });
+      } else {
+        finish();
+      }
+      window.addEventListener('pagehide', finish, { once: true });
+      window.addEventListener('pageshow', event => {
+        if (event.persisted) { finish(); NProgress.remove(); }
+      });
+    })();
   </script>
 
 
@@ -843,38 +768,35 @@ g(\mathbf{x}, \mathbf{w})=\left\{\begin{array}{lll}+1 &amp; \text { 当 }
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
   
 
 
-
-  <script  src="/lib/typed/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var title = subtitle.title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
 
 
 
 
   
     <!-- Baidu Analytics -->
-    <script defer>
+    <script>
       var _hmt = _hmt || [];
       (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+        function loadAnalytics() {
+          var host = location.hostname;
+          var preview = document.getElementById('review-bootstrap') ||
+            ['localhost', '127.0.0.1', '[::1]'].includes(host) ||
+            /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+          if (preview) return;
+          var hm = document.createElement('script');
+          hm.async = true;
+          hm.src = 'https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37';
+          document.head.appendChild(hm);
+        }
+        // Statistics load after the readable page, and only on the public site.
+        if (document.readyState === 'complete') loadAnalytics();
+        else window.addEventListener('load', loadAnalytics, { once: true });
       })();
     </script>
   
@@ -889,8 +811,6 @@ g(\mathbf{x}, \mathbf{w})=\left\{\begin{array}{lll}+1 &amp; \text { 当 }
 
   
 
-  
-    
   
 
 
@@ -1058,11 +978,16 @@ g(\mathbf{x}, \mathbf{w})=\left\{\begin{array}{lll}+1 &amp; \text { 当 }
 
   <script  src="/js/local-search.js" ></script>
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-  <script defer src="/js/leancloud.js" ></script>
 
 
+
+  
+<script src="/js/citation-curve.js"></script>
+<script src="/js/academic.js"></script>
+<script src="/js/live-data.js"></script>
+<script src="/js/figure-viewer.js"></script>
+<script src="/js/institution-marks.js"></script>
+<script src="/js/scroll-reveal.js"></script>
 
 
 

@@ -1,0 +1,12 @@
+/* Content stays visible by default; JavaScript only adds a brief entrance. */
+.academic-site.is-reviewing .scroll-reveal-part {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce), print {
+  .scroll-reveal-part {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

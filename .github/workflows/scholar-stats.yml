@@ -1,7 +1,7 @@
 name: scholar-stats
 # Daily Google Scholar citation snapshot -> scholar-data branch.
 # This workflow file is generated from the Hexo blog source (source/.github/)
-# and re-deployed with every `hexo deploy`, so it survives force-pushes of main.
+# and is published together with the generated site on main.
 on:
   schedule:
     - cron: '23 0 * * *'   # 00:23 UTC = 08:23 Beijing

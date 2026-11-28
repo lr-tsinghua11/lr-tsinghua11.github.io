@@ -1,0 +1,6 @@
+Computer Science emblem SVG
+
+Vector source: https://github.com/mattandryc/thu-cs-crest-svg/blob/master/thu-cs-crest.svg
+The SVG is reproduced unchanged under GNU GPL v3; see computer-science.LICENSE.txt.
+Official emblem reference: https://www.cs.tsinghua.edu.cn/__local/2/FA/33/742129BD10C6669B9278851ADA2_F8466A9C_1CCAB.pdf?e=.pdf
+Department: https://www.cs.tsinghua.edu.cn/

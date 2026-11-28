@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://learningrate1.com/sitemap.xml

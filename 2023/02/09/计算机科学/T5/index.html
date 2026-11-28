@@ -7,32 +7,50 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile/apple-touch-icon.png">
+  <link rel="icon" href="/img/profile/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Learning_rate">
-  <meta name="keywords" content="LLM,强化学习,Agent,深度学习,NLP,清华大学,Learning_rate">
+  <link rel="preload" href="/fonts/wenkai-primary.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="author" content="鲁睿 Rui Lu">
+  <meta name="keywords" content="鲁睿,Rui Lu,KEG,GLM,Deep Search,Agentic RL,多智能体">
+  <meta name="description" content="T5 论文阅读笔记：比较 Encoder–Decoder、Decoder 和 Prefix-LM 架构，整理 Text-to-Text 预训练中的任务选择、span 掩码策略、掩码比例与长度。">
+  <meta name="robots" content="max-image-preview:large">
   
-    <meta name="description" content="语言大模型开山之作，定海神针之三">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer">
-<meta property="og:url" content="https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/index.html">
-<meta property="og:site_name" content="Learning_rate">
-<meta property="og:description" content="语言大模型开山之作，定海神针之三">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://learningrate1.com/img/%E7%A2%A7%E8%93%9D%E6%B5%B7.jpg">
-<meta property="article:published_time" content="2023-02-09T06:19:27.000Z">
-<meta property="article:modified_time" content="2023-02-09T06:19:27.000Z">
-<meta property="article:author" content="Learning_rate">
-<meta property="article:tag" content="NLP">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://learningrate1.com/img/%E7%A2%A7%E8%93%9D%E6%B5%B7.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="T5 阅读笔记：Text-to-Text 架构与预训练任务 | 鲁睿 Rui Lu">
+    <meta property="og:description" content="T5 论文阅读笔记：比较 Encoder–Decoder、Decoder 和 Prefix-LM 架构，整理 Text-to-Text 预训练中的任务选择、span 掩码策略、掩码比例与长度。">
+    <meta property="og:url" content="https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/">
+    <meta property="og:site_name" content="鲁睿 Rui Lu · Learning_rate">
+    <meta property="og:locale" content="zh_CN">
+    
+      <meta property="og:image" content="https://learningrate1.com/img/social/b26028ecbaace0669579.png">
+      <meta property="og:image:alt" content="T5 阅读笔记：Text-to-Text 架构与预训练任务">
+      
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+      
+      <meta property="og:image:type" content="image/png">
+    
+    <meta property="article:published_time" content="2023-02-09T06:19:27.000Z">
+    <meta property="article:modified_time" content="2026-11-26T16:00:00.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lru43402768">
+    <meta name="twitter:title" content="T5 阅读笔记：Text-to-Text 架构与预训练任务 | 鲁睿 Rui Lu">
+    <meta name="twitter:description" content="T5 论文阅读笔记：比较 Encoder–Decoder、Decoder 和 Prefix-LM 架构，整理 Text-to-Text 预训练中的任务选择、span 掩码策略、掩码比例与长度。">
+    
+      <meta name="twitter:image" content="https://learningrate1.com/img/social/b26028ecbaace0669579.png">
+      <meta name="twitter:image:alt" content="T5 阅读笔记：Text-to-Text 架构与预训练任务">
+    
   
   
-  <title>Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer - Learning_rate</title>
+  <link rel="canonical" href="https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/">
+  <link rel="alternate" type="application/atom+xml" title="鲁睿 Rui Lu · Learning_rate" href="/atom.xml">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://learningrate1.com/#rui-lu","name":"Rui Lu","alternateName":["鲁睿","Learning_rate"],"url":"https://learningrate1.com/","image":"https://learningrate1.com/img/profile/avatar.webp","email":"lu-r21@mails.tsinghua.edu.cn","sameAs":["https://scholar.google.com/citations?user=-MGuqDcAAAAJ","https://github.com/lr-tsinghua11","https://twitter.com/lru43402768","https://www.zhihu.com/people/er-ji-yi-4"],"jobTitle":"Ph.D. student in Computer Science","affiliation":[{"@type":"CollegeOrUniversity","name":"Tsinghua University","url":"https://www.tsinghua.edu.cn/"},{"@type":"Organization","name":"Knowledge Engineering Group (KEG), Tsinghua University","url":"https://keg.cs.tsinghua.edu.cn/"}],"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Bachelor of Science in Mathematics and Physics; Bachelor of Engineering in Software Engineering","credentialCategory":"Bachelor's degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Tsinghua University"}},"knowsAbout":["Deep Search","Multi-turn agentic reinforcement learning","Multi-agent collaboration","Terminal agents","AI for Science"],"description":"我是清华大学计算机系 KEG 实验室的直博二年级学生，自 2023 年起在智谱从事大模型训练工作。作为 GLM-4.5 / GLM-5 的核心贡献者，我负责优化基座模型的深度搜索（Deep Search）能力。我主要研究多轮强化学习与多智能体协作（Multi-turn Agentic RL & Multi-Agent Collaboration），近期在研究终端智能体（Terminal Agent），对大模型在科学研究中的应用（AI for Science）也很感兴趣。欢迎添加微信（微信号：learning_rate）和我交流！"},{"@type":"WebSite","@id":"https://learningrate1.com/#website","url":"https://learningrate1.com/","name":"鲁睿 Rui Lu · Learning_rate","alternateName":"Learning_rate","inLanguage":["zh-CN","en"],"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"BreadcrumbList","@id":"https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"个人简介","item":"https://learningrate1.com/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://learningrate1.com/notes/"},{"@type":"ListItem","position":3,"name":"研究笔记","item":"https://learningrate1.com/notes/#research"}]},{"@type":"BlogPosting","@id":"https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/#article","url":"https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/","mainEntityOfPage":{"@id":"https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/#page"},"headline":"T5 阅读笔记：Text-to-Text 架构与预训练任务","description":"T5 论文阅读笔记：比较 Encoder–Decoder、Decoder 和 Prefix-LM 架构，整理 Text-to-Text 预训练中的任务选择、span 掩码策略、掩码比例与长度。","image":"https://learningrate1.com/img/social/b26028ecbaace0669579.png","inLanguage":"zh-CN","author":{"@id":"https://learningrate1.com/#rui-lu"},"articleSection":"研究笔记","datePublished":"2023-02-09T06:19:27.000Z","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"}},{"@type":"WebPage","@id":"https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/#page","url":"https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/","name":"T5 阅读笔记：Text-to-Text 架构与预训练任务 | 鲁睿 Rui Lu","description":"T5 论文阅读笔记：比较 Encoder–Decoder、Decoder 和 Prefix-LM 架构，整理 Text-to-Text 预训练中的任务选择、span 掩码策略、掩码比例与长度。","inLanguage":"zh-CN","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"},"breadcrumb":{"@id":"https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/#breadcrumb"},"mainEntity":{"@id":"https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/#article"}}]}</script>
+  <title>T5 阅读笔记：Text-to-Text 架构与预训练任务 | 鲁睿 Rui Lu</title>
 
   <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
 
@@ -48,14 +66,13 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
+<!-- Keep Fluid's icon classes, with the original fonts served locally. -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
+<link rel="stylesheet" href="/lib/iconfont/core.css">
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+<link rel="stylesheet" href="/lib/iconfont/extra.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -68,32 +85,44 @@
 
 
 
+  
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/academic.css">
+<link rel="stylesheet" href="/css/benchmark.css">
+<link rel="stylesheet" href="/css/citations.css">
+<link rel="stylesheet" href="/css/figure-viewer.css">
+<link rel="stylesheet" href="/css/institution-marks.css">
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#718dcc","options":{"showSpinner":false,"trickleSpeed":180,"minimum":0.08}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Learning_rate" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
-<body>
+<body class="academic-site reading-site" data-topic="research">
+  <a class="skip-to-content" href="#main-content"><span data-edit-field="interface:skip.zh">跳转到正文</span></a>
   
 
   <header>
     
 
-<div class="header-inner" style="height: 70vh;">
+
+<div class="academic-header">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong> Learning_rate&#39;s blog</strong>
+      <strong>Learning_rate</strong>
     </a>
 
+    <a class="mobile-language d-lg-none" data-language-switch href="/en/notes/" lang="en" aria-label="Switch to English">EN</a>
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,8 +139,8 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
+                
+                <span data-edit-field="interface:profile.zh">个人简介</span>
               </a>
             </li>
           
@@ -121,45 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
+              <a class="nav-link" href="/notes/">
+                
+                <span data-edit-field="interface:notes.zh">文章</span>
               </a>
             </li>
           
@@ -170,12 +163,13 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
+                
+                <span data-edit-field="interface:friends.zh">友链</span>
               </a>
             </li>
           
         
+        <li class="nav-item language-item"><a class="nav-link language-switch" data-language-switch href="/en/notes/" lang="en" hreflang="en" aria-label="Switch to English"><span class="language-mark" aria-hidden="true">文</span>EN</a></li>
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -195,83 +189,22 @@
   </div>
 </nav>
 
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E7%A2%A7%E8%93%9D%E6%B5%B7.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          <span id="subtitle" title="Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer">
-            
-          </span>
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-02-09 14:19" pubdate>
-          2023年2月9日 下午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          341 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          3 分钟
-        
-      </span>
-    
-
-    
-    
-      
-        <span id="busuanzi_container_page_pv" style="display: none">
-          <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="busuanzi_value_page_pv"></span> 次
-        </span>
-        
-      
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
 </div>
 
-</div>
 
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     
       
 
+<header class="reading-masthead" data-topic="research">
+  <nav class="reading-breadcrumbs" aria-label="文章位置">
+    <ol><li><a href="/">个人简介</a></li><li><a href="/notes/">文章</a></li><li><a href="/notes/#research">研究笔记</a></li></ol>
+  </nav>
+  <h1>T5 阅读笔记：Text-to-Text 架构与预训练任务</h1>
+  <p><time datetime="2023-02-09">2023.02.09</time><span class="reading-updated"><span aria-hidden="true"> · </span>更新于 <time datetime="2026-11-27">2026.11.27</time></span><span aria-hidden="true"> · </span><a class="reading-author" href="/" rel="author">鲁睿 Rui Lu</a><span class="reading-views" id="busuanzi_container_page_pv"><span aria-hidden="true"> · </span><span id="busuanzi_value_page_pv">—</span> <span data-edit-field="interface:article_views.zh">次阅读</span></span></p>
+</header>
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
     <div class="side-col d-none d-lg-block col-lg-2">
@@ -283,24 +216,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer</h1>
-            
-              <p class="note note-info">
-                
-                  
-                    本文最后更新于：3 年前
-                  
-                
-              </p>
-            
             <div class="markdown-body">
               
-              <h1 id="t5">T5</h1>
-<p>T5: <strong>Transfer Text-to-Text Transformer</strong></p>
+              <p>T5 把不同的 NLP 任务统一为文本输入、文本输出。这篇 2023
+年的阅读笔记主要记录<a
+target="_blank" rel="noopener" href="https://arxiv.org/abs/1910.10683">原论文</a>如何比较模型架构与预训练任务，以及连续片段掩码（span
+corruption）的几项设置。</p>
+<h2 id="t5">T5</h2>
+<p>T5: <strong>Text-to-Text Transfer Transformer</strong></p>
 <p>C4: <strong>Colossal Clean Crawled Corpus</strong></p>
-<h2 id="架构择优">架构择优</h2>
-<p><img src="/img/T5/image-20230212182549309.png" srcset="/img/loading.gif" lazyload alt="image-20230212182549309" style="zoom:20%;" /></p>
+<h3 id="架构择优">架构择优</h3>
+<p><img src="/img/T5/image-20230212182549309.png" srcset="/img/loading.gif" lazyload alt="T5 论文比较的 Encoder–Decoder、语言模型与 Prefix-LM 三种架构" style="zoom:20%;" width="2632" height="1182" loading="lazy" decoding="async" /></p>
 <ul>
 <li><strong>Encoder-Decoder</strong>（Seq2Seq，Encoder 看全体，Decoder
 看之前的，效果最好）</li>
@@ -308,31 +234,48 @@
 <li><strong>Prefix-LM</strong>（一部分全体一部分过去）</li>
 </ul>
 <p>其中两层数据之间的关联如下</p>
-<p><img src="/img/T5/image-20230212185102519.png" srcset="/img/loading.gif" lazyload alt="image-20230212185102519" style="zoom:25%;" /></p>
-<h2 id="训练择优">训练择优</h2>
+<p><img src="/img/T5/image-20230212185102519.png" srcset="/img/loading.gif" lazyload alt="全可见、因果和带前缀因果三种注意力掩码" style="zoom:25%;" width="2378" height="966" loading="lazy" decoding="async" /></p>
+<h3 id="训练择优">训练择优</h3>
 <p>顺次在以下并列选项中找到“最优解”，<font color='blue'>蓝色</font>代表“胜出”</p>
-<p><img src="/img/T5/image-20230212194432962.png" srcset="/img/loading.gif" lazyload alt="image-20230212194432962" style="zoom:20%;" /></p>
-<h3 id="训练方式">训练方式</h3>
+<p><img src="/img/T5/image-20230212194432962.png" srcset="/img/loading.gif" lazyload alt="T5 预训练实验中的任务、掩码策略、比例与片段长度" style="zoom:20%;" width="2548" height="1406" loading="lazy" decoding="async" /></p>
+<h4 id="训练方式">训练方式</h4>
 <ul>
 <li><strong>语言模型式</strong>：从左到右预测</li>
 <li><font color='blue'><strong>BERT 式</strong></font>：还原 MASK</li>
 <li><strong>Deshuffling 式</strong>：还原打乱文本</li>
 </ul>
-<h3 id="掩盖策略">掩盖策略</h3>
+<h4 id="掩盖策略">掩盖策略</h4>
 <ul>
 <li><strong>Mask</strong>：盖住 token</li>
 <li><font color='blue'><strong>Replace spans</strong></font>：相邻 Mask
 合成一个特殊字符</li>
 <li><strong>Drop</strong>：直接丢弃一些字符</li>
 </ul>
-<h3 id="掩盖比例">掩盖比例</h3>
+<h4 id="掩盖比例">掩盖比例</h4>
 <p>10%, <font color='blue'>15%</font>, <font color='blue'>25%</font>,
 <font color='blue'>50%</font> 的 MASK 比例</p>
-<h3 id="掩盖长度">掩盖长度</h3>
+<h4 id="掩盖长度">掩盖长度</h4>
 <p>2, <font color='blue'>3</font>, 5, 10 的长度</p>
 
               
             </div>
+            
+
+<nav class="reading-next" aria-labelledby="reading-next-title">
+  <div class="reading-next-heading"><h2 id="reading-next-title">继续阅读</h2><a href="/notes/">全部文章 <span aria-hidden="true">↗</span></a></div>
+  <div class="reading-next-grid">
+    
+    
+      <a class="reading-next-card" href="/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/"><small>2023.01</small><strong>Hugging Face 学习笔记：Tokenizer、Dataset 与模型微调</strong><p>Hugging Face Course 学习笔记：BERT、GPT、T5 的架构区别，以及 Tokenizer、Dataset、模型微调与评测指标。</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2023/01/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Attention_is_all_you_need_notes/"><small>2023.01</small><strong>Transformer 阅读笔记：Attention Is All You Need</strong><p>Transformer 与 Attention Is All You Need 阅读笔记：梳理 Q、K、V、缩放点积注意力、多头注意力、位置编码和层归一化，保留公式推导与</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2023/01/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/BERT_Pre-training_of_Deep_Bidirectional_Transformers_for_Language_Understanding/"><small>2023.01</small><strong>BERT 阅读笔记：双向预训练、MLM 与 NSP</strong><p>BERT 阅读笔记：双向预训练、掩码语言模型 MLM、下一句预测 NSP、三类输入嵌入与微调，以及模型规模、训练步数和掩码策略的消融实验。</p><span aria-hidden="true">↗</span></a>
+    
+  </div>
+</nav>
+
+
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -388,14 +331,14 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer</div>
+      <div>T5 阅读笔记：Text-to-Text 架构与预训练任务</div>
       <div>https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>Learning_rate</div>
+          <div>鲁睿 Rui Lu</div>
         </div>
       
       
@@ -431,9 +374,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/02/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Hongyi Li&#39;s Machine learning course notes">
+                      <a href="/2023/02/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="李宏毅机器学习笔记">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hongyi Li&#39;s Machine learning course notes</span>
+                        <span class="hidden-mobile">李宏毅机器学习笔记</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -441,8 +384,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%B1%B1%E4%B9%8B%E4%BD%9C%E8%AE%A8%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="NLP introductory discussion notes">
-                        <span class="hidden-mobile">NLP introductory discussion notes</span>
+                      <a href="/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%B1%B1%E4%B9%8B%E4%BD%9C%E8%AE%A8%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="开山之作讨论笔记">
+                        <span class="hidden-mobile">开山之作讨论笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -531,7 +474,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 id="ModalLabel" class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -553,54 +496,53 @@
   </main>
 
   <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
     
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
+<div class="footer-inner">
+  <div class="footer-content">
+    <span class="footer-copyright">© 2026 <span data-edit-field="profile:name">鲁睿</span></span>
+    <a href="/atom.xml" type="application/atom+xml" title="通过 RSS 阅读器订阅文章"><span data-edit-field="interface:subscribe_articles.zh">订阅文章（RSS）</span></a>
+  </div>
+  <div class="statistics" data-site-statistics data-statistics-src="https://busuanzi.ibruce.info/busuanzi/2.3//busuanzi.pure.mini.js">
+  <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span> <span data-edit-field="interface:views.zh">次访问</span></span>
+  <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span> <span data-edit-field="interface:visitors.zh">位访客</span></span>
+  <span data-preview-statistics hidden><span data-edit-field="interface:preview_stats.zh">访问统计在正式站点显示</span></span>
 </div>
 
-  
-  
   
 </div>
 
   </footer>
 
+  <script type="application/json" id="profile-layout">{"groups":{"home":["opening","benchmarks","education","research","honors","citations","notes"]},"styles":{}}</script>
   <!-- Scripts -->
   
   <script  src="/lib/nprogress/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
+    (() => {
+      NProgress.configure({"showSpinner":false,"trickleSpeed":180,"minimum":0.08});
+      let finished = false;
+      // Fast pages need no flash; background resources do not hold this open.
+      const showTimer = setTimeout(() => {
+        if (!finished && document.readyState === 'loading') NProgress.start();
+      }, 150);
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(showTimer);
+        NProgress.done();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish, { once: true });
+      } else {
+        finish();
+      }
+      window.addEventListener('pagehide', finish, { once: true });
+      window.addEventListener('pageshow', event => {
+        if (event.persisted) { finish(); NProgress.remove(); }
+      });
+    })();
   </script>
 
 
@@ -611,38 +553,35 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
   
 
 
-
-  <script  src="/lib/typed/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var title = subtitle.title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
 
 
 
 
   
     <!-- Baidu Analytics -->
-    <script defer>
+    <script>
       var _hmt = _hmt || [];
       (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+        function loadAnalytics() {
+          var host = location.hostname;
+          var preview = document.getElementById('review-bootstrap') ||
+            ['localhost', '127.0.0.1', '[::1]'].includes(host) ||
+            /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+          if (preview) return;
+          var hm = document.createElement('script');
+          hm.async = true;
+          hm.src = 'https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37';
+          document.head.appendChild(hm);
+        }
+        // Statistics load after the readable page, and only on the public site.
+        if (document.readyState === 'complete') loadAnalytics();
+        else window.addEventListener('load', loadAnalytics, { once: true });
       })();
     </script>
   
@@ -657,8 +596,6 @@
 
   
 
-  
-    
   
 
 
@@ -826,11 +763,16 @@
 
   <script  src="/js/local-search.js" ></script>
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-  <script defer src="/js/leancloud.js" ></script>
 
 
+
+  
+<script src="/js/citation-curve.js"></script>
+<script src="/js/academic.js"></script>
+<script src="/js/live-data.js"></script>
+<script src="/js/figure-viewer.js"></script>
+<script src="/js/institution-marks.js"></script>
+<script src="/js/scroll-reveal.js"></script>
 
 
 

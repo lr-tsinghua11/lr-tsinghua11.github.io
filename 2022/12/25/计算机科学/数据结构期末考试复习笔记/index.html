@@ -7,32 +7,50 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile/apple-touch-icon.png">
+  <link rel="icon" href="/img/profile/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Learning_rate">
-  <meta name="keywords" content="LLM,强化学习,Agent,深度学习,NLP,清华大学,Learning_rate">
+  <link rel="preload" href="/fonts/wenkai-primary.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="author" content="鲁睿 Rui Lu">
+  <meta name="keywords" content="鲁睿,Rui Lu,KEG,GLM,Deep Search,Agentic RL,多智能体">
+  <meta name="description" content="准备数据结构期末考试的复习笔记，数据结构期末考试已结束，现分享该篇万字笔记。">
+  <meta name="robots" content="max-image-preview:large">
   
-    <meta name="description" content="准备数据结构期末考试的复习笔记，数据结构期末考试已结束，现分享该篇万字笔记。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Data structure review">
-<meta property="og:url" content="https://learningrate1.com/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
-<meta property="og:site_name" content="Learning_rate">
-<meta property="og:description" content="准备数据结构期末考试的复习笔记，数据结构期末考试已结束，现分享该篇万字笔记。">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://learningrate1.com/img/%E6%98%9F%E7%A9%BA.jpg">
-<meta property="article:published_time" content="2022-12-24T16:09:13.000Z">
-<meta property="article:modified_time" content="2022-12-24T16:09:13.000Z">
-<meta property="article:author" content="Learning_rate">
-<meta property="article:tag" content="计算机科学">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://learningrate1.com/img/%E6%98%9F%E7%A9%BA.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="数据结构期末考试复习笔记 | 鲁睿 Rui Lu">
+    <meta property="og:description" content="准备数据结构期末考试的复习笔记，数据结构期末考试已结束，现分享该篇万字笔记。">
+    <meta property="og:url" content="https://learningrate1.com/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <meta property="og:site_name" content="鲁睿 Rui Lu · Learning_rate">
+    <meta property="og:locale" content="zh_CN">
+    
+      <meta property="og:image" content="https://learningrate1.com/img/social/454b77c866305696c12f.png">
+      <meta property="og:image:alt" content="数据结构期末考试复习笔记">
+      
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+      
+      <meta property="og:image:type" content="image/png">
+    
+    <meta property="article:published_time" content="2022-12-24T16:09:13.000Z">
+    <meta property="article:modified_time" content="2022-12-24T16:09:13.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lru43402768">
+    <meta name="twitter:title" content="数据结构期末考试复习笔记 | 鲁睿 Rui Lu">
+    <meta name="twitter:description" content="准备数据结构期末考试的复习笔记，数据结构期末考试已结束，现分享该篇万字笔记。">
+    
+      <meta name="twitter:image" content="https://learningrate1.com/img/social/454b77c866305696c12f.png">
+      <meta name="twitter:image:alt" content="数据结构期末考试复习笔记">
+    
   
   
-  <title>Data structure review - Learning_rate</title>
+  <link rel="canonical" href="https://learningrate1.com/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+  <link rel="alternate" type="application/atom+xml" title="鲁睿 Rui Lu · Learning_rate" href="/atom.xml">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://learningrate1.com/#rui-lu","name":"Rui Lu","alternateName":["鲁睿","Learning_rate"],"url":"https://learningrate1.com/","image":"https://learningrate1.com/img/profile/avatar.webp","email":"lu-r21@mails.tsinghua.edu.cn","sameAs":["https://scholar.google.com/citations?user=-MGuqDcAAAAJ","https://github.com/lr-tsinghua11","https://twitter.com/lru43402768","https://www.zhihu.com/people/er-ji-yi-4"],"jobTitle":"Ph.D. student in Computer Science","affiliation":[{"@type":"CollegeOrUniversity","name":"Tsinghua University","url":"https://www.tsinghua.edu.cn/"},{"@type":"Organization","name":"Knowledge Engineering Group (KEG), Tsinghua University","url":"https://keg.cs.tsinghua.edu.cn/"}],"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Bachelor of Science in Mathematics and Physics; Bachelor of Engineering in Software Engineering","credentialCategory":"Bachelor's degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Tsinghua University"}},"knowsAbout":["Deep Search","Multi-turn agentic reinforcement learning","Multi-agent collaboration","Terminal agents","AI for Science"],"description":"我是清华大学计算机系 KEG 实验室的直博二年级学生，自 2023 年起在智谱从事大模型训练工作。作为 GLM-4.5 / GLM-5 的核心贡献者，我负责优化基座模型的深度搜索（Deep Search）能力。我主要研究多轮强化学习与多智能体协作（Multi-turn Agentic RL & Multi-Agent Collaboration），近期在研究终端智能体（Terminal Agent），对大模型在科学研究中的应用（AI for Science）也很感兴趣。欢迎添加微信（微信号：learning_rate）和我交流！"},{"@type":"WebSite","@id":"https://learningrate1.com/#website","url":"https://learningrate1.com/","name":"鲁睿 Rui Lu · Learning_rate","alternateName":"Learning_rate","inLanguage":["zh-CN","en"],"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"BreadcrumbList","@id":"https://learningrate1.com/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"个人简介","item":"https://learningrate1.com/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://learningrate1.com/notes/"},{"@type":"ListItem","position":3,"name":"编程实践","item":"https://learningrate1.com/notes/#engineering"}]},{"@type":"BlogPosting","@id":"https://learningrate1.com/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/#article","url":"https://learningrate1.com/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/","mainEntityOfPage":{"@id":"https://learningrate1.com/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/#page"},"headline":"数据结构期末考试复习笔记","description":"准备数据结构期末考试的复习笔记，数据结构期末考试已结束，现分享该篇万字笔记。","image":"https://learningrate1.com/img/social/454b77c866305696c12f.png","inLanguage":"zh-CN","author":{"@id":"https://learningrate1.com/#rui-lu"},"articleSection":"编程实践","datePublished":"2022-12-24T16:09:13.000Z","dateModified":"2022-12-24T16:09:13.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"}},{"@type":"WebPage","@id":"https://learningrate1.com/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/#page","url":"https://learningrate1.com/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/","name":"数据结构期末考试复习笔记 | 鲁睿 Rui Lu","description":"准备数据结构期末考试的复习笔记，数据结构期末考试已结束，现分享该篇万字笔记。","inLanguage":"zh-CN","dateModified":"2022-12-24T16:09:13.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"},"breadcrumb":{"@id":"https://learningrate1.com/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/#breadcrumb"},"mainEntity":{"@id":"https://learningrate1.com/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/#article"}}]}</script>
+  <title>数据结构期末考试复习笔记 | 鲁睿 Rui Lu</title>
 
   <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
 
@@ -48,14 +66,13 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
+<!-- Keep Fluid's icon classes, with the original fonts served locally. -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
+<link rel="stylesheet" href="/lib/iconfont/core.css">
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+<link rel="stylesheet" href="/lib/iconfont/extra.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -68,32 +85,44 @@
 
 
 
+  
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/academic.css">
+<link rel="stylesheet" href="/css/benchmark.css">
+<link rel="stylesheet" href="/css/citations.css">
+<link rel="stylesheet" href="/css/figure-viewer.css">
+<link rel="stylesheet" href="/css/institution-marks.css">
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#718dcc","options":{"showSpinner":false,"trickleSpeed":180,"minimum":0.08}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Learning_rate" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
-<body>
+<body class="academic-site reading-site" data-topic="engineering">
+  <a class="skip-to-content" href="#main-content"><span data-edit-field="interface:skip.zh">跳转到正文</span></a>
   
 
   <header>
     
 
-<div class="header-inner" style="height: 70vh;">
+
+<div class="academic-header">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong> Learning_rate&#39;s blog</strong>
+      <strong>Learning_rate</strong>
     </a>
 
+    <a class="mobile-language d-lg-none" data-language-switch href="/en/notes/" lang="en" aria-label="Switch to English">EN</a>
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,8 +139,8 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
+                
+                <span data-edit-field="interface:profile.zh">个人简介</span>
               </a>
             </li>
           
@@ -121,45 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
+              <a class="nav-link" href="/notes/">
+                
+                <span data-edit-field="interface:notes.zh">文章</span>
               </a>
             </li>
           
@@ -170,12 +163,13 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
+                
+                <span data-edit-field="interface:friends.zh">友链</span>
               </a>
             </li>
           
         
+        <li class="nav-item language-item"><a class="nav-link language-switch" data-language-switch href="/en/notes/" lang="en" hreflang="en" aria-label="Switch to English"><span class="language-mark" aria-hidden="true">文</span>EN</a></li>
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -195,83 +189,22 @@
   </div>
 </nav>
 
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E6%98%9F%E7%A9%BA.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          <span id="subtitle" title="Data structure review">
-            
-          </span>
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-25 00:09" pubdate>
-          2022年12月25日 凌晨
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          16k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          130 分钟
-        
-      </span>
-    
-
-    
-    
-      
-        <span id="busuanzi_container_page_pv" style="display: none">
-          <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="busuanzi_value_page_pv"></span> 次
-        </span>
-        
-      
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
 </div>
 
-</div>
 
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     
       
 
+<header class="reading-masthead" data-topic="engineering">
+  <nav class="reading-breadcrumbs" aria-label="文章位置">
+    <ol><li><a href="/">个人简介</a></li><li><a href="/notes/">文章</a></li><li><a href="/notes/#engineering">编程实践</a></li></ol>
+  </nav>
+  <h1>数据结构期末考试复习笔记</h1>
+  <p><time datetime="2022-12-25">2022.12.25</time><span aria-hidden="true"> · </span><a class="reading-author" href="/" rel="author">鲁睿 Rui Lu</a><span class="reading-views" id="busuanzi_container_page_pv"><span aria-hidden="true"> · </span><span id="busuanzi_value_page_pv">—</span> <span data-edit-field="interface:article_views.zh">次阅读</span></span></p>
+</header>
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
     <div class="side-col d-none d-lg-block col-lg-2">
@@ -283,17 +216,6 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Data structure review</h1>
-            
-              <p class="note note-info">
-                
-                  
-                    本文最后更新于：4 年前
-                  
-                
-              </p>
-            
             <div class="markdown-body">
               
               <h1 id="数据结构总复习笔记">数据结构总复习笔记</h1>
@@ -363,29 +285,25 @@ class="math inline">\(1\)</span>，<span class="math inline">\(V\)</span>
 class="math inline">\(d\)</span> 定义为所有节点度的最大值，度为 <span
 class="math inline">\(d\)</span> 且有左右树之分的树称作 <span
 class="math inline">\(d\)</span> 叉🌲，满足 <span
-class="math display">\[
-\begin{equation}
+class="math display">\[\begin{equation}
 V=\sum_{i=0}^{d} n_i
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <h3 id="基本特性">基本特性</h3>
 <p>对任何🌲 可以看成最小连通图，顶点的数目比度的总数多 <span
-class="math inline">\(1\)</span>，即 <span class="math display">\[
-\begin{equation}
+class="math inline">\(1\)</span>，即 <span
+class="math display">\[\begin{equation}
 1+\sum_{i=1}^{d} in_i=V
-\end{equation}
-\]</span> 给定一棵树的部分 <span
+\end{equation}\]</span> 给定一棵树的部分 <span
 class="math inline">\(n_i\)</span>，使用公式 (1)(2)
 可以获取许多信息。</p>
 <h3 id="二叉树">二叉树</h3>
 <p>对一棵二叉树度为 <span class="math inline">\(2\)</span> 的点有 <span
 class="math inline">\(n_2\)</span> 个，叶节点（度为 <span
 class="math inline">\(0\)</span>）的点有 <span
-class="math inline">\(n_0\)</span>，则 <span class="math display">\[
-\begin{equation}
+class="math inline">\(n_0\)</span>，则 <span
+class="math display">\[\begin{equation}
 n_0=n_2+1
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <blockquote>
 <p>Prof. 二叉树代入公式(1) <span class="math inline">\(1+0\cdot
 n_0+1\cdot n_1+2\cdot n_2=n_0+n_1+n_2\)</span> 即证。</p>
@@ -458,11 +376,10 @@ class="math inline">\(O(\sqrt{n})\)</span>。</strong></p>
 <p><strong>定义：除了最后一层外，其他各层全是满的，
 并且最后一层的节点尽可能往左靠</strong>。</p>
 <p>性质6：<strong>总点数为 <span class="math inline">\(n\)</span>
-的完全二叉树的非叶子节点如下</strong> <span class="math display">\[
-\begin{equation}
+的完全二叉树的非叶子节点如下</strong> <span
+class="math display">\[\begin{equation}
 完全二叉树,\sum _{叶子节点}1=\lceil \dfrac{n}{2}\rceil
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <blockquote>
 <p>Prof. 完全二叉树只有最后一层度为 <span
 class="math inline">\(1\)</span> 的点为 <span
@@ -500,11 +417,9 @@ class="math inline">\(2n+1\)</span>。</strong></p>
 <span
 class="math inline">\(\text{Fib(1)}=\text{Fib(2)}=1,\text{Fib(n+2)}=\text{Fib(n+1)}+\text{Fib(n)}\)</span>，<strong>则总高度为
 <span class="math inline">\(h\)</span> 的平衡二叉树节点数量满足</strong>
-<span class="math display">\[
-\begin{equation}
+<span class="math display">\[\begin{equation}
 V_h \in\left[\operatorname{Fib}(h+2)-1,2^h-1\right]
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <blockquote>
 <p>Prof. 对树高为 <span class="math inline">\(h\)</span>
 平衡二叉树，构造左右子树分别为 <span class="math inline">\(h-1\)</span>
@@ -640,11 +555,9 @@ class="math inline">\(L_{h-1}\)</span> 为第 <span
 class="math inline">\(h\)</span> 层上层分支数，<span
 class="math inline">\(N_{h}\)</span> 为第 <span
 class="math inline">\(h\)</span> 层关键码数，则有 <span
-class="math display">\[
-\begin{equation}
+class="math display">\[\begin{equation}
 L_{h-1}+N_h=L_h
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <blockquote>
 <p>Prof. 对上一层的每个分支，假设关键码有 <span
 class="math inline">\(n_i\)</span> 个，其下一层假设有 <span
@@ -652,17 +565,13 @@ class="math inline">\(l_i\)</span> 个分支，由约束(2)，可知 <span
 class="math inline">\(1+n_i=l_i\)</span>，对上层每个分支求和即得。</p>
 </blockquote>
 <p>该性质可以结合边界条件 <span class="math inline">\(L_{-1}=1\)</span>
-得 <span class="math display">\[
-\begin{equation}
+得 <span class="math display">\[\begin{equation}
 L_h=1+\sum_{i=1}^h N_i
-\end{equation}
-\]</span> 性质2：<span class="math inline">\(m\)</span> 阶 B🌲总高度满足
-<span class="math display">\[
-\begin{equation}
+\end{equation}\]</span> 性质2：<span class="math inline">\(m\)</span> 阶
+B🌲总高度满足 <span class="math display">\[\begin{equation}
 \log _m(N+1) \leq h \leq \log
 _{\left\lceil\frac{m}{2}\right\rceil}\left\lfloor\frac{N+1}{2}\right\rfloor+1
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <blockquote>
 <p>Prof. 由约束(2)(3)可知度数满足条件 <span
 class="math inline">\(d_{i}\in\left[\lceil
@@ -683,12 +592,10 @@ class="math inline">\(1+\left(\lceil
 </blockquote>
 <p>另一种写法为，给定总高度 <span
 class="math inline">\(h\)</span>，<span class="math inline">\(m\)</span>
-阶 B🌲总节点数的取值范围为 <span class="math display">\[
-\begin{equation}
+阶 B🌲总节点数的取值范围为 <span class="math display">\[\begin{equation}
 \left[2 \cdot\left(\left\lceil\frac{m}{2}\right\rceil\right)^{h-1}-1,
 m^h-1\right]
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <blockquote>
 <p>Note. B🌲总节点数和关键码数不同，后者可能不考虑叶子节点，对应 <span
 class="math inline">\(h\)</span> 减 <span
@@ -727,18 +634,16 @@ B-树，第一层的关键码的直接后继需要迭代两层才能找到，仅
 的每条边，每个节点的 <span class="math inline">\(4\)</span>
 个孙子中不超过 <span class="math inline">\(2\)</span>
 个会与它相交，这意味着递归，如下图 (c) 中粗线最多只能交出 <span
-class="math inline">\(2\)</span> 条线，则 <span class="math display">\[
-Q(n) = 2 + 2Q(n/4), Q(1) = O(1) \Longrightarrow Q(n) = O(\sqrt{n})
-\]</span>
+class="math inline">\(2\)</span> 条线，则 <span
+class="math display">\[Q(n) = 2 + 2Q(n/4), Q(1) = O(1) \Longrightarrow
+Q(n) = O(\sqrt{n})\]</span>
 <img src="/img/数据结构总复习笔记/image-20221223162515054.png" srcset="/img/loading.gif" lazyload alt="image-20221223162515054" style="zoom: 25%;" /></p>
 <h2 id="卡特兰数">卡特兰数</h2>
 <p>定义：<span class="math inline">\(n\)</span>
 个节点可构造的不同二叉树数目，显然其满足递推式 <span
-class="math display">\[
-\begin{equation}
+class="math display">\[\begin{equation}
 H_n=\sum_{i=0}^{n-1} H_i H_{n-i-1} \quad(n \geq 2)
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <blockquote>
 <p>Prof. <span class="math inline">\(n\)</span> 个节点的二叉树根节点有
 <span class="math inline">\(1\)</span> 个，左右分别为 <span
@@ -818,10 +723,10 @@ class="math inline">\(O(n)\)</span></strong></p>
 <p>Prof. 设高度为 <span class="math inline">\(h\)</span>（ <span
 class="math inline">\(1\)</span> 个节点高度为 <span
 class="math inline">\(0\)</span>）相较之前的逐个插入法 <span
-class="math display">\[
-\sum _{i=0}^{h}i2^i\Longrightarrow\sum _{i=0}^{h}(h-i)2^i\\
-(h-1)2^{h+1}+2=O(n\log n)\Longrightarrow2^{h+1}-h-2=n-\log _2(n+1)=O(n)
-\]</span></p>
+class="math display">\[\sum _{i=0}^{h}i2^i\Longrightarrow\sum
+_{i=0}^{h}(h-i)2^i\\
+(h-1)2^{h+1}+2=O(n\log n)\Longrightarrow2^{h+1}-h-2=n-\log
+_2(n+1)=O(n)\]</span></p>
 </blockquote>
 <p>性质2：代码实现上<strong>从序列末尾开始向前遍历</strong>，比如从倒数第二层的最后一个节点开始上滤，但同层节点的下滤次序对算法的正确性和效率都没有影响，其互不相干。</p>
 <p>性质3：<strong>合并</strong>两个一般堆与建堆的时间复杂度相同，时间为
@@ -1040,10 +945,8 @@ class="math inline">\(O(1)\)</span></li>
 <li>MAD ( <strong>Multiply-Add-Divide</strong> )
 法，防止相邻关键码依然相邻</li>
 </ol>
-<p><span class="math display">\[
-\text{Hash}(\text {key})=(\mathbf{a} \times \mathbf{k e y}+\mathbf{b})
-\% \mathbf{M}
-\]</span></p>
+<p><span class="math display">\[\text{Hash}(\text {key})=(\mathbf{a}
+\times \mathbf{k e y}+\mathbf{b}) \% \mathbf{M}\]</span></p>
 <ol start="2" type="1">
 <li><p>数字分析法，例如手机后四位</p></li>
 <li><p>平方取中法，例如
@@ -1121,8 +1024,7 @@ class="math inline">\(i\)</span>
 </blockquote>
 <h3 id="基数排序">基数排序</h3>
 <p>算法：关键码由多个字段组成，可按照优先级从低到高进行桶排序，<strong>低位字段优先</strong>策略
-<span class="math display">\[
-\begin{array}{|c|c|c|c|c|c|c|c|}
+<span class="math display">\[\begin{array}{|c|c|c|c|c|c|c|c|}
 \hline \text { 输入序列 } &amp; 441 &amp; 276 &amp; 320 &amp; 214 &amp;
 698 &amp; 280 &amp; 112 \\
 \hline \text { 以个位排序 } &amp; 32{0} &amp; 28{0} &amp; 44{1} &amp;
@@ -1132,8 +1034,7 @@ class="math inline">\(i\)</span>
 \hline \text { 以百位排序 } &amp; {1}12 &amp; {2}14 &amp; {2}76 &amp;
 {2}80 &amp; {3}20 &amp; {4}41 &amp; {6}98 \\
 \hline
-\end{array}
-\]</span></p>
+\end{array}\]</span></p>
 <blockquote>
 <p>Prof. 正确性由数学归纳法给出，假设 <span
 class="math inline">\(i-1\)</span> 趟后前 <span
@@ -1145,9 +1046,7 @@ class="math inline">\(i\)</span>
 <p><strong>复杂度</strong>： 各字段取值范围 <span
 class="math inline">\(\left[0, M_i\right), i&lt;=t\)</span>，令 <span
 class="math inline">\(M=\max \left(M_i\right)\)</span> <span
-class="math display">\[
-O\left(n+M_1\right)+O\left(n+M_2\right)+\cdots+O\left(n+M_t\right)=O\left(t\cdot(n+M)\right)
-\]</span></p>
+class="math display">\[O\left(n+M_1\right)+O\left(n+M_2\right)+\cdots+O\left(n+M_t\right)=O\left(t\cdot(n+M)\right)\]</span></p>
 <blockquote>
 <p>Note. 基数排序需要的操作次数为定值，桶排序可以看成是基数为 <span
 class="math inline">\(1\)</span> 的基数排序。</p>
@@ -1155,13 +1054,11 @@ class="math inline">\(1\)</span> 的基数排序。</p>
 <h3 id="快速排序">快速排序</h3>
 <p>性质2：<strong>快速排序的平均时间复杂度为 <span
 class="math inline">\(O(1.386\cdot n\log n)\)</span></strong> <span
-class="math display">\[
-T(n)=(n-1)+\frac{1}{n} \cdot
+class="math display">\[T(n)=(n-1)+\frac{1}{n} \cdot
 \sum_{k=0}^{n-1}[T(k)+T(n-k-1)]=(n-1)+\frac{2}{n} \cdot \sum_{k=0}^{n-1}
-T(k)
-\]</span> <span class="math inline">\(\begin{cases} n \cdot T(n)-(n-1)
-\cdot T(n-1)=2 \cdot(n-1)+2 \times T(n-1) \\n \cdot T(n)-(n+1) \cdot
-T(n-1)=2 \cdot(n-1)
+T(k)\]</span> <span class="math inline">\(\begin{cases} n \cdot
+T(n)-(n-1) \cdot T(n-1)=2 \cdot(n-1)+2 \times T(n-1) \\n \cdot
+T(n)-(n+1) \cdot T(n-1)=2 \cdot(n-1)
 \end{cases}\Longrightarrow\dfrac{T(n)}{n+1}-\dfrac{T(n-1)}{n}=\dfrac{4}{n+1}-\dfrac{2}{n}\)</span></p>
 <p>解得 <span class="math inline">\(T(n)=(n+1)\cdot\left(2 \displaystyle
 \cdot \sum_{k=1}^{n+1} \frac{1}{k}+\frac{2}{n+1}-4\right)\approx 2\ln
@@ -1169,6 +1066,9 @@ T(n-1)=2 \cdot(n-1)
 
               
             </div>
+            
+
+
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -1217,14 +1117,14 @@ T(n-1)=2 \cdot(n-1)
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Data structure review</div>
+      <div>数据结构期末考试复习笔记</div>
       <div>https://learningrate1.com/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>Learning_rate</div>
+          <div>鲁睿 Rui Lu</div>
         </div>
       
       
@@ -1260,9 +1160,9 @@ T(n-1)=2 \cdot(n-1)
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/12/29/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%80%E5%AD%A6%E5%B9%B4%E6%80%BB%E7%BB%93/" title="Summary of freshman year">
+                      <a href="/2022/12/29/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%80%E5%AD%A6%E5%B9%B4%E6%80%BB%E7%BB%93/" title="大一学年总结">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Summary of freshman year</span>
+                        <span class="hidden-mobile">大一学年总结</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -1270,8 +1170,8 @@ T(n-1)=2 \cdot(n-1)
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" title="Last report for Lab of Physics">
-                        <span class="hidden-mobile">Last report for Lab of Physics</span>
+                      <a href="/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" title="同轴光子晶体实验报告：色散关系与传递矩阵">
+                        <span class="hidden-mobile">同轴光子晶体实验报告：色散关系与传递矩阵</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -1360,7 +1260,7 @@ T(n-1)=2 \cdot(n-1)
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 id="ModalLabel" class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1382,54 +1282,53 @@ T(n-1)=2 \cdot(n-1)
   </main>
 
   <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
     
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
+<div class="footer-inner">
+  <div class="footer-content">
+    <span class="footer-copyright">© 2026 <span data-edit-field="profile:name">鲁睿</span></span>
+    <a href="/atom.xml" type="application/atom+xml" title="通过 RSS 阅读器订阅文章"><span data-edit-field="interface:subscribe_articles.zh">订阅文章（RSS）</span></a>
+  </div>
+  <div class="statistics" data-site-statistics data-statistics-src="https://busuanzi.ibruce.info/busuanzi/2.3//busuanzi.pure.mini.js">
+  <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span> <span data-edit-field="interface:views.zh">次访问</span></span>
+  <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span> <span data-edit-field="interface:visitors.zh">位访客</span></span>
+  <span data-preview-statistics hidden><span data-edit-field="interface:preview_stats.zh">访问统计在正式站点显示</span></span>
 </div>
 
-  
-  
   
 </div>
 
   </footer>
 
+  <script type="application/json" id="profile-layout">{"groups":{"home":["opening","benchmarks","education","research","honors","citations","notes"]},"styles":{}}</script>
   <!-- Scripts -->
   
   <script  src="/lib/nprogress/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
+    (() => {
+      NProgress.configure({"showSpinner":false,"trickleSpeed":180,"minimum":0.08});
+      let finished = false;
+      // Fast pages need no flash; background resources do not hold this open.
+      const showTimer = setTimeout(() => {
+        if (!finished && document.readyState === 'loading') NProgress.start();
+      }, 150);
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(showTimer);
+        NProgress.done();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish, { once: true });
+      } else {
+        finish();
+      }
+      window.addEventListener('pagehide', finish, { once: true });
+      window.addEventListener('pageshow', event => {
+        if (event.persisted) { finish(); NProgress.remove(); }
+      });
+    })();
   </script>
 
 
@@ -1440,38 +1339,35 @@ T(n-1)=2 \cdot(n-1)
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
   
 
 
-
-  <script  src="/lib/typed/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var title = subtitle.title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
 
 
 
 
   
     <!-- Baidu Analytics -->
-    <script defer>
+    <script>
       var _hmt = _hmt || [];
       (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+        function loadAnalytics() {
+          var host = location.hostname;
+          var preview = document.getElementById('review-bootstrap') ||
+            ['localhost', '127.0.0.1', '[::1]'].includes(host) ||
+            /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+          if (preview) return;
+          var hm = document.createElement('script');
+          hm.async = true;
+          hm.src = 'https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37';
+          document.head.appendChild(hm);
+        }
+        // Statistics load after the readable page, and only on the public site.
+        if (document.readyState === 'complete') loadAnalytics();
+        else window.addEventListener('load', loadAnalytics, { once: true });
       })();
     </script>
   
@@ -1486,8 +1382,6 @@ T(n-1)=2 \cdot(n-1)
 
   
 
-  
-    
   
 
 
@@ -1655,11 +1549,16 @@ T(n-1)=2 \cdot(n-1)
 
   <script  src="/js/local-search.js" ></script>
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-  <script defer src="/js/leancloud.js" ></script>
 
 
+
+  
+<script src="/js/citation-curve.js"></script>
+<script src="/js/academic.js"></script>
+<script src="/js/live-data.js"></script>
+<script src="/js/figure-viewer.js"></script>
+<script src="/js/institution-marks.js"></script>
+<script src="/js/scroll-reveal.js"></script>
 
 
 

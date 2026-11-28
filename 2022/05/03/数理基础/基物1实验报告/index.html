@@ -7,32 +7,50 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile/apple-touch-icon.png">
+  <link rel="icon" href="/img/profile/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Learning_rate">
-  <meta name="keywords" content="LLM,强化学习,Agent,深度学习,NLP,清华大学,Learning_rate">
+  <link rel="preload" href="/fonts/wenkai-primary.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="author" content="鲁睿 Rui Lu">
+  <meta name="keywords" content="鲁睿,Rui Lu,KEG,GLM,Deep Search,Agentic RL,多智能体">
+  <meta name="description" content="基础物理实验报告：用 RL 电路测量自感与互感，分析弦振动的共振频率，以及波尔共振仪的幅频与相频特性。提供完整 PDF、数据处理说明和线性拟合工具。">
+  <meta name="robots" content="max-image-preview:large">
   
-    <meta name="description" content="阻尼振动和受迫振动实验报告 弦振动实验报告 电磁感应实验报告">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Physics of report">
-<meta property="og:url" content="https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
-<meta property="og:site_name" content="Learning_rate">
-<meta property="og:description" content="阻尼振动和受迫振动实验报告 弦振动实验报告 电磁感应实验报告">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://learningrate1.com/img/%E7%94%B0%E5%9B%AD%E9%A3%8E%E5%85%89.jpg">
-<meta property="article:published_time" content="2022-05-03T11:56:42.000Z">
-<meta property="article:modified_time" content="2022-05-03T11:56:42.000Z">
-<meta property="article:author" content="Learning_rate">
-<meta property="article:tag" content="物理">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://learningrate1.com/img/%E7%94%B0%E5%9B%AD%E9%A3%8E%E5%85%89.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="基础物理实验报告：电磁感应、弦振动与受迫振动 | 鲁睿 Rui Lu">
+    <meta property="og:description" content="基础物理实验报告：用 RL 电路测量自感与互感，分析弦振动的共振频率，以及波尔共振仪的幅频与相频特性。提供完整 PDF、数据处理说明和线性拟合工具。">
+    <meta property="og:url" content="https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">
+    <meta property="og:site_name" content="鲁睿 Rui Lu · Learning_rate">
+    <meta property="og:locale" content="zh_CN">
+    
+      <meta property="og:image" content="https://learningrate1.com/img/social/5f432d620ce06a02020b.png">
+      <meta property="og:image:alt" content="基础物理实验报告：电磁感应、弦振动与受迫振动">
+      
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+      
+      <meta property="og:image:type" content="image/png">
+    
+    <meta property="article:published_time" content="2022-05-03T11:56:42.000Z">
+    <meta property="article:modified_time" content="2026-11-26T16:00:00.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lru43402768">
+    <meta name="twitter:title" content="基础物理实验报告：电磁感应、弦振动与受迫振动 | 鲁睿 Rui Lu">
+    <meta name="twitter:description" content="基础物理实验报告：用 RL 电路测量自感与互感，分析弦振动的共振频率，以及波尔共振仪的幅频与相频特性。提供完整 PDF、数据处理说明和线性拟合工具。">
+    
+      <meta name="twitter:image" content="https://learningrate1.com/img/social/5f432d620ce06a02020b.png">
+      <meta name="twitter:image:alt" content="基础物理实验报告：电磁感应、弦振动与受迫振动">
+    
   
   
-  <title>Physics of report - Learning_rate</title>
+  <link rel="canonical" href="https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">
+  <link rel="alternate" type="application/atom+xml" title="鲁睿 Rui Lu · Learning_rate" href="/atom.xml">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://learningrate1.com/#rui-lu","name":"Rui Lu","alternateName":["鲁睿","Learning_rate"],"url":"https://learningrate1.com/","image":"https://learningrate1.com/img/profile/avatar.webp","email":"lu-r21@mails.tsinghua.edu.cn","sameAs":["https://scholar.google.com/citations?user=-MGuqDcAAAAJ","https://github.com/lr-tsinghua11","https://twitter.com/lru43402768","https://www.zhihu.com/people/er-ji-yi-4"],"jobTitle":"Ph.D. student in Computer Science","affiliation":[{"@type":"CollegeOrUniversity","name":"Tsinghua University","url":"https://www.tsinghua.edu.cn/"},{"@type":"Organization","name":"Knowledge Engineering Group (KEG), Tsinghua University","url":"https://keg.cs.tsinghua.edu.cn/"}],"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Bachelor of Science in Mathematics and Physics; Bachelor of Engineering in Software Engineering","credentialCategory":"Bachelor's degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Tsinghua University"}},"knowsAbout":["Deep Search","Multi-turn agentic reinforcement learning","Multi-agent collaboration","Terminal agents","AI for Science"],"description":"我是清华大学计算机系 KEG 实验室的直博二年级学生，自 2023 年起在智谱从事大模型训练工作。作为 GLM-4.5 / GLM-5 的核心贡献者，我负责优化基座模型的深度搜索（Deep Search）能力。我主要研究多轮强化学习与多智能体协作（Multi-turn Agentic RL & Multi-Agent Collaboration），近期在研究终端智能体（Terminal Agent），对大模型在科学研究中的应用（AI for Science）也很感兴趣。欢迎添加微信（微信号：learning_rate）和我交流！"},{"@type":"WebSite","@id":"https://learningrate1.com/#website","url":"https://learningrate1.com/","name":"鲁睿 Rui Lu · Learning_rate","alternateName":"Learning_rate","inLanguage":["zh-CN","en"],"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"BreadcrumbList","@id":"https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"个人简介","item":"https://learningrate1.com/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://learningrate1.com/notes/"},{"@type":"ListItem","position":3,"name":"数理基础","item":"https://learningrate1.com/notes/#mathematics"}]},{"@type":"BlogPosting","@id":"https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/#article","url":"https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/","mainEntityOfPage":{"@id":"https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/#page"},"headline":"基础物理实验报告：电磁感应、弦振动与受迫振动","description":"基础物理实验报告：用 RL 电路测量自感与互感，分析弦振动的共振频率，以及波尔共振仪的幅频与相频特性。提供完整 PDF、数据处理说明和线性拟合工具。","image":"https://learningrate1.com/img/social/5f432d620ce06a02020b.png","inLanguage":"zh-CN","author":{"@id":"https://learningrate1.com/#rui-lu"},"articleSection":"数理基础","datePublished":"2022-05-03T11:56:42.000Z","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"}},{"@type":"WebPage","@id":"https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/#page","url":"https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/","name":"基础物理实验报告：电磁感应、弦振动与受迫振动 | 鲁睿 Rui Lu","description":"基础物理实验报告：用 RL 电路测量自感与互感，分析弦振动的共振频率，以及波尔共振仪的幅频与相频特性。提供完整 PDF、数据处理说明和线性拟合工具。","inLanguage":"zh-CN","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"},"breadcrumb":{"@id":"https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/#breadcrumb"},"mainEntity":{"@id":"https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/#article"}}]}</script>
+  <title>基础物理实验报告：电磁感应、弦振动与受迫振动 | 鲁睿 Rui Lu</title>
 
   <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
 
@@ -48,14 +66,13 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
+<!-- Keep Fluid's icon classes, with the original fonts served locally. -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
+<link rel="stylesheet" href="/lib/iconfont/core.css">
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+<link rel="stylesheet" href="/lib/iconfont/extra.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -68,32 +85,44 @@
 
 
 
+  
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/academic.css">
+<link rel="stylesheet" href="/css/benchmark.css">
+<link rel="stylesheet" href="/css/citations.css">
+<link rel="stylesheet" href="/css/figure-viewer.css">
+<link rel="stylesheet" href="/css/institution-marks.css">
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#718dcc","options":{"showSpinner":false,"trickleSpeed":180,"minimum":0.08}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Learning_rate" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
-<body>
+<body class="academic-site reading-site" data-topic="mathematics">
+  <a class="skip-to-content" href="#main-content"><span data-edit-field="interface:skip.zh">跳转到正文</span></a>
   
 
   <header>
     
 
-<div class="header-inner" style="height: 70vh;">
+
+<div class="academic-header">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong> Learning_rate&#39;s blog</strong>
+      <strong>Learning_rate</strong>
     </a>
 
+    <a class="mobile-language d-lg-none" data-language-switch href="/en/notes/" lang="en" aria-label="Switch to English">EN</a>
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,8 +139,8 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
+                
+                <span data-edit-field="interface:profile.zh">个人简介</span>
               </a>
             </li>
           
@@ -121,45 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
+              <a class="nav-link" href="/notes/">
+                
+                <span data-edit-field="interface:notes.zh">文章</span>
               </a>
             </li>
           
@@ -170,12 +163,13 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
+                
+                <span data-edit-field="interface:friends.zh">友链</span>
               </a>
             </li>
           
         
+        <li class="nav-item language-item"><a class="nav-link language-switch" data-language-switch href="/en/notes/" lang="en" hreflang="en" aria-label="Switch to English"><span class="language-mark" aria-hidden="true">文</span>EN</a></li>
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -195,83 +189,22 @@
   </div>
 </nav>
 
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E7%94%B0%E5%9B%AD%E9%A3%8E%E5%85%89.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          <span id="subtitle" title="Physics of report">
-            
-          </span>
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-05-03 19:56" pubdate>
-          2022年5月3日 晚上
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          28 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          1 分钟
-        
-      </span>
-    
-
-    
-    
-      
-        <span id="busuanzi_container_page_pv" style="display: none">
-          <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="busuanzi_value_page_pv"></span> 次
-        </span>
-        
-      
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
 </div>
 
-</div>
 
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     
       
 
+<header class="reading-masthead" data-topic="mathematics">
+  <nav class="reading-breadcrumbs" aria-label="文章位置">
+    <ol><li><a href="/">个人简介</a></li><li><a href="/notes/">文章</a></li><li><a href="/notes/#mathematics">数理基础</a></li></ol>
+  </nav>
+  <h1>基础物理实验报告：电磁感应、弦振动与受迫振动</h1>
+  <p><time datetime="2022-05-03">2022.05.03</time><span class="reading-updated"><span aria-hidden="true"> · </span>更新于 <time datetime="2026-11-27">2026.11.27</time></span><span aria-hidden="true"> · </span><a class="reading-author" href="/" rel="author">鲁睿 Rui Lu</a><span class="reading-views" id="busuanzi_container_page_pv"><span aria-hidden="true"> · </span><span id="busuanzi_value_page_pv">—</span> <span data-edit-field="interface:article_views.zh">次阅读</span></span></p>
+</header>
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
     <div class="side-col d-none d-lg-block col-lg-2">
@@ -283,26 +216,102 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Physics of report</h1>
-            
-              <p class="note note-info">
-                
-                  
-                    本文最后更新于：4 年前
-                  
-                
-              </p>
-            
             <div class="markdown-body">
               
-              <p><a
-href="/pdf/阻尼振动和受迫振动.pdf">阻尼振动和受迫振动实验报告</a></p>
-<p><a href="/pdf/弦振动实验.pdf">弦振动实验报告</a></p>
-<p><a href="/pdf/电磁感应.pdf">电磁感应实验报告</a></p>
+              <p>这是我在清华读本科时整理的三份基础物理实验报告。下面列出各份报告的内容和阅读入口；详细推导、测量数据与绘图代码见对应
+PDF。</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>实验报告</th>
+<th>主要内容</th>
+<th>PDF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#electromagnetic-induction">电磁感应</a></td>
+<td>自感、互感、线圈耦合与涡流</td>
+<td><a href="/pdf/基础物理学资料/基础物理实验1/电磁感应实验报告.pdf">16
+页</a></td>
+</tr>
+<tr>
+<td><a href="#string-vibration">弦振动</a></td>
+<td>驻波、共振频率与最小二乘拟合</td>
+<td><a href="/pdf/弦振动实验.pdf">18 页</a></td>
+</tr>
+<tr>
+<td><a href="#forced-oscillation">阻尼振动与受迫振动</a></td>
+<td>幅频特性、相频特性与品质因数</td>
+<td><a href="/pdf/阻尼振动和受迫振动.pdf">25 页</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="electromagnetic-induction">电磁感应实验报告</h2>
+<p>这份报告用 RL
+串联电路测量线圈的自感、内阻和互感，比较空气芯与铝芯两种情况，再分析变负载下的等效阻抗和涡流效应。数据处理同时使用直接计算和直线拟合，对照两种方法得到的结果。</p>
+<p><a
+href="/pdf/基础物理学资料/基础物理实验1/电磁感应实验报告.pdf">阅读完整报告（PDF，16
+页）</a></p>
+<p>可以按需要直接翻到对应部分：</p>
+<ul>
+<li><a
+href="/pdf/基础物理学资料/基础物理实验1/电磁感应实验报告.pdf#page=3">自感与内阻的测量，第
+3 页</a></li>
+<li><a
+href="/pdf/基础物理学资料/基础物理实验1/电磁感应实验报告.pdf#page=6">互感与耦合常数，第
+6 页</a></li>
+<li><a
+href="/pdf/基础物理学资料/基础物理实验1/电磁感应实验报告.pdf#page=10">等效阻抗与反射参数，第
+10 页</a></li>
+<li><a
+href="/pdf/基础物理学资料/基础物理实验1/电磁感应实验报告.pdf#page=14">涡流效应与讨论，第
+14 页</a></li>
+</ul>
+<h2 id="string-vibration">弦振动实验报告</h2>
+<p>这份报告研究共振频率与谐振次数、弦长、张力和线密度的关系。处理数据时，分别进行线性拟合和对数变换，并讨论了拟合直线是否应该固定经过原点。报告也附有
+NumPy、Matplotlib 绘图代码和原始数据。</p>
+<p><a href="/pdf/弦振动实验.pdf">阅读弦振动报告（PDF，18 页）</a> · <a
+href="/pdf/弦振动实验.pdf#page=6">数据处理，第 6 页</a> · <a
+href="/pdf/弦振动实验.pdf#page=14">绘图代码，第 14 页</a></p>
+<h2 id="forced-oscillation">阻尼振动与受迫振动实验报告</h2>
+<p>使用波尔共振仪观察自由衰减和受迫振动，测量振幅、相位差与驱动频率的关系，并计算不同阻尼条件下的品质因数。除了稳态的幅频、相频曲线，报告还记录了暂态过程，并讨论周期随振幅变化的现象。</p>
+<p><a href="/pdf/阻尼振动和受迫振动.pdf">阅读阻尼与受迫振动报告（PDF，25
+页）</a> · <a href="/pdf/阻尼振动和受迫振动.pdf#page=9">数据处理，第 9
+页</a> · <a href="/pdf/阻尼振动和受迫振动.pdf#page=17">讨论，第 17
+页</a></p>
+<h2 id="data-fitting">数据拟合与绘图</h2>
+<p>如果只需要先核对一组数据，可以使用 <a
+href="/tools/linear-fit/">实验数据线性拟合工具</a>：粘贴两列数值即可计算斜率、截距、R²
+和回归标准误差，也可以导出矢量图和拟合结果。是否强制直线经过原点，应由实验模型决定。</p>
+<p>这些报告保留了当时的测量记录。使用自己的实验数据时，也要按实际仪器和测量条件重新计算。</p>
 
               
             </div>
+            
+
+<nav class="reading-next" aria-labelledby="reading-next-title">
+  <div class="reading-next-heading"><h2 id="reading-next-title">继续阅读</h2><a href="/notes/">全部文章 <span aria-hidden="true">↗</span></a></div>
+  <div class="reading-next-grid">
+    
+      <a class="reading-next-card reading-next-card--tool" href="/tools/linear-fit/"><small>实用工具</small><strong>实验数据线性拟合</strong><p>粘贴两列数据，计算拟合参数并导出 SVG 图。</p><span aria-hidden="true">↗</span></a>
+    
+    
+      <a class="reading-next-card" href="/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"><small>2022.12</small><strong>同轴光子晶体实验报告：色散关系与传递矩阵</strong><p>同轴光子晶体的色散关系、传输效率与群速度分析，附传递矩阵推导、MATLAB 模拟和原始数据。</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2022/10/29/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AD%A62%E5%B0%8F%E7%8F%AD%E8%BE%85%E5%AF%BC%E8%AE%B2%E4%B9%89/"><small>2022.10</small><strong>基础物理学2小班辅导讲义</strong><p>基础物理学 2 小班辅导讲义</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2022/06/20/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E6%9C%9F%E6%9C%AB%E8%AF%95%E5%8D%B7%E8%A7%A3%E7%AD%94/"><small>2022.06</small><strong>基物1期末试卷解答</strong><p>蒋硕的两套基物Ⅰ试卷以及解答</p><span aria-hidden="true">↗</span></a>
+    
+  </div>
+</nav>
+
+
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -351,14 +360,14 @@ href="/pdf/阻尼振动和受迫振动.pdf">阻尼振动和受迫振动实验报
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Physics of report</div>
+      <div>基础物理实验报告：电磁感应、弦振动与受迫振动</div>
       <div>https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>Learning_rate</div>
+          <div>鲁睿 Rui Lu</div>
         </div>
       
       
@@ -394,9 +403,9 @@ href="/pdf/阻尼振动和受迫振动.pdf">阻尼振动和受迫振动实验报
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/" title="Foundation for machine learning">
+                      <a href="/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/" title="机器学习基础">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Foundation for machine learning</span>
+                        <span class="hidden-mobile">机器学习基础</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -404,8 +413,8 @@ href="/pdf/阻尼振动和受迫振动.pdf">阻尼振动和受迫振动实验报
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/24/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E9%AB%98%E4%BB%A3%E6%9C%9F%E4%B8%AD%E4%BD%9C%E4%B8%9A/" title="Advanced Algebra Midterm">
-                        <span class="hidden-mobile">Advanced Algebra Midterm</span>
+                      <a href="/2022/04/24/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E9%AB%98%E4%BB%A3%E6%9C%9F%E4%B8%AD%E4%BD%9C%E4%B8%9A/" title="高代期中作业">
+                        <span class="hidden-mobile">高代期中作业</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -494,7 +503,7 @@ href="/pdf/阻尼振动和受迫振动.pdf">阻尼振动和受迫振动实验报
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 id="ModalLabel" class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -516,54 +525,53 @@ href="/pdf/阻尼振动和受迫振动.pdf">阻尼振动和受迫振动实验报
   </main>
 
   <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
     
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
+<div class="footer-inner">
+  <div class="footer-content">
+    <span class="footer-copyright">© 2026 <span data-edit-field="profile:name">鲁睿</span></span>
+    <a href="/atom.xml" type="application/atom+xml" title="通过 RSS 阅读器订阅文章"><span data-edit-field="interface:subscribe_articles.zh">订阅文章（RSS）</span></a>
+  </div>
+  <div class="statistics" data-site-statistics data-statistics-src="https://busuanzi.ibruce.info/busuanzi/2.3//busuanzi.pure.mini.js">
+  <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span> <span data-edit-field="interface:views.zh">次访问</span></span>
+  <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span> <span data-edit-field="interface:visitors.zh">位访客</span></span>
+  <span data-preview-statistics hidden><span data-edit-field="interface:preview_stats.zh">访问统计在正式站点显示</span></span>
 </div>
 
-  
-  
   
 </div>
 
   </footer>
 
+  <script type="application/json" id="profile-layout">{"groups":{"home":["opening","benchmarks","education","research","honors","citations","notes"]},"styles":{}}</script>
   <!-- Scripts -->
   
   <script  src="/lib/nprogress/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
+    (() => {
+      NProgress.configure({"showSpinner":false,"trickleSpeed":180,"minimum":0.08});
+      let finished = false;
+      // Fast pages need no flash; background resources do not hold this open.
+      const showTimer = setTimeout(() => {
+        if (!finished && document.readyState === 'loading') NProgress.start();
+      }, 150);
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(showTimer);
+        NProgress.done();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish, { once: true });
+      } else {
+        finish();
+      }
+      window.addEventListener('pagehide', finish, { once: true });
+      window.addEventListener('pageshow', event => {
+        if (event.persisted) { finish(); NProgress.remove(); }
+      });
+    })();
   </script>
 
 
@@ -574,38 +582,35 @@ href="/pdf/阻尼振动和受迫振动.pdf">阻尼振动和受迫振动实验报
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
   
 
 
-
-  <script  src="/lib/typed/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var title = subtitle.title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
 
 
 
 
   
     <!-- Baidu Analytics -->
-    <script defer>
+    <script>
       var _hmt = _hmt || [];
       (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+        function loadAnalytics() {
+          var host = location.hostname;
+          var preview = document.getElementById('review-bootstrap') ||
+            ['localhost', '127.0.0.1', '[::1]'].includes(host) ||
+            /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+          if (preview) return;
+          var hm = document.createElement('script');
+          hm.async = true;
+          hm.src = 'https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37';
+          document.head.appendChild(hm);
+        }
+        // Statistics load after the readable page, and only on the public site.
+        if (document.readyState === 'complete') loadAnalytics();
+        else window.addEventListener('load', loadAnalytics, { once: true });
       })();
     </script>
   
@@ -620,8 +625,6 @@ href="/pdf/阻尼振动和受迫振动.pdf">阻尼振动和受迫振动实验报
 
   
 
-  
-    
   
 
 
@@ -789,11 +792,16 @@ href="/pdf/阻尼振动和受迫振动.pdf">阻尼振动和受迫振动实验报
 
   <script  src="/js/local-search.js" ></script>
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-  <script defer src="/js/leancloud.js" ></script>
 
 
+
+  
+<script src="/js/citation-curve.js"></script>
+<script src="/js/academic.js"></script>
+<script src="/js/live-data.js"></script>
+<script src="/js/figure-viewer.js"></script>
+<script src="/js/institution-marks.js"></script>
+<script src="/js/scroll-reveal.js"></script>
 
 
 

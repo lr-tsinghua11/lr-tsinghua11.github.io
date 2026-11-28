@@ -125,19 +125,24 @@ Fluid.events = {
       var url = src.match(/\((.*?)\)/)[1].replace(/(['"])/g, '');
       var img = new Image();
       img.onload = function() {
-        window.NProgress && window.NProgress.inc(0.2);
+        if (window.NProgress && typeof window.NProgress.status === 'number') {
+          window.NProgress.inc(0.2);
+        }
       };
       img.src = url;
       if (img.complete) { img.onload(); }
     }
 
-    var notLazyImages = jQuery('main img:not([lazyload])');
+    var notLazyImages = jQuery('main img:not([lazyload]):not([loading="lazy"])');
     var total = notLazyImages.length;
     for (const img of notLazyImages) {
       const old = img.onload;
       img.onload = function() {
         old && old();
-        window.NProgress && window.NProgress.inc(0.5 / total);
+        // Late image loads must not restart a completed page progress bar.
+        if (window.NProgress && typeof window.NProgress.status === 'number') {
+          window.NProgress.inc(0.5 / total);
+        }
       };
       if (img.complete) { img.onload(); }
     }

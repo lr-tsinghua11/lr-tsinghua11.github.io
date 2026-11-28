@@ -1,0 +1,838 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile/apple-touch-icon.png">
+  <link rel="icon" href="/img/profile/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <link rel="preload" href="/fonts/wenkai-primary.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="author" content="鲁睿 Rui Lu">
+  <meta name="keywords" content="鲁睿,Rui Lu,KEG,GLM,Deep Search,Agentic RL,多智能体">
+  <meta name="description" content="DeepDive 如何从知识图谱构建训练题目，再用多轮强化学习，让模型学会搜索、阅读网页和查证线索。介绍方法、BrowseComp 实验结果，以及开源代码和数据。">
+  <meta name="robots" content="max-image-preview:large">
+  
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="DeepDive：让模型学会搜索和查证 | 鲁睿 Rui Lu">
+    <meta property="og:description" content="DeepDive 如何从知识图谱构建训练题目，再用多轮强化学习，让模型学会搜索、阅读网页和查证线索。介绍方法、BrowseComp 实验结果，以及开源代码和数据。">
+    <meta property="og:url" content="https://learningrate1.com/notes/deepdive/">
+    <meta property="og:site_name" content="鲁睿 Rui Lu · Learning_rate">
+    <meta property="og:locale" content="zh_CN">
+    
+      <meta property="og:image" content="https://learningrate1.com/img/social/e049c46ed44ba24bfe4d.png">
+      <meta property="og:image:alt" content="DeepDive：让模型学会搜索和查证">
+      
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+      
+      <meta property="og:image:type" content="image/png">
+    
+    <meta property="article:published_time" content="2025-09-14T16:00:00.000Z">
+    <meta property="article:modified_time" content="2026-11-27T16:00:00.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lru43402768">
+    <meta name="twitter:title" content="DeepDive：让模型学会搜索和查证 | 鲁睿 Rui Lu">
+    <meta name="twitter:description" content="DeepDive 如何从知识图谱构建训练题目，再用多轮强化学习，让模型学会搜索、阅读网页和查证线索。介绍方法、BrowseComp 实验结果，以及开源代码和数据。">
+    
+      <meta name="twitter:image" content="https://learningrate1.com/img/social/e049c46ed44ba24bfe4d.png">
+      <meta name="twitter:image:alt" content="DeepDive：让模型学会搜索和查证">
+    
+  
+  
+  <link rel="canonical" href="https://learningrate1.com/notes/deepdive/">
+  <link rel="alternate" type="application/atom+xml" title="鲁睿 Rui Lu · Learning_rate" href="/atom.xml">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://learningrate1.com/#rui-lu","name":"Rui Lu","alternateName":["鲁睿","Learning_rate"],"url":"https://learningrate1.com/","image":"https://learningrate1.com/img/profile/avatar.webp","email":"lu-r21@mails.tsinghua.edu.cn","sameAs":["https://scholar.google.com/citations?user=-MGuqDcAAAAJ","https://github.com/lr-tsinghua11","https://twitter.com/lru43402768","https://www.zhihu.com/people/er-ji-yi-4"],"jobTitle":"Ph.D. student in Computer Science","affiliation":[{"@type":"CollegeOrUniversity","name":"Tsinghua University","url":"https://www.tsinghua.edu.cn/"},{"@type":"Organization","name":"Knowledge Engineering Group (KEG), Tsinghua University","url":"https://keg.cs.tsinghua.edu.cn/"}],"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Bachelor of Science in Mathematics and Physics; Bachelor of Engineering in Software Engineering","credentialCategory":"Bachelor's degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Tsinghua University"}},"knowsAbout":["Deep Search","Multi-turn agentic reinforcement learning","Multi-agent collaboration","Terminal agents","AI for Science"],"description":"我是清华大学计算机系 KEG 实验室的直博二年级学生，自 2023 年起在智谱从事大模型训练工作。作为 GLM-4.5 / GLM-5 的核心贡献者，我负责优化基座模型的深度搜索（Deep Search）能力。我主要研究多轮强化学习与多智能体协作（Multi-turn Agentic RL & Multi-Agent Collaboration），近期在研究终端智能体（Terminal Agent），对大模型在科学研究中的应用（AI for Science）也很感兴趣。欢迎添加微信（微信号：learning_rate）和我交流！"},{"@type":"WebSite","@id":"https://learningrate1.com/#website","url":"https://learningrate1.com/","name":"鲁睿 Rui Lu · Learning_rate","alternateName":"Learning_rate","inLanguage":["zh-CN","en"],"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"BreadcrumbList","@id":"https://learningrate1.com/notes/deepdive/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"个人简介","item":"https://learningrate1.com/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://learningrate1.com/notes/"},{"@type":"ListItem","position":3,"name":"研究笔记","item":"https://learningrate1.com/notes/#research"}]},{"@type":"BlogPosting","@id":"https://learningrate1.com/notes/deepdive/#article","url":"https://learningrate1.com/notes/deepdive/","mainEntityOfPage":{"@id":"https://learningrate1.com/notes/deepdive/#page"},"headline":"DeepDive：让模型学会搜索和查证","description":"DeepDive 如何从知识图谱构建训练题目，再用多轮强化学习，让模型学会搜索、阅读网页和查证线索。介绍方法、BrowseComp 实验结果，以及开源代码和数据。","image":"https://learningrate1.com/img/social/e049c46ed44ba24bfe4d.png","inLanguage":"zh-CN","author":{"@id":"https://learningrate1.com/#rui-lu"},"articleSection":"研究笔记","citation":{"@type":"ScholarlyArticle","name":"DeepDive: Advancing Deep Search Agents with Knowledge Graphs and Multi-Turn RL","url":"https://arxiv.org/abs/2509.10446"},"datePublished":"2025-09-14T16:00:00.000Z","dateModified":"2026-11-27T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"}},{"@type":"WebPage","@id":"https://learningrate1.com/notes/deepdive/#page","url":"https://learningrate1.com/notes/deepdive/","name":"DeepDive：让模型学会搜索和查证 | 鲁睿 Rui Lu","description":"DeepDive 如何从知识图谱构建训练题目，再用多轮强化学习，让模型学会搜索、阅读网页和查证线索。介绍方法、BrowseComp 实验结果，以及开源代码和数据。","inLanguage":"zh-CN","dateModified":"2026-11-27T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"},"breadcrumb":{"@id":"https://learningrate1.com/notes/deepdive/#breadcrumb"},"mainEntity":{"@id":"https://learningrate1.com/notes/deepdive/#article"}}]}</script>
+  <title>DeepDive：让模型学会搜索和查证 | 鲁睿 Rui Lu</title>
+
+  <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="/lib/github-markdown-css/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="/lib/katex/katex.min.css" />
+
+
+
+<!-- Keep Fluid's icon classes, with the original fonts served locally. -->
+
+<link rel="stylesheet" href="/lib/iconfont/core.css">
+
+
+
+<link rel="stylesheet" href="/lib/iconfont/extra.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/academic.css">
+<link rel="stylesheet" href="/css/benchmark.css">
+<link rel="stylesheet" href="/css/citations.css">
+<link rel="stylesheet" href="/css/figure-viewer.css">
+<link rel="stylesheet" href="/css/institution-marks.css">
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#718dcc","options":{"showSpinner":false,"trickleSpeed":180,"minimum":0.08}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body class="academic-site reading-site" data-topic="research">
+  <a class="skip-to-content" href="#main-content"><span data-edit-field="interface:skip.zh">跳转到正文</span></a>
+  
+
+  <header>
+    
+
+
+<div class="academic-header">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Learning_rate</strong>
+    </a>
+
+    <a class="mobile-language d-lg-none" data-language-switch href="/en/notes/" lang="en" aria-label="Switch to English">EN</a>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                
+                <span data-edit-field="interface:profile.zh">个人简介</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/notes/">
+                
+                <span data-edit-field="interface:notes.zh">文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                
+                <span data-edit-field="interface:friends.zh">友链</span>
+              </a>
+            </li>
+          
+        
+        <li class="nav-item language-item"><a class="nav-link language-switch" data-language-switch href="/en/notes/" lang="en" hreflang="en" aria-label="Switch to English"><span class="language-mark" aria-hidden="true">文</span>EN</a></li>
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</div>
+
+
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    
+      
+
+<header class="reading-masthead" data-topic="research">
+  <nav class="reading-breadcrumbs" aria-label="文章位置">
+    <ol><li><a href="/">个人简介</a></li><li><a href="/notes/">文章</a></li><li><a href="/notes/#research">研究笔记</a></li></ol>
+  </nav>
+  <h1>DeepDive：让模型学会搜索和查证</h1>
+  <p><time datetime="2025-09-15">2025.09.15</time><span class="reading-updated"><span aria-hidden="true"> · </span>更新于 <time datetime="2026-11-28">2026.11.28</time></span><span aria-hidden="true"> · </span><a class="reading-author" href="/" rel="author">鲁睿 Rui Lu</a><span class="reading-views" id="busuanzi_container_page_pv"><span aria-hidden="true"> · </span><span id="busuanzi_value_page_pv">—</span> <span data-edit-field="interface:article_views.zh">次阅读</span></span></p>
+</header>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <div class="markdown-body">
+              
+              <p>DeepDive
+是我和合作者关于深度搜索的一项工作。我们希望模型面对复杂问题时，能自己搜索资料、阅读网页，沿着找到的线索继续查证，直到得出答案。</p>
+<p>我们从两件事入手：<strong>先准备需要多次查证的训练题目，再训练模型一步步搜索答案。</strong>
+训练过程中，还会根据搜索词的相似程度扣除奖励，鼓励模型减少重复查询。</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2509.10446">论文：arXiv:2509.10446</a>
+· <a target="_blank" rel="noopener" href="https://github.com/THUDM/DeepDive">GitHub 代码</a> · <a
+target="_blank" rel="noopener" href="https://huggingface.co/datasets/zai-org/DeepDive">Hugging Face
+数据集</a></p>
+<h2 id="先准备需要多次查证的题目">先准备需要多次查证的题目</h2>
+<p>训练题目来自知识图谱。知识图谱记录了人物、作品、奖项等信息，以及它们之间的关系。例如，一个人参与过哪部作品，这部作品又获得过什么奖，都可以连起来，成为一道问题的线索。</p>
+<p>DeepDive
+沿着这些关系选出一条路径，将部分名称、日期改写成间接描述，再生成问题。标准答案从路径末尾的已知信息中选取，例如某个人的出生年份。回答时，模型需要先判断线索说的是哪个人、哪部作品等，再查找下一条线索。选择路径时，我们会筛掉关联过多或过少的候选对象，并让模型判断下一步是否与已有线索相关。</p>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/research/deepdive.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/research/deepdive.svg" alt="DeepDive 从知识图谱中选择相连的信息，改写线索，再生成训练问题和答案" width="878" height="266" loading="lazy" decoding="async">
+</a>
+<figcaption>
+从知识图谱构建训练题目的过程。<a target="_blank" rel="noopener" href="https://arxiv.org/html/2509.10446v2#S2.F3">论文图
+3</a>。
+</figcaption>
+</figure>
+<p>接着筛选题目：让一个能使用搜索工具的模型对每道题尝试四次，只保留四次都没答对的问题。这一步用来挑出对该模型仍有难度的训练题目。</p>
+<p>最终，我们从 KILT 和 AMiner 两个知识图谱构建了 <strong>3,250
+道问答</strong>。其中，1,016 道用于准备监督微调数据，2,234
+道用于强化学习。在监督微调部分，通过多次尝试和筛选，得到 858
+条包含搜索、阅读和作答过程的示范记录。数据规模见<a
+target="_blank" rel="noopener" href="https://arxiv.org/html/2509.10446v2#S3.SS1">论文第 3.1
+节</a>。</p>
+<h2 id="再训练模型一步步搜索答案">再训练模型一步步搜索答案</h2>
+<p>模型能做三件事：搜索关键词、打开搜索结果，以及直接访问网址。读完网页后，它会决定继续查什么，最后提交答案。一次回答中的搜索、阅读和作答记录，就是训练时用到的“搜索轨迹”。</p>
+<p>训练分两步。先让模型学习前面的示范记录，掌握工具的使用方式，这一步叫监督微调。再用多轮
+GRPO
+进行强化学习：针对同一个问题，让模型尝试多次，比较这些尝试的得分，再据此更新模型。工具调用格式正确、最终答案通过核验，才能获得正确性奖励。</p>
+<p>我们还希望减少重复查询。比如，模型反复用一组相近的关键词搜索，得到的可能还是同样的信息。DeepDive
+会比较一次回答里各次查询的关键词：<strong>平均相似程度越高，从奖励中扣除的部分就越多。</strong>
+论文把这个做法称为“查询冗余惩罚”。</p>
+<p>计算时，先把两次查询的关键词放在一起，重复的词只算一次；再看这些词中，有多大比例同时出现在两次查询中。这个比例就是
+Jaccard
+相似度。我们对一次回答中的查询两两比较、取平均，再据此计算扣除的奖励。这个设计鼓励模型根据新线索调整搜索词，减少围绕同一组关键词反复尝试。</p>
+<h2 id="强化学习带来了多少提升">强化学习带来了多少提升</h2>
+<p><a target="_blank" rel="noopener" href="https://openai.com/index/browsecomp/">BrowseComp</a> 是
+OpenAI 推出的深度搜索评测，包含 1,266
+道需要在网上查找线索的问题。我们用它比较 DeepDive-32B
+在两个训练阶段的表现。</p>
+<p>下表采用<a target="_blank" rel="noopener" href="https://arxiv.org/html/2509.10446v2#S3.T1">论文
+arXiv v2 表 1</a>中的结果：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th style="text-align: right;">BrowseComp 准确率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DeepDive-32B，仅监督微调</td>
+<td style="text-align: right;">9.5%</td>
+</tr>
+<tr>
+<td>DeepDive-32B，加入多轮强化学习</td>
+<td style="text-align: right;"><strong>15.3%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>加入强化学习后，准确率从 9.5% 提高到 <strong>15.3%</strong>，增加了
+<strong>5.8 个百分点</strong>。这组实验使用全部 1,266 道题，最多允许 128
+轮交互；重复评测两次，再取平均准确率。</p>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/research/deepdive-results.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/research/deepdive-results.svg" alt="DeepDive 实验结果：训练中的工具调用次数、提高工具调用次数上限后的表现，以及强化学习前后的准确率" width="399" height="126" loading="lazy" decoding="async">
+</a>
+<figcaption>
+论文图
+1：训练中的工具调用次数、提高调用次数上限后的表现，以及强化学习前后的准确率。实验设置见<a target="_blank" rel="noopener" href="https://arxiv.org/html/2509.10446v2#S3">实验章节</a>。
+</figcaption>
+</figure>
+<p>论文还测试了两种做法：提高每次回答可调用工具的次数上限；让模型针对同一问题独立作答多次，再从中选择一个答案。部分训练曲线、训练设置对比和多次独立作答的实验使用
+<strong>BrowseComp-266 子集</strong>，也就是从完整评测集中选出的 266
+道题。</p>
+<p>论文<a target="_blank" rel="noopener" href="https://arxiv.org/html/2509.10446v2#S4">第 4
+节</a>还介绍了由人和模型共同出题、核查答案的方法。这两类数据也用于
+GLM-4.5
+的后训练，也就是在已有模型的基础上继续训练，让它进一步学习搜索和答题。</p>
+<h2 id="代码和数据在哪里">代码和数据在哪里</h2>
+<p>代码和数据已公开，可以从这里查看：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/THUDM/DeepDive">GitHub
+代码仓库</a>：包括构建训练数据和训练模型的代码。运行训练可以从 <a
+target="_blank" rel="noopener" href="https://github.com/THUDM/DeepDive/blob/main/training/README.md">training/README.md</a>
+开始。</li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/zai-org/DeepDive">Hugging
+Face
+数据集</a>：查看训练问答，以及模型搜索、阅读网页和作答的示范记录。</li>
+</ul>
+<p>本文依据<a target="_blank" rel="noopener" href="https://arxiv.org/html/2509.10446v2">论文 arXiv
+v2</a>撰写。代码的使用方式见仓库说明。更多研究工作可以在<a
+href="/#research">我的个人主页</a>查看。</p>
+
+              
+            </div>
+            
+
+<nav class="reading-next" aria-labelledby="reading-next-title">
+  <div class="reading-next-heading"><h2 id="reading-next-title">继续阅读</h2><a href="/notes/">全部文章 <span aria-hidden="true">↗</span></a></div>
+  <div class="reading-next-grid">
+    
+    
+      <a class="reading-next-card" href="/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/"><small>2025.07</small><strong>大模型推理论文笔记：强化学习、熵与推理时计算</strong><p>大模型推理论文阅读笔记，记录强化学习中的熵变化、PPO 与 GRPO、过程奖励，以及推理时计算和工具使用。按阅读月份整理方法、公式与原论文图表。</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2024/02/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><small>2024.02</small><strong>强化学习笔记：从 MDP、Q-learning 到 PPO</strong><p>从多臂老虎机、MDP 和 Bellman 方程，到 Q-learning、DQN、策略梯度、TRPO 与 PPO 的学习笔记。</p><span aria-hidden="true">↗</span></a>
+    
+  </div>
+</nav>
+
+
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" class="category-chain-item">计算机科学</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E8%AE%BA%E6%96%87/" class="category-chain-item">论文</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/NLP/">#NLP</a>
+      
+        <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">#强化学习</a>
+      
+        <a href="/tags/%E6%B7%B1%E5%BA%A6%E6%90%9C%E7%B4%A2/">#深度搜索</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>DeepDive：让模型学会搜索和查证</div>
+      <div>https://learningrate1.com/notes/deepdive/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>鲁睿 Rui Lu</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年9月15日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/" title="大模型推理论文笔记：强化学习、熵与推理时计算">
+                        <span class="hidden-mobile">大模型推理论文笔记：强化学习、熵与推理时计算</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+  
+  
+  
+
+
+
+
+  <script>
+  Fluid.utils.createScript('/lib/mermaid/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"forest"});
+  });
+</script>
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 id="ModalLabel" class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    
+<div class="footer-inner">
+  <div class="footer-content">
+    <span class="footer-copyright">© 2026 <span data-edit-field="profile:name">鲁睿</span></span>
+    <a href="/atom.xml" type="application/atom+xml" title="通过 RSS 阅读器订阅文章"><span data-edit-field="interface:subscribe_articles.zh">订阅文章（RSS）</span></a>
+  </div>
+  <div class="statistics" data-site-statistics data-statistics-src="https://busuanzi.ibruce.info/busuanzi/2.3//busuanzi.pure.mini.js">
+  <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span> <span data-edit-field="interface:views.zh">次访问</span></span>
+  <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span> <span data-edit-field="interface:visitors.zh">位访客</span></span>
+  <span data-preview-statistics hidden><span data-edit-field="interface:preview_stats.zh">访问统计在正式站点显示</span></span>
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <script type="application/json" id="profile-layout">{"groups":{"home":["opening","benchmarks","education","research","honors","citations","notes"]},"styles":{}}</script>
+  <!-- Scripts -->
+  
+  <script  src="/lib/nprogress/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
+
+  <script>
+    (() => {
+      NProgress.configure({"showSpinner":false,"trickleSpeed":180,"minimum":0.08});
+      let finished = false;
+      // Fast pages need no flash; background resources do not hold this open.
+      const showTimer = setTimeout(() => {
+        if (!finished && document.readyState === 'loading') NProgress.start();
+      }, 150);
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(showTimer);
+        NProgress.done();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish, { once: true });
+      } else {
+        finish();
+      }
+      window.addEventListener('pagehide', finish, { once: true });
+      window.addEventListener('pageshow', event => {
+        if (event.persisted) { finish(); NProgress.remove(); }
+      });
+    })();
+  </script>
+
+
+<script  src="/lib/jquery/jquery.min.js" ></script>
+<script  src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        function loadAnalytics() {
+          var host = location.hostname;
+          var preview = document.getElementById('review-bootstrap') ||
+            ['localhost', '127.0.0.1', '[::1]'].includes(host) ||
+            /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+          if (preview) return;
+          var hm = document.createElement('script');
+          hm.async = true;
+          hm.src = 'https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37';
+          document.head.appendChild(hm);
+        }
+        // Statistics load after the readable page, and only on the public site.
+        if (document.readyState === 'complete') loadAnalytics();
+        else window.addEventListener('load', loadAnalytics, { once: true });
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('/lib/tocbot/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('/lib/clipboard/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('/lib/anchor-js/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('/lib/fancybox/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/lib/katex/katex.min.js" ></script>
+
+  <script  src="/lib/katex/auto-render.min.js" ></script>
+
+  
+      <script>
+        (function () {
+          function typeset() {
+            renderMathInElement(document.body, {
+              delimiters: [
+                { left: '\\[', right: '\\]', display: true },
+                { left: '\\(', right: '\\)', display: false }
+              ],
+              ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'option'],
+              macros: { '\\mbox': '\\text' },
+              throwOnError: false,
+              strict: false
+            });
+          }
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', typeset);
+          } else {
+            typeset();
+          }
+        })();
+      </script>
+    
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/citation-curve.js"></script>
+<script src="/js/academic.js"></script>
+<script src="/js/live-data.js"></script>
+<script src="/js/figure-viewer.js"></script>
+<script src="/js/institution-marks.js"></script>
+<script src="/js/scroll-reveal.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

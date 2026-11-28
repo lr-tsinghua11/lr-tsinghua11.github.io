@@ -512,13 +512,13 @@ sup > a::before,
   padding: 3rem 0;
 }
 html {
-  font-size: 16px;
+  font-size: 19px;
   letter-spacing: 0.02em;
 }
 html,
 body {
   height: 100%;
-  font-family: var(--font-family-sans-serif);
+  font-family: "Source Sans 3", "LR WenKai", "Kaiti SC", system-ui, sans-serif;
   overflow-wrap: break-word;
 }
 body {
@@ -1037,7 +1037,7 @@ label {
 .markdown-body {
   font-size: 1rem;
   line-height: 1.6;
-  font-family: var(--font-family-sans-serif);
+  font-family: "Source Sans 3", "LR WenKai", "Kaiti SC", system-ui, sans-serif;
   margin-bottom: 2rem;
   color: var(--post-text-color);
 }
@@ -1367,11 +1367,11 @@ a.fancybox:hover {
   text-decoration: none;
 }
 #nprogress .bar {
-  height: 3px !important;
-  background-color: #29d !important;
+  height: 2px !important;
+  background-color: #718dcc !important;
 }
 #nprogress .peg {
-  box-shadow: 0 0 14px #29d, 0 0 8px #29d !important;
+  box-shadow: 0 0 14px #718dcc, 0 0 8px #718dcc !important;
 }
 @media (max-width: 575px) {
   #nprogress .bar {

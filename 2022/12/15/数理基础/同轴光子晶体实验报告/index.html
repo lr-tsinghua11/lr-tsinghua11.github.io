@@ -7,32 +7,50 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile/apple-touch-icon.png">
+  <link rel="icon" href="/img/profile/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Learning_rate">
-  <meta name="keywords" content="LLM,强化学习,Agent,深度学习,NLP,清华大学,Learning_rate">
+  <link rel="preload" href="/fonts/wenkai-primary.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="author" content="鲁睿 Rui Lu">
+  <meta name="keywords" content="鲁睿,Rui Lu,KEG,GLM,Deep Search,Agentic RL,多智能体">
+  <meta name="description" content="同轴光子晶体实验报告：比较正常与缺陷光子晶体的色散关系、传输效率和群速度，使用传递矩阵建模并用 MATLAB 计算。包含实验数据、理论推导和程序。">
+  <meta name="robots" content="max-image-preview:large">
   
-    <meta name="description" content="本科阶段最后一篇物理实验报告，也是唯一一次拿满分的实验报告，基物实验一路做下来，感觉除了熟练运用 Matlab 、各种排版技巧之外没学个啥。。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Last report for Lab of Physics">
-<meta property="og:url" content="https://learningrate1.com/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
-<meta property="og:site_name" content="Learning_rate">
-<meta property="og:description" content="本科阶段最后一篇物理实验报告，也是唯一一次拿满分的实验报告，基物实验一路做下来，感觉除了熟练运用 Matlab 、各种排版技巧之外没学个啥。。">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://learningrate1.com/img/%E9%93%B6%E6%9F%B1.jpg">
-<meta property="article:published_time" content="2022-12-15T03:13:42.000Z">
-<meta property="article:modified_time" content="2022-12-15T03:13:42.000Z">
-<meta property="article:author" content="Learning_rate">
-<meta property="article:tag" content="物理">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://learningrate1.com/img/%E9%93%B6%E6%9F%B1.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="同轴光子晶体实验报告：色散关系与传递矩阵 | 鲁睿 Rui Lu">
+    <meta property="og:description" content="同轴光子晶体实验报告：比较正常与缺陷光子晶体的色散关系、传输效率和群速度，使用传递矩阵建模并用 MATLAB 计算。包含实验数据、理论推导和程序。">
+    <meta property="og:url" content="https://learningrate1.com/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">
+    <meta property="og:site_name" content="鲁睿 Rui Lu · Learning_rate">
+    <meta property="og:locale" content="zh_CN">
+    
+      <meta property="og:image" content="https://learningrate1.com/img/social/b05e787341f55e405499.png">
+      <meta property="og:image:alt" content="同轴光子晶体实验报告：色散关系与传递矩阵">
+      
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+      
+      <meta property="og:image:type" content="image/png">
+    
+    <meta property="article:published_time" content="2022-12-15T03:13:42.000Z">
+    <meta property="article:modified_time" content="2026-11-26T16:00:00.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lru43402768">
+    <meta name="twitter:title" content="同轴光子晶体实验报告：色散关系与传递矩阵 | 鲁睿 Rui Lu">
+    <meta name="twitter:description" content="同轴光子晶体实验报告：比较正常与缺陷光子晶体的色散关系、传输效率和群速度，使用传递矩阵建模并用 MATLAB 计算。包含实验数据、理论推导和程序。">
+    
+      <meta name="twitter:image" content="https://learningrate1.com/img/social/b05e787341f55e405499.png">
+      <meta name="twitter:image:alt" content="同轴光子晶体实验报告：色散关系与传递矩阵">
+    
   
   
-  <title>Last report for Lab of Physics - Learning_rate</title>
+  <link rel="canonical" href="https://learningrate1.com/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">
+  <link rel="alternate" type="application/atom+xml" title="鲁睿 Rui Lu · Learning_rate" href="/atom.xml">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://learningrate1.com/#rui-lu","name":"Rui Lu","alternateName":["鲁睿","Learning_rate"],"url":"https://learningrate1.com/","image":"https://learningrate1.com/img/profile/avatar.webp","email":"lu-r21@mails.tsinghua.edu.cn","sameAs":["https://scholar.google.com/citations?user=-MGuqDcAAAAJ","https://github.com/lr-tsinghua11","https://twitter.com/lru43402768","https://www.zhihu.com/people/er-ji-yi-4"],"jobTitle":"Ph.D. student in Computer Science","affiliation":[{"@type":"CollegeOrUniversity","name":"Tsinghua University","url":"https://www.tsinghua.edu.cn/"},{"@type":"Organization","name":"Knowledge Engineering Group (KEG), Tsinghua University","url":"https://keg.cs.tsinghua.edu.cn/"}],"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Bachelor of Science in Mathematics and Physics; Bachelor of Engineering in Software Engineering","credentialCategory":"Bachelor's degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Tsinghua University"}},"knowsAbout":["Deep Search","Multi-turn agentic reinforcement learning","Multi-agent collaboration","Terminal agents","AI for Science"],"description":"我是清华大学计算机系 KEG 实验室的直博二年级学生，自 2023 年起在智谱从事大模型训练工作。作为 GLM-4.5 / GLM-5 的核心贡献者，我负责优化基座模型的深度搜索（Deep Search）能力。我主要研究多轮强化学习与多智能体协作（Multi-turn Agentic RL & Multi-Agent Collaboration），近期在研究终端智能体（Terminal Agent），对大模型在科学研究中的应用（AI for Science）也很感兴趣。欢迎添加微信（微信号：learning_rate）和我交流！"},{"@type":"WebSite","@id":"https://learningrate1.com/#website","url":"https://learningrate1.com/","name":"鲁睿 Rui Lu · Learning_rate","alternateName":"Learning_rate","inLanguage":["zh-CN","en"],"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"BreadcrumbList","@id":"https://learningrate1.com/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"个人简介","item":"https://learningrate1.com/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://learningrate1.com/notes/"},{"@type":"ListItem","position":3,"name":"数理基础","item":"https://learningrate1.com/notes/#mathematics"}]},{"@type":"BlogPosting","@id":"https://learningrate1.com/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/#article","url":"https://learningrate1.com/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/","mainEntityOfPage":{"@id":"https://learningrate1.com/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/#page"},"headline":"同轴光子晶体实验报告：色散关系与传递矩阵","description":"同轴光子晶体实验报告：比较正常与缺陷光子晶体的色散关系、传输效率和群速度，使用传递矩阵建模并用 MATLAB 计算。包含实验数据、理论推导和程序。","image":"https://learningrate1.com/img/social/b05e787341f55e405499.png","inLanguage":"zh-CN","author":{"@id":"https://learningrate1.com/#rui-lu"},"articleSection":"数理基础","datePublished":"2022-12-15T03:13:42.000Z","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"}},{"@type":"WebPage","@id":"https://learningrate1.com/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/#page","url":"https://learningrate1.com/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/","name":"同轴光子晶体实验报告：色散关系与传递矩阵 | 鲁睿 Rui Lu","description":"同轴光子晶体实验报告：比较正常与缺陷光子晶体的色散关系、传输效率和群速度，使用传递矩阵建模并用 MATLAB 计算。包含实验数据、理论推导和程序。","inLanguage":"zh-CN","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"},"breadcrumb":{"@id":"https://learningrate1.com/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/#breadcrumb"},"mainEntity":{"@id":"https://learningrate1.com/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/#article"}}]}</script>
+  <title>同轴光子晶体实验报告：色散关系与传递矩阵 | 鲁睿 Rui Lu</title>
 
   <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
 
@@ -48,14 +66,13 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
+<!-- Keep Fluid's icon classes, with the original fonts served locally. -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
+<link rel="stylesheet" href="/lib/iconfont/core.css">
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+<link rel="stylesheet" href="/lib/iconfont/extra.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -68,32 +85,44 @@
 
 
 
+  
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/academic.css">
+<link rel="stylesheet" href="/css/benchmark.css">
+<link rel="stylesheet" href="/css/citations.css">
+<link rel="stylesheet" href="/css/figure-viewer.css">
+<link rel="stylesheet" href="/css/institution-marks.css">
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#718dcc","options":{"showSpinner":false,"trickleSpeed":180,"minimum":0.08}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Learning_rate" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
-<body>
+<body class="academic-site reading-site" data-topic="mathematics">
+  <a class="skip-to-content" href="#main-content"><span data-edit-field="interface:skip.zh">跳转到正文</span></a>
   
 
   <header>
     
 
-<div class="header-inner" style="height: 70vh;">
+
+<div class="academic-header">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong> Learning_rate&#39;s blog</strong>
+      <strong>Learning_rate</strong>
     </a>
 
+    <a class="mobile-language d-lg-none" data-language-switch href="/en/notes/" lang="en" aria-label="Switch to English">EN</a>
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,8 +139,8 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
+                
+                <span data-edit-field="interface:profile.zh">个人简介</span>
               </a>
             </li>
           
@@ -121,45 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
+              <a class="nav-link" href="/notes/">
+                
+                <span data-edit-field="interface:notes.zh">文章</span>
               </a>
             </li>
           
@@ -170,12 +163,13 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
+                
+                <span data-edit-field="interface:friends.zh">友链</span>
               </a>
             </li>
           
         
+        <li class="nav-item language-item"><a class="nav-link language-switch" data-language-switch href="/en/notes/" lang="en" hreflang="en" aria-label="Switch to English"><span class="language-mark" aria-hidden="true">文</span>EN</a></li>
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -195,83 +189,22 @@
   </div>
 </nav>
 
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E9%93%B6%E6%9F%B1.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          <span id="subtitle" title="Last report for Lab of Physics">
-            
-          </span>
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-15 11:13" pubdate>
-          2022年12月15日 上午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          13k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          108 分钟
-        
-      </span>
-    
-
-    
-    
-      
-        <span id="busuanzi_container_page_pv" style="display: none">
-          <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="busuanzi_value_page_pv"></span> 次
-        </span>
-        
-      
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
 </div>
 
-</div>
 
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     
       
 
+<header class="reading-masthead" data-topic="mathematics">
+  <nav class="reading-breadcrumbs" aria-label="文章位置">
+    <ol><li><a href="/">个人简介</a></li><li><a href="/notes/">文章</a></li><li><a href="/notes/#mathematics">数理基础</a></li></ol>
+  </nav>
+  <h1>同轴光子晶体实验报告：色散关系与传递矩阵</h1>
+  <p><time datetime="2022-12-15">2022.12.15</time><span class="reading-updated"><span aria-hidden="true"> · </span>更新于 <time datetime="2026-11-27">2026.11.27</time></span><span aria-hidden="true"> · </span><a class="reading-author" href="/" rel="author">鲁睿 Rui Lu</a><span class="reading-views" id="busuanzi_container_page_pv"><span aria-hidden="true"> · </span><span id="busuanzi_value_page_pv">—</span> <span data-edit-field="interface:article_views.zh">次阅读</span></span></p>
+</header>
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
     <div class="side-col d-none d-lg-block col-lg-2">
@@ -283,20 +216,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Last report for Lab of Physics</h1>
-            
-              <p class="note note-info">
-                
-                  
-                    本文最后更新于：4 年前
-                  
-                
-              </p>
-            
             <div class="markdown-body">
               
-              <h1 id="同轴光子晶体实验报告">同轴光子晶体实验报告</h1>
+              <p>这份报告记录了我在 2022
+年完成的同轴光子晶体实验：用交替连接的同轴电缆研究电磁波传播，比较正常与缺陷光子晶体的色散关系、传输效率和群速度。正文包含实测数据、传递矩阵推导和
+MATLAB 程序，完整 PDF 也可<a
+href="/pdf/基础物理学资料/基础物理实验3/同轴光子晶体实验报告.pdf">在这里阅读</a>。</p>
 <center>
 <div style="height:2mm;">
 
@@ -363,46 +288,37 @@ class="math inline">\(\varepsilon_r\)</span>
 <p>同轴电缆的等效电路如图 <span class="math inline">\(5\)</span>
 所示，其中 <span class="math inline">\(R,L,G\)</span>
 分别为单位长度同轴电缆的电阻、电感、电容，且结合电磁学知识可知 <span
-class="math display">\[
-\begin{equation}
+class="math display">\[\begin{equation}
 \begin{cases}
 C &amp; =\dfrac{2 \pi \varepsilon_0 \varepsilon_r}{\ln (b / a)} \\
 L &amp; =\dfrac{\mu_0 \mu_r}{2 \pi} \ln \dfrac{b}{a}
 \end{cases}
-\end{equation}
-\]</span> 其中 <span class="math inline">\(a,b\)</span>
+\end{equation}\]</span> 其中 <span class="math inline">\(a,b\)</span>
 为同轴电缆的内外径，<span
 class="math inline">\(\epsilon_r,\mu_r\)</span>
 分别为同轴电缆内外的相对介电常数以及相对磁导率，沿同轴电缆方向共有两个方向叠加，对应通解为
-<span class="math display">\[
-\begin{equation}
+<span class="math display">\[\begin{equation}
 \begin{aligned}
 &amp; v=v^{+}(x)+v^{-}(x)=V_0^{+} e^{-\gamma x}+V_0^{-} e^{\gamma x} \\
 &amp; i=i^{+}(x)+i^{-}(x)=\frac{1}{Z_0}\left(V_0^{+} e^{-\gamma
 x}-V_0^{-} e^{\gamma x}\right)
 \end{aligned}
-\end{equation}
-\]</span> 对应电压波，其中 <span
+\end{equation}\]</span> 对应电压波，其中 <span
 class="math inline">\(\gamma=\alpha+j\beta\)</span> 为电缆的传播常数，
-其表达式如下 <span class="math display">\[
-\begin{equation}
+其表达式如下 <span class="math display">\[\begin{equation}
 \alpha+j \beta=\sqrt{(R+j \omega L)\left(G+j \omega C\right)}
-\end{equation}
-\]</span> 且定义<strong>特征阻抗</strong> <span class="math display">\[
-\begin{equation}
+\end{equation}\]</span> 且定义<strong>特征阻抗</strong> <span
+class="math display">\[\begin{equation}
 Z_0=\sqrt{\dfrac{R+j \omega L}{G+j \omega C}}
-\end{equation}
-\]</span> 本实验中，电缆的损耗很小，有 <span
+\end{equation}\]</span> 本实验中，电缆的损耗很小，有 <span
 class="math inline">\(R\ll\omega L,G\ll\omega C\)</span>，做近似有 <span
-class="math display">\[
-\begin{equation}
+class="math display">\[\begin{equation}
 \left\{\begin{array}{l}
 Z_0=\sqrt{\dfrac{L}{C}}=\dfrac{\ln (b / a)}{2 \pi} \sqrt{\dfrac{\mu_0
 \mu_r}{\epsilon_0 \epsilon_r}} \\
 \beta=\omega \sqrt{L C}=\omega \sqrt{\epsilon_0 \mu_0 \epsilon_r \mu_r}
 \end{array}\right.
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <h3 id="透射与反射">透射与反射</h3>
 <p>对于半无限长的同轴电缆，信号从同轴电缆始端输入后，只有沿 <span
 class="math inline">\(+\)</span>
@@ -414,20 +330,16 @@ class="math inline">\(Z_1\)</span>
 <span class="math inline">\(V_i\)</span>，透射信号在连接处的电压为 <span
 class="math inline">\(V_t\)</span> ，反射信号在连接处的电压为 <span
 class="math inline">\(V_r\)</span> ，满足如下方程 <span
-class="math display">\[
-\begin{equation}
+class="math display">\[\begin{equation}
 \left\{\begin{array}{l}
 V_i+V_r=V_t \\
 V_i / Z_0=V_r / Z_0+V_t / Z_1
 \end{array}\right.
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <h3 id="测量同轴光子晶体特性">测量同轴光子晶体特性</h3>
-<p>由群速度公式 <span class="math display">\[
-\begin{equation}
+<p>由群速度公式 <span class="math display">\[\begin{equation}
 v_g=\dfrac{c} {n+\omega \dfrac{d n}{d \omega}}
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <p>可测得某一频率下示波器 <span class="math inline">\(\mathrm{Ch}
 2\)</span> 相对于 <span class="math inline">\(\mathrm{Ch} 1\)</span>
 的相位差 <span
@@ -435,38 +347,32 @@ class="math inline">\(\varphi\)</span>，投输入待测电路的信号为 <span
 class="math inline">\(\cos \omega t\)</span>，初始相位为 0。输出信号为
 <span class="math inline">\(\cos (\omega t+\varphi)\)</span>，相位变化为
 <span class="math inline">\(\varphi\)</span> <span
-class="math display">\[
-\begin{equation}
+class="math display">\[\begin{equation}
 \cos (\omega t+\varphi)=\cos \omega\left(t-t_p\right) \Rightarrow
 \varphi=-\omega t_p
-\end{equation}
-\]</span> 将同轴光子晶体效为一根折射率为 <span
+\end{equation}\]</span> 将同轴光子晶体效为一根折射率为 <span
 class="math inline">\(n\)</span> 的均匀同轴电线，则延时 <span
 class="math inline">\(t_p\)</span> 与等效折射率 <span
-class="math inline">\(n\)</span> 的关系为 <span class="math display">\[
-\begin{equation}
+class="math inline">\(n\)</span> 的关系为 <span
+class="math display">\[\begin{equation}
 t_p=\dfrac{Ln}{c}
-\end{equation}
-\]</span> 公式 (10)(11) 联立计算得到 <span class="math display">\[
-\begin{equation}
+\end{equation}\]</span> 公式 (10)(11) 联立计算得到 <span
+class="math display">\[\begin{equation}
 n=-\frac{\varphi c}{\omega L}=-\frac{\varphi c}{2 \pi f L}
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <h2 id="电学参数理论计算mathbfa部分">电学参数理论计算<span
 class="math inline">\((\,\mathbf{A}\,\)</span>部分<span
 class="math inline">\()\)</span></h2>
 <h3 id="衰减系数和幅度">衰减系数和幅度</h3>
 <p>由电压幅度值<strong>每米减少</strong> <span
 class="math inline">\(\mathbf{0.571\%}\ll1\)</span>，从而由衰减幅度公式
-<span class="math display">\[
-\begin{equation}
+<span class="math display">\[\begin{equation}
 V(x)=V_0 e^{-\alpha x}
-\end{equation}
-\]</span> 取近似 <span class="math inline">\(V_0e^{-\alpha x}\approx
-V_0(1-\alpha x)\)</span>，故 <span class="math inline">\(\alpha \approx
-0.00571\)</span>，或者严格计算有 <span class="math display">\[
-\alpha =-\ln (1-0.571\%)=0.0057264\text{m}^{-1}
-\]</span> 代入公式 (1) 计算 <span
+\end{equation}\]</span> 取近似 <span class="math inline">\(V_0e^{-\alpha
+x}\approx V_0(1-\alpha x)\)</span>，故 <span
+class="math inline">\(\alpha \approx 0.00571\)</span>，或者严格计算有
+<span class="math display">\[\alpha =-\ln
+(1-0.571\%)=0.0057264\text{m}^{-1}\]</span> 代入公式 (1) 计算 <span
 class="math inline">\(10\text{m},20\text{m},30\text{m}\)</span>
 处的幅度列表如下（保留三位小数）</p>
 <table>
@@ -499,37 +405,31 @@ class="math inline">\(10\text{m},20\text{m},30\text{m}\)</span>
 对应的复阻抗为 <span class="math inline">\(\Delta Z\)</span>，总复阻抗为
 <span class="math inline">\(N\Delta
 Z\)</span>，则始末并联和每一小段处并联是等效的 <span
-class="math display">\[
-\sum_{i}\dfrac{\Delta Z\cdot \Delta Z}{\Delta Z+\Delta
-Z}=\dfrac{1}{2}\sum_{i}\Delta Z=\dfrac{\displaystyle \sum_{i}\Delta
-Z\cdot \displaystyle \sum_{i}\Delta Z}{\displaystyle \sum_{i}\Delta
-Z+\displaystyle \sum_{i}\Delta Z}
-\]</span> 由并联性质 <span class="math display">\[
-R^{\prime}=\dfrac{R}{2},L^{\prime}=\dfrac{L}{2},G^{\prime}=2G,C^{\prime}=2C
-\]</span> 代入公式 (5)(6) 得 <span class="math display">\[
-\begin{equation}
+class="math display">\[\sum_{i}\dfrac{\Delta Z\cdot \Delta Z}{\Delta
+Z+\Delta Z}=\dfrac{1}{2}\sum_{i}\Delta Z=\dfrac{\displaystyle
+\sum_{i}\Delta Z\cdot \displaystyle \sum_{i}\Delta Z}{\displaystyle
+\sum_{i}\Delta Z+\displaystyle \sum_{i}\Delta Z}\]</span> 由并联性质
+<span
+class="math display">\[R^{\prime}=\dfrac{R}{2},L^{\prime}=\dfrac{L}{2},G^{\prime}=2G,C^{\prime}=2C\]</span>
+代入公式 (5)(6) 得 <span class="math display">\[\begin{equation}
 Z_0^{\prime}=\frac{1}{2} Z_0, \alpha^{\prime}=\alpha,
 \beta^{\prime}=\beta
-\end{equation}
-\]</span>
+\end{equation}\]</span>
 一种更简便的想法是电压相同时，电流变成原来的两倍，从而<strong>复阻抗折半</strong>，而每个电缆上的电流衰减幅度以及相位变化与原来相同，总比例也不变，从而传播系数不变。</p>
 <h3 id="高低阻抗交替连接">高低阻抗交替连接</h3>
 <p>由上问可知，高特征阻抗使用单根电缆，低特征阻抗使用并联电缆，且有
-<span class="math display">\[
-\begin{equation}
+<span class="math display">\[\begin{equation}
 \frac{Z_{0 H}}{Z_{0 L}}=2
-\end{equation}
-\]</span> 可以通过<strong>多次并联</strong>的方法得到更高的阻抗比。</p>
+\end{equation}\]</span>
+可以通过<strong>多次并联</strong>的方法得到更高的阻抗比。</p>
 <h3 id="频率计算">频率计算</h3>
-<p>由电磁波公式 <span class="math display">\[
-\begin{equation}
+<p>由电磁波公式 <span class="math display">\[\begin{equation}
 f=\frac{v}{\lambda}=\frac{c}{\sqrt{\epsilon_r \mu_r} \lambda}
-\end{equation}
-\]</span> 代入计算得 <span class="math display">\[
-f_0=\frac{c}{\sqrt{\epsilon_r \mu_r} \lambda} \approx \frac{299792458
-\mathrm{~m} / s}{\sqrt{2.354} \cdot 10 \mathrm{~m}}=19.540
-\mathrm{~}\mathrm{MHz},\dfrac{1}{2}f_0=9.770 \mathrm{~}\mathrm{MHz}
-\]</span></p>
+\end{equation}\]</span> 代入计算得 <span
+class="math display">\[f_0=\frac{c}{\sqrt{\epsilon_r \mu_r} \lambda}
+\approx \frac{299792458 \mathrm{~m} / s}{\sqrt{2.354} \cdot 10
+\mathrm{~m}}=19.540 \mathrm{~}\mathrm{MHz},\dfrac{1}{2}f_0=9.770
+\mathrm{~}\mathrm{MHz}\]</span></p>
 <h2 id="间接测量色散关系mathbfb部分">间接测量色散关系<span
 class="math inline">\((\,\mathbf{B}\,\)</span>部分<span
 class="math inline">\()\)</span></h2>
@@ -691,15 +591,12 @@ class="math inline">\(50\Omega\)</span> 电阻上消耗的功率为 <span
 class="math inline">\(𝑃_1\)</span>，接入同轴光子晶体、阻抗匹配状态下
 <span class="math inline">\(50\Omega\)</span> 电阻上消耗的有功功率为
 <span class="math inline">\(P_2\)</span>，故计算公式如下 <span
-class="math display">\[
-\begin{equation}
+class="math display">\[\begin{equation}
 P_i=\frac{V_i^2}{R_0} \quad i=1,2
-\end{equation}
-\]</span> 则传输效率 <span class="math display">\[
-\begin{equation}
+\end{equation}\]</span> 则传输效率 <span
+class="math display">\[\begin{equation}
 \eta=\frac{P_2}{P_1}=\left(\frac{V_2}{V_1}\right)^2
-\end{equation}
-\]</span> 代入公式 (18)(12)
+\end{equation}\]</span> 代入公式 (18)(12)
 计算效率以及折射率，其中相位差相对小频率来说需要减去 <span
 class="math inline">\(360^{\circ}\)</span>
 的整数倍，保证相位差是单调递减的，计算以及列表如下</p>
@@ -1588,10 +1485,10 @@ class="math inline">\()\)</span></h2>
 </center>
 <h3 id="群速度计算">群速度计算</h3>
 <p>对图片截图计算中心波腹的延迟像素与示波器背景单位格点像素比例，例如对第一张图两者像素为
-333 和 543，故其延迟时间为 <span class="math display">\[
-t_1=\frac{333 \mathrm{~pix}}{543 \mathrm{~pix}} \cdot 500
-\mathrm{~ns}=306.6\text{~ns}
-\]</span> 同理对三幅图片处理列表如下，其中由于设置 <span
+333 和 543，故其延迟时间为 <span class="math display">\[t_1=\frac{333
+\mathrm{~pix}}{543 \mathrm{~pix}} \cdot 500
+\mathrm{~ns}=306.6\text{~ns}\]</span>
+同理对三幅图片处理列表如下，其中由于设置 <span
 class="math inline">\(100T\)</span>
 脉冲波形，高频正弦波信号的频率为原始频率的 <span
 class="math inline">\(100\)</span> 倍，使用 <span
@@ -1675,34 +1572,31 @@ class="math inline">\(\textcolor{red}{\bullet}\)</span> 代表测量点</p>
 class="math inline">\((\,\mathbf{D.1-D.4}\,\)</span>部分<span
 class="math inline">\()\)</span></h2>
 <h3 id="叠加电压求解">叠加电压求解</h3>
-<p>由公式 (6) 的两个方程反解得 <span class="math display">\[
-\begin{equation}
+<p>由公式 (6) 的两个方程反解得 <span
+class="math display">\[\begin{equation}
 \begin{cases}
 V_0^{+} =\dfrac{1}{2}\left(v_2+Z_0 i_2\right) e^{\gamma l} \\
 V_0^{-} =\dfrac{1}{2}\left(v_2-Z_0 i_2\right) e^{-\gamma l}
 \end{cases}
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <h3 id="传递矩阵计算">传递矩阵计算</h3>
 <p>取 <span class="math inline">\(x=0\)</span> 的点对应 <span
-class="math inline">\(v_1,i_1\)</span> <span class="math display">\[
-\begin{equation}
+class="math inline">\(v_1,i_1\)</span> <span
+class="math display">\[\begin{equation}
 \begin{cases}
 v_1=v^{+}(0)+v^{-}(0)=V_0^{+}+V_0^{-} \\
 i_1=i^{+}(0)+i^{-}(0)=\dfrac{1}{Z_0}\left(V_0^{+}-V_0^{-}\right)
 \end{cases}
-\end{equation}
-\]</span> 代入公式 (17) 得 <span class="math display">\[
-\begin{equation}
+\end{equation}\]</span> 代入公式 (17) 得 <span
+class="math display">\[\begin{equation}
 \begin{aligned}
 v_1 &amp; =\frac{1}{2}\left(v_2+Z_0 i_2\right) e^{\gamma
 l}+\frac{1}{2}\left(v_2-Z_0 i_2\right) e^{-\gamma l} \\
 i_1 &amp; =\frac{1}{Z_0}\left(\frac{1}{2}\left(v_2+Z_0 i_2\right)
 e^{\gamma l}-\frac{1}{2}\left(v_2-Z_0 i_2\right) e^{-\gamma l}\right)
 \end{aligned}
-\end{equation}
-\]</span> 写成矩阵的形式如下 <span class="math display">\[
-\begin{equation}
+\end{equation}\]</span> 写成矩阵的形式如下 <span
+class="math display">\[\begin{equation}
 \left[\begin{array}{l}
 v_1 \\
 i_1
@@ -1713,8 +1607,8 @@ i_1
 v_2 \\
 i_2
 \end{array}\right]
-\end{equation}
-\]</span> 则其中 <span class="math inline">\(\left[\begin{array}{cl}
+\end{equation}\]</span> 则其中 <span
+class="math inline">\(\left[\begin{array}{cl}
 \cosh (\gamma l) &amp; Z_0 \sinh (\gamma l) \\
 \dfrac{1}{Z_0} \sinh (\gamma l) &amp; \cosh (\gamma l)
 \end{array}\right]\)</span> 为传递矩阵。</p>
@@ -1726,8 +1620,7 @@ i_2
 <b>图14</b> 同轴光子晶体的其中两段级联同轴电缆
 </figcaption>
 </center>
-<p>由上节传递矩阵的性质 <span class="math display">\[
-\begin{equation}
+<p>由上节传递矩阵的性质 <span class="math display">\[\begin{equation}
 \left[\begin{array}{l}
 v_1 \\
 i_1
@@ -1741,9 +1634,8 @@ i_2
 v_3 \\
 i_3
 \end{array}\right]
-\end{equation}
-\]</span> 后者代入前者可得 <span class="math display">\[
-\begin{equation}
+\end{equation}\]</span> 后者代入前者可得 <span
+class="math display">\[\begin{equation}
 \left[\begin{array}{l}
 v_1 \\
 i_1
@@ -1751,16 +1643,15 @@ i_1
 v_3 \\
 i_3
 \end{array}\right]
-\end{equation}
-\]</span> 故总的传递矩阵为 <span class="math inline">\(A=A_1
+\end{equation}\]</span> 故总的传递矩阵为 <span
+class="math inline">\(A=A_1
 A_2\)</span>，从而通过传递矩阵相乘的方法可以得到若干个同轴光子晶体连接形成的等效传递矩阵。</p>
 <h3 id="负载电压表达式">负载电压表达式</h3>
 <p>令总传递矩阵 <span class="math inline">\(A_T=\left[\begin{array}{cc}A
 &amp; B \\ C &amp; D\end{array}\right]\)</span>，信号源电动势 <span
 class="math inline">\(e\)</span> 与内阻 <span
 class="math inline">\(Z_0\)</span>，联立方程 <span
-class="math display">\[
-\begin{equation}
+class="math display">\[\begin{equation}
 \left\{\begin{array}{l}
 {\left[\begin{array}{l}
 v_1 \\
@@ -1773,12 +1664,10 @@ i_L
 v_L=i_L \cdot Z_0 \\
 e=v_1+i_1 \cdot Z_0
 \end{array}\right.
-\end{equation}
-\]</span> 解得负载电压的表达式 <span class="math display">\[
-\begin{equation}
+\end{equation}\]</span> 解得负载电压的表达式 <span
+class="math display">\[\begin{equation}
 V_L=\frac{e}{A+\dfrac{1}{Z_0} B+Z_0 C+D}
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <h2 id="编程计算mathbfd.5部分">编程计算<span
 class="math inline">\((\,\mathbf{D.5}\,\)</span>部分<span
 class="math inline">\()\)</span></h2>
@@ -1791,11 +1680,10 @@ m^{-1}\)</span>，其中 <span class="math inline">\(f\)</span> 的单位为
 <span class="math inline">\(\mathrm{Hz}\)</span>。</p>
 <p>由连接图可知，令 <span class="math inline">\(A_1\)</span>
 为原始同轴电缆，<span class="math inline">\(A_2\)</span>
-为并联之后的同轴电缆，其总传递矩阵如下 <span class="math display">\[
-\begin{equation}
+为并联之后的同轴电缆，其总传递矩阵如下 <span
+class="math display">\[\begin{equation}
 A_T=A_2 A_1 A_2 A_1 A_2 A_1 A_2
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <h3 id="程序设计">程序设计</h3>
 <p>将转移矩阵对应的元素设计在函数中，例如第一个元素获取函数
 <code>A1()</code> 如下</p>
@@ -1836,11 +1724,9 @@ class="math inline">\(n\pi\)</span>。</p>
 class="math inline">\(c\)</span>，与预期吻合。</p>
 <h3 id="缺陷光子晶体-1">缺陷光子晶体</h3>
 <p>假定增加的电缆位于左侧，其总传递矩阵更改为 <span
-class="math display">\[
-\begin{equation}
+class="math display">\[\begin{equation}
 A_T^{\prime}=A_2 A_2 A_2 A_1 A_2 A_1 A_2
-\end{equation}
-\]</span></p>
+\end{equation}\]</span></p>
 <h4 id="传输效率-1">传输效率</h4>
 <p>仅仅更改矩阵，其余代码不变，传输效率关系图如下</p>
 <p><img src="/img/同轴光子晶体实验报告/eta-f-theory-2.svg" srcset="/img/loading.gif" lazyload alt="eta-f-theory-2" style="zoom:67%;" /></p>
@@ -1885,6 +1771,25 @@ class="math inline">\(4\)</span> 个），与实测结论完全相符。</p>
 
               
             </div>
+            
+
+<nav class="reading-next" aria-labelledby="reading-next-title">
+  <div class="reading-next-heading"><h2 id="reading-next-title">继续阅读</h2><a href="/notes/">全部文章 <span aria-hidden="true">↗</span></a></div>
+  <div class="reading-next-grid">
+    
+      <a class="reading-next-card reading-next-card--tool" href="/tools/linear-fit/"><small>实用工具</small><strong>实验数据线性拟合</strong><p>粘贴两列数据，计算拟合参数并导出 SVG 图。</p><span aria-hidden="true">↗</span></a>
+    
+    
+      <a class="reading-next-card" href="/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"><small>2022.05</small><strong>基础物理实验报告：电磁感应、弦振动与受迫振动</strong><p>电磁感应、弦振动与阻尼受迫振动的三份实验报告，附原始数据、Python 绘图代码和 PDF。</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2022/10/29/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AD%A62%E5%B0%8F%E7%8F%AD%E8%BE%85%E5%AF%BC%E8%AE%B2%E4%B9%89/"><small>2022.10</small><strong>基础物理学2小班辅导讲义</strong><p>基础物理学 2 小班辅导讲义</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2022/06/20/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E6%9C%9F%E6%9C%AB%E8%AF%95%E5%8D%B7%E8%A7%A3%E7%AD%94/"><small>2022.06</small><strong>基物1期末试卷解答</strong><p>蒋硕的两套基物Ⅰ试卷以及解答</p><span aria-hidden="true">↗</span></a>
+    
+  </div>
+</nav>
+
+
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -1933,14 +1838,14 @@ class="math inline">\(4\)</span> 个），与实测结论完全相符。</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Last report for Lab of Physics</div>
+      <div>同轴光子晶体实验报告：色散关系与传递矩阵</div>
       <div>https://learningrate1.com/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>Learning_rate</div>
+          <div>鲁睿 Rui Lu</div>
         </div>
       
       
@@ -1976,9 +1881,9 @@ class="math inline">\(4\)</span> 个），与实测结论完全相符。</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Data structure review">
+                      <a href="/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="数据结构期末考试复习笔记">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Data structure review</span>
+                        <span class="hidden-mobile">数据结构期末考试复习笔记</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -1986,8 +1891,8 @@ class="math inline">\(4\)</span> 个），与实测结论完全相符。</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/29/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AD%A62%E5%B0%8F%E7%8F%AD%E8%BE%85%E5%AF%BC%E8%AE%B2%E4%B9%89/" title="Fundamental Physics 2">
-                        <span class="hidden-mobile">Fundamental Physics 2</span>
+                      <a href="/2022/10/29/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AD%A62%E5%B0%8F%E7%8F%AD%E8%BE%85%E5%AF%BC%E8%AE%B2%E4%B9%89/" title="基础物理学2小班辅导讲义">
+                        <span class="hidden-mobile">基础物理学2小班辅导讲义</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -2076,7 +1981,7 @@ class="math inline">\(4\)</span> 个），与实测结论完全相符。</p>
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 id="ModalLabel" class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -2098,54 +2003,53 @@ class="math inline">\(4\)</span> 个），与实测结论完全相符。</p>
   </main>
 
   <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
     
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
+<div class="footer-inner">
+  <div class="footer-content">
+    <span class="footer-copyright">© 2026 <span data-edit-field="profile:name">鲁睿</span></span>
+    <a href="/atom.xml" type="application/atom+xml" title="通过 RSS 阅读器订阅文章"><span data-edit-field="interface:subscribe_articles.zh">订阅文章（RSS）</span></a>
+  </div>
+  <div class="statistics" data-site-statistics data-statistics-src="https://busuanzi.ibruce.info/busuanzi/2.3//busuanzi.pure.mini.js">
+  <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span> <span data-edit-field="interface:views.zh">次访问</span></span>
+  <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span> <span data-edit-field="interface:visitors.zh">位访客</span></span>
+  <span data-preview-statistics hidden><span data-edit-field="interface:preview_stats.zh">访问统计在正式站点显示</span></span>
 </div>
 
-  
-  
   
 </div>
 
   </footer>
 
+  <script type="application/json" id="profile-layout">{"groups":{"home":["opening","benchmarks","education","research","honors","citations","notes"]},"styles":{}}</script>
   <!-- Scripts -->
   
   <script  src="/lib/nprogress/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
+    (() => {
+      NProgress.configure({"showSpinner":false,"trickleSpeed":180,"minimum":0.08});
+      let finished = false;
+      // Fast pages need no flash; background resources do not hold this open.
+      const showTimer = setTimeout(() => {
+        if (!finished && document.readyState === 'loading') NProgress.start();
+      }, 150);
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(showTimer);
+        NProgress.done();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish, { once: true });
+      } else {
+        finish();
+      }
+      window.addEventListener('pagehide', finish, { once: true });
+      window.addEventListener('pageshow', event => {
+        if (event.persisted) { finish(); NProgress.remove(); }
+      });
+    })();
   </script>
 
 
@@ -2156,38 +2060,35 @@ class="math inline">\(4\)</span> 个），与实测结论完全相符。</p>
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
   
 
 
-
-  <script  src="/lib/typed/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var title = subtitle.title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
 
 
 
 
   
     <!-- Baidu Analytics -->
-    <script defer>
+    <script>
       var _hmt = _hmt || [];
       (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+        function loadAnalytics() {
+          var host = location.hostname;
+          var preview = document.getElementById('review-bootstrap') ||
+            ['localhost', '127.0.0.1', '[::1]'].includes(host) ||
+            /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+          if (preview) return;
+          var hm = document.createElement('script');
+          hm.async = true;
+          hm.src = 'https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37';
+          document.head.appendChild(hm);
+        }
+        // Statistics load after the readable page, and only on the public site.
+        if (document.readyState === 'complete') loadAnalytics();
+        else window.addEventListener('load', loadAnalytics, { once: true });
       })();
     </script>
   
@@ -2202,8 +2103,6 @@ class="math inline">\(4\)</span> 个），与实测结论完全相符。</p>
 
   
 
-  
-    
   
 
 
@@ -2371,11 +2270,16 @@ class="math inline">\(4\)</span> 个），与实测结论完全相符。</p>
 
   <script  src="/js/local-search.js" ></script>
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-  <script defer src="/js/leancloud.js" ></script>
 
 
+
+  
+<script src="/js/citation-curve.js"></script>
+<script src="/js/academic.js"></script>
+<script src="/js/live-data.js"></script>
+<script src="/js/figure-viewer.js"></script>
+<script src="/js/institution-marks.js"></script>
+<script src="/js/scroll-reveal.js"></script>
 
 
 

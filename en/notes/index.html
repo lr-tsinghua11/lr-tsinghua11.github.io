@@ -1,0 +1,663 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile/apple-touch-icon.png">
+  <link rel="icon" href="/img/profile/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <link rel="preload" href="/fonts/wenkai-primary.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="author" content="鲁睿 Rui Lu">
+  <meta name="keywords" content="鲁睿,Rui Lu,KEG,GLM,Deep Search,Agentic RL,多智能体">
+  <meta name="description" content="Course notes, notes on research papers, and life at Tsinghua.">
+  <meta name="robots" content="max-image-preview:large">
+  
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Notes &amp; Life | Rui Lu">
+    <meta property="og:description" content="Course notes, notes on research papers, and life at Tsinghua.">
+    <meta property="og:url" content="https://learningrate1.com/en/notes/">
+    <meta property="og:site_name" content="鲁睿 Rui Lu · Learning_rate">
+    <meta property="og:locale" content="en_US">
+    
+      <meta property="og:image" content="https://learningrate1.com/img/social/13bdcc5fe0e6048e99a4.png">
+      <meta property="og:image:alt" content="Notes &amp; Articles">
+      
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+      
+      <meta property="og:image:type" content="image/png">
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lru43402768">
+    <meta name="twitter:title" content="Notes &amp; Life | Rui Lu">
+    <meta name="twitter:description" content="Course notes, notes on research papers, and life at Tsinghua.">
+    
+      <meta name="twitter:image" content="https://learningrate1.com/img/social/13bdcc5fe0e6048e99a4.png">
+      <meta name="twitter:image:alt" content="Notes &amp; Articles">
+    
+  
+  
+  <link rel="canonical" href="https://learningrate1.com/en/notes/">
+  <link rel="alternate" type="application/atom+xml" title="鲁睿 Rui Lu · Learning_rate" href="/atom.xml">
+  <link rel="alternate" hreflang="zh-CN" href="https://learningrate1.com/notes/"><link rel="alternate" hreflang="en" href="https://learningrate1.com/en/notes/"><link rel="alternate" hreflang="x-default" href="https://learningrate1.com/notes/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://learningrate1.com/#rui-lu","name":"Rui Lu","alternateName":["鲁睿","Learning_rate"],"url":"https://learningrate1.com/","image":"https://learningrate1.com/img/profile/avatar.webp","email":"lu-r21@mails.tsinghua.edu.cn","sameAs":["https://scholar.google.com/citations?user=-MGuqDcAAAAJ","https://github.com/lr-tsinghua11","https://twitter.com/lru43402768","https://www.zhihu.com/people/er-ji-yi-4"],"jobTitle":"Ph.D. student in Computer Science","affiliation":[{"@type":"CollegeOrUniversity","name":"Tsinghua University","url":"https://www.tsinghua.edu.cn/"},{"@type":"Organization","name":"Knowledge Engineering Group (KEG), Tsinghua University","url":"https://keg.cs.tsinghua.edu.cn/"}],"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Bachelor of Science in Mathematics and Physics; Bachelor of Engineering in Software Engineering","credentialCategory":"Bachelor's degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Tsinghua University"}},"knowsAbout":["Deep Search","Multi-turn agentic reinforcement learning","Multi-agent collaboration","Terminal agents","AI for Science"],"description":"I am a second-year Ph.D. student in the Knowledge Engineering Group (KEG), Department of Computer Science and Technology, Tsinghua University. I have worked on LLM training at Z.ai since 2023. As a core contributor to GLM-4.5 / GLM-5, I am responsible for improving the base models' Deep Search capabilities. I study multi-turn agentic reinforcement learning and multi-agent collaboration. I am currently studying terminal agents and am also interested in applying LLMs to scientific research (AI for Science). Feel free to get in touch on WeChat (ID: learning_rate)!"},{"@type":"WebSite","@id":"https://learningrate1.com/#website","url":"https://learningrate1.com/","name":"鲁睿 Rui Lu · Learning_rate","alternateName":"Learning_rate","inLanguage":["zh-CN","en"],"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"ItemList","@id":"https://learningrate1.com/en/notes/#articles","name":"Notes & Life","numberOfItems":32,"itemListElement":[{"@type":"ListItem","position":1,"name":"DeepDive: Learning to Search and Verify Information","url":"https://learningrate1.com/notes/deepdive/"},{"@type":"ListItem","position":2,"name":"Reading Notes on LLM Reasoning","url":"https://learningrate1.com/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/"},{"@type":"ListItem","position":3,"name":"Reinforcement Learning: From MDPs and Q-learning to PPO","url":"https://learningrate1.com/2024/02/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"},{"@type":"ListItem","position":4,"name":"Junior Year: Autumn Reflections","url":"https://learningrate1.com/2024/01/20/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/"},{"@type":"ListItem","position":5,"name":"Networks for Distributed Training","url":"https://learningrate1.com/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/"},{"@type":"ListItem","position":6,"name":"Getting Started with Docker","url":"https://learningrate1.com/2023/08/01/%E7%BC%96%E7%A8%8B/Docker%20%E5%AD%A6%E4%B9%A0/"},{"@type":"ListItem","position":7,"name":"Sophomore Year: Spring Reflections","url":"https://learningrate1.com/2023/07/08/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%80%BB%E7%BB%93/"},{"@type":"ListItem","position":8,"name":"A Guide to Distributed Training","url":"https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/"},{"@type":"ListItem","position":9,"name":"Notes from Hung-yi Lee's Machine Learning Course","url":"https://learningrate1.com/2023/02/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"},{"@type":"ListItem","position":10,"name":"Reading T5","url":"https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/"},{"@type":"ListItem","position":11,"name":"Discussions on Transformers and BERT","url":"https://learningrate1.com/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%B1%B1%E4%B9%8B%E4%BD%9C%E8%AE%A8%E8%AE%BA%E7%AC%94%E8%AE%B0/"},{"@type":"ListItem","position":12,"name":"Reading BERT","url":"https://learningrate1.com/2023/01/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/BERT_Pre-training_of_Deep_Bidirectional_Transformers_for_Language_Understanding/"},{"@type":"ListItem","position":13,"name":"Reading Attention Is All You Need","url":"https://learningrate1.com/2023/01/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Attention_is_all_you_need_notes/"},{"@type":"ListItem","position":14,"name":"Hugging Face Notes: Tokenizers, Datasets and Fine-tuning","url":"https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/"},{"@type":"ListItem","position":15,"name":"Sophomore Year: Autumn Reflections","url":"https://learningrate1.com/2023/01/09/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%BA%8C%E4%B8%8A%E6%80%BB%E7%BB%93/"},{"@type":"ListItem","position":16,"name":"Reflections on My First Year at Tsinghua","url":"https://learningrate1.com/2022/12/29/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%80%E5%AD%A6%E5%B9%B4%E6%80%BB%E7%BB%93/"},{"@type":"ListItem","position":17,"name":"Data Structures: Review Notes","url":"https://learningrate1.com/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/"},{"@type":"ListItem","position":18,"name":"Coaxial Photonic Crystals: Dispersion and Transfer Matrices","url":"https://learningrate1.com/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"},{"@type":"ListItem","position":19,"name":"General Physics II: Tutorial Notes","url":"https://learningrate1.com/2022/10/29/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AD%A62%E5%B0%8F%E7%8F%AD%E8%BE%85%E5%AF%BC%E8%AE%B2%E4%B9%89/"},{"@type":"ListItem","position":20,"name":"Notes on Programming in Rust","url":"https://learningrate1.com/2022/09/11/%E7%BC%96%E7%A8%8B/Rust%20%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/"},{"@type":"ListItem","position":21,"name":"Mathematical Notes on Intersection Problems","url":"https://learningrate1.com/2022/07/14/%E6%97%A9%E6%9C%9F%E7%A7%91%E7%A0%94/%E6%B1%82%E4%BA%A4%E9%97%AE%E9%A2%98%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/"},{"@type":"ListItem","position":22,"name":"A First Look at Shor's Algorithm","url":"https://learningrate1.com/2022/07/06/%E6%97%A9%E6%9C%9F%E7%A7%91%E7%A0%94/Shor%20%E7%AE%97%E6%B3%95%E5%88%9D%E6%8E%A2/"},{"@type":"ListItem","position":23,"name":"General Physics I: Final Exam Solutions","url":"https://learningrate1.com/2022/06/20/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E6%9C%9F%E6%9C%AB%E8%AF%95%E5%8D%B7%E8%A7%A3%E7%AD%94/"},{"@type":"ListItem","position":24,"name":"Calculus A2: Collected Problem Sets","url":"https://learningrate1.com/2022/06/18/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%BE%AE%E7%A7%AF%E5%88%86A(2)%E4%BD%9C%E4%B8%9A%E5%90%88%E9%9B%86%EF%BC%881-10%EF%BC%89/"},{"@type":"ListItem","position":25,"name":"Elementary Number Theory: Problem Sets 1–15","url":"https://learningrate1.com/2022/06/17/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%88%9D%E7%AD%89%E6%95%B0%E8%AE%BA%E4%BD%9C%E4%B8%9A%E5%90%88%E9%9B%86%EF%BC%881-15%EF%BC%89/"},{"@type":"ListItem","position":26,"name":"Calculus A2: A Practice Final","url":"https://learningrate1.com/2022/06/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%BE%AE%E7%A7%AF%E5%88%86A(2)%E6%9C%9F%E6%9C%AB%E6%A8%A1%E6%8B%9F%E8%80%83%E8%AF%95%E8%AF%95%E9%A2%98/"},{"@type":"ListItem","position":27,"name":"Spring at Tsinghua","url":"https://learningrate1.com/2022/05/12/%E7%94%9F%E6%B4%BB/%E6%98%A5%E6%97%A5%E6%B8%85%E5%8D%8E/"},{"@type":"ListItem","position":28,"name":"Foundations of Machine Learning","url":"https://learningrate1.com/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/"},{"@type":"ListItem","position":29,"name":"Physics Lab Reports: Induction, String Vibration and Forced Oscillation","url":"https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"},{"@type":"ListItem","position":30,"name":"Advanced Algebra: Midterm Problems","url":"https://learningrate1.com/2022/04/24/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E9%AB%98%E4%BB%A3%E6%9C%9F%E4%B8%AD%E4%BD%9C%E4%B8%9A/"},{"@type":"ListItem","position":31,"name":"A Little Story About Farming","url":"https://learningrate1.com/2022/03/27/%E7%94%9F%E6%B4%BB/%E7%A7%8D%E7%94%B0%E8%AE%B0/"},{"@type":"ListItem","position":32,"name":"Selected Problems in Advanced Algebra","url":"https://learningrate1.com/2022/03/16/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E9%AB%98%E4%BB%A3%E9%80%89%E8%AE%B2%E9%83%A8%E5%88%86%E4%BD%9C%E4%B8%9A/"}]},{"@type":"CollectionPage","@id":"https://learningrate1.com/en/notes/#page","url":"https://learningrate1.com/en/notes/","name":"Notes & Life | Rui Lu","description":"Course notes, notes on research papers, and life at Tsinghua.","inLanguage":"en","isPartOf":{"@id":"https://learningrate1.com/#website"},"mainEntity":{"@id":"https://learningrate1.com/en/notes/#articles"}}]}</script>
+  <title>Notes &amp; Life | Rui Lu</title>
+
+  <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- Keep Fluid's icon classes, with the original fonts served locally. -->
+
+<link rel="stylesheet" href="/lib/iconfont/core.css">
+
+
+
+<link rel="stylesheet" href="/lib/iconfont/extra.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/academic.css">
+<link rel="stylesheet" href="/css/benchmark.css">
+<link rel="stylesheet" href="/css/citations.css">
+<link rel="stylesheet" href="/css/figure-viewer.css">
+<link rel="stylesheet" href="/css/institution-marks.css">
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#718dcc","options":{"showSpinner":false,"trickleSpeed":180,"minimum":0.08}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body class="academic-site" >
+  <a class="skip-to-content" href="#main-content"><span data-edit-field="interface:skip.en">Skip to content</span></a>
+  
+
+  <header>
+    
+
+
+<div class="academic-header">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/en/">
+      <strong>Learning_rate</strong>
+    </a>
+
+    <a class="mobile-language d-lg-none" data-language-switch href="/notes/" lang="zh-CN" aria-label="切换到中文">中文</a>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/">
+                
+                <span data-edit-field="interface:profile.en">Profile</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/notes/">
+                
+                <span data-edit-field="interface:notes.en">Notes</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                
+                <span data-edit-field="interface:friends.en">Friends</span>
+              </a>
+            </li>
+          
+        
+        <li class="nav-item language-item"><a class="nav-link language-switch" data-language-switch href="/notes/" lang="zh-CN" hreflang="zh-CN" aria-label="切换到中文"><span class="language-mark" aria-hidden="true">文</span>中文</a></li>
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</div>
+
+
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    
+      <div class="academic-shell">
+        <div id="board" class="academic-board">
+<div class="notes-directory" data-review-group="directory">
+<header class="directory-heading" data-review-block="heading">
+  <p class="profile-eyebrow">Notes &amp; Articles</p>
+  <h1><span data-edit-field="interface:notes_life.en">Notes &amp; Life</span></h1>
+  <p><span data-edit-field="interface:notes_intro.en">Course notes, notes on research papers, and life at Tsinghua.</span></p>
+  <p class="original-note"><span data-edit-field="interface:original_note.en">The original articles are in Chinese; titles and navigation are translated here.</span></p>
+</header>
+<div data-review-block="navigation"><nav class="topic-grid" aria-label="Browse by topic">
+
+  <a class="topic-link" data-topic="research" href="/en/notes/#research">
+    <span class="topic-number">01<span>12 notes</span></span>
+    <strong>Research Notes</strong>
+    <span class="topic-description">Papers, language models &amp; reinforcement learning</span>
+    <span class="topic-arrow" aria-hidden="true">↗</span>
+  </a>
+
+  <a class="topic-link" data-topic="mathematics" href="/en/notes/#mathematics">
+    <span class="topic-number">02<span>9 notes</span></span>
+    <strong>Mathematics &amp; Physics</strong>
+    <span class="topic-description">Derivations, problems &amp; course notes</span>
+    <span class="topic-arrow" aria-hidden="true">↗</span>
+  </a>
+
+  <a class="topic-link" data-topic="engineering" href="/en/notes/#engineering">
+    <span class="topic-number">03<span>5 notes</span></span>
+    <strong>Programming</strong>
+    <span class="topic-description">Languages, tools &amp; systems</span>
+    <span class="topic-arrow" aria-hidden="true">↗</span>
+  </a>
+
+  <a class="topic-link" data-topic="life" href="/en/notes/#life">
+    <span class="topic-number">04<span>6 notes</span></span>
+    <strong>Life at Tsinghua</strong>
+    <span class="topic-description">Semester reflections &amp; everyday life</span>
+    <span class="topic-arrow" aria-hidden="true">↗</span>
+  </a>
+
+</nav>
+
+<nav class="notes-filter" aria-label="Filter by topic" data-notes-filters>
+  <a href="#all" data-filter="all" aria-current="true"><span data-edit-field="interface:all.en">All</span> <small>32</small></a>
+  <a data-filter="research" data-topic="research" href="#research">Research Notes</a><a data-filter="mathematics" data-topic="mathematics" href="#mathematics">Mathematics &amp; Physics</a><a data-filter="engineering" data-topic="engineering" href="#engineering">Programming</a><a data-filter="life" data-topic="life" href="#life">Life at Tsinghua</a>
+  <a class="archive-link" href="/archives/"><span data-edit-field="interface:archive.en">Browse by date</span> ↗</a>
+</nav></div>
+
+<section class="profile-section topic-section" id="research" data-topic="research" data-notes-topic="research" data-review-block="research">
+  <div class="section-heading"><h2>Research Notes</h2><span class="topic-subtitle">Papers, language models &amp; reinforcement learning</span></div>
+  
+  <div class="directory-list">
+  
+    <article class="directory-note">
+      <time datetime="2025-09-15">2025.09.15</time>
+      <h3><a href="/notes/deepdive/"><span data-edit-field="note_titles:计算机科学/DeepDive.en">DeepDive: Learning to Search and Verify Information</span></a></h3>
+      
+      <a class="directory-read" href="/notes/deepdive/" aria-label="DeepDive: Learning to Search and Verify Information">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2025-07-23">2025.07.23</time>
+      <h3><a href="/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/"><span data-edit-field="note_titles:计算机科学/reason_paper.en">Reading Notes on LLM Reasoning</span></a></h3>
+      
+      <a class="directory-read" href="/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/" aria-label="Reading Notes on LLM Reasoning">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2024-02-01">2024.02.01</time>
+      <h3><a href="/2024/02/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span data-edit-field="note_titles:计算机科学/强化学习笔记.en">Reinforcement Learning: From MDPs and Q-learning to PPO</span></a></h3>
+      
+      <a class="directory-read" href="/2024/02/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" aria-label="Reinforcement Learning: From MDPs and Q-learning to PPO">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2023-02-21">2023.02.21</time>
+      <h3><a href="/2023/02/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span data-edit-field="note_titles:计算机科学/李宏毅机器学习笔记.en">Notes from Hung-yi Lee&#39;s Machine Learning Course</span></a></h3>
+      
+      <a class="directory-read" href="/2023/02/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" aria-label="Notes from Hung-yi Lee&#39;s Machine Learning Course">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2023-02-09">2023.02.09</time>
+      <h3><a href="/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/"><span data-edit-field="note_titles:计算机科学/T5.en">Reading T5</span></a></h3>
+      
+      <a class="directory-read" href="/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/" aria-label="Reading T5">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2023-02-09">2023.02.09</time>
+      <h3><a href="/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%B1%B1%E4%B9%8B%E4%BD%9C%E8%AE%A8%E8%AE%BA%E7%AC%94%E8%AE%B0/"><span data-edit-field="note_titles:计算机科学/开山之作讨论笔记.en">Discussions on Transformers and BERT</span></a></h3>
+      
+      <a class="directory-read" href="/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%B1%B1%E4%B9%8B%E4%BD%9C%E8%AE%A8%E8%AE%BA%E7%AC%94%E8%AE%B0/" aria-label="Discussions on Transformers and BERT">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2023-01-24">2023.01.24</time>
+      <h3><a href="/2023/01/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/BERT_Pre-training_of_Deep_Bidirectional_Transformers_for_Language_Understanding/"><span data-edit-field="note_titles:计算机科学/BERT_Pre-training_of_Deep_Bidirectional_Transformers_for_Language_Understanding.en">Reading BERT</span></a></h3>
+      
+      <a class="directory-read" href="/2023/01/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/BERT_Pre-training_of_Deep_Bidirectional_Transformers_for_Language_Understanding/" aria-label="Reading BERT">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2023-01-19">2023.01.19</time>
+      <h3><a href="/2023/01/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Attention_is_all_you_need_notes/"><span data-edit-field="note_titles:计算机科学/Attention_is_all_you_need_notes.en">Reading Attention Is All You Need</span></a></h3>
+      
+      <a class="directory-read" href="/2023/01/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Attention_is_all_you_need_notes/" aria-label="Reading Attention Is All You Need">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2023-01-14">2023.01.14</time>
+      <h3><a href="/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/"><span data-edit-field="note_titles:计算机科学/Hugging face 笔记.en">Hugging Face Notes: Tokenizers, Datasets and Fine-tuning</span></a></h3>
+      
+      <a class="directory-read" href="/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/" aria-label="Hugging Face Notes: Tokenizers, Datasets and Fine-tuning">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-07-14">2022.07.14</time>
+      <h3><a href="/2022/07/14/%E6%97%A9%E6%9C%9F%E7%A7%91%E7%A0%94/%E6%B1%82%E4%BA%A4%E9%97%AE%E9%A2%98%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/"><span data-edit-field="note_titles:早期科研/求交问题数学知识.en">Mathematical Notes on Intersection Problems</span></a></h3>
+      
+      <a class="directory-read" href="/2022/07/14/%E6%97%A9%E6%9C%9F%E7%A7%91%E7%A0%94/%E6%B1%82%E4%BA%A4%E9%97%AE%E9%A2%98%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/" aria-label="Mathematical Notes on Intersection Problems">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-07-06">2022.07.06</time>
+      <h3><a href="/2022/07/06/%E6%97%A9%E6%9C%9F%E7%A7%91%E7%A0%94/Shor%20%E7%AE%97%E6%B3%95%E5%88%9D%E6%8E%A2/"><span data-edit-field="note_titles:早期科研/Shor 算法初探.en">A First Look at Shor&#39;s Algorithm</span></a></h3>
+      
+      <a class="directory-read" href="/2022/07/06/%E6%97%A9%E6%9C%9F%E7%A7%91%E7%A0%94/Shor%20%E7%AE%97%E6%B3%95%E5%88%9D%E6%8E%A2/" aria-label="A First Look at Shor&#39;s Algorithm">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-05-08">2022.05.08</time>
+      <h3><a href="/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/"><span data-edit-field="note_titles:计算机科学/机器学习基础.en">Foundations of Machine Learning</span></a></h3>
+      
+      <a class="directory-read" href="/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/" aria-label="Foundations of Machine Learning">Read note ↗</a>
+    </article>
+  
+  </div>
+</section>
+
+<section class="profile-section topic-section" id="mathematics" data-topic="mathematics" data-notes-topic="mathematics" data-review-block="mathematics">
+  <div class="section-heading"><h2>Mathematics &amp; Physics</h2><span class="topic-subtitle">Derivations, problems &amp; course notes</span></div>
+  <a class="notes-tool-link" href="/tools/linear-fit/"><span>Linear fit calculator</span><small>Fit your data · export SVG</small><span aria-hidden="true">↗</span></a>
+  <div class="directory-list">
+  
+    <article class="directory-note">
+      <time datetime="2022-12-15">2022.12.15</time>
+      <h3><a href="/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"><span data-edit-field="note_titles:数理基础/同轴光子晶体实验报告.en">Coaxial Photonic Crystals: Dispersion and Transfer Matrices</span></a></h3>
+      
+      <a class="directory-read" href="/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" aria-label="Coaxial Photonic Crystals: Dispersion and Transfer Matrices">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-10-29">2022.10.29</time>
+      <h3><a href="/2022/10/29/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AD%A62%E5%B0%8F%E7%8F%AD%E8%BE%85%E5%AF%BC%E8%AE%B2%E4%B9%89/"><span data-edit-field="note_titles:数理基础/基础物理学2小班辅导讲义.en">General Physics II: Tutorial Notes</span></a></h3>
+      
+      <a class="directory-read" href="/2022/10/29/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%A1%80%E7%89%A9%E7%90%86%E5%AD%A62%E5%B0%8F%E7%8F%AD%E8%BE%85%E5%AF%BC%E8%AE%B2%E4%B9%89/" aria-label="General Physics II: Tutorial Notes">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-06-20">2022.06.20</time>
+      <h3><a href="/2022/06/20/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E6%9C%9F%E6%9C%AB%E8%AF%95%E5%8D%B7%E8%A7%A3%E7%AD%94/"><span data-edit-field="note_titles:数理基础/基物1期末试卷解答.en">General Physics I: Final Exam Solutions</span></a></h3>
+      
+      <a class="directory-read" href="/2022/06/20/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E6%9C%9F%E6%9C%AB%E8%AF%95%E5%8D%B7%E8%A7%A3%E7%AD%94/" aria-label="General Physics I: Final Exam Solutions">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-06-18">2022.06.18</time>
+      <h3><a href="/2022/06/18/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%BE%AE%E7%A7%AF%E5%88%86A(2)%E4%BD%9C%E4%B8%9A%E5%90%88%E9%9B%86%EF%BC%881-10%EF%BC%89/"><span data-edit-field="note_titles:数理基础/微积分A(2)作业合集（1-10）.en">Calculus A2: Collected Problem Sets</span></a></h3>
+      
+      <a class="directory-read" href="/2022/06/18/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%BE%AE%E7%A7%AF%E5%88%86A(2)%E4%BD%9C%E4%B8%9A%E5%90%88%E9%9B%86%EF%BC%881-10%EF%BC%89/" aria-label="Calculus A2: Collected Problem Sets">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-06-17">2022.06.17</time>
+      <h3><a href="/2022/06/17/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%88%9D%E7%AD%89%E6%95%B0%E8%AE%BA%E4%BD%9C%E4%B8%9A%E5%90%88%E9%9B%86%EF%BC%881-15%EF%BC%89/"><span data-edit-field="note_titles:数理基础/初等数论作业合集（1-15）.en">Elementary Number Theory: Problem Sets 1–15</span></a></h3>
+      
+      <a class="directory-read" href="/2022/06/17/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%88%9D%E7%AD%89%E6%95%B0%E8%AE%BA%E4%BD%9C%E4%B8%9A%E5%90%88%E9%9B%86%EF%BC%881-15%EF%BC%89/" aria-label="Elementary Number Theory: Problem Sets 1–15">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-06-03">2022.06.03</time>
+      <h3><a href="/2022/06/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%BE%AE%E7%A7%AF%E5%88%86A(2)%E6%9C%9F%E6%9C%AB%E6%A8%A1%E6%8B%9F%E8%80%83%E8%AF%95%E8%AF%95%E9%A2%98/"><span data-edit-field="note_titles:数理基础/微积分A(2)期末模拟考试试题.en">Calculus A2: A Practice Final</span></a></h3>
+      
+      <a class="directory-read" href="/2022/06/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%BE%AE%E7%A7%AF%E5%88%86A(2)%E6%9C%9F%E6%9C%AB%E6%A8%A1%E6%8B%9F%E8%80%83%E8%AF%95%E8%AF%95%E9%A2%98/" aria-label="Calculus A2: A Practice Final">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-05-03">2022.05.03</time>
+      <h3><a href="/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"><span data-edit-field="note_titles:数理基础/基物1实验报告.en">Physics Lab Reports: Induction, String Vibration and Forced Oscillation</span></a></h3>
+      
+      <a class="directory-read" href="/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" aria-label="Physics Lab Reports: Induction, String Vibration and Forced Oscillation">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-04-24">2022.04.24</time>
+      <h3><a href="/2022/04/24/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E9%AB%98%E4%BB%A3%E6%9C%9F%E4%B8%AD%E4%BD%9C%E4%B8%9A/"><span data-edit-field="note_titles:数理基础/高代期中作业.en">Advanced Algebra: Midterm Problems</span></a></h3>
+      
+      <a class="directory-read" href="/2022/04/24/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E9%AB%98%E4%BB%A3%E6%9C%9F%E4%B8%AD%E4%BD%9C%E4%B8%9A/" aria-label="Advanced Algebra: Midterm Problems">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-03-16">2022.03.16</time>
+      <h3><a href="/2022/03/16/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E9%AB%98%E4%BB%A3%E9%80%89%E8%AE%B2%E9%83%A8%E5%88%86%E4%BD%9C%E4%B8%9A/"><span data-edit-field="note_titles:数理基础/高代选讲部分作业.en">Selected Problems in Advanced Algebra</span></a></h3>
+      
+      <a class="directory-read" href="/2022/03/16/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E9%AB%98%E4%BB%A3%E9%80%89%E8%AE%B2%E9%83%A8%E5%88%86%E4%BD%9C%E4%B8%9A/" aria-label="Selected Problems in Advanced Algebra">Read note ↗</a>
+    </article>
+  
+  </div>
+</section>
+
+<section class="profile-section topic-section" id="engineering" data-topic="engineering" data-notes-topic="engineering" data-review-block="engineering">
+  <div class="section-heading"><h2>Programming</h2><span class="topic-subtitle">Languages, tools &amp; systems</span></div>
+  
+  <div class="directory-list">
+  
+    <article class="directory-note">
+      <time datetime="2023-08-18">2023.08.18</time>
+      <h3><a href="/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/"><span data-edit-field="note_titles:计算机科学/集群网络.en">Networks for Distributed Training</span></a></h3>
+      
+      <a class="directory-read" href="/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/" aria-label="Networks for Distributed Training">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2023-08-01">2023.08.01</time>
+      <h3><a href="/2023/08/01/%E7%BC%96%E7%A8%8B/Docker%20%E5%AD%A6%E4%B9%A0/"><span data-edit-field="note_titles:编程/Docker 学习.en">Getting Started with Docker</span></a></h3>
+      
+      <a class="directory-read" href="/2023/08/01/%E7%BC%96%E7%A8%8B/Docker%20%E5%AD%A6%E4%B9%A0/" aria-label="Getting Started with Docker">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2023-03-02">2023.03.02</time>
+      <h3><a href="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/"><span data-edit-field="note_titles:计算机科学/分布式计算概述.en">A Guide to Distributed Training</span></a></h3>
+      
+      <a class="directory-read" href="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/" aria-label="A Guide to Distributed Training">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-12-25">2022.12.25</time>
+      <h3><a href="/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span data-edit-field="note_titles:计算机科学/数据结构期末考试复习笔记.en">Data Structures: Review Notes</span></a></h3>
+      
+      <a class="directory-read" href="/2022/12/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" aria-label="Data Structures: Review Notes">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-09-11">2022.09.11</time>
+      <h3><a href="/2022/09/11/%E7%BC%96%E7%A8%8B/Rust%20%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/"><span data-edit-field="note_titles:编程/Rust 程序设计课堂笔记.en">Notes on Programming in Rust</span></a></h3>
+      
+      <a class="directory-read" href="/2022/09/11/%E7%BC%96%E7%A8%8B/Rust%20%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" aria-label="Notes on Programming in Rust">Read note ↗</a>
+    </article>
+  
+  </div>
+</section>
+
+<section class="profile-section topic-section" id="life" data-topic="life" data-notes-topic="life" data-review-block="life">
+  <div class="section-heading"><h2>Life at Tsinghua</h2><span class="topic-subtitle">Semester reflections &amp; everyday life</span></div>
+  
+  <div class="directory-list">
+  
+    <article class="directory-note">
+      <time datetime="2024-01-20">2024.01.20</time>
+      <h3><a href="/2024/01/20/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/"><span data-edit-field="note_titles:总结/大三上总结.en">Junior Year: Autumn Reflections</span></a></h3>
+      
+      <a class="directory-read" href="/2024/01/20/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/" aria-label="Junior Year: Autumn Reflections">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2023-07-08">2023.07.08</time>
+      <h3><a href="/2023/07/08/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%80%BB%E7%BB%93/"><span data-edit-field="note_titles:总结/大二下总结.en">Sophomore Year: Spring Reflections</span></a></h3>
+      
+      <a class="directory-read" href="/2023/07/08/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%80%BB%E7%BB%93/" aria-label="Sophomore Year: Spring Reflections">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2023-01-09">2023.01.09</time>
+      <h3><a href="/2023/01/09/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%BA%8C%E4%B8%8A%E6%80%BB%E7%BB%93/"><span data-edit-field="note_titles:总结/大二上总结.en">Sophomore Year: Autumn Reflections</span></a></h3>
+      
+      <a class="directory-read" href="/2023/01/09/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%BA%8C%E4%B8%8A%E6%80%BB%E7%BB%93/" aria-label="Sophomore Year: Autumn Reflections">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-12-29">2022.12.29</time>
+      <h3><a href="/2022/12/29/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%80%E5%AD%A6%E5%B9%B4%E6%80%BB%E7%BB%93/"><span data-edit-field="note_titles:总结/大一学年总结.en">Reflections on My First Year at Tsinghua</span></a></h3>
+      
+      <a class="directory-read" href="/2022/12/29/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%80%E5%AD%A6%E5%B9%B4%E6%80%BB%E7%BB%93/" aria-label="Reflections on My First Year at Tsinghua">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-05-12">2022.05.12</time>
+      <h3><a href="/2022/05/12/%E7%94%9F%E6%B4%BB/%E6%98%A5%E6%97%A5%E6%B8%85%E5%8D%8E/"><span data-edit-field="note_titles:生活/春日清华.en">Spring at Tsinghua</span></a></h3>
+      
+      <a class="directory-read" href="/2022/05/12/%E7%94%9F%E6%B4%BB/%E6%98%A5%E6%97%A5%E6%B8%85%E5%8D%8E/" aria-label="Spring at Tsinghua">Read note ↗</a>
+    </article>
+  
+    <article class="directory-note">
+      <time datetime="2022-03-27">2022.03.27</time>
+      <h3><a href="/2022/03/27/%E7%94%9F%E6%B4%BB/%E7%A7%8D%E7%94%B0%E8%AE%B0/"><span data-edit-field="note_titles:生活/种田记.en">A Little Story About Farming</span></a></h3>
+      
+      <a class="directory-read" href="/2022/03/27/%E7%94%9F%E6%B4%BB/%E7%A7%8D%E7%94%B0%E8%AE%B0/" aria-label="A Little Story About Farming">Read note ↗</a>
+    </article>
+  
+  </div>
+</section>
+
+</div>
+</div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 id="ModalLabel" class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    
+<div class="footer-inner">
+  <div class="footer-content">
+    <span class="footer-copyright">© 2026 <span data-edit-field="profile:name_en">Rui Lu</span></span>
+    <a href="/atom.xml" type="application/atom+xml" title="Subscribe to posts with an RSS reader"><span data-edit-field="interface:subscribe_articles.en">Subscribe via RSS</span></a>
+  </div>
+  <div class="statistics" data-site-statistics data-statistics-src="https://busuanzi.ibruce.info/busuanzi/2.3//busuanzi.pure.mini.js">
+  <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span> <span data-edit-field="interface:views.en">page views</span></span>
+  <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span> <span data-edit-field="interface:visitors.en">visitors</span></span>
+  <span data-preview-statistics hidden><span data-edit-field="interface:preview_stats.en">Visitor counts are shown on the live site</span></span>
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <script type="application/json" id="profile-layout">{"groups":{"home":["opening","benchmarks","education","research","honors","citations","notes"]},"styles":{}}</script>
+  <!-- Scripts -->
+  
+  <script  src="/lib/nprogress/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
+
+  <script>
+    (() => {
+      NProgress.configure({"showSpinner":false,"trickleSpeed":180,"minimum":0.08});
+      let finished = false;
+      // Fast pages need no flash; background resources do not hold this open.
+      const showTimer = setTimeout(() => {
+        if (!finished && document.readyState === 'loading') NProgress.start();
+      }, 150);
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(showTimer);
+        NProgress.done();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish, { once: true });
+      } else {
+        finish();
+      }
+      window.addEventListener('pagehide', finish, { once: true });
+      window.addEventListener('pageshow', event => {
+        if (event.persisted) { finish(); NProgress.remove(); }
+      });
+    })();
+  </script>
+
+
+<script  src="/lib/jquery/jquery.min.js" ></script>
+<script  src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  
+    
+  
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        function loadAnalytics() {
+          var host = location.hostname;
+          var preview = document.getElementById('review-bootstrap') ||
+            ['localhost', '127.0.0.1', '[::1]'].includes(host) ||
+            /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+          if (preview) return;
+          var hm = document.createElement('script');
+          hm.async = true;
+          hm.src = 'https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37';
+          document.head.appendChild(hm);
+        }
+        // Statistics load after the readable page, and only on the public site.
+        if (document.readyState === 'complete') loadAnalytics();
+        else window.addEventListener('load', loadAnalytics, { once: true });
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/citation-curve.js"></script>
+<script src="/js/academic.js"></script>
+<script src="/js/live-data.js"></script>
+<script src="/js/figure-viewer.js"></script>
+<script src="/js/institution-marks.js"></script>
+<script src="/js/scroll-reveal.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

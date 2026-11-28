@@ -1,0 +1,34 @@
+/* Official marks sit beside the institution names. */
+.institution-mark { display:inline-block; flex:none; line-height:0; text-decoration:none !important; border-radius:5px; transition:transform .2s cubic-bezier(.2,.7,.3,1),filter .2s; }
+.institution-mark img { display:block; width:100%; height:100%; object-fit:contain; filter:none !important; }
+.institution-mention { white-space:nowrap; }
+.institution-term { display:inline-block; max-width:100%; vertical-align:baseline; }
+.institution-mark--zai { width:1.18em; height:1.18em; margin-inline:.25em .08em; vertical-align:-.18em; }
+.institution-mark--zai img { display:inline; vertical-align:baseline; }
+.institution-mark--tsinghua-inline { width:1.4em; height:1.4em; margin-inline:.12em .25em; vertical-align:-.32em; border-radius:50%; background:#fff; }
+.institution-mark--keg { width:1.4em; height:1.4em; margin-inline:.32em .03em; vertical-align:-.32em; border-radius:50%; background:#fff; }
+.education-department .institution-mention { display:inline-block; max-width:100%; white-space:normal; vertical-align:baseline; }
+/* A block edit root avoids Chromium's extra line after multiline plaintext edits. */
+.education-department > [data-edit-field] { display:block; }
+.institution-mark--department { width:1.45em; height:1.45em; margin-inline:.3em .06em; vertical-align:-.33em; border-radius:50%; background:#fff; }
+.institution-mark--weiyang { padding:2px; border-radius:5px; background:#566ea2; }
+.institution-mark--software { padding:1px; background:#6e4b87; }
+.education-institution { display:flex; align-items:center; gap:var(--education-mark-gap,12px); margin-bottom:8px; }
+.education-description > .institution-mark--school { width:var(--education-mark-size,58px); height:var(--education-mark-size,58px); border-radius:50%; background:#fff; }
+.education-description .education-institution h3 { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 12px; min-width:0; margin:0; }
+.education-description .education-institution h3 > .education-school-en { display:block; margin:0; }
+.academic-site:not(.is-reviewing) .institution-mark:focus-visible { outline:2px solid var(--profile-accent); outline-offset:4px; }
+@media (hover:hover) and (pointer:fine) {
+  .academic-site:not(.is-reviewing) .institution-mark:hover { filter:drop-shadow(0 4px 5px #536eae26); }
+}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  .academic-site:not(.is-reviewing) .institution-mark:hover { transform:translateY(-2px); }
+}
+@media (prefers-reduced-motion:no-preference) {
+  .academic-site:not(.is-reviewing) .institution-mark:focus-visible { transform:translateY(-2px); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .institution-mark { transition:none; }
+}
+.academic-site.is-reviewing .institution-mark { transition:none; }
+.academic-site.is-reviewing [data-edit-field]:focus .institution-mark { display:none; }

@@ -7,32 +7,50 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile/apple-touch-icon.png">
+  <link rel="icon" href="/img/profile/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Learning_rate">
-  <meta name="keywords" content="LLM,强化学习,Agent,深度学习,NLP,清华大学,Learning_rate">
+  <link rel="preload" href="/fonts/wenkai-primary.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="author" content="鲁睿 Rui Lu">
+  <meta name="keywords" content="鲁睿,Rui Lu,KEG,GLM,Deep Search,Agentic RL,多智能体">
+  <meta name="description" content="大模型分布式训练学习笔记，介绍数据并行、模型并行、流水线并行、梯度累积、激活重计算、1F1B、ZeRO 与 CPU offload，讨论计算、显存和通信之间的取舍。">
+  <meta name="robots" content="max-image-preview:large">
   
-    <meta name="description" content="训练大模型期间并行计算相关知识，为后续训练任务作准备">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Overview of Distributed Computing">
-<meta property="og:url" content="https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/index.html">
-<meta property="og:site_name" content="Learning_rate">
-<meta property="og:description" content="训练大模型期间并行计算相关知识，为后续训练任务作准备">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://learningrate1.com/img/%E5%B1%B1%E5%B7%9D.jpg">
-<meta property="article:published_time" content="2023-03-02T02:27:42.000Z">
-<meta property="article:modified_time" content="2023-03-02T02:27:42.000Z">
-<meta property="article:author" content="Learning_rate">
-<meta property="article:tag" content="NLP">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://learningrate1.com/img/%E5%B1%B1%E5%B7%9D.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="大模型分布式训练笔记：并行计算、梯度累积与 ZeRO | 鲁睿 Rui Lu">
+    <meta property="og:description" content="大模型分布式训练学习笔记，介绍数据并行、模型并行、流水线并行、梯度累积、激活重计算、1F1B、ZeRO 与 CPU offload，讨论计算、显存和通信之间的取舍。">
+    <meta property="og:url" content="https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/">
+    <meta property="og:site_name" content="鲁睿 Rui Lu · Learning_rate">
+    <meta property="og:locale" content="zh_CN">
+    
+      <meta property="og:image" content="https://learningrate1.com/img/social/8265a937a0a0df81acc0.png">
+      <meta property="og:image:alt" content="大模型分布式训练笔记：并行计算、梯度累积与 ZeRO">
+      
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+      
+      <meta property="og:image:type" content="image/png">
+    
+    <meta property="article:published_time" content="2023-03-02T02:27:42.000Z">
+    <meta property="article:modified_time" content="2026-11-26T16:00:00.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lru43402768">
+    <meta name="twitter:title" content="大模型分布式训练笔记：并行计算、梯度累积与 ZeRO | 鲁睿 Rui Lu">
+    <meta name="twitter:description" content="大模型分布式训练学习笔记，介绍数据并行、模型并行、流水线并行、梯度累积、激活重计算、1F1B、ZeRO 与 CPU offload，讨论计算、显存和通信之间的取舍。">
+    
+      <meta name="twitter:image" content="https://learningrate1.com/img/social/8265a937a0a0df81acc0.png">
+      <meta name="twitter:image:alt" content="大模型分布式训练笔记：并行计算、梯度累积与 ZeRO">
+    
   
   
-  <title>Overview of Distributed Computing - Learning_rate</title>
+  <link rel="canonical" href="https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/">
+  <link rel="alternate" type="application/atom+xml" title="鲁睿 Rui Lu · Learning_rate" href="/atom.xml">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://learningrate1.com/#rui-lu","name":"Rui Lu","alternateName":["鲁睿","Learning_rate"],"url":"https://learningrate1.com/","image":"https://learningrate1.com/img/profile/avatar.webp","email":"lu-r21@mails.tsinghua.edu.cn","sameAs":["https://scholar.google.com/citations?user=-MGuqDcAAAAJ","https://github.com/lr-tsinghua11","https://twitter.com/lru43402768","https://www.zhihu.com/people/er-ji-yi-4"],"jobTitle":"Ph.D. student in Computer Science","affiliation":[{"@type":"CollegeOrUniversity","name":"Tsinghua University","url":"https://www.tsinghua.edu.cn/"},{"@type":"Organization","name":"Knowledge Engineering Group (KEG), Tsinghua University","url":"https://keg.cs.tsinghua.edu.cn/"}],"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Bachelor of Science in Mathematics and Physics; Bachelor of Engineering in Software Engineering","credentialCategory":"Bachelor's degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Tsinghua University"}},"knowsAbout":["Deep Search","Multi-turn agentic reinforcement learning","Multi-agent collaboration","Terminal agents","AI for Science"],"description":"我是清华大学计算机系 KEG 实验室的直博二年级学生，自 2023 年起在智谱从事大模型训练工作。作为 GLM-4.5 / GLM-5 的核心贡献者，我负责优化基座模型的深度搜索（Deep Search）能力。我主要研究多轮强化学习与多智能体协作（Multi-turn Agentic RL & Multi-Agent Collaboration），近期在研究终端智能体（Terminal Agent），对大模型在科学研究中的应用（AI for Science）也很感兴趣。欢迎添加微信（微信号：learning_rate）和我交流！"},{"@type":"WebSite","@id":"https://learningrate1.com/#website","url":"https://learningrate1.com/","name":"鲁睿 Rui Lu · Learning_rate","alternateName":"Learning_rate","inLanguage":["zh-CN","en"],"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"BreadcrumbList","@id":"https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"个人简介","item":"https://learningrate1.com/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://learningrate1.com/notes/"},{"@type":"ListItem","position":3,"name":"编程实践","item":"https://learningrate1.com/notes/#engineering"}]},{"@type":"BlogPosting","@id":"https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/#article","url":"https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/","mainEntityOfPage":{"@id":"https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/#page"},"headline":"大模型分布式训练笔记：并行计算、梯度累积与 ZeRO","description":"大模型分布式训练学习笔记，介绍数据并行、模型并行、流水线并行、梯度累积、激活重计算、1F1B、ZeRO 与 CPU offload，讨论计算、显存和通信之间的取舍。","image":"https://learningrate1.com/img/social/8265a937a0a0df81acc0.png","inLanguage":"zh-CN","author":{"@id":"https://learningrate1.com/#rui-lu"},"articleSection":"编程实践","datePublished":"2023-03-02T02:27:42.000Z","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"}},{"@type":"WebPage","@id":"https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/#page","url":"https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/","name":"大模型分布式训练笔记：并行计算、梯度累积与 ZeRO | 鲁睿 Rui Lu","description":"大模型分布式训练学习笔记，介绍数据并行、模型并行、流水线并行、梯度累积、激活重计算、1F1B、ZeRO 与 CPU offload，讨论计算、显存和通信之间的取舍。","inLanguage":"zh-CN","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"},"breadcrumb":{"@id":"https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/#breadcrumb"},"mainEntity":{"@id":"https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/#article"}}]}</script>
+  <title>大模型分布式训练笔记：并行计算、梯度累积与 ZeRO | 鲁睿 Rui Lu</title>
 
   <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
 
@@ -48,14 +66,13 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
+<!-- Keep Fluid's icon classes, with the original fonts served locally. -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
+<link rel="stylesheet" href="/lib/iconfont/core.css">
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+<link rel="stylesheet" href="/lib/iconfont/extra.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -68,32 +85,44 @@
 
 
 
+  
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/academic.css">
+<link rel="stylesheet" href="/css/benchmark.css">
+<link rel="stylesheet" href="/css/citations.css">
+<link rel="stylesheet" href="/css/figure-viewer.css">
+<link rel="stylesheet" href="/css/institution-marks.css">
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#718dcc","options":{"showSpinner":false,"trickleSpeed":180,"minimum":0.08}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Learning_rate" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
-<body>
+<body class="academic-site reading-site" data-topic="engineering">
+  <a class="skip-to-content" href="#main-content"><span data-edit-field="interface:skip.zh">跳转到正文</span></a>
   
 
   <header>
     
 
-<div class="header-inner" style="height: 70vh;">
+
+<div class="academic-header">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong> Learning_rate&#39;s blog</strong>
+      <strong>Learning_rate</strong>
     </a>
 
+    <a class="mobile-language d-lg-none" data-language-switch href="/en/notes/" lang="en" aria-label="Switch to English">EN</a>
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,8 +139,8 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
+                
+                <span data-edit-field="interface:profile.zh">个人简介</span>
               </a>
             </li>
           
@@ -121,45 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
+              <a class="nav-link" href="/notes/">
+                
+                <span data-edit-field="interface:notes.zh">文章</span>
               </a>
             </li>
           
@@ -170,12 +163,13 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
+                
+                <span data-edit-field="interface:friends.zh">友链</span>
               </a>
             </li>
           
         
+        <li class="nav-item language-item"><a class="nav-link language-switch" data-language-switch href="/en/notes/" lang="en" hreflang="en" aria-label="Switch to English"><span class="language-mark" aria-hidden="true">文</span>EN</a></li>
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -195,83 +189,22 @@
   </div>
 </nav>
 
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E5%B1%B1%E5%B7%9D.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          <span id="subtitle" title="Overview of Distributed Computing">
-            
-          </span>
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-02 10:27" pubdate>
-          2023年3月2日 上午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          1.9k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          16 分钟
-        
-      </span>
-    
-
-    
-    
-      
-        <span id="busuanzi_container_page_pv" style="display: none">
-          <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="busuanzi_value_page_pv"></span> 次
-        </span>
-        
-      
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
 </div>
 
-</div>
 
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     
       
 
+<header class="reading-masthead" data-topic="engineering">
+  <nav class="reading-breadcrumbs" aria-label="文章位置">
+    <ol><li><a href="/">个人简介</a></li><li><a href="/notes/">文章</a></li><li><a href="/notes/#engineering">编程实践</a></li></ol>
+  </nav>
+  <h1>大模型分布式训练笔记：并行计算、梯度累积与 ZeRO</h1>
+  <p><time datetime="2023-03-02">2023.03.02</time><span class="reading-updated"><span aria-hidden="true"> · </span>更新于 <time datetime="2026-11-27">2026.11.27</time></span><span aria-hidden="true"> · </span><a class="reading-author" href="/" rel="author">鲁睿 Rui Lu</a><span class="reading-views" id="busuanzi_container_page_pv"><span aria-hidden="true"> · </span><span id="busuanzi_value_page_pv">—</span> <span data-edit-field="interface:article_views.zh">次阅读</span></span></p>
+</header>
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
     <div class="side-col d-none d-lg-block col-lg-2">
@@ -283,22 +216,14 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Overview of Distributed Computing</h1>
-            
-              <p class="note note-info">
-                
-                  
-                    本文最后更新于：3 年前
-                  
-                
-              </p>
-            
             <div class="markdown-body">
               
-              <h1 id="并行计算">并行计算</h1>
-<h2 id="并行技术综述">并行技术综述</h2>
-<h3 id="模型加速">🚀—— 模型加速</h3>
+              <p>训练模型时，计算量、显存容量和设备间通信往往需要一起考虑。这份 2023
+年的学习笔记整理了数据并行、模型并行、流水线并行和梯度累积，并记录重计算、ZeRO
+与 CPU offload 怎样节省显存。具体配置仍需结合模型、硬件与框架版本。</p>
+<h2 id="并行计算">并行计算</h2>
+<h3 id="并行技术综述">并行技术综述</h3>
+<h4 id="模型加速">🚀—— 模型加速</h4>
 <ul>
 <li><strong>数据并行：</strong>切分数据，调用 AllReduce
 计算梯度均值</li>
@@ -306,7 +231,7 @@
 切分计算，矩阵线性连接特性</li>
 <li><strong>流水并行：</strong>将任务分段，每个阶段在不同的设备上，前后阶段流水</li>
 </ul>
-<h3 id="减少存储">🍴—— 减少存储</h3>
+<h4 id="减少存储">🍴—— 减少存储</h4>
 <ul>
 <li><strong>重计算：</strong>
 <ul>
@@ -318,8 +243,8 @@
 <li><strong>1F1B：</strong>解决缓存 activation 的份数问题，使得
 activation 的缓存数量只跟 stage 数相关。</li>
 </ul>
-<h2 id="模型加速-1">模型加速</h2>
-<h3 id="bsp-ssp">BSP / SSP</h3>
+<h3 id="模型加速-1">模型加速</h3>
+<h4 id="bsp-ssp">BSP / SSP</h4>
 <p>反向传播所需要的时间大约是前向传播的两倍（原因：反向传播需要访问当前输出值和梯度值，访问内存时间长，偏导数计算消耗大）</p>
 <ul>
 <li>BSP：每个 batch 的前向计算需要使用最新模型</li>
@@ -327,25 +252,25 @@ activation 的缓存数量只跟 stage 数相关。</li>
 </ul>
 <p>以下为未改进 BSP 版本的运行方式，相比单机的改进仅仅是在最后 update
 参数时可以并行更新</p>
-<p><img src="/img/DIstribution/image-20230215132632861.png" srcset="/img/loading.gif" lazyload alt="image-20230215132632861" style="zoom:20%;" /></p>
+<p><img src="/img/DIstribution/image-20230215132632861.png" srcset="/img/loading.gif" lazyload alt="多张 GPU 顺序完成前向、反向计算并同步更新的时序图" style="zoom:20%;" width="2084" height="576" loading="lazy" decoding="async" /></p>
 <p>BSP 可以通过<strong>梯度累加和检查点</strong>加以改进，</p>
-<h3 id="梯度累加">梯度累加</h3>
+<h4 id="梯度累加">梯度累加</h4>
 <p>数据并行是空间上的，数据拆分为多个 tensor，micro-batch
 则是时间上的</p>
-<p><img src="/img/DIstribution/image-20230215131624762.png" srcset="/img/loading.gif" lazyload alt="image-20230215131624762" style="zoom: 20%;" /></p>
+<p><img src="/img/DIstribution/image-20230215131624762.png" srcset="/img/loading.gif" lazyload alt="流水线并行按 micro-batch 执行前向和反向计算，以及等待造成的空闲区间" style="zoom: 20%;" width="2079" height="627" loading="lazy" decoding="async" /></p>
 <p>把前向传播和后向传播中的数据切分在时间序列上计算，记 stage 的数量为
 <span class="math inline">\(p\)</span>，切分数量为 <span
 class="math inline">\(s\)</span>，可以推导<strong>气泡率</strong> <span
-class="math inline">\(\eta\)</span> 为 <span class="math display">\[
-\begin{equation}
+class="math inline">\(\eta\)</span> 为 <span
+class="math display">\[\begin{equation}
 \eta=\frac{p}{p+s-1}+\epsilon(\epsilon&gt;0)
-\end{equation}
-\]</span> 可以理解为卡就在每两个 stage 之间的地方“等着"，micro-batch
+\end{equation}\]</span> 可以理解为卡就在每两个 stage
+之间的地方“等着"，micro-batch
 鱼贯而入之后又鱼贯而出，每张卡把经过的每份子数据的前向激活值都存下来，子数据回传的时候把相应的前后值用作梯度计算并保存，当一张卡中所有的梯度计算完成之后更新参数。</p>
 <p>利用率增加，但每张卡都要保存所有 micro-batch
 的激活值，显存占用太大。</p>
-<h2 id="减少内存">减少内存</h2>
-<h3 id="后向重计算">后向重计算</h3>
+<h3 id="减少内存">减少内存</h3>
+<h4 id="后向重计算">后向重计算</h4>
 <p>又名“亚线性内存优化”</p>
 <ul>
 <li><strong>Checkpoint：</strong>前向计算时只保留标记的
@@ -353,11 +278,11 @@ Tensor，其余通过反向传播时临时重新计算一遍前向。通过额�
 <li><strong>CPU offload：</strong>把暂时用不到的 activation 临时缓存到
 CPU 上。通过额外的<strong>传输开销换显存</strong>。</li>
 </ul>
-<h3 id="f1b">1F1B</h3>
+<h4 id="f1b">1F1B</h4>
 <p>由公式 (1) 为减少气泡率，通常 <span class="math inline">\(p\sim
 2s\)</span>，但此时缓存数量较大，一种策略是在所有数据的前向传播未完成时开始反向传播，这样计算完之后的激活值可提早丢弃，其过程图如下，对每张卡实现前向后向交替使用</p>
-<p><img src="/img/DIstribution/image-20230215150757258.png" srcset="/img/loading.gif" lazyload alt="image-20230215150757258" style="zoom:40%;" /></p>
-<h3 id="zero">ZeRO</h3>
+<p><img src="/img/DIstribution/image-20230215150757258.png" srcset="/img/loading.gif" lazyload alt="1F1B 流水线调度：不同阶段交替执行前向和反向计算" style="zoom:40%;" width="1288" height="350" loading="lazy" decoding="async" /></p>
+<h4 id="zero">ZeRO</h4>
 <p>模型状态 (model states）：模型参数（fp16）、模型梯度（fp16）和 Adam
 状态（fp32 的模型参数备份，fp32 的 momentum 和 fp32 的 variance )
 。假设模型参数量 <span class="math inline">\(\Phi\)</span>，则共需要
@@ -366,22 +291,22 @@ CPU 上。通过额外的<strong>传输开销换显存</strong>。</li>
 <span class="math inline">\(75 \%\)</span> 。</p>
 <p>使用不同分割策略如下，Adam 的占用量最大，先从 Adam 下手，分别对应
 ZERO_1, ZERO_2, ZERO_3</p>
-<p><img src="/img/DIstribution/DeepSpeed-Image-1.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:66%;" /></p>
-<h3 id="zero-offload">ZeRO-Offload</h3>
+<p><img src="/img/DIstribution/DeepSpeed-Image-1.png" srcset="/img/loading.gif" lazyload alt="ZeRO 各阶段对优化器状态、梯度和参数的切分，以及显存与通信开销对比" style="zoom:66%;" width="951" height="392" loading="lazy" decoding="async" /></p>
+<h4 id="zero-offload">ZeRO-Offload</h4>
 <p>显存不够、内存来凑，不过需要消耗更多的通信时间</p>
-<h1 id="梯度累积次数">梯度累积次数</h1>
+<h2 id="梯度累积次数">梯度累积次数</h2>
 <p>TP * PP 张卡去共用 MICRO_BATCH 样本，一共有 N 张卡，则每一次计算
 <span class="math inline">\(\dfrac{\text{N}}{\text{TP}\cdot \text{PP}}
 \cdot\text{MICRO\_BATCH}\)</span> 个样本，当梯度积累 <span
 class="math inline">\(\text{gradient}\)</span> 次之后为 GLOBAL_BATCH
-个样本时，进行一次梯度更新，从而 <span class="math display">\[
-\text{gradient}=\dfrac{\text{GLOBAL\_BATCH}}{\dfrac{\text{N}}{\text{TP}\cdot
+个样本时，进行一次梯度更新，从而 <span
+class="math display">\[\text{gradient}=\dfrac{\text{GLOBAL\_BATCH}}{\dfrac{\text{N}}{\text{TP}\cdot
 \text{PP}}
-\cdot\text{MICRO\_BATCH}}=\dfrac{\text{TP}\cdot\text{PP}}{\text{N}}\cdot\dfrac{\text{GLOBAL\_BATCH}}{\text{MICRO\_BATCH}}
-\]</span> 要求 <span class="math display">\[
-\boxed{\text{TP}\cdot\text{PP}\mid\text{N}}
-\]</span> 保证这 <span class="math inline">\(\text{N}\)</span> 张卡以
-<span class="math inline">\(\text{TP}\cdot\text{PP}\)</span>
+\cdot\text{MICRO\_BATCH}}=\dfrac{\text{TP}\cdot\text{PP}}{\text{N}}\cdot\dfrac{\text{GLOBAL\_BATCH}}{\text{MICRO\_BATCH}}\]</span>
+要求 <span
+class="math display">\[\boxed{\text{TP}\cdot\text{PP}\mid\text{N}}\]</span>
+保证这 <span class="math inline">\(\text{N}\)</span> 张卡以 <span
+class="math inline">\(\text{TP}\cdot\text{PP}\)</span>
 作切分，而本实验环境 <span class="math inline">\(\text{N}\)</span> 是
 <span class="math inline">\(8\)</span> 的倍数，所以设置 <span
 class="math inline">\(\text{TP}\)</span> 和 <span
@@ -392,6 +317,21 @@ class="math inline">\(8\)</span>，反而没能利用好显存</p>
 
               
             </div>
+            
+
+<nav class="reading-next" aria-labelledby="reading-next-title">
+  <div class="reading-next-heading"><h2 id="reading-next-title">继续阅读</h2><a href="/notes/">全部文章 <span aria-hidden="true">↗</span></a></div>
+  <div class="reading-next-grid">
+    
+    
+      <a class="reading-next-card" href="/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/"><small>2023.08</small><strong>训练集群网络笔记：Docker 桥接、NCCL 与 RDMA</strong><p>训练集群网络入门笔记：查看 Docker 网桥与 IP 地址，用 nc 检查端口，用 nethogs 观察进程流量，并理解 NCCL、DMA、RDMA 与 InfiniB</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2023/08/01/%E7%BC%96%E7%A8%8B/Docker%20%E5%AD%A6%E4%B9%A0/"><small>2023.08</small><strong>Docker 学习</strong><p>环境配置一直是 cs 的门槛，而 Docker 使用虚拟化技术将应用本身与环境隔离开，保证环境一致性</p><span aria-hidden="true">↗</span></a>
+    
+  </div>
+</nav>
+
+
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -447,14 +387,14 @@ class="math inline">\(8\)</span>，反而没能利用好显存</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Overview of Distributed Computing</div>
+      <div>大模型分布式训练笔记：并行计算、梯度累积与 ZeRO</div>
       <div>https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>Learning_rate</div>
+          <div>鲁睿 Rui Lu</div>
         </div>
       
       
@@ -490,9 +430,9 @@ class="math inline">\(8\)</span>，反而没能利用好显存</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/08/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%80%BB%E7%BB%93/" title="Summary of spring term in the second college">
+                      <a href="/2023/07/08/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%BA%8C%E4%B8%8B%E6%80%BB%E7%BB%93/" title="大二下总结">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Summary of spring term in the second college</span>
+                        <span class="hidden-mobile">大二下总结</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -500,8 +440,8 @@ class="math inline">\(8\)</span>，反而没能利用好显存</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Hongyi Li&#39;s Machine learning course notes">
-                        <span class="hidden-mobile">Hongyi Li&#39;s Machine learning course notes</span>
+                      <a href="/2023/02/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="李宏毅机器学习笔记">
+                        <span class="hidden-mobile">李宏毅机器学习笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -590,7 +530,7 @@ class="math inline">\(8\)</span>，反而没能利用好显存</p>
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 id="ModalLabel" class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -612,54 +552,53 @@ class="math inline">\(8\)</span>，反而没能利用好显存</p>
   </main>
 
   <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
     
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
+<div class="footer-inner">
+  <div class="footer-content">
+    <span class="footer-copyright">© 2026 <span data-edit-field="profile:name">鲁睿</span></span>
+    <a href="/atom.xml" type="application/atom+xml" title="通过 RSS 阅读器订阅文章"><span data-edit-field="interface:subscribe_articles.zh">订阅文章（RSS）</span></a>
+  </div>
+  <div class="statistics" data-site-statistics data-statistics-src="https://busuanzi.ibruce.info/busuanzi/2.3//busuanzi.pure.mini.js">
+  <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span> <span data-edit-field="interface:views.zh">次访问</span></span>
+  <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span> <span data-edit-field="interface:visitors.zh">位访客</span></span>
+  <span data-preview-statistics hidden><span data-edit-field="interface:preview_stats.zh">访问统计在正式站点显示</span></span>
 </div>
 
-  
-  
   
 </div>
 
   </footer>
 
+  <script type="application/json" id="profile-layout">{"groups":{"home":["opening","benchmarks","education","research","honors","citations","notes"]},"styles":{}}</script>
   <!-- Scripts -->
   
   <script  src="/lib/nprogress/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
+    (() => {
+      NProgress.configure({"showSpinner":false,"trickleSpeed":180,"minimum":0.08});
+      let finished = false;
+      // Fast pages need no flash; background resources do not hold this open.
+      const showTimer = setTimeout(() => {
+        if (!finished && document.readyState === 'loading') NProgress.start();
+      }, 150);
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(showTimer);
+        NProgress.done();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish, { once: true });
+      } else {
+        finish();
+      }
+      window.addEventListener('pagehide', finish, { once: true });
+      window.addEventListener('pageshow', event => {
+        if (event.persisted) { finish(); NProgress.remove(); }
+      });
+    })();
   </script>
 
 
@@ -670,38 +609,35 @@ class="math inline">\(8\)</span>，反而没能利用好显存</p>
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
   
 
 
-
-  <script  src="/lib/typed/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var title = subtitle.title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
 
 
 
 
   
     <!-- Baidu Analytics -->
-    <script defer>
+    <script>
       var _hmt = _hmt || [];
       (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+        function loadAnalytics() {
+          var host = location.hostname;
+          var preview = document.getElementById('review-bootstrap') ||
+            ['localhost', '127.0.0.1', '[::1]'].includes(host) ||
+            /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+          if (preview) return;
+          var hm = document.createElement('script');
+          hm.async = true;
+          hm.src = 'https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37';
+          document.head.appendChild(hm);
+        }
+        // Statistics load after the readable page, and only on the public site.
+        if (document.readyState === 'complete') loadAnalytics();
+        else window.addEventListener('load', loadAnalytics, { once: true });
       })();
     </script>
   
@@ -716,8 +652,6 @@ class="math inline">\(8\)</span>，反而没能利用好显存</p>
 
   
 
-  
-    
   
 
 
@@ -885,11 +819,16 @@ class="math inline">\(8\)</span>，反而没能利用好显存</p>
 
   <script  src="/js/local-search.js" ></script>
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-  <script defer src="/js/leancloud.js" ></script>
 
 
+
+  
+<script src="/js/citation-curve.js"></script>
+<script src="/js/academic.js"></script>
+<script src="/js/live-data.js"></script>
+<script src="/js/figure-viewer.js"></script>
+<script src="/js/institution-marks.js"></script>
+<script src="/js/scroll-reveal.js"></script>
 
 
 

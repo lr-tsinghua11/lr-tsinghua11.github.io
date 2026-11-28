@@ -7,32 +7,50 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile/apple-touch-icon.png">
+  <link rel="icon" href="/img/profile/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Learning_rate">
-  <meta name="keywords" content="LLM,强化学习,Agent,深度学习,NLP,清华大学,Learning_rate">
+  <link rel="preload" href="/fonts/wenkai-primary.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="author" content="鲁睿 Rui Lu">
+  <meta name="keywords" content="鲁睿,Rui Lu,KEG,GLM,Deep Search,Agentic RL,多智能体">
+  <meta name="description" content="Hugging Face 学习笔记，整理 Transformer 架构、Tokenizer 分词、Dataset 数据处理、模型微调和 NLP 评测指标，并讨论 BERT、GPT、T5 的区别。">
+  <meta name="robots" content="max-image-preview:large">
   
-    <meta name="description" content="寒假期间学习 Hugging face 所作笔记以及 mentor 提出问题的解答">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Notes of Hugging face">
-<meta property="og:url" content="https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/index.html">
-<meta property="og:site_name" content="Learning_rate">
-<meta property="og:description" content="寒假期间学习 Hugging face 所作笔记以及 mentor 提出问题的解答">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://learningrate1.com/img/%E5%86%B0%E5%B1%B1%E6%B6%88%E8%9E%8D.jpg">
-<meta property="article:published_time" content="2023-01-14T12:37:29.000Z">
-<meta property="article:modified_time" content="2023-01-14T12:37:29.000Z">
-<meta property="article:author" content="Learning_rate">
-<meta property="article:tag" content="NLP">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://learningrate1.com/img/%E5%86%B0%E5%B1%B1%E6%B6%88%E8%9E%8D.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Hugging Face 学习笔记：Tokenizer、Dataset 与模型微调 | 鲁睿 Rui Lu">
+    <meta property="og:description" content="Hugging Face 学习笔记，整理 Transformer 架构、Tokenizer 分词、Dataset 数据处理、模型微调和 NLP 评测指标，并讨论 BERT、GPT、T5 的区别。">
+    <meta property="og:url" content="https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/">
+    <meta property="og:site_name" content="鲁睿 Rui Lu · Learning_rate">
+    <meta property="og:locale" content="zh_CN">
+    
+      <meta property="og:image" content="https://learningrate1.com/img/social/3d367235af3bd291a6d7.png">
+      <meta property="og:image:alt" content="Hugging Face 学习笔记：Tokenizer、Dataset 与模型微调">
+      
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+      
+      <meta property="og:image:type" content="image/png">
+    
+    <meta property="article:published_time" content="2023-01-14T12:37:29.000Z">
+    <meta property="article:modified_time" content="2026-11-26T16:00:00.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lru43402768">
+    <meta name="twitter:title" content="Hugging Face 学习笔记：Tokenizer、Dataset 与模型微调 | 鲁睿 Rui Lu">
+    <meta name="twitter:description" content="Hugging Face 学习笔记，整理 Transformer 架构、Tokenizer 分词、Dataset 数据处理、模型微调和 NLP 评测指标，并讨论 BERT、GPT、T5 的区别。">
+    
+      <meta name="twitter:image" content="https://learningrate1.com/img/social/3d367235af3bd291a6d7.png">
+      <meta name="twitter:image:alt" content="Hugging Face 学习笔记：Tokenizer、Dataset 与模型微调">
+    
   
   
-  <title>Notes of Hugging face - Learning_rate</title>
+  <link rel="canonical" href="https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/">
+  <link rel="alternate" type="application/atom+xml" title="鲁睿 Rui Lu · Learning_rate" href="/atom.xml">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://learningrate1.com/#rui-lu","name":"Rui Lu","alternateName":["鲁睿","Learning_rate"],"url":"https://learningrate1.com/","image":"https://learningrate1.com/img/profile/avatar.webp","email":"lu-r21@mails.tsinghua.edu.cn","sameAs":["https://scholar.google.com/citations?user=-MGuqDcAAAAJ","https://github.com/lr-tsinghua11","https://twitter.com/lru43402768","https://www.zhihu.com/people/er-ji-yi-4"],"jobTitle":"Ph.D. student in Computer Science","affiliation":[{"@type":"CollegeOrUniversity","name":"Tsinghua University","url":"https://www.tsinghua.edu.cn/"},{"@type":"Organization","name":"Knowledge Engineering Group (KEG), Tsinghua University","url":"https://keg.cs.tsinghua.edu.cn/"}],"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Bachelor of Science in Mathematics and Physics; Bachelor of Engineering in Software Engineering","credentialCategory":"Bachelor's degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Tsinghua University"}},"knowsAbout":["Deep Search","Multi-turn agentic reinforcement learning","Multi-agent collaboration","Terminal agents","AI for Science"],"description":"我是清华大学计算机系 KEG 实验室的直博二年级学生，自 2023 年起在智谱从事大模型训练工作。作为 GLM-4.5 / GLM-5 的核心贡献者，我负责优化基座模型的深度搜索（Deep Search）能力。我主要研究多轮强化学习与多智能体协作（Multi-turn Agentic RL & Multi-Agent Collaboration），近期在研究终端智能体（Terminal Agent），对大模型在科学研究中的应用（AI for Science）也很感兴趣。欢迎添加微信（微信号：learning_rate）和我交流！"},{"@type":"WebSite","@id":"https://learningrate1.com/#website","url":"https://learningrate1.com/","name":"鲁睿 Rui Lu · Learning_rate","alternateName":"Learning_rate","inLanguage":["zh-CN","en"],"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"BreadcrumbList","@id":"https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"个人简介","item":"https://learningrate1.com/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://learningrate1.com/notes/"},{"@type":"ListItem","position":3,"name":"研究笔记","item":"https://learningrate1.com/notes/#research"}]},{"@type":"BlogPosting","@id":"https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/#article","url":"https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/","mainEntityOfPage":{"@id":"https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/#page"},"headline":"Hugging Face 学习笔记：Tokenizer、Dataset 与模型微调","description":"Hugging Face 学习笔记，整理 Transformer 架构、Tokenizer 分词、Dataset 数据处理、模型微调和 NLP 评测指标，并讨论 BERT、GPT、T5 的区别。","image":"https://learningrate1.com/img/social/3d367235af3bd291a6d7.png","inLanguage":"zh-CN","author":{"@id":"https://learningrate1.com/#rui-lu"},"articleSection":"研究笔记","datePublished":"2023-01-14T12:37:29.000Z","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"}},{"@type":"WebPage","@id":"https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/#page","url":"https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/","name":"Hugging Face 学习笔记：Tokenizer、Dataset 与模型微调 | 鲁睿 Rui Lu","description":"Hugging Face 学习笔记，整理 Transformer 架构、Tokenizer 分词、Dataset 数据处理、模型微调和 NLP 评测指标，并讨论 BERT、GPT、T5 的区别。","inLanguage":"zh-CN","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"},"breadcrumb":{"@id":"https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/#breadcrumb"},"mainEntity":{"@id":"https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/#article"}}]}</script>
+  <title>Hugging Face 学习笔记：Tokenizer、Dataset 与模型微调 | 鲁睿 Rui Lu</title>
 
   <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
 
@@ -48,14 +66,13 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
+<!-- Keep Fluid's icon classes, with the original fonts served locally. -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
+<link rel="stylesheet" href="/lib/iconfont/core.css">
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+<link rel="stylesheet" href="/lib/iconfont/extra.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -68,32 +85,44 @@
 
 
 
+  
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/academic.css">
+<link rel="stylesheet" href="/css/benchmark.css">
+<link rel="stylesheet" href="/css/citations.css">
+<link rel="stylesheet" href="/css/figure-viewer.css">
+<link rel="stylesheet" href="/css/institution-marks.css">
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#718dcc","options":{"showSpinner":false,"trickleSpeed":180,"minimum":0.08}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Learning_rate" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
-<body>
+<body class="academic-site reading-site" data-topic="research">
+  <a class="skip-to-content" href="#main-content"><span data-edit-field="interface:skip.zh">跳转到正文</span></a>
   
 
   <header>
     
 
-<div class="header-inner" style="height: 70vh;">
+
+<div class="academic-header">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong> Learning_rate&#39;s blog</strong>
+      <strong>Learning_rate</strong>
     </a>
 
+    <a class="mobile-language d-lg-none" data-language-switch href="/en/notes/" lang="en" aria-label="Switch to English">EN</a>
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,8 +139,8 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
+                
+                <span data-edit-field="interface:profile.zh">个人简介</span>
               </a>
             </li>
           
@@ -121,45 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
+              <a class="nav-link" href="/notes/">
+                
+                <span data-edit-field="interface:notes.zh">文章</span>
               </a>
             </li>
           
@@ -170,12 +163,13 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
+                
+                <span data-edit-field="interface:friends.zh">友链</span>
               </a>
             </li>
           
         
+        <li class="nav-item language-item"><a class="nav-link language-switch" data-language-switch href="/en/notes/" lang="en" hreflang="en" aria-label="Switch to English"><span class="language-mark" aria-hidden="true">文</span>EN</a></li>
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -195,83 +189,22 @@
   </div>
 </nav>
 
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E5%86%B0%E5%B1%B1%E6%B6%88%E8%9E%8D.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          <span id="subtitle" title="Notes of Hugging face">
-            
-          </span>
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-14 20:37" pubdate>
-          2023年1月14日 晚上
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          3.4k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          28 分钟
-        
-      </span>
-    
-
-    
-    
-      
-        <span id="busuanzi_container_page_pv" style="display: none">
-          <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="busuanzi_value_page_pv"></span> 次
-        </span>
-        
-      
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
 </div>
 
-</div>
 
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     
       
 
+<header class="reading-masthead" data-topic="research">
+  <nav class="reading-breadcrumbs" aria-label="文章位置">
+    <ol><li><a href="/">个人简介</a></li><li><a href="/notes/">文章</a></li><li><a href="/notes/#research">研究笔记</a></li></ol>
+  </nav>
+  <h1>Hugging Face 学习笔记：Tokenizer、Dataset 与模型微调</h1>
+  <p><time datetime="2023-01-14">2023.01.14</time><span class="reading-updated"><span aria-hidden="true"> · </span>更新于 <time datetime="2026-11-27">2026.11.27</time></span><span aria-hidden="true"> · </span><a class="reading-author" href="/" rel="author">鲁睿 Rui Lu</a><span class="reading-views" id="busuanzi_container_page_pv"><span aria-hidden="true"> · </span><span id="busuanzi_value_page_pv">—</span> <span data-edit-field="interface:article_views.zh">次阅读</span></span></p>
+</header>
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
     <div class="side-col d-none d-lg-block col-lg-2">
@@ -283,20 +216,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Notes of Hugging face</h1>
-            
-              <p class="note note-info">
-                
-                  
-                    本文最后更新于：4 年前
-                  
-                
-              </p>
-            
             <div class="markdown-body">
               
-              <h1 id="hugging-face-笔记">Hugging face 笔记</h1>
+              <p>这是我在 2023 年学习 Hugging Face Course
+时整理的笔记，也记录了和导师讨论过的问题。前半部分梳理
+Transformer、Tokenizer、Dataset 和模型微调，后半部分讨论 BERT、GPT、T5
+的架构区别与常见 NLP 评测指标。文中的接口和示例对应当时的学习记录。</p>
 <h2 id="transformer-models">Transformer models</h2>
 <p><code>pipeline()</code>
 第一个参数为模型用途，第二个参数为社区中的模型名字，从而获取模型各种接口</p>
@@ -405,14 +330,12 @@ class="math inline">\(\text{the the the the the the the}\)</span> 分数为
 <span class="math inline">\(100\%\)</span> ② modified precision
 考虑词语在参考翻译中出现次数截断计数 ③ 加入惩罚，避免词语短得分高 ③
 n-gram 增加翻译流畅性，与前者求几何平均 ④ Sentence brevity penalty
-短惩罚 <span class="math display">\[
-\mathrm{BP}=\begin{cases}
+短惩罚 <span class="math display">\[\mathrm{BP}=\begin{cases}
 1 &amp; \text { if } c&gt;r \\
 e^{(1-r / c)} &amp; \text { if } c \leq r
 \end{cases} ,
 \mathrm{BLEU}=\mathrm{BP} \cdot \exp \left(\sum_{n=1}^N w_n \log
-p_n\right) .
-\]</span> <strong>摘要</strong>：ROUGE 分数，recall
+p_n\right) .\]</span> <strong>摘要</strong>：ROUGE 分数，recall
 标准答案中有多大比例重合，precision
 生成答案中有多大比例重合，两者综合考量，取调和平均 <span
 class="math inline">\(F_1=\dfrac{2P_1P_2}{P_1+P_2}\)</span>。</p>
@@ -423,10 +346,10 @@ class="math inline">\(F_1=\dfrac{2P_1P_2}{P_1+P_2}\)</span>。</p>
 <h2 id="ask-for-questions">Ask for questions</h2>
 <p>CUDA 出 bug 在 CPU 上跑，因为前者是异步的</p>
 <p>过拟合用于 debug，损失函数降为 0</p>
-<h1 id="hugging-face-course-问题">Hugging face course 问题</h1>
-<h2 id="一bertgptt5-的架构和区别">一、BERT/GPT/T5 的架构和区别</h2>
-<p><span class="math display">\[
-\begin{array}{|c|c|c|}
+<h2 id="hugging-face-course问题与讨论">Hugging Face
+Course：问题与讨论</h2>
+<h3 id="一bertgptt5-的架构和区别">一、BERT/GPT/T5 的架构和区别</h3>
+<p><span class="math display">\[\begin{array}{|c|c|c|}
 \hline \text { BERT } &amp; \text { GPT } &amp; \text { T5 } \\
 \hline \text { incoder 架构 } &amp; \text { decoder 架构 } &amp; \text {
 incoder-decoder 架构 } \\
@@ -437,15 +360,14 @@ Seq2seq 模型 } \\
 \hline \text { 分类, Full-mask } &amp; \text { 文本生成 } &amp; \text {
 跨多语言, 翻译总结 } \\
 \hline
-\end{array}
-\]</span></p>
+\end{array}\]</span></p>
 <p>tokenizer 预训练方法不同（子词算法不同）</p>
 <hr />
-<h2
-id="二不同架构一定对应不同任务吗">二、不同架构一定对应不同任务吗？</h2>
+<h3
+id="二不同架构一定对应不同任务吗">二、不同架构一定对应不同任务吗？</h3>
 <p>不同架构可以用来训练非匹配任务，但效果欠佳；当架构与任务类型匹配时，效果好。</p>
-<h2 id="三tokenizer-怎么拿到词语和数字的关系">三、Tokenizer
-怎么拿到词语和数字的关系？</h2>
+<h3 id="三tokenizer-怎么拿到词语和数字的关系">三、Tokenizer
+怎么拿到词语和数字的关系？</h3>
 <ol type="1">
 <li><strong>规范化</strong>（初始处理多空格、Unicode）、<strong>预标记化</strong>（拆分为单词）</li>
 <li>使用不同字词<strong>切分算法</strong>：按<strong>字词</strong>划分，按<strong>字符</strong>划分，按<strong>子串</strong>划分（例如
@@ -455,8 +377,8 @@ Wordpiece, BPE, Unigram 算法）结合语料训练构建得到词汇表（一�
 <li><strong>后处理</strong>：标记掩码、偏移映射（每个标记的文本跨度）等索引</li>
 </ol>
 <hr />
-<h2
-id="四掩码模型的微调方法以及种类">四、掩码模型的微调方法以及种类</h2>
+<h3
+id="四掩码模型的微调方法以及种类">四、掩码模型的微调方法以及种类</h3>
 <ol type="1">
 <li>导入数据</li>
 <li>切片张量化（小的 <code>max_length</code>
@@ -464,18 +386,15 @@ id="四掩码模型的微调方法以及种类">四、掩码模型的微调方�
 <li>随机屏蔽（设定屏蔽比例，<strong>标记掩码</strong>和<strong>全词掩码</strong>）</li>
 </ol>
 <p>衡量方法：perplexity，交叉熵指数，数值越小意味着语法正确的句子概率更高</p>
-<p><span class="math display">\[
-\operatorname{perplexity}(S)=p\left(w_1, w_2, w_3, \ldots,
-w_m\right)^{-1 / m}
-\]</span></p>
+<p><span class="math display">\[\operatorname{perplexity}(S)=p\left(w_1,
+w_2, w_3, \ldots, w_m\right)^{-1 / m}\]</span></p>
 <blockquote>
 <p>困惑度 perplexity
 可以理解为，如果每个时间步都根据语言模型计算的概率分布随机挑词，那么平均情况下，挑多少个词才能挑到正确的那个。</p>
 </blockquote>
 <hr />
-<h2 id="五各种衡量指标">五、各种衡量指标</h2>
-<p><span class="math display">\[
-\begin{array}{|c|c|c|}
+<h3 id="五各种衡量指标">五、各种衡量指标</h3>
+<p><span class="math display">\[\begin{array}{|c|c|c|}
 \hline \text { BLEU } &amp; \text { ROUGE } &amp; \text { perlexity } \\
 \hline \text { 翻译 } &amp; \text { 摘要总结 } &amp; \text { 掩码模型 }
 \\
@@ -487,11 +406,27 @@ w_m\right)^{-1 / m} \\
 \hline \text { 高代表准确、流畅 } &amp; \text { 高代表准确、精炼 } &amp;
 \text { 高代表偏离统计模型 } \\
 \hline
-\end{array}
-\]</span></p>
+\end{array}\]</span></p>
 
               
             </div>
+            
+
+<nav class="reading-next" aria-labelledby="reading-next-title">
+  <div class="reading-next-heading"><h2 id="reading-next-title">继续阅读</h2><a href="/notes/">全部文章 <span aria-hidden="true">↗</span></a></div>
+  <div class="reading-next-grid">
+    
+    
+      <a class="reading-next-card" href="/2023/01/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Attention_is_all_you_need_notes/"><small>2023.01</small><strong>Transformer 阅读笔记：Attention Is All You Need</strong><p>Transformer 与 Attention Is All You Need 阅读笔记：梳理 Q、K、V、缩放点积注意力、多头注意力、位置编码和层归一化，保留公式推导与</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2023/01/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/BERT_Pre-training_of_Deep_Bidirectional_Transformers_for_Language_Understanding/"><small>2023.01</small><strong>BERT 阅读笔记：双向预训练、MLM 与 NSP</strong><p>BERT 阅读笔记：双向预训练、掩码语言模型 MLM、下一句预测 NSP、三类输入嵌入与微调，以及模型规模、训练步数和掩码策略的消融实验。</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2023/02/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/T5/"><small>2023.02</small><strong>T5 阅读笔记：Text-to-Text 架构与预训练任务</strong><p>T5 论文阅读笔记：比较 Encoder–Decoder、Decoder 和 Prefix-LM 架构，整理 Text-to-Text 预训练中的任务选择、span 掩码</p><span aria-hidden="true">↗</span></a>
+    
+  </div>
+</nav>
+
+
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -547,14 +482,14 @@ w_m\right)^{-1 / m} \\
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Notes of Hugging face</div>
+      <div>Hugging Face 学习笔记：Tokenizer、Dataset 与模型微调</div>
       <div>https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>Learning_rate</div>
+          <div>鲁睿 Rui Lu</div>
         </div>
       
       
@@ -590,9 +525,9 @@ w_m\right)^{-1 / m} \\
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/01/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Attention_is_all_you_need_notes/" title="Attention is all you need">
+                      <a href="/2023/01/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Attention_is_all_you_need_notes/" title="Transformer 阅读笔记：Attention Is All You Need">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Attention is all you need</span>
+                        <span class="hidden-mobile">Transformer 阅读笔记：Attention Is All You Need</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -600,8 +535,8 @@ w_m\right)^{-1 / m} \\
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/01/09/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%BA%8C%E4%B8%8A%E6%80%BB%E7%BB%93/" title="Summary of autumn term in the second college">
-                        <span class="hidden-mobile">Summary of autumn term in the second college</span>
+                      <a href="/2023/01/09/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%BA%8C%E4%B8%8A%E6%80%BB%E7%BB%93/" title="大二上总结">
+                        <span class="hidden-mobile">大二上总结</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -690,7 +625,7 @@ w_m\right)^{-1 / m} \\
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 id="ModalLabel" class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -712,54 +647,53 @@ w_m\right)^{-1 / m} \\
   </main>
 
   <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
     
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
+<div class="footer-inner">
+  <div class="footer-content">
+    <span class="footer-copyright">© 2026 <span data-edit-field="profile:name">鲁睿</span></span>
+    <a href="/atom.xml" type="application/atom+xml" title="通过 RSS 阅读器订阅文章"><span data-edit-field="interface:subscribe_articles.zh">订阅文章（RSS）</span></a>
+  </div>
+  <div class="statistics" data-site-statistics data-statistics-src="https://busuanzi.ibruce.info/busuanzi/2.3//busuanzi.pure.mini.js">
+  <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span> <span data-edit-field="interface:views.zh">次访问</span></span>
+  <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span> <span data-edit-field="interface:visitors.zh">位访客</span></span>
+  <span data-preview-statistics hidden><span data-edit-field="interface:preview_stats.zh">访问统计在正式站点显示</span></span>
 </div>
 
-  
-  
   
 </div>
 
   </footer>
 
+  <script type="application/json" id="profile-layout">{"groups":{"home":["opening","benchmarks","education","research","honors","citations","notes"]},"styles":{}}</script>
   <!-- Scripts -->
   
   <script  src="/lib/nprogress/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
+    (() => {
+      NProgress.configure({"showSpinner":false,"trickleSpeed":180,"minimum":0.08});
+      let finished = false;
+      // Fast pages need no flash; background resources do not hold this open.
+      const showTimer = setTimeout(() => {
+        if (!finished && document.readyState === 'loading') NProgress.start();
+      }, 150);
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(showTimer);
+        NProgress.done();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish, { once: true });
+      } else {
+        finish();
+      }
+      window.addEventListener('pagehide', finish, { once: true });
+      window.addEventListener('pageshow', event => {
+        if (event.persisted) { finish(); NProgress.remove(); }
+      });
+    })();
   </script>
 
 
@@ -770,38 +704,35 @@ w_m\right)^{-1 / m} \\
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
   
 
 
-
-  <script  src="/lib/typed/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var title = subtitle.title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
 
 
 
 
   
     <!-- Baidu Analytics -->
-    <script defer>
+    <script>
       var _hmt = _hmt || [];
       (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+        function loadAnalytics() {
+          var host = location.hostname;
+          var preview = document.getElementById('review-bootstrap') ||
+            ['localhost', '127.0.0.1', '[::1]'].includes(host) ||
+            /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+          if (preview) return;
+          var hm = document.createElement('script');
+          hm.async = true;
+          hm.src = 'https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37';
+          document.head.appendChild(hm);
+        }
+        // Statistics load after the readable page, and only on the public site.
+        if (document.readyState === 'complete') loadAnalytics();
+        else window.addEventListener('load', loadAnalytics, { once: true });
       })();
     </script>
   
@@ -816,8 +747,6 @@ w_m\right)^{-1 / m} \\
 
   
 
-  
-    
   
 
 
@@ -985,11 +914,16 @@ w_m\right)^{-1 / m} \\
 
   <script  src="/js/local-search.js" ></script>
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-  <script defer src="/js/leancloud.js" ></script>
 
 
+
+  
+<script src="/js/citation-curve.js"></script>
+<script src="/js/academic.js"></script>
+<script src="/js/live-data.js"></script>
+<script src="/js/figure-viewer.js"></script>
+<script src="/js/institution-marks.js"></script>
+<script src="/js/scroll-reveal.js"></script>
 
 
 

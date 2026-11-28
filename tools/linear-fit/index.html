@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile/apple-touch-icon.png">
+  <link rel="icon" href="/img/profile/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <link rel="preload" href="/fonts/wenkai-primary.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="author" content="鲁睿 Rui Lu">
+  <meta name="keywords" content="鲁睿,Rui Lu,KEG,GLM,Deep Search,Agentic RL,多智能体">
+  <meta name="description" content="在线最小二乘线性拟合工具。粘贴两列实验数据，计算斜率、截距、R² 和回归标准误差，支持带截距或强制过原点拟合，并导出 SVG 矢量图和 CSV 结果。数据在浏览器内计算。">
+  <meta name="robots" content="max-image-preview:large">
+  
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="实验数据线性拟合：最小二乘法、误差与 SVG 绘图 | 鲁睿 Rui Lu">
+    <meta property="og:description" content="在线最小二乘线性拟合工具。粘贴两列实验数据，计算斜率、截距、R² 和回归标准误差，支持带截距或强制过原点拟合，并导出 SVG 矢量图和 CSV 结果。数据在浏览器内计算。">
+    <meta property="og:url" content="https://learningrate1.com/tools/linear-fit/">
+    <meta property="og:site_name" content="鲁睿 Rui Lu · Learning_rate">
+    <meta property="og:locale" content="zh_CN">
+    
+      <meta property="og:image" content="https://learningrate1.com/img/social/6ebfc50aad4293afb9b6.png">
+      <meta property="og:image:alt" content="实验数据线性拟合：最小二乘法、误差与 SVG 绘图">
+      
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+      
+      <meta property="og:image:type" content="image/png">
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lru43402768">
+    <meta name="twitter:title" content="实验数据线性拟合：最小二乘法、误差与 SVG 绘图 | 鲁睿 Rui Lu">
+    <meta name="twitter:description" content="在线最小二乘线性拟合工具。粘贴两列实验数据，计算斜率、截距、R² 和回归标准误差，支持带截距或强制过原点拟合，并导出 SVG 矢量图和 CSV 结果。数据在浏览器内计算。">
+    
+      <meta name="twitter:image" content="https://learningrate1.com/img/social/6ebfc50aad4293afb9b6.png">
+      <meta name="twitter:image:alt" content="实验数据线性拟合：最小二乘法、误差与 SVG 绘图">
+    
+  
+  
+  <link rel="canonical" href="https://learningrate1.com/tools/linear-fit/">
+  <link rel="alternate" type="application/atom+xml" title="鲁睿 Rui Lu · Learning_rate" href="/atom.xml">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://learningrate1.com/#rui-lu","name":"Rui Lu","alternateName":["鲁睿","Learning_rate"],"url":"https://learningrate1.com/","image":"https://learningrate1.com/img/profile/avatar.webp","email":"lu-r21@mails.tsinghua.edu.cn","sameAs":["https://scholar.google.com/citations?user=-MGuqDcAAAAJ","https://github.com/lr-tsinghua11","https://twitter.com/lru43402768","https://www.zhihu.com/people/er-ji-yi-4"],"jobTitle":"Ph.D. student in Computer Science","affiliation":[{"@type":"CollegeOrUniversity","name":"Tsinghua University","url":"https://www.tsinghua.edu.cn/"},{"@type":"Organization","name":"Knowledge Engineering Group (KEG), Tsinghua University","url":"https://keg.cs.tsinghua.edu.cn/"}],"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Bachelor of Science in Mathematics and Physics; Bachelor of Engineering in Software Engineering","credentialCategory":"Bachelor's degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Tsinghua University"}},"knowsAbout":["Deep Search","Multi-turn agentic reinforcement learning","Multi-agent collaboration","Terminal agents","AI for Science"],"description":"我是清华大学计算机系 KEG 实验室的直博二年级学生，自 2023 年起在智谱从事大模型训练工作。作为 GLM-4.5 / GLM-5 的核心贡献者，我负责优化基座模型的深度搜索（Deep Search）能力。我主要研究多轮强化学习与多智能体协作（Multi-turn Agentic RL & Multi-Agent Collaboration），近期在研究终端智能体（Terminal Agent），对大模型在科学研究中的应用（AI for Science）也很感兴趣。欢迎添加微信（微信号：learning_rate）和我交流！"},{"@type":"WebSite","@id":"https://learningrate1.com/#website","url":"https://learningrate1.com/","name":"鲁睿 Rui Lu · Learning_rate","alternateName":"Learning_rate","inLanguage":["zh-CN","en"],"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"WebApplication","@id":"https://learningrate1.com/tools/linear-fit/#tool","name":"实验数据线性拟合","url":"https://learningrate1.com/tools/linear-fit/","description":"在线最小二乘线性拟合工具。粘贴两列实验数据，计算斜率、截距、R² 和回归标准误差，支持带截距或强制过原点拟合，并导出 SVG 矢量图和 CSV 结果。数据在浏览器内计算。","applicationCategory":"EducationalApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"zh-CN","isAccessibleForFree":true,"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"WebPage","@id":"https://learningrate1.com/tools/linear-fit/#page","url":"https://learningrate1.com/tools/linear-fit/","name":"实验数据线性拟合：最小二乘法、误差与 SVG 绘图 | 鲁睿 Rui Lu","description":"在线最小二乘线性拟合工具。粘贴两列实验数据，计算斜率、截距、R² 和回归标准误差，支持带截距或强制过原点拟合，并导出 SVG 矢量图和 CSV 结果。数据在浏览器内计算。","inLanguage":"zh-CN","isPartOf":{"@id":"https://learningrate1.com/#website"},"mainEntity":{"@id":"https://learningrate1.com/tools/linear-fit/#tool"}}]}</script>
+  <title>实验数据线性拟合：最小二乘法、误差与 SVG 绘图 | 鲁睿 Rui Lu</title>
+
+  <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="/css/linear-fit.css" />
+
+
+
+<!-- Keep Fluid's icon classes, with the original fonts served locally. -->
+
+<link rel="stylesheet" href="/lib/iconfont/core.css">
+
+
+
+<link rel="stylesheet" href="/lib/iconfont/extra.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/academic.css">
+<link rel="stylesheet" href="/css/benchmark.css">
+<link rel="stylesheet" href="/css/citations.css">
+<link rel="stylesheet" href="/css/figure-viewer.css">
+<link rel="stylesheet" href="/css/institution-marks.css">
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#718dcc","options":{"showSpinner":false,"trickleSpeed":180,"minimum":0.08}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body class="academic-site" >
+  <a class="skip-to-content" href="#main-content"><span data-edit-field="interface:skip.zh">跳转到正文</span></a>
+  
+
+  <header>
+    
+
+
+<div class="academic-header">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Learning_rate</strong>
+    </a>
+
+    <a class="mobile-language d-lg-none" data-language-switch href="/en/notes/" lang="en" aria-label="Switch to English">EN</a>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                
+                <span data-edit-field="interface:profile.zh">个人简介</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/notes/">
+                
+                <span data-edit-field="interface:notes.zh">文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                
+                <span data-edit-field="interface:friends.zh">友链</span>
+              </a>
+            </li>
+          
+        
+        <li class="nav-item language-item"><a class="nav-link language-switch" data-language-switch href="/en/notes/" lang="en" hreflang="en" aria-label="Switch to English"><span class="language-mark" aria-hidden="true">文</span>EN</a></li>
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</div>
+
+
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    
+      <div class="academic-shell">
+        <div id="board" class="academic-board">
+<div class="fit-tool" data-linear-fit>
+  <header class="fit-heading">
+    <a class="fit-back" href="/notes/#mathematics">数理基础 <span aria-hidden="true">↗</span></a>
+    <h1>实验数据线性拟合</h1>
+    <p>粘贴两列数据，计算拟合参数、查看散点图，再把结果带回你的报告。</p>
+    <p class="fit-byline">由 <a href="/" rel="author">鲁睿 Rui Lu</a> 整理 · 最小二乘法</p>
+  </header>
+  <noscript><p>此工具需要启用 JavaScript 才能计算。下方的方法说明和实验报告可以直接阅读。</p></noscript>
+  <div class="fit-workspace">
+    <form class="fit-input" id="fit-form">
+      <div class="fit-panel-heading"><label for="fit-points">输入数据</label><button class="fit-text-button" type="button" id="fit-example">填入示例</button></div>
+      <p id="fit-input-help">每行一组 x、y，用空格、逗号或 Tab 分隔；支持 1e-3 这样的科学计数法。</p>
+      <textarea id="fit-points" aria-describedby="fit-input-help" rows="10" spellcheck="false" autocomplete="off" autocapitalize="off">x,y
+0,0.08
+1,2.14
+2,4.07
+3,6.21
+4,8.12
+5,10.20</textarea>
+      <fieldset class="fit-options"><legend>拟合模型</legend><label><input type="radio" name="fit-model" value="intercept" checked> y = ax + b</label><label><input type="radio" name="fit-model" value="origin"> y = ax（过原点）</label></fieldset>
+      <button type="submit" class="fit-primary">计算拟合结果 <span aria-hidden="true">↗</span></button>
+      <p class="fit-local-note">数据仅在浏览器内计算。Ctrl / ⌘ + Enter 也可计算。</p>
+      <p id="fit-error" role="alert" hidden></p>
+    </form>
+    <section class="fit-output" aria-labelledby="fit-result-title">
+      <div class="fit-panel-heading"><h2 id="fit-result-title">拟合结果</h2><span id="fit-status" role="status" aria-live="polite"></span></div>
+      <div id="fit-results" hidden>
+        <p class="fit-equation" id="fit-equation"></p>
+        <div class="fit-chart" id="fit-chart"></div>
+        <dl class="fit-stats">
+          <div><dt>斜率 a</dt><dd id="fit-slope"></dd></div>
+          <div><dt>截距 b</dt><dd id="fit-intercept"></dd></div>
+          <div><dt id="fit-r2-label">R²</dt><dd id="fit-r2"></dd></div>
+          <div><dt>斜率标准误差</dt><dd id="fit-slope-error"></dd></div>
+          <div><dt>截距标准误差</dt><dd id="fit-intercept-error"></dd></div>
+          <div><dt>残差标准差</dt><dd id="fit-residual-error"></dd></div>
+        </dl>
+        <p class="fit-result-note" id="fit-result-note"></p>
+      </div>
+      <div class="fit-exports"><button type="button" id="fit-svg" disabled>导出 SVG 矢量图</button><button type="button" id="fit-csv" disabled>导出 CSV 数据</button></div>
+    </section>
+  </div>
+  <section class="fit-method" aria-labelledby="fit-method-title">
+    <h2 id="fit-method-title">计算方法与适用范围</h2>
+    <p>这里使用普通最小二乘法，使各点的 y 方向残差平方和最小。默认拟合 y = ax + b；仅当实验模型要求截距为零时，才选择过原点拟合。工具至少需要 3 组有限数值，单次最多 2,000 组。</p>
+    <p>带截距模型的 R² 使用中心化总平方和；过原点模型显示非中心 R²，两者不宜直接比较。标准误差由残差估计，未包含仪器误差、x 方向误差或测量权重，也不是扩展不确定度。R² 的分母为零时显示“—”。</p>
+    <details><summary>查看拟合公式</summary><div class="fit-formulas">
+      <p>带截距：a = Σ[(x − x̄)(y − ȳ)] / Σ(x − x̄)²；b = ȳ − ax̄。</p>
+      <p>过原点：a = Σxy / Σx²；b 固定为 0。</p>
+      <p>残差方差 s² = SSE / (n − p)，带截距时 p = 2，过原点时 p = 1。斜率标准误差分别为 √[s² / Σ(x − x̄)²] 和 √[s² / Σx²]。</p>
+      <p>带截距时，截距标准误差为 √[s²(1/n + x̄² / Σ(x − x̄)²)]。截距固定为 0 时不估计其标准误差。</p>
+    </div></details>
+    <p class="fit-source">方法参考：<a href="https://www.itl.nist.gov/div898/handbook/pmd/section4/pmd431.htm" target="_blank" rel="noopener noreferrer">NIST：最小二乘模型拟合</a>。实验中的用法可以看我的<a href="/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/#data-fitting">弦振动与电磁感应报告</a>，或继续阅读<a href="/2022/12/15/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%90%8C%E8%BD%B4%E5%85%89%E5%AD%90%E6%99%B6%E4%BD%93%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">同轴光子晶体实验报告</a>。</p>
+  </section>
+</div>
+<script src="/js/linear-fit.js" defer></script>
+</div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 id="ModalLabel" class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    
+<div class="footer-inner">
+  <div class="footer-content">
+    <span class="footer-copyright">© 2026 <span data-edit-field="profile:name">鲁睿</span></span>
+    <a href="/atom.xml" type="application/atom+xml" title="通过 RSS 阅读器订阅文章"><span data-edit-field="interface:subscribe_articles.zh">订阅文章（RSS）</span></a>
+  </div>
+  <div class="statistics" data-site-statistics data-statistics-src="https://busuanzi.ibruce.info/busuanzi/2.3//busuanzi.pure.mini.js">
+  <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span> <span data-edit-field="interface:views.zh">次访问</span></span>
+  <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span> <span data-edit-field="interface:visitors.zh">位访客</span></span>
+  <span data-preview-statistics hidden><span data-edit-field="interface:preview_stats.zh">访问统计在正式站点显示</span></span>
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <script type="application/json" id="profile-layout">{"groups":{"home":["opening","benchmarks","education","research","honors","citations","notes"]},"styles":{}}</script>
+  <!-- Scripts -->
+  
+  <script  src="/lib/nprogress/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
+
+  <script>
+    (() => {
+      NProgress.configure({"showSpinner":false,"trickleSpeed":180,"minimum":0.08});
+      let finished = false;
+      // Fast pages need no flash; background resources do not hold this open.
+      const showTimer = setTimeout(() => {
+        if (!finished && document.readyState === 'loading') NProgress.start();
+      }, 150);
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(showTimer);
+        NProgress.done();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish, { once: true });
+      } else {
+        finish();
+      }
+      window.addEventListener('pagehide', finish, { once: true });
+      window.addEventListener('pageshow', event => {
+        if (event.persisted) { finish(); NProgress.remove(); }
+      });
+    })();
+  </script>
+
+
+<script  src="/lib/jquery/jquery.min.js" ></script>
+<script  src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        function loadAnalytics() {
+          var host = location.hostname;
+          var preview = document.getElementById('review-bootstrap') ||
+            ['localhost', '127.0.0.1', '[::1]'].includes(host) ||
+            /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+          if (preview) return;
+          var hm = document.createElement('script');
+          hm.async = true;
+          hm.src = 'https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37';
+          document.head.appendChild(hm);
+        }
+        // Statistics load after the readable page, and only on the public site.
+        if (document.readyState === 'complete') loadAnalytics();
+        else window.addEventListener('load', loadAnalytics, { once: true });
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/citation-curve.js"></script>
+<script src="/js/academic.js"></script>
+<script src="/js/live-data.js"></script>
+<script src="/js/figure-viewer.js"></script>
+<script src="/js/institution-marks.js"></script>
+<script src="/js/scroll-reveal.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

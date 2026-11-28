@@ -1,0 +1,61 @@
+# Rui Lu / 鲁睿 / Learning_rate
+
+> Personal website of Rui Lu (鲁睿).
+
+## Profile
+- [中文主页](https://learningrate1.com/): 个人简介、教育经历与代表工作。
+- [English profile](https://learningrate1.com/en/): biography, education and selected publications.
+- [Detailed profile](https://learningrate1.com/en/about/): full publications and experience.
+- [Notes](https://learningrate1.com/notes/): original articles, mostly in Chinese.
+
+我是清华大学计算机系 KEG 实验室的直博二年级学生，自 2023 年起在智谱从事大模型训练工作。作为 GLM-4.5 / GLM-5 的核心贡献者，我负责优化基座模型的深度搜索（Deep Search）能力。我主要研究多轮强化学习与多智能体协作（Multi-turn Agentic RL & Multi-Agent Collaboration），近期在研究终端智能体（Terminal Agent），对大模型在科学研究中的应用（AI for Science）也很感兴趣。欢迎添加微信（微信号：learning_rate）和我交流！
+
+I am a second-year Ph.D. student in the Knowledge Engineering Group (KEG), Department of Computer Science and Technology, Tsinghua University. I have worked on LLM training at Z.ai since 2023. As a core contributor to GLM-4.5 / GLM-5, I am responsible for improving the base models' Deep Search capabilities. I study multi-turn agentic reinforcement learning and multi-agent collaboration. I am currently studying terminal agents and am also interested in applying LLMs to scientific research (AI for Science). Feel free to get in touch on WeChat (ID: learning_rate)!
+
+## Education
+- Tsinghua University: Ph.D. student (direct-entry track); Department of Computer Science and Technology · KEG Lab; 2025 — present.
+- Tsinghua University: Dual bachelor's degrees (B.Sc. & B.Eng.); Weiyang College & School of Software · Mathematics and Physics + Software Engineering; 2021.09 — 2025.06.
+
+## Publications and open-source work
+- [GLM-5: from Vibe Coding to Agentic Engineering](https://arxiv.org/abs/2602.15763): Core Contributor · Technical Report · 2026-02.
+  I am responsible for GLM-5's deep-search capabilities. My work uses multi-turn reinforcement learning to train search strategies and improves how the model retains and uses information from earlier searches.
+  [Code](https://github.com/zai-org/GLM-5) ·   [Models](https://huggingface.co/models?author=zai-org&search=GLM-5)
+- [AsyncSwarm: Asynchronous Multi-Agent Training and Inference for Information Seeking](https://openreview.net/pdf?id=7OIcJEPhOz): First Author.
+  AsyncSwarm studies asynchronous multi-agent training and collaboration. Agents can search independently and reuse earlier search records for training, reducing the time spent waiting for one another.
+
+- [AgentRL: Scaling Agentic Reinforcement Learning with a Multi-Turn, Multi-Task Framework](https://arxiv.org/abs/2510.04206): 2025-10.
+  AgentRL trains agents on multiple tasks through reinforcement learning, including tasks that require repeated tool use. Its framework and algorithms are used in AutoGLM.
+  [Code](https://github.com/THUDM/AgentRL)
+- [DeepDive: Advancing Deep Search Agents with Knowledge Graphs and Multi-Turn RL](https://arxiv.org/abs/2509.10446): First Author · 2025-09.
+  DeepDive builds challenging questions from knowledge graphs and trains models to search for answers through multi-turn reinforcement learning, with a penalty for unnecessary searches.
+  [Code](https://github.com/THUDM/DeepDive) ·   [Dataset](https://huggingface.co/datasets/zai-org/DeepDive)
+- [GLM-4.5: Agentic, Reasoning, and Coding (ARC) Foundation Models](https://arxiv.org/abs/2508.06471): Core Contributor · Technical Report · 2025-08.
+  I am responsible for GLM-4.5's deep-search capabilities, from preparing training data and running supervised fine-tuning and reinforcement learning to improving inference methods and evaluating search performance.
+  [Code](https://github.com/zai-org/GLM-4.5) ·   [Models](https://huggingface.co/models?author=zai-org&search=GLM-4.5)
+- [TreeRL: LLM Reinforcement Learning with On-Policy Tree Search](https://arxiv.org/abs/2506.11902): Co-first Author · ACL 2025 · Main · 2025-06.
+  TreeRL combines tree search with reinforcement learning. It explores different reasoning paths at steps where the model is uncertain and uses feedback from intermediate steps for training, improving sampling efficiency.
+  [Code](https://github.com/THUDM/TreeRL)
+- [T1: Advancing Language Model Reasoning through Reinforcement Learning and Inference Scaling](https://arxiv.org/abs/2501.11651): ICML 2025 · 2025-01.
+  T1 combines reinforcement learning with additional computation at inference time to improve mathematical, coding, and general reasoning.
+  [Code](https://github.com/THUDM/T1) ·   [Dataset](https://huggingface.co/datasets/zai-org/T1)
+- [ChatGLM: A Family of Large Language Models from GLM-130B to GLM-4 All Tools](https://arxiv.org/abs/2406.12793): Core Contributor · Technical Report · 2024-06.
+  I contributed to improving GLM-4's AgentBench performance by helping build 1,866 agent interaction examples across six task families, including ALFWorld and WebShop.
+  [Code](https://github.com/zai-org/GLM-4)
+- [AgentTuning: Enabling Generalized Agent Abilities for LLMs](https://arxiv.org/abs/2310.12823): Co-first Author · ACL 2024 · Findings · 2023-10.
+  AgentTuning builds AgentInstruct, a dataset of agents' actions while completing tasks, and combines it with general instruction data for fine-tuning. This trains models to use tools and complete tasks.
+  [Code](https://github.com/THUDM/AgentTuning) ·   [Dataset](https://huggingface.co/datasets/zai-org/AgentInstruct)
+
+## Notes and tools
+- [DeepDive：让模型学会搜索和查证](https://learningrate1.com/notes/deepdive/): DeepDive 如何从知识图谱构建训练题目，再用多轮强化学习，让模型学会搜索、阅读网页和查证线索。介绍方法、BrowseComp 实验结果，以及开源代码和数据。
+- [基础物理实验报告：电磁感应、弦振动与受迫振动](https://learningrate1.com/2022/05/03/%E6%95%B0%E7%90%86%E5%9F%BA%E7%A1%80/%E5%9F%BA%E7%89%A91%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/): 基础物理实验报告：用 RL 电路测量自感与互感，分析弦振动的共振频率，以及波尔共振仪的幅频与相频特性。提供完整 PDF、数据处理说明和线性拟合工具。
+- [强化学习笔记：从 MDP、Q-learning 到 PPO](https://learningrate1.com/2024/02/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/): 强化学习笔记：梳理 MDP、Bellman 方程、Sarsa、Q-learning、DQN、策略梯度、Actor-Critic、TRPO、GAE 与 PPO，保留推导和算法更新公式。
+- [Hugging Face 学习笔记：Tokenizer、Dataset 与模型微调](https://learningrate1.com/2023/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Hugging%20face%20%E7%AC%94%E8%AE%B0/): Hugging Face 学习笔记，整理 Transformer 架构、Tokenizer 分词、Dataset 数据处理、模型微调和 NLP 评测指标，并讨论 BERT、GPT、T5 的区别。
+- [大模型分布式训练笔记：并行计算、梯度累积与 ZeRO](https://learningrate1.com/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/): 大模型分布式训练学习笔记，介绍数据并行、模型并行、流水线并行、梯度累积、激活重计算、1F1B、ZeRO 与 CPU offload，讨论计算、显存和通信之间的取舍。
+- [李宏毅机器学习笔记](https://learningrate1.com/2023/02/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/): 李宏毅机器学习课程笔记，整理模型偏差与优化问题、鞍点、batch size、Momentum、Adagrad、RMSProp、Adam、学习率调度、warm-up 和过拟合。
+- [实验数据线性拟合](https://learningrate1.com/tools/linear-fit/): 粘贴两列数据，计算拟合参数并导出 SVG 图。
+
+## Profiles
+- [Scholar](https://scholar.google.com/citations?user=-MGuqDcAAAAJ)
+- [GitHub](https://github.com/lr-tsinghua11)
+- [Twitter](https://twitter.com/lru43402768)
+- [知乎](https://www.zhihu.com/people/er-ji-yi-4)

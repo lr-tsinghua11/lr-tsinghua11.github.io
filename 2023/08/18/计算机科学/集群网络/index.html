@@ -7,32 +7,50 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile/apple-touch-icon.png">
+  <link rel="icon" href="/img/profile/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Learning_rate">
-  <meta name="keywords" content="LLM,强化学习,Agent,深度学习,NLP,清华大学,Learning_rate">
+  <link rel="preload" href="/fonts/wenkai-primary.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="author" content="鲁睿 Rui Lu">
+  <meta name="keywords" content="鲁睿,Rui Lu,KEG,GLM,Deep Search,Agentic RL,多智能体">
+  <meta name="description" content="训练集群网络入门笔记：查看 Docker 网桥与 IP 地址，用 nc 检查端口，用 nethogs 观察进程流量，并理解 NCCL、DMA、RDMA 与 InfiniBand 的基本作用。">
+  <meta name="robots" content="max-image-preview:large">
   
-    <meta name="description" content="集群训练过程中有关网络知识的学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Network learning for training models">
-<meta property="og:url" content="https://learningrate1.com/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/index.html">
-<meta property="og:site_name" content="Learning_rate">
-<meta property="og:description" content="集群训练过程中有关网络知识的学习">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://learningrate1.com/img/%E6%88%BF%E5%B1%8B%E6%9E%97%E7%AB%8B.jpg">
-<meta property="article:published_time" content="2023-08-18T10:44:19.000Z">
-<meta property="article:modified_time" content="2023-08-18T10:44:19.000Z">
-<meta property="article:author" content="Learning_rate">
-<meta property="article:tag" content="计算机科学">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://learningrate1.com/img/%E6%88%BF%E5%B1%8B%E6%9E%97%E7%AB%8B.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="训练集群网络笔记：Docker 桥接、NCCL 与 RDMA | 鲁睿 Rui Lu">
+    <meta property="og:description" content="训练集群网络入门笔记：查看 Docker 网桥与 IP 地址，用 nc 检查端口，用 nethogs 观察进程流量，并理解 NCCL、DMA、RDMA 与 InfiniBand 的基本作用。">
+    <meta property="og:url" content="https://learningrate1.com/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/">
+    <meta property="og:site_name" content="鲁睿 Rui Lu · Learning_rate">
+    <meta property="og:locale" content="zh_CN">
+    
+      <meta property="og:image" content="https://learningrate1.com/img/social/7a0bd5505e49f1bb1ae5.png">
+      <meta property="og:image:alt" content="训练集群网络笔记：Docker 桥接、NCCL 与 RDMA">
+      
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+      
+      <meta property="og:image:type" content="image/png">
+    
+    <meta property="article:published_time" content="2023-08-18T10:44:19.000Z">
+    <meta property="article:modified_time" content="2026-11-26T16:00:00.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lru43402768">
+    <meta name="twitter:title" content="训练集群网络笔记：Docker 桥接、NCCL 与 RDMA | 鲁睿 Rui Lu">
+    <meta name="twitter:description" content="训练集群网络入门笔记：查看 Docker 网桥与 IP 地址，用 nc 检查端口，用 nethogs 观察进程流量，并理解 NCCL、DMA、RDMA 与 InfiniBand 的基本作用。">
+    
+      <meta name="twitter:image" content="https://learningrate1.com/img/social/7a0bd5505e49f1bb1ae5.png">
+      <meta name="twitter:image:alt" content="训练集群网络笔记：Docker 桥接、NCCL 与 RDMA">
+    
   
   
-  <title>Network learning for training models - Learning_rate</title>
+  <link rel="canonical" href="https://learningrate1.com/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/">
+  <link rel="alternate" type="application/atom+xml" title="鲁睿 Rui Lu · Learning_rate" href="/atom.xml">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://learningrate1.com/#rui-lu","name":"Rui Lu","alternateName":["鲁睿","Learning_rate"],"url":"https://learningrate1.com/","image":"https://learningrate1.com/img/profile/avatar.webp","email":"lu-r21@mails.tsinghua.edu.cn","sameAs":["https://scholar.google.com/citations?user=-MGuqDcAAAAJ","https://github.com/lr-tsinghua11","https://twitter.com/lru43402768","https://www.zhihu.com/people/er-ji-yi-4"],"jobTitle":"Ph.D. student in Computer Science","affiliation":[{"@type":"CollegeOrUniversity","name":"Tsinghua University","url":"https://www.tsinghua.edu.cn/"},{"@type":"Organization","name":"Knowledge Engineering Group (KEG), Tsinghua University","url":"https://keg.cs.tsinghua.edu.cn/"}],"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Bachelor of Science in Mathematics and Physics; Bachelor of Engineering in Software Engineering","credentialCategory":"Bachelor's degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Tsinghua University"}},"knowsAbout":["Deep Search","Multi-turn agentic reinforcement learning","Multi-agent collaboration","Terminal agents","AI for Science"],"description":"我是清华大学计算机系 KEG 实验室的直博二年级学生，自 2023 年起在智谱从事大模型训练工作。作为 GLM-4.5 / GLM-5 的核心贡献者，我负责优化基座模型的深度搜索（Deep Search）能力。我主要研究多轮强化学习与多智能体协作（Multi-turn Agentic RL & Multi-Agent Collaboration），近期在研究终端智能体（Terminal Agent），对大模型在科学研究中的应用（AI for Science）也很感兴趣。欢迎添加微信（微信号：learning_rate）和我交流！"},{"@type":"WebSite","@id":"https://learningrate1.com/#website","url":"https://learningrate1.com/","name":"鲁睿 Rui Lu · Learning_rate","alternateName":"Learning_rate","inLanguage":["zh-CN","en"],"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"BreadcrumbList","@id":"https://learningrate1.com/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"个人简介","item":"https://learningrate1.com/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://learningrate1.com/notes/"},{"@type":"ListItem","position":3,"name":"编程实践","item":"https://learningrate1.com/notes/#engineering"}]},{"@type":"BlogPosting","@id":"https://learningrate1.com/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/#article","url":"https://learningrate1.com/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/","mainEntityOfPage":{"@id":"https://learningrate1.com/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/#page"},"headline":"训练集群网络笔记：Docker 桥接、NCCL 与 RDMA","description":"训练集群网络入门笔记：查看 Docker 网桥与 IP 地址，用 nc 检查端口，用 nethogs 观察进程流量，并理解 NCCL、DMA、RDMA 与 InfiniBand 的基本作用。","image":"https://learningrate1.com/img/social/7a0bd5505e49f1bb1ae5.png","inLanguage":"zh-CN","author":{"@id":"https://learningrate1.com/#rui-lu"},"articleSection":"编程实践","datePublished":"2023-08-18T10:44:19.000Z","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"}},{"@type":"WebPage","@id":"https://learningrate1.com/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/#page","url":"https://learningrate1.com/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/","name":"训练集群网络笔记：Docker 桥接、NCCL 与 RDMA | 鲁睿 Rui Lu","description":"训练集群网络入门笔记：查看 Docker 网桥与 IP 地址，用 nc 检查端口，用 nethogs 观察进程流量，并理解 NCCL、DMA、RDMA 与 InfiniBand 的基本作用。","inLanguage":"zh-CN","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"},"breadcrumb":{"@id":"https://learningrate1.com/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/#breadcrumb"},"mainEntity":{"@id":"https://learningrate1.com/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/#article"}}]}</script>
+  <title>训练集群网络笔记：Docker 桥接、NCCL 与 RDMA | 鲁睿 Rui Lu</title>
 
   <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
 
@@ -48,14 +66,13 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
+<!-- Keep Fluid's icon classes, with the original fonts served locally. -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
+<link rel="stylesheet" href="/lib/iconfont/core.css">
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+<link rel="stylesheet" href="/lib/iconfont/extra.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -68,32 +85,44 @@
 
 
 
+  
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/academic.css">
+<link rel="stylesheet" href="/css/benchmark.css">
+<link rel="stylesheet" href="/css/citations.css">
+<link rel="stylesheet" href="/css/figure-viewer.css">
+<link rel="stylesheet" href="/css/institution-marks.css">
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#718dcc","options":{"showSpinner":false,"trickleSpeed":180,"minimum":0.08}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Learning_rate" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
-<body>
+<body class="academic-site reading-site" data-topic="engineering">
+  <a class="skip-to-content" href="#main-content"><span data-edit-field="interface:skip.zh">跳转到正文</span></a>
   
 
   <header>
     
 
-<div class="header-inner" style="height: 70vh;">
+
+<div class="academic-header">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong> Learning_rate&#39;s blog</strong>
+      <strong>Learning_rate</strong>
     </a>
 
+    <a class="mobile-language d-lg-none" data-language-switch href="/en/notes/" lang="en" aria-label="Switch to English">EN</a>
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,8 +139,8 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
+                
+                <span data-edit-field="interface:profile.zh">个人简介</span>
               </a>
             </li>
           
@@ -121,45 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
+              <a class="nav-link" href="/notes/">
+                
+                <span data-edit-field="interface:notes.zh">文章</span>
               </a>
             </li>
           
@@ -170,12 +163,13 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
+                
+                <span data-edit-field="interface:friends.zh">友链</span>
               </a>
             </li>
           
         
+        <li class="nav-item language-item"><a class="nav-link language-switch" data-language-switch href="/en/notes/" lang="en" hreflang="en" aria-label="Switch to English"><span class="language-mark" aria-hidden="true">文</span>EN</a></li>
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -195,83 +189,22 @@
   </div>
 </nav>
 
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E6%88%BF%E5%B1%8B%E6%9E%97%E7%AB%8B.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          <span id="subtitle" title="Network learning for training models">
-            
-          </span>
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-18 18:44" pubdate>
-          2023年8月18日 晚上
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          835 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          7 分钟
-        
-      </span>
-    
-
-    
-    
-      
-        <span id="busuanzi_container_page_pv" style="display: none">
-          <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="busuanzi_value_page_pv"></span> 次
-        </span>
-        
-      
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
 </div>
 
-</div>
 
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     
       
 
+<header class="reading-masthead" data-topic="engineering">
+  <nav class="reading-breadcrumbs" aria-label="文章位置">
+    <ol><li><a href="/">个人简介</a></li><li><a href="/notes/">文章</a></li><li><a href="/notes/#engineering">编程实践</a></li></ol>
+  </nav>
+  <h1>训练集群网络笔记：Docker 桥接、NCCL 与 RDMA</h1>
+  <p><time datetime="2023-08-18">2023.08.18</time><span class="reading-updated"><span aria-hidden="true"> · </span>更新于 <time datetime="2026-11-27">2026.11.27</time></span><span aria-hidden="true"> · </span><a class="reading-author" href="/" rel="author">鲁睿 Rui Lu</a><span class="reading-views" id="busuanzi_container_page_pv"><span aria-hidden="true"> · </span><span id="busuanzi_value_page_pv">—</span> <span data-edit-field="interface:article_views.zh">次阅读</span></span></p>
+</header>
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
     <div class="side-col d-none d-lg-block col-lg-2">
@@ -283,33 +216,26 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Network learning for training models</h1>
-            
-              <p class="note note-info">
-                
-                  
-                    本文最后更新于：3 年前
-                  
-                
-              </p>
-            
             <div class="markdown-body">
               
-              <h1 id="网络学习">网络学习</h1>
-<h2 id="网络桥接">网络桥接</h2>
+              <p>这份笔记记录了我在 2023
+年接触训练集群时整理的网络基础：先查看容器网桥、检查端口连通性和进程流量，再区分
+NCCL、RDMA 与
+InfiniBand。文中的命令和地址用于说明当时的环境，使用时需要换成自己的配置。</p>
+<h2 id="网络学习">网络学习</h2>
+<h3 id="网络桥接">网络桥接</h3>
 <p><code>docker</code>
 使用<strong>网络桥接</strong>（bridge）来通信容器与宿主机进行通信，<code>docker0</code>
 是默认网络桥，其 IP 地址通常是
 <code>172.17.0.1</code>，可以在命令行中输入以下命令显示</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ ip addr show docker0<br>13: docker0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default <br>		......<br>    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0<br>		......<br></code></pre></td></tr></table></figure>
-<h2 id="网络检测">网络检测</h2>
+<h3 id="网络检测">网络检测</h3>
 <p>检查端口是否开放并能够访问，<code>nc</code> 是 <code>netcat</code>
-的缩写，<code>-z</code> 只扫描端口，<code>-v</code> 工作在冗余模式</p>
+的缩写，<code>-z</code> 只扫描端口，<code>-v</code> 输出详细信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ nc -zv 127.0.0.1 4000<br>Connection to 127.0.0.1 port 4000 [tcp/terabase] succeeded!<br><span class="hljs-comment"># 代表可以连接该端口</span><br></code></pre></td></tr></table></figure>
 <p>检测集群上的网络状况，安装 <code>nethogs</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">sudo</span> apt install nethogs<br>$ <span class="hljs-built_in">sudo</span> nethogs<br><span class="hljs-comment"># 显示当前网路状况</span><br></code></pre></td></tr></table></figure>
-<h2 id="nccl">NCCL</h2>
+<h3 id="nccl">NCCL</h3>
 <p><strong>NCCL：</strong>在多机多卡训练过程中，作为面向GPU提供的集合通信库，能有效提高训练速度。</p>
 <p><strong>DMA(Direct Memory
 Access)</strong>：允许外部设备直接访问计算机内存，无需通过 CPU
@@ -325,10 +251,25 @@ RDMA 技术，</p>
 <p><code>400Gb/sec</code> 中的 <strong>b</strong> 代表
 <strong>bit</strong>，其等于 <strong>50GB/sec</strong>。</p>
 <p><code>Ethernet</code>
-代表以太网，与日常网络相同，在大模型训练过程中速度很慢。</p>
+指以太网。集群通信性能取决于链路速率、拓扑和协议等条件，不能只凭“以太网”这个名称判断快慢。</p>
 
               
             </div>
+            
+
+<nav class="reading-next" aria-labelledby="reading-next-title">
+  <div class="reading-next-heading"><h2 id="reading-next-title">继续阅读</h2><a href="/notes/">全部文章 <span aria-hidden="true">↗</span></a></div>
+  <div class="reading-next-grid">
+    
+    
+      <a class="reading-next-card" href="/2023/03/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A6%82%E8%BF%B0/"><small>2023.03</small><strong>大模型分布式训练笔记：并行计算、梯度累积与 ZeRO</strong><p>大模型分布式训练学习笔记，介绍数据并行、模型并行、流水线并行、梯度累积、激活重计算、1F1B、ZeRO 与 CPU offload，讨论计算、显存和通信之间的取舍。</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2023/08/01/%E7%BC%96%E7%A8%8B/Docker%20%E5%AD%A6%E4%B9%A0/"><small>2023.08</small><strong>Docker 学习</strong><p>环境配置一直是 cs 的门槛，而 Docker 使用虚拟化技术将应用本身与环境隔离开，保证环境一致性</p><span aria-hidden="true">↗</span></a>
+    
+  </div>
+</nav>
+
+
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -377,14 +318,14 @@ RDMA 技术，</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Network learning for training models</div>
+      <div>训练集群网络笔记：Docker 桥接、NCCL 与 RDMA</div>
       <div>https://learningrate1.com/2023/08/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>Learning_rate</div>
+          <div>鲁睿 Rui Lu</div>
         </div>
       
       
@@ -420,9 +361,9 @@ RDMA 技术，</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/01/20/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/" title="Summary of autumn term in the third college">
+                      <a href="/2024/01/20/%E6%80%BB%E7%BB%93/%E5%A4%A7%E4%B8%89%E4%B8%8A%E6%80%BB%E7%BB%93/" title="大三上总结">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Summary of autumn term in the third college</span>
+                        <span class="hidden-mobile">大三上总结</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -430,8 +371,8 @@ RDMA 技术，</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/01/%E7%BC%96%E7%A8%8B/Docker%20%E5%AD%A6%E4%B9%A0/" title="Introduction to Docker">
-                        <span class="hidden-mobile">Introduction to Docker</span>
+                      <a href="/2023/08/01/%E7%BC%96%E7%A8%8B/Docker%20%E5%AD%A6%E4%B9%A0/" title="Docker 学习">
+                        <span class="hidden-mobile">Docker 学习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -520,7 +461,7 @@ RDMA 技术，</p>
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 id="ModalLabel" class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -542,54 +483,53 @@ RDMA 技术，</p>
   </main>
 
   <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
     
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
+<div class="footer-inner">
+  <div class="footer-content">
+    <span class="footer-copyright">© 2026 <span data-edit-field="profile:name">鲁睿</span></span>
+    <a href="/atom.xml" type="application/atom+xml" title="通过 RSS 阅读器订阅文章"><span data-edit-field="interface:subscribe_articles.zh">订阅文章（RSS）</span></a>
+  </div>
+  <div class="statistics" data-site-statistics data-statistics-src="https://busuanzi.ibruce.info/busuanzi/2.3//busuanzi.pure.mini.js">
+  <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span> <span data-edit-field="interface:views.zh">次访问</span></span>
+  <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span> <span data-edit-field="interface:visitors.zh">位访客</span></span>
+  <span data-preview-statistics hidden><span data-edit-field="interface:preview_stats.zh">访问统计在正式站点显示</span></span>
 </div>
 
-  
-  
   
 </div>
 
   </footer>
 
+  <script type="application/json" id="profile-layout">{"groups":{"home":["opening","benchmarks","education","research","honors","citations","notes"]},"styles":{}}</script>
   <!-- Scripts -->
   
   <script  src="/lib/nprogress/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
+    (() => {
+      NProgress.configure({"showSpinner":false,"trickleSpeed":180,"minimum":0.08});
+      let finished = false;
+      // Fast pages need no flash; background resources do not hold this open.
+      const showTimer = setTimeout(() => {
+        if (!finished && document.readyState === 'loading') NProgress.start();
+      }, 150);
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(showTimer);
+        NProgress.done();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish, { once: true });
+      } else {
+        finish();
+      }
+      window.addEventListener('pagehide', finish, { once: true });
+      window.addEventListener('pageshow', event => {
+        if (event.persisted) { finish(); NProgress.remove(); }
+      });
+    })();
   </script>
 
 
@@ -600,38 +540,35 @@ RDMA 技术，</p>
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
   
 
 
-
-  <script  src="/lib/typed/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var title = subtitle.title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
 
 
 
 
   
     <!-- Baidu Analytics -->
-    <script defer>
+    <script>
       var _hmt = _hmt || [];
       (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+        function loadAnalytics() {
+          var host = location.hostname;
+          var preview = document.getElementById('review-bootstrap') ||
+            ['localhost', '127.0.0.1', '[::1]'].includes(host) ||
+            /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+          if (preview) return;
+          var hm = document.createElement('script');
+          hm.async = true;
+          hm.src = 'https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37';
+          document.head.appendChild(hm);
+        }
+        // Statistics load after the readable page, and only on the public site.
+        if (document.readyState === 'complete') loadAnalytics();
+        else window.addEventListener('load', loadAnalytics, { once: true });
       })();
     </script>
   
@@ -646,8 +583,6 @@ RDMA 技术，</p>
 
   
 
-  
-    
   
 
 
@@ -815,11 +750,16 @@ RDMA 技术，</p>
 
   <script  src="/js/local-search.js" ></script>
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-  <script defer src="/js/leancloud.js" ></script>
 
 
+
+  
+<script src="/js/citation-curve.js"></script>
+<script src="/js/academic.js"></script>
+<script src="/js/live-data.js"></script>
+<script src="/js/figure-viewer.js"></script>
+<script src="/js/institution-marks.js"></script>
+<script src="/js/scroll-reveal.js"></script>
 
 
 

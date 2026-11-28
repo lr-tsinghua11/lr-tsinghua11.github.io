@@ -7,32 +7,50 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile/apple-touch-icon.png">
+  <link rel="icon" href="/img/profile/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Learning_rate">
-  <meta name="keywords" content="LLM,强化学习,Agent,深度学习,NLP,清华大学,Learning_rate">
+  <link rel="preload" href="/fonts/wenkai-primary.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="author" content="鲁睿 Rui Lu">
+  <meta name="keywords" content="鲁睿,Rui Lu,KEG,GLM,Deep Search,Agentic RL,多智能体">
+  <meta name="description" content="大模型推理论文阅读笔记，记录强化学习中的熵变化、PPO 与 GRPO、过程奖励，以及推理时计算和工具使用。按阅读月份整理方法、公式与原论文图表。">
+  <meta name="robots" content="max-image-preview:large">
   
-    <meta name="description" content="大模型推理相关论文阅读">
-<meta property="og:type" content="article">
-<meta property="og:title" content="LLM Reason Paper">
-<meta property="og:url" content="https://learningrate1.com/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/index.html">
-<meta property="og:site_name" content="Learning_rate">
-<meta property="og:description" content="大模型推理相关论文阅读">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://learningrate1.com/img/%E5%B1%B1.jpg">
-<meta property="article:published_time" content="2025-07-23T03:56:22.000Z">
-<meta property="article:modified_time" content="2025-07-23T03:56:22.000Z">
-<meta property="article:author" content="Learning_rate">
-<meta property="article:tag" content="NLP">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://learningrate1.com/img/%E5%B1%B1.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="大模型推理论文笔记：强化学习、熵与推理时计算 | 鲁睿 Rui Lu">
+    <meta property="og:description" content="大模型推理论文阅读笔记，记录强化学习中的熵变化、PPO 与 GRPO、过程奖励，以及推理时计算和工具使用。按阅读月份整理方法、公式与原论文图表。">
+    <meta property="og:url" content="https://learningrate1.com/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/">
+    <meta property="og:site_name" content="鲁睿 Rui Lu · Learning_rate">
+    <meta property="og:locale" content="zh_CN">
+    
+      <meta property="og:image" content="https://learningrate1.com/img/social/3d5a45a86d792878a16c.png">
+      <meta property="og:image:alt" content="大模型推理论文笔记：强化学习、熵与推理时计算">
+      
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+      
+      <meta property="og:image:type" content="image/png">
+    
+    <meta property="article:published_time" content="2025-07-23T03:56:22.000Z">
+    <meta property="article:modified_time" content="2026-11-26T16:00:00.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lru43402768">
+    <meta name="twitter:title" content="大模型推理论文笔记：强化学习、熵与推理时计算 | 鲁睿 Rui Lu">
+    <meta name="twitter:description" content="大模型推理论文阅读笔记，记录强化学习中的熵变化、PPO 与 GRPO、过程奖励，以及推理时计算和工具使用。按阅读月份整理方法、公式与原论文图表。">
+    
+      <meta name="twitter:image" content="https://learningrate1.com/img/social/3d5a45a86d792878a16c.png">
+      <meta name="twitter:image:alt" content="大模型推理论文笔记：强化学习、熵与推理时计算">
+    
   
   
-  <title>LLM Reason Paper - Learning_rate</title>
+  <link rel="canonical" href="https://learningrate1.com/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/">
+  <link rel="alternate" type="application/atom+xml" title="鲁睿 Rui Lu · Learning_rate" href="/atom.xml">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://learningrate1.com/#rui-lu","name":"Rui Lu","alternateName":["鲁睿","Learning_rate"],"url":"https://learningrate1.com/","image":"https://learningrate1.com/img/profile/avatar.webp","email":"lu-r21@mails.tsinghua.edu.cn","sameAs":["https://scholar.google.com/citations?user=-MGuqDcAAAAJ","https://github.com/lr-tsinghua11","https://twitter.com/lru43402768","https://www.zhihu.com/people/er-ji-yi-4"],"jobTitle":"Ph.D. student in Computer Science","affiliation":[{"@type":"CollegeOrUniversity","name":"Tsinghua University","url":"https://www.tsinghua.edu.cn/"},{"@type":"Organization","name":"Knowledge Engineering Group (KEG), Tsinghua University","url":"https://keg.cs.tsinghua.edu.cn/"}],"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Bachelor of Science in Mathematics and Physics; Bachelor of Engineering in Software Engineering","credentialCategory":"Bachelor's degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Tsinghua University"}},"knowsAbout":["Deep Search","Multi-turn agentic reinforcement learning","Multi-agent collaboration","Terminal agents","AI for Science"],"description":"我是清华大学计算机系 KEG 实验室的直博二年级学生，自 2023 年起在智谱从事大模型训练工作。作为 GLM-4.5 / GLM-5 的核心贡献者，我负责优化基座模型的深度搜索（Deep Search）能力。我主要研究多轮强化学习与多智能体协作（Multi-turn Agentic RL & Multi-Agent Collaboration），近期在研究终端智能体（Terminal Agent），对大模型在科学研究中的应用（AI for Science）也很感兴趣。欢迎添加微信（微信号：learning_rate）和我交流！"},{"@type":"WebSite","@id":"https://learningrate1.com/#website","url":"https://learningrate1.com/","name":"鲁睿 Rui Lu · Learning_rate","alternateName":"Learning_rate","inLanguage":["zh-CN","en"],"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"BreadcrumbList","@id":"https://learningrate1.com/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"个人简介","item":"https://learningrate1.com/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://learningrate1.com/notes/"},{"@type":"ListItem","position":3,"name":"研究笔记","item":"https://learningrate1.com/notes/#research"}]},{"@type":"BlogPosting","@id":"https://learningrate1.com/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/#article","url":"https://learningrate1.com/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/","mainEntityOfPage":{"@id":"https://learningrate1.com/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/#page"},"headline":"大模型推理论文笔记：强化学习、熵与推理时计算","description":"大模型推理论文阅读笔记，记录强化学习中的熵变化、PPO 与 GRPO、过程奖励，以及推理时计算和工具使用。按阅读月份整理方法、公式与原论文图表。","image":"https://learningrate1.com/img/social/3d5a45a86d792878a16c.png","inLanguage":"zh-CN","author":{"@id":"https://learningrate1.com/#rui-lu"},"articleSection":"研究笔记","datePublished":"2025-07-23T03:56:22.000Z","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"}},{"@type":"WebPage","@id":"https://learningrate1.com/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/#page","url":"https://learningrate1.com/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/","name":"大模型推理论文笔记：强化学习、熵与推理时计算 | 鲁睿 Rui Lu","description":"大模型推理论文阅读笔记，记录强化学习中的熵变化、PPO 与 GRPO、过程奖励，以及推理时计算和工具使用。按阅读月份整理方法、公式与原论文图表。","inLanguage":"zh-CN","dateModified":"2026-11-26T16:00:00.000Z","isPartOf":{"@id":"https://learningrate1.com/#website"},"breadcrumb":{"@id":"https://learningrate1.com/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/#breadcrumb"},"mainEntity":{"@id":"https://learningrate1.com/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/#article"}}]}</script>
+  <title>大模型推理论文笔记：强化学习、熵与推理时计算 | 鲁睿 Rui Lu</title>
 
   <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
 
@@ -48,14 +66,13 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
+<!-- Keep Fluid's icon classes, with the original fonts served locally. -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
+<link rel="stylesheet" href="/lib/iconfont/core.css">
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+<link rel="stylesheet" href="/lib/iconfont/extra.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -68,32 +85,44 @@
 
 
 
+  
+<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/academic.css">
+<link rel="stylesheet" href="/css/benchmark.css">
+<link rel="stylesheet" href="/css/citations.css">
+<link rel="stylesheet" href="/css/figure-viewer.css">
+<link rel="stylesheet" href="/css/institution-marks.css">
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#718dcc","options":{"showSpinner":false,"trickleSpeed":180,"minimum":0.08}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Learning_rate" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
-<body>
+<body class="academic-site reading-site" data-topic="research">
+  <a class="skip-to-content" href="#main-content"><span data-edit-field="interface:skip.zh">跳转到正文</span></a>
   
 
   <header>
     
 
-<div class="header-inner" style="height: 70vh;">
+
+<div class="academic-header">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong> Learning_rate&#39;s blog</strong>
+      <strong>Learning_rate</strong>
     </a>
 
+    <a class="mobile-language d-lg-none" data-language-switch href="/en/notes/" lang="en" aria-label="Switch to English">EN</a>
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,8 +139,8 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
+                
+                <span data-edit-field="interface:profile.zh">个人简介</span>
               </a>
             </li>
           
@@ -121,45 +150,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
+              <a class="nav-link" href="/notes/">
+                
+                <span data-edit-field="interface:notes.zh">文章</span>
               </a>
             </li>
           
@@ -170,12 +163,13 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
+                
+                <span data-edit-field="interface:friends.zh">友链</span>
               </a>
             </li>
           
         
+        <li class="nav-item language-item"><a class="nav-link language-switch" data-language-switch href="/en/notes/" lang="en" hreflang="en" aria-label="Switch to English"><span class="language-mark" aria-hidden="true">文</span>EN</a></li>
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -195,83 +189,22 @@
   </div>
 </nav>
 
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/%E5%B1%B1.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          <span id="subtitle" title="LLM Reason Paper">
-            
-          </span>
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-07-23 11:56" pubdate>
-          2025年7月23日 中午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          6.6k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          55 分钟
-        
-      </span>
-    
-
-    
-    
-      
-        <span id="busuanzi_container_page_pv" style="display: none">
-          <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="busuanzi_value_page_pv"></span> 次
-        </span>
-        
-      
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
 </div>
 
-</div>
 
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     
       
 
+<header class="reading-masthead" data-topic="research">
+  <nav class="reading-breadcrumbs" aria-label="文章位置">
+    <ol><li><a href="/">个人简介</a></li><li><a href="/notes/">文章</a></li><li><a href="/notes/#research">研究笔记</a></li></ol>
+  </nav>
+  <h1>大模型推理论文笔记：强化学习、熵与推理时计算</h1>
+  <p><time datetime="2025-07-23">2025.07.23</time><span class="reading-updated"><span aria-hidden="true"> · </span>更新于 <time datetime="2026-11-27">2026.11.27</time></span><span aria-hidden="true"> · </span><a class="reading-author" href="/" rel="author">鲁睿 Rui Lu</a><span class="reading-views" id="busuanzi_container_page_pv"><span aria-hidden="true"> · </span><span id="busuanzi_value_page_pv">—</span> <span data-edit-field="interface:article_views.zh">次阅读</span></span></p>
+</header>
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
     <div class="side-col d-none d-lg-block col-lg-2">
@@ -283,37 +216,29 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">LLM Reason Paper</h1>
-            
-              <p class="note note-info">
-                
-                  
-                    本文最后更新于：1 年前
-                  
-                
-              </p>
-            
             <div class="markdown-body">
               
-              <p>不定期更新最近读到的 paper （主要关注 reason, LLM RL, LLM Agent,
-Browse Agent）</p>
-<h1 id="月">6月</h1>
-<h2
+              <p>这篇随记整理了我在 2025
+年阅读的大模型推理论文，主要关注强化学习中的熵变化、过程奖励、推理时计算和工具使用。内容按阅读月份排列，保留方法要点、公式和论文图表，便于回头比较不同工作的思路。</p>
+<h2 id="月">6月</h2>
+<h3
 id="the-entropy-mechanism-of-reinforcement-learning-for-reasoning-language-models">The
 Entropy Mechanism of Reinforcement Learning for Reasoning Language
-Models</h2>
+Models</h3>
 <ul>
 <li>熵 entropy 在训练过程中掉得很快，其主要作用是来源于 <span
 class="math inline">\(-\log \pi_\theta\)</span> 和优势 <span
 class="math inline">\(A\)</span>
 的协方差，也就是两者如果越不线性相关，模型就越不确定，相反如果模型确信的那些动作给了正优势，不确信的动作给了负优势，模型就很快达到确定的状态</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDdjZDMxNzZjMThkZTBhNDY5NzkzMDRlY2ZkOWE1NGZfTmQzVmJwN0JsM0FJWUVtZ0EyT2lPd0M0eFE5RVRUMmlfVG9rZW46QUZVcmI5b1pkb0p3VDB4RnlHNWNpY3FTbk1oXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/entropy-covariance.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/entropy-covariance.svg" alt="策略熵的变化与协方差，以及不同问题组的协方差差异" width="648" height="214" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2505.22617v1#page=10" target="_blank" rel="noopener noreferrer">Entropy
+Mechanism · 图 8</a>
+</figcaption>
 </figure>
 <ul>
 <li>计算 token-level 的 advantage，将比较高的 <span
@@ -321,8 +246,8 @@ class="math display">\[(\log p-\overline{\log p})\cdot
 (A-\overline{A})\]</span>的那些 token mask 掉，或者给这些 token 加上 KL
 约束，从而抑制 entropy 掉</li>
 </ul>
-<h2 id="truncated-proximal-policy-optimization-t-ppo">Truncated Proximal
-Policy Optimization (T-PPO)</h2>
+<h3 id="truncated-proximal-policy-optimization-t-ppo">Truncated Proximal
+Policy Optimization (T-PPO)</h3>
 <table>
 <colgroup>
 <col style="width: 28%" />
@@ -380,9 +305,9 @@ class="math inline">\(2.5 \times\)</span> 加速</td>
 </tr>
 </tbody>
 </table>
-<h2
+<h3
 id="the-unreasonable-effectiveness-of-entropy-minimization-in-llm-reasoning">The
-Unreasonable Effectiveness of Entropy Minimization in LLM Reasoning</h2>
+Unreasonable Effectiveness of Entropy Minimization in LLM Reasoning</h3>
 <table>
 <colgroup>
 <col style="width: 22%" />
@@ -422,11 +347,11 @@ logits；也探讨简单温度自适应</td>
 </tr>
 </tbody>
 </table>
-<h2 id="半监督学习思想应用于-rl">半监督学习思想应用于 RL</h2>
-<h3
+<h3 id="半监督学习思想应用于-rl">半监督学习思想应用于 RL</h3>
+<h4
 id="seed-grpo-semantic-entropy-enhanced-grpo-for-uncertainty-aware-policy-optimization">SEED-GRPO:
 Semantic Entropy Enhanced GRPO for Uncertainty-Aware Policy
-Optimization</h3>
+Optimization</h4>
 <ul>
 <li>针对采样出来的 <span class="math inline">\(N\)</span>
 条样本，语义聚类为 <span class="math inline">\(\left\{C_1, \cdots,
@@ -434,24 +359,20 @@ C_k\right\}\)</span> ，计算优势，定义采样公式（从 shannon 熵 <spa
 class="math inline">\(-\sum p_i \log \left(p_i\right)\)</span>
 Rao－Blackwell 化）</li>
 </ul>
-<p><span class="math display">\[
-\operatorname{SE}(q)=-\frac{1}{K} \sum_{k=1}^K \mathbb{P}\left(C_k \mid
-q\right)
-\]</span></p>
+<p><span class="math display">\[\operatorname{SE}(q)=-\frac{1}{K}
+\sum_{k=1}^K \mathbb{P}\left(C_k \mid q\right)\]</span></p>
 <ul>
 <li>其中 <span class="math inline">\(\mathrm{SE}_{\text {max }}\)</span>
 为所有答案语义都不一样，代表熵最大 <span class="math inline">\(\log
 (N)\)</span></li>
 </ul>
-<p><span class="math display">\[
-\hat{A}_i=A_i \cdot f\left(\alpha \cdot \operatorname{SE}(q) /
-\operatorname{SE}_{\max }(q)\right)
-\]</span></p>
+<p><span class="math display">\[\hat{A}_i=A_i \cdot f\left(\alpha \cdot
+\operatorname{SE}(q) / \operatorname{SE}_{\max }(q)\right)\]</span></p>
 <ul>
 <li>F 是线性函数，使得熵越大，更新越保守</li>
 </ul>
-<h3 id="learning-to-reason-without-external-rewards">Learning to Reason
-without External Rewards</h3>
+<h4 id="learning-to-reason-without-external-rewards">Learning to Reason
+without External Rewards</h4>
 <ul>
 <li>将每个 token 的词表概率分布与均匀分布计算 KL
 散度，如果越远说明越自信 <span
@@ -464,11 +385,14 @@ o_{&lt;i}\right)\right)=-\frac{1}{|o| \cdot|\mathcal{V}|}
 o_{&lt;i}\right)\right)\)</span></li>
 <li>Self-certainty 更能区分 correct 和 incorrect</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmMwMzkwNzUyMmNjMjg3NzE0YmYxZDc3ZmQzOGJmZGNfZXZqVDJmVGx4WGNpVjR2MGpjbDNTdUFYTm9XbnpTSDdfVG9rZW46QmxISGI4aXJwb2IyOEJ4WTJ3bGNGVzhNbnhoXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/self-certainty-distributions.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/self-certainty-distributions.svg" alt="正确、错误与无答案输出的 self-certainty 和负困惑度分布" width="415" height="158" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2502.18581v1#page=1" target="_blank" rel="noopener noreferrer">Self-Certainty
+· 图 1</a>
+</figcaption>
 </figure>
 <ul>
 <li>Borda Voting：不同排名赋予不同得分，定义 <span
@@ -476,143 +400,196 @@ class="math display">\[v(r)=(N-r+1)^p\]</span>例如下图的例子 <span
 class="math display">\[p=1\]</span>分别是 6, 5, 4, 3, 2, 1
 分，然后按照对应答案的一致性进行加权</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=NzZhMzZlMTg0MDRhNGRmYzFlNmEyODhmZGEzMDczOTVfQUxaQ3hVMjNCZ0tjTTU3RURYdXNSTVZSb04xYjlrc0dfVG9rZW46RlNVQ2JNVFVLb1RVYmR4N0VHdWN1N3dlbmNLXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/borda-voting-example.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/borda-voting-example.svg" alt="结合置信度排序和答案频次的 Borda Voting 示例" width="837" height="156" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2502.18581v1#page=5" target="_blank" rel="noopener noreferrer">Self-Certainty
+· 图 3</a>
+</figcaption>
 </figure>
 <ul>
 <li>使用排名赋予投票挑选</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjlkNTcxOTg0ZTU0YjVmNGNlNjYyNGJlYmJiN2IyNjhfaUt6RmdVZzZCcXlvWWNmcXk0emtiRVY3STZnQU5nb0RfVG9rZW46WnRLS2J2U3lObzlia2Z4MlhQNWNuZEhNbktkXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/borda-voting-results.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/borda-voting-results.svg" alt="Self-certainty、多数投票与 Borda Voting 的准确率对比" width="268" height="128" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2502.18581v1#page=7" target="_blank" rel="noopener noreferrer">Self-Certainty
+· 表 1</a>
+</figcaption>
 </figure>
 <ul>
 <li>Learning to Reason without External Rewards
 这篇文章就在上述文章基础使用这个指标作为 reward</li>
 </ul>
-<h1 id="月-1">3月</h1>
-<h2 id="hot">HoT</h2>
+<h2 id="月-1">3月</h2>
+<h3 id="hot">HoT</h3>
 <ul>
 <li>给事实加上标签</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=NzA5MzAzNjFlM2RjMDE5YmQ1NTEwZDQzMzY4MjRkYzRfMkw3TTJjcVA5akVMUmNyS3NaQnFLa0VvT2wyTGdFSFdfVG9rZW46VUU5Q2JqSFZNb0RKU2l4eDZXNmNDY21vbjdkXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/hot-fact-highlights.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/hot-fact-highlights.svg" alt="HoT 用 XML 标签标出输入中的事实，并将标签呈现为高亮" width="858" height="284" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2503.02003v1#page=4" target="_blank" rel="noopener noreferrer">HoT
+· 图 4</a>
+</figcaption>
 </figure>
-<h2
+<h3
 id="satori-reinforcement-learning-with-chain-of-action-thought-enhances-llm-reasoning-via-autoregressive-search">Satori:
 Reinforcement Learning with Chain-of-Action-Thought Enhances LLM
-Reasoning via Autoregressive Search</h2>
+Reasoning via Autoregressive Search</h3>
 <ul>
 <li>先用错误 =&gt; 正确构建一些 reflection 的数据，强制给 step 加上
-&lt;|reflect|&gt;，reward 计算加上 refecltion bonus</li>
+&lt;|reflect|&gt;，reward 计算加上 reflection bonus</li>
 </ul>
-<p><img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDk3MzkzYmJiMDRkMmRkNzI4YmE2Mjg3ZTY5MjNkNzBfMGZBWTZXWm9UOUd2QU9WM3lFZlBSQUFnajFabktPc1RfVG9rZW46V2xnMGJScmlHb2hMUWF4UzBRWWNwYjl3bnJiXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" /><img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWEzNGM5ZjRhMjgzMDIwOTMzOTE3MzMzNTVhODNiYzVfdzROSWc2aDdBTER4YkNDeDFkd0FIZ1p3TVMxZGpRZlRfVG9rZW46TVpacWJYMzZsb0dyTE14R0JZS2NsQTZLbmliXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" /></p>
-<h2 id="mrt">MRT</h2>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/satori-training.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/satori-training.svg" alt="Satori 的格式学习与强化学习自我改进框架" width="859" height="178" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2502.02508v1#page=3" target="_blank" rel="noopener noreferrer">Satori
+· 图 1</a>
+</figcaption>
+</figure>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/satori-reflection-bonus.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/satori-reflection-bonus.svg" alt="Satori 中鼓励纠正错误、避免改错正确答案的反思奖励" width="422" height="341" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2502.02508v1#page=5" target="_blank" rel="noopener noreferrer">Satori
+· 反思奖励定义，第 5 页</a>
+</figcaption>
+</figure>
+<h3 id="mrt">MRT</h3>
 <ul>
 <li>拼接 </think> 强制回答的 rollout 作为当前这步的
 baseline，当前这步直接 rollout 减去 baseline 作为 progress reward</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2FkYzQ5N2JjOGNkMmRmYWI3NTgwYmQ2YjA3NzIwYzRfd0J2WVJFNWNFRUFHYnlzQ1Y5ZXNWM1lyYlYwY3F1d0lfVG9rZW46SFFMSGJCcFRSb2NqVnF4dVY1WWNkWmRKbjRnXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/mrt-progress-rewards.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/mrt-progress-rewards.svg" alt="MRT 的中间进展奖励与仅使用最终结果奖励的对比" width="848" height="255" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2503.07572v1#page=1" target="_blank" rel="noopener noreferrer">MRT
+· 图 1</a>
+</figcaption>
 </figure>
-<h2 id="think-twice">Think Twice</h2>
+<h3 id="think-twice">Think Twice</h3>
 <ul>
 <li>尝试两次，效果 qwq AIME 80.3-&gt;82.1</li>
 </ul>
 <p>Original question prompt</p>
 <p>The assistant’s previous answer is: <answer> last round answer
 </answer>, and please re-answer.</p>
-<h2
+<h3
 id="exploring-data-scaling-trends-and-effects-in-reinforcement-learning-from-human-feedback">Exploring
 Data Scaling Trends and Effects in Reinforcement Learning from Human
-Feedback</h2>
+Feedback</h3>
 <ul>
 <li>使用 generative model 打分并删去 &gt; 0.5 的数据</li>
 <li>将数学代码类型的数据放在前面</li>
 </ul>
-<h2
+<h3
 id="sleep-time-compute-beyond-inference-scaling-at-test-time">Sleep-time
-Compute: Beyond Inference Scaling at Test-time</h2>
+Compute: Beyond Inference Scaling at Test-time</h3>
 <ul>
-<li>将问题拆分为 (context, query), 调用 function call 让模型不断更新
-context，function call 传入参数包含</li>
+<li>将问题拆分为 (context, query)，在 query 到来前调用 function call
+整理 context。下面是论文中的离线记忆整理提示与示例：</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=MzY1YzcwMjAwYjAwNTlhMzc4ODFhZjRmY2NkZTJmZTRfOGhPdW1EWFlnN1NjZzUySFJVRXdiQUxKb0FYdFM1d0RfVG9rZW46R1BBemJhRkhnb1RaRDl4UkM2N2NPYXphbkJhXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/sleep-time-memory-prompt.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/sleep-time-memory-prompt.svg" alt="Sleep-time Compute 在离线阶段整理记忆的系统提示" width="830" height="598" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2504.13171v1#page=18" target="_blank" rel="noopener noreferrer">Sleep-time
+Compute · 图 17</a>
+</figcaption>
 </figure>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDhjOTBiYWY0MDllZmMzOTFiOGJkODcyMDk3NTM3MzdfcjEyZUVmNHpyQVBGS0w5ajhiZXRHVmdZV0FhYUhWcWZfVG9rZW46RHJ2QmJld3Rlb05Ud0x4a2g0cGNQNEhIblRoXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/sleep-time-example.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/sleep-time-example.svg" alt="Sleep-time Compute 先处理上下文，再复用结果回答相关问题的示例" width="810" height="494" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2504.13171v1#page=2" target="_blank" rel="noopener noreferrer">Sleep-time
+Compute · 图 1</a>
+</figcaption>
 </figure>
-<h2 id="retool">ReTool</h2>
-<p><img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=Njc2ODg2NDZjYzVjMDBmNTZkMzhiZDgyM2FlMTk1NWNfeTk5Tnk5MDRjdEMydTNFckVHcVlxOXRTZjI2am1pOExfVG9rZW46RktFTGJraGFIb1Nka0h4M1JpTmNFdnFmblJnXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" /><img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=Mjc3ZjgyODEyYjE1YzE4NTg0MTRlYjUyMjkzNzU5NDFfb0dTYzFOaHF2aFVNeVBaWEM1RlBtWUkzUzNUWmUwMDBfVG9rZW46VUhzOWJUUDllb3B2S054dEl4Y2M0aE16bmlnXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" /></p>
-<h1 id="月-2">2月</h1>
-<h2
+<h3 id="retool">ReTool</h3>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/retool-training.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/retool-training.svg" alt="ReTool 将代码执行交织到强化学习 rollout 中的训练流程" width="740" height="388" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2504.11536v1#page=4" target="_blank" rel="noopener noreferrer">ReTool
+· 图 2</a>
+</figcaption>
+</figure>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/retool-tool-use.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/retool-tool-use.svg" alt="ReTool 训练中回答长度、代码调用与执行反馈的变化" width="823" height="378" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2504.11536v1#page=7" target="_blank" rel="noopener noreferrer">ReTool
+· 图 3</a>
+</figcaption>
+</figure>
+<h2 id="月-2">2月</h2>
+<h3
 id="can-1b-llm-surpass-405b-llm-rethinking-compute-optimal-test-time-scaling">Can
 1B LLM Surpass 405B LLM? Rethinking Compute-Optimal Test-Time
-Scaling</h2>
+Scaling</h3>
 <ul>
 <li>小模型适合 BoN，大模型适合 diverse Beam Search</li>
 </ul>
-<h2 id="s-inference-scaling-for-code">S*: Inference scaling for
-Code</h2>
+<h3 id="s-inference-scaling-for-code">S*: Inference scaling for
+Code</h3>
 <ul>
 <li>第一步使用公开样例和多轮对话，第二步 prompt
 语言模型生成能区分两个代码的测试，然后选择最好的 sample</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjhhNGU3OTdkNzRiN2Q0ZThkOGUwNDU4ZjY4ODc5MmJfSlBhR1o0dUdtR3NDWDU2RHR2NEg1MFROOGFLU1MwMEZfVG9rZW46UUlWV2JYMnlxb1dvWXV4Mm5Hd2NSOUN3bmtmXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/sstar-generation-selection.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/sstar-generation-selection.svg" alt="S* 通过迭代调试生成代码，再用区分性测试选择候选程序" width="800" height="260" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2502.14382v1#page=2" target="_blank" rel="noopener noreferrer">S*
+· 图 2</a>
+</figcaption>
 </figure>
-<h1 id="月-3">1月</h1>
-<h2 id="forking-paths-in-neural-text-generation">Forking Paths in Neural
-Text Generation</h2>
+<h2 id="月-3">1月</h2>
+<h3 id="forking-paths-in-neural-text-generation">Forking Paths in Neural
+Text Generation</h3>
 <ul>
 <li>采样的不同位置更换 token 后结果的概率分布变化，使用 Change Point
-Detection 统计学方法找到突变位置
+Detection 统计学方法找到突变位置</li>
+</ul>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/forking-change-point.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/forking-change-point.svg" alt="生成序列中的关键 token 与答案分布的突变点" width="708" height="281" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2412.07961v1#page=6" target="_blank" rel="noopener noreferrer">Forking
+Paths · 图 4</a>
+</figcaption>
+</figure>
 <ul>
-<li><figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=NjJkNTVlMDczYTczZDNiZjZmZDA3MzljNTQ3MjEzYzVfOUZJakl2SkpnZ3N4YVlQU2E1RFFVTUVlcUdxNGpOOEJfVG9rZW46TndOMmJvWnZJb1ZqejV4b3pHWWNJSnJobkt0XzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure></li>
 <li>中间有个突变点能让答案分布收敛到同一个点</li>
 <li>https://forking-paths.streamlit.app/</li>
-</ul></li>
 <li>不同 token 更换形成的概率分布</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=YTU2NzViNGRiYmRlMzA0OTRmZDJjOWJkZGU3NTk0YjlfWVVDR1gyWlNvUUVkeldlYVRFOE05WkJwVE1rdXd0U0dfVG9rZW46SjFMYWIxd0JOb0Z2SGl4dkNvR2NHZUxIbmhlXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/forking-sampling.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/forking-sampling.svg" alt="从不同 token 分叉采样，并提取加权答案分布的流程" width="688" height="373" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2412.07961v1#page=4" target="_blank" rel="noopener noreferrer">Forking
+Paths · 图 2</a>
+</figcaption>
 </figure>
 <ul>
 <li>思考
@@ -623,8 +600,8 @@ alt="img" />
 token</li>
 </ul></li>
 </ul>
-<h2 id="free-process-rewards-without-process-labels">Free Process
-Rewards Without Process Labels</h2>
+<h3 id="free-process-rewards-without-process-labels">Free Process
+Rewards Without Process Labels</h3>
 <ul>
 <li>使用 DPO 训练好的模型直接给到每一步的 reward <span
 class="math inline">\(q_{\theta}(y_{&lt;t},y_t)=\beta \log
@@ -636,9 +613,9 @@ implicit reward</li>
 <li>但训练后的 policy model 性能下降</li>
 </ul></li>
 </ul>
-<h2
+<h3
 id="understanding-chain-of-thought-in-llms-through-information-theory">Understanding
-chain-of-thought in LLMs through information theory</h2>
+chain-of-thought in LLMs through information theory</h3>
 <ul>
 <li>定义信息增益 <span
 class="math display">\[\mathcal{I}=E[\log(Y|X_{j})]-E[\log(Y|X_{j-1})]\geq
@@ -656,15 +633,18 @@ reward-free
 step-maj ？）</li>
 </ul></li>
 </ul>
-<h2
+<h3
 id="rstar-math-small-llms-can-master-math-reasoning-with-self-evolved-deep-thinking">rStar-Math:
 Small LLMs Can Master Math Reasoning with Self-Evolved Deep
-Thinking</h2>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=OTRjMjcwMDVjMDY2MjQzMjFhZTQ1NmUyM2M1ZmVlODNfTEpaNVJYNkt0b2piQ3VxN05yOURzbkZlaFA4R0tsNjdfVG9rZW46SmtJWWJuVXlXb0dpMzF4VWl3NWNmMm9SbkFlXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+Thinking</h3>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/rstar-math-overview.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/rstar-math-overview.svg" alt="rStar-Math 的蒙特卡洛树搜索、过程偏好数据与多轮自我改进" width="699" height="208" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2501.04519v1#page=2" target="_blank" rel="noopener noreferrer">rStar-Math
+· 图 1</a>
+</figcaption>
 </figure>
 <ul>
 <li>Round 1：DeepSeek-Coder-V2-Instruct (236B) 构建 MCTS 初始
@@ -675,33 +655,39 @@ PRM-r1</li>
 <li>Round 3/4：PRM-ri 指导下 SLM-ri policy MCTS
 （训练数据难度持续增加），增量训练得到 SLM-r{i+1} PRM-r{i+1} i=2,3</li>
 </ul>
-<h2
+<h3
 id="process-supervision-guided-policy-optimization-for-code-generation">Process
-Supervision-Guided Policy Optimization for Code Generation</h2>
+Supervision-Guided Policy Optimization for Code Generation</h3>
 <ul>
 <li>单行代码使用二分查找得到分界线（rollout
 如果有对的认为该步正确），然后训练 PRM 用于 RL</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=ODVlMDZlMWRmZmE4NzVkMTU0OGMwMjIzN2QwNDA1NzVfdXJaWUdyOW9meWpiU3dtNFhlalh1VnVBMGpNNkJhaVBfVG9rZW46Qzl0TmJLVXdOb2VXVkJ4SEJQVWNHM0VBbmFmXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/process-code-overview.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/process-code-overview.svg" alt="用二分查找标注代码前缀，并将过程奖励模型用于策略优化" width="682" height="230" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2410.17621v1#page=3" target="_blank" rel="noopener noreferrer">Process
+Supervision-Guided Policy Optimization · 图 1</a>
+</figcaption>
 </figure>
-<h2 id="entropy-regularized-process-reward-model">Entropy-Regularized
-Process Reward Model</h2>
-<p>对于每一步进行 rollout，令 p_i 为给定当前步新采样出多个 trajactory
-时每个 trajactory 的分配概率，定义用熵正则化后的奖励函数为</p>
+<h3 id="entropy-regularized-process-reward-model">Entropy-Regularized
+Process Reward Model</h3>
+<p>对于每一步进行 rollout，令 p_i 为给定当前步新采样出多个 trajectory
+时每个 trajectory 的分配概率，定义用熵正则化后的奖励函数为</p>
 <p><span class="math display">\[f(\eta)=\dfrac{\ln (\sum_i p_i \exp(\eta
 r(a_i,x)))}{\eta}\]</span></p>
 <p>可以证明该函数为单调递增的凸函数，从 Soft-Label <span
 class="math inline">\(\sum p_i r_i\)</span> 增加到 Hard-Label <span
 class="math inline">\(\max_i(r_i)\)</span></p>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=NTg4ZThlYjFmMTE1NTllYTM2Y2MwODdkMzBmYjI5NzRfVkltVkl5RUZkU3FwUXB1aEtKS1ljeGJqcUR1VjFKZW9fVG9rZW46UE01bmJjV2VFb2FXanB4MGlTSWNGY3dYbndnXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/entropy-prm-eta.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/entropy-prm-eta.svg" alt="ER-PRM 在 GSM8K 与 MATH500 上使用不同熵正则系数的结果" width="746" height="290" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2412.11006v1#page=8" target="_blank" rel="noopener noreferrer">ER-PRM
+· 图 4</a>
+</figcaption>
 </figure>
 <ul>
 <li>gsm8k 的最佳 <span class="math inline">\(\eta\)</span>
@@ -709,10 +695,10 @@ alt="img" />
 class="math inline">\(\eta\)</span>
 要低一些，更希望每一步都有不错的正确率</li>
 </ul>
-<h2
+<h3
 id="the-lessons-of-developing-process-reward-models-in-mathematical-reasoning">The
 Lessons of Developing Process Reward Models in Mathematical
-Reasoning</h2>
+Reasoning</h3>
 <ul>
 <li>结论：
 <ul>
@@ -736,21 +722,20 @@ PRM</li>
 <blockquote>
 <p>本组实验结论：Point-wise 训练 PRM &gt; regression 训练</p>
 </blockquote>
-<h2
+<h3
 id="rewarding-progress-scaling-automated-process-verifiers-for-llm-reasoning">Rewarding
-Progress: Scaling Automated Process Verifiers for LLM Reasoning</h2>
+Progress: Scaling Automated Process Verifiers for LLM Reasoning</h3>
 <ul>
 <li>用原始的 <span class="math inline">\(\pi\)</span> 模型计算 <span
 class="math inline">\(Q\)</span>，更强的 <span
 class="math inline">\(\mu\)</span> 模型计算 Adv</li>
 </ul>
-<p><span class="math display">\[
-\left.\nabla_\pi
+<p><span class="math display">\[\left.\nabla_\pi
 \ell_{\mathrm{PAV}-\mathrm{RL}}^{\pi^{\prime}}(\pi)\right|_{\pi^{\prime}=\pi}=\sum_{h=1}^H
 \nabla_\pi \log \pi\left(a_h \mid s_h\right) \cdot
 \underbrace{\left(Q^\pi\left(s_h, a_h\right)+\alpha \cdot
-A^\mu\left(s_h, a_h\right)\right)}_{\text {effective reward }}
-\]</span></p>
+A^\mu\left(s_h, a_h\right)\right)}_{\text {effective reward
+}}\]</span></p>
 <ul>
 <li>实验表明：ORM + <span class="math inline">\(\alpha\)</span>* PAV
 &gt; PAV &gt; ORM</li>
@@ -761,12 +746,12 @@ A^\mu\left(s_h, a_h\right)\right)}_{\text {effective reward }}
 qwen-2.5-math 更强的数学模型来构建 label （或许是一种扩大 label
 数值的方式）</p>
 </blockquote>
-<h2
+<h3
 id="self-generated-critiques-boost-reward-modeling-for-language-models">Self-Generated
-Critiques Boost Reward Modeling for Language Models</h2>
+Critiques Boost Reward Modeling for Language Models</h3>
 <ul>
 <li>x 是问题，y+/y- 是 chosen / reject，z+/z- 是 critique-cot，s+/s-
-是标量分熟</li>
+是标量分数</li>
 <li>多次采样 critique 然后过滤，通过总结和 top-k (prompt) 产生更 diverse
 和更高质量的 critique</li>
 <li><span
@@ -776,65 +761,97 @@ critique 下 reward 预测</li>
 \log q_\phi(z \mid y, x)\]</span> 作为 generative-critique
 的损失函数</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmM0OTliZTdmZGNlOTJkYzZlM2NlNDcyOGVmZTE5ZGFfZjdzRmpUZ20wUWdTNkhsVW9kcjNJcDVlVjRqYlhNNVdfVG9rZW46V1F0U2JnU3cyb0FCVjF4dHp2ZWN4NXVMbnFnXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/critic-rm-overview.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/critic-rm-overview.svg" alt="Critic-RM 生成、筛选和改进 critique，并训练奖励模型的流程" width="634" height="409" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2411.16646v1#page=4" target="_blank" rel="noopener noreferrer">Critic-RM
+· 图 1</a>
+</figcaption>
 </figure>
-<h2 id="warp-on-the-benefits-of-weight-averaged-rewarded-policies">WARP:
-On the Benefits of Weight Averaged Rewarded Policies</h2>
+<h3 id="warp-on-the-benefits-of-weight-averaged-rewarded-policies">WARP:
+On the Benefits of Weight Averaged Rewarded Policies</h3>
 <ul>
 <li>Stage 1: 使用模型参数的 EMA 来计算 KL 惩罚，重复 m 遍</li>
 <li>Stage 2: 上述模型使用球形插值 merge 起来</li>
 <li>Stage 3: 和初始模型线性求和（迭代式的）</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=YjIxYTkyYzY0YjZhZGM3NzI1YzlhYjQ5NzQyZWJhZmVfcmVHYlZZMDJFbzExUEQzSHBYbjRpWHpQU0hQRUIzM3RfVG9rZW46UmFRTGJtaFZrb1lzNGx4b3lhdGNHRmdKbkFlXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/warp-overview.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/warp-overview.svg" alt="WARP 结合 EMA、球面插值与线性插值的三个阶段" width="819" height="302" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2406.16768v1#page=2" target="_blank" rel="noopener noreferrer">WARP
+· 图 1</a>
+</figcaption>
 </figure>
 <ul>
 <li>蓝线更好（在 <span class="math inline">\(\beta=0.1\)</span>
 下）</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=YzU1Yjg3MWI4MzAwODE2ZmU0MjJmOTY5ZDQ0YmI4OTJfcTVYMGJqeGtUR3pkTDVhMHlUTHBjbE5pUTVEQ1hwdlBfVG9rZW46UTBYcWJwMm1Kb01UdTB4OUJJNWN6Q2lBbnJiXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/warp-kl-reward.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/warp-kl-reward.svg" alt="不同 KL 正则强度、参考策略与插值方法下的奖励表现" width="825" height="259" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2406.16768v1#page=7" target="_blank" rel="noopener noreferrer">WARP
+· 图 3</a>
+</figcaption>
 </figure>
-<h2
+<h3
 id="deepseek-r1-incentivizing-reasoning-capability-in-llms-via-reinforcement-learning">DeepSeek-R1:
 Incentivizing Reasoning Capability in LLMs via Reinforcement
-Learning</h2>
+Learning</h3>
 <ul>
 <li>Deepseek-Zero：基于 Base model 采用以下格式直接 GRPO 训练，只有
 rule-RM 以及 format-RM 两个奖励函数</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=N2NjM2QzN2YwNWExOGM1ZjMzNDg5OTgyYzg2YjcwZGRfSnFucG01NkFTRU5GZzlwVHlGMkNFeUs3eWxXdTZUdHBfVG9rZW46QVFBbmJVZWtDb1NPeld4VGlMSGNiclRCbmxmXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/deepseek-r1-zero-template.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/deepseek-r1-zero-template.svg" alt="DeepSeek-R1-Zero 使用 think 和 answer 标签的训练提示模板" width="780" height="125" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2501.12948v1#page=6" target="_blank" rel="noopener noreferrer">DeepSeek-R1
+· 表 1</a>
+</figcaption>
 </figure>
 <ul>
 <li>LCB 66 AIME 79.8 Codeforce 2000 rate SWE-Bench-Verified 2000</li>
 </ul>
-<h2 id="s1-simple-test-time-scaling">s1: Simple test-time scaling</h2>
+<h3 id="s1-simple-test-time-scaling">s1: Simple test-time scaling</h3>
 <ul>
 <li>1000 条高质量、多样化的数据，强制添加 token 思考</li>
 </ul>
-<figure>
-<img
-src="https://zhipu-ai.feishu.cn/space/api/box/stream/download/asynccode/?code=NzYxMWMyNzRkZjliYTc3YWNiYjRlNGUyNGFhNmQwMWNfQjVtT2ppclJaWjNwcGFLMzhDcFMxRXp0cVZ1cHV6ZnhfVG9rZW46SVdTb2JuVmRNbzU1M0Z4cFlnY2NvakZhbkhmXzE3NTMyNDI5NjA6MTc1MzI0NjU2MF9WNA" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<figure class="research-note-figure">
+<a class="research-note-image" href="/img/posts/reason-paper/s1-budget-forcing.svg" target="_blank" rel="noopener noreferrer">
+<img src="/img/posts/reason-paper/s1-budget-forcing.svg" alt="s1 追加 Wait、延长思考并让模型纠正答案的 budget forcing 示例" width="414" height="301" loading="lazy" decoding="async">
+</a>
+<figcaption>
+来源：<a href="https://arxiv.org/pdf/2501.19393v1#page=4" target="_blank" rel="noopener noreferrer">s1
+· 图 3</a>
+</figcaption>
 </figure>
 
               
             </div>
+            
+
+<nav class="reading-next" aria-labelledby="reading-next-title">
+  <div class="reading-next-heading"><h2 id="reading-next-title">继续阅读</h2><a href="/notes/">全部文章 <span aria-hidden="true">↗</span></a></div>
+  <div class="reading-next-grid">
+    
+    
+      <a class="reading-next-card" href="/notes/deepdive/"><small>2025.09</small><strong>DeepDive：让模型学会搜索和查证</strong><p>DeepDive 从训练题目和搜索过程入手，让模型学习搜索、阅读网页和查证线索，并减少重复查询。</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2024/02/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><small>2024.02</small><strong>强化学习笔记：从 MDP、Q-learning 到 PPO</strong><p>从多臂老虎机、MDP 和 Bellman 方程，到 Q-learning、DQN、策略梯度、TRPO 与 PPO 的学习笔记。</p><span aria-hidden="true">↗</span></a>
+    
+      <a class="reading-next-card" href="/2022/05/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/"><small>2022.05</small><strong>机器学习基础</strong><p>机器学习课程笔记，整理模型、学习准则与优化算法，介绍期望风险、经验风险、梯度下降、正则化，以及监督学习、无监督学习和强化学习的区别。</p><span aria-hidden="true">↗</span></a>
+    
+  </div>
+</nav>
+
+
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -890,14 +907,14 @@ alt="img" />
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LLM Reason Paper</div>
+      <div>大模型推理论文笔记：强化学习、熵与推理时计算</div>
       <div>https://learningrate1.com/2025/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/reason_paper/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>Learning_rate</div>
+          <div>鲁睿 Rui Lu</div>
         </div>
       
       
@@ -933,12 +950,18 @@ alt="img" />
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/notes/deepdive/" title="DeepDive：让模型学会搜索和查证">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">DeepDive：让模型学会搜索和查证</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/02/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Foundation for Reinforcement Learning">
-                        <span class="hidden-mobile">Foundation for Reinforcement Learning</span>
+                      <a href="/2024/02/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="强化学习笔记：从 MDP、Q-learning 到 PPO">
+                        <span class="hidden-mobile">强化学习笔记：从 MDP、Q-learning 到 PPO</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -1027,7 +1050,7 @@ alt="img" />
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 id="ModalLabel" class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1049,54 +1072,53 @@ alt="img" />
   </main>
 
   <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
     
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
+<div class="footer-inner">
+  <div class="footer-content">
+    <span class="footer-copyright">© 2026 <span data-edit-field="profile:name">鲁睿</span></span>
+    <a href="/atom.xml" type="application/atom+xml" title="通过 RSS 阅读器订阅文章"><span data-edit-field="interface:subscribe_articles.zh">订阅文章（RSS）</span></a>
+  </div>
+  <div class="statistics" data-site-statistics data-statistics-src="https://busuanzi.ibruce.info/busuanzi/2.3//busuanzi.pure.mini.js">
+  <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span> <span data-edit-field="interface:views.zh">次访问</span></span>
+  <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span> <span data-edit-field="interface:visitors.zh">位访客</span></span>
+  <span data-preview-statistics hidden><span data-edit-field="interface:preview_stats.zh">访问统计在正式站点显示</span></span>
 </div>
 
-  
-  
   
 </div>
 
   </footer>
 
+  <script type="application/json" id="profile-layout">{"groups":{"home":["opening","benchmarks","education","research","honors","citations","notes"]},"styles":{}}</script>
   <!-- Scripts -->
   
   <script  src="/lib/nprogress/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
+    (() => {
+      NProgress.configure({"showSpinner":false,"trickleSpeed":180,"minimum":0.08});
+      let finished = false;
+      // Fast pages need no flash; background resources do not hold this open.
+      const showTimer = setTimeout(() => {
+        if (!finished && document.readyState === 'loading') NProgress.start();
+      }, 150);
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(showTimer);
+        NProgress.done();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish, { once: true });
+      } else {
+        finish();
+      }
+      window.addEventListener('pagehide', finish, { once: true });
+      window.addEventListener('pageshow', event => {
+        if (event.persisted) { finish(); NProgress.remove(); }
+      });
+    })();
   </script>
 
 
@@ -1107,38 +1129,35 @@ alt="img" />
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
   
 
 
-
-  <script  src="/lib/typed/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var title = subtitle.title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
 
 
 
 
   
     <!-- Baidu Analytics -->
-    <script defer>
+    <script>
       var _hmt = _hmt || [];
       (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+        function loadAnalytics() {
+          var host = location.hostname;
+          var preview = document.getElementById('review-bootstrap') ||
+            ['localhost', '127.0.0.1', '[::1]'].includes(host) ||
+            /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+          if (preview) return;
+          var hm = document.createElement('script');
+          hm.async = true;
+          hm.src = 'https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37';
+          document.head.appendChild(hm);
+        }
+        // Statistics load after the readable page, and only on the public site.
+        if (document.readyState === 'complete') loadAnalytics();
+        else window.addEventListener('load', loadAnalytics, { once: true });
       })();
     </script>
   
@@ -1153,8 +1172,6 @@ alt="img" />
 
   
 
-  
-    
   
 
 
@@ -1322,11 +1339,16 @@ alt="img" />
 
   <script  src="/js/local-search.js" ></script>
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-  <script defer src="/js/leancloud.js" ></script>
 
 
+
+  
+<script src="/js/citation-curve.js"></script>
+<script src="/js/academic.js"></script>
+<script src="/js/live-data.js"></script>
+<script src="/js/figure-viewer.js"></script>
+<script src="/js/institution-marks.js"></script>
+<script src="/js/scroll-reveal.js"></script>
 
 
 
