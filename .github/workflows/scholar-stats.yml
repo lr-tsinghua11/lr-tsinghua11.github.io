@@ -13,6 +13,10 @@ permissions:
 jobs:
   snapshot:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: scholar-data
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
@@ -22,12 +26,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install scholarly
       - run: python .github/scripts/scholar_crawl.py data-branch/citations.json
       - name: commit & push
         run: |
           cd data-branch
           git config user.name "scholar-stats-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add citations.json
-          git diff --cached --quiet || { git commit -m "snapshot $(date -u +%F)"; git push; }
+          git add citations.json profiles/
+          git diff --cached --quiet || { git commit -m "snapshot $(TZ=Asia/Shanghai date +%F)"; git push; }

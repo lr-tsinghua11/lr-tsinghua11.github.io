@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/profile/apple-touch-icon.png">
+  <link rel="icon" href="/img/profile/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <link rel="preload" href="/fonts/wenkai-primary.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="author" content="鲁睿 Rui Lu">
+  <meta name="keywords" content="鲁睿,Rui Lu,KEG,GLM,Deep Search,Agentic RL,多智能体">
+  <meta name="description" content="Google Scholar 逐篇引用统计、已保存的记录与按发表日期统计的引用明细。">
+  <meta name="robots" content="max-image-preview:large">
+  
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="引用记录 | 鲁睿 Rui Lu">
+    <meta property="og:description" content="Google Scholar 逐篇引用统计、已保存的记录与按发表日期统计的引用明细。">
+    <meta property="og:url" content="https://learningrate1.com/citations/">
+    <meta property="og:site_name" content="鲁睿 Rui Lu · Learning_rate">
+    <meta property="og:locale" content="zh_CN">
+    
+      <meta property="og:image" content="https://learningrate1.com/img/social/83ef20d0571df7a4a33e.png">
+      <meta property="og:image:alt" content="文章与笔记">
+      
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+      
+      <meta property="og:image:type" content="image/png">
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@lru43402768">
+    <meta name="twitter:title" content="引用记录 | 鲁睿 Rui Lu">
+    <meta name="twitter:description" content="Google Scholar 逐篇引用统计、已保存的记录与按发表日期统计的引用明细。">
+    
+      <meta name="twitter:image" content="https://learningrate1.com/img/social/83ef20d0571df7a4a33e.png">
+      <meta name="twitter:image:alt" content="文章与笔记">
+    
+  
+  
+  <link rel="canonical" href="https://learningrate1.com/citations/">
+  <link rel="alternate" type="application/atom+xml" title="鲁睿 Rui Lu · Learning_rate" href="/atom.xml">
+  <link rel="alternate" hreflang="zh-CN" href="https://learningrate1.com/citations/"><link rel="alternate" hreflang="en" href="https://learningrate1.com/en/citations/"><link rel="alternate" hreflang="x-default" href="https://learningrate1.com/citations/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://learningrate1.com/#rui-lu","name":"Rui Lu","alternateName":["鲁睿","Learning_rate"],"url":"https://learningrate1.com/","image":"https://learningrate1.com/img/profile/avatar.webp","email":"lu-r21@mails.tsinghua.edu.cn","sameAs":["https://scholar.google.com/citations?user=-MGuqDcAAAAJ","https://github.com/lr-tsinghua11","https://twitter.com/lru43402768","https://www.zhihu.com/people/er-ji-yi-4"],"jobTitle":"Ph.D. student in Computer Science","affiliation":[{"@type":"CollegeOrUniversity","name":"Tsinghua University","url":"https://www.tsinghua.edu.cn/"},{"@type":"Organization","name":"Knowledge Engineering Group (KEG), Tsinghua University","url":"https://keg.cs.tsinghua.edu.cn/"}],"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Bachelor of Science in Mathematics and Physics; Bachelor of Engineering in Software Engineering","credentialCategory":"Bachelor's degree","recognizedBy":{"@type":"CollegeOrUniversity","name":"Tsinghua University"}},"knowsAbout":["Deep Search","Multi-turn agentic reinforcement learning","Multi-agent collaboration","Terminal agents","AI for Science"],"description":"我是清华大学计算机系 KEG 实验室的直博二年级学生，自 2023 年起在智谱从事大模型训练工作。作为 GLM-4.5 / GLM-5 的核心贡献者，我负责优化基座模型的深度搜索（Deep Search）能力。我主要研究多轮强化学习与多智能体协作（Multi-turn Agentic RL & Multi-Agent Collaboration），近期在研究终端智能体（Terminal Agent），对大模型在科学研究中的应用（AI for Science）也很感兴趣。欢迎添加微信（微信号：learning_rate）和我交流！"},{"@type":"WebSite","@id":"https://learningrate1.com/#website","url":"https://learningrate1.com/","name":"鲁睿 Rui Lu · Learning_rate","alternateName":"Learning_rate","inLanguage":["zh-CN","en"],"author":{"@id":"https://learningrate1.com/#rui-lu"}},{"@type":"WebPage","@id":"https://learningrate1.com/citations/#page","url":"https://learningrate1.com/citations/","name":"引用记录 | 鲁睿 Rui Lu","description":"Google Scholar 逐篇引用统计、已保存的记录与按发表日期统计的引用明细。","inLanguage":"zh-CN","isPartOf":{"@id":"https://learningrate1.com/#website"}}]}</script>
+  <title>引用记录 | 鲁睿 Rui Lu</title>
+
+  <link  rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- Keep Fluid's icon classes, with the original fonts served locally. -->
+
+<link rel="stylesheet" href="/lib/iconfont/core.css">
+
+
+
+<link rel="stylesheet" href="/lib/iconfont/extra.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  <link  rel="stylesheet" href="/css/fonts.css" /><link  rel="stylesheet" href="/css/academic.css" /><link  rel="stylesheet" href="/css/benchmark.css" /><link  rel="stylesheet" href="/css/citations.css?v=4ff8227300a6" /><link  rel="stylesheet" href="/css/figure-viewer.css" /><link  rel="stylesheet" href="/css/institution-marks.css" /><link  rel="stylesheet" href="/css/scroll-reveal.css" />
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"learningrate1.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":".","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":2,"color":"#718dcc","options":{"showSpinner":false,"trickleSpeed":180,"minimum":0.08}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2d5b78dfbf046ab610d306e42da0ed37","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body class="academic-site" >
+  <a class="skip-to-content" href="#main-content"><span data-edit-field="interface:skip.zh">跳转到正文</span></a>
+  
+
+  <header>
+    
+
+
+<div class="academic-header">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Learning_rate</strong>
+    </a>
+
+    <a class="mobile-language d-lg-none" data-language-switch href="/en/citations/" lang="en" aria-label="Switch to English">EN</a>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                
+                <span data-edit-field="interface:profile.zh">个人简介</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/notes/">
+                
+                <span data-edit-field="interface:notes.zh">文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                
+                <span data-edit-field="interface:friends.zh">友链</span>
+              </a>
+            </li>
+          
+        
+        <li class="nav-item language-item"><a class="nav-link language-switch" data-language-switch href="/en/citations/" lang="en" hreflang="en" aria-label="Switch to English"><span class="language-mark" aria-hidden="true">文</span>EN</a></li>
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</div>
+
+
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    
+      <div class="academic-shell">
+        <div id="board" class="academic-board">
+<div class="citation-records">
+  <header class="directory-heading">
+    <a class="citation-records-back" href="/#citations">← 返回主页</a>
+    <h1>引用记录</h1>
+    <p>按 Google Scholar 完整主页，逐篇核对引用数。</p>
+    <p class="citation-records-date"><time datetime="2026-11-28T17:01:53.686017+00:00">2026年11月29日 01:01</time> · 北京时间</p>
+  </header>
+
+  <dl class="citation-records-metrics">
+    
+    <div><dt>总引用</dt><dd>4,658</dd></div>
+    
+    <div><dt>h-index</dt><dd>14</dd></div>
+    
+    <div><dt>i10-index</dt><dd>14</dd></div>
+    
+    <div><dt>主页条目</dt><dd>17</dd></div>
+    
+  </dl>
+
+  <nav class="citation-records-downloads" aria-label="数据下载">
+    <a href="/data/scholar/papers.csv" download>逐篇引用统计 CSV ↓</a>
+    <a href="/data/scholar/daily-observations.csv" download>每日记录 CSV ↓</a>
+    <a href="/data/scholar/profile.json" download>原始数据 JSON ↓</a>
+  </nav>
+
+  <section class="profile-section" aria-labelledby="citation-papers-heading">
+    <div class="section-heading"><h2 id="citation-papers-heading">逐篇引用数</h2><a href="https://scholar.google.com/citations?user=-MGuqDcAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></div>
+    <div class="citation-records-table-wrap">
+      <table class="citation-records-table">
+        <thead><tr><th scope="col">论文</th><th scope="col">引用数</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:Y0pCki6q_DkC" target="_blank" rel="noopener noreferrer">Chatglm: A family of large language models from glm-130b to glm-4 all tools</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=4170589385724289791,16671586441719760512,1073136919011250402,208960135706614600,2480890771585586544,523742422643222926,11319046379176218073,4106406653058779008,18064231650032235782,9054603313586337720,16523118717059652219,5549886536514172668,7473581987403060477,13438260833220098388,1680403237598179155,14710690314562720104,8079987124679232739,6653022487915760326,11797016933576927941,14537154498736031017,12423837261941332501,1989757366100910078,1608537900748503866,4901967118065198197,18341330906028250113,6359971337759445845,12009073988415800943,11506310660317028231,8970568539241186410" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：Chatglm: A family of large language models from glm-130b to glm-4 all tools">2,584</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:hqOjcs7Dif8C" target="_blank" rel="noopener noreferrer">Glm-4.5: Agentic, reasoning, and coding (arc) foundation models</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=13075345005836223032,11459439188782458810,2833915761554272102,3736124939344353301,11941488781340652042,949318056706710481,15589463598500605639,5489227152677283217,2144905847726430068,1933014609557635171,17931739997086110727,10430911175743522242,4594622188271385417,15220737629444006573,17904756796937095485,16733588818404948130,14215511101800747838" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：Glm-4.5: Agentic, reasoning, and coding (arc) foundation models">607</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:kNdYIx-mwKoC" target="_blank" rel="noopener noreferrer">Agenttuning: Enabling generalized agent abilities for llms</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=1624007356987177412,13097411957510232780,3394635031328358595,14795048911719963598,13151936073799705001,4480292051538488265,11487994180210866615" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：Agenttuning: Enabling generalized agent abilities for llms">518</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:tS2w5q8j5-wC" target="_blank" rel="noopener noreferrer">Glm-5: from vibe coding to agentic engineering</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=11209117632319663078,195379621723624850,15414313668253224333,14859417231355264920,1385379161817058755,15547692436838362729,2180574332852976022,14678200753411887037,4756434435877841672,12346855533015285684,13036989848942134368,3142006897121182067,785646384139437133,15479614351450994186,2852788656515813718,15128927123513519698" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：Glm-5: from vibe coding to agentic engineering">435</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:UebtZRa9Y70C" target="_blank" rel="noopener noreferrer">TreeRL: LLM Reinforcement Learning with On-Policy Tree Search</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=1088353543323123763,824048268165843033" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：TreeRL: LLM Reinforcement Learning with On-Policy Tree Search">107</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:_kc_bZDykSQC" target="_blank" rel="noopener noreferrer">Advancing language model reasoning through reinforcement learning and inference scaling</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=1334626254884534029,4383439080208658485" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：Advancing language model reasoning through reinforcement learning and inference scaling">99</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:BUYA1_V_uYcC" target="_blank" rel="noopener noreferrer">Deepdive: Advancing deep search agents with knowledge graphs and multi-turn rl</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=16475999210967624469,7434604977116441838" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：Deepdive: Advancing deep search agents with knowledge graphs and multi-turn rl">82</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:MXK_kJrjxJIC" target="_blank" rel="noopener noreferrer">AgentRL: Scaling agentic reinforcement learning with a multi-turn, multi-task framework</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=8430416525293344713,15149288845517930858,14914972807362395176,12334264192108154117,9467401043684715785,11788812943159336199,10036206289655821239" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：AgentRL: Scaling agentic reinforcement learning with a multi-turn, multi-task framework">70</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:8AbLer7MMksC" target="_blank" rel="noopener noreferrer">ChatGLM: A Family of Large Language Models from GLM-130B to GLM-4 All Tools. arXiv 2024</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=394228341631734377,14739968666418194344,742868598502866160,7693223592311920485,2315991904768833575,1853787078622275242,17468975075841379305,17253452417251974206,14314255365577872371,10406105576539013428,10249349384312270504,10095562227418581128,7070188425859093683,144123191121842086,11122974561173234849,3097252143770533710,3826486775762092115" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：ChatGLM: A Family of Large Language Models from GLM-130B to GLM-4 All Tools. arXiv 2024">32</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:dQ2og3OwTAUC" target="_blank" rel="noopener noreferrer">Glm-5.1: Towards long-horizon tasks</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=10809031198707651941,4579571846350433420,5650835675843259005,1221381464220878219" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：Glm-5.1: Towards long-horizon tasks">31</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:W5xh706n7nkC" target="_blank" rel="noopener noreferrer">GLM-5.2: Built for long-horizon tasks</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=11446055396483357054,5641245174993533388,4130223838995253628,16993926003342705770,1198150918132550552" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：GLM-5.2: Built for long-horizon tasks">27</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener noreferrer">Teacherlm: Teaching to fish rather than giving the fish, language modeling likewise</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=224036289836438217,12766927224806748818" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：Teacherlm: Teaching to fish rather than giving the fish, language modeling likewise">22</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:ye4kPcJQO24C" target="_blank" rel="noopener noreferrer">Glm-4.6: Advanced agentic, reasoning and coding capabilities</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=9008136239206952772,8662054591376929830,14830414974526584430,11252060297953733174,1258302808865803810,5551728285968282530" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：Glm-4.6: Advanced agentic, reasoning and coding capabilities">21</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:N5tVd3kTz84C" target="_blank" rel="noopener noreferrer">Glm-4.7: Advancing the coding capability</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=9662561441890069942,17984488622603849390,13074808177529021083,14055917874146848612,8483674194116488189,6255425040760271895,6094440313416618446" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：Glm-4.7: Advancing the coding capability">17</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:2KloaMYe4IUC" target="_blank" rel="noopener noreferrer">Awm: Answerable working memory for long-document vqa agents</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=14836226705699991940" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：Awm: Answerable working memory for long-document vqa agents">4</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:ipzZ9siozwsC" target="_blank" rel="noopener noreferrer">GLM-5.3-Flash</a></td>
+            <td><a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=7610041608824637075" target="_blank" rel="noopener noreferrer" aria-label="查看引用论文：GLM-5.3-Flash">2</a></td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=-MGuqDcAAAAJ&amp;pagesize=100&amp;citation_for_view=-MGuqDcAAAAJ:M05iB0D1s5AC" target="_blank" rel="noopener noreferrer">MLE-RL: Reinforcement Learning for Self-Improvement in Machine Learning Agents</a></td>
+            <td>0</td>
+          </tr>
+          
+        </tbody>
+        <tfoot><tr><th scope="row">合计</th><td>4,658</td></tr></tfoot>
+      </table>
+    </div>
+    <p class="citation-records-note">逐条保留 Scholar 主页的记录，包括主页中单列的版本。总引用、h-index 和 i10-index 均已根据这些条目复算，并与主页核对一致。</p>
+  </section>
+
+  
+    <section class="profile-section citation-records-pending" aria-labelledby="publication-citations-heading">
+      <div class="section-heading"><h2 id="publication-citations-heading">按发表日统计</h2></div>
+      <p>引用论文清单与发表日期核对完成后，将在这里显示独立曲线。</p>
+    </section>
+  
+
+  <details class="citation-records-method">
+    <summary>来源与日期</summary>
+    <p>上方数值来自实际保存的 Google Scholar 主页。每日记录 CSV 中的空白单元格表示当天没有保存该项数值。</p>
+    <p>按发表日统计需逐条核对 Scholar 的 Cited by 清单，并从 arXiv 或出版方确认日期。只有年份或月份的记录单列保存，不补成某一天，也不按总引用数摊分。</p>
+    <p><a href="/data/scholar/profiles/2026-11-29/20261128T170153686017Z-1.html.gz" download>下载本次保存的 Scholar 原始页面 HTML.GZ ↓</a></p>
+  </details>
+</div>
+</div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 id="ModalLabel" class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    
+<div class="footer-inner">
+  <div class="footer-content">
+    <span class="footer-copyright">© 2026 <span data-edit-field="profile:name">鲁睿</span></span>
+    <a href="/atom.xml" type="application/atom+xml" title="通过 RSS 阅读器订阅文章"><span data-edit-field="interface:subscribe_articles.zh">订阅文章（RSS）</span></a>
+  </div>
+  <div class="statistics" data-site-statistics data-statistics-src="https://busuanzi.ibruce.info/busuanzi/2.3//busuanzi.pure.mini.js">
+  <span id="busuanzi_container_site_pv" style="display:none"><span id="busuanzi_value_site_pv"></span> <span data-edit-field="interface:views.zh">次访问</span></span>
+  <span id="busuanzi_container_site_uv" style="display:none"><span id="busuanzi_value_site_uv"></span> <span data-edit-field="interface:visitors.zh">位访客</span></span>
+  <span data-preview-statistics hidden><span data-edit-field="interface:preview_stats.zh">访问统计在正式站点显示</span></span>
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <script type="application/json" id="profile-layout">{"groups":{"home":["opening","benchmarks","education","research","honors","citations","notes"]},"styles":{}}</script>
+  <!-- Scripts -->
+  
+  <script  src="/lib/nprogress/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/lib/nprogress/nprogress.min.css" />
+
+  <script>
+    (() => {
+      NProgress.configure({"showSpinner":false,"trickleSpeed":180,"minimum":0.08});
+      let finished = false;
+      // Fast pages need no flash; background resources do not hold this open.
+      const showTimer = setTimeout(() => {
+        if (!finished && document.readyState === 'loading') NProgress.start();
+      }, 150);
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(showTimer);
+        NProgress.done();
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish, { once: true });
+      } else {
+        finish();
+      }
+      window.addEventListener('pagehide', finish, { once: true });
+      window.addEventListener('pageshow', event => {
+        if (event.persisted) { finish(); NProgress.remove(); }
+      });
+    })();
+  </script>
+
+
+<script  src="/lib/jquery/jquery.min.js" ></script>
+<script  src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  
+    
+  
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        function loadAnalytics() {
+          var host = location.hostname;
+          var preview = document.getElementById('review-bootstrap') ||
+            ['localhost', '127.0.0.1', '[::1]'].includes(host) ||
+            /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
+          if (preview) return;
+          var hm = document.createElement('script');
+          hm.async = true;
+          hm.src = 'https://hm.baidu.com/hm.js?2d5b78dfbf046ab610d306e42da0ed37';
+          document.head.appendChild(hm);
+        }
+        // Statistics load after the readable page, and only on the public site.
+        if (document.readyState === 'complete') loadAnalytics();
+        else window.addEventListener('load', loadAnalytics, { once: true });
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script  src="/js/citation-curve.js?v=d3e9e04cc6ae" ></script><script  src="/js/academic.js?v=c18121696561" ></script><script  src="/js/live-data.js" ></script><script  src="/js/figure-viewer.js" ></script><script  src="/js/institution-marks.js" ></script><script  src="/js/scroll-reveal.js" ></script>
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

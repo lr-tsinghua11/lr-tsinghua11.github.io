@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "source": "Google Scholar",
+  "as_of": "2026-11-29",
+  "date_basis": "citing-paper-first-publication",
+  "status": "awaiting_records",
+  "coverage": {
+    "complete": false,
+    "profile_entries": 17,
+    "profile_citations": 4658,
+    "listed_citations": 0,
+    "dated_citations": 0,
+    "duplicate_rows": 0
+  },
+  "papers": [
+    {
+      "id": "Y0pCki6q_DkC",
+      "title": "Chatglm: A family of large language models from glm-130b to glm-4 all tools",
+      "scholar_citations": 2584,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 2584,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "hqOjcs7Dif8C",
+      "title": "Glm-4.5: Agentic, reasoning, and coding (arc) foundation models",
+      "scholar_citations": 607,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 607,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "kNdYIx-mwKoC",
+      "title": "Agenttuning: Enabling generalized agent abilities for llms",
+      "scholar_citations": 518,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 518,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "tS2w5q8j5-wC",
+      "title": "Glm-5: from vibe coding to agentic engineering",
+      "scholar_citations": 435,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 435,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "UebtZRa9Y70C",
+      "title": "TreeRL: LLM Reinforcement Learning with On-Policy Tree Search",
+      "scholar_citations": 107,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 107,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "_kc_bZDykSQC",
+      "title": "Advancing language model reasoning through reinforcement learning and inference scaling",
+      "scholar_citations": 99,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 99,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "BUYA1_V_uYcC",
+      "title": "Deepdive: Advancing deep search agents with knowledge graphs and multi-turn rl",
+      "scholar_citations": 82,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 82,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "MXK_kJrjxJIC",
+      "title": "AgentRL: Scaling agentic reinforcement learning with a multi-turn, multi-task framework",
+      "scholar_citations": 70,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 70,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "8AbLer7MMksC",
+      "title": "ChatGLM: A Family of Large Language Models from GLM-130B to GLM-4 All Tools. arXiv 2024",
+      "scholar_citations": 32,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 32,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "dQ2og3OwTAUC",
+      "title": "Glm-5.1: Towards long-horizon tasks",
+      "scholar_citations": 31,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 31,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "W5xh706n7nkC",
+      "title": "GLM-5.2: Built for long-horizon tasks",
+      "scholar_citations": 27,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 27,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "u-x6o8ySG0sC",
+      "title": "Teacherlm: Teaching to fish rather than giving the fish, language modeling likewise",
+      "scholar_citations": 22,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 22,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "ye4kPcJQO24C",
+      "title": "Glm-4.6: Advanced agentic, reasoning and coding capabilities",
+      "scholar_citations": 21,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 21,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "N5tVd3kTz84C",
+      "title": "Glm-4.7: Advancing the coding capability",
+      "scholar_citations": 17,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 17,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "2KloaMYe4IUC",
+      "title": "Awm: Answerable working memory for long-document vqa agents",
+      "scholar_citations": 4,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 4,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "ipzZ9siozwsC",
+      "title": "GLM-5.3-Flash",
+      "scholar_citations": 2,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 2,
+      "unresolved_dates": 0,
+      "complete": false
+    },
+    {
+      "id": "M05iB0D1s5AC",
+      "title": "MLE-RL: Reinforcement Learning for Self-Improvement in Machine Learning Agents",
+      "scholar_citations": 0,
+      "listed_citations": 0,
+      "dated_citations": 0,
+      "missing_citations": 0,
+      "unresolved_dates": 0,
+      "complete": true
+    }
+  ],
+  "daily": [],
+  "ledger": [],
+  "issues": []
+}

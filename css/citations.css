@@ -115,12 +115,42 @@
 }
 .citation-caption output { position: absolute; z-index: 2; display: block; width: max-content; max-width: calc(100% - 12px); padding: 7px 10px; border: 1px solid var(--citation-line); border-radius: 6px; background: var(--citation-paper); box-shadow: 0 3px 12px #28344a14; color: var(--citation-ink); font-size: 12px; font-variant-numeric: tabular-nums; line-height: 1.5; text-align: center; pointer-events: none; }
 .citation-caption output[hidden] { display: none; }
+.citation-shared-caption { flex-direction: row; justify-content: center; gap: 18px; }
+.citation-details-link { font-size: 12px; white-space: nowrap; }
+
+.citation-records { --record-paper:#fff; --record-line:#e0e6f1; --citation-record-emphasis:#6e4a9f; max-width: 960px; margin: 0 auto; }
+.citation-records .directory-heading { margin-bottom: 24px; padding-top: 24px; }
+.citation-records .directory-heading > p { margin: 0 0 10px; }
+.citation-records-back { display: inline-block; margin-bottom: 18px; font-size: 14px; }
+.citation-records .directory-heading > p.citation-records-date { color: var(--profile-muted); font-size: 14px; }
+.citation-records-metrics { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; margin: 0 0 22px; }
+.citation-records-metrics > div { padding: 16px 18px; border: 1px solid var(--record-line); border-radius: 8px; background: var(--record-paper); }
+.citation-records-metrics dt { font-size: 13px; font-weight: 400; }
+.citation-records-metrics dd { margin: 4px 0 0; color: var(--citation-record-emphasis); font-size: 30px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.citation-records-downloads { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 36px; font-size: 14px; }
+.citation-records-table-wrap { border: 1px solid var(--record-line); border-radius: 8px; background: var(--record-paper); overflow: hidden; }
+.citation-records-table { width: 100%; margin: 0; border-collapse: collapse; font-size: 16px; line-height: 1.55; }
+.citation-records-table :is(th,td) { padding: 13px 18px; border-bottom: 1px solid var(--record-line); text-align: left; vertical-align: top; }
+.citation-records-table :is(th,td):last-child { width: 94px; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.citation-records-table thead { font-size: 13px; }
+.citation-records-table tfoot :is(th,td) { border-bottom: 0; font-weight: 600; }
+.citation-records-note,.citation-records-method { margin-top: 18px; color: var(--profile-muted); font-size: 14px; line-height: 1.8; }
+.citation-records-pending { padding: 24px; border: 1px solid var(--record-line); border-radius: 8px; }
+.citation-records-pending .section-heading { margin-bottom: 14px; }
+.citation-records-pending p { margin: 0; font-size: 16px; line-height: 1.8; }
+.citation-records-method summary { cursor: pointer; }
+.citation-records-method p { margin: 14px 0 0; }
 
 @media (min-width:1000px) {
   .citation-panel { flex: 1; gap: 10px; }
 }
 @media (max-width:760px) {
   .citation-panel { gap: 10px; }
+  .citation-records-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .citation-records-table { font-size: 14px; }
+  .citation-records-table :is(th,td) { padding: 12px; }
+  .citation-records-table :is(th,td):last-child { width: 68px; }
+  .citation-records-pending { padding: 18px; }
 }
 html[data-user-color-scheme="dark"] .citations-section {
   --citation-ink: #e0e8f7;
@@ -132,6 +162,7 @@ html[data-user-color-scheme="dark"] .citations-section {
 }
 html[data-user-color-scheme="dark"] .citation-wash-start { stop-color: #a28cd8; stop-opacity: .21; }
 html[data-user-color-scheme="dark"] .citation-wash-end { stop-color: #7195d6; stop-opacity: .025; }
+html[data-user-color-scheme="dark"] .citation-records { --record-paper:#202b3e; --record-line:#35415a; --citation-record-emphasis:#cfb1f0; }
 @media (prefers-reduced-motion: reduce) {
   .citation-dot-halo { animation: none; transform: none; opacity: .14; }
   .citation-dot-ring { animation: none; display: none; }

@@ -75,5 +75,19 @@
     }
     return ticks.length ? ticks : [{time:start,label:new Date(start).toISOString().slice(0,10)}];
   }
-  return {segments,paths,steps,timeTicks};
+  function readout(point,metric,en=false) {
+    const value=metric==='hindex' ? 'h-index '+point.value
+      : point.value.toLocaleString('en-US')+(en ? ' citations' : ' 次引用');
+    return point.date+' · '+value;
+  }
+  function description(point,metric,en=false,basis='scholar') {
+    const value=readout(point,metric,en);
+    if (basis==='publication') return en
+      ? value+'. Citations grouped by the citing papers’ first publication dates. This is a retrospective count of the verified citation list. Use the arrow keys to inspect each day.'
+      : value+'。按引用论文首次公开日期，回溯统计已核验的引用清单。用左右方向键查看每天的数值。';
+    return en
+      ? value+'. Saved Google Scholar observations. Dates without an observation have no recorded value. Use the arrow keys to inspect the saved records.'
+      : value+'。Google Scholar 已保存的记录。没有采集的日期保留为空。用左右方向键查看各次记录。';
+  }
+  return {segments,paths,steps,timeTicks,readout,description};
 });

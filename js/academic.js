@@ -432,8 +432,8 @@
 
   document.querySelectorAll('[data-citation-chart]').forEach(figure => {
     const hindex=figure.dataset.citationMetric==='hindex';
-    const coverage=Number(figure.dataset.citationCoverage);
     const section=figure.closest('.citations-section');
+    const basis=section.dataset.citationBasis || 'scholar';
     const panel=figure.closest('.citation-panel');
     const honors=section.parentElement.matches('.profile-sections') ? section.parentElement.querySelector('.honors-list') : null;
     const honorEntries=honors ? [...honors.querySelectorAll('.honor-entry')] : [];
@@ -492,14 +492,7 @@
       else syncVisibility();
     };
 
-    const describe = point => {
-      const count=point.value.toLocaleString('en-US');
-      const value=hindex ? 'h-index '+point.value : (point.kind==='history' ? (en ? '≈ ' : '约 ') : '')+count+(en ? ' citations' : ' 次引用');
-      const source=point.kind==='partial'
-        ? (en ? 'calculated from '+coverage+' papers; incomplete coverage' : '按 '+coverage+' 篇论文统计，未覆盖全部论文')
-        : point.kind==='history' ? (en ? 'estimated from citation records' : '按引用记录估算') : 'Google Scholar';
-      return point.date + ' · ' + value + ' · ' + source;
-    };
+    const describe = point => window.LRCitationCurve.readout(point,hindex ? 'hindex' : 'citations',en);
     const paintSelection = () => {
       const point = points[index];
       if (!point) return;
@@ -596,18 +589,9 @@
       svg.querySelector('[data-citation-xaxis]').replaceChildren(...xaxis);
 
       const last = points.at(-1);
-      if (hindex) {
-        const earlier=points.filter(point=>point.kind==='partial'),observed=points.filter(point=>point.kind==='snapshot');
-        const historyLine=window.LRCitationCurve.steps(earlier),line=window.LRCitationCurve.steps(observed);
-        const fill=(path,rows)=>rows.length ? path+` L${rows.at(-1).x},${base} L${rows[0].x},${base} Z` : '';
-        svg.querySelector('.citation-history').setAttribute('d',historyLine);
-        svg.querySelector('.citation-series').setAttribute('d',line);
-        svg.querySelector('.citation-area').setAttribute('d',[fill(historyLine,earlier),fill(line,observed)].filter(Boolean).join(' '));
-      } else {
-        const line=window.LRCitationCurve.paths(points).line;
-        svg.querySelector('.citation-area').setAttribute('d',line+` L${last.x},${base} L${points[0].x},${base} Z`);
-        svg.querySelector('.citation-series').setAttribute('d',line);
-      }
+      const line=hindex || basis==='publication' ? window.LRCitationCurve.steps(points) : window.LRCitationCurve.paths(points).line;
+      svg.querySelector('.citation-area').setAttribute('d',line+` L${last.x},${base} L${points[0].x},${base} Z`);
+      svg.querySelector('.citation-series').setAttribute('d',line);
       svg.querySelector('[data-citation-dots]').replaceChildren(...[last].flatMap(point => {
         const halo = make('circle', {class: 'citation-dot-halo', cx: point.x, cy: point.y, r: 10, 'aria-hidden': 'true'});
         const ring = make('circle', {class: 'citation-dot-ring', cx: point.x, cy: point.y, r: 10, 'aria-hidden': 'true'});
@@ -665,11 +649,7 @@
       max=Math.max(scaleStep,Math.ceil(Math.max(...data.map(point => point.value))/scaleStep)*scaleStep);
       latest=data.at(-1);
       surface.setAttribute('aria-valuemax',data.length-1);
-      svg.querySelector('desc').textContent=hindex
-        ? (en ? 'Horizontal axis: date. Vertical axis: h-index. Through '+latest.date+': '+latest.value+'. Early values are calculated from citation records for '+coverage+' papers and do not cover the full profile. Later values are saved Google Scholar snapshots; actual change dates are unknown. Hover or use the arrow keys to inspect values and sources.'
-          : '横轴为日期，纵轴为 h-index。截至 '+latest.date+' 为 '+latest.value+'。早期按 '+coverage+' 篇论文的引用记录计算，未覆盖全部论文；后期为 Google Scholar 快照，不代表实际变化日期。悬停或用左右方向键查看数值与来源。')
-        : (en ? 'Horizontal axis: date. Vertical axis: cumulative citations. Through '+latest.date+': '+latest.value+' citations. Early values are estimates based on citation records; later values are saved Google Scholar snapshots. Hover or use the arrow keys to inspect values and sources.'
-          : '横轴为日期，纵轴为累计引用次数。截至 '+latest.date+' 累计 '+latest.value+' 次引用。早期按引用记录估算，后期为 Google Scholar 快照。悬停或用左右方向键查看数值与来源。');
+      svg.querySelector('desc').textContent=window.LRCitationCurve.description(latest,hindex ? 'hindex' : 'citations',en,basis);
       reset();render(true);
     });
     if ('ResizeObserver' in window) {

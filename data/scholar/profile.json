@@ -1,0 +1,232 @@
+{
+  "d": "2026-11-29",
+  "observed_at": "2026-11-28T17:01:53.686017+00:00",
+  "timezone": "Asia/Shanghai",
+  "source": "Google Scholar",
+  "user": "-MGuqDcAAAAJ",
+  "schema_version": 2,
+  "total": 4658,
+  "h": 14,
+  "i10": 14,
+  "publications": [
+    {
+      "id": "Y0pCki6q_DkC",
+      "title": "Chatglm: A family of large language models from glm-130b to glm-4 all tools",
+      "citations": 2584,
+      "year": 2024,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:Y0pCki6q_DkC",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4170589385724289791,16671586441719760512,1073136919011250402,208960135706614600,2480890771585586544,523742422643222926,11319046379176218073,4106406653058779008,18064231650032235782,9054603313586337720,16523118717059652219,5549886536514172668,7473581987403060477,13438260833220098388,1680403237598179155,14710690314562720104,8079987124679232739,6653022487915760326,11797016933576927941,14537154498736031017,12423837261941332501,1989757366100910078,1608537900748503866,4901967118065198197,18341330906028250113,6359971337759445845,12009073988415800943,11506310660317028231,8970568539241186410",
+      "authors": "T Glm, A Zeng, B Xu, B Wang, C Zhang, D Yin, D Zhang, D Rojas, G Feng, ...",
+      "venue": "arXiv preprint arXiv:2406.12793 , 2024",
+      "scholar_asterisk": true
+    },
+    {
+      "id": "hqOjcs7Dif8C",
+      "title": "Glm-4.5: Agentic, reasoning, and coding (arc) foundation models",
+      "citations": 607,
+      "year": 2025,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:hqOjcs7Dif8C",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13075345005836223032,11459439188782458810,2833915761554272102,3736124939344353301,11941488781340652042,949318056706710481,15589463598500605639,5489227152677283217,2144905847726430068,1933014609557635171,17931739997086110727,10430911175743522242,4594622188271385417,15220737629444006573,17904756796937095485,16733588818404948130,14215511101800747838",
+      "authors": "A Zeng, X Lv, Q Zheng, Z Hou, B Chen, C Xie, C Wang, D Yin, H Zeng, ...",
+      "venue": "arXiv preprint arXiv:2508.06471 , 2025",
+      "scholar_asterisk": true
+    },
+    {
+      "id": "kNdYIx-mwKoC",
+      "title": "Agenttuning: Enabling generalized agent abilities for llms",
+      "citations": 518,
+      "year": 2024,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:kNdYIx-mwKoC",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1624007356987177412,13097411957510232780,3394635031328358595,14795048911719963598,13151936073799705001,4480292051538488265,11487994180210866615",
+      "authors": "A Zeng, M Liu, R Lu, B Wang, X Liu, Y Dong, J Tang",
+      "venue": "Findings of the Association for Computational Linguistics: ACL 2024, 3053-3077 , 2024",
+      "scholar_asterisk": false
+    },
+    {
+      "id": "tS2w5q8j5-wC",
+      "title": "Glm-5: from vibe coding to agentic engineering",
+      "citations": 435,
+      "year": 2026,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:tS2w5q8j5-wC",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11209117632319663078,195379621723624850,15414313668253224333,14859417231355264920,1385379161817058755,15547692436838362729,2180574332852976022,14678200753411887037,4756434435877841672,12346855533015285684,13036989848942134368,3142006897121182067,785646384139437133,15479614351450994186,2852788656515813718,15128927123513519698",
+      "authors": "A Zeng, X Lv, Z Hou, Z Du, Q Zheng, B Chen, D Yin, C Ge, C Huang, ...",
+      "venue": "arXiv preprint arXiv:2602.15763 , 2026",
+      "scholar_asterisk": true
+    },
+    {
+      "id": "UebtZRa9Y70C",
+      "title": "TreeRL: LLM Reinforcement Learning with On-Policy Tree Search",
+      "citations": 107,
+      "year": 2025,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:UebtZRa9Y70C",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1088353543323123763,824048268165843033",
+      "authors": "Z Hou, Z Hu, Y Li, R Lu, J Tang, Y Dong",
+      "venue": "ACL 2025 , 2025",
+      "scholar_asterisk": true
+    },
+    {
+      "id": "_kc_bZDykSQC",
+      "title": "Advancing language model reasoning through reinforcement learning and inference scaling",
+      "citations": 99,
+      "year": 2025,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:_kc_bZDykSQC",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1334626254884534029,4383439080208658485",
+      "authors": "Z Hou, X Lv, R Lu, J Zhang, Y Li, Z Yao, J Li, J Tang, Y Dong",
+      "venue": "ICML 2025 , 2025",
+      "scholar_asterisk": false
+    },
+    {
+      "id": "BUYA1_V_uYcC",
+      "title": "Deepdive: Advancing deep search agents with knowledge graphs and multi-turn rl",
+      "citations": 82,
+      "year": 2025,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:BUYA1_V_uYcC",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16475999210967624469,7434604977116441838",
+      "authors": "R Lu, Z Hou, Z Wang, H Zhang, X Liu, Y Li, S Feng, J Tang, Y Dong",
+      "venue": "arXiv preprint arXiv:2509.10446 , 2025",
+      "scholar_asterisk": true
+    },
+    {
+      "id": "MXK_kJrjxJIC",
+      "title": "AgentRL: Scaling agentic reinforcement learning with a multi-turn, multi-task framework",
+      "citations": 70,
+      "year": 2025,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:MXK_kJrjxJIC",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8430416525293344713,15149288845517930858,14914972807362395176,12334264192108154117,9467401043684715785,11788812943159336199,10036206289655821239",
+      "authors": "H Zhang, X Liu, B Lv, X Sun, B Jing, IL Iong, Z Hou, Z Qi, H Lai, Y Xu, R Lu, ...",
+      "venue": "arXiv preprint arXiv:2510.04206 , 2025",
+      "scholar_asterisk": true
+    },
+    {
+      "id": "8AbLer7MMksC",
+      "title": "ChatGLM: A Family of Large Language Models from GLM-130B to GLM-4 All Tools. arXiv 2024",
+      "citations": 32,
+      "year": null,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:8AbLer7MMksC",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=394228341631734377,14739968666418194344,742868598502866160,7693223592311920485,2315991904768833575,1853787078622275242,17468975075841379305,17253452417251974206,14314255365577872371,10406105576539013428,10249349384312270504,10095562227418581128,7070188425859093683,144123191121842086,11122974561173234849,3097252143770533710,3826486775762092115",
+      "authors": "B Xu, B Wang, C Zhang, D Yin, D Zhang, D Rojas, G Feng, H Zhao",
+      "venue": "arXiv preprint arXiv:2406.12793 , 0",
+      "scholar_asterisk": true
+    },
+    {
+      "id": "dQ2og3OwTAUC",
+      "title": "Glm-5.1: Towards long-horizon tasks",
+      "citations": 31,
+      "year": 2026,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:dQ2og3OwTAUC",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10809031198707651941,4579571846350433420,5650835675843259005,1221381464220878219",
+      "authors": "Z AI",
+      "venue": "",
+      "scholar_asterisk": true
+    },
+    {
+      "id": "W5xh706n7nkC",
+      "title": "GLM-5.2: Built for long-horizon tasks",
+      "citations": 27,
+      "year": 2026,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:W5xh706n7nkC",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11446055396483357054,5641245174993533388,4130223838995253628,16993926003342705770,1198150918132550552",
+      "authors": "Z AI",
+      "venue": "Official model release , 2026",
+      "scholar_asterisk": true
+    },
+    {
+      "id": "u-x6o8ySG0sC",
+      "title": "Teacherlm: Teaching to fish rather than giving the fish, language modeling likewise",
+      "citations": 22,
+      "year": 2023,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:u-x6o8ySG0sC",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=224036289836438217,12766927224806748818",
+      "authors": "N He, H Lai, C Zhao, Z Cheng, J Pan, R Qin, R Lu, R Lu, Y Zhang, G Zhao, ...",
+      "venue": "arXiv preprint arXiv:2310.19019 , 2023",
+      "scholar_asterisk": true
+    },
+    {
+      "id": "ye4kPcJQO24C",
+      "title": "Glm-4.6: Advanced agentic, reasoning and coding capabilities",
+      "citations": 21,
+      "year": 2026,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:ye4kPcJQO24C",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9008136239206952772,8662054591376929830,14830414974526584430,11252060297953733174,1258302808865803810,5551728285968282530",
+      "authors": "AI Zhipu",
+      "venue": "Accessed , 2026",
+      "scholar_asterisk": true
+    },
+    {
+      "id": "N5tVd3kTz84C",
+      "title": "Glm-4.7: Advancing the coding capability",
+      "citations": 17,
+      "year": 2025,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:N5tVd3kTz84C",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9662561441890069942,17984488622603849390,13074808177529021083,14055917874146848612,8483674194116488189,6255425040760271895,6094440313416618446",
+      "authors": "AI Zhipu",
+      "venue": "",
+      "scholar_asterisk": true
+    },
+    {
+      "id": "2KloaMYe4IUC",
+      "title": "Awm: Answerable working memory for long-document vqa agents",
+      "citations": 4,
+      "year": 2026,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:2KloaMYe4IUC",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14836226705699991940",
+      "authors": "D Zhou, Y Zhu, Y Liu, Z Yang, R Lu, Y Dong, J Tang, E Kharlamov",
+      "venue": "Findings of the Association for Computational Linguistics: EMNLP 2026, 40824 … , 2026",
+      "scholar_asterisk": false
+    },
+    {
+      "id": "ipzZ9siozwsC",
+      "title": "GLM-5.3-Flash",
+      "citations": 2,
+      "year": 2026,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:ipzZ9siozwsC",
+      "cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7610041608824637075",
+      "authors": "Z AI",
+      "venue": "",
+      "scholar_asterisk": false
+    },
+    {
+      "id": "M05iB0D1s5AC",
+      "title": "MLE-RL: Reinforcement Learning for Self-Improvement in Machine Learning Agents",
+      "citations": 0,
+      "year": null,
+      "detail_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=-MGuqDcAAAAJ&pagesize=100&citation_for_view=-MGuqDcAAAAJ:M05iB0D1s5AC",
+      "cited_by_url": null,
+      "authors": "Y Li, Z Hou, X Jia, Z Luo, Z Bei, R Lu, H Huang, J Tang, Y Dong",
+      "venue": "",
+      "scholar_asterisk": false
+    }
+  ],
+  "paper_count": 17,
+  "reconciliation": {
+    "total": 4658,
+    "h": 14,
+    "i10": 14
+  },
+  "papers": {
+    "ChatGLM": 2616,
+    "GLM-4.5": 607,
+    "AgentTuning": 518,
+    "GLM-5": 435,
+    "TreeRL": 107,
+    "T1": 99,
+    "DeepDive": 82,
+    "AgentRL": 70,
+    "GLM-5.1": 31,
+    "GLM-5.2": 27,
+    "TeacherLM": 22,
+    "GLM-4.6": 21,
+    "GLM-4.7": 17,
+    "row:2KloaMYe4IUC": 4,
+    "GLM-5.3-Flash": 2,
+    "MLE-RL": 0
+  },
+  "evidence": [
+    {
+      "url": "https://scholar.google.com/citations?user=-MGuqDcAAAAJ&hl=en&pagesize=100",
+      "observed_at": "2026-11-28T17:01:53.686017+00:00",
+      "path": "profiles/2026-11-29/20261128T170153686017Z-1.html.gz",
+      "sha256": "fc0f09bdbece7d16ec08d202bc3db1321218b03cef6c712b2400d1c1b4eaa1c5"
+    }
+  ]
+}
