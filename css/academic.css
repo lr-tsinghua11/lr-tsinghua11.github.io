@@ -402,6 +402,14 @@ html[data-user-color-scheme="dark"] [data-topic="life"] { --topic-ink:#dab5c5; -
 
 .archive-year { font-family:var(--english-font); font-size:25px; color:var(--profile-iris); font-weight:400; margin:33px 0 20px; }
 .archive-directory .pagination { margin-top:34px; }
+.archive-by-year .directory-heading { padding-bottom:0; }
+.archive-by-year .directory-heading > p:last-child { margin-bottom:0; }
+.archive-filter { margin-top:18px; padding:10px 0 14px; }
+@media (max-width:480px) {
+  .archive-filter { gap:8px; }
+  .archive-filter a { display:flex; flex:1 1 0; flex-direction:column; align-items:center; padding:5px 0; line-height:1.35; }
+  .archive-filter small { margin-left:0; }
+}
 .reading-masthead { max-width:1000px; margin:0 auto; padding:48px 30px 28px; text-align:center; }
 .reading-topic { display:inline-block; color:var(--topic-ink) !important; background:var(--topic-fill); border:1px solid var(--topic-line); border-radius:4px; padding:4px 14px; font-size:15px; margin-bottom:22px; }
 .reading-breadcrumbs { margin-bottom:20px; font-size:14px; color:var(--profile-muted); }
